@@ -33,6 +33,10 @@
 	float:left; 
 	overflow: hidden;
 	width: 33.33%;
+	@include respond-max($bp2-5) {
+		height: 33.33%;
+		width: 100%;
+	}
 }
 
 .panel-wrap {
