@@ -123,6 +123,15 @@ $grid-gutter: 2em !default; // can be px, em, or %
     text-rendering: optimizespeed; /* 4 */
 }
 
+.grid--no-marg {
+    display: block;
+    padding: 0;
+    margin: 0; /* 1 */
+    text-align: $grid-direction; /* 2 */
+    letter-spacing: -0.31em; /* 3 */
+    text-rendering: optimizespeed; /* 4 */
+}
+
 /**
  * Opera hack
  */

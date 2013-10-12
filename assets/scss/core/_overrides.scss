@@ -17,13 +17,16 @@
 
 .block {display: block;}
 
+.float-right { float: right; }
+.float-left { float:left; }
+
 /* Theme Classes */
 
 .brand-text {
-	color: $color-brand; }
+	color: $color-brand-dark; }
 	
 .brand-bg {
-	background-color: $color-brand; } 	
+	background-color: $color-brand-dark; } 	
 
 /* Micro Clearfix - http://goo.gl/5Fvrh */
 

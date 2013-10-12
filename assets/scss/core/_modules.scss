@@ -104,20 +104,47 @@ img.media__img {
 		@include nav-divided;
 	}
 }
-/* Tertiary Nav
-----------------------------------*/
-
-/* Inserts
-----------------------------------*/
-
-.flash {
-	display: block;
-	background-color: #F4F5F5;
-	padding: .5em .8em; }
 
 /* Misc
 ----------------------------------*/
 
 .credit{
 	text-align:center;
+}
+
+/* Homepage
+----------------------------------*/
+
+.logo {
+	text-align: right;
+	font-size: 1em;
+	right: 2em;
+	position: fixed;
+	a {
+		color: white;
+	}
+}
+
+.panel {
+	text-align: center;
+}
+
+.panel--designer {
+	background-color: $color-brand-light;
+}
+
+.panel--developer {
+	background-color: $color-brand-dark;
+}
+
+.panel--employer {
+	background-color: $color-brand-mid;
+}
+
+.panel--title {
+	font-size: 2.5em;
+	margin-bottom: 0;
+	a {
+		color: white;
+	}
 }
