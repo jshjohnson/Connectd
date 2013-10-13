@@ -2,7 +2,7 @@
 // Project-Specific Mixins
 // ------------------------------------------------------------------------------
 
-// begin here
+@import "compass/css3";
 
 // ------------------------------------------------------------------------------
 // Framework Mixins
@@ -192,52 +192,3 @@
 		}
 	}
 }
-
-// CSS3
-// ----------------------------------
-@mixin box-sizing ($type: border) {
-	-moz-box-sizing: #{$type}-box;
-	-webkit-box-sizing: #{$type}-box;
-	box-sizing: #{$type}-box; }
-
-@mixin border-radius($radius: .4em) {
-	-moz-border-radius: $radius;
-	-webkit-border-radius: $radius;
-	border-radius: $radius;
-	
-	-moz-background-clip: padding;
-	-webkit-background-clip: padding-box;
-	background-clip: padding-box; }
-	
-@mixin linear-gradient-y($start: #eee, $stop: #fff) {
-	background: $start;
-	background: -moz-linear-gradient(top, $start 0%,$stop 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$start), color-stop(100%,$stop));
-	background: -webkit-linear-gradient(top, $start 0%,$stop 100%);
-	background: -o-linear-gradient(top, $start 0%,$stop 100%);
-	background: -ms-linear-gradient(top, $start 0%,$stop 100%);
-	background: linear-gradient(top, $start 0%,$stop 100%); }
-	
-@mixin linear-gradient-x($start: #eee, $stop: #fff) {
-	background: $start;
-	background: -moz-linear-gradient(left, $start 0%,$stop 100%);
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,$start), color-stop(100%,$stop));
-	background: -webkit-linear-gradient(left, $start 0%,$stop 100%);
-	background: -o-linear-gradient(left, $start 0%,$stop 100%);
-	background: -ms-linear-gradient(left, $start 0%,$stop 100%);
-	background: linear-gradient(left, $start 0%,$stop 100%); }
-	
-@mixin box-shadow($x: 0, $y: 1px, $blur: 2px, $alpha: 0.1) {
-	-moz-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
-	-webkit-box-shadow: $x $y $blur rgba(0, 0, 0, $alpha);
-	box-shadow: $x $y $blur rgba(0, 0, 0, $alpha); }
-
-@mixin box-shadow-inset($x: 0, $y: 1px, $blur: 2px, $alpha: 0.4) {
-	-moz-box-shadow: inset $x $y $blur rgba(0, 0, 0, $alpha);
-	-webkit-box-shadow: inset $x $y $blur rgba(0, 0, 0, $alpha);
-	box-shadow: inset $x $y $blur rgba(0, 0, 0, $alpha); }
-
-@mixin opacity($alpha: .5) {
-	-moz-opacity: $alpha;
-	-webkit-opacity: $alpha;
-	opacity: $alpha; }

@@ -82,71 +82,89 @@ img.media__img {
 		@include nav-inline; }
 }
 
-/* Tertiary Nav
+
+/* Buttons
 ----------------------------------*/
-.nav--tertiary {
-	font-size: .875em;
-	
-	@include respond-min($bp2) {
-		margin-bottom: .5em;
-		text-align: center;
 
-		li{
-			border-left-color: #999;
-		}
-		
-		a { 
-			padding: .25em 1em;
-			background-color: transparent;
-		}
+.button-red {}
+.button-blue {}
+.button-green {}
 
-		@include nav-inline;
-		@include nav-divided;
-	}
+/* Imports
+----------------------------------*/
+
+@import "core/modules/_homepage";
+
+.header, .footer {
+	padding-top: .8em;
+	padding-bottom: .8em;
 }
 
-/* Misc
-----------------------------------*/
-
-.credit{
-	text-align:center;
+.header--designer {
+	background-color: $color-brand-light;
 }
 
-/* Homepage
-----------------------------------*/
 
-.logo {
-	text-align: right;
-	font-size: 1em;
-	margin-top: 1.4em;
+.footer {
+	background-color: $color-background-light;
+}
+
+.page-title {
+	font-size: 1.4em;
+	float: left;
+	margin-top: 0;
 	margin-bottom: 0;
-	right: 2em;
-	position: fixed;
+	color: white;
+}
+
+.page-logo {
+	line-height: 1.9;
+	float: right;
+	margin-top: 0;
+	margin-bottom: 0;
+	color: white;
+	font-size: 1em;
 	a {
 		color: white;
 	}
 }
 
-.panel {
-	text-align: center;
-}
-
-.panel--designer {
-	background-color: $color-brand-light;
-}
-
-.panel--developer {
-	background-color: $color-brand-dark;
-}
-
-.panel--employer {
-	background-color: $color-brand-mid;
-}
-
-.panel--title {
-	font-size: 2.5em;
-	margin-bottom: 0;
+.footer-logo {
+	text-align: right;
 	a {
+		color: $color-brand-dark;
+	}
+	color: $color-brand-dark;
+}
+
+.footer-links { 
+	li {
+		display: inline-block;
+		*display:inline;
+	    zoom:1;
+	    font-size: .8em;
+	    margin: 0;
+	}
+}
+
+.user__portfolio, .user__sidebar {
+	background-color: $color-background-light;
+}
+
+.user-title {
+	font-size: 1.4em;
+	margin: $baseline/2 0 0;
+}
+
+.user-job, .user-geo {
+	font-size: .8em;
+	margin: $baseline/2 0 $baseline/2;
+}
+
+
+.call-to-action {
+	text-align: center;
+	.call-to-action--title {
 		color: white;
 	}
 }
