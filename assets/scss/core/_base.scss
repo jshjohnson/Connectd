@@ -112,6 +112,7 @@ tr:nth-child(odd) td { background-color: #F6F6F6; }
 th, legend { font-weight: bold; background: $color-comp; }	
 
 /* -- Forms -- */
+ 
 label { display: block; padding-bottom: .25em; font-weight: bold; }
 
 input,
@@ -137,6 +138,12 @@ input[type=submit] {
 	color: #FFF;
 	background-color: $color-comp; }
 
+input[type=text], textarea, button {
+	&:focus {
+		outline: none;	
+	}
+}
+
 /* -- Blockquotes -- */
 blockquote {
 	margin-left: 0;
@@ -146,7 +153,7 @@ blockquote {
 		padding-left: 2em;
 		padding-right: 2em; }
 }
-blockquote { @include font-serif; font-style: italic; clear: both; }
+blockquote { @include font-sans; font-style: italic; clear: both; }
 blockquote p { font-size: 1.35em; }
 blockquote p + .source { margin-top: -$baseline; }
 .source { display: block; @include font-sans; font-size: 1em; font-weight: bold; font-style: normal; }

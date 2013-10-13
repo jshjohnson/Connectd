@@ -87,7 +87,7 @@ img.media__img {
 ----------------------------------*/
 
 .button-red { background-color: $color-brand-highlight;  @include box-shadow(0 2px 0 darken($color-brand-highlight, 20%)) }
-.button-blue { background-color: $color-brand-light;  @include box-shadow(0 2px 0 darken($color-brand-light, 20%)) }
+.button-blue { background-color: $color-brand-dark;  @include box-shadow(0 2px 0 darken($color-brand-dark, 20%)) }
 .button-green { background-color: $color-brand-mid; @include box-shadow(0 2px 0 darken($color-brand-mid, 20%)) }
 
 /* Imports
@@ -104,6 +104,9 @@ img.media__img {
 	background-color: $color-brand-light;
 }
 
+.header {
+	margin-bottom: 2em;
+}
 
 .footer {
 	background-color: $color-background-light;
@@ -118,7 +121,7 @@ img.media__img {
 }
 
 .page-logo {
-	line-height: 1.9;
+	line-height: 1.7;
 	float: right;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -147,6 +150,10 @@ img.media__img {
 	}
 }
 
+.user-avatar {
+	width: 100%;
+}
+
 .user__portfolio, .user__sidebar {
 	background-color: $color-background-light;
 }
@@ -154,16 +161,26 @@ img.media__img {
 .user-title {
 	font-size: 1.4em;
 	margin: $baseline/2 0 0;
+	font-weight: 500;
+}
+
+.user-desc {
+	font-size: .9em;
 }
 
 .user-job, .user-geo {
-	font-size: .8em;
-	margin: $baseline/2 0 $baseline/2;
+	font-size: .9em;
+	margin: $baseline/3 0 $baseline/3;
+	font-weight: 600;
 }
 
+.user__sidebar--info {
+	padding: 1.5em;
+}
 
 .call-to-action {
 	text-align: center;
+	margin: 2em 0;
 	.call-to-action--title {
 		color: white;
 	}
