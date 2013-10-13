@@ -86,9 +86,9 @@ img.media__img {
 /* Buttons
 ----------------------------------*/
 
-.button-red {}
-.button-blue {}
-.button-green {}
+.button-red { background-color: $color-brand-highlight;  @include box-shadow(0 2px 0 darken($color-brand-highlight, 20%)) }
+.button-blue { background-color: $color-brand-light;  @include box-shadow(0 2px 0 darken($color-brand-light, 20%)) }
+.button-green { background-color: $color-brand-mid; @include box-shadow(0 2px 0 darken($color-brand-mid, 20%)) }
 
 /* Imports
 ----------------------------------*/
