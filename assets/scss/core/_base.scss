@@ -148,10 +148,6 @@ input[type=text], textarea, button {
 blockquote {
 	margin-left: 0;
 	margin-right: 0;
-	
-	@include respond-min($bp2) {
-		padding-left: 2em;
-		padding-right: 2em; }
 }
 blockquote { @include font-sans; font-style: italic; clear: both; }
 blockquote p { font-size: 1.35em; }

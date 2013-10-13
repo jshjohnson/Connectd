@@ -95,6 +95,9 @@ img.media__img {
 
 @import "core/modules/_homepage";
 
+/* Header
+----------------------------------*/
+
 .header, .footer {
 	padding-top: .8em;
 	padding-bottom: .8em;
@@ -108,9 +111,8 @@ img.media__img {
 	margin-bottom: 2em;
 }
 
-.footer {
-	background-color: $color-background-light;
-}
+/* Page
+----------------------------------*/
 
 .page-title {
 	font-size: 1.4em;
@@ -132,15 +134,26 @@ img.media__img {
 	}
 }
 
+/* Footer
+----------------------------------*/
+
+.footer {
+	background-color: $color-background-light;
+	color: $color-brand-dark;
+	a {
+		color: $color-brand-dark;
+	}
+}
+
 .footer-logo {
 	text-align: right;
 	a {
 		color: $color-brand-dark;
 	}
-	color: $color-brand-dark;
 }
 
 .footer-links { 
+	line-height: 1.8;
 	li {
 		display: inline-block;
 		*display:inline;
@@ -149,6 +162,9 @@ img.media__img {
 	    margin: 0;
 	}
 }
+
+/* Sidebar
+----------------------------------*/
 
 .user-avatar {
 	width: 100%;
@@ -178,10 +194,15 @@ img.media__img {
 	padding: 1.5em;
 }
 
+
+/* Call to action
+----------------------------------*/
+
 .call-to-action {
 	text-align: center;
 	margin: 2em 0;
 	.call-to-action--title {
 		color: white;
+		font-weight: 600;
 	}
 }

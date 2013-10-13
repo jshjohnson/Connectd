@@ -1,0 +1,27 @@
+.user-avatar {
+	width: 100%;
+}
+
+.user__portfolio, .user__sidebar {
+	background-color: $color-background-light;
+}
+
+.user-title {
+	font-size: 1.4em;
+	margin: $baseline/2 0 0;
+	font-weight: 500;
+}
+
+.user-desc {
+	font-size: .9em;
+}
+
+.user-job, .user-geo {
+	font-size: .9em;
+	margin: $baseline/3 0 $baseline/3;
+	font-weight: 600;
+}
+
+.user__sidebar--info {
+	padding: 1.5em;
+}
