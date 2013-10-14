@@ -90,11 +90,6 @@ img.media__img {
 .button-blue { background-color: $color-brand-dark;  @include box-shadow(0 2px 0 darken($color-brand-dark, 20%)) }
 .button-green { background-color: $color-brand-mid; @include box-shadow(0 2px 0 darken($color-brand-mid, 20%)) }
 
-/* Imports
-----------------------------------*/
-
-@import "core/modules/_homepage";
-
 /* Header
 ----------------------------------*/
 

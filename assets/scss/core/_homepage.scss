@@ -35,4 +35,10 @@
 	a {
 		color: white;
 	}
+	@include respond-max($bp4) {
+		font-size: 2.2em;
+	}
+	@include respond-max($bp3-5) {
+		font-size: 2em;
+	}
 }
