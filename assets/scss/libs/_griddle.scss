@@ -123,15 +123,6 @@ $grid-gutter: 2em !default; // can be px, em, or %
     text-rendering: optimizespeed; /* 4 */
 }
 
-.grid--no-marg {
-    display: block;
-    padding: 0;
-    margin: 0; /* 1 */
-    text-align: $grid-direction; /* 2 */
-    letter-spacing: -0.31em; /* 3 */
-    text-rendering: optimizespeed; /* 4 */
-}
-
 /**
  * Opera hack
  */
@@ -175,6 +166,22 @@ $grid-gutter: 2em !default; // can be px, em, or %
     letter-spacing: normal; /* 5 */
     word-spacing: normal; /* 5 */
     text-rendering: auto; /* 5 */
+}
+
+.grid__cell--img {
+    padding: 0;
+    margin-top: $baseline;
+    margin-bottom: $baseline;
+    @include respond-max($bp2) {
+        margin-top: $baseline/2;
+        margin-bottom: $baseline/2;
+    }
+}
+
+.grid__portfolio {
+    img {
+        width: 85%;
+    }
 }
 
 /**

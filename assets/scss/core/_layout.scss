@@ -133,4 +133,8 @@
 	width: 40%;
 	padding-left: 0;
 	padding-right: 0;
+	@include respond-max($bp1) {
+		margin-left: .5em;
+		margin-right: .5em;
+	}
 }
