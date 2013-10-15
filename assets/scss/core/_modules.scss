@@ -207,9 +207,12 @@ img.media__img {
 	font-size: .8em;
 	font-weight: 500;
 	padding: .6em 0 .5em 5%;
-	line-height: 1.8;
+	line-height: 2;
 	margin-bottom: 1.5em;
 	margin-top: 0;
+	&:first-child {
+		margin-bottom: 0;
+	}
 }
 
 .tag {

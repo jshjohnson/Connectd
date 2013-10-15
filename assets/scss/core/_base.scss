@@ -129,14 +129,18 @@ button,
 .btn:link,
 input[type=submit] {
 	display: inline-block;
-	padding: .8em 2.5em;
+	padding: .9em 2.5em .8em;
 	font-size: .8em;
 	@include box-shadow(0 3px 0);
 	border: 0;
 	@include border-radius;
 	min-width: 8em;
 	color: #FFF;
-	background-color: $color-comp; }
+	background-color: $color-comp;
+	a, a:visited {
+		color: white;
+	}
+}
 
 input[type=text], textarea, button {
 	&:focus {
