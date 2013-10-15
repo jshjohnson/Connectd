@@ -155,6 +155,15 @@ img.media__img {
 	    zoom:1;
 	    font-size: .8em;
 	    margin: 0;
+	    &:after {
+	    	padding: 0 .25em 0 .5em;
+			content: '•';
+		}
+		&:last-child {
+			 &:after {
+				content: none;
+			}
+		}
 	}
 }
 
@@ -187,6 +196,21 @@ img.media__img {
 
 .user__sidebar--info {
 	padding: 1.5em;
+}
+
+
+/* Article
+----------------------------------*/
+
+.article-heading {
+	background-color: #f0eded;
+	font-size: .8em;
+	font-weight: 500;
+	padding: .6em 0 .5em 5%;
+	line-height: 1.8;
+	&:first-child {
+		margin-top: 0;
+	}
 }
 
 
