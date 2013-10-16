@@ -123,6 +123,15 @@
 	display: inline-block;
 	padding-left: 0;
 	padding-right: 0;
+	@include respond-max($bp4) {
+		margin: .5em 0;
+		&:first-child {
+			margin-top: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 	@include respond-max($bp1) {
 		margin-left: .5em;
 		margin-right: .5em;
