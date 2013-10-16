@@ -140,14 +140,14 @@ img.media__img {
 	}
 }
 
-.footer-logo {
+.footer__logo {
 	text-align: right;
 	a {
 		color: $color-brand-dark;
 	}
 }
 
-.footer-links { 
+.footer__links { 
 	line-height: 1.8;
 	li {
 		display: inline-block;
@@ -170,31 +170,31 @@ img.media__img {
 /* Sidebar
 ----------------------------------*/
 
-.user-avatar {
+.user-sidebar__avatar {
 	width: 100%;
 }
 
-.user__portfolio, .user__sidebar {
+.user-portfolio, .user-sidebar {
 	background-color: $color-background-light;
 }
 
-.user-title {
+.user-sidebar__title {
 	font-size: 1.4em;
 	margin: $baseline/2 0 0;
 	font-weight: 500;
 }
 
-.user-desc {
+.user-sidebar__desc {
 	font-size: .9em;
 }
 
-.user-job, .user-geo {
+.user-sidebar__job, .user-sidebar__geo {
 	font-size: .9em;
 	margin: $baseline/3 0 $baseline/3;
 	font-weight: 600;
 }
 
-.user__sidebar--info {
+.user-sidebar__info {
 	padding: 1.5em;
 }
 
@@ -215,7 +215,11 @@ img.media__img {
 	}
 }
 
-.tag {
+.skills-wrapper {
+	margin-bottom: .5em;
+}
+
+.skills__tag {
 	font-size: .7em;
 	background-color: #33485d;
 	width: auto;
@@ -237,7 +241,7 @@ img.media__img {
 .call-to-action {
 	text-align: center;
 	margin: 2em 0;
-	.call-to-action--title {
+	.call-to-action__title {
 		color: white;
 		font-weight: 600;
 	}
