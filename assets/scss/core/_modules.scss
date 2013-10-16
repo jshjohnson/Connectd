@@ -215,13 +215,14 @@ img.media__img {
 
 .user-sidebar__title {
 	font-size: 1.4em;
-	margin: $baseline/2 0 0;
+	margin: $baseline/2 0 .2em;
 	font-weight: 500;
 }
 
 .user-sidebar__job, .user-sidebar__geo {
-	font-size: .9em;
-	margin: $baseline/3 0 $baseline/3;
+	font-size: 1em;
+	margin-top: 0;
+	margin-bottom: $baseline/3;
 	font-weight: 600;
 }
 
@@ -237,8 +238,9 @@ img.media__img {
 	font-size: .8em;
 	font-weight: 500;
 	padding-left: 5%;
+	padding-right: 1.2em;
 	line-height: 2;
-	margin-bottom: 1.5em;
+	margin-bottom: 1.8em;
 	margin-top: 0;
 }
 
@@ -299,13 +301,13 @@ img.media__img {
 
 .skills--developer {
 	&:nth-child(odd) {
-		padding-right: 1.5em; 
+		padding-right: 1em; 
 		@include respond-max($bp1) {
 			padding: 0;
 		}
 	}
 	&:nth-child(even) {
-		padding-left: 1.5em; 
+		padding-left: 1em; 
 		@include respond-max($bp1) {
 			padding: 0;
 		}

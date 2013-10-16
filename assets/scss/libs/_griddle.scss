@@ -183,11 +183,20 @@ $grid-gutter: 2em !default; // can be px, em, or %
     padding: 0;
 }
 
-.grid__portfolio {
+.grid__designer {
     margin-top: $baseline/2;
     margin-bottom: $baseline/2;
     img {
         width: 85%;
+        border: 1px solid #f0eded;
+    }
+}
+
+.grid__developer {
+    margin-top: $baseline/2;
+    margin-bottom: $baseline/2;
+    img {
+        width: 90%;
         border: 1px solid #f0eded;
     }
 }
