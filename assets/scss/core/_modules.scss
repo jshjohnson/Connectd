@@ -297,8 +297,23 @@ img.media__img {
 /* Skills
 ----------------------------------*/
 
-.skills {
+.skills-wrapper {
 	margin-bottom: .5em;
+}
+
+.skills--developer {
+	&:nth-child(odd) {
+		padding-right: 1em; 
+		@include respond-max($bp1) {
+			padding: 0;
+		}
+	}
+	&:nth-child(even) {
+		padding-left: 1em; 
+		@include respond-max($bp1) {
+			padding: 0;
+		}
+	}
 }
 
 .skills__tag {
@@ -338,13 +353,12 @@ img.media__img {
 	font-size: .8em;
 	margin-top: 0;
 	overflow: hidden;
-	&:nth-child(odd){
-		margin-right: 5%;
-	}
+	@include box-sizing(border-box);
 	.skill__name {
 		background-color: $color-brand-light;
 		padding: .6em .6em .6em 1.2em;
 		color: white;
+		@include box-sizing(border-box);
 		&[data-skill="5"] {
 			width: 100%;
 		}
