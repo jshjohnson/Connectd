@@ -120,6 +120,14 @@ img.media__img {
 	background-color: $color-brand-light;
 }
 
+.header--developer {
+	background-color: $color-brand-dark;
+}
+
+.header--employer {
+	background-color: $color-brand-mid;
+}
+
 .header {
 	margin-bottom: 2em;
 }
@@ -286,23 +294,10 @@ img.media__img {
 	}
 }
 
-/* Article
+/* Skills
 ----------------------------------*/
 
-.article-heading {
-	background-color: #f0eded;
-	font-size: .8em;
-	font-weight: 500;
-	padding: .6em 0 .5em 5%;
-	line-height: 2;
-	margin-bottom: 1.5em;
-	margin-top: 0;
-	&:first-child {
-		margin-bottom: 0;
-	}
-}
-
-.skills-wrapper {
+.skills {
 	margin-bottom: .5em;
 }
 
@@ -330,6 +325,41 @@ img.media__img {
 		right: -1.2em;
 		background-repeat: no-repeat;
 		bottom: 0;
+	}
+}
+
+.skills__bar {
+	background-color: #f0eded;
+	font-size: .8em;
+	font-weight: 500;
+	line-height: 2;
+	margin-bottom: 1.5em;
+	font-weight: 600;
+	font-size: .8em;
+	margin-top: 0;
+	overflow: hidden;
+	&:nth-child(odd){
+		margin-right: 5%;
+	}
+	.skill__name {
+		background-color: $color-brand-light;
+		padding: .6em .6em .6em 1.2em;
+		color: white;
+		&[data-skill="5"] {
+			width: 100%;
+		}
+		&[data-skill="4"] {
+			width: 75%;
+		}
+		&[data-skill="3"] {
+			width: 50%;
+		}
+		&[data-skill="2"] {
+			width: 25%;
+		}
+		&[data-skill="1"] {
+			width: 0%;
+		}
 	}
 }
 

@@ -63,7 +63,7 @@
 	> p:last-child, ul:last-child, ul li:last-of-type, iframe:last-child {
 		margin-bottom: 0;
 	}
-	&:last-of-type {
+	&:last-child {
 		margin-bottom: 0;
 	}
 }
@@ -75,9 +75,6 @@
 		margin: 0;
 	}
 	> p:last-child, ul:last-child, ul li:last-of-type, iframe:last-child {
-		margin-bottom: 0;
-	}
-	@include respond-max($bp2) {
 		margin-bottom: 0;
 	}
 }
@@ -103,8 +100,6 @@
 	width: 33.33%;
 	@include respond-max($bp2) {
 		width: 100%;
-		margin-top: $baseline;
-		margin-bottom: 0;
 	}
 }
 

@@ -178,6 +178,11 @@ $grid-gutter: 2em !default; // can be px, em, or %
     }
 }
 
+.grid__cell--no-pad {
+    @extend .grid__cell;
+    padding: 0;
+}
+
 .grid__portfolio {
     margin-top: $baseline/2;
     margin-bottom: $baseline/2;
@@ -196,6 +201,11 @@ $grid-gutter: 2em !default; // can be px, em, or %
     .grid__cell{
         padding: 0 0.25 * $grid-gutter;
     }
+}
+
+.grid--no-marg {
+    @extend .grid;
+    margin: 0;
 }
 
 /**
