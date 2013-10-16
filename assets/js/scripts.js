@@ -4,8 +4,6 @@
 $(document).ready(function() {
 	// HTML5 placeholder support
 	$("input, textarea").placeholder();
-	// Flexible Textareas
-	$("textarea").not(".noresize, .noresize textarea").expandingTextarea();
 	// Target radios / checkboxes
 	$("input[type=radio]").parents('li').addClass('radio');
 	$("input[type=checkbox]").parents('li').addClass('checkbox');

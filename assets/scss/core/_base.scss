@@ -65,10 +65,6 @@ textarea, .expandingText { min-height: 8em; }
 /*----------------------------------------------------------------------------------------*\
  $.Project Defaults
 \*----------------------------------------------------------------------------------------*/
-html, body {
-	height: 100%;
-}
-
 html {
 	font-size: 100%;
 	
@@ -80,8 +76,10 @@ html {
 body {
 	@include font-sans;
 	line-height: 1.5;
+	height: 100%;
 	color: $color-text;
-	background-color: $color-background; }
+	background-color: $color-background;
+}
 
 /* -- Vertical Rhythm -- */
 h1, h2, h3, h4, h5, h6 { margin-bottom: .65em; margin-top: $baseline; }
@@ -120,10 +118,19 @@ select,
 textarea {
 	padding: .5em;
 	border: 1px solid;
-	@include box-shadow(0, 0, 3px, 0.1);
-	color: #666;
-	background-color: #FFF;
-	border-color: #666 #CCC #CCC #666; }
+	color: $color-brand-dark;
+	background-color: #FFFFFF;
+	-webkit-appearance: none;
+	border: none;
+	border-radius: 0;
+	margin: $baseline/2 0;
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
 
 button,
 .btn:link,

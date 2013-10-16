@@ -100,7 +100,7 @@ img.media__img {
 		@include box-shadow(0 .1em 0 darken($color-brand-dark, 20%))
 	}
 }
-.button-green { 
+.button-green, input[type=submit] { 
 	background-color: $color-brand-mid; 
 	@include box-shadow(0 .15em 0 darken($color-brand-mid, 20%));
 	&:hover {
@@ -211,16 +211,17 @@ img.media__img {
 
 .portfolio, .user-sidebar {
 	background-color: $color-background-light;
+	@include box-sizing(border-box);
 }
 
 .user-sidebar__title {
-	font-size: 1.4em;
+	font-size: 1.35em;
 	margin: $baseline/2 0 .2em;
 	font-weight: 500;
 }
 
 .user-sidebar__job, .user-sidebar__geo {
-	font-size: 1em;
+	font-size: .9em;
 	margin-top: 0;
 	margin-bottom: $baseline/3;
 	font-weight: 600;
@@ -382,6 +383,7 @@ img.media__img {
 .call-to-action {
 	text-align: center;
 	margin: 2em 0;
+	flex: 1;
 	.call-to-action__title {
 		color: white;
 		font-weight: 600;

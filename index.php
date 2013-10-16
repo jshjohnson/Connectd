@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js home" lang="en"><!--<![endif]-->
 <head>
 	<meta charset="utf-8">
 	<title></title>
@@ -20,26 +20,26 @@
 	<script src="assets/js/libs/modernizr-2.5.3.min.js"></script>
 </head>
 <body>
-	<h2 class="logo"><a href="index.html">conver.ge</a></h2>
+	<h2 class="logo"><a href="index.php">conver.ge</a></h2>
 	<div class="panel-wrap">
 		<section class="panel panel--designer panel-1-3">
 			<div class="panel-container">
 				<h1 class="panel--title">
-					<a href="">I'm a designer</a>
+					<a href="designer.html">I'm a designer</a>
 				</h1>
 			</div>
 		</section>
 		<section class="panel panel--developer panel-1-3">
 			<div class="panel-container">
 				<h1 class="panel--title">
-					<a href="">I'm a developer</a>
+					<a href="developer.html">I'm a developer</a>
 				</h1>
 			</div>
 		</section>
 		<section class="panel panel--employer panel-1-3 float-right">
 			<div class="panel-container">
 				<h1 class="panel--title">
-					<a href="">I'm an employer</a>
+					<a href="#">I'm an employer</a>
 				</h1>
 			</div>
 		</section>
