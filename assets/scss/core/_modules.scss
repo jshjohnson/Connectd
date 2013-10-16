@@ -227,7 +227,7 @@ img.media__img {
 		zoom: 1;
 		margin-bottom: 0;
 		position: relative;
-		padding: .5em 1.4em;
+		padding: .5em 1.4em .4em;
 		a {
 			color: $color-brand-dark;
 		}
@@ -289,17 +289,29 @@ img.media__img {
 }
 
 .skills__tag {
+	position: relative;
 	font-size: .7em;
 	background-color: #33485d;
 	width: auto;
 	display: inline-block;
-	padding: .5em 1em .4em;
-	border-radius: .4em;
+	padding: .5em 1.1em .4em;
+	line-height: 1.55;
 	color: white;
 	margin-bottom: 1em;
-	margin-right: 1em;
+	margin-right: 2em;
 	&:last-child {
 		margin-right: 0;
+	}
+	&:after {
+		content: "";
+		background-image: url("../img/tag-end.svg");
+		background-size: cover;
+		width: 1.2em;
+		position: absolute;
+		height: 2.4em;
+		right: -1.2em;
+		background-repeat: no-repeat;
+		bottom: 0;
 	}
 }
 
