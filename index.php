@@ -18,28 +18,30 @@
 	<!--<![endif]-->
 	<link rel="stylesheet" href="assets/css/print.css" media="print">
 	<script src="assets/js/libs/modernizr-2.5.3.min.js"></script>
+	<script type="text/javascript" src="//use.typekit.net/dxr1afv.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
 	<h2 class="logo"><a href="index.php">conver.ge</a></h2>
 	<div class="panel-wrap">
 		<section class="panel panel--designer panel-1-3">
-			<div class="panel-container">
-				<h1 class="panel--title">
-					<a href="designer.html">I'm a designer</a>
+			<div class="panel__container">
+				<h1 class="panel__title">
+					<a href="designer.html">Designer</a>
 				</h1>
 			</div>
 		</section>
 		<section class="panel panel--developer panel-1-3">
-			<div class="panel-container">
-				<h1 class="panel--title">
-					<a href="developer.html">I'm a developer</a>
+			<div class="panel__container">
+				<h1 class="panel__title">
+					<a href="developer.html">Developer</a>
 				</h1>
 			</div>
 		</section>
 		<section class="panel panel--employer panel-1-3 float-right">
-			<div class="panel-container">
-				<h1 class="panel--title">
-					<a href="#">I'm an employer</a>
+			<div class="panel__container">
+				<h1 class="panel__title">
+					<a href="#">Employer</a>
 				</h1>
 			</div>
 		</section>

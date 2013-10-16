@@ -217,14 +217,14 @@ img.media__img {
 .user-sidebar__title {
 	font-size: 1.35em;
 	margin: $baseline/2 0 .2em;
-	font-weight: 500;
+	font-weight: 600;
 }
 
 .user-sidebar__job, .user-sidebar__geo {
 	font-size: .9em;
 	margin-top: 0;
 	margin-bottom: $baseline/3;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .user-sidebar__info {
@@ -382,7 +382,7 @@ img.media__img {
 
 .call-to-action {
 	text-align: center;
-	margin: 2em 0;
+	margin: .5em 0 2em;
 	flex: 1;
 	.call-to-action__title {
 		color: white;

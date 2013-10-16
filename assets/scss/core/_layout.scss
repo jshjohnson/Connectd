@@ -53,7 +53,7 @@
 	height: 100%;
 }
 
-.panel-container {
+.panel__container {
 	display: table-cell; 
 	vertical-align: middle;
 	padding-left: 20%;
@@ -71,6 +71,9 @@
 		margin: 0;
 	}
 	> p:last-child, ul:last-child, ul li:last-of-type, iframe:last-child {
+		margin-bottom: 0;
+	}
+	&:last-child {
 		margin-bottom: 0;
 	}
 }

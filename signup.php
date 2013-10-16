@@ -18,6 +18,8 @@
 	<!--<![endif]-->
 	<link rel="stylesheet" href="assets/css/print.css" media="print">
 	<script src="assets/js/libs/modernizr-2.5.3.min.js"></script>
+	<script type="text/javascript" src="//use.typekit.net/dxr1afv.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="site">
 	<header class="header header--developer cf">
