@@ -219,10 +219,6 @@ img.media__img {
 	font-weight: 500;
 }
 
-.user-sidebar__desc {
-	font-size: .9em;
-}
-
 .user-sidebar__job, .user-sidebar__geo {
 	font-size: .9em;
 	margin: $baseline/3 0 $baseline/3;
@@ -231,6 +227,9 @@ img.media__img {
 
 .user-sidebar__info {
 	padding: 1.5em;
+	p {
+		font-size: .9em;
+	}
 }
 
 .portfolio__headings-bg {
@@ -255,7 +254,7 @@ img.media__img {
 		position: relative;
 		padding: .5em 1.4em .4em;
 		a {
-			color: $color-brand-dark;
+			color: #7f7e7e;
 		}
 		&.active {
 			background-color: $color-brand-dark;
@@ -281,9 +280,6 @@ img.media__img {
 
 .portfolio__headings--alt {
 	li {
-		a {
-			color: #7f7e7e;
-		}
 		&.active {
 			background-color: $color-brand-light;
 			color: white;
@@ -303,13 +299,13 @@ img.media__img {
 
 .skills--developer {
 	&:nth-child(odd) {
-		padding-right: 1em; 
+		padding-right: 1.5em; 
 		@include respond-max($bp1) {
 			padding: 0;
 		}
 	}
 	&:nth-child(even) {
-		padding-left: 1em; 
+		padding-left: 1.5em; 
 		@include respond-max($bp1) {
 			padding: 0;
 		}
