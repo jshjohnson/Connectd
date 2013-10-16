@@ -198,6 +198,30 @@ img.media__img {
 	padding: 1.5em;
 }
 
+.user-portfolio__headings-bg {
+	background-color: #f0eded;
+	font-size: .8em;
+	font-weight: 500;
+	padding-left: 5%;
+	line-height: 2;
+	margin-bottom: 1.5em;
+	margin-top: 0;
+}
+
+.user-portfolio__headings {
+	margin: 0;
+	li {
+		display: inline-block;
+		*display: inline;
+		zoom: 1;
+		margin-bottom: 0;
+		padding: .5em 1.4em;
+		&.active {
+			background-color: $color-brand-dark;
+			color: white;
+		}
+	}
+}
 
 /* Article
 ----------------------------------*/
