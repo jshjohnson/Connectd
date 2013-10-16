@@ -183,6 +183,7 @@ $grid-gutter: 2em !default; // can be px, em, or %
     margin-bottom: $baseline/2;
     img {
         width: 85%;
+        border: 1px solid #f0eded;
     }
 }
 
