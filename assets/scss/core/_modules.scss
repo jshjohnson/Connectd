@@ -218,6 +218,9 @@ img.media__img {
 	font-size: 1.35em;
 	margin: $baseline/2 0 .2em;
 	font-weight: 600;
+	@include respond-max($bp2) {
+		margin-top: $baseline/3;
+	}
 }
 
 .user-sidebar__job, .user-sidebar__geo {
@@ -229,8 +232,12 @@ img.media__img {
 
 .user-sidebar__info {
 	padding: 1.5em;
+	@include box-sizing(border-box);
 	p {
 		font-size: .9em;
+	}
+	@include respond-max($bp2) {
+		padding: 1em 1.5em 1.5em;
 	}
 }
 
