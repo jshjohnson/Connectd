@@ -19,11 +19,17 @@
 	text-align: center;
 	a {
 		display: block;
-		@include transform(translateY(-.65em));
+		@include transform(translateY(-.7em));
 		@include transition(all .2s ease-in-out);
+		@include respond-max($bp3) {
+			@include transform(translateY(0em));;
+		}
 		span {
 			opacity: 0;
 			@include transition(opacity .2s ease-in-out);
+			@include respond-max($bp3) {
+				opacity: 1;
+			}
 		}
 		&:hover {
 			@include transform(translateY(0));

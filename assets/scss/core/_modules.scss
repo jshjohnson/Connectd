@@ -1,9 +1,17 @@
 /* Media Object - http://goo.gl/Xf6MJ
 ----------------------------------*/
 
+.media-wrapper {
+	margin: 1em;
+}
+
 .media {
 	margin-bottom: $baseline;
-	@extend .cf; }
+	@extend .cf; 
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
 	
 .media__img img,
 img.media__img {
@@ -219,7 +227,7 @@ img.media__img {
 	width: 100%;
 }
 
-.portfolio, .user-sidebar {
+.portfolio, .user-sidebar, .dashboard-panel {
 	background-color: $color-background-light;
 	@include box-sizing(border-box);
 }
@@ -250,6 +258,9 @@ img.media__img {
 		padding: 1em 1.5em 1.5em;
 	}
 }
+
+/* Portfolio
+----------------------------------*/
 
 .portfolio__headings-bg {
 	background-color: #f0eded;
@@ -338,7 +349,7 @@ img.media__img {
 	background-color: #33485d;
 	width: auto;
 	display: inline-block;
-	padding: .5em 1.1em .4em;
+	padding: .5em 1.1em;
 	line-height: 1.55;
 	color: white;
 	margin-bottom: 1em;
@@ -352,7 +363,7 @@ img.media__img {
 		background-size: cover;
 		width: 1.2em;
 		position: absolute;
-		height: 2.4em;
+		height: 2.5em;
 		right: -1.2em;
 		background-repeat: no-repeat;
 		bottom: 0;
@@ -405,4 +416,11 @@ img.media__img {
 		color: white;
 		font-weight: 600;
 	}
+}
+
+/* Dashboard panel
+----------------------------------*/
+
+.dashboard-panel {
+	margin-bottom: $baseline;
 }
