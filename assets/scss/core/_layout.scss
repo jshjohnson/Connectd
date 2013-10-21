@@ -16,6 +16,10 @@
 	min-width: 15em;
 	max-width: $container-max-width; }
 
+.footer--push {
+	flex: 1;
+}
+
 /* Grids (Griddle - http://goo.gl/P1JKB)
 ----------------------------------*/
 @import "../libs/_griddle";

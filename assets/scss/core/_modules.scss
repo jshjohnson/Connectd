@@ -130,6 +130,16 @@ img.media__img {
 
 .header {
 	margin-bottom: 2em;
+	background-color: $color-brand-dark
+}
+
+.header--panel {
+	h3 {
+		font-size: .95em;
+		color: white;
+		padding: .5em 1em;
+		margin: 0;
+	}
 }
 
 /* Page
