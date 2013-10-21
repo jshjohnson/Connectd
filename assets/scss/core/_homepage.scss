@@ -1,3 +1,5 @@
+@import "../libs/animate";
+
 /* Homepage
 ----------------------------------*/
 
@@ -15,11 +17,21 @@
 
 .panel {
 	text-align: center;
-	:hover {
-		a {
-			&:before {
-				content: "I'm a ";
+	a {
+		display: block;
+		@include transform(translateY(-.65em));
+		@include transition(all .2s ease-in-out);
+		span {
+			opacity: 0;
+			@include transition(opacity .2s ease-in-out);
+		}
+		&:hover {
+			@include transform(translateY(0));
+			span {
+				opacity: 1;
+				@include transition(opacity .2s ease-in-out);
 			}
+			@include transition(all .2s ease-in-out);
 		}
 	}
 }

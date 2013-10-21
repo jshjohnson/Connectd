@@ -1863,9 +1863,53 @@ img.media__img {
   font-weight: 600;
 }
 
+@-moz-keyframes dropDown {
+  /* line 2, ../scss/libs/_animate.scss */
+  0% {
+    -moz-transform: translateY(-20px);
+  }
+
+  /* line 6, ../scss/libs/_animate.scss */
+  100% {
+    -moz-transform: translateY(0);
+  }
+}
+
+@-o-keyframes dropDown {
+  /* line 12, ../scss/libs/_animate.scss */
+  0% {
+    -o-transform: translateY(-20px);
+  }
+
+  /* line 16, ../scss/libs/_animate.scss */
+  100% {
+    -o-transform: translateY(0);
+  }
+}
+
+@keyframes dropDown {
+  /* line 22, ../scss/libs/_animate.scss */
+  0% {
+    transform: translateY(-20px);
+  }
+
+  /* line 26, ../scss/libs/_animate.scss */
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* line 31, ../scss/libs/_animate.scss */
+.dropDown {
+  -webkit-animation: fadeInDown 3s;
+  -moz-animation: fadeInDown 3s;
+  -o-animation: fadeInDown 3s;
+  animation: fadeInDown 3s;
+}
+
 /* Homepage
 ----------------------------------*/
-/* line 4, ../scss/core/_homepage.scss */
+/* line 6, ../scss/core/_homepage.scss */
 .logo {
   text-align: right;
   font-size: 1em;
@@ -1874,43 +1918,80 @@ img.media__img {
   right: 2em;
   position: fixed;
 }
-/* line 11, ../scss/core/_homepage.scss */
+/* line 13, ../scss/core/_homepage.scss */
 .logo a {
   color: white;
 }
 
-/* line 16, ../scss/core/_homepage.scss */
+/* line 18, ../scss/core/_homepage.scss */
 .panel {
   text-align: center;
 }
 /* line 20, ../scss/core/_homepage.scss */
-.panel :hover a:before {
-  content: "I'm a ";
+.panel a {
+  display: block;
+  -webkit-transform: translateY(-0.65em);
+  -moz-transform: translateY(-0.65em);
+  -ms-transform: translateY(-0.65em);
+  -o-transform: translateY(-0.65em);
+  transform: translateY(-0.65em);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+/* line 24, ../scss/core/_homepage.scss */
+.panel a span {
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+/* line 28, ../scss/core/_homepage.scss */
+.panel a:hover {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+/* line 30, ../scss/core/_homepage.scss */
+.panel a:hover span {
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
-/* line 27, ../scss/core/_homepage.scss */
+/* line 39, ../scss/core/_homepage.scss */
 .panel--designer {
   background-color: #6dbcdb;
 }
 
-/* line 31, ../scss/core/_homepage.scss */
+/* line 43, ../scss/core/_homepage.scss */
 .panel--developer {
   background-color: #2c3e50;
 }
 
-/* line 35, ../scss/core/_homepage.scss */
+/* line 47, ../scss/core/_homepage.scss */
 .panel--employer {
   background-color: #77c462;
 }
 
-/* line 39, ../scss/core/_homepage.scss */
+/* line 51, ../scss/core/_homepage.scss */
 .panel__title {
   font-size: 2.8em;
   margin-bottom: 0;
   font-size: 2.2em;
   font-size: 2em;
 }
-/* line 42, ../scss/core/_homepage.scss */
+/* line 54, ../scss/core/_homepage.scss */
 .panel__title a {
   color: white;
 }
