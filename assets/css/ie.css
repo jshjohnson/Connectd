@@ -1602,7 +1602,7 @@ img.media__img {
 .header--panel h3 {
   font-size: .95em;
   color: white;
-  padding: .5em 1em;
+  padding: .7em 1em;
   margin: 0;
 }
 
@@ -1893,6 +1893,11 @@ img.media__img {
 /* line 424, ../scss/core/_modules.scss */
 .dashboard-panel {
   margin-bottom: 1.5em;
+}
+/* line 426, ../scss/core/_modules.scss */
+.dashboard-panel .media-wrapper {
+  max-height: 17em;
+  overflow-y: scroll;
 }
 
 @-moz-keyframes dropDown {

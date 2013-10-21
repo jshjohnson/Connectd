@@ -145,7 +145,7 @@ img.media__img {
 	h3 {
 		font-size: .95em;
 		color: white;
-		padding: .5em 1em;
+		padding: .7em 1em;
 		margin: 0;
 	}
 }
@@ -423,4 +423,8 @@ img.media__img {
 
 .dashboard-panel {
 	margin-bottom: $baseline;
+	.media-wrapper {
+		max-height: 17em;
+		overflow-y: scroll;	
+	}
 }
