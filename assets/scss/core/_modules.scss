@@ -17,13 +17,17 @@
 img.media__img {
 	margin-bottom: $baseline;
 	
-	@include respond-min($bp2) {
+	@include respond-min($bp1) {
 		margin-bottom: 0; }	
 }
 
 
 .media__body {	
-	@include respond-min($bp2) {
+	h1,h2,h3,h4,p {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	@include respond-min($bp1) {
 		overflow: hidden;
 	}
 
@@ -33,21 +37,28 @@ img.media__img {
 }
 
 
-.media__img {
-	@include respond-min($bp2) {
+.media__img, .media__button {
+	@include respond-min($bp1) {
 		float: left;
 		margin-bottom: 0;
 		margin-right: $media-img-gutter; }
 }
 
 .media--flipped{
-	.media__img {
-		@include respond-min($bp2) {
+	.media__img, .media__button {
+		@include respond-min($bp1) {
 			float: right;
 			margin-right:0;
 			margin-left: $media-img-gutter;
  		}
 	}
+}
+
+.media__button {
+	background-color: $color-brand-mid;
+	padding: 1em;
+	border-radius: 10em;
+	color: white;
 }
 	
 /* Island Object - http://goo.gl/1XYHG
