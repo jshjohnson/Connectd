@@ -190,6 +190,22 @@ img.media__img {
 	}
 }
 
+.button-job {
+	margin-top: .6em;
+	margin-right: 1em;
+	background-color: darken($color-brand-mid, 20%); 
+	padding: .5em 1em .4em;
+	@include box-shadow(inset 0 0 .1em transparent);
+	border: 1px solid darken($color-brand-mid, 30%);
+	@include transition(all .2s ease-in-out);
+	&:hover {
+		top: 0;
+		@include box-shadow(inset 0 0 .1em darken($color-brand-mid, 50%));
+		@include transition(all .2s ease-in-out);
+	}
+
+}
+
 /* Header
 ----------------------------------*/
 
