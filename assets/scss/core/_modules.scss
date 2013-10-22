@@ -54,12 +54,65 @@ img.media__img {
 	}
 }
 
-.media__button {
+.media__button, .flag__button {
 	background-color: $color-brand-mid;
-	padding: 1em;
+	padding: .9em;
 	border-radius: 10em;
 	color: white;
+	font-weight: 600;
+	max-width: 1.5em;
+	font-size: .9em;
 }
+
+/* Flag Object - http://csswizardry.com/2013/05/the-flag-object/
+----------------------------------*/
+
+.flag-wrapper {
+	margin: 1em;
+}
+
+.flag {
+    display: table;
+    width: 100%;
+}
+
+    .flag__image,
+    .flag__body {
+        display: table-cell;
+        vertical-align: middle;
+        h1,h2,h3,h4,p {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+        .flag--top & {
+            vertical-align: top;
+        }
+
+        .flag--bottom & {
+            vertical-align: bottom;
+        }
+
+    }
+
+    .flag__image, .flag__button {
+        padding-right: 10px;
+
+        > img {
+            display: block;
+            max-width: none;
+        }
+
+        .flag--rev & {
+            padding-right: 0;
+            padding-left: 10px;
+        }
+
+    }
+
+    .flag__body {
+        width: 100%;
+    }
 	
 /* Island Object - http://goo.gl/1XYHG
 ----------------------------------*/
@@ -426,6 +479,16 @@ img.media__img {
 	.call-to-action__title {
 		color: white;
 		font-weight: 600;
+	}
+}
+
+.price-per-hour {
+	h5 {
+		margin: 0;
+		text-align: center;
+	}
+	span {
+		font-size: .7em;
 	}
 }
 
