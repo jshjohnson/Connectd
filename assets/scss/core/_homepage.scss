@@ -13,6 +13,10 @@
 	a {
 		color: white;
 	}
+	@include respond-max($bp1) {
+		margin-top: 1em;
+		right: 1em;
+	}
 }
 
 .panel {
