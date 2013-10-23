@@ -1,15 +1,13 @@
+@charset "UTF-8";
+
 /* Media Object - http://goo.gl/Xf6MJ
 ----------------------------------*/
 
-.media-wrapper {
-	margin: 0 1em;
-}
-
 .media {
-	margin-bottom: $baseline;
+	padding: $baseline/2 1em;
 	@extend .cf; 
-	&:first-child {
-		margin-top: $baseline;
+	&:nth-child(odd) {
+		background-color: rgba(white, 0.8);
 	}
 }
 	
