@@ -24,7 +24,6 @@
 }
 
 .user-sidebar__info {
-	padding-top: 1.5em;
 	padding-bottom: 1.5em;
 	width: 90%;
 	margin-left: auto;
@@ -35,6 +34,9 @@
 	}
 	@include respond-max($bp1) {
 		width: 85%;
+	}
+	@include respond-min($bp1) {
+		padding-top: .8em;
 	}
 }
 
@@ -127,21 +129,21 @@
 
 .module-2-3 {
 	width: 63.33%;
-	@include respond-max($bp2-5) {
+	@include respond-max($bp2) {
 		width: 100%;
 	}
 }
 
 .module-1-3 {
 	width: 33.33%;
-	@include respond-max($bp2-5) {
+	@include respond-max($bp2) {
 		width: 100%;
 	}
 }
 
 .module-1-2 {
 	width: 48.5%;
-	@include respond-max($bp2-5) {
+	@include respond-max($bp2) {
 		width: 100%;
 	}
 }

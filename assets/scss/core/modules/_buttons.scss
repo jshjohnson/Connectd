@@ -17,7 +17,7 @@
 }
 .button-green, input[type=submit] { 
 	background-color: $color-brand-mid; 
-	@include box-shadow(0 .15em 0 darken($color-brand-mid, 20%));
+	@include box-shadow(0 .18em 0 darken($color-brand-mid, 20%));
 	&:hover {
 		@include box-shadow(0 .1em 0 darken($color-brand-mid, 20%))
 	}
