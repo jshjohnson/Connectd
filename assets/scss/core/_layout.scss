@@ -28,6 +28,7 @@
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
+	padding-top: .4em;
 	@include box-sizing(border-box);
 	p {
 		font-size: .9em;
@@ -35,8 +36,8 @@
 	@include respond-max($bp1) {
 		width: 85%;
 	}
-	@include respond-min($bp1) {
-		padding-top: .8em;
+	@include respond-max($bp1) {
+		padding-top: 0
 	}
 }
 

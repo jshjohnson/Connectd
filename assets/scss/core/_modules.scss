@@ -77,8 +77,8 @@ img.media__img {
 	height: 3.5em;
 	border-radius: 10em;
 	@include respond-max($bp1) {
-		width: 2.5em;
-		height: 2.5em;
+		width: 3em;
+		height: 3em;
 	}
 }
 
