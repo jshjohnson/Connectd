@@ -189,9 +189,6 @@ img.media__img {
 		@include nav-inline; }
 }
 
-
-@import "modules/_buttons";
-
 /* Header
 ----------------------------------*/
 
@@ -299,8 +296,6 @@ img.media__img {
 	}
 }
 
-@import "modules/_sidebar";
-
 /* Portfolio
 ----------------------------------*/
 
@@ -363,89 +358,6 @@ img.media__img {
 	}
 }
 
-/* Skills
-----------------------------------*/
-
-.skills-wrapper {
-	margin-bottom: .5em;
-}
-
-.skills--developer {
-	&:nth-child(odd) {
-		padding-right: 1em; 
-		@include respond-max($bp1) {
-			padding: 0;
-		}
-	}
-	&:nth-child(even) {
-		padding-left: 1em; 
-		@include respond-max($bp1) {
-			padding: 0;
-		}
-	}
-}
-
-.skills__tag {
-	position: relative;
-	font-size: .7em;
-	background-color: #33485d;
-	width: auto;
-	display: inline-block;
-	padding: .5em 1.1em;
-	line-height: 1.55;
-	color: white;
-	margin-bottom: 1em;
-	margin-right: 2em;
-	&:last-child {
-		margin-right: 0;
-	}
-	&:after {
-		content: "";
-		background-image: url("../img/tag-end.svg");
-		background-size: cover;
-		width: 1.2em;
-		position: absolute;
-		height: 2.5em;
-		right: -1.2em;
-		background-repeat: no-repeat;
-		bottom: 0;
-	}
-}
-
-.skills__bar {
-	background-color: #f0eded;
-	font-size: .8em;
-	font-weight: 500;
-	line-height: 2;
-	margin-bottom: 1.5em;
-	font-weight: 600;
-	font-size: .8em;
-	margin-top: 0;
-	overflow: hidden;
-	@include box-sizing(border-box);
-	.skill__name {
-		background-color: $color-brand-light;
-		padding: .6em .6em .6em 1.2em;
-		color: white;
-		@include box-sizing(border-box);
-		&[data-skill="5"] {
-			width: 100%;
-		}
-		&[data-skill="4"] {
-			width: 75%;
-		}
-		&[data-skill="3"] {
-			width: 50%;
-		}
-		&[data-skill="2"] {
-			width: 25%;
-		}
-		&[data-skill="1"] {
-			width: 0%;
-		}
-	}
-}
-
 /* Call to action
 ----------------------------------*/
 
@@ -490,5 +402,3 @@ img.media__img {
 	text-align: center;
 	display: block;
 }
-
-@import "modules/_dashboard";

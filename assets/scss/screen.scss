@@ -26,7 +26,11 @@
  $.MODULES
 \*----------------------------------------------------------------------------------------*/
 @import "core/_modules";
-@import "core/_homepage";
+@import "core/modules/_homepage";
+@import "core/modules/_buttons";
+@import "core/modules/_skills";
+@import "core/modules/_sidebar";
+@import "core/modules/_dashboard";
 
 /*----------------------------------------------------------------------------------------*\
  $.OVERRIDES

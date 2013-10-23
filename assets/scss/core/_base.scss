@@ -61,21 +61,6 @@ form br { display: none; }
 textarea { resize: vertical; } 
 // expandingText jQuery plugin
 textarea, .expandingText { min-height: 8em; }
-}
-
-/*----------------------------------------------------------------------------------------*\
- $.Misc
-\*----------------------------------------------------------------------------------------*/
-
-::-webkit-scrollbar {
-      width: .5em;
-}
-::-webkit-scrollbar-track {
-      background-color: transparent;
-}
-::-webkit-scrollbar-thumb {
-      background-color: rgba($color-brand-dark, .3);
-}
 
 /*----------------------------------------------------------------------------------------*\
  $.Project Defaults
