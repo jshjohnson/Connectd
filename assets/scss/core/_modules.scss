@@ -30,6 +30,7 @@ img.media__img {
 	}
 	p {
 		font-size: .9em;
+		margin-bottom: 0;
 	}
 	&:last-child{
 		margin-bottom: 0;
@@ -39,6 +40,14 @@ img.media__img {
 	}
 }
 
+.media__side {
+	text-align: right;
+	float: right;
+	p {
+		font-size: .9em;
+		margin-bottom: 0;
+	}
+}
 
 .media__img, .media__button {
 	float: left;
@@ -60,16 +69,6 @@ img.media__img {
 	}
 }
 
-.media__button, .flag__button {
-	background-color: $color-brand-mid;
-	border-radius: 10em;
-	color: white;
-	font-weight: 600;
-	font-size: .9em;
-	width: 3.5em;
-	height: 3.5em;
-}
-
 .media__img--avatar {
 	width: 3.5em;
 	height: 3.5em;
@@ -78,6 +77,19 @@ img.media__img {
 		width: 2.5em;
 		height: 2.5em;
 	}
+}
+
+.media-1-3, .media-2-3 {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.media-1-3 {
+	width: 15%;
+}
+
+.media-2-3 {
+	width: 80%;
 }
 
 /* Flag Object - http://csswizardry.com/2013/05/the-flag-object/
@@ -197,7 +209,7 @@ img.media__img {
 }
 
 .button-action {
-	margin-top: .76em;
+	margin-top: .78em;
 	margin-right: 1em;
 	font-size: .7em;
 	font-weight: 500;
@@ -523,6 +535,16 @@ img.media__img {
 		display: block;
 		line-height: .9;
 	}
+}
+
+.currency-button {
+	background-color: $color-brand-mid;
+	border-radius: 10em;
+	color: white;
+	font-weight: 600;
+	font-size: .9em;
+	width: 3.5em;
+	height: 3.5em;
 }
 
 .currency {
