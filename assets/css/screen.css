@@ -949,60 +949,76 @@ a:hover {
   padding-right: .3em;
 }
 
-/* line 207, ../scss/core/_base.scss */
+/* line 208, ../scss/core/_base.scss */
 .icon--search:before {
   content: '\69';
 }
 
 /* 'i' */
-/* line 208, ../scss/core/_base.scss */
-.icon--male:before {
-  content: '\62';
-}
-
-/* 'b' */
 /* line 209, ../scss/core/_base.scss */
-.icon--calendar:before {
-  content: '\61';
-}
-
-/* 'a' */
-/* line 210, ../scss/core/_base.scss */
-.icon--lightbulb:before {
-  content: '\65';
-}
-
-/* 'e' */
-/* line 211, ../scss/core/_base.scss */
-.icon--globe:before {
-  content: '\68';
-}
-
-/* 'h' */
-/* line 212, ../scss/core/_base.scss */
-.icon--briefcase:before {
-  content: '\67';
-}
-
-/* 'g' */
-/* line 213, ../scss/core/_base.scss */
-.icon--magic:before {
-  content: '\64';
-}
-
-/* 'd' */
-/* line 214, ../scss/core/_base.scss */
-.icon--sitemap:before {
-  content: '\63';
-}
-
-/* 'c' */
-/* line 215, ../scss/core/_base.scss */
 .icon--clock:before {
   content: '\66';
 }
 
 /* 'f' */
+/* line 210, ../scss/core/_base.scss */
+.icon--attach:before {
+  content: '\6b';
+  margin-right: .5em;
+  top: 0;
+}
+
+/* 'k' */
+/* line 211, ../scss/core/_base.scss */
+.icon--location:before {
+  content: '\6a';
+  margin-right: .5em;
+  top: 0;
+}
+
+/* 'j' */
+/* line 212, ../scss/core/_base.scss */
+.icon--calendar:before {
+  content: '\61';
+}
+
+/* 'a' */
+/* line 213, ../scss/core/_base.scss */
+.icon--male:before {
+  content: '\62';
+}
+
+/* 'b' */
+/* line 214, ../scss/core/_base.scss */
+.icon--globe:before {
+  content: '\68';
+}
+
+/* 'h' */
+/* line 215, ../scss/core/_base.scss */
+.icon--briefcase:before {
+  content: '\67';
+}
+
+/* 'g' */
+/* line 216, ../scss/core/_base.scss */
+.icon--magic:before {
+  content: '\64';
+}
+
+/* 'd' */
+/* line 217, ../scss/core/_base.scss */
+.icon--sitemap:before {
+  content: '\63';
+}
+
+/* 'c' */
+/* line 218, ../scss/core/_base.scss */
+.icon--lightbulb:before {
+  content: '\65';
+}
+
+/* 'e' */
 /*----------------------------------------------------------------------------------------*\
  $.LAYOUT
 \*----------------------------------------------------------------------------------------*/
