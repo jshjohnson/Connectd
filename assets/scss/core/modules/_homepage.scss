@@ -1,3 +1,5 @@
+@import "../libs/animate";
+
 /* Homepage
 ----------------------------------*/
 
@@ -6,15 +8,42 @@
 	font-size: 1em;
 	margin-top: 1.4em;
 	margin-bottom: 0;
-	right: 3em;
+	right: 2em;
 	position: fixed;
 	a {
 		color: white;
+	}
+	@include respond-max($bp1) {
+		margin-top: 1em;
+		right: 1em;
 	}
 }
 
 .panel {
 	text-align: center;
+	a {
+		display: block;
+		@include transform(translateY(-.7em));
+		@include transition(all .2s ease-in-out);
+		@include respond-max($bp3) {
+			@include transform(translateY(0em));;
+		}
+		span {
+			opacity: 0;
+			@include transition(opacity .2s ease-in-out);
+			@include respond-max($bp3) {
+				opacity: 1;
+			}
+		}
+		&:hover {
+			@include transform(translateY(0));
+			span {
+				opacity: 1;
+				@include transition(opacity .2s ease-in-out);
+			}
+			@include transition(all .2s ease-in-out);
+		}
+	}
 }
 
 .panel--designer {
@@ -29,10 +58,19 @@
 	background-color: $color-brand-mid;
 }
 
-.panel--title {
+.panel__title {
 	font-size: 2.8em;
 	margin-bottom: 0;
+	max-width: 6em;
+	margin-left: auto;
+	margin-right: auto;
 	a {
 		color: white;
+	}
+	@include respond-max($bp4) {
+		font-size: 2.2em;
+	}
+	@include respond-max($bp3-5) {
+		font-size: 2em;
 	}
 }

@@ -1,0 +1,13 @@
+/* Dashboard panel
+----------------------------------*/
+
+.dashboard-panel {
+	margin-bottom: 2em;
+	.media-wrapper {
+		max-height: 17em;
+		overflow-y: scroll;	
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
