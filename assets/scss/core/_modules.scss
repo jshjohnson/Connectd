@@ -223,6 +223,29 @@ img.media__img {
 	}
 }
 
+/* Page
+----------------------------------*/
+
+.page-title {
+	font-size: 1.4em;
+	float: left;
+	margin-top: 0;
+	margin-bottom: 0;
+	color: white;
+}
+
+.page-logo {
+	line-height: 1.7;
+	float: right;
+	margin-top: 0;
+	margin-bottom: 0;
+	color: white;
+	font-size: 1em;
+	a {
+		color: white;
+	}
+}
+
 /* Footer
 ----------------------------------*/
 
@@ -270,29 +293,6 @@ img.media__img {
 	}
 	@include respond-max($bp1) {
 		width: 100%;
-	}
-}
-
-/* Page
-----------------------------------*/
-
-.page-title {
-	font-size: 1.4em;
-	float: left;
-	margin-top: 0;
-	margin-bottom: 0;
-	color: white;
-}
-
-.page-logo {
-	line-height: 1.7;
-	float: right;
-	margin-top: 0;
-	margin-bottom: 0;
-	color: white;
-	font-size: 1em;
-	a {
-		color: white;
 	}
 }
 

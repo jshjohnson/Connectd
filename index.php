@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--><html class="no-js home" lang="en"><!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>connectd</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<!--[if lte IE 8]>
@@ -22,7 +22,7 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-	<h2 class="logo"><a href="index.php">conver.ge</a></h2>
+	<h2 class="logo"><a href="index.php">connectd</a></h2>
 	<div class="panel-wrap">
 		<section class="panel panel--designer panel-1-3">
 			<div class="panel__container">
