@@ -61,8 +61,8 @@
 		<div class="container">
 			<div class="grid">
 				<ul class="grid__cell unit-1-2--bp2 footer__links">
+					<li><a href="about.html">About</a></li>
 					<li><a href="">Terms &amp; Conditions</a></li>
-					<li><a href="">Help</a></li>
 				</ul>
 				<h2 class="grid__cell unit-1-2--bp2 page-logo footer__logo">
 					<a href="index.php">connectd</a>

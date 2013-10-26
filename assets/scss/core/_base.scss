@@ -169,11 +169,12 @@ blockquote {
 	margin-left: 0;
 	margin-right: 0;
 }
-blockquote { @include font-sans; font-style: italic; clear: both; }
+blockquote { @include font-sans; font-style: italic; clear: both;}
 blockquote p { font-size: 1.35em; }
 blockquote p + .source { margin-top: -$baseline; }
-.source { display: block; @include font-sans; font-size: 1em; font-weight: bold; font-style: normal; }
+.source { display: block; @include font-sans; font-size: 1em; font-weight: bold; font-style: normal; margin-top: .5em;}
 .source:before { content:"\2013\0020"; }
+.intro-quote { @include font-serif; font-size: 2em; margin: .5em 0; .source { @include font-serif; font-size: .6em; }}
 
 a:active, a:focus { position: relative; top: 1px; }
 

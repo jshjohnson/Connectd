@@ -322,6 +322,27 @@ img.media__img {
 	}
 }
 
+/* Misc
+----------------------------------*/
+
+.section-content {
+	padding: 2.5em 0;
+	@include respond-max($bp3) {
+		padding: 1.5em 0;
+	}
+}
+
+.iphone-img {
+	margin-top: -10em;
+	margin-bottom: -2.5em;
+	@include respond-max($bp4) {
+		margin-top: -6em;
+	}
+	@include respond-max($bp2) {
+		margin-top: 0;
+	}
+}
+
 /* Portfolio
 ----------------------------------*/
 
