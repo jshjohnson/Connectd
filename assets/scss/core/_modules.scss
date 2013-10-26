@@ -189,6 +189,28 @@ img.media__img {
 		@include nav-inline; }
 }
 
+/* Colors
+----------------------------------*/
+
+.color-green {
+	background-color: $color-brand-mid;
+	color: white;
+}
+
+.color-white {
+	background-color: $color-background-light;
+}
+
+.color-navy {
+	background-color: $color-brand-dark;
+	color: white;
+}
+
+.color-blue {
+	background-color: $color-brand-light;
+	color: white;
+}
+
 /* Header
 ----------------------------------*/
 
@@ -221,6 +243,10 @@ img.media__img {
 		font-size: .95em;
 		padding: .7em 1em;
 	}
+}
+
+.header--alt {
+	background-color: #51abd0;
 }
 
 /* Page
