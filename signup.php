@@ -35,8 +35,8 @@
 	<section>
 		<div class="section-form color-blue">
 			<div class="grid text-center">
-				<div class="grid__cell unit-1-2--bp4">
-					<blockquote class="intro-quote">
+				<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
+					<blockquote class="intro-quote text-center">
 						The beginning of something special...
 					</blockquote>
 				</div>
@@ -45,19 +45,20 @@
 	</section>
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
-			<div class="grid__cell unit-1-2--bp4 form-overlay">
+			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
 				<form method="post" action="register.php">
-					<input type="text" name="firstname" required placeholder="First name">
-					<input type="text" name="firstname" required placeholder="Surname">
+					<input type="text" name="firstname" required placeholder="First name" class="field-1-2 float-left">
+					<input type="text" name="firstname" required placeholder="Surname" class="field-1-2 float-right">
 					<input type="email" name="email" required placeholder="Email">
-					<input type='password' id='password' name='password' required placeholder="Password">
-					<input type='password' id='password' name='repeatpassword' required placeholder="Repeat Password">
+					<input type='password' name='password' required placeholder="Password" class="field-1-2 float-left">
+					<input type='password' name='repeatpassword' required placeholder="Repeat Password" class="field-1-2 float-right">
 					<input type="text" name="job" required placeholder="Job Title">
-					<input type="number" name="age" required placeholder="Age">
-					<input type="number" name="experience" required placeholder="Years Experience">
-					<textarea name="about" id="" cols="30" rows="10" placeholder="A little about you..."></textarea>
-		            <input class="submit" type="submit" value="Apply for your place">
-		            <small>By clicking on "Sign Up" below, you agree to the <a href="">Terms &amp; Conditions.</a></small>
+					<input type="number" name="age" required placeholder="Age" class="field-1-2 float-left">
+					<input type="number" name="experience" required placeholder="Years Experience" class="field-1-2 float-right">
+					<textarea name="about" cols="30" rows="10" placeholder="A little about you..."></textarea>
+					<div class="button-container">
+		            	<input class="submit" type="submit" value="Apply for your place">						
+					</div>
 		        </form>
 			</div>
 		</div>

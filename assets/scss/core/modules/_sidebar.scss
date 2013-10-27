@@ -73,6 +73,9 @@
 		top: -1.1em;
 		left: -1.1em;
 	}
+	@include respond-max($bp1) {
+		left: -.6em;
+	}
 }
 
 .user-sidebar__price--alt {

@@ -4,8 +4,52 @@
 
 .form-overlay {
 	background-color: #f7f7f7;
+	color: $color-brand-dark;
 	padding: 2em;
 	position: relative;
 	margin-top: -5em;
 	margin-bottom: 5em;
+	@include respond-max($bp1-5) {
+		margin-top: -2em;
+	}
+	form {
+		margin-bottom: 0;
+	}
+}
+
+.field-1-2 {
+	width: 48%;
+	&:nth-child(2) {
+		margin-top: 0;
+	}
+	@include respond-max($bp2) {
+		width: 100%;
+		&:nth-child(2) {
+			margin-top: .75em;
+		}
+	}
+}
+
+.button-container {
+	border-bottom: .1em solid rgba(black, 0.1);
+	position: relative;
+	margin-top: 1em;
+	bottom: 1.1em;
+	text-align: center;
+	z-index: 0;
+	button a, a:active, a:visited {
+		color: white;
+		text-decoration: none;
+		font-weight: 500;
+		top: 0;
+	}
+	input {
+		top: 1.4em;
+		position: relative;
+		margin: auto;
+		min-width: 13em;
+		&:hover {
+			top: 1.5em;
+		}
+	}
 }
