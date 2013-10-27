@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title>Developer : connectd</title>
+	<title>Sign Up : connectd</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<!--[if lte IE 8]>
@@ -22,7 +22,7 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="site">
-	<header class="header header--developer cf">
+	<header class="header header--alt zero-bottom cf">
 		<div class="container">
 			<h1 class="page-title">
 				Sign Up
@@ -32,32 +32,37 @@
 			</h2>
 		</div>
 	</header>
-	<section class="container">
-		<article class="portfolio module-1-1 module">
-			<div class="grid">
-				<div class="grid__cell unit-1-2--bp2">
-					<form method="post" action="register.php">
-						<input type="text" name="firstname" required placeholder="First name">
-						<input type="text" name="firstname" required placeholder="Surname">
-						<input type="email" name="email" required placeholder="Email">
-						<input type='password' id='password' name='password' required placeholder="Password">
-						<input type='password' id='password' name='repeatpassword' required placeholder="Repeat Password">
-						<small>By clicking on "Sign Up" below, you agree to the <a href="">Terms &amp; Conditions.</a></small>
-			            <input class="submit" type="submit" value="Apply for your place">
-			        </form>
-		        </div>
-	        </div>
-		</article>		
-	</section>
-	<section class="call-to-action">
-		<div class="container">
-			<h4 class="as-h1 call-to-action__title">
-				Need more convinving?
-			</h4>
-			<button class="button-red"><a href="">See what our users say</a></button>
+	<section>
+		<div class="section-form color-blue">
+			<div class="grid text-center">
+				<div class="grid__cell unit-1-2--bp4">
+					<blockquote class="intro-quote">
+						The beginning of something special...
+					</blockquote>
+				</div>
+			</div>
 		</div>
 	</section>
-	<footer class="footer cf">
+	<section class="footer--push color-navy">
+		<div class="grid text-center">
+			<div class="grid__cell unit-1-2--bp4 form-overlay">
+				<form method="post" action="register.php">
+					<input type="text" name="firstname" required placeholder="First name">
+					<input type="text" name="firstname" required placeholder="Surname">
+					<input type="email" name="email" required placeholder="Email">
+					<input type='password' id='password' name='password' required placeholder="Password">
+					<input type='password' id='password' name='repeatpassword' required placeholder="Repeat Password">
+					<input type="text" name="job" required placeholder="Job Title">
+					<input type="number" name="age" required placeholder="Age">
+					<input type="number" name="experience" required placeholder="Years Experience">
+					<textarea name="about" id="" cols="30" rows="10" placeholder="A little about you..."></textarea>
+		            <input class="submit" type="submit" value="Apply for your place">
+		            <small>By clicking on "Sign Up" below, you agree to the <a href="">Terms &amp; Conditions.</a></small>
+		        </form>
+			</div>
+		</div>
+	</section>
+	<footer class="footer zero-top cf">
 		<div class="container">
 			<div class="grid">
 				<ul class="grid__cell unit-1-2--bp2 footer__links">

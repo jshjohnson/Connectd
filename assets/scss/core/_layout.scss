@@ -68,11 +68,23 @@
 	height: 100%; 
 	float:left; 
 	overflow: hidden;
-	width: 33.33%;
 	@include respond-max($bp2-5) {
-		height: 33.33%;
 		width: 100%;
 		float: none;
+	}
+}
+
+.panel-1-1 {
+	width: 100%;
+	@include respond-max($bp2-5) {
+		height: 100%;
+	}
+}
+
+.panel-1-3 {
+	width: 33.33%;
+	@include respond-max($bp2-5) {
+	height: 33.33%;
 	}
 }
 

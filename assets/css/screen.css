@@ -1223,29 +1223,31 @@ a:hover {
 .grid__designer img {
   width: 85%;
   border: 1px solid #f0eded;
+  min-height: 8.25em;
 }
 
-/* line 195, ../scss/libs/_griddle.scss */
+/* line 196, ../scss/libs/_griddle.scss */
 .grid__developer {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 }
-/* line 198, ../scss/libs/_griddle.scss */
+/* line 199, ../scss/libs/_griddle.scss */
 .grid__developer img {
   width: 90%;
   border: 1px solid #f0eded;
+  min-height: 13.1em;
 }
 
 /**
  * Modifier: Half usual gutter
  * Allows for grids with half the usual gutter width
  */
-/* line 210, ../scss/libs/_griddle.scss */
+/* line 212, ../scss/libs/_griddle.scss */
 .grid--half-gutter .grid__cell, .grid--half-gutter .grid__cell--no-pad {
   padding: 0 0.5em;
 }
 
-/* line 215, ../scss/libs/_griddle.scss */
+/* line 217, ../scss/libs/_griddle.scss */
 .grid--no-marg {
   margin: 0;
 }
@@ -1255,7 +1257,7 @@ a:hover {
  * Allows for automatic unit centering irrespective of the number of
  * units in the grid.
  */
-/* line 226, ../scss/libs/_griddle.scss */
+/* line 228, ../scss/libs/_griddle.scss */
 .grid--center {
   text-align: center;
 }
@@ -1265,7 +1267,7 @@ a:hover {
  * Set a specific unit to be horizontally centered. Doesn't affect
  * any other units. Can still contain a child `grid` object.
  */
-/* line 236, ../scss/libs/_griddle.scss */
+/* line 238, ../scss/libs/_griddle.scss */
 .grid__cell--center {
   display: block;
   margin: 0 auto;
@@ -1511,23 +1513,43 @@ a:hover {
   height: 100%;
   float: left;
   overflow: hidden;
-  width: 33.33%;
 }
 @media screen and (max-width: 55em) {
   /* line 66, ../scss/core/_layout.scss */
   .panel {
-    height: 33.33%;
     width: 100%;
     float: none;
   }
 }
 
-/* line 79, ../scss/core/_layout.scss */
+/* line 77, ../scss/core/_layout.scss */
+.panel-1-1 {
+  width: 100%;
+}
+@media screen and (max-width: 55em) {
+  /* line 77, ../scss/core/_layout.scss */
+  .panel-1-1 {
+    height: 100%;
+  }
+}
+
+/* line 84, ../scss/core/_layout.scss */
+.panel-1-3 {
+  width: 33.33%;
+}
+@media screen and (max-width: 55em) {
+  /* line 84, ../scss/core/_layout.scss */
+  .panel-1-3 {
+    height: 33.33%;
+  }
+}
+
+/* line 91, ../scss/core/_layout.scss */
 .panel-wrap {
   height: 100%;
 }
 
-/* line 83, ../scss/core/_layout.scss */
+/* line 95, ../scss/core/_layout.scss */
 .panel__container {
   display: table-cell;
   vertical-align: middle;
@@ -1540,96 +1562,96 @@ a:hover {
 
 /* Module layout
 ----------------------------------*/
-/* line 94, ../scss/core/_layout.scss */
+/* line 106, ../scss/core/_layout.scss */
 .module {
   margin-bottom: 1.5em;
   padding: 1.5em;
 }
-/* line 97, ../scss/core/_layout.scss */
+/* line 109, ../scss/core/_layout.scss */
 .module .grid__cell:last-of-type p:last-child, .module .grid__cell--no-pad:last-of-type p:last-child, .module .grid__cell:last-of-type img:last-child, .module .grid__cell--no-pad:last-of-type img:last-child {
   margin: 0;
 }
-/* line 100, ../scss/core/_layout.scss */
+/* line 112, ../scss/core/_layout.scss */
 .module > p:last-child, .module ul:last-child, .module ul li:last-of-type, .module iframe:last-child {
   margin-bottom: 0;
 }
-/* line 103, ../scss/core/_layout.scss */
+/* line 115, ../scss/core/_layout.scss */
 .module:last-child {
   margin-bottom: 0;
 }
 
-/* line 108, ../scss/core/_layout.scss */
+/* line 120, ../scss/core/_layout.scss */
 .module-sidebar {
   margin-bottom: 1.5em;
   padding: 1.5em;
 }
-/* line 111, ../scss/core/_layout.scss */
+/* line 123, ../scss/core/_layout.scss */
 .module-sidebar .grid__cell:last-of-type p:last-child, .module-sidebar .grid__cell--no-pad:last-of-type p:last-child, .module-sidebar .grid__cell:last-of-type img:last-child, .module-sidebar .grid__cell--no-pad:last-of-type img:last-child {
   margin: 0;
 }
-/* line 114, ../scss/core/_layout.scss */
+/* line 126, ../scss/core/_layout.scss */
 .module-sidebar > p:last-child, .module-sidebar ul:last-child, .module-sidebar ul li:last-of-type, .module-sidebar iframe:last-child {
   margin-bottom: 0;
 }
 
-/* line 121, ../scss/core/_layout.scss */
+/* line 133, ../scss/core/_layout.scss */
 .module > *:last-child,
 .module > *:last-child > *:last-child,
 .module > *:last-child > *:last-child > *:last-child {
   margin-bottom: 0;
 }
 
-/* line 125, ../scss/core/_layout.scss */
+/* line 137, ../scss/core/_layout.scss */
 .module--no-pad {
   padding: 0;
 }
 
-/* line 129, ../scss/core/_layout.scss */
+/* line 141, ../scss/core/_layout.scss */
 .module-2-3 {
   width: 63.33%;
 }
 @media screen and (max-width: 49em) {
-  /* line 129, ../scss/core/_layout.scss */
+  /* line 141, ../scss/core/_layout.scss */
   .module-2-3 {
     width: 100%;
   }
 }
 
-/* line 136, ../scss/core/_layout.scss */
+/* line 148, ../scss/core/_layout.scss */
 .module-1-3 {
   width: 32.33%;
 }
 @media screen and (max-width: 49em) {
-  /* line 136, ../scss/core/_layout.scss */
+  /* line 148, ../scss/core/_layout.scss */
   .module-1-3 {
     width: 100%;
   }
 }
 
-/* line 143, ../scss/core/_layout.scss */
+/* line 155, ../scss/core/_layout.scss */
 .module-1-2 {
   width: 48.5%;
 }
 @media screen and (max-width: 49em) {
-  /* line 143, ../scss/core/_layout.scss */
+  /* line 155, ../scss/core/_layout.scss */
   .module-1-2 {
     width: 100%;
   }
 }
 
-/* line 150, ../scss/core/_layout.scss */
+/* line 162, ../scss/core/_layout.scss */
 .module-1-1 {
   width: 100%;
 }
 
 /* Buttons
 ----------------------------------*/
-/* line 157, ../scss/core/_layout.scss */
+/* line 169, ../scss/core/_layout.scss */
 .button-wrapper {
   text-align: center;
 }
 
-/* line 161, ../scss/core/_layout.scss */
+/* line 173, ../scss/core/_layout.scss */
 .button-left, .button-right {
   margin-left: 1em;
   margin-right: 1em;
@@ -1638,22 +1660,22 @@ a:hover {
   padding-right: 0;
 }
 @media screen and (max-width: 82em) {
-  /* line 161, ../scss/core/_layout.scss */
+  /* line 173, ../scss/core/_layout.scss */
   .button-left, .button-right {
     margin: .5em 0;
     padding: .9em 1.5em .8em;
   }
-  /* line 170, ../scss/core/_layout.scss */
+  /* line 182, ../scss/core/_layout.scss */
   .button-left:first-child, .button-right:first-child {
     margin-top: 0;
   }
-  /* line 173, ../scss/core/_layout.scss */
+  /* line 185, ../scss/core/_layout.scss */
   .button-left:last-child, .button-right:last-child {
     margin-bottom: 0;
   }
 }
 @media screen and (max-width: 30em) {
-  /* line 161, ../scss/core/_layout.scss */
+  /* line 173, ../scss/core/_layout.scss */
   .button-left, .button-right {
     margin-left: .5em;
     margin-right: .5em;
@@ -2096,7 +2118,13 @@ img.media__img {
   margin-top: -10em;
   margin-bottom: -2.5em;
 }
-@media screen and (max-width: 82em) {
+@media screen and (max-width: 74em) {
+  /* line 335, ../scss/core/_modules.scss */
+  .iphone-img {
+    margin-top: 1em;
+  }
+}
+@media screen and (max-width: 62em) {
   /* line 335, ../scss/core/_modules.scss */
   .iphone-img {
     margin-top: -6em;
@@ -2111,7 +2139,7 @@ img.media__img {
 
 /* Portfolio
 ----------------------------------*/
-/* line 349, ../scss/core/_modules.scss */
+/* line 352, ../scss/core/_modules.scss */
 .portfolio__headings-bg {
   background-color: #f0eded;
   font-size: .8em;
@@ -2123,12 +2151,12 @@ img.media__img {
   margin-top: 0;
 }
 
-/* line 361, ../scss/core/_modules.scss */
+/* line 364, ../scss/core/_modules.scss */
 .portfolio__headings {
   margin: 0;
   position: relative;
 }
-/* line 364, ../scss/core/_modules.scss */
+/* line 367, ../scss/core/_modules.scss */
 .portfolio__headings li {
   display: inline-block;
   *display: inline;
@@ -2137,20 +2165,20 @@ img.media__img {
   position: relative;
   padding: .5em 1.4em .4em;
 }
-/* line 371, ../scss/core/_modules.scss */
+/* line 374, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 374, ../scss/core/_modules.scss */
+/* line 377, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   background-color: #2c3e50;
   color: white;
 }
-/* line 377, ../scss/core/_modules.scss */
+/* line 380, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 380, ../scss/core/_modules.scss */
+/* line 383, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -2164,51 +2192,51 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 398, ../scss/core/_modules.scss */
+/* line 401, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   background-color: #6dbcdb;
   color: white;
 }
-/* line 401, ../scss/core/_modules.scss */
+/* line 404, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active:after {
   border-top-color: #6dbcdb;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 411, ../scss/core/_modules.scss */
+/* line 414, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
   flex: 1;
 }
-/* line 414, ../scss/core/_modules.scss */
+/* line 417, ../scss/core/_modules.scss */
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
 }
-/* line 418, ../scss/core/_modules.scss */
+/* line 421, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 423, ../scss/core/_modules.scss */
+/* line 426, ../scss/core/_modules.scss */
 .price-per-hour {
   margin-top: .35em;
 }
-/* line 425, ../scss/core/_modules.scss */
+/* line 428, ../scss/core/_modules.scss */
 .price-per-hour h5 {
   margin: 0;
   text-align: center;
   font-weight: 600;
 }
-/* line 430, ../scss/core/_modules.scss */
+/* line 433, ../scss/core/_modules.scss */
 .price-per-hour span {
   font-size: .7em;
   display: block;
   line-height: .9;
 }
 
-/* line 437, ../scss/core/_modules.scss */
+/* line 440, ../scss/core/_modules.scss */
 .currency-button {
   background-color: #77c462;
   border-radius: 10em;
@@ -2219,7 +2247,7 @@ img.media__img {
   height: 3.5em;
 }
 
-/* line 447, ../scss/core/_modules.scss */
+/* line 450, ../scss/core/_modules.scss */
 .currency {
   line-height: 3.5em;
   text-align: center;
@@ -2377,8 +2405,9 @@ img.media__img {
   max-width: 6em;
   margin-left: auto;
   margin-right: auto;
+  color: white;
 }
-/* line 67, ../scss/core/modules/_homepage.scss */
+/* line 68, ../scss/core/modules/_homepage.scss */
 .panel__title a {
   color: white;
 }
@@ -2705,6 +2734,20 @@ img.media__img {
 /* line 19, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel ::-webkit-scrollbar-thumb {
   background-color: rgba(44, 62, 80, 0.3);
+}
+
+/* line 1, ../scss/core/modules/_forms.scss */
+.section-form {
+  height: 10em;
+}
+
+/* line 5, ../scss/core/modules/_forms.scss */
+.form-overlay {
+  background-color: #f7f7f7;
+  padding: 2em;
+  position: relative;
+  margin-top: -5em;
+  margin-bottom: 5em;
 }
 
 /*----------------------------------------------------------------------------------------*\

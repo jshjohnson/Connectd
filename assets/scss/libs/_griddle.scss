@@ -189,6 +189,7 @@ $grid-gutter: 2em !default; // can be px, em, or %
     img {
         width: 85%;
         border: 1px solid #f0eded;
+        min-height: 8.25em;
     }
 }
 
@@ -198,6 +199,7 @@ $grid-gutter: 2em !default; // can be px, em, or %
     img {
         width: 90%;
         border: 1px solid #f0eded;
+        min-height: 13.1em;
     }
 }
 
