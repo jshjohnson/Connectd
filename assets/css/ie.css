@@ -2405,34 +2405,35 @@ img.media__img {
 }
 
 /* line 1, ../scss/core/modules/_forms.scss */
-.section-form {
-  height: 10em;
+.section-heading {
+  height: 15em;
+  padding-top: 1.5em;
 }
 
-/* line 5, ../scss/core/modules/_forms.scss */
+/* line 6, ../scss/core/modules/_forms.scss */
 .form-overlay {
   background-color: #f7f7f7;
   color: #2c3e50;
   padding: 2em;
   position: relative;
-  margin-top: -5em;
+  margin-top: -8.5em;
   margin-bottom: 5em;
 }
-/* line 15, ../scss/core/modules/_forms.scss */
+/* line 16, ../scss/core/modules/_forms.scss */
 .form-overlay form {
   margin-bottom: 0;
 }
 
-/* line 20, ../scss/core/modules/_forms.scss */
+/* line 21, ../scss/core/modules/_forms.scss */
 .field-1-2 {
   width: 48%;
 }
-/* line 22, ../scss/core/modules/_forms.scss */
+/* line 23, ../scss/core/modules/_forms.scss */
 .field-1-2:nth-child(2) {
   margin-top: 0;
 }
 
-/* line 33, ../scss/core/modules/_forms.scss */
+/* line 34, ../scss/core/modules/_forms.scss */
 .button-container {
   border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
   position: relative;
@@ -2441,21 +2442,21 @@ img.media__img {
   text-align: center;
   z-index: 0;
 }
-/* line 40, ../scss/core/modules/_forms.scss */
+/* line 41, ../scss/core/modules/_forms.scss */
 .button-container button a, .button-container a:active, .button-container a:visited {
   color: white;
   text-decoration: none;
   font-weight: 500;
   top: 0;
 }
-/* line 46, ../scss/core/modules/_forms.scss */
+/* line 47, ../scss/core/modules/_forms.scss */
 .button-container input {
   top: 1.4em;
   position: relative;
   margin: auto;
   min-width: 13em;
 }
-/* line 51, ../scss/core/modules/_forms.scss */
+/* line 52, ../scss/core/modules/_forms.scss */
 .button-container input:hover {
   top: 1.5em;
 }

@@ -33,7 +33,7 @@
 		</div>
 	</header>
 	<section>
-		<div class="section-form color-blue">
+		<div class="section-heading color-blue">
 			<div class="grid text-center">
 				<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
 					<blockquote class="intro-quote text-center">
