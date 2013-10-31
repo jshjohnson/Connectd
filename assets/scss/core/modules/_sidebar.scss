@@ -34,7 +34,7 @@
 
 .user-sidebar__title {
 	font-size: 1.35em;
-	margin: $baseline/2 0 .2em;
+	margin: 0 0 .2em;
 	font-weight: 600;
 	@include respond-max($bp2) {
 		margin-top: $baseline/3;

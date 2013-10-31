@@ -12,6 +12,10 @@
 	margin-bottom: 5em;
 	@include respond-max($bp1-5) {
 		margin-top: -5.5em;
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 1.25em;
 	}
 	form {
 		margin-bottom: 0;

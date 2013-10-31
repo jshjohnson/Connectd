@@ -15,4 +15,13 @@ $(document).ready(function() {
 	$("p:empty").remove();
 	$(".wp-caption").removeAttr("style");
 	$(".wp-content img, .wp-post-image, .wp-post-thumb").removeAttr("width").removeAttr("height");
+	// Overlay
+	$(".button-trigger").on('click', function(e) { 
+		$('html').css('overflow', 'hidden');
+		$('.overlay').toggleClass('overlay--active').on('click', function() {
+			$(this).removeClass('overlay--active');
+		});
+	    return false;
+	});
 });
+
