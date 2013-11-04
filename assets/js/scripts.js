@@ -4,7 +4,7 @@
 $(document).ready(function() {
 	// HTML5 placeholder support
 	$("input, textarea").placeholder();
-	
+
 	// Target radios / checkboxes
 	$("input[type=radio]").parents('li').addClass('radio');
 	$("input[type=checkbox]").parents('li').addClass('checkbox');
@@ -38,7 +38,6 @@ $(document).ready(function() {
 		    if (e.target == this) {
 		        $(this).hide();
 		    }
-		}); 
-
+		});
 	});
 });

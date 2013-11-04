@@ -2474,14 +2474,15 @@ img.media__img {
   z-index: 5000;
 }
 
-/* line 11, ../scss/core/modules/_overlay.scss */
+/* line 10, ../scss/core/modules/_overlay.scss */
 .overlay__inner {
   background-color: white;
   margin: auto;
   position: relative;
   width: 50%;
+  height: auto;
   padding: 1.5em;
-  margin-top: 10%;
+  margin-top: 6%;
 }
 /* line 18, ../scss/core/modules/_overlay.scss */
 .overlay__inner textarea {
@@ -2489,14 +2490,14 @@ img.media__img {
   font-size: .8em;
 }
 
-/* line 26, ../scss/core/modules/_overlay.scss */
+/* line 29, ../scss/core/modules/_overlay.scss */
 .overlay > *:last-child,
 .overlay > *:last-child > *:last-child,
 .overlay > *:last-child > *:last-child > *:last-child {
   margin-bottom: 0;
 }
 
-/* line 30, ../scss/core/modules/_overlay.scss */
+/* line 33, ../scss/core/modules/_overlay.scss */
 .overlay__title {
   margin-top: 0;
   font-weight: 600;

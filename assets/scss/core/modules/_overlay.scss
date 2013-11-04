@@ -1,5 +1,4 @@
 .overlay {
-	// display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -13,11 +12,15 @@
 	margin: auto;
 	position: relative;
 	width: 50%;
+	height: auto;
 	padding: 1.5em;
-	margin-top: 10%;
+	margin-top: 6%;
 	textarea {
 		background-color: $color-background-light;
 		font-size: .8em;
+	}
+	@include respond-max($bp2) {
+		width: 75%;
 	}
 }
 
