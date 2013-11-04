@@ -2474,13 +2474,12 @@ img.media__img {
   z-index: 5000;
 }
 
-/* line 10, ../scss/core/modules/_overlay.scss */
+/* line 11, ../scss/core/modules/_overlay.scss */
 .overlay__inner {
   background-color: white;
   margin: auto;
   position: relative;
   width: 50%;
-  margin: auto;
   padding: 1.5em;
   margin-top: 10%;
 }
