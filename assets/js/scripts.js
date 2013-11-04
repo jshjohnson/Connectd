@@ -16,12 +16,29 @@ $(document).ready(function() {
 	$(".wp-caption").removeAttr("style");
 	$(".wp-content img, .wp-post-image, .wp-post-thumb").removeAttr("width").removeAttr("height");
 	// Overlay
-	$(".button-trigger").on('click', function(e) { 
-		$('html').css('overflow', 'hidden');
-		$('.overlay').toggleClass('overlay--active').on('click', function() {
-			$(this).removeClass('overlay--active');
-		});
-	    return false;
-	});
-});
 
+	$(".button-trigger").on('click', function() {
+
+	   var docHeight = $(document).height();
+
+	   $("body").append("" +
+	    "<section class='overlay'>" +
+	    "<div class='overlay__inner'>" +
+	    "<h2 class='overlay__title'>You’re one message away...</h2>" +
+	    "<form action=''>" +
+	    "<textarea name='message' id='' cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!'></textarea>" +
+	    "<div class='button-container'>" +
+	    "<input class='submit' type='submit' value='Apply for your place'>" +
+	    "</div>" +
+	    "</form>" +
+	    "</div>" +
+	    "</section>");
+
+	   $(".overlay")
+	      .height(docHeight)
+	      .on('click', function() {
+			$(this).remove('.overlay');      	
+	      })
+	    });
+
+});

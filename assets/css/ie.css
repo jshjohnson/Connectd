@@ -2466,22 +2466,15 @@ img.media__img {
 
 /* line 1, ../scss/core/modules/_overlay.scss */
 .overlay {
-  display: none;
   position: absolute;
-  z-index: 99;
-  width: 100%;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  top: 0;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  z-index: 5000;
 }
 
-/* line 12, ../scss/core/modules/_overlay.scss */
-.overlay--active {
-  display: block;
-}
-
-/* line 16, ../scss/core/modules/_overlay.scss */
+/* line 10, ../scss/core/modules/_overlay.scss */
 .overlay__inner {
   background-color: white;
   margin: auto;
@@ -2491,20 +2484,20 @@ img.media__img {
   padding: 1.5em;
   margin-top: 10%;
 }
-/* line 24, ../scss/core/modules/_overlay.scss */
+/* line 18, ../scss/core/modules/_overlay.scss */
 .overlay__inner textarea {
   background-color: #f7f7f7;
   font-size: .8em;
 }
 
-/* line 32, ../scss/core/modules/_overlay.scss */
+/* line 26, ../scss/core/modules/_overlay.scss */
 .overlay > *:last-child,
 .overlay > *:last-child > *:last-child,
 .overlay > *:last-child > *:last-child > *:last-child {
   margin-bottom: 0;
 }
 
-/* line 36, ../scss/core/modules/_overlay.scss */
+/* line 30, ../scss/core/modules/_overlay.scss */
 .overlay__title {
   margin-top: 0;
   font-weight: 600;
