@@ -1585,83 +1585,94 @@ a:hover {
 }
 
 /* line 119, ../scss/core/_layout.scss */
+.module--half-pad {
+  padding: .75em;
+}
+
+/* line 123, ../scss/core/_layout.scss */
 .module-sidebar {
   margin-bottom: 1.5em;
   padding: 1.5em;
 }
-/* line 122, ../scss/core/_layout.scss */
+/* line 126, ../scss/core/_layout.scss */
 .module-sidebar .grid__cell:last-of-type p:last-child, .module-sidebar .grid__cell--no-pad:last-of-type p:last-child, .module-sidebar .grid__cell:last-of-type img:last-child, .module-sidebar .grid__cell--no-pad:last-of-type img:last-child {
   margin: 0;
 }
-/* line 125, ../scss/core/_layout.scss */
+/* line 129, ../scss/core/_layout.scss */
 .module-sidebar > p:last-child, .module-sidebar ul:last-child, .module-sidebar ul li:last-of-type, .module-sidebar iframe:last-child {
   margin-bottom: 0;
 }
 
-/* line 132, ../scss/core/_layout.scss */
+/* line 136, ../scss/core/_layout.scss */
 .module > *:last-child,
 .module > *:last-child > *:last-child,
 .module > *:last-child > *:last-child > *:last-child {
   margin-bottom: 0;
 }
 
-/* line 136, ../scss/core/_layout.scss */
+/* line 140, ../scss/core/_layout.scss */
 .module--no-pad {
   padding: 0;
 }
 
-/* line 140, ../scss/core/_layout.scss */
+/* line 144, ../scss/core/_layout.scss */
 .module-2-3 {
   width: 63.33%;
 }
 @media screen and (max-width: 49em) {
-  /* line 140, ../scss/core/_layout.scss */
+  /* line 144, ../scss/core/_layout.scss */
   .module-2-3 {
     width: 100%;
   }
 }
 
-/* line 147, ../scss/core/_layout.scss */
+/* line 151, ../scss/core/_layout.scss */
 .module-1-3 {
   width: 32.33%;
 }
 @media screen and (max-width: 49em) {
-  /* line 147, ../scss/core/_layout.scss */
+  /* line 151, ../scss/core/_layout.scss */
   .module-1-3 {
     width: 100%;
   }
 }
 
-/* line 154, ../scss/core/_layout.scss */
+/* line 158, ../scss/core/_layout.scss */
 .module-1-2 {
   width: 48.5%;
 }
 @media screen and (max-width: 49em) {
-  /* line 154, ../scss/core/_layout.scss */
+  /* line 158, ../scss/core/_layout.scss */
   .module-1-2 {
     width: 100%;
   }
 }
 
-/* line 161, ../scss/core/_layout.scss */
+/* line 165, ../scss/core/_layout.scss */
 .module-1-1 {
   width: 100%;
 }
 
+/* line 169, ../scss/core/_layout.scss */
+.module__avatar {
+  padding: .6em;
+  display: inline-block;
+}
+
 /* Buttons
 ----------------------------------*/
-/* line 168, ../scss/core/_layout.scss */
+/* line 177, ../scss/core/_layout.scss */
 .button-wrapper {
   text-align: center;
 }
 @media screen and (max-width: 49em) {
-  /* line 168, ../scss/core/_layout.scss */
+  /* line 177, ../scss/core/_layout.scss */
   .button-wrapper {
     margin-bottom: 1em;
   }
 }
 
-/* line 175, ../scss/core/_layout.scss */
+/* line 184, ../scss/core/_layout.scss */
 .button-left, .button-right {
   margin-left: 1em;
   margin-right: 1em;
@@ -1670,22 +1681,22 @@ a:hover {
   padding-right: 0;
 }
 @media screen and (max-width: 82em) {
-  /* line 175, ../scss/core/_layout.scss */
+  /* line 184, ../scss/core/_layout.scss */
   .button-left, .button-right {
     margin: .5em 0;
     padding: .9em 1.5em .8em;
   }
-  /* line 184, ../scss/core/_layout.scss */
+  /* line 193, ../scss/core/_layout.scss */
   .button-left:first-child, .button-right:first-child {
     margin-top: 0;
   }
-  /* line 187, ../scss/core/_layout.scss */
+  /* line 196, ../scss/core/_layout.scss */
   .button-left:last-child, .button-right:last-child {
     margin-bottom: 0;
   }
 }
 @media screen and (max-width: 30em) {
-  /* line 175, ../scss/core/_layout.scss */
+  /* line 184, ../scss/core/_layout.scss */
   .button-left, .button-right {
     margin-left: .5em;
     margin-right: .5em;
@@ -1787,14 +1798,14 @@ img.media__img {
 }
 
 /* line 75, ../scss/core/_modules.scss */
-.media__img--avatar {
+.media__img--avatar, .img--avatar {
   width: 3.5em;
   height: 3.5em;
   border-radius: 10em;
 }
 @media screen and (max-width: 30em) {
   /* line 75, ../scss/core/_modules.scss */
-  .media__img--avatar {
+  .media__img--avatar, .img--avatar {
     width: 3em;
     height: 3em;
   }

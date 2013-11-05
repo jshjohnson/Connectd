@@ -116,6 +116,10 @@
 	}
 }
 
+.module--half-pad {
+	padding: .75em;
+}
+
 .module-sidebar {
 	margin-bottom: $baseline;
 	padding: 1.5em;
@@ -160,6 +164,11 @@
 
 .module-1-1 {
 	width: 100%;
+}
+
+.module__avatar {
+	padding: .6em;
+	display: inline-block;
 }
 
 /* Buttons
