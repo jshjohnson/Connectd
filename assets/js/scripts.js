@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 		$(".overlay").click(function(e) {
 		    if (e.target == this) {
-		        $(this).hide();
+		        $(this).remove();
 		    }
 		});
 	});
