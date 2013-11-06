@@ -645,7 +645,7 @@ body {
 /* line 86, ../scss/core/_base.scss */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .65em;
-  margin-top: 2em;
+  margin-top: 1.5em;
 }
 
 /* line 87, ../scss/core/_base.scss */
@@ -900,6 +900,12 @@ blockquote p + .source {
   font-family: "Georgia", serif;
   font-size: .6em;
 }
+@media screen and (max-width: 30em) {
+  /* line 178, ../scss/core/_base.scss */
+  .intro-quote {
+    font-size: 1.5em;
+  }
+}
 
 /* line 180, ../scss/core/_base.scss */
 a:active, a:focus {
@@ -1082,14 +1088,8 @@ a:hover {
 .user-sidebar__info p {
   font-size: .9em;
 }
-@media screen and (max-width: 30em) {
-  /* line 26, ../scss/core/_layout.scss */
-  .user-sidebar__info {
-    padding-top: 0;
-  }
-}
 
-/* line 39, ../scss/core/_layout.scss */
+/* line 36, ../scss/core/_layout.scss */
 .footer--push {
   flex: 1;
 }
@@ -1237,19 +1237,18 @@ a:hover {
 .grid__developer img {
   width: 90%;
   border: 1px solid #f0eded;
-  min-height: 13.1em;
 }
 
 /**
  * Modifier: Half usual gutter
  * Allows for grids with half the usual gutter width
  */
-/* line 212, ../scss/libs/_griddle.scss */
+/* line 211, ../scss/libs/_griddle.scss */
 .grid--half-gutter .grid__cell, .grid--half-gutter .grid__cell--no-pad {
   padding: 0 0.5em;
 }
 
-/* line 217, ../scss/libs/_griddle.scss */
+/* line 216, ../scss/libs/_griddle.scss */
 .grid--no-marg {
   margin: 0;
 }
@@ -1259,7 +1258,7 @@ a:hover {
  * Allows for automatic unit centering irrespective of the number of
  * units in the grid.
  */
-/* line 228, ../scss/libs/_griddle.scss */
+/* line 227, ../scss/libs/_griddle.scss */
 .grid--center {
   text-align: center;
 }
@@ -1269,7 +1268,7 @@ a:hover {
  * Set a specific unit to be horizontally centered. Doesn't affect
  * any other units. Can still contain a child `grid` object.
  */
-/* line 238, ../scss/libs/_griddle.scss */
+/* line 237, ../scss/libs/_griddle.scss */
 .grid__cell--center {
   display: block;
   margin: 0 auto;
@@ -1509,7 +1508,7 @@ a:hover {
     width: 91.66667%;
   }
 }
-/* line 63, ../scss/core/_layout.scss */
+/* line 60, ../scss/core/_layout.scss */
 .panel {
   display: table;
   height: 100%;
@@ -1517,42 +1516,42 @@ a:hover {
   overflow: hidden;
 }
 @media screen and (max-width: 55em) {
-  /* line 63, ../scss/core/_layout.scss */
+  /* line 60, ../scss/core/_layout.scss */
   .panel {
     width: 100%;
     float: none;
   }
 }
 
-/* line 74, ../scss/core/_layout.scss */
+/* line 71, ../scss/core/_layout.scss */
 .panel-1-1 {
   width: 100%;
 }
 @media screen and (max-width: 55em) {
-  /* line 74, ../scss/core/_layout.scss */
+  /* line 71, ../scss/core/_layout.scss */
   .panel-1-1 {
     height: 100%;
   }
 }
 
-/* line 81, ../scss/core/_layout.scss */
+/* line 78, ../scss/core/_layout.scss */
 .panel-1-3 {
   width: 33.33%;
 }
 @media screen and (max-width: 55em) {
-  /* line 81, ../scss/core/_layout.scss */
+  /* line 78, ../scss/core/_layout.scss */
   .panel-1-3 {
     height: 33.33%;
     width: 100%;
   }
 }
 
-/* line 89, ../scss/core/_layout.scss */
+/* line 86, ../scss/core/_layout.scss */
 .panel-wrap {
   height: 100%;
 }
 
-/* line 93, ../scss/core/_layout.scss */
+/* line 90, ../scss/core/_layout.scss */
 .panel__container {
   display: table-cell;
   vertical-align: middle;
@@ -1565,94 +1564,94 @@ a:hover {
 
 /* Module layout
 ----------------------------------*/
-/* line 104, ../scss/core/_layout.scss */
+/* line 101, ../scss/core/_layout.scss */
 .module {
   margin-bottom: 2em;
   padding: 1.5em;
 }
-/* line 107, ../scss/core/_layout.scss */
+/* line 104, ../scss/core/_layout.scss */
 .module .grid__cell:last-of-type p:last-child, .module .grid__cell--no-pad:last-of-type p:last-child, .module .grid__cell:last-of-type img:last-child, .module .grid__cell--no-pad:last-of-type img:last-child {
   margin: 0;
 }
-/* line 110, ../scss/core/_layout.scss */
+/* line 107, ../scss/core/_layout.scss */
 .module > p:last-child, .module ul:last-child, .module ul li:last-of-type, .module iframe:last-child {
   margin-bottom: 0;
 }
-/* line 113, ../scss/core/_layout.scss */
+/* line 110, ../scss/core/_layout.scss */
 .module:last-child {
   margin-bottom: 0;
 }
 
-/* line 118, ../scss/core/_layout.scss */
+/* line 115, ../scss/core/_layout.scss */
 .module--half-pad {
   padding: .75em;
 }
 
-/* line 122, ../scss/core/_layout.scss */
+/* line 119, ../scss/core/_layout.scss */
 .module-sidebar {
   margin-bottom: 2em;
   padding: 1.5em;
 }
-/* line 125, ../scss/core/_layout.scss */
+/* line 122, ../scss/core/_layout.scss */
 .module-sidebar .grid__cell:last-of-type p:last-child, .module-sidebar .grid__cell--no-pad:last-of-type p:last-child, .module-sidebar .grid__cell:last-of-type img:last-child, .module-sidebar .grid__cell--no-pad:last-of-type img:last-child {
   margin: 0;
 }
-/* line 128, ../scss/core/_layout.scss */
+/* line 125, ../scss/core/_layout.scss */
 .module-sidebar > p:last-child, .module-sidebar ul:last-child, .module-sidebar ul li:last-of-type, .module-sidebar iframe:last-child {
   margin-bottom: 0;
 }
 
-/* line 135, ../scss/core/_layout.scss */
+/* line 132, ../scss/core/_layout.scss */
 .module > *:last-child,
 .module > *:last-child > *:last-child,
 .module > *:last-child > *:last-child > *:last-child {
   margin-bottom: 0;
 }
 
-/* line 139, ../scss/core/_layout.scss */
+/* line 136, ../scss/core/_layout.scss */
 .module--no-pad {
   padding: 0;
 }
 
-/* line 143, ../scss/core/_layout.scss */
+/* line 140, ../scss/core/_layout.scss */
 .module-2-3 {
   width: 63.33%;
 }
 @media screen and (max-width: 49em) {
-  /* line 143, ../scss/core/_layout.scss */
+  /* line 140, ../scss/core/_layout.scss */
   .module-2-3 {
     width: 100%;
   }
 }
 
-/* line 150, ../scss/core/_layout.scss */
+/* line 147, ../scss/core/_layout.scss */
 .module-1-3 {
   width: 32.33%;
 }
 @media screen and (max-width: 49em) {
-  /* line 150, ../scss/core/_layout.scss */
+  /* line 147, ../scss/core/_layout.scss */
   .module-1-3 {
     width: 100%;
   }
 }
 
-/* line 157, ../scss/core/_layout.scss */
+/* line 154, ../scss/core/_layout.scss */
 .module-1-2 {
   width: 48.5%;
 }
 @media screen and (max-width: 49em) {
-  /* line 157, ../scss/core/_layout.scss */
+  /* line 154, ../scss/core/_layout.scss */
   .module-1-2 {
     width: 100%;
   }
 }
 
-/* line 164, ../scss/core/_layout.scss */
+/* line 161, ../scss/core/_layout.scss */
 .module-1-1 {
   width: 100%;
 }
 
-/* line 168, ../scss/core/_layout.scss */
+/* line 165, ../scss/core/_layout.scss */
 .module__avatar {
   padding: .3em;
   display: inline-block;
@@ -1660,14 +1659,20 @@ a:hover {
 
 /* Buttons
 ----------------------------------*/
-/* line 176, ../scss/core/_layout.scss */
+/* line 173, ../scss/core/_layout.scss */
 .button-wrapper {
   text-align: center;
 }
 @media screen and (max-width: 49em) {
-  /* line 176, ../scss/core/_layout.scss */
+  /* line 173, ../scss/core/_layout.scss */
   .button-wrapper {
     margin-bottom: 1em;
+  }
+}
+@media screen and (max-width: 30em) {
+  /* line 173, ../scss/core/_layout.scss */
+  .button-wrapper {
+    margin-bottom: 0;
   }
 }
 

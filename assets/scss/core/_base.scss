@@ -83,7 +83,7 @@ body {
 }
 
 /* -- Vertical Rhythm -- */
-h1, h2, h3, h4, h5, h6 { margin-bottom: .65em; margin-top: $baseline; }
+h1, h2, h3, h4, h5, h6 { margin-bottom: .65em; margin-top: 1.5em; }
 h1, blockquote, pre, p, ul, ol, dl, hr { margin-top: 0; }
 p, ul, ol, dl, hr, form, table, blockquote, pre { margin-bottom: $baseline; }
 hr { border-top: 1px solid $color-keyline; }
@@ -175,7 +175,7 @@ blockquote p { font-size: 1.35em; }
 blockquote p + .source { margin-top: -$baseline; }
 .source { display: block; @include font-sans; font-size: 1em; font-weight: bold; font-style: normal; margin-top: .5em;}
 .source:before { content:"\2013\0020"; }
-.intro-quote { @include font-serif; font-size: 2em; margin: .5em 0; .source { @include font-serif; font-size: .6em; }}
+.intro-quote { @include font-serif; font-size: 2em; margin: .5em 0; .source { @include font-serif; font-size: .6em; } @include respond-max($bp1) { font-size: 1.5em;}}
 
 a:active, a:focus { position: relative; top: 1px; }
 
