@@ -3,8 +3,8 @@
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata>Copyright (C) 2013 by original authors @ fontello.com</metadata>
 <defs>
-<font id="converge" horiz-adv-x="1000" >
-<font-face font-family="converge" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<font id="connectd" horiz-adv-x="1000" >
+<font-face font-family="connectd" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
 <missing-glyph horiz-adv-x="1000" />
 <glyph glyph-name="search" unicode="&#x69;" d="m643 386q0 103-74 176t-176 74t-177-74t-73-176t73-177t177-73t176 73t74 177z m286-465q0-29-22-50t-50-21q-30 0-50 21l-191 191q-100-69-223-69q-80 0-153 31t-125 84t-84 125t-31 153t31 152t84 126t125 84t153 31t152-31t126-84t84-126t31-152q0-123-69-223l191-191q21-21 21-51z" horiz-adv-x="928.6" />
 <glyph glyph-name="clock" unicode="&#x66;" d="m0 350q0 95 37 182t100 149t150 100t182 37t182-37t149-100t100-149t37-182t-37-182t-100-150t-149-100t-182-37t-182 37t-150 100t-100 150t-37 182z m117 0q0-96 47-177t128-128t177-47q95 0 176 47t128 128t47 177q0 95-47 176t-128 128t-176 47q-72 0-137-28t-112-75t-75-112t-28-136z m293 0v224q0 24 17 41t42 18t41-18t17-41v-200l142-141q17-17 17-42t-17-41t-41-17q-25 0-42 17l-159 158q-1 2-4 5t-3 4q-1 2-2 4l-2 3t-1 4q-1 0-2 5q-2 5-2 5q-1 6-1 12z" horiz-adv-x="937.5" />

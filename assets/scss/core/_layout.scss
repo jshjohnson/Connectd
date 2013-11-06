@@ -24,16 +24,15 @@
 }
 
 .user-sidebar__info {
-	padding: 1.5em;
 	margin-left: auto;
 	margin-right: auto;
+	padding: 1.5em;
 	@include box-sizing(border-box);
 	p {
 		font-size: .9em;
 	}
 	@include respond-max($bp1) {
 		padding-top: 0;
-		padding-bottom: 6.5%;
 	}
 }
 
@@ -103,7 +102,7 @@
 ----------------------------------*/
 
 .module {
-	margin-bottom: $baseline;
+	margin-bottom: 2em;
 	padding: 1.5em;
 	.grid__cell:last-of-type p:last-child, .grid__cell:last-of-type img:last-child {
 		margin: 0;
@@ -167,7 +166,7 @@
 }
 
 .module__avatar {
-	padding: .6em;
+	padding: .3em;
 	display: inline-block;
 }
 
