@@ -2402,18 +2402,23 @@ img.media__img {
   overflow-y: scroll;
 }
 /* line 10, ../scss/core/modules/_dashboard.scss */
+.dashboard-panel .media-wrapper--single {
+  max-height: 25em;
+  overflow-y: scroll;
+}
+/* line 14, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel:last-child {
   margin-bottom: 0;
 }
-/* line 13, ../scss/core/modules/_dashboard.scss */
+/* line 17, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel ::-webkit-scrollbar {
   width: .5em;
 }
-/* line 16, ../scss/core/modules/_dashboard.scss */
+/* line 20, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel ::-webkit-scrollbar-track {
   background-color: transparent;
 }
-/* line 19, ../scss/core/modules/_dashboard.scss */
+/* line 23, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel ::-webkit-scrollbar-thumb {
   background-color: rgba(44, 62, 80, 0.3);
 }
