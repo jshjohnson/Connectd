@@ -8,7 +8,7 @@
 .skills--developer {
 	width: 100%;
 	@include respond-min($bp1) {
-		width: 49.5%;
+		width: 49.95%;
 	}
 	&:nth-child(odd) {
 		padding-right: 1em; 

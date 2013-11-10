@@ -2551,7 +2551,7 @@ img.media__img {
 @media screen and (min-width: 30em) {
   /* line 8, ../scss/core/modules/_skills.scss */
   .skills--developer {
-    width: 49.5%;
+    width: 49.95%;
   }
 }
 /* line 13, ../scss/core/modules/_skills.scss */

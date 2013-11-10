@@ -2249,7 +2249,7 @@ img.media__img {
 /* line 8, ../scss/core/modules/_skills.scss */
 .skills--developer {
   width: 100%;
-  width: 49.5%;
+  width: 49.95%;
 }
 /* line 13, ../scss/core/modules/_skills.scss */
 .skills--developer:nth-child(odd) {
