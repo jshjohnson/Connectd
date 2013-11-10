@@ -2283,12 +2283,15 @@ img.media__img {
 .skills__tag:after {
   content: "";
   background-image: url("../img/tag-end.svg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
+  background-repeat: no-repeat;
   width: 1.2em;
   position: absolute;
   height: 2.5em;
   right: -1.2em;
-  background-repeat: no-repeat;
   bottom: 0;
 }
 
@@ -2516,16 +2519,18 @@ img.media__img {
 .overlay__inner textarea {
   background-color: #f7f7f7;
   font-size: .8em;
+  line-height: 1.5;
+  padding: 1em;
 }
 
-/* line 30, ../scss/core/modules/_overlay.scss */
+/* line 32, ../scss/core/modules/_overlay.scss */
 .overlay > *:last-child,
 .overlay > *:last-child > *:last-child,
 .overlay > *:last-child > *:last-child > *:last-child {
   margin-bottom: 0;
 }
 
-/* line 34, ../scss/core/modules/_overlay.scss */
+/* line 36, ../scss/core/modules/_overlay.scss */
 .overlay__title {
   margin-top: 0;
   font-weight: 600;

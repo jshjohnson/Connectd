@@ -19,6 +19,8 @@
 	textarea {
 		background-color: $color-background-light;
 		font-size: .8em;
+		line-height: 1.5;
+		padding: 1em;
 	}
 	@include respond-max($bp2) {
 		width: 75%;

@@ -41,12 +41,12 @@
 	&:after {
 		content: "";
 		background-image: url("../img/tag-end.svg");
-		background-size: cover;
+		@include background-size(cover);
+		background-repeat: no-repeat;
 		width: 1.2em;
 		position: absolute;
 		height: 2.5em;
 		right: -1.2em;
-		background-repeat: no-repeat;
 		bottom: 0;
 	}
 }
