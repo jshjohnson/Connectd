@@ -1859,28 +1859,30 @@ img.media__img {
   position: relative;
   bottom: 0;
   margin-top: 2.5em;
+  max-height: 3.5em;
+  max-height: 1.8em;
 }
-/* line 281, ../scss/core/_modules.scss */
+/* line 282, ../scss/core/_modules.scss */
 .footer a {
   color: #2c3e50;
 }
 
-/* line 286, ../scss/core/_modules.scss */
+/* line 290, ../scss/core/_modules.scss */
 .footer__logo {
   text-align: right;
   width: auto;
 }
-/* line 289, ../scss/core/_modules.scss */
+/* line 293, ../scss/core/_modules.scss */
 .footer__logo a {
   color: #2c3e50;
 }
 
-/* line 298, ../scss/core/_modules.scss */
+/* line 302, ../scss/core/_modules.scss */
 .footer__links {
   line-height: 1.8;
   width: auto;
 }
-/* line 301, ../scss/core/_modules.scss */
+/* line 305, ../scss/core/_modules.scss */
 .footer__links li {
   display: inline-block;
   *display: inline;
@@ -1888,24 +1890,24 @@ img.media__img {
   font-size: .8em;
   margin: 0;
 }
-/* line 307, ../scss/core/_modules.scss */
+/* line 311, ../scss/core/_modules.scss */
 .footer__links li:after {
   padding: 0 .25em 0 .5em;
   content: '•';
 }
-/* line 312, ../scss/core/_modules.scss */
+/* line 316, ../scss/core/_modules.scss */
 .footer__links li:last-child:after {
   content: none;
 }
 
 /* Misc
 ----------------------------------*/
-/* line 325, ../scss/core/_modules.scss */
+/* line 329, ../scss/core/_modules.scss */
 .section-content {
   padding: 2.5em 0;
 }
 
-/* line 332, ../scss/core/_modules.scss */
+/* line 336, ../scss/core/_modules.scss */
 .iphone-img {
   margin-top: -10em;
   margin-bottom: -2.5em;
@@ -1914,7 +1916,7 @@ img.media__img {
 
 /* Portfolio
 ----------------------------------*/
-/* line 349, ../scss/core/_modules.scss */
+/* line 353, ../scss/core/_modules.scss */
 .portfolio__headings-bg {
   background-color: #f0eded;
   font-size: .8em;
@@ -1926,12 +1928,12 @@ img.media__img {
   margin-top: 0;
 }
 
-/* line 361, ../scss/core/_modules.scss */
+/* line 365, ../scss/core/_modules.scss */
 .portfolio__headings {
   margin: 0;
   position: relative;
 }
-/* line 364, ../scss/core/_modules.scss */
+/* line 368, ../scss/core/_modules.scss */
 .portfolio__headings li {
   display: inline-block;
   *display: inline;
@@ -1940,20 +1942,20 @@ img.media__img {
   position: relative;
   padding: .5em 1.4em .4em;
 }
-/* line 371, ../scss/core/_modules.scss */
+/* line 375, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 374, ../scss/core/_modules.scss */
+/* line 378, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   background-color: #2c3e50;
   color: white;
 }
-/* line 377, ../scss/core/_modules.scss */
+/* line 381, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 380, ../scss/core/_modules.scss */
+/* line 384, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -1967,51 +1969,51 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 398, ../scss/core/_modules.scss */
+/* line 402, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   background-color: #6dbcdb;
   color: white;
 }
-/* line 401, ../scss/core/_modules.scss */
+/* line 405, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active:after {
   border-top-color: #6dbcdb;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 411, ../scss/core/_modules.scss */
+/* line 415, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
   flex: 1;
 }
-/* line 414, ../scss/core/_modules.scss */
+/* line 418, ../scss/core/_modules.scss */
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
 }
-/* line 418, ../scss/core/_modules.scss */
+/* line 422, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 423, ../scss/core/_modules.scss */
+/* line 427, ../scss/core/_modules.scss */
 .price-per-hour {
   margin-top: .35em;
 }
-/* line 425, ../scss/core/_modules.scss */
+/* line 429, ../scss/core/_modules.scss */
 .price-per-hour h5 {
   margin: 0;
   text-align: center;
   font-weight: 600;
 }
-/* line 430, ../scss/core/_modules.scss */
+/* line 434, ../scss/core/_modules.scss */
 .price-per-hour span {
   font-size: .7em;
   display: block;
   line-height: .9;
 }
 
-/* line 437, ../scss/core/_modules.scss */
+/* line 441, ../scss/core/_modules.scss */
 .currency-button {
   background-color: #77c462;
   border-radius: 10em;
@@ -2022,7 +2024,7 @@ img.media__img {
   height: 3.5em;
 }
 
-/* line 447, ../scss/core/_modules.scss */
+/* line 451, ../scss/core/_modules.scss */
 .currency {
   line-height: 3.5em;
   text-align: center;
@@ -2447,21 +2449,21 @@ img.media__img {
   margin-top: -8.5em;
   margin-bottom: 5em;
 }
-/* line 20, ../scss/core/modules/_forms.scss */
+/* line 21, ../scss/core/modules/_forms.scss */
 .form-overlay form {
   margin-bottom: 0;
 }
 
-/* line 25, ../scss/core/modules/_forms.scss */
+/* line 26, ../scss/core/modules/_forms.scss */
 .field-1-2 {
   width: 48%;
 }
-/* line 27, ../scss/core/modules/_forms.scss */
+/* line 28, ../scss/core/modules/_forms.scss */
 .field-1-2:nth-child(2) {
   margin-top: 0;
 }
 
-/* line 38, ../scss/core/modules/_forms.scss */
+/* line 39, ../scss/core/modules/_forms.scss */
 .button-container {
   border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
   position: relative;
@@ -2470,21 +2472,21 @@ img.media__img {
   text-align: center;
   z-index: 0;
 }
-/* line 45, ../scss/core/modules/_forms.scss */
+/* line 46, ../scss/core/modules/_forms.scss */
 .button-container button a, .button-container a:active, .button-container a:visited {
   color: white;
   text-decoration: none;
   font-weight: 500;
   top: 0;
 }
-/* line 51, ../scss/core/modules/_forms.scss */
+/* line 52, ../scss/core/modules/_forms.scss */
 .button-container input {
   top: 1.4em;
   position: relative;
   margin: auto;
   min-width: 13em;
 }
-/* line 56, ../scss/core/modules/_forms.scss */
+/* line 57, ../scss/core/modules/_forms.scss */
 .button-container input:hover {
   top: 1.5em;
 }

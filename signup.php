@@ -33,11 +33,13 @@
 	</header>
 	<section>
 		<div class="section-heading color-blue">
-			<div class="grid text-center">
-				<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
-					<blockquote class="intro-quote text-center">
-						The beginning of something special...
-					</blockquote>
+			<div class="container">
+				<div class="grid text-center">
+					<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
+						<blockquote class="intro-quote text-center">
+							The beginning of something special...
+						</blockquote>
+					</div>
 				</div>
 			</div>
 		</div>

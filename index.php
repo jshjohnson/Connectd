@@ -15,8 +15,7 @@
 	<![endif]-->
 	<!--[if gt IE 8]><!-->
 	    <link rel="stylesheet" href="assets/css/screen.css">
-	<!--<![endif]-->
-	
+	<!--<![endif]-->	
 	<script src="assets/js/libs/modernizr-2.5.3.min.js"></script>
 	<script type="text/javascript" src="//use.typekit.net/dxr1afv.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>

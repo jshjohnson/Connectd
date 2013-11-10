@@ -278,8 +278,12 @@ img.media__img {
 	position: relative;
 	bottom: 0;
 	margin-top: 2.5em;
+	max-height: 3.5em;
 	a {
 		color: $color-brand-dark;
+	}
+	@include respond-min($bp1) {
+		max-height: 1.8em;
 	}
 }
 
