@@ -13,8 +13,8 @@ after "deploy", "deploy:cleanup"
 # Setup Git
 ############################################
 
-set :application, "ACPGBI-Tripartite2014-Website"
-set :repository, "git@github.com:Mixd/ACPGBI-Tripartite2014-Website.git"
+set :application, "Connectd"
+set :repository, "git@github.com:jshjohnson/Connectd.git"
 set :scm, :git
 set(:git_enable_submodules, true)
 # set :deploy_via, :remote_cache
@@ -30,61 +30,6 @@ ssh_options[:forward_agent] = true
 ############################################
 # Recipies
 ############################################
-
-### WordPress
-
-namespace :wp do
-    desc "Setup symlinks for a WordPress project"
-    task :create_symlinks, :roles => :app do
-        run "ln -nfs #{shared_path}/uploads #{release_path}/content/uploads"
-        run "ln -nfs #{shared_path}/wp-config.php #{release_path}/wp-config.php"
-        run "ln -nfs #{shared_path}/.htaccess-master #{release_path}/.htaccess"
-    end
-
-    desc "Create files and directories for WordPress environment"
-    task :setup, :roles => :app do
-        run "mkdir -p #{shared_path}/uploads"
-        run "touch #{shared_path}/.htaccess-master"
-        secret_keys = capture("curl -s -k https://api.wordpress.org/secret-key/1.1/salt")
-        wp_siteurl = Capistrano::CLI.ui.ask("#{stage} site URL: ")
-        database = YAML::load_file('config/database.yml')[stage.to_s]
-
-        db_config = ERB.new(File.read('./config/templates/wp-config.php.erb')).result(binding)
-        accessfile = ERB.new(File.read('./config/templates/.htaccess.erb')).result(binding)
-
-        put db_config, "#{shared_path}/wp-config.php"
-        put accessfile, "#{shared_path}/.htaccess-master"
-    end
-
-    desc "Sets up WordPress wpconfig and .htaccess for your local environment"
-    task :setup_local, :roles => :app do
-        database = YAML::load_file('config/database.yml')['local']
-        secret_keys = capture("curl -s -k https://api.wordpress.org/secret-key/1.1/salt")
-        wp_siteurl = Capistrano::CLI.ui.ask("local site URL: ")
-        db_config = ERB.new(File.read('./config/templates/wp-config.php.erb')).result(binding)
-        accessfile = ERB.new(File.read('./config/templates/.htaccess.erb')).result(binding)
-
-        puts "Creating local wp-config.php and .htaccess"
-        File.open("wp-config.php", 'w') {|f| f.write(db_config) }
-        File.open(".htaccess", 'w') {|f| f.write(accessfile) }
-
-    end
-
-    desc "Syncs WordPress Uploads directory to remote server"
-    task :push_uploads, :roles => :app do
-        system("rsync -ravz --delete --progress content/uploads/* #{user}@#{host}:#{shared_path}/uploads")
-    end
-
-    desc "Syncs WordPress Uploads directory to local server"
-    task :pull_uploads, :roles => :app do
-        system("mkdir content/uploads")
-        system("rsync -ravz --delete --progress #{user}@#{host}:#{shared_path}/uploads/* content/uploads")
-    end
-
-end
-
-after "deploy:create_symlink", "wp:create_symlinks"
-after "deploy:setup", "wp:setup"
 
 ### Git
 
