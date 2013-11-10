@@ -189,7 +189,14 @@ $grid-gutter: 2em !default; // can be px, em, or %
     img {
         width: 85%;
         border: 1px solid #f0eded;
-        min-height: 8.25em;
+    }
+    .grid__cell {
+        @include respond-max($bp3) {
+            width: 49.95%;
+        }
+        @include respond-max($bp1) {
+            width: 100%;
+        }
     }
 }
 
@@ -199,6 +206,12 @@ $grid-gutter: 2em !default; // can be px, em, or %
     img {
         width: 90%;
         border: 1px solid #f0eded;
+    }
+    .grid__cell {
+        width: 100%;
+        @include respond-min($bp1) {
+            width: 49.95%;
+        }
     }
 }
 

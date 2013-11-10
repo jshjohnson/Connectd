@@ -1193,30 +1193,34 @@ a:hover {
 .grid__designer img {
   width: 85%;
   border: 1px solid #f0eded;
-  min-height: 8.25em;
 }
 
-/* line 196, ../scss/libs/_griddle.scss */
+/* line 203, ../scss/libs/_griddle.scss */
 .grid__developer {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-/* line 199, ../scss/libs/_griddle.scss */
+/* line 206, ../scss/libs/_griddle.scss */
 .grid__developer img {
   width: 90%;
   border: 1px solid #f0eded;
+}
+/* line 210, ../scss/libs/_griddle.scss */
+.grid__developer .grid__cell, .grid__developer .grid__cell--no-pad {
+  width: 100%;
+  width: 49.95%;
 }
 
 /**
  * Modifier: Half usual gutter
  * Allows for grids with half the usual gutter width
  */
-/* line 211, ../scss/libs/_griddle.scss */
+/* line 224, ../scss/libs/_griddle.scss */
 .grid--half-gutter .grid__cell, .grid--half-gutter .grid__cell--no-pad {
   padding: 0 0.5em;
 }
 
-/* line 216, ../scss/libs/_griddle.scss */
+/* line 229, ../scss/libs/_griddle.scss */
 .grid--no-marg {
   margin: 0;
 }
@@ -1226,7 +1230,7 @@ a:hover {
  * Allows for automatic unit centering irrespective of the number of
  * units in the grid.
  */
-/* line 227, ../scss/libs/_griddle.scss */
+/* line 240, ../scss/libs/_griddle.scss */
 .grid--center {
   text-align: center;
 }
@@ -1236,7 +1240,7 @@ a:hover {
  * Set a specific unit to be horizontally centered. Doesn't affect
  * any other units. Can still contain a child `grid` object.
  */
-/* line 237, ../scss/libs/_griddle.scss */
+/* line 250, ../scss/libs/_griddle.scss */
 .grid__cell--center {
   display: block;
   margin: 0 auto;
@@ -2242,16 +2246,21 @@ img.media__img {
   margin-bottom: .5em;
 }
 
-/* line 9, ../scss/core/modules/_skills.scss */
+/* line 8, ../scss/core/modules/_skills.scss */
+.skills--developer {
+  width: 100%;
+  width: 49.5%;
+}
+/* line 13, ../scss/core/modules/_skills.scss */
 .skills--developer:nth-child(odd) {
   padding-right: 1em;
 }
-/* line 15, ../scss/core/modules/_skills.scss */
+/* line 19, ../scss/core/modules/_skills.scss */
 .skills--developer:nth-child(even) {
   padding-left: 1em;
 }
 
-/* line 23, ../scss/core/modules/_skills.scss */
+/* line 27, ../scss/core/modules/_skills.scss */
 .skills__tag {
   position: relative;
   font-size: .7em;
@@ -2264,11 +2273,11 @@ img.media__img {
   margin-bottom: 1em;
   margin-right: 2em;
 }
-/* line 34, ../scss/core/modules/_skills.scss */
+/* line 38, ../scss/core/modules/_skills.scss */
 .skills__tag:last-child {
   margin-right: 0;
 }
-/* line 37, ../scss/core/modules/_skills.scss */
+/* line 41, ../scss/core/modules/_skills.scss */
 .skills__tag:after {
   content: "";
   background-image: url("../img/tag-end.svg");
@@ -2281,7 +2290,7 @@ img.media__img {
   bottom: 0;
 }
 
-/* line 50, ../scss/core/modules/_skills.scss */
+/* line 54, ../scss/core/modules/_skills.scss */
 .skills__bar {
   background-color: #f0eded;
   font-size: .8em;
@@ -2296,7 +2305,7 @@ img.media__img {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 61, ../scss/core/modules/_skills.scss */
+/* line 65, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name {
   background-color: #6dbcdb;
   padding: .6em .6em .6em 1.2em;
@@ -2305,23 +2314,23 @@ img.media__img {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 66, ../scss/core/modules/_skills.scss */
+/* line 70, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="5"] {
   width: 100%;
 }
-/* line 69, ../scss/core/modules/_skills.scss */
+/* line 73, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="4"] {
   width: 75%;
 }
-/* line 72, ../scss/core/modules/_skills.scss */
+/* line 76, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="3"] {
   width: 50%;
 }
-/* line 75, ../scss/core/modules/_skills.scss */
+/* line 79, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="2"] {
   width: 25%;
 }
-/* line 78, ../scss/core/modules/_skills.scss */
+/* line 82, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="1"] {
   width: 0%;
 }
@@ -2486,11 +2495,12 @@ img.media__img {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
   width: 100%;
   z-index: 5000;
 }
 
-/* line 10, ../scss/core/modules/_overlay.scss */
+/* line 11, ../scss/core/modules/_overlay.scss */
 .overlay__inner {
   background-color: white;
   margin: auto;
@@ -2500,20 +2510,20 @@ img.media__img {
   padding: 1.5em;
   margin-top: 6%;
 }
-/* line 18, ../scss/core/modules/_overlay.scss */
+/* line 19, ../scss/core/modules/_overlay.scss */
 .overlay__inner textarea {
   background-color: #f7f7f7;
   font-size: .8em;
 }
 
-/* line 29, ../scss/core/modules/_overlay.scss */
+/* line 30, ../scss/core/modules/_overlay.scss */
 .overlay > *:last-child,
 .overlay > *:last-child > *:last-child,
 .overlay > *:last-child > *:last-child > *:last-child {
   margin-bottom: 0;
 }
 
-/* line 33, ../scss/core/modules/_overlay.scss */
+/* line 34, ../scss/core/modules/_overlay.scss */
 .overlay__title {
   margin-top: 0;
   font-weight: 600;
