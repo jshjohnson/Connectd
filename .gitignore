@@ -1,3 +1,25 @@
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+database.yml
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Misc #
+###################
+
+.htaccess
+
+_assets
+
+ai-cache/*
 
 .DS_Store
 
