@@ -24,6 +24,10 @@
 	text-align: center;
 }
 
+.cover {
+	@include background-size(cover);
+}
+
 /* Theme Classes */
 
 .brand-text {
