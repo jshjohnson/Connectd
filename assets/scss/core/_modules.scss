@@ -339,16 +339,39 @@ img.media__img {
 /* Misc
 ----------------------------------*/
 
-.section-content {
-	padding: 2.5em 0;
+.section {
+	padding: 3.5em 0;
 	@include respond-max($bp3) {
 		padding: 1.5em 0;
 	}
 }
 
+.section__content {
+	h1,h2,h3,h4 {
+		margin-top: 0;
+	}
+	*:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.section__img {
+	max-width: 18.5em;
+}
+
+.section--mission {
+	background-image: url('../img/handheld.jpg');
+	@include background-size(cover);
+	background-attachment: fixed;
+	background-position: top center;
+	@include respond-max($bp2) {
+		background-attachment: scroll;
+	}
+}
+
 .iphone-img {
 	margin-top: -10em;
-	margin-bottom: -2.5em;
+	margin-bottom: -3.5em;
 	@include respond-max($bp3-5) {
 		margin-top: 1em;
 	}

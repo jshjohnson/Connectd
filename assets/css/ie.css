@@ -900,13 +900,13 @@ a:active, a:focus {
 /* line 185, ../scss/core/_base.scss */
 a {
   text-decoration: none;
-  color: #316cb2;
+  color: #2c3e50;
 }
 
 /* -- visited -- */
 /* line 190, ../scss/core/_base.scss */
 a:visited {
-  color: #316cb2;
+  color: #2c3e50;
 }
 
 /* -- hovers -- */
@@ -1920,20 +1920,45 @@ img.media__img {
 /* Misc
 ----------------------------------*/
 /* line 342, ../scss/core/_modules.scss */
-.section-content {
-  padding: 2.5em 0;
+.section {
+  padding: 3.5em 0;
 }
 
-/* line 349, ../scss/core/_modules.scss */
+/* line 350, ../scss/core/_modules.scss */
+.section__content h1, .section__content h2, .section__content h3, .section__content h4 {
+  margin-top: 0;
+}
+/* line 353, ../scss/core/_modules.scss */
+.section__content *:last-child {
+  margin-bottom: 0;
+}
+
+/* line 358, ../scss/core/_modules.scss */
+.section__img {
+  max-width: 18.5em;
+}
+
+/* line 362, ../scss/core/_modules.scss */
+.section--mission {
+  background-image: url("../img/handheld.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top center;
+}
+
+/* line 372, ../scss/core/_modules.scss */
 .iphone-img {
   margin-top: -10em;
-  margin-bottom: -2.5em;
+  margin-bottom: -3.5em;
   margin-top: 1em;
 }
 
 /* Portfolio
 ----------------------------------*/
-/* line 366, ../scss/core/_modules.scss */
+/* line 389, ../scss/core/_modules.scss */
 .portfolio__headings-bg {
   background-color: #f0eded;
   font-size: .8em;
@@ -1945,12 +1970,12 @@ img.media__img {
   margin-top: 0;
 }
 
-/* line 378, ../scss/core/_modules.scss */
+/* line 401, ../scss/core/_modules.scss */
 .portfolio__headings {
   margin: 0;
   position: relative;
 }
-/* line 381, ../scss/core/_modules.scss */
+/* line 404, ../scss/core/_modules.scss */
 .portfolio__headings li {
   display: inline-block;
   *display: inline;
@@ -1959,20 +1984,20 @@ img.media__img {
   position: relative;
   padding: .5em 1.4em .4em;
 }
-/* line 388, ../scss/core/_modules.scss */
+/* line 411, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 391, ../scss/core/_modules.scss */
+/* line 414, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   background-color: #2c3e50;
   color: white;
 }
-/* line 394, ../scss/core/_modules.scss */
+/* line 417, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 397, ../scss/core/_modules.scss */
+/* line 420, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -1986,51 +2011,51 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 415, ../scss/core/_modules.scss */
+/* line 438, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   background-color: #6dbcdb;
   color: white;
 }
-/* line 418, ../scss/core/_modules.scss */
+/* line 441, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active:after {
   border-top-color: #6dbcdb;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 428, ../scss/core/_modules.scss */
+/* line 451, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
   flex: 1;
 }
-/* line 431, ../scss/core/_modules.scss */
+/* line 454, ../scss/core/_modules.scss */
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
 }
-/* line 435, ../scss/core/_modules.scss */
+/* line 458, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 440, ../scss/core/_modules.scss */
+/* line 463, ../scss/core/_modules.scss */
 .price-per-hour {
   margin-top: .35em;
 }
-/* line 442, ../scss/core/_modules.scss */
+/* line 465, ../scss/core/_modules.scss */
 .price-per-hour h5 {
   margin: 0;
   text-align: center;
   font-weight: 600;
 }
-/* line 447, ../scss/core/_modules.scss */
+/* line 470, ../scss/core/_modules.scss */
 .price-per-hour span {
   font-size: .7em;
   display: block;
   line-height: .9;
 }
 
-/* line 454, ../scss/core/_modules.scss */
+/* line 477, ../scss/core/_modules.scss */
 .currency-button {
   background-color: #77c462;
   border-radius: 10em;
@@ -2041,7 +2066,7 @@ img.media__img {
   height: 3.5em;
 }
 
-/* line 464, ../scss/core/_modules.scss */
+/* line 487, ../scss/core/_modules.scss */
 .currency {
   line-height: 3.5em;
   text-align: center;
@@ -2498,6 +2523,7 @@ img.media__img {
   position: relative;
   margin-top: -8.5em;
   margin-bottom: 5em;
+  border-bottom: 0.2em solid #c4c4c4;
 }
 /* line 21, ../scss/core/modules/_forms.scss */
 .form-overlay form {

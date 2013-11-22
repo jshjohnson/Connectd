@@ -58,7 +58,7 @@
 					<input type="number" name="experience" required placeholder="Years Experience" class="field-1-2 float-right">
 					<textarea name="about" cols="30" rows="10" placeholder="A little about you..."></textarea>
 					<div class="button-container">
-		            	<input class="submit" type="submit" value="Apply for your place">						
+		            	<input class="submit" type="submit" value="Apply for your place">					
 					</div>
 		        </form>
 			</div>
@@ -69,7 +69,8 @@
 			<div class="grid">
 				<ul class="grid__cell unit-1-2--bp2 footer__links">
 					<li><a href="about.html">About</a></li>
-					<li><a href="">Terms &amp; Conditions</a></li>
+					<li><a href="sitemap.html">Sitemap</a></li>
+					<li><a href="terms.html">Terms</a></li>
 				</ul>
 				<h2 class="grid__cell unit-1-2--bp2 page-logo footer__logo">
 					<a href="index.php">connectd</a>
