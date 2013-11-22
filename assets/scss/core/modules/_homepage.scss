@@ -75,3 +75,13 @@
 		font-size: 2em;
 	}
 }
+
+.panel__landing-page {
+	font-size: 6em;
+	@include respond-max($bp2) {
+		font-size: 4em;
+	}
+	@include respond-max($bp1) {
+		font-size: 2em;
+	}
+}

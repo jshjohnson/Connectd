@@ -38,11 +38,18 @@
 	font-weight: 600;
 }
 
-.user-sidebar__job, .user-sidebar__geo {
+.user-sidebar__job, .user-sidebar__geo, .user-sidebar__web {
 	font-size: .9em;
 	margin-top: 0;
 	margin-bottom: $baseline/3;
 	font-weight: 500;
+	a {
+		color: $color-brand-dark;
+		text-decoration: underline;
+	}
+	&:last-of-type {
+		margin-bottom: $baseline/2;
+	}
 }
 
 .user-sidebar__price {
@@ -86,5 +93,12 @@
 .user-sidebar--employer {
 	@include respond-max($bp2) {
 		margin-bottom: $baseline;
+	}
+}
+
+.user-sidebar__info {
+	p {
+		font-size: .9em;
+		margin-bottom: 1em;
 	}
 }

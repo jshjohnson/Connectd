@@ -28,9 +28,6 @@
 	margin-right: auto;
 	padding: 1.5em;
 	@include box-sizing(border-box);
-	p {
-		font-size: .9em;
-	}
 }
 
 .footer--push {

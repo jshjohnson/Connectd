@@ -80,11 +80,11 @@ img.media__img {
 }
 
 .media-1-3 {
-	width: 15%;
+	width: 20%;
 }
 
 .media-2-3 {
-	width: 80%;
+	width: 75%;
 }
 
 .media-1-3, .media-2-3 {
@@ -208,6 +208,11 @@ img.media__img {
 	color: white;
 }
 
+.color-grey {
+	background-color: #DDDDDD;
+	color: white;
+}
+
 /* Header
 ----------------------------------*/
 
@@ -242,8 +247,16 @@ img.media__img {
 	}
 }
 
-.header--alt {
+.header-blue--alt {
 	background-color: #51abd0;
+}
+
+.header-navy--alt {
+	background-color: #253546;
+}
+
+.header-green--alt {
+	background-color: #6bad55;
 }
 
 /* Page

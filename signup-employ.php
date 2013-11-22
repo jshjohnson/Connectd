@@ -21,7 +21,7 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="site">
-	<header class="header header--alt zero-bottom cf">
+	<header class="header header-green--alt zero-bottom cf">
 		<div class="container">
 			<h1 class="page-title">
 				Sign Up
@@ -32,7 +32,7 @@
 		</div>
 	</header>
 	<section>
-		<div class="section-heading color-blue">
+		<div class="section-heading color-green">
 			<div class="container">
 				<div class="grid text-center">
 					<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="footer--push color-navy">
+	<section class="footer--push color-grey">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
 				<form method="post" action="register.php">

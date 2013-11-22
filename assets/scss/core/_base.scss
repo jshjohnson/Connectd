@@ -209,11 +209,11 @@ a:hover {
 
 .icon--search:before { content: '\69'; } /* 'i' */
 .icon--clock:before { content: '\66'; } /* 'f' */
-.icon--attach:before { content: '\6b'; margin-right: .5em; top: 0; } /* 'k' */
-.icon--location:before { content: '\6a'; margin-right: .5em; top: 0; } /* 'j' */
+.icon--attach:before { content: '\6b'; margin-right: .5em; top: 0;  width: 1em; } /* 'k' */
+.icon--location:before { content: '\6a'; margin-right: .5em; top: 0;  width: 1em; } /* 'j' */
 .icon--calendar:before { content: '\61'; } /* 'a' */
 .icon--male:before { content: '\62'; } /* 'b' */
-.icon--globe:before { content: '\68'; } /* 'h' */
+.icon--globe:before { content: '\68'; margin-right: .5em; top: 0; width: 1em; } /* 'h' */
 .icon--briefcase:before { content: '\67'; } /* 'g' */
 .icon--magic:before { content: '\64'; } /* 'd' */
 .icon--sitemap:before { content: '\63'; } /* 'c' */
