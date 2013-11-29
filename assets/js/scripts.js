@@ -51,4 +51,25 @@ $(document).ready(function() {
 			});
 		});
 	});
+
+	// Search Overlay
+
+	$(".search-trigger").on('click', function(e) {
+		e.preventDefault();
+
+		var docHeight = $(document).height();
+
+	    $.get("assets/ajax/search.php", function(data){
+		    $("body").append(data);
+			$(".overlay").css({
+				height: docHeight,
+			});
+    		$(".overlay").click(function(e) {
+			    if (e.target == this) {
+			        $(this).remove();
+			    }
+			});
+		});
+	});
+
 });
