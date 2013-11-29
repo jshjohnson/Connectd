@@ -20,7 +20,6 @@ $(document).ready(function() {
 		var docHeight = $(document).height();
 
 	    $.get("assets/ajax/hire.php", function(data){
-		    var docHeight = $(document).height();
 		    $("body").append(data);
 			$(".overlay").css({
 				height: docHeight,
@@ -38,8 +37,9 @@ $(document).ready(function() {
 	$(".post-job-trigger").on('click', function(e) {
 		e.preventDefault();
 
+		var docHeight = $(document).height();
+
 	    $.get("assets/ajax/post-job.php", function(data){
-	    	var docHeight = $(document).height();
 		    $("body").append(data);
 			$(".overlay").css({
 				height: docHeight,
