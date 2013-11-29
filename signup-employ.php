@@ -53,12 +53,12 @@
 					<input type="email" name="email" required placeholder="Email">
 					<input type='password' name='password' required placeholder="Password" class="field-1-2 float-left">
 					<input type='password' name='repeatpassword' required placeholder="Repeat Password" class="field-1-2 float-right">
-					<input type="text" name="job" required placeholder="Job Title">
-					<input type="number" name="age" required placeholder="Age" class="field-1-2 float-left">
-					<input type="number" name="experience" required placeholder="Years Experience" class="field-1-2 float-right">
-					<textarea name="about" cols="30" rows="10" placeholder="A little about you..."></textarea>
+					<input type="text" name="business" required placeholder="Business name">
+					<input type="number" name="age" required placeholder="Business type">
+					<input type="text" name="website" required placeholder="Business website">
+					<textarea name="about" cols="30" rows="10" placeholder="A little about your business..."></textarea>
 					<div class="button-container">
-		            	<input class="submit" type="submit" value="Apply for your place">						
+		            	<input class="submit" type="submit" value="Start employing">						
 					</div>
 		        </form>
 			</div>

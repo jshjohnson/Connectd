@@ -1,5 +1,5 @@
 .overlay {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	background-color: rgba(black, 0.4);
@@ -16,11 +16,14 @@
 	height: auto;
 	padding: 1.5em;
 	margin-top: 6%;
-	textarea {
+	input[type=text], textarea {
 		background-color: $color-background-light;
 		font-size: .8em;
-		line-height: 1.5;
 		padding: 1em;
+		margin-top: 0;
+	}
+	textarea {
+		line-height: 1.5;
 	}
 	@include respond-max($bp2) {
 		width: 75%;

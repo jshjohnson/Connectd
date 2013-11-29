@@ -12,14 +12,14 @@ $(document).ready(function() {
 	// FitVids
 	$(".container").fitVids();
 
-	// Overlay
+	// Hire Overlay
 
-	$(".button-trigger").on('click', function(e) {
+	$(".hire-trigger").on('click', function(e) {
 		e.preventDefault();
 
 		var docHeight = $(document).height();
 
-	    $.get("assets/ajax/form.php", function(data){
+	    $.get("assets/ajax/hire.php", function(data){
 		    $("body").append(data);
     		$(".overlay").click(function(e) {
 			    if (e.target == this) {
@@ -28,4 +28,23 @@ $(document).ready(function() {
 			});
 		});
 	});
+
+	// Post job Overlay
+
+	$(".post-job-trigger").on('click', function(e) {
+		e.preventDefault();
+
+		var docHeight = $(document).height();
+
+	    $.get("assets/ajax/post-job.php", function(data){
+		    $("body").append(data);
+    		$(".overlay").click(function(e) {
+			    if (e.target == this) {
+			        $(this).remove();
+			    }
+			});
+		});
+	});
+
+
 });
