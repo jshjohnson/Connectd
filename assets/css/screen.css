@@ -2998,7 +2998,7 @@ img.media__img {
   margin-top: 6%;
 }
 /* line 19, ../scss/core/modules/_overlay.scss */
-.overlay__inner input[type=text], .overlay__inner textarea {
+.overlay__inner input:not([type=submit]), .overlay__inner textarea {
   background-color: #f7f7f7;
   font-size: .8em;
   padding: 1em;

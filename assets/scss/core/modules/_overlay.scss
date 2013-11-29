@@ -16,7 +16,7 @@
 	height: auto;
 	padding: 1.5em;
 	margin-top: 6%;
-	input[type=text], textarea {
+	input:not([type=submit]), textarea {
 		background-color: $color-background-light;
 		font-size: .8em;
 		padding: 1em;
