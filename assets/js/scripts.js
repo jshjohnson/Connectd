@@ -21,13 +21,14 @@ $(document).ready(function() {
 		var docHeight = $(document).height();
 
 	    $.get("assets/ajax/apply.php", function(data){
-		    $("body").append(data);
+		    $("body").append(data).addClass("blur");
 			$(".overlay").css({
 				height: docHeight,
 			});
     		$(".overlay").click(function(e) {
 			    if (e.target == this) {
 			        $(this).remove();
+			        $("body").removeClass("blur")
 			    }
 			});
 		});
@@ -41,13 +42,14 @@ $(document).ready(function() {
 		var docHeight = $(document).height();
 
 	    $.get("assets/ajax/hire.php", function(data){
-		    $("body").append(data);
+		    $("body").append(data).addClass("blur");
 			$(".overlay").css({
 				height: docHeight,
 			});
     		$(".overlay").click(function(e) {
 			    if (e.target == this) {
 			        $(this).remove();
+			        $("body").removeClass("blur")
 			    }
 			});
 		});
@@ -61,13 +63,14 @@ $(document).ready(function() {
 		var docHeight = $(document).height();
 
 	    $.get("assets/ajax/collaborate.php", function(data){
-		    $("body").append(data);
+		    $("body").append(data).addClass("blur");
 			$(".overlay").css({
 				height: docHeight,
 			});
     		$(".overlay").click(function(e) {
 			    if (e.target == this) {
 			        $(this).remove();
+			        $("body").removeClass("blur")
 			    }
 			});
 		});
@@ -81,13 +84,14 @@ $(document).ready(function() {
 		var docHeight = $(document).height();
 
 	    $.get("assets/ajax/post-job.php", function(data){
-		    $("body").append(data);
+		    $("body").append(data).addClass("blur");
 			$(".overlay").css({
 				height: docHeight,
 			});
     		$(".overlay").click(function(e) {
 			    if (e.target == this) {
 			        $(this).remove();
+			        $("body").removeClass("blur")
 			    }
 			});
 		});
@@ -101,13 +105,14 @@ $(document).ready(function() {
 		var docHeight = $(document).height();
 
 	    $.get("assets/ajax/search.php", function(data){
-		    $("body").append(data);
+		    $("body").append(data).addClass("blur");
 			$(".overlay").css({
 				height: docHeight,
 			});
     		$(".overlay").click(function(e) {
 			    if (e.target == this) {
 			        $(this).remove();
+			        $("body").removeClass("blur")
 			    }
 			});
 		});

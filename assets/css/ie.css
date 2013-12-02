@@ -949,81 +949,97 @@ a:hover {
   padding-right: .3em;
 }
 
-/* line 207, ../scss/core/_base.scss */
-.icon--search:before {
-  content: '\69';
-}
-
-/* 'i' */
-/* line 208, ../scss/core/_base.scss */
-.icon--clock:before {
-  content: '\66';
-}
-
-/* 'f' */
-/* line 209, ../scss/core/_base.scss */
-.icon--attach:before {
-  content: '\6b';
+/* line 206, ../scss/core/_base.scss */
+.icon--marg:before {
   margin-right: .5em;
   top: 0;
   width: 1em;
 }
 
-/* 'k' */
-/* line 210, ../scss/core/_base.scss */
-.icon--location:before {
-  content: '\6a';
-  margin-right: .5em;
-  top: 0;
-  width: 1em;
-}
-
-/* 'j' */
-/* line 211, ../scss/core/_base.scss */
-.icon--calendar:before {
-  content: '\61';
-}
-
-/* 'a' */
 /* line 212, ../scss/core/_base.scss */
-.icon--male:before {
-  content: '\62';
+.icon--clock:before {
+  content: '\e803';
 }
 
-/* 'b' */
+/* '' */
 /* line 213, ../scss/core/_base.scss */
-.icon--globe:before {
-  content: '\68';
-  margin-right: .5em;
-  top: 0;
-  width: 1em;
+.icon--users:before {
+  content: '\e800';
 }
 
-/* 'h' */
+/* '' */
 /* line 214, ../scss/core/_base.scss */
-.icon--briefcase:before {
-  content: '\67';
+.icon--location:before {
+  content: '\e805';
 }
 
-/* 'g' */
+/* '' */
 /* line 215, ../scss/core/_base.scss */
-.icon--magic:before {
-  content: '\64';
+.icon--calendar:before {
+  content: '\e806';
 }
 
-/* 'd' */
+/* '' */
 /* line 216, ../scss/core/_base.scss */
-.icon--sitemap:before {
-  content: '\63';
+.icon--male:before {
+  content: '\e807';
 }
 
-/* 'c' */
+/* '' */
 /* line 217, ../scss/core/_base.scss */
-.icon--lightbulb:before {
-  content: '\65';
+.icon--globe:before {
+  content: '\e808';
 }
 
-/* 'e' */
+/* '' */
+/* line 218, ../scss/core/_base.scss */
+.icon--briefcase:before {
+  content: '\e809';
+}
+
+/* '' */
+/* line 219, ../scss/core/_base.scss */
+.icon--attach:before {
+  content: '\e804';
+}
+
+/* '' */
+/* line 220, ../scss/core/_base.scss */
+.icon--sitemap:before {
+  content: '\e80b';
+}
+
+/* '' */
+/* line 221, ../scss/core/_base.scss */
+.icon--lightbulb:before {
+  content: '\e80c';
+}
+
+/* '' */
+/* line 222, ../scss/core/_base.scss */
+.icon--search:before {
+  content: '\e801';
+}
+
+/* '' */
+/* line 223, ../scss/core/_base.scss */
+.icon--bookmark:before {
+  content: '\e80d';
+}
+
+/* '' */
+/* line 224, ../scss/core/_base.scss */
+.icon--star:before {
+  content: '\e80e';
+}
+
+/* '' */
+/* line 225, ../scss/core/_base.scss */
+.icon--magic:before {
+  content: '\e80a';
+}
+
+/* '' */
 /*----------------------------------------------------------------------------------------*\
  $.LAYOUT
 \*----------------------------------------------------------------------------------------*/
@@ -1950,9 +1966,15 @@ img.media__img {
   margin-top: 1em;
 }
 
+/* line 386, ../scss/core/_modules.scss */
+.blur .site-wrap {
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+}
+
 /* Portfolio
 ----------------------------------*/
-/* line 389, ../scss/core/_modules.scss */
+/* line 394, ../scss/core/_modules.scss */
 .portfolio__headings-bg {
   background-color: #f0eded;
   font-size: .8em;
@@ -1964,12 +1986,12 @@ img.media__img {
   margin-top: 0;
 }
 
-/* line 401, ../scss/core/_modules.scss */
+/* line 406, ../scss/core/_modules.scss */
 .portfolio__headings {
   margin: 0;
   position: relative;
 }
-/* line 404, ../scss/core/_modules.scss */
+/* line 409, ../scss/core/_modules.scss */
 .portfolio__headings li {
   display: inline-block;
   *display: inline;
@@ -1978,20 +2000,20 @@ img.media__img {
   position: relative;
   padding: .5em 1.4em .4em;
 }
-/* line 411, ../scss/core/_modules.scss */
+/* line 416, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 414, ../scss/core/_modules.scss */
+/* line 419, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   background-color: #2c3e50;
   color: white;
 }
-/* line 417, ../scss/core/_modules.scss */
+/* line 422, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 420, ../scss/core/_modules.scss */
+/* line 425, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -2005,51 +2027,51 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 438, ../scss/core/_modules.scss */
+/* line 443, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   background-color: #6dbcdb;
   color: white;
 }
-/* line 441, ../scss/core/_modules.scss */
+/* line 446, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active:after {
   border-top-color: #6dbcdb;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 451, ../scss/core/_modules.scss */
+/* line 456, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
   flex: 1;
 }
-/* line 454, ../scss/core/_modules.scss */
+/* line 459, ../scss/core/_modules.scss */
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
 }
-/* line 458, ../scss/core/_modules.scss */
+/* line 463, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 463, ../scss/core/_modules.scss */
+/* line 468, ../scss/core/_modules.scss */
 .price-per-hour {
   margin-top: .35em;
 }
-/* line 465, ../scss/core/_modules.scss */
+/* line 470, ../scss/core/_modules.scss */
 .price-per-hour h5 {
   margin: 0;
   text-align: center;
   font-weight: 600;
 }
-/* line 470, ../scss/core/_modules.scss */
+/* line 475, ../scss/core/_modules.scss */
 .price-per-hour span {
   font-size: .7em;
   display: block;
   line-height: .9;
 }
 
-/* line 477, ../scss/core/_modules.scss */
+/* line 482, ../scss/core/_modules.scss */
 .currency-button {
   background-color: #77c462;
   border-radius: 10em;
@@ -2060,7 +2082,7 @@ img.media__img {
   height: 3.5em;
 }
 
-/* line 487, ../scss/core/_modules.scss */
+/* line 492, ../scss/core/_modules.scss */
 .currency {
   line-height: 3.5em;
   text-align: center;
