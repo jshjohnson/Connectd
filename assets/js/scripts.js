@@ -12,6 +12,27 @@ $(document).ready(function() {
 	// FitVids
 	$(".container").fitVids();
 
+
+	// Apply Overlay
+
+	$(".apply-trigger").on('click', function(e) {
+		e.preventDefault();
+
+		var docHeight = $(document).height();
+
+	    $.get("assets/ajax/apply.php", function(data){
+		    $("body").append(data);
+			$(".overlay").css({
+				height: docHeight,
+			});
+    		$(".overlay").click(function(e) {
+			    if (e.target == this) {
+			        $(this).remove();
+			    }
+			});
+		});
+	});
+
 	// Hire Overlay
 
 	$(".hire-trigger").on('click', function(e) {
@@ -20,6 +41,26 @@ $(document).ready(function() {
 		var docHeight = $(document).height();
 
 	    $.get("assets/ajax/hire.php", function(data){
+		    $("body").append(data);
+			$(".overlay").css({
+				height: docHeight,
+			});
+    		$(".overlay").click(function(e) {
+			    if (e.target == this) {
+			        $(this).remove();
+			    }
+			});
+		});
+	});
+
+	// Collaborate Overlay
+
+	$(".collaborate-trigger").on('click', function(e) {
+		e.preventDefault();
+
+		var docHeight = $(document).height();
+
+	    $.get("assets/ajax/collaborate.php", function(data){
 		    $("body").append(data);
 			$(".overlay").css({
 				height: docHeight,

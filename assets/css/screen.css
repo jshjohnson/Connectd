@@ -2576,7 +2576,7 @@ img.media__img {
 
 /* line 26, ../scss/core/modules/_buttons.scss */
 .button-action {
-  margin-top: .85em;
+  margin-top: .76em;
   margin-right: 1em;
   font-size: .7em;
   font-weight: 500;
@@ -2871,23 +2871,22 @@ img.media__img {
   overflow-y: scroll;
 }
 /* line 10, ../scss/core/modules/_dashboard.scss */
-.dashboard-panel .media-wrapper--single {
+.dashboard-panel .media-wrapper--tall {
   max-height: 25em;
-  overflow-y: scroll;
 }
-/* line 14, ../scss/core/modules/_dashboard.scss */
+/* line 13, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel:last-child {
   margin-bottom: 0;
 }
-/* line 17, ../scss/core/modules/_dashboard.scss */
+/* line 16, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel ::-webkit-scrollbar {
   width: .5em;
 }
-/* line 20, ../scss/core/modules/_dashboard.scss */
+/* line 19, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel ::-webkit-scrollbar-track {
   background-color: transparent;
 }
-/* line 23, ../scss/core/modules/_dashboard.scss */
+/* line 22, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel ::-webkit-scrollbar-thumb {
   background-color: rgba(44, 62, 80, 0.3);
 }
