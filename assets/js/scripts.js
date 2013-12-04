@@ -25,14 +25,15 @@ $(document).ready(function() {
 			e.preventDefault();
 
 		    $.get($file, function(data){
-			    $("body").append(data).addClass("blur");
+			    $("body").append(data);
+			    $(".site-wrap").addClass("blur");
 				$(".overlay").css({
 					height: docHeight,
 				});
 	    		$(".overlay").click(function(e) {
 				    if (e.target == this) {
 				        $(this).remove();
-				        $("body").removeClass("blur")
+				        $(".site-wrap").removeClass("blur")
 				    }
 				});
 			});
@@ -44,5 +45,6 @@ $(document).ready(function() {
 	overlay($(".post-job-trigger"), "assets/ajax/post-job.php");
 	overlay($(".collaborate-trigger"), "assets/ajax/collaborate.php");
 	overlay($(".search-trigger"), "assets/ajax/search.php");
+	overlay($(".skills-trigger"), "assets/ajax/skills.php");
 
 });

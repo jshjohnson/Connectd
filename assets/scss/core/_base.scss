@@ -106,9 +106,14 @@ dd { margin-left: 0; margin-bottom: $baseline / 2; font-style: italic; }
 
 /* -- Tables -- */
 caption { padding-bottom: .5em; font-style: italic; }
-th, td { padding: .25em .5em; border: 1px solid $color-keyline; }
+th, td { padding: .25em .5em; font-size: .9em; padding: 1em;
+	*:last-child {
+		margin-bottom: 0;
+	}
+}
 tr:nth-child(odd) td { background-color: #F6F6F6; }
-th, legend { font-weight: bold; background: $color-comp; }	
+th, legend { font-weight: bold; background: $color-comp; color: white; padding: .5em 1em; font-size: .9em;}	
+td { background-color: #F6F6F6; border-top: .5em solid white; border-bottom: .5em solid white;}
 
 /* -- Forms -- */
  

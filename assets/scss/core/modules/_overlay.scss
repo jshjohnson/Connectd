@@ -25,7 +25,7 @@
 	textarea {
 		line-height: 1.5;
 	}
-	@include respond-max($bp2) {
+	@include respond-max($bp3-5) {
 		width: 75%;
 	}
 }

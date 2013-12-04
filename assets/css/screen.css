@@ -660,7 +660,7 @@ p, ul, ol, dl, hr, form, table, blockquote, pre {
 
 /* line 89, ../scss/core/_base.scss */
 hr {
-  border-top: 1px solid #999999;
+  border-top: 1px solid #cccccc;
 }
 
 /* line 90, ../scss/core/_base.scss */
@@ -745,34 +745,49 @@ caption {
 /* line 109, ../scss/core/_base.scss */
 th, td {
   padding: .25em .5em;
-  border: 1px solid #999999;
+  font-size: .9em;
+  padding: 1em;
+}
+/* line 110, ../scss/core/_base.scss */
+th *:last-child, td *:last-child {
+  margin-bottom: 0;
 }
 
-/* line 110, ../scss/core/_base.scss */
+/* line 114, ../scss/core/_base.scss */
 tr:nth-child(odd) td {
   background-color: #F6F6F6;
 }
 
-/* line 111, ../scss/core/_base.scss */
+/* line 115, ../scss/core/_base.scss */
 th, legend {
   font-weight: bold;
-  background: #cdccb7;
+  background: #6dbcdb;
+  color: white;
+  padding: .5em 1em;
+  font-size: .9em;
+}
+
+/* line 116, ../scss/core/_base.scss */
+td {
+  background-color: #F6F6F6;
+  border-top: .5em solid white;
+  border-bottom: .5em solid white;
 }
 
 /* -- Forms -- */
-/* line 115, ../scss/core/_base.scss */
+/* line 120, ../scss/core/_base.scss */
 label {
   display: block;
   padding-bottom: .25em;
   font-weight: bold;
 }
 
-/* line 116, ../scss/core/_base.scss */
+/* line 121, ../scss/core/_base.scss */
 textarea {
   line-height: 1.5;
 }
 
-/* line 120, ../scss/core/_base.scss */
+/* line 125, ../scss/core/_base.scss */
 input,
 select,
 textarea {
@@ -785,14 +800,14 @@ textarea {
   border-radius: 0;
   margin: 1em 0;
 }
-/* line 129, ../scss/core/_base.scss */
+/* line 134, ../scss/core/_base.scss */
 input:first-child,
 select:first-child,
 textarea:first-child {
   margin-top: 0;
 }
 
-/* line 136, ../scss/core/_base.scss */
+/* line 141, ../scss/core/_base.scss */
 button,
 .btn:link,
 input[type=submit] {
@@ -810,9 +825,9 @@ input[type=submit] {
   border-radius: 5px;
   min-width: 8em;
   color: #FFF;
-  background-color: #cdccb7;
+  background-color: #6dbcdb;
 }
-/* line 146, ../scss/core/_base.scss */
+/* line 151, ../scss/core/_base.scss */
 button a, button a:visited,
 .btn:link a,
 .btn:link a:visited,
@@ -820,7 +835,7 @@ input[type=submit] a,
 input[type=submit] a:visited {
   color: white;
 }
-/* line 149, ../scss/core/_base.scss */
+/* line 154, ../scss/core/_base.scss */
 button:hover,
 .btn:link:hover,
 input[type=submit]:hover {
@@ -831,7 +846,7 @@ input[type=submit]:hover {
   box-shadow: 0 2px 0;
 }
 @media screen and (max-width: 82em) {
-  /* line 136, ../scss/core/_base.scss */
+  /* line 141, ../scss/core/_base.scss */
   button,
   .btn:link,
   input[type=submit] {
@@ -839,36 +854,36 @@ input[type=submit]:hover {
   }
 }
 
-/* line 160, ../scss/core/_base.scss */
+/* line 165, ../scss/core/_base.scss */
 input[type=text]:focus, textarea:focus, button:focus {
   outline: none;
 }
 
 /* -- Blockquotes -- */
-/* line 166, ../scss/core/_base.scss */
+/* line 171, ../scss/core/_base.scss */
 blockquote {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 170, ../scss/core/_base.scss */
+/* line 175, ../scss/core/_base.scss */
 blockquote {
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
   font-style: italic;
   clear: both;
 }
 
-/* line 171, ../scss/core/_base.scss */
+/* line 176, ../scss/core/_base.scss */
 blockquote p {
   font-size: 1.35em;
 }
 
-/* line 172, ../scss/core/_base.scss */
+/* line 177, ../scss/core/_base.scss */
 blockquote p + .source {
   margin-top: -2em;
 }
 
-/* line 173, ../scss/core/_base.scss */
+/* line 178, ../scss/core/_base.scss */
 .source {
   display: block;
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
@@ -878,30 +893,30 @@ blockquote p + .source {
   margin-top: .5em;
 }
 
-/* line 174, ../scss/core/_base.scss */
+/* line 179, ../scss/core/_base.scss */
 .source:before {
   content: "\2013\0020";
 }
 
-/* line 175, ../scss/core/_base.scss */
+/* line 180, ../scss/core/_base.scss */
 .intro-quote {
   font-family: "Georgia", serif;
   font-size: 2em;
   margin: .5em 0;
 }
-/* line 175, ../scss/core/_base.scss */
+/* line 180, ../scss/core/_base.scss */
 .intro-quote .source {
   font-family: "Georgia", serif;
   font-size: .6em;
 }
 @media screen and (max-width: 30em) {
-  /* line 175, ../scss/core/_base.scss */
+  /* line 180, ../scss/core/_base.scss */
   .intro-quote {
     font-size: 1.5em;
   }
 }
 
-/* line 177, ../scss/core/_base.scss */
+/* line 182, ../scss/core/_base.scss */
 a:active, a:focus {
   position: relative;
   top: 1px;
@@ -909,20 +924,20 @@ a:active, a:focus {
 
 /* Links
 ----------------------------------*/
-/* line 182, ../scss/core/_base.scss */
+/* line 187, ../scss/core/_base.scss */
 a {
   text-decoration: none;
   color: #2c3e50;
 }
 
 /* -- visited -- */
-/* line 187, ../scss/core/_base.scss */
+/* line 192, ../scss/core/_base.scss */
 a:visited {
   color: #2c3e50;
 }
 
 /* -- hovers -- */
-/* line 194, ../scss/core/_base.scss */
+/* line 199, ../scss/core/_base.scss */
 a:hover {
   color: #222222;
 }
@@ -967,92 +982,92 @@ a:hover {
   padding-right: .3em;
 }
 
-/* line 206, ../scss/core/_base.scss */
+/* line 211, ../scss/core/_base.scss */
 .icon--marg:before {
   margin-right: .5em;
   top: 0;
   width: 1em;
 }
 
-/* line 212, ../scss/core/_base.scss */
+/* line 217, ../scss/core/_base.scss */
 .icon--clock:before {
   content: '\e803';
 }
 
 /* '' */
-/* line 213, ../scss/core/_base.scss */
+/* line 218, ../scss/core/_base.scss */
 .icon--users:before {
   content: '\e800';
 }
 
 /* '' */
-/* line 214, ../scss/core/_base.scss */
+/* line 219, ../scss/core/_base.scss */
 .icon--location:before {
   content: '\e805';
 }
 
 /* '' */
-/* line 215, ../scss/core/_base.scss */
+/* line 220, ../scss/core/_base.scss */
 .icon--calendar:before {
   content: '\e806';
 }
 
 /* '' */
-/* line 216, ../scss/core/_base.scss */
+/* line 221, ../scss/core/_base.scss */
 .icon--male:before {
   content: '\e807';
 }
 
 /* '' */
-/* line 217, ../scss/core/_base.scss */
+/* line 222, ../scss/core/_base.scss */
 .icon--globe:before {
   content: '\e808';
 }
 
 /* '' */
-/* line 218, ../scss/core/_base.scss */
+/* line 223, ../scss/core/_base.scss */
 .icon--briefcase:before {
   content: '\e809';
 }
 
 /* '' */
-/* line 219, ../scss/core/_base.scss */
+/* line 224, ../scss/core/_base.scss */
 .icon--attach:before {
   content: '\e804';
 }
 
 /* '' */
-/* line 220, ../scss/core/_base.scss */
+/* line 225, ../scss/core/_base.scss */
 .icon--sitemap:before {
   content: '\e80b';
 }
 
 /* '' */
-/* line 221, ../scss/core/_base.scss */
+/* line 226, ../scss/core/_base.scss */
 .icon--lightbulb:before {
   content: '\e80c';
 }
 
 /* '' */
-/* line 222, ../scss/core/_base.scss */
+/* line 227, ../scss/core/_base.scss */
 .icon--search:before {
   content: '\e801';
 }
 
 /* '' */
-/* line 223, ../scss/core/_base.scss */
+/* line 228, ../scss/core/_base.scss */
 .icon--bookmark:before {
   content: '\e80d';
 }
 
 /* '' */
-/* line 224, ../scss/core/_base.scss */
+/* line 229, ../scss/core/_base.scss */
 .icon--star:before {
   content: '\e80e';
 }
 
 /* '' */
-/* line 225, ../scss/core/_base.scss */
+/* line 230, ../scss/core/_base.scss */
 .icon--magic:before {
   content: '\e80a';
 }
@@ -1928,7 +1943,7 @@ img.media__img {
 /* line 151, ../scss/core/_modules.scss */
 .island {
   padding: 1.5em;
-  background-color: #cdccb7;
+  background-color: #6dbcdb;
   margin-bottom: 1em;
 }
 /* line 156, ../scss/core/_modules.scss */
@@ -1953,7 +1968,7 @@ img.media__img {
 
 /* line 25, ../scss/config/_mixins.scss */
 .nav--divided li {
-  border-left: 1px solid #999999;
+  border-left: 1px solid #cccccc;
 }
 /* line 28, ../scss/config/_mixins.scss */
 .nav--divided li:first-child {
@@ -2243,9 +2258,9 @@ img.media__img {
 }
 
 /* line 386, ../scss/core/_modules.scss */
-.blur .site-wrap {
-  -webkit-filter: blur(4px);
-  filter: blur(4px);
+.blur {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
 }
 
 /* Portfolio
@@ -3023,7 +3038,7 @@ img.media__img {
 .overlay__inner textarea {
   line-height: 1.5;
 }
-@media screen and (max-width: 49em) {
+@media screen and (max-width: 74em) {
   /* line 11, ../scss/core/modules/_overlay.scss */
   .overlay__inner {
     width: 75%;
@@ -3162,7 +3177,7 @@ img.media__img {
 
 /* line 52, ../scss/core/_overrides.scss */
 .headline {
-  border-bottom: 1px solid #999999;
+  border-bottom: 1px solid #cccccc;
   padding-bottom: .45em;
 }
 
