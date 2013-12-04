@@ -1,8 +1,8 @@
 <section class='overlay'>
 	<div class='overlay__inner'> 
 		<h2 class='overlay__title'>Skills</h2>
-		<div class="grid">
-			<table class="skills grid__cell unit-1-2--bp1">
+		<div class="grid--no-marg cf">
+			<table class="skills grid__cell--no-pad module-1-2 float-left">
 				<tbody>
 					<th>HTML5 &amp; CSS3</th>
 					<tr>
@@ -30,7 +30,7 @@
 					</tr>		      
 				</tbody>
 			</table>
-			<table class="skills grid__cell unit-1-2--bp1">
+			<table class="skills grid__cell--no-pad module-1-2 float-right">
 				<tbody>
 					<th>Git &amp; Version Control</th>
 					<tr>
