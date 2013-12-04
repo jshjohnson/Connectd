@@ -1070,6 +1070,15 @@ a:hover {
 
 /* '' */
 /* line 229, ../scss/core/_base.scss */
+.icon--star-alt:before {
+  content: '\e80e';
+  color: #E7E948;
+  float: left;
+  top: 9px;
+}
+
+/* '' */
+/* line 230, ../scss/core/_base.scss */
 .icon--magic:before {
   content: '\e80a';
 }
@@ -1696,11 +1705,34 @@ a:hover {
 }
 
 /* line 158, ../scss/core/_layout.scss */
+.module-1-4 {
+  width: 25%;
+}
+@media screen and (max-width: 82em) {
+  /* line 158, ../scss/core/_layout.scss */
+  .module-1-4 {
+    width: 33.333333%;
+  }
+}
+@media screen and (max-width: 49em) {
+  /* line 158, ../scss/core/_layout.scss */
+  .module-1-4 {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 30em) {
+  /* line 158, ../scss/core/_layout.scss */
+  .module-1-4 {
+    width: 100%;
+  }
+}
+
+/* line 171, ../scss/core/_layout.scss */
 .module-1-1 {
   width: 100%;
 }
 
-/* line 162, ../scss/core/_layout.scss */
+/* line 175, ../scss/core/_layout.scss */
 .module__avatar {
   padding: 6px;
   display: inline-block;
@@ -1708,24 +1740,24 @@ a:hover {
 
 /* Buttons
 ----------------------------------*/
-/* line 170, ../scss/core/_layout.scss */
+/* line 183, ../scss/core/_layout.scss */
 .button-wrapper {
   text-align: center;
 }
 @media screen and (max-width: 49em) {
-  /* line 170, ../scss/core/_layout.scss */
+  /* line 183, ../scss/core/_layout.scss */
   .button-wrapper {
     margin-bottom: 1em;
   }
 }
 @media screen and (max-width: 30em) {
-  /* line 170, ../scss/core/_layout.scss */
+  /* line 183, ../scss/core/_layout.scss */
   .button-wrapper {
     margin-bottom: 0;
   }
 }
 
-/* line 180, ../scss/core/_layout.scss */
+/* line 193, ../scss/core/_layout.scss */
 .button-left, .button-right {
   margin-left: 1em;
   margin-right: 1em;
@@ -1734,29 +1766,29 @@ a:hover {
   padding-right: 0;
 }
 @media screen and (max-width: 82em) {
-  /* line 180, ../scss/core/_layout.scss */
+  /* line 193, ../scss/core/_layout.scss */
   .button-left, .button-right {
     margin: .5em 0;
     padding: .9em 1.5em .8em;
   }
-  /* line 189, ../scss/core/_layout.scss */
+  /* line 202, ../scss/core/_layout.scss */
   .button-left:first-child, .button-right:first-child {
     margin-top: 0;
   }
-  /* line 192, ../scss/core/_layout.scss */
+  /* line 205, ../scss/core/_layout.scss */
   .button-left:last-child, .button-right:last-child {
     margin-bottom: 0;
   }
 }
 @media screen and (max-width: 30em) {
-  /* line 180, ../scss/core/_layout.scss */
+  /* line 193, ../scss/core/_layout.scss */
   .button-left, .button-right {
     margin-left: .5em;
     margin-right: .5em;
   }
 }
 
-/* line 202, ../scss/core/_layout.scss */
+/* line 215, ../scss/core/_layout.scss */
 .ribbon {
   position: absolute;
   right: 1em;
@@ -1767,7 +1799,7 @@ a:hover {
   border-bottom: 1em solid #f7f7f7;
   width: 0;
 }
-/* line 211, ../scss/core/_layout.scss */
+/* line 224, ../scss/core/_layout.scss */
 .ribbon h5 {
   line-height: 1.5;
   font-size: .7em;
@@ -2841,29 +2873,29 @@ img.media__img {
   box-sizing: border-box;
   position: relative;
 }
+/* line 33, ../scss/core/modules/_sidebar.scss */
+.portfolio *:last-child, .user-sidebar *:last-child, .dashboard-panel *:last-child {
+  margin-bottom: 0;
+}
 
-/* line 35, ../scss/core/modules/_sidebar.scss */
+/* line 38, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__title {
   font-size: 1.35em;
   margin: 0 0 .2em;
   font-weight: 600;
 }
 
-/* line 41, ../scss/core/modules/_sidebar.scss */
+/* line 44, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__job, .user-sidebar__geo, .user-sidebar__web {
   font-size: .9em;
   margin-top: 0;
   margin-bottom: 0.66667em;
   font-weight: 500;
 }
-/* line 46, ../scss/core/modules/_sidebar.scss */
+/* line 49, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__job a, .user-sidebar__geo a, .user-sidebar__web a {
   color: #2c3e50;
   text-decoration: underline;
-}
-/* line 50, ../scss/core/modules/_sidebar.scss */
-.user-sidebar__job:last-of-type, .user-sidebar__geo:last-of-type, .user-sidebar__web:last-of-type {
-  margin-bottom: 1em;
 }
 
 /* line 55, ../scss/core/modules/_sidebar.scss */

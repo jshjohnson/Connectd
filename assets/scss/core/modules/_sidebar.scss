@@ -30,6 +30,9 @@
 	background-color: $color-background-light;
 	@include box-sizing(border-box);
 	position: relative;
+	*:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .user-sidebar__title {
@@ -46,9 +49,6 @@
 	a {
 		color: $color-brand-dark;
 		text-decoration: underline;
-	}
-	&:last-of-type {
-		margin-bottom: $baseline/2;
 	}
 }
 
