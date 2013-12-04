@@ -223,7 +223,10 @@ img.media__img {
 
 .header {
 	margin-bottom: 2.5em;
-	background-color: $color-brand-dark
+	background-color: $color-brand-dark;
+	@include respond-max($bp1) {
+		margin-bottom: 1.5em;
+	}
 }
 
 .header--designer {

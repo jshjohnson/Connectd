@@ -1,28 +1,28 @@
 <section class='overlay'>
 	<div class='overlay__inner'> 
-		<h2 class='overlay__title'>Skills</h2>
+		<h2 class='overlay__title'>Designer skills</h2>
 		<div class="grid--no-marg cf">
 			<table class="skills grid__cell--no-pad module-1-2 float-left">
 				<tbody>
-					<th>HTML5 &amp; CSS3</th>
+					<th>User Experience (UX Design)</th>
 					<tr>
 						<td>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, illo, tenetur, blanditiis, quod at similique ut corrupti ratione sequi mollitia debitis suscipit fuga ipsam. Quos nesciunt reiciendis dolore aspernatur? Laudantium?</p>
 						</td>
 					</tr>
-					<th>PHP &amp; Ruby</th>
+					<th>Interface Design</th>
 					<tr>
 						<td>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, illo, tenetur, blanditiis, quod at similique ut corrupti ratione sequi mollitia debitis suscipit fuga ipsam. Quos nesciunt reiciendis dolore aspernatur? Laudantium?</p>
 						</td>
 					</tr>
-					<th>MySQL</th>
+					<th>Graphical Design</th>
 					<tr>
 						<td>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, illo, tenetur, blanditiis, quod at similique ut corrupti ratione sequi mollitia debitis suscipit fuga ipsam. Quos nesciunt reiciendis dolore aspernatur? Laudantium?</p>
 						</td>
 					</tr>
-					<th>SASS &amp; LESS</th>
+					<th>Web Design</th>
 					<tr>
 						<td>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, illo, tenetur, blanditiis, quod at similique ut corrupti ratione sequi mollitia debitis suscipit fuga ipsam. Quos nesciunt reiciendis dolore aspernatur? Laudantium?</p>
@@ -32,25 +32,25 @@
 			</table>
 			<table class="skills grid__cell--no-pad module-1-2 float-right">
 				<tbody>
-					<th>Javascript &amp; jQuery</th>
+					<th>Illustrator</th>
 					<tr>
 						<td>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, illo, tenetur, blanditiis, quod at similique ut corrupti ratione sequi mollitia debitis suscipit fuga ipsam. Quos nesciunt reiciendis dolore aspernatur? Laudantium?</p>
 						</td>
 					</tr>
-					<th>iOS &amp; Android</th>
+					<th>Photoshop</th>
 					<tr>
 						<td>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, illo, tenetur, blanditiis, quod at similique ut corrupti ratione sequi mollitia debitis suscipit fuga ipsam. Quos nesciunt reiciendis dolore aspernatur? Laudantium?</p>
 						</td>
 					</tr>
-					<th>Git &amp; Version Control</th>
+					<th>InDesign</th>
 					<tr>
 						<td>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, illo, tenetur, blanditiis, quod at similique ut corrupti ratione sequi mollitia debitis suscipit fuga ipsam. Quos nesciunt reiciendis dolore aspernatur? Laudantium?</p>
 						</td>
 					</tr>
-					<th>Responsive Web Design</th>
+					<th>Typography</th>
 					<tr>
 						<td>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, illo, tenetur, blanditiis, quod at similique ut corrupti ratione sequi mollitia debitis suscipit fuga ipsam. Quos nesciunt reiciendis dolore aspernatur? Laudantium?</p>

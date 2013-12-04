@@ -45,6 +45,7 @@ $(document).ready(function() {
 	overlay($(".post-job-trigger"), "assets/ajax/post-job.php");
 	overlay($(".collaborate-trigger"), "assets/ajax/collaborate.php");
 	overlay($(".search-trigger"), "assets/ajax/search.php");
-	overlay($(".skills-trigger"), "assets/ajax/skills.php");
+	overlay($(".dev-skills-trigger"), "assets/ajax/dev-skills.php");
+	overlay($(".des-skills-trigger"), "assets/ajax/des-skills.php");
 
 });
