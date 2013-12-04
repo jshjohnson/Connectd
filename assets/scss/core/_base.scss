@@ -209,7 +209,6 @@ a:hover {
 @include icon-font;
 
 .icon--marg:before {
-	margin-right: .5em; 
 	top: 0;  
 	width: 1em;
 }
@@ -226,6 +225,6 @@ a:hover {
 .icon--lightbulb:before { content: '\e80c'; } /* '' */
 .icon--search:before { content: '\e801'; } /* '' */
 .icon--bookmark:before { content: '\e80d'; } /* '' */
-.icon--star:before { content: '\e80e'; } /* '' */
+.icon--star:before { content: '\e80e'; color: #E7E948; float: left; top: 5px;} /* '' */
 .icon--magic:before { content: '\e80a'; } /* '' */
 

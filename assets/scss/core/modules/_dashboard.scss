@@ -15,6 +15,9 @@
 	}
 	::-webkit-scrollbar {
       width: .5em;
+      @include respond-max($bp1) {
+      	width: .25em;
+      }
 	}
 	::-webkit-scrollbar-track {
 	      background-color: transparent;

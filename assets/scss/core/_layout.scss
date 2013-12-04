@@ -160,7 +160,7 @@
 }
 
 .module__avatar {
-	padding: .3em;
+	padding: 6px;
 	display: inline-block;
 }
 
@@ -196,5 +196,25 @@
 	@include respond-max($bp1) {
 		margin-left: .5em;
 		margin-right: .5em;
+	}
+}
+
+.ribbon {
+	position: absolute;
+	right: 1em;
+	top: 0;
+	background-color: $color-brand-highlight;
+	border-left: 1em solid transparent;
+	border-right: 1em solid transparent;
+	border-bottom: 1em solid $color-background-light;
+	width: 0;
+	h5 {
+		line-height: 1.5;
+		font-size: .7em;
+		padding-right: 1em;
+		color: white;
+		padding-bottom: 1em;
+		@include transform(rotate(-90deg));
+		text-transform: uppercase;
 	}
 }
