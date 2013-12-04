@@ -9,113 +9,40 @@ $(document).ready(function() {
 	$("input[type=radio]").parents('li').addClass('radio');
 	$("input[type=checkbox]").parents('li').addClass('checkbox');
 
-	// FitVids
-	$(".container").fitVids();
+	// SVG fallback
+	if (!Modernizr.svg) {
+	    $('img[src$=".svg"]').each(function()
+	    {
+	        $(this).attr('src', $(this).attr('src').replace('.svg', '.png'));
+	    });
+	}
 
+	// Overlay function
+	var docHeight = $(document).height();
 
-	// Apply Overlay
+	function overlay($param, $file) {
+		$param.on('click', function(e) {
+			e.preventDefault();
 
-	$(".apply-trigger").on('click', function(e) {
-		e.preventDefault();
-
-		var docHeight = $(document).height();
-
-	    $.get("assets/ajax/apply.php", function(data){
-		    $("body").append(data).addClass("blur");
-			$(".overlay").css({
-				height: docHeight,
-			});
-    		$(".overlay").click(function(e) {
-			    if (e.target == this) {
-			        $(this).remove();
-			        $("body").removeClass("blur")
-			    }
-			});
-		});
-	});
-
-	// Hire Overlay
-
-	$(".hire-trigger").on('click', function(e) {
-		e.preventDefault();
-
-		var docHeight = $(document).height();
-
-	    $.get("assets/ajax/hire.php", function(data){
-		    $("body").append(data).addClass("blur");
-			$(".overlay").css({
-				height: docHeight,
-			});
-    		$(".overlay").click(function(e) {
-			    if (e.target == this) {
-			        $(this).remove();
-			        $("body").removeClass("blur")
-			    }
+		    $.get($file, function(data){
+			    $("body").append(data).addClass("blur");
+				$(".overlay").css({
+					height: docHeight,
+				});
+	    		$(".overlay").click(function(e) {
+				    if (e.target == this) {
+				        $(this).remove();
+				        $("body").removeClass("blur")
+				    }
+				});
 			});
 		});
-	});
+	}
 
-	// Collaborate Overlay
-
-	$(".collaborate-trigger").on('click', function(e) {
-		e.preventDefault();
-
-		var docHeight = $(document).height();
-
-	    $.get("assets/ajax/collaborate.php", function(data){
-		    $("body").append(data).addClass("blur");
-			$(".overlay").css({
-				height: docHeight,
-			});
-    		$(".overlay").click(function(e) {
-			    if (e.target == this) {
-			        $(this).remove();
-			        $("body").removeClass("blur")
-			    }
-			});
-		});
-	});
-
-	// Post job Overlay
-
-	$(".post-job-trigger").on('click', function(e) {
-		e.preventDefault();
-
-		var docHeight = $(document).height();
-
-	    $.get("assets/ajax/post-job.php", function(data){
-		    $("body").append(data).addClass("blur");
-			$(".overlay").css({
-				height: docHeight,
-			});
-    		$(".overlay").click(function(e) {
-			    if (e.target == this) {
-			        $(this).remove();
-			        $("body").removeClass("blur")
-			    }
-			});
-		});
-	});
-
-	// Search Overlay
-
-	$(".search-trigger").on('click', function(e) {
-		e.preventDefault();
-
-		var docHeight = $(document).height();
-
-	    $.get("assets/ajax/search.php", function(data){
-		    $("body").append(data).addClass("blur");
-			$(".overlay").css({
-				height: docHeight,
-			});
-    		$(".overlay").click(function(e) {
-			    if (e.target == this) {
-			        $(this).remove();
-			        $("body").removeClass("blur")
-			    }
-			});
-		});
-	});
+	overlay($(".apply-trigger"), "assets/ajax/apply.php");
+	overlay($(".hire-trigger"), "assets/ajax/hire.php");
+	overlay($(".post-job-trigger"), "assets/ajax/post-job.php");
+	overlay($(".collaborate-trigger"), "assets/ajax/collaborate.php");
+	overlay($(".search-trigger"), "assets/ajax/search.php");
 
 });

@@ -1950,7 +1950,7 @@ img.media__img {
 
 /* line 362, ../scss/core/_modules.scss */
 .section--mission {
-  background-image: url("../img/handheld.jpg");
+  background-image: url("../img/bg.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
