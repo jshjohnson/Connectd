@@ -113,16 +113,17 @@ if (isset($_SESSION['logged'])){
 	<section class="footer--push color-grey">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
+				<?php echo $message; ?>
 				<form method="post" action="register.php">
 					<input type="text" name="firstname" required placeholder="First name" class="field-1-2 float-left">
-					<input type="text" name="firstname" required placeholder="Surname" class="field-1-2 float-right">
+					<input type="text" name="lastname" required placeholder="Surname" class="field-1-2 float-right">
 					<input type="email" name="email" required placeholder="Email">
 					<input type='password' name='password' required placeholder="Password" class="field-1-2 float-left">
 					<input type='password' name='repeatpassword' required placeholder="Repeat Password" class="field-1-2 float-right">
-					<input type="text" name="business" required placeholder="Business name">
-					<input type="number" name="age" required placeholder="Business type">
-					<input type="text" name="website" required placeholder="Business website">
-					<textarea name="about" cols="30" rows="10" placeholder="A little about your business..."></textarea>
+					<input type="text" name="businessname" required placeholder="Business name">
+					<input type="number" name="businesstype" required placeholder="Business type">
+					<input type="text" name="businesswebsite" required placeholder="Business website">
+					<textarea name="businessinfo" cols="30" rows="10" placeholder="A little about your business..."></textarea>
 					<div class="button-container">
 		            	<input class="submit" type="submit" value="Start employing">						
 					</div>

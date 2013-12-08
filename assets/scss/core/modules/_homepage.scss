@@ -3,19 +3,36 @@
 /* Homepage
 ----------------------------------*/
 
-.logo {
-	text-align: right;
-	font-size: 1em;
+.text-right, .text-left {
 	margin-top: 1.4em;
 	margin-bottom: 0;
-	right: 2em;
+	font-size: 1em;
 	position: fixed;
 	a {
 		color: white;
 	}
 	@include respond-max($bp1) {
 		margin-top: 1em;
+	}
+}
+
+.text-right {
+	text-align: right;
+	right: 2em;
+	position: fixed;
+	@include respond-max($bp1) {
+		margin-top: 1em;
 		right: 1em;
+	}
+}
+
+.text-left {
+	text-align: left;
+	left: 2em;
+	position: fixed;
+	@include respond-max($bp1) {
+		margin-top: 1em;
+		left: 1em;
 	}
 }
 
