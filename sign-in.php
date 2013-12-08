@@ -30,7 +30,7 @@ if ($submit=='Sign In'){
 					$_SESSION['email']=$email;
 					$_SESSION['userID']=$DBID;
 					$_SESSION['logged']="logged";
-					header('Location: designer.php');
+					header('Location: dashboard.php');
 				}else{
 	              $message = "Incorrect password!";
 	            }

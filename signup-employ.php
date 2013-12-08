@@ -1,26 +1,92 @@
-<!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-	<meta charset="utf-8">
-	<title>Sign Up : connectd</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<!--[if lte IE 8]>
-	    <link rel="stylesheet" href="assets/css/ie.css" media="screen">
-	    
-	    <script src="assets/js/libs/selectivizr-min.js"></script>
-	<![endif]-->
-	<!--[if gt IE 8]><!-->
-	    <link rel="stylesheet" href="assets/css/screen.css">
-	<!--<![endif]-->
-	<script src="assets/js/libs/modernizr-2.5.3.min.js"></script>
-	<script type="text/javascript" src="//use.typekit.net/dxr1afv.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-</head>
-<body class="site">
+<?php
+//Register form validation
+include_once("inc/header.php");
+include_once("inc/functions.php");
+
+// Grab the form data
+$firstname = trim($_POST['firstname']);
+$lastname = trim($_POST['lastname']);
+$email = trim($_POST['email']);
+$password = trim($_POST['password']);
+$repeatpassword = trim($_POST['repeatpassword']);
+$age = trim($_POST['age']);
+$jobtitle = trim($_POST['jobtitle']);
+$experience = trim($_POST['experience']);
+$bio = trim($_POST['bio']);
+$submit = trim($_POST['submit']);
+
+// Create some variables to hold output data
+$message = '';
+$s_username = '';
+
+// Start to use PHP session
+session_start();
+// Determine whether user is logged in - test for value in $_SESSION
+if (isset($_SESSION['logged'])){
+	$s_username = $_SESSION['email'];
+	$message = "You are already logged in as $s_username. Please <a href='logout.php'>logout</a> before trying to register.";
+}else{
+	if ($submit=='Start employing'){
+			
+	    if($firstname == ""){
+	        $message="Please enter your first name"; 
+	    }else if($lastname == ""){
+	        $message="Please enter your last name"; 
+	    }else if($email == ""){
+	        $message="Please enter your email"; 
+	    }else if($password == ""){
+	        $message="Please enter a password"; 
+	    }else if ($password!=$repeatpassword){ 
+			$message = "Both password fields must match";
+		}else if (strlen($password)>25||strlen($password)<6) {
+			$message = "Password must be 6-25 characters long";
+		}else if($jobtitle == ""){
+	        $message="Please select your current job title"; 
+	    }else if($experience == ""){
+	        $message="Please enter your experience"; 
+	    }else if($bio == ""){
+	        $message="Please write about yourself"; 
+	    }else if(strlen($bio)<25) {
+			$message = "You're not going to sell yourself without a decent bio!";
+		}else{
+			// Process details here
+			require_once("inc/db_connect.php"); //include file to do db connect
+			if($db_server){
+
+				//clean the input now that we have a db connection
+				$email = clean_string($db_server, $email);
+				$password = clean_string($db_server, $password);
+				$repeatpassword = clean_string($db_server, $repeatpassword);
+				$age = clean_string($db_server, $age);
+				$jobtitle = clean_string($db_server, $jobtitle);
+				$bio = clean_string($db_server, $bio);
+				$experience = clean_string($db_server, $experience);
+
+				mysqli_select_db($db_server, $db_database);
+
+				// check whether email has been used before
+				$query="SELECT email FROM connectdDB.designers WHERE email='$email'";
+				$result = mysqli_query($db_server, $query);
+				if ($row = mysqli_fetch_array($result)){
+					$message = "Email already taken. Please try again.";
+				}else{
+					// Encrypt password
+					$password = salt($password);
+					$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, jobtitle, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtitle', '$age', '$experience', '$bio')";
+					mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
+					header('Location: sign-in.php');
+				}
+				mysqli_free_result($result);
+			}else{
+				$message = "Error: could not connect to the database.";
+			}
+			require_once("inc/db_close.php"); //include file to do db close
+		}
+
+	}
+}
+
+?>
 	<header class="header header-green--alt zero-bottom cf">
 		<div class="container">
 			<h1 class="page-title">
@@ -64,23 +130,4 @@
 			</div>
 		</div>
 	</section>
-	<footer class="footer zero-top cf">
-		<div class="container">
-			<div class="grid">
-				<ul class="grid__cell unit-1-2--bp2 footer__links">
-					<li><a href="about.html">About</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms</a></li>
-				</ul>
-				<h2 class="grid__cell unit-1-2--bp2 page-logo footer__logo">
-					<a href="index.php">connectd</a>
-				</h2>
-			</div>
-		</div>
-	</footer>
-
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="assets/js/libs/jquery-1.7.2.min.js"><\/script>')</script>
-	<script src="assets/js/scripts.min.js"></script>
-</body>
-</html>
+<?php include_once("inc/footer.php"); ?>

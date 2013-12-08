@@ -33,14 +33,14 @@
 		<section class="panel panel--developer panel-1-3">
 			<div class="panel__container">
 				<h1 class="panel__title">
-					<a href="developer.php"><span>I'm a</span> Developer</a>
+					<a href="signup-develop.php"><span>I'm a</span> Developer</a>
 				</h1>
 			</div>
 		</section>
 		<section class="panel panel--employer panel-1-3 float-right">
 			<div class="panel__container">
 				<h1 class="panel__title">
-					<a href="employer.php"><span>I'm an</span> Employer</a>
+					<a href="signup-employ.php"><span>I'm an</span> Employer</a>
 				</h1>
 			</div>
 		</section>
