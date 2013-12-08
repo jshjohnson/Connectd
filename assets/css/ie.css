@@ -2488,7 +2488,7 @@ img.media__img {
   position: relative;
 }
 /* line 33, ../scss/core/modules/_sidebar.scss */
-.portfolio *:last-child, .user-sidebar *:last-child, .dashboard-panel *:last-child {
+.portfolio h4:last-child, .user-sidebar h4:last-child, .dashboard-panel h4:last-child {
   margin-bottom: 0;
 }
 

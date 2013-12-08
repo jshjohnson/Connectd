@@ -30,7 +30,7 @@
 	background-color: $color-background-light;
 	@include box-sizing(border-box);
 	position: relative;
-	*:last-child {
+	h4:last-child {
 		margin-bottom: 0;
 	}
 }

@@ -37,6 +37,7 @@
 			<div class="grid cf">
 				<aside class="grid__cell module-1-4 push-bottom">
 					<article class="user-sidebar module--no-pad">
+						<div class="ribbon"><h5>New</h5></div>
 						<div class="user-sidebar__info">
 							<h3 class="user-sidebar__title">Josh Blake</h3>
 							<h4 class="user-sidebar__job icon--attach icon--marg">App Developer</h4>
