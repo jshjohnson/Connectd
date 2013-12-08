@@ -5,7 +5,7 @@
 		<header class="header cf">
 			<div class="container">
 				<h1 class="page-title">
-					Dashboard
+					Dashboard<a href="logout.php" class="page-title__link"> : Log out</a>
 				</h1>
 				<h2 class="page-logo header-logo">
 					<a href="index.php">connectd</a>

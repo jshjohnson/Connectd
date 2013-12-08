@@ -113,7 +113,7 @@ if (isset($_SESSION['logged'])){
 	<section class="footer--push color-grey">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
-				<?php echo $message; ?>
+				<p><?php echo $message; ?></p>
 				<form method="post" action="signup-develop.php">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right">

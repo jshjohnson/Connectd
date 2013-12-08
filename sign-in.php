@@ -30,7 +30,7 @@ include_once("inc/login.php");
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
-				<?php echo $message; ?>
+				<p><?php echo $message; ?></p>
 				<form method="post" action="sign-in.php" autocomplete="off">
 					<input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>" class="field-1-2">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-right">

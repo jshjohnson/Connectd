@@ -48,15 +48,14 @@
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
 				<ul class="zero-bottom">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="dashboard.html">Dashboard</a></li>
-					<li><a href="designer.html">Designer</a></li>
-					<li><a href="developer.html">Developer</a></li>
-					<li><a href="employer.html">Employer</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="about.php">About</a></li>
+					<li><a href="dashboard.php">Dashboard</a></li>
+					<li><a href="designer.php">Designer</a></li>
+					<li><a href="developer.php">Developer</a></li>
+					<li><a href="employer.php">Employer</a></li>
+					<li><a href="sitemap.php">Sitemap</a></li>
+					<li><a href="terms.php">Terms</a></li>
 				</ul>
 			</div>
 		</div>

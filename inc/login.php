@@ -15,7 +15,7 @@ if ($submit=='Sign In'){
 		mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
 		$email = clean_string($db_server, $email); 
 		$password = clean_string($db_server, $password);
-		$query = "SELECT * FROM connectdDB.designers WHERE email='$email'"; 
+		$query = "SELECT * FROM connectdDB.designers WHERE email='$email' UNION SELECT * FROM connectdDB.developers WHERE email='$email' UNION SELECT * FROM connectdDB.employers WHERE email='$email'"; 
 		$result = mysqli_query($db_server, $query);
 		
 		if($row = mysqli_fetch_array($result)){

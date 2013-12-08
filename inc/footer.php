@@ -2,8 +2,8 @@
 		<div class="container">
 			<div class="grid">
 				<ul class="grid__cell unit-1-2--bp2 footer__links">
-					<li><a href="about.html">About</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
+					<li><a href="about.php">About</a></li>
+					<li><a href="sitemap.php">Sitemap</a></li>
 					<li><a href="terms.html">Terms</a></li>
 				</ul>
 				<h2 class="grid__cell unit-1-2--bp2 page-logo footer__logo">
