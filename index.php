@@ -1,3 +1,11 @@
+<?php 	
+	include_once("inc/functions.php");
+	session_start();
+	// Determine whether user is logged in - test for value in $_SESSION
+	if (isset($_SESSION['logged'])){
+		header('Location: dashboard.php');
+	}
+?>
 <!doctype html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
@@ -22,7 +30,7 @@
 </head>
 <body>
 	<h2 class="logo text-right"><a href="index.php">connectd</a></h2>
-	<h2 class="text-left"><a href="index.php">Sign in</a></h2>
+	<h2 class="text-left"><a href="" class="sign-in-trigger">Sign in</a></h2>
 	<div class="panel-wrap">
 		<section class="panel panel--designer panel-1-3">
 			<div class="panel__container">

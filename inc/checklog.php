@@ -5,5 +5,5 @@
       $_SESSION = array();
       session_destroy();
       header('location: sign-in.php');
-      } 
+     } 
 ?>

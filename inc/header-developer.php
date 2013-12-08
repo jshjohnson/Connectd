@@ -24,13 +24,3 @@
 </head>
 <body class="site">
 	<div class="site-wrap">
-		<header class="header header--developer cf">
-			<div class="container">
-				<h1 class="page-title">
-					Developer
-				</h1>
-				<h2 class="page-logo header-logo">
-					<a href="index.php">connectd</a>
-				</h2>
-			</div>
-		</header>

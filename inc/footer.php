@@ -1,4 +1,4 @@
-<footer class="footer zero-top cf">
+	<footer class="footer zero-top cf">
 		<div class="container">
 			<div class="grid">
 				<ul class="grid__cell unit-1-2--bp2 footer__links">
