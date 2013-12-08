@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!doctype html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
@@ -22,14 +23,3 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body class="site">
-	<div class="site-wrap">
-		<header class="header cf">
-			<div class="container">
-				<h1 class="page-title">
-					<!-- Enter page name -->
-				</h1>
-				<h2 class="page-logo header-logo">
-					<a href="index.php">connectd</a>
-				</h2>
-			</div>
-		</header>

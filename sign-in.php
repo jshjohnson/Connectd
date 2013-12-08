@@ -1,5 +1,5 @@
 <?php
-include_once("inc/header-designer.php");
+include_once("inc/header.php");
 include_once("inc/functions.php"); 
 include_once("inc/errors.php"); 
 
@@ -43,6 +43,16 @@ if ($submit=='Sign In'){
 }
 	
 ?>
+	<header class="header header-blue--alt zero-bottom cf">
+		<div class="container">
+			<h1 class="page-title">
+				Sign In
+			</h1>
+			<h2 class="page-logo header-logo">
+				<a href="index.php">connectd</a>
+			</h2>
+		</div>
+	</header>
 	<section>
 		<div class="section-heading color-blue">
 			<div class="container">

@@ -1,38 +1,8 @@
-<!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-	<meta charset="utf-8">
-	<title>Designer : connectd</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<!--[if lte IE 8]>
-	    <link rel="stylesheet" href="assets/css/ie.css" media="screen">
-	    
-	    <script src="assets/js/libs/selectivizr-min.js"></script>
-	<![endif]-->
-	<!--[if gt IE 8]><!-->
-	    <link rel="stylesheet" href="assets/css/screen.css">
-	<!--<![endif]-->
-	
-	<script src="assets/js/libs/modernizr-2.5.3.min.js"></script>
-	<script type="text/javascript" src="//use.typekit.net/dxr1afv.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-</head>
-<body class="site">
-	<div class="site-wrap">
-		<header class="header header--designer cf">
-			<div class="container">
-				<h1 class="page-title">
-					Designer
-				</h1>
-				<h2 class="page-logo header-logo">
-					<a href="index.php">connectd</a>
-				</h2>
-			</div>
-		</header>
+<?php 	
+	include_once("inc/header-designer.php");
+	include_once("inc/errors.php"); 
+	require_once('inc/checklog.php');
+?>
 		<section class="container">
 			<div class="grid--no-marg cf">
 				<aside class="user-sidebar grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">

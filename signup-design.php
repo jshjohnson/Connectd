@@ -1,6 +1,6 @@
 <?php
 //Register form validation
-include_once("inc/header-designer.php");
+include_once("inc/header.php");
 include_once("inc/functions.php");
 
 // Grab the form data
@@ -74,7 +74,7 @@ if (isset($_SESSION['logged'])){
 					$password = salt($password);
 					$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, jobtitle, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtitle', '$age', '$experience', '$bio')";
 					mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-					header('Location: designer.php');
+					header('Location: sign-in.php');
 				}
 				mysqli_free_result($result);
 			}else{
@@ -89,6 +89,16 @@ if (isset($_SESSION['logged'])){
 
 
 ?>
+	<header class="header header-blue--alt zero-bottom cf">
+		<div class="container">
+			<h1 class="page-title">
+				Sign Up
+			</h1>
+			<h2 class="page-logo header-logo">
+				<a href="index.php">connectd</a>
+			</h2>
+		</div>
+	</header>
 	<section>
 		<div class="section-heading color-blue">
 			<div class="container">
