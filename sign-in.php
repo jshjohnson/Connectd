@@ -6,33 +6,40 @@ include_once("inc/errors.php");
 //Form Vaidation
 $email = trim($_POST['email']);
 $password = trim($_POST['password']);
-if ($email&&$password){
-	session_start(); require_once("inc/db_connect.php");
-	mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
-	$email = clean_string($db_server, $email); 
-	$password = clean_string($db_server, $password);
-	$query = "SELECT * FROM connectdDB.designers WHERE email='$email'"; 
-	$result = mysqli_query($db_server, $query);
-	
-	if($row = mysqli_fetch_array($result)){
-		$db_email = $row['email'];
-		$db_password = $row['password'];
-		$DBID = $row['ID'];
-			if($email==$db_email&&salt($password)==$db_password){
-				$_SESSION['email']=$email;
-				$_SESSION['userID']=$DBID;
-				$_SESSION['logged']="logged";
-				header('Location: designer.php');
-			}else{
-              $message = "<h4 class=\"left\">Incorrect password!</h4>";
-            }
+$submit = trim($_POST['submit']);
+
+if ($submit=='Sign In'){
+			
+    if($email == ""){
+        $message="Please enter your email"; 
+    }else if($password == ""){
+        $message="Please enter your password"; 
     }else{
-        $message = "<h4 class=\"left\">That user does not exist!" . " Please <a href='index.php'>try again</a></h4>";
-   } 
-   mysqli_free_result($result);	
-   require_once("inc/db_close.php");
-}else{
-	$message = "";
+		session_start(); require_once("inc/db_connect.php");
+		mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
+		$email = clean_string($db_server, $email); 
+		$password = clean_string($db_server, $password);
+		$query = "SELECT * FROM connectdDB.designers WHERE email='$email'"; 
+		$result = mysqli_query($db_server, $query);
+		
+		if($row = mysqli_fetch_array($result)){
+			$db_email = $row['email'];
+			$db_password = $row['password'];
+			$DBID = $row['ID'];
+				if($email==$db_email&&salt($password)==$db_password){
+					$_SESSION['email']=$email;
+					$_SESSION['userID']=$DBID;
+					$_SESSION['logged']="logged";
+					header('Location: designer.php');
+				}else{
+	              $message = "Incorrect password!";
+	            }
+	    }else{
+	        $message = "That user does not exist!" . " Please try again";
+	   } 
+	   mysqli_free_result($result);	
+	   require_once("inc/db_close.php");
+	}
 }
 	
 ?>
@@ -53,7 +60,7 @@ if ($email&&$password){
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
 				<?php echo $message; ?>
-				<form method="post" action="sign-in.php">
+				<form method="post" action="sign-in.php" autocomplete="off">
 					<input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>" class="field-1-2">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-right">
 					<div class="button-container">
