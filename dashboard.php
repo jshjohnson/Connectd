@@ -37,7 +37,7 @@
 							<a href=""><img src="assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left">
-									<a href=""><i class="icon--star"></i></a><a href=""><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<a href=""><i class="icon--star"></i></a><a href="designer.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
 									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">
@@ -71,7 +71,7 @@
 							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left">
-									<a href=""><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<a href="developer.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
 									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">

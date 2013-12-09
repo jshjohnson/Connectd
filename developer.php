@@ -2,6 +2,16 @@
 	include_once("inc/header-developer.php");
 	require_once('inc/checklog.php');
 ?>
+		<header class="header header--developer cf">
+			<div class="container">
+				<h1 class="page-title">
+					Developer
+				</h1>
+				<h2 class="page-logo header-logo">
+					<a href="index.php">connectd</a>
+				</h2>
+			</div>
+		</header>
 		<section class="container">
 			<div class="grid--no-marg cf">
 				<aside class="user-sidebar grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-left">
@@ -114,4 +124,4 @@
 				<button class="button-red"><a href="dashboard.html">See our talented bunch</a></button>
 			</div>
 		</section>
-<?php include_once("inc/footer.php"); ?>
+<?php include_once("inc/footer-page.php"); ?>

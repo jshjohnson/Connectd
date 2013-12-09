@@ -24,7 +24,7 @@ session_start();
 // Determine whether user is logged in - test for value in $_SESSION
 if (isset($_SESSION['logged'])){
 	$s_username = $_SESSION['email'];
-	$message = "You are already logged in as $s_username. Please <a href='logout.php'>logout</a> before trying to register.";
+	$message = "You are already logged in as <b>$s_username</b>. Please <a href='logout.php'>logout</a> before trying to register.";
 }else{
 	if ($submit=='Apply for your place'){
 			
@@ -54,6 +54,8 @@ if (isset($_SESSION['logged'])){
 			if($db_server){
 
 				//clean the input now that we have a db connection
+				$firstname = clean_string($db_server, $firstname);
+				$lastname = clean_string($db_server, $lastname);
 				$email = clean_string($db_server, $email);
 				$password = clean_string($db_server, $password);
 				$repeatpassword = clean_string($db_server, $repeatpassword);
@@ -120,7 +122,14 @@ if (isset($_SESSION['logged'])){
 					<input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
-					<input type="text" name="jobtitle" placeholder="Job Title">
+					<label for="jobtitle">What best describes what you do?</label>
+					<select name="jobtitle">
+					  <option value="design">Web Developer</option>
+					  <option value="digital">Front-end Developer</option>
+					  <option value="digital">Front-end Engineer</option>
+					  <option value="digital">Back-end Developer</option>
+					  <option value="programming">Full Stack Developer</option>
+					</select>
 					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left">
 					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right">
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."></textarea>

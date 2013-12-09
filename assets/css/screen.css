@@ -778,7 +778,6 @@ td {
 /* line 120, ../scss/core/_base.scss */
 label {
   display: block;
-  padding-bottom: .25em;
   font-weight: bold;
 }
 

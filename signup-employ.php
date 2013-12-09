@@ -55,6 +55,8 @@ if (isset($_SESSION['logged'])){
 			if($db_server){
 
 				//clean the input now that we have a db connection
+				$firstname = clean_string($db_server, $firstname);
+				$lastname = clean_string($db_server, $lastname);
 				$email = clean_string($db_server, $email);
 				$password = clean_string($db_server, $password);
 				$repeatpassword = clean_string($db_server, $repeatpassword);
