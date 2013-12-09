@@ -11,7 +11,7 @@ $email = trim($_POST['email']);
 $password = trim($_POST['password']);
 $repeatpassword = trim($_POST['repeatpassword']);
 $age = trim($_POST['age']);
-// $jobtype = $_POST['jobtype'];
+$jobtitle = $_POST['jobtitle'];
 $experience = trim($_POST['experience']);
 $bio = trim($_POST['bio']);
 $submit = trim($_POST['submit']);
@@ -20,10 +20,10 @@ $submit = trim($_POST['submit']);
 $message = '';
 $s_username = '';
 
-if(isset($_POST['jobtype'])) {
-$jobtype = implode(", ", $_POST['jobtype']);   
+if(isset($_POST['speciality'])) {
+	$speciality = implode(", ", $_POST['speciality']);   
 } else {
-$jobtype = "";
+	$speciality = "";
 }
 
 // Start to use PHP session
@@ -49,6 +49,10 @@ if (isset($_SESSION['logged'])){
 			$message = "Password must be 6-25 characters long";
 		}else if($experience == ""){
 	        $message="Please enter your experience"; 
+	    }else if($jobtitle == ""){
+	    	$message= "Please enter your current job title";
+	    }else if($speciality == ""){
+	    	$message= "Please select a speciality";
 	    }else if($bio == ""){
 	        $message="Please write about yourself"; 
 	    }else if(strlen($bio)<25) {
@@ -78,8 +82,7 @@ if (isset($_SESSION['logged'])){
 				}else{
 					// Encrypt password
 					$password = salt($password);
-
-					$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, jobtype, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtype', '$age', '$experience', '$bio')";
+					$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, jobtitle, speciality, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtitle', '$speciality', '$age', '$experience', '$bio')";
 					mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
 					header('Location: sign-in.php');
 					
@@ -98,7 +101,7 @@ if (isset($_SESSION['logged'])){
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
 			<h1 class="page-title">
-				Sign Up<a href="" class="login-trigger page-title__link"> : Log In
+				Sign Up<a href="" class="login-trigger page-title__link"> : Log In</a>
 			</h1>
 			<h2 class="page-logo header-logo">
 				<a href="index.php">connectd</a>
@@ -125,32 +128,43 @@ if (isset($_SESSION['logged'])){
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="signup-design.php" autocomplete="off">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right">
 					<input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>">
-					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
-					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
-					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left">
-					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right">
+					<input type='password' name='password' placeholder="Password" class="field-1-2">
+					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" /> 
+					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2" />
+					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right"/>
+					<div class="select-container">
+						<select name="jobtitle">
+							<option value="">Job title..</option>
+							<option value="Designer">Designer</option>
+							<option value="Illustrator">Illustrator</option>
+							<option value="Illustrator">Animator</option>
+						</select>
+					</div>
 					<fieldset>
 						<label class="field-heading">What do you specialise in?</label>
 						<div class="checkbox">
-					   		<label><input type="checkbox" name="jobtype[]" value="Graphic Design">Graphic Design</label>
+					   		<label><input type="checkbox" name="speciality[]" value="Graphic Design">Graphic Design</label>
 					    </div>
 					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="jobtype[]" value="Web Design">Web Design</label>
+					   		<label><input type="checkbox" name="speciality[]" value="Web Design">Web Design</label>
 					    </div>
 					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="jobtype[]" value="App Design">App Design</label>
+					   		<label><input type="checkbox" name="speciality[]" value="App Design">App Design</label>
 					    </div>
 						<div class="checkbox">
-					   		<label><input type="checkbox" name="jobtype[]" value="UX Design">UX Design</label>
+					   		<label><input type="checkbox" name="speciality[]" value="UX Design">UX Design</label>
 						</div>
 					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="jobtype[]" value="UI Design">UI Design</label>
+					   		<label><input type="checkbox" name="speciality[]" value="UI Design">UI Design</label>
 					    </div>
 					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="jobtype[]" value="UI Design">Motion/Animation</label>
+					   		<label><input type="checkbox" name="speciality[]" value="UI Design">Motion/Animation</label>
+					    </div>
+					    <div class="checkbox">
+					   		<label><input type="checkbox" name="speciality[]" value="UI Design">Illustration</label>
 					    </div>
 					</fieldset>
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."></textarea>

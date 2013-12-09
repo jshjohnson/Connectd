@@ -34,7 +34,7 @@
 					<div class="media-wrapper">
 						<?php	
 							// create the SQL query
-							$query = "SELECT firstname, lastname, jobtype FROM connectdDB.designers";
+							$query = "SELECT firstname, lastname, jobtitle FROM connectdDB.designers";
 
 							$result = mysqli_query($db_server, $query);
 
@@ -45,9 +45,9 @@
 						<div class="media">
 							<a href=""><img src="assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
-								<div class="float-left">
+								<div class="float-left user-info">
 									<a href=""><i class="icon--star"></i></a><a href="designer.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
-									<p><?php echo $row['jobtype']; ?></p>
+									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">
 									<h5>£36</h5>

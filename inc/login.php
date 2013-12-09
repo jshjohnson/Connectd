@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once("inc/errors.php");  
 //Form Vaidation
 $email = trim($_POST['email']);
 $password = trim($_POST['password']);
@@ -11,11 +12,14 @@ if ($submit=='Sign In'){
     }else if($password == ""){
         $message="Please enter your password"; 
     }else{
-		session_start(); require_once("inc/db_connect.php");
+		session_start(); 
+		require_once("inc/db_connect.php");
+
 		mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
+
 		$email = clean_string($db_server, $email); 
 		$password = clean_string($db_server, $password);
-		$query = "SELECT * FROM connectdDB.designers WHERE email='$email' UNION SELECT * FROM connectdDB.developers WHERE email='$email' UNION SELECT * FROM connectdDB.employers WHERE email='$email'"; 
+		$query = "SELECT designers.email, designers.password FROM connectdDB.designers WHERE designers.email='$email' UNION SELECT developers.email, developers.password FROM connectdDB.developers WHERE developers.email='$email' UNION SELECT employers.email, employers.password FROM connectdDB.employers WHERE employers.email='$email'"; 
 		$result = mysqli_query($db_server, $query);
 		
 		if($row = mysqli_fetch_array($result)){
