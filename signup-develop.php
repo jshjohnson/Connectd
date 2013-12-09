@@ -1,5 +1,4 @@
 <?php
-//Register form validation
 include_once("inc/header.php");
 include_once("inc/functions.php");
 
@@ -125,13 +124,16 @@ if (isset($_SESSION['logged'])){
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
 					<label for="jobtitle">What best describes what you do?</label>
-					<select name="jobtitle">
-					  <option value="Web Developer">Web Developer</option>
-					  <option value="Front-end Developer">Front-end Developer</option>
-					  <option value="Front-end Engineer">Front-end Engineer</option>
-					  <option value="Back-end Developer">Back-end Developer</option>
-					  <option value="Full stack Developer">Full Stack Developer</option>
-					</select>
+					<div class="select-container">
+						<select name="jobtitle">
+							<option value="">Pick one..</option>
+							<option value="Web Developer">Web Developer</option>
+							<option value="Front-end Developer">Front-end Developer</option>
+							<option value="Front-end Engineer">Front-end Engineer</option>
+							<option value="Back-end Developer">Back-end Developer</option>
+							<option value="Full stack Developer">Full Stack Developer</option>
+						</select>
+					</div>
 					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left">
 					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right">
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."></textarea>

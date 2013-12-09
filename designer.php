@@ -1,5 +1,5 @@
 <?php 	
-	include_once("inc/header-designer.php");
+	include_once("inc/header-page.php");
 	require_once('inc/checklog.php');
 ?>		
 		<header class="header header--designer cf">

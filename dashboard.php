@@ -1,5 +1,5 @@
 <?php 	
-	include_once("inc/header-developer.php");
+	include_once("inc/header-page.php");
 	require_once('inc/checklog.php');
 	include_once("inc/errors.php"); 
 	include_once("inc/db_connect.php");

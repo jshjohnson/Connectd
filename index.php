@@ -29,30 +29,32 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-	<h2 class="logo text-right"><a href="index.php">connectd</a></h2>
-	<h2 class="text-left"><a href="" class="login-trigger">Sign in</a></h2>
-	<div class="panel-wrap">
-		<section class="panel panel--designer panel-1-3">
-			<div class="panel__container">
-				<h1 class="panel__title">
-					<a href="signup-design.php"><span>I'm a</span> Designer</a>
-				</h1>
-			</div>
-		</section>
-		<section class="panel panel--developer panel-1-3">
-			<div class="panel__container">
-				<h1 class="panel__title">
-					<a href="signup-develop.php"><span>I'm a</span> Developer</a>
-				</h1>
-			</div>
-		</section>
-		<section class="panel panel--employer panel-1-3 float-right">
-			<div class="panel__container">
-				<h1 class="panel__title">
-					<a href="signup-employ.php"><span>I'm an</span> Employer</a>
-				</h1>
-			</div>
-		</section>
+	<div class="site-wrap">
+		<h2 class="logo text-right"><a href="index.php">connectd</a></h2>
+		<h2 class="text-left"><a href="" class="login-trigger">Sign in</a></h2>
+		<div class="panel-wrap">
+			<section class="panel panel--designer panel-1-3">
+				<div class="panel__container">
+					<h1 class="panel__title">
+						<a href="signup-design.php"><span>I'm a</span> Designer</a>
+					</h1>
+				</div>
+			</section>
+			<section class="panel panel--developer panel-1-3">
+				<div class="panel__container">
+					<h1 class="panel__title">
+						<a href="signup-develop.php"><span>I'm a</span> Developer</a>
+					</h1>
+				</div>
+			</section>
+			<section class="panel panel--employer panel-1-3 float-right">
+				<div class="panel__container">
+					<h1 class="panel__title">
+						<a href="signup-employ.php"><span>I'm an</span> Employer</a>
+					</h1>
+				</div>
+			</section>
+		</div>
 	</div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="assets/js/libs/jquery-1.7.2.min.js"><\/script>')</script>

@@ -1,4 +1,4 @@
-<?php include_once("inc/header-employer.php"); ?>
+<?php include_once("inc/header-page.php"); ?>
 		<header class="header header--employer cf">
 			<div class="container">
 				<h1 class="page-title">

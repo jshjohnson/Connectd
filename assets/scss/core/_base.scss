@@ -120,6 +120,27 @@ td { background-color: #F6F6F6; border-top: .5em solid white; border-bottom: .5e
 label { display: block; font-weight: bold; }
 textarea { line-height: 1.5; }
 
+.select-container {
+	position: relative;
+	margin: 1em 0 0;
+	&:after {
+		content: '\e80f';
+		font-family: "connectd";
+		font-weight: normal;
+		font-style: normal;
+		speak: none;
+		display: inline-block;
+		text-decoration: inherit;
+		margin-right: .5em;
+		line-height: 1em;
+		top: 0.25em;
+		position: absolute;
+		right: .25em;
+		font-size: 1.5em;
+		cursor: pointer;
+	}
+}
+
 input,
 select,
 textarea {
@@ -224,25 +245,9 @@ a:hover {
 .icon--sitemap:before { content: '\e80b'; } /* '' */
 .icon--lightbulb:before { content: '\e80c'; } /* '' */
 .icon--search:before { content: '\e801'; } /* '' */
-.icon--bookmark:before { content: '\e80d'; } /* '' */
-.icon--star:before { content: '\e80e'; color: #E7E948; float: left; top: 5px;} /* '' */
-.icon--star-alt:before { content: '\e80e'; color: #E7E948; float: left; top: 9px;} /* '' */
-.icon--magic:before { content: '\e80a'; } /* '' */
-
-
-.icon--clock:before { content: '\e803'; } /* '' */
-.icon--users:before { content: '\e800'; } /* '' */
-.icon--location:before { content: '\e805'; } /* '' */
-.icon--calendar:before { content: '\e806'; } /* '' */
-.icon--male:before { content: '\e807'; } /* '' */
-.icon--globe:before { content: '\e808'; } /* '' */
-.icon--briefcase:before { content: '\e809'; } /* '' */
-.icon--attach:before { content: '\e804'; } /* '' */
-.icon--sitemap:before { content: '\e80b'; } /* '' */
-.icon--lightbulb:before { content: '\e80c'; } /* '' */
-.icon--search:before { content: '\e801'; } /* '' */
 .icon--home:before { content: '\e802'; } /* '' */
 .icon--bookmark:before { content: '\e80d'; } /* '' */
 .icon--star:before { content: '\e80e'; color: #E7E948; float: left; top: 5px;} /* '' */
 .icon--star-alt:before { content: '\e80e'; color: #E7E948; float: left; top: 9px;} /* '' */
+.icon--down-micro:before { content: '\e80f'; } /* '' */
 .icon--magic:before { content: '\e80a'; } /* '' */

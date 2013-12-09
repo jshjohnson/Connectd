@@ -129,12 +129,27 @@ if (isset($_SESSION['logged'])){
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
 					<input type="text" name="businessname" placeholder="Business name">
-					<select name="businesstype">
-					  <option value="design">Design Agency</option>
-					  <option value="digital">Digital Agency</option>
-					  <option value="programming">Programming Agency</option>
-					  <option value="programming">Sole Trader</option>
-					</select>
+					<label for="jobtitle">What industry is your business in?</label>
+					<div class="select-container">
+						<select name="businesstype">
+							<option value="">Pick one..</option>
+							<option value="Admin">Admin</option>
+							<option value="Business Support">Business Support</option>
+							<option value="Creative Arts">Creative Arts</option>
+							<option value="Design">Design</option>
+							<option value="Marketing &amp; PR">Marketing &amp; PR</option>
+							<option value="Mobile">Mobile</option>
+							<option value="Search Marketing">Search Marketing</option>
+							<option value="Social Media">Social Media</option>
+							<option value="Software Developer">Software Development</option>
+							<option value="Translation">Translation</option>
+							<option value="Tutorials">Tutorials</option>
+							<option value="Video, Photo &amp; Audio">Video, Photo &amp; Audio</option>
+							<option value="Web Development">Web Development</option>
+							<option value="Copywriting">Copywriting</option>
+							<option value="Extraordinary">Extraordinary</option>
+						</select>
+					</div> 
 					<input type="text" name="businesswebsite" placeholder="Business website">
 					<textarea name="businessbio" cols="30" rows="10" placeholder="A little about your business..."></textarea>
 					<div class="button-container">
