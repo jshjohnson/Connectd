@@ -90,7 +90,7 @@ if (isset($_SESSION['logged'])){
 	<header class="header header-navy--alt zero-bottom cf">
 		<div class="container">
 			<h1 class="page-title">
-				Sign Up
+				Sign Up<a href="" class="login-trigger page-title__link"> : Log In
 			</h1>
 			<h2 class="page-logo header-logo">
 				<a href="index.php">connectd</a>

@@ -22,4 +22,5 @@
 	<script type="text/javascript" src="//use.typekit.net/dxr1afv.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
-<body class="site">
+<body>
+	<div class="site site-wrap">

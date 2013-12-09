@@ -7,7 +7,7 @@ include_once("inc/login.php");
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
 			<h1 class="page-title">
-				Sign In
+				Sign In<a href="index.php" class="page-title__link"> : Register
 			</h1>
 			<h2 class="page-logo header-logo">
 				<a href="index.php">connectd</a>

@@ -94,7 +94,7 @@ if (isset($_SESSION['logged'])){
 	<header class="header header-green--alt zero-bottom cf">
 		<div class="container">
 			<h1 class="page-title">
-				Sign Up
+				Sign Up<a href="" class="login-trigger page-title__link"> : Log In
 			</h1>
 			<h2 class="page-logo header-logo">
 				<a href="index.php">connectd</a>
@@ -129,6 +129,7 @@ if (isset($_SESSION['logged'])){
 					  <option value="design">Design Agency</option>
 					  <option value="digital">Digital Agency</option>
 					  <option value="programming">Programming Agency</option>
+					  <option value="programming">Sole Trader</option>
 					</select>
 					<input type="text" name="businesswebsite" placeholder="Business website">
 					<textarea name="businessbio" cols="30" rows="10" placeholder="A little about your business..."></textarea>

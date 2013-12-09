@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title>Designer : connectd</title>
+	<title>Employer : connectd</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<!--[if lte IE 8]>
@@ -22,5 +22,5 @@
 	<script type="text/javascript" src="//use.typekit.net/dxr1afv.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
-<body class="site">
-	<div class="site-wrap">
+<body>
+	<div class="site site-wrap">

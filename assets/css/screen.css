@@ -3148,7 +3148,7 @@ img.media__img {
     width: 75%;
   }
 }
-@media screen and (max-width: 30em) {
+@media screen and (max-width: 35em) {
   /* line 11, ../scss/core/modules/_overlay.scss */
   .overlay__inner {
     width: 80%;

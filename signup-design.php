@@ -27,7 +27,7 @@ if (isset($_SESSION['logged'])){
 	$message = "You are already logged in as $s_username. Please <a href='logout.php'>logout</a> before trying to register.";
 }else{
 	if ($submit=='Apply for your place'){
-			
+
 	    if($firstname == ""){
 	        $message="Please enter your first name"; 
 	    }else if($lastname == ""){
@@ -92,7 +92,7 @@ if (isset($_SESSION['logged'])){
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
 			<h1 class="page-title">
-				Sign Up
+				Sign Up<a href="" class="login-trigger page-title__link"> : Log In
 			</h1>
 			<h2 class="page-logo header-logo">
 				<a href="index.php">connectd</a>
@@ -127,7 +127,7 @@ if (isset($_SESSION['logged'])){
 					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right">
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."></textarea>
 					<div class="button-container">
-		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>					
+		            	<input id="submit" class="submit" name="submit" type="submit" value='Apply for your place'>					
 					</div>
 		        </form>
 			</div>
