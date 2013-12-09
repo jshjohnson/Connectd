@@ -4,7 +4,7 @@
 				<ul class="grid__cell unit-1-2--bp2 footer__links">
 					<li><a href="about.php">About</a></li>
 					<li><a href="sitemap.php">Sitemap</a></li>
-					<li><a href="terms.html">Terms</a></li>
+					<li><a href="terms.php">Terms</a></li>
 				</ul>
 				<h2 class="grid__cell unit-1-2--bp2 page-logo footer__logo">
 					<a href="index.php">connectd</a>

@@ -71,6 +71,28 @@
 .alert{	color:#009;}
 .help{color:#7f7e7e}
 
+.error {
+	background-color: $color-brand-highlight;
+	color: white;
+	padding: .5em 1em;
+	font-size: .9em;
+	&:after {
+		content: "";
+		width: 0;
+		height: 0;
+		border-left: .75em solid transparent;
+		border-right: .75em solid transparent;
+		border-top: 0.75em solid $color-brand-highlight;
+		position: absolute;
+		left: 3.5em;
+		top: 4.7em;
+		@include respond-max($bp1-5) {
+			left: 2.8em;
+			top: 3.7em;	
+		}
+	}
+}
+
 /* Debuggin'
 ----------------------------------*/
 

@@ -10,7 +10,7 @@
 					Dashboard<a href="logout.php" class="page-title__link"> : Log out</a>
 				</h1>
 				<h2 class="page-logo header-logo">
-					<a href="index.php">connectd</a>
+					<a href="index.php" class="icon--home">connectd</a>
 				</h2>
 			</div>
 		</header>
@@ -18,7 +18,7 @@
 			<div class="grid--no-marg cf">
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
 					<header class="header--panel header--designer cf">
-						<h3 class="float-left">Designers</h3>
+						<h3 class="float-left">Designers (recently viewed)</h3>
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
@@ -53,7 +53,7 @@
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
 					<header class="header--panel header--developer cf">
-						<h3 class="float-left">Developers</h3>
+						<h3 class="float-left">Developers (recently viewed)</h3>
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
@@ -85,7 +85,7 @@
 				</article>
 				<article class="dashboard-panel grid__cell module-1-1 module--no-pad">
 					<header class="header--panel header--employer cf">
-						<h3 class="float-left">Recent Jobs</h3>
+						<h3 class="float-left">My Jobs</h3>
 						<button class="float-right button-action post-job-trigger">Post Job</button>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
@@ -177,8 +177,7 @@
 				</article>
 			</div>
 		</section>
-
 <?php 
-require_once("inc/db_close.php"); //include file to do db connect
-include_once("inc/footer-page.php"); 
+	require_once("inc/db_close.php");
+	include_once("inc/footer-page.php"); 
 ?>

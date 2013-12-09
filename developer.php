@@ -8,7 +8,7 @@
 					Developer
 				</h1>
 				<h2 class="page-logo header-logo">
-					<a href="index.php">connectd</a>
+					<a href="index.php" class="icon--home">connectd</a>
 				</h2>
 			</div>
 		</header>
@@ -121,7 +121,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for someone else?
 				</h4>
-				<button class="button-red"><a href="dashboard.html">See our talented bunch</a></button>
+				<button class="button-red"><a href="dashboard.php">See our talented bunch</a></button>
 			</div>
 		</section>
 <?php include_once("inc/footer-page.php"); ?>
