@@ -5,6 +5,7 @@ include_once("inc/login.php");
 ?>
 <section class='overlay'>
 	<div class='overlay__inner overlay__inner--small'> 
+		<a href="" class="cancel-trigger"><i class="icon--cancel"></i></a>
 		<h2 class='overlay__title'>Sign In</h2>
 		<?php echo $message; ?>
 		<form method="post" action="sign-in.php" autocomplete="off">

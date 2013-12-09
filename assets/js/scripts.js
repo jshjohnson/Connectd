@@ -17,6 +17,12 @@ $(document).ready(function() {
 	    });
 	}
 
+
+	$(".menu-trigger").click(function(e) {
+		e.preventDefault();
+		$(".header__nav").toggleClass("block");
+	});
+
 	// Overlay function
 	var docHeight = $(document).height();
 
@@ -30,7 +36,7 @@ $(document).ready(function() {
 				$(".overlay").css({
 					height: docHeight,
 				});
-	    		$(".overlay").click(function(e) {
+	    		$(".overlay").add(".cancel-trigger").click(function(e) {
 				    if (e.target == this) {
 				        $(this).remove();
 				        $(".site-wrap").removeClass("blur")

@@ -5,8 +5,17 @@
 		<header class="header header--designer cf">
 			<div class="container">
 				<h1 class="page-title">
-					Designer
+					Designer<a href="" class="menu-trigger page-title__link"> : Menu</a>
 				</h1>
+				<nav class="header__nav">
+					<ul>
+						<li><a href="">Search</a></li>
+						<li><a href="">View Profile</a></li>
+						<li><a href="">Edit Profile</a></li>
+						<li><a href="">Settings</a></li>
+						<li><a href="logout.php">Log out</a></li>
+					</ul>
+				</nav>
 				<h2 class="page-logo header-logo">
 					<a href="index.php" class="icon--home">connectd</a>
 				</h2>

@@ -1,5 +1,6 @@
 <section class='overlay'>
-	<div class='overlay__inner'> 
+	<div class='overlay__inner'>
+		<a href="" class="cancel-trigger"><i class="icon--cancel"></i></a>
 		<h2 class='overlay__title'>Post a job</h2>
 		<form action=''>
 			<input type="text" name="firstname" required placeholder="Job title">

@@ -230,6 +230,35 @@ img.media__img {
 	}
 }
 
+.header__nav {
+	display: none;
+	@include box-sizing(border-box);
+	position: absolute;
+	background-color: #2c3e50;
+	padding: 1em 1em;
+	font-size: .8em;
+	top: 4.3em;
+	z-index: 999;
+	ul {
+		color: white;
+		list-style: none;
+		margin: 0;
+		li {
+			padding: .5em 0;
+			width: 10em;
+			a {
+				color: white;
+			}	
+			&:first-child {
+				padding-top: 0;
+			}	
+			&:last-child {
+				padding-bottom: 0;
+			}	
+		}
+	}
+}
+
 .header--designer {
 	background-color: $color-brand-light;
 }
