@@ -2,6 +2,7 @@
 //Register form validation
 include_once("inc/header.php");
 include_once("inc/functions.php");
+include_once("inc/errors.php");
 
 // Grab the form data
 $firstname = trim($_POST['firstname']);
@@ -10,7 +11,7 @@ $email = trim($_POST['email']);
 $password = trim($_POST['password']);
 $repeatpassword = trim($_POST['repeatpassword']);
 $age = trim($_POST['age']);
-$jobtitle = trim($_POST['jobtitle']);
+// $jobtype = $_POST['jobtype'];
 $experience = trim($_POST['experience']);
 $bio = trim($_POST['bio']);
 $submit = trim($_POST['submit']);
@@ -18,6 +19,12 @@ $submit = trim($_POST['submit']);
 // Create some variables to hold output data
 $message = '';
 $s_username = '';
+
+if(isset($_POST['jobtype'])) {
+$jobtype = implode(", ", $_POST['jobtype']);   
+} else {
+$jobtype = "";
+}
 
 // Start to use PHP session
 session_start();
@@ -40,9 +47,7 @@ if (isset($_SESSION['logged'])){
 			$message = "Both password fields must match";
 		}else if (strlen($password)>25||strlen($password)<6) {
 			$message = "Password must be 6-25 characters long";
-		}else if($jobtitle == ""){
-	        $message="Please select your current job title"; 
-	    }else if($experience == ""){
+		}else if($experience == ""){
 	        $message="Please enter your experience"; 
 	    }else if($bio == ""){
 	        $message="Please write about yourself"; 
@@ -60,7 +65,6 @@ if (isset($_SESSION['logged'])){
 				$password = clean_string($db_server, $password);
 				$repeatpassword = clean_string($db_server, $repeatpassword);
 				$age = clean_string($db_server, $age);
-				$jobtitle = clean_string($db_server, $jobtitle);
 				$bio = clean_string($db_server, $bio);
 				$experience = clean_string($db_server, $experience);
 
@@ -74,9 +78,11 @@ if (isset($_SESSION['logged'])){
 				}else{
 					// Encrypt password
 					$password = salt($password);
-					$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, jobtitle, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtitle', '$age', '$experience', '$bio')";
+
+					$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, jobtype, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtype', '$age', '$experience', '$bio')";
 					mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
 					header('Location: sign-in.php');
+					
 				}
 				mysqli_free_result($result);
 			}else{
@@ -87,8 +93,6 @@ if (isset($_SESSION['logged'])){
 
 	}
 }
-
-
 
 ?>
 	<header class="header header-blue--alt zero-bottom cf">
@@ -120,32 +124,35 @@ if (isset($_SESSION['logged'])){
 				<?php if (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
-				<form method="post" action="signup-design.php">
+				<form method="post" action="signup-design.php" autocomplete="off">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right">
 					<input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
-					<fieldset>
-						<label class="field-heading">What best describes what you do?</label>
-						<div class="checkbox">
-					   		<label><input type="checkbox" name="colour" value="blue"> Graphic Design </label>
-					    </div>
-					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="colour" value="blue"> Web Design </label>
-					    </div>
-					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="colour" value="blue"> App Design </label>
-					    </div>
-						<div class="checkbox">
-					   		<label><input type="checkbox" name="colour" value="blue"> UX Design </label>
-					    </div>
-					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="colour" value="blue"> UI Design </label>
-					    </div>
-					</fieldset>
 					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left">
 					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right">
+					<fieldset>
+						<label class="field-heading">What do you specialise in?</label>
+						<div class="checkbox">
+					   		<label><input type="checkbox" name="jobtype[]" value="Graphic Design">Graphic Design</label>
+					    </div>
+					   	<div class="checkbox">
+					   		<label><input type="checkbox" name="jobtype[]" value="Web Design">Web Design</label>
+					    </div>
+					   	<div class="checkbox">
+					   		<label><input type="checkbox" name="jobtype[]" value="App Design">App Design</label>
+					    </div>
+						<div class="checkbox">
+					   		<label><input type="checkbox" name="jobtype[]" value="UX Design">UX Design</label>
+						</div>
+					   	<div class="checkbox">
+					   		<label><input type="checkbox" name="jobtype[]" value="UI Design">UI Design</label>
+					    </div>
+					   	<div class="checkbox">
+					   		<label><input type="checkbox" name="jobtype[]" value="UI Design">Motion/Animation</label>
+					    </div>
+					</fieldset>
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."></textarea>
 					<div class="button-container">
 		            	<input id="submit" class="submit" name="submit" type="submit" value='Apply for your place'>					

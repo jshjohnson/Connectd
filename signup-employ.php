@@ -122,7 +122,7 @@ if (isset($_SESSION['logged'])){
 				<?php if (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
-				<form method="post" action="signup-employ.php">
+				<form method="post" action="signup-employ.php" autocomplete="off">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right">
 					<input type="email" name="email" placeholder="Email">

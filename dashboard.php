@@ -32,10 +32,9 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<div class="media">
 						<?php	
 							// create the SQL query
-							$query = "SELECT firstname, lastname, jobtitle FROM connectdDB.designers";
+							$query = "SELECT firstname, lastname, jobtype FROM connectdDB.designers";
 
 							$result = mysqli_query($db_server, $query);
 
@@ -43,22 +42,20 @@
 
 							// if there are any rows, print out the contents
 							while ($row = mysqli_fetch_array($result)) : ?>
-
+						<div class="media">
 							<a href=""><img src="assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left">
 									<a href=""><i class="icon--star"></i></a><a href="designer.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
-									<p><?php echo $row['jobtitle']; ?></p>
+									<p><?php echo $row['jobtype']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">
 									<h5>£36</h5>
 									<span>per hour</span>
 								</div>
 							</div>
-
-						<?php endwhile; ?>
-							
 						</div>
+						<?php endwhile; ?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
