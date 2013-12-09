@@ -121,7 +121,7 @@ if (isset($_SESSION['logged'])){
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right">
 					<input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>">
-					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
+					<input type='password' name='password' placeholder="Password" class="field-1-2">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
 					<label for="jobtitle">What best describes what you do?</label>
 					<div class="select-container">

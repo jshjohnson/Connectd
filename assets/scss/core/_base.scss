@@ -135,22 +135,25 @@ textarea { line-height: 1.5; }
 	position: relative;
 	margin: 1em 0;
 	clear: both;
-	&:after {
-		content: '\e80f';
-		font-family: "connectd";
-		font-weight: normal;
-		font-style: normal;
-		speak: none;
-		display: inline-block;
-		text-decoration: inherit;
-		margin-right: .5em;
-		line-height: 1em;
-		top: -1.85em;
-		position: relative;
-		right: .25em;
-		font-size: 1.5em;
-		cursor: pointer;
-		float: right;
+	// &:after {
+	// 	content: '\e80f';
+	// 	font-family: "connectd";
+	// 	font-weight: normal;
+	// 	font-style: normal;
+	// 	speak: none;
+	// 	display: inline-block;
+	// 	text-decoration: inherit;
+	// 	margin-right: .5em;
+	// 	line-height: 1em;
+	// 	top: -1.85em;
+	// 	position: relative;
+	// 	right: .25em;
+	// 	font-size: 1.5em;
+	// 	cursor: pointer;
+	// 	float: right;
+	// }
+	select {
+		margin: 0;
 	}
 }
 

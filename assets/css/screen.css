@@ -802,38 +802,24 @@ textarea {
   margin: 1em 0;
   clear: both;
 }
-/* line 138, ../scss/core/_base.scss */
-.select-container:after {
-  content: '\e80f';
-  font-family: "connectd";
-  font-weight: normal;
-  font-style: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  margin-right: .5em;
-  line-height: 1em;
-  top: -1.85em;
-  position: relative;
-  right: .25em;
-  font-size: 1.5em;
-  cursor: pointer;
-  float: right;
+/* line 155, ../scss/core/_base.scss */
+.select-container select {
+  margin: 0;
 }
 
-/* line 158, ../scss/core/_base.scss */
+/* line 161, ../scss/core/_base.scss */
 fieldset .field-heading {
   margin-bottom: .5em;
   margin-top: .5em;
 }
 @media screen and (max-width: 30em) {
-  /* line 158, ../scss/core/_base.scss */
+  /* line 161, ../scss/core/_base.scss */
   fieldset .field-heading {
     margin-top: 9em;
   }
 }
 
-/* line 169, ../scss/core/_base.scss */
+/* line 172, ../scss/core/_base.scss */
 input:not([type=checkbox]),
 select,
 textarea {
@@ -846,14 +832,14 @@ textarea {
   border-radius: 0;
   margin: 1em 0;
 }
-/* line 178, ../scss/core/_base.scss */
+/* line 181, ../scss/core/_base.scss */
 input:not([type=checkbox]):first-child,
 select:first-child,
 textarea:first-child {
   margin-top: 0;
 }
 
-/* line 185, ../scss/core/_base.scss */
+/* line 188, ../scss/core/_base.scss */
 button,
 .btn:link,
 input[type=submit] {
@@ -873,7 +859,7 @@ input[type=submit] {
   color: #FFF;
   background-color: #6dbcdb;
 }
-/* line 195, ../scss/core/_base.scss */
+/* line 198, ../scss/core/_base.scss */
 button a, button a:visited,
 .btn:link a,
 .btn:link a:visited,
@@ -881,7 +867,7 @@ input[type=submit] a,
 input[type=submit] a:visited {
   color: white;
 }
-/* line 198, ../scss/core/_base.scss */
+/* line 201, ../scss/core/_base.scss */
 button:hover,
 .btn:link:hover,
 input[type=submit]:hover {
@@ -892,7 +878,7 @@ input[type=submit]:hover {
   box-shadow: 0 2px 0;
 }
 @media screen and (max-width: 82em) {
-  /* line 185, ../scss/core/_base.scss */
+  /* line 188, ../scss/core/_base.scss */
   button,
   .btn:link,
   input[type=submit] {
@@ -900,36 +886,36 @@ input[type=submit]:hover {
   }
 }
 
-/* line 209, ../scss/core/_base.scss */
+/* line 212, ../scss/core/_base.scss */
 input[type=text]:focus, textarea:focus, button:focus {
   outline: none;
 }
 
 /* -- Blockquotes -- */
-/* line 215, ../scss/core/_base.scss */
+/* line 218, ../scss/core/_base.scss */
 blockquote {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 219, ../scss/core/_base.scss */
+/* line 222, ../scss/core/_base.scss */
 blockquote {
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
   font-style: italic;
   clear: both;
 }
 
-/* line 220, ../scss/core/_base.scss */
+/* line 223, ../scss/core/_base.scss */
 blockquote p {
   font-size: 1.35em;
 }
 
-/* line 221, ../scss/core/_base.scss */
+/* line 224, ../scss/core/_base.scss */
 blockquote p + .source {
   margin-top: -2em;
 }
 
-/* line 222, ../scss/core/_base.scss */
+/* line 225, ../scss/core/_base.scss */
 .source {
   display: block;
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
@@ -939,12 +925,12 @@ blockquote p + .source {
   margin-top: .5em;
 }
 
-/* line 223, ../scss/core/_base.scss */
+/* line 226, ../scss/core/_base.scss */
 .source:before {
   content: "\2013\0020";
 }
 
-/* line 226, ../scss/core/_base.scss */
+/* line 229, ../scss/core/_base.scss */
 a:active, a:focus {
   position: relative;
   top: 1px;
@@ -952,20 +938,20 @@ a:active, a:focus {
 
 /* Links
 ----------------------------------*/
-/* line 231, ../scss/core/_base.scss */
+/* line 234, ../scss/core/_base.scss */
 a {
   text-decoration: none;
   color: #2c3e50;
 }
 
 /* -- visited -- */
-/* line 236, ../scss/core/_base.scss */
+/* line 239, ../scss/core/_base.scss */
 a:visited {
   color: #2c3e50;
 }
 
 /* -- hovers -- */
-/* line 243, ../scss/core/_base.scss */
+/* line 246, ../scss/core/_base.scss */
 a:hover {
   color: #222222;
 }
@@ -1010,91 +996,91 @@ a:hover {
   padding-right: .3em;
 }
 
-/* line 255, ../scss/core/_base.scss */
+/* line 258, ../scss/core/_base.scss */
 .icon--marg:before {
   top: 0;
   width: 1em;
 }
 
-/* line 260, ../scss/core/_base.scss */
+/* line 263, ../scss/core/_base.scss */
 .icon--clock:before {
   content: '\e803';
 }
 
 /* '' */
-/* line 261, ../scss/core/_base.scss */
+/* line 264, ../scss/core/_base.scss */
 .icon--users:before {
   content: '\e800';
 }
 
 /* '' */
-/* line 262, ../scss/core/_base.scss */
+/* line 265, ../scss/core/_base.scss */
 .icon--location:before {
   content: '\e805';
 }
 
 /* '' */
-/* line 263, ../scss/core/_base.scss */
+/* line 266, ../scss/core/_base.scss */
 .icon--calendar:before {
   content: '\e806';
 }
 
 /* '' */
-/* line 264, ../scss/core/_base.scss */
+/* line 267, ../scss/core/_base.scss */
 .icon--male:before {
   content: '\e807';
 }
 
 /* '' */
-/* line 265, ../scss/core/_base.scss */
+/* line 268, ../scss/core/_base.scss */
 .icon--globe:before {
   content: '\e808';
 }
 
 /* '' */
-/* line 266, ../scss/core/_base.scss */
+/* line 269, ../scss/core/_base.scss */
 .icon--briefcase:before {
   content: '\e809';
 }
 
 /* '' */
-/* line 267, ../scss/core/_base.scss */
+/* line 270, ../scss/core/_base.scss */
 .icon--attach:before {
   content: '\e804';
 }
 
 /* '' */
-/* line 268, ../scss/core/_base.scss */
+/* line 271, ../scss/core/_base.scss */
 .icon--sitemap:before {
   content: '\e80b';
 }
 
 /* '' */
-/* line 269, ../scss/core/_base.scss */
+/* line 272, ../scss/core/_base.scss */
 .icon--lightbulb:before {
   content: '\e80c';
 }
 
 /* '' */
-/* line 270, ../scss/core/_base.scss */
+/* line 273, ../scss/core/_base.scss */
 .icon--search:before {
   content: '\e801';
 }
 
 /* '' */
-/* line 271, ../scss/core/_base.scss */
+/* line 274, ../scss/core/_base.scss */
 .icon--home:before {
   content: '\e802';
 }
 
 /* '' */
-/* line 272, ../scss/core/_base.scss */
+/* line 275, ../scss/core/_base.scss */
 .icon--bookmark:before {
   content: '\e80d';
 }
 
 /* '' */
-/* line 273, ../scss/core/_base.scss */
+/* line 276, ../scss/core/_base.scss */
 .icon--star:before {
   content: '\e80e';
   color: #E7E948;
@@ -1103,7 +1089,7 @@ a:hover {
 }
 
 /* '' */
-/* line 274, ../scss/core/_base.scss */
+/* line 277, ../scss/core/_base.scss */
 .icon--star-alt:before {
   content: '\e80e';
   color: #E7E948;
@@ -1112,19 +1098,19 @@ a:hover {
 }
 
 /* '' */
-/* line 275, ../scss/core/_base.scss */
+/* line 278, ../scss/core/_base.scss */
 .icon--down-micro:before {
   content: '\e80f';
 }
 
 /* '' */
-/* line 276, ../scss/core/_base.scss */
+/* line 279, ../scss/core/_base.scss */
 .icon--magic:before {
   content: '\e80a';
 }
 
 /* '' */
-/* line 277, ../scss/core/_base.scss */
+/* line 280, ../scss/core/_base.scss */
 .icon--cancel:before {
   content: '\e810';
   float: right;
