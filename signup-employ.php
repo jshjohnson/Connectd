@@ -120,7 +120,7 @@ if (isset($_SESSION['logged'])){
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
 				<?php if (strlen($message)>1) : ?>
-					<p><?php echo $message; ?></p>
+					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="signup-employ.php">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left">
