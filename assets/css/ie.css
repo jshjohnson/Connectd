@@ -559,25 +559,23 @@ input[type=file] {
   padding: 0;
 }
 
-/* line 42, ../scss/core/_base.scss */
-input[type=checkbox], input[type=radio] {
-  vertical-align: baseline;
-  background: none;
-  border: none;
-  height: .8em;
-  width: .8em;
-}
-
-/* line 44, ../scss/core/_base.scss */
+/* line 43, ../scss/core/_base.scss */
 .checkbox {
   position: relative;
-  padding: 0 0 0 1.35em;
+  padding: 0 0 0 1.55em;
+  width: 32%;
+  display: inline-block;
+  margin: 1em 0 .5em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-/* line 48, ../scss/core/_base.scss */
+/* line 57, ../scss/core/_base.scss */
 .checkbox label {
   padding-bottom: 0;
+  font-size: .8em;
 }
-/* line 51, ../scss/core/_base.scss */
+/* line 62, ../scss/core/_base.scss */
 .checkbox input {
   position: absolute;
   left: 0;
@@ -585,34 +583,34 @@ input[type=checkbox], input[type=radio] {
   margin-top: -.4em;
 }
 
-/* line 57, ../scss/core/_base.scss */
+/* line 68, ../scss/core/_base.scss */
 form ul, form ol {
   list-style: none;
   margin-left: 0;
   margin-bottom: 1em;
 }
 
-/* line 58, ../scss/core/_base.scss */
+/* line 69, ../scss/core/_base.scss */
 form li {
   margin-bottom: .5em;
 }
 
-/* line 59, ../scss/core/_base.scss */
+/* line 70, ../scss/core/_base.scss */
 form li:last-child, fieldset:last-child {
   margin-bottom: 0;
 }
 
-/* line 60, ../scss/core/_base.scss */
+/* line 71, ../scss/core/_base.scss */
 form br {
   display: none;
 }
 
-/* line 61, ../scss/core/_base.scss */
+/* line 72, ../scss/core/_base.scss */
 textarea {
   resize: vertical;
 }
 
-/* line 63, ../scss/core/_base.scss */
+/* line 74, ../scss/core/_base.scss */
 textarea, .expandingText {
   min-height: 8em;
 }
@@ -620,13 +618,13 @@ textarea, .expandingText {
 /*----------------------------------------------------------------------------------------*\
  $.Project Defaults
 \*----------------------------------------------------------------------------------------*/
-/* line 68, ../scss/core/_base.scss */
+/* line 79, ../scss/core/_base.scss */
 html {
   font-size: 100%;
   font-size: 125%;
 }
 
-/* line 76, ../scss/core/_base.scss */
+/* line 87, ../scss/core/_base.scss */
 body {
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
   line-height: 1.5;
@@ -637,93 +635,93 @@ body {
 }
 
 /* -- Vertical Rhythm -- */
-/* line 86, ../scss/core/_base.scss */
+/* line 97, ../scss/core/_base.scss */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .65em;
   margin-top: 1.5em;
 }
 
-/* line 87, ../scss/core/_base.scss */
+/* line 98, ../scss/core/_base.scss */
 h1, blockquote, pre, p, ul, ol, dl, hr {
   margin-top: 0;
 }
 
-/* line 88, ../scss/core/_base.scss */
+/* line 99, ../scss/core/_base.scss */
 p, ul, ol, dl, hr, form, table, blockquote, pre {
   margin-bottom: 2em;
 }
 
-/* line 89, ../scss/core/_base.scss */
+/* line 100, ../scss/core/_base.scss */
 hr {
   border-top: 1px solid #cccccc;
 }
 
-/* line 90, ../scss/core/_base.scss */
+/* line 101, ../scss/core/_base.scss */
 blockquote > :last-child, ul > :last-child, ol > :last-child, dl > :last-child {
   margin-bottom: 0;
 }
 
 /* -- Headings -- */
-/* line 93, ../scss/core/_base.scss */
+/* line 104, ../scss/core/_base.scss */
 h1, .as-h1 {
   line-height: 1.333;
   font-size: 2em;
 }
 
-/* line 94, ../scss/core/_base.scss */
+/* line 105, ../scss/core/_base.scss */
 h2, .as-h2 {
   line-height: 1.4;
   font-size: 1.5em;
 }
 
-/* line 95, ../scss/core/_base.scss */
+/* line 106, ../scss/core/_base.scss */
 h3, .as-h3 {
   line-height: 1.5;
   font-size: 1.25em;
 }
 
-/* line 96, ../scss/core/_base.scss */
+/* line 107, ../scss/core/_base.scss */
 h4, .as-h4 {
   line-height: 1.5;
   font-size: 1.125em;
 }
 
-/* line 97, ../scss/core/_base.scss */
+/* line 108, ../scss/core/_base.scss */
 h5, .as-h5 {
   line-height: 1.5;
   font-size: 1em;
 }
 
-/* line 98, ../scss/core/_base.scss */
+/* line 109, ../scss/core/_base.scss */
 h6, .as-h6 {
   line-height: 1.5;
   font-size: 0.875em;
 }
 
 /* -- Lists -- */
-/* line 101, ../scss/core/_base.scss */
+/* line 112, ../scss/core/_base.scss */
 ul, ol {
   margin-left: 2em;
   padding-left: 0;
 }
 
-/* line 102, ../scss/core/_base.scss */
+/* line 113, ../scss/core/_base.scss */
 li {
   margin-bottom: .5em;
 }
 
-/* line 103, ../scss/core/_base.scss */
+/* line 114, ../scss/core/_base.scss */
 li ul, li ol {
   margin-top: 1em;
   margin-bottom: 0;
 }
 
-/* line 104, ../scss/core/_base.scss */
+/* line 115, ../scss/core/_base.scss */
 dt {
   font-weight: bold;
 }
 
-/* line 105, ../scss/core/_base.scss */
+/* line 116, ../scss/core/_base.scss */
 dd {
   margin-left: 0;
   margin-bottom: 1em;
@@ -731,29 +729,29 @@ dd {
 }
 
 /* -- Tables -- */
-/* line 108, ../scss/core/_base.scss */
+/* line 119, ../scss/core/_base.scss */
 caption {
   padding-bottom: .5em;
   font-style: italic;
 }
 
-/* line 109, ../scss/core/_base.scss */
+/* line 120, ../scss/core/_base.scss */
 th, td {
   padding: .25em .5em;
   font-size: .9em;
   padding: 1em;
 }
-/* line 110, ../scss/core/_base.scss */
+/* line 121, ../scss/core/_base.scss */
 th *:last-child, td *:last-child {
   margin-bottom: 0;
 }
 
-/* line 114, ../scss/core/_base.scss */
+/* line 125, ../scss/core/_base.scss */
 tr:nth-child(odd) td {
   background-color: #F6F6F6;
 }
 
-/* line 115, ../scss/core/_base.scss */
+/* line 126, ../scss/core/_base.scss */
 th, legend {
   font-weight: bold;
   background: #6dbcdb;
@@ -762,7 +760,7 @@ th, legend {
   font-size: .9em;
 }
 
-/* line 116, ../scss/core/_base.scss */
+/* line 127, ../scss/core/_base.scss */
 td {
   background-color: #F6F6F6;
   border-top: .5em solid white;
@@ -770,23 +768,23 @@ td {
 }
 
 /* -- Forms -- */
-/* line 120, ../scss/core/_base.scss */
+/* line 131, ../scss/core/_base.scss */
 label {
   display: block;
   font-weight: bold;
 }
 
-/* line 121, ../scss/core/_base.scss */
+/* line 132, ../scss/core/_base.scss */
 textarea {
   line-height: 1.5;
 }
 
-/* line 123, ../scss/core/_base.scss */
+/* line 134, ../scss/core/_base.scss */
 .select-container {
   position: relative;
   margin: 1em 0 0;
 }
-/* line 126, ../scss/core/_base.scss */
+/* line 137, ../scss/core/_base.scss */
 .select-container:after {
   content: '\e80f';
   font-family: "connectd";
@@ -804,8 +802,14 @@ textarea {
   cursor: pointer;
 }
 
-/* line 146, ../scss/core/_base.scss */
-input,
+/* line 156, ../scss/core/_base.scss */
+fieldset .field-heading {
+  margin-bottom: .5em;
+  margin-top: 5em;
+}
+
+/* line 167, ../scss/core/_base.scss */
+input:not([type=checkbox]),
 select,
 textarea {
   padding: .5em;
@@ -817,14 +821,14 @@ textarea {
   border-radius: 0;
   margin: 1em 0;
 }
-/* line 155, ../scss/core/_base.scss */
-input:first-child,
+/* line 176, ../scss/core/_base.scss */
+input:not([type=checkbox]):first-child,
 select:first-child,
 textarea:first-child {
   margin-top: 0;
 }
 
-/* line 162, ../scss/core/_base.scss */
+/* line 183, ../scss/core/_base.scss */
 button,
 .btn:link,
 input[type=submit] {
@@ -845,7 +849,7 @@ input[type=submit] {
   background-color: #6dbcdb;
   min-width: 0;
 }
-/* line 172, ../scss/core/_base.scss */
+/* line 193, ../scss/core/_base.scss */
 button a, button a:visited,
 .btn:link a,
 .btn:link a:visited,
@@ -853,7 +857,7 @@ input[type=submit] a,
 input[type=submit] a:visited {
   color: white;
 }
-/* line 175, ../scss/core/_base.scss */
+/* line 196, ../scss/core/_base.scss */
 button:hover,
 .btn:link:hover,
 input[type=submit]:hover {
@@ -864,36 +868,36 @@ input[type=submit]:hover {
   box-shadow: 0 2px 0;
 }
 
-/* line 186, ../scss/core/_base.scss */
+/* line 207, ../scss/core/_base.scss */
 input[type=text]:focus, textarea:focus, button:focus {
   outline: none;
 }
 
 /* -- Blockquotes -- */
-/* line 192, ../scss/core/_base.scss */
+/* line 213, ../scss/core/_base.scss */
 blockquote {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 196, ../scss/core/_base.scss */
+/* line 217, ../scss/core/_base.scss */
 blockquote {
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
   font-style: italic;
   clear: both;
 }
 
-/* line 197, ../scss/core/_base.scss */
+/* line 218, ../scss/core/_base.scss */
 blockquote p {
   font-size: 1.35em;
 }
 
-/* line 198, ../scss/core/_base.scss */
+/* line 219, ../scss/core/_base.scss */
 blockquote p + .source {
   margin-top: -2em;
 }
 
-/* line 199, ../scss/core/_base.scss */
+/* line 220, ../scss/core/_base.scss */
 .source {
   display: block;
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
@@ -903,24 +907,12 @@ blockquote p + .source {
   margin-top: .5em;
 }
 
-/* line 200, ../scss/core/_base.scss */
+/* line 221, ../scss/core/_base.scss */
 .source:before {
   content: "\2013\0020";
 }
 
-/* line 201, ../scss/core/_base.scss */
-.intro-quote {
-  font-family: "Georgia", serif;
-  font-size: 2em;
-  margin: .5em 0;
-}
-/* line 201, ../scss/core/_base.scss */
-.intro-quote .source {
-  font-family: "Georgia", serif;
-  font-size: .6em;
-}
-
-/* line 203, ../scss/core/_base.scss */
+/* line 224, ../scss/core/_base.scss */
 a:active, a:focus {
   position: relative;
   top: 1px;
@@ -928,20 +920,20 @@ a:active, a:focus {
 
 /* Links
 ----------------------------------*/
-/* line 208, ../scss/core/_base.scss */
+/* line 229, ../scss/core/_base.scss */
 a {
   text-decoration: none;
   color: #2c3e50;
 }
 
 /* -- visited -- */
-/* line 213, ../scss/core/_base.scss */
+/* line 234, ../scss/core/_base.scss */
 a:visited {
   color: #2c3e50;
 }
 
 /* -- hovers -- */
-/* line 220, ../scss/core/_base.scss */
+/* line 241, ../scss/core/_base.scss */
 a:hover {
   color: #222222;
 }
@@ -986,91 +978,91 @@ a:hover {
   padding-right: .3em;
 }
 
-/* line 232, ../scss/core/_base.scss */
+/* line 253, ../scss/core/_base.scss */
 .icon--marg:before {
   top: 0;
   width: 1em;
 }
 
-/* line 237, ../scss/core/_base.scss */
+/* line 258, ../scss/core/_base.scss */
 .icon--clock:before {
   content: '\e803';
 }
 
 /* '' */
-/* line 238, ../scss/core/_base.scss */
+/* line 259, ../scss/core/_base.scss */
 .icon--users:before {
   content: '\e800';
 }
 
 /* '' */
-/* line 239, ../scss/core/_base.scss */
+/* line 260, ../scss/core/_base.scss */
 .icon--location:before {
   content: '\e805';
 }
 
 /* '' */
-/* line 240, ../scss/core/_base.scss */
+/* line 261, ../scss/core/_base.scss */
 .icon--calendar:before {
   content: '\e806';
 }
 
 /* '' */
-/* line 241, ../scss/core/_base.scss */
+/* line 262, ../scss/core/_base.scss */
 .icon--male:before {
   content: '\e807';
 }
 
 /* '' */
-/* line 242, ../scss/core/_base.scss */
+/* line 263, ../scss/core/_base.scss */
 .icon--globe:before {
   content: '\e808';
 }
 
 /* '' */
-/* line 243, ../scss/core/_base.scss */
+/* line 264, ../scss/core/_base.scss */
 .icon--briefcase:before {
   content: '\e809';
 }
 
 /* '' */
-/* line 244, ../scss/core/_base.scss */
+/* line 265, ../scss/core/_base.scss */
 .icon--attach:before {
   content: '\e804';
 }
 
 /* '' */
-/* line 245, ../scss/core/_base.scss */
+/* line 266, ../scss/core/_base.scss */
 .icon--sitemap:before {
   content: '\e80b';
 }
 
 /* '' */
-/* line 246, ../scss/core/_base.scss */
+/* line 267, ../scss/core/_base.scss */
 .icon--lightbulb:before {
   content: '\e80c';
 }
 
 /* '' */
-/* line 247, ../scss/core/_base.scss */
+/* line 268, ../scss/core/_base.scss */
 .icon--search:before {
   content: '\e801';
 }
 
 /* '' */
-/* line 248, ../scss/core/_base.scss */
+/* line 269, ../scss/core/_base.scss */
 .icon--home:before {
   content: '\e802';
 }
 
 /* '' */
-/* line 249, ../scss/core/_base.scss */
+/* line 270, ../scss/core/_base.scss */
 .icon--bookmark:before {
   content: '\e80d';
 }
 
 /* '' */
-/* line 250, ../scss/core/_base.scss */
+/* line 271, ../scss/core/_base.scss */
 .icon--star:before {
   content: '\e80e';
   color: #E7E948;
@@ -1079,7 +1071,7 @@ a:hover {
 }
 
 /* '' */
-/* line 251, ../scss/core/_base.scss */
+/* line 272, ../scss/core/_base.scss */
 .icon--star-alt:before {
   content: '\e80e';
   color: #E7E948;
@@ -1088,19 +1080,19 @@ a:hover {
 }
 
 /* '' */
-/* line 252, ../scss/core/_base.scss */
+/* line 273, ../scss/core/_base.scss */
 .icon--down-micro:before {
   content: '\e80f';
 }
 
 /* '' */
-/* line 253, ../scss/core/_base.scss */
+/* line 274, ../scss/core/_base.scss */
 .icon--magic:before {
   content: '\e80a';
 }
 
 /* '' */
-/* line 254, ../scss/core/_base.scss */
+/* line 275, ../scss/core/_base.scss */
 .icon--cancel:before {
   content: '\e810';
   float: right;
@@ -2121,9 +2113,21 @@ img.media__img {
   filter: blur(2px);
 }
 
+/* line 429, ../scss/core/_modules.scss */
+.intro-quote {
+  font-family: "Georgia", serif;
+  font-size: 2em;
+  margin: .5em 0;
+}
+/* line 433, ../scss/core/_modules.scss */
+.intro-quote .source {
+  font-family: "Georgia", serif;
+  font-size: .6em;
+}
+
 /* Portfolio
 ----------------------------------*/
-/* line 432, ../scss/core/_modules.scss */
+/* line 443, ../scss/core/_modules.scss */
 .portfolio__headings-bg {
   background-color: #f0eded;
   font-size: .8em;
@@ -2135,12 +2139,12 @@ img.media__img {
   margin-top: 0;
 }
 
-/* line 444, ../scss/core/_modules.scss */
+/* line 455, ../scss/core/_modules.scss */
 .portfolio__headings {
   margin: 0;
   position: relative;
 }
-/* line 447, ../scss/core/_modules.scss */
+/* line 458, ../scss/core/_modules.scss */
 .portfolio__headings li {
   display: inline-block;
   *display: inline;
@@ -2149,20 +2153,20 @@ img.media__img {
   position: relative;
   padding: .5em 1.4em .4em;
 }
-/* line 454, ../scss/core/_modules.scss */
+/* line 465, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 457, ../scss/core/_modules.scss */
+/* line 468, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   background-color: #2c3e50;
   color: white;
 }
-/* line 460, ../scss/core/_modules.scss */
+/* line 471, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 463, ../scss/core/_modules.scss */
+/* line 474, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -2176,51 +2180,51 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 481, ../scss/core/_modules.scss */
+/* line 492, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   background-color: #6dbcdb;
   color: white;
 }
-/* line 484, ../scss/core/_modules.scss */
+/* line 495, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active:after {
   border-top-color: #6dbcdb;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 494, ../scss/core/_modules.scss */
+/* line 505, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
   flex: 1;
 }
-/* line 497, ../scss/core/_modules.scss */
+/* line 508, ../scss/core/_modules.scss */
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
 }
-/* line 501, ../scss/core/_modules.scss */
+/* line 512, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 506, ../scss/core/_modules.scss */
+/* line 517, ../scss/core/_modules.scss */
 .price-per-hour {
   margin-top: .35em;
 }
-/* line 508, ../scss/core/_modules.scss */
+/* line 519, ../scss/core/_modules.scss */
 .price-per-hour h5 {
   margin: 0;
   text-align: center;
   font-weight: 600;
 }
-/* line 513, ../scss/core/_modules.scss */
+/* line 524, ../scss/core/_modules.scss */
 .price-per-hour span {
   font-size: .7em;
   display: block;
   line-height: .9;
 }
 
-/* line 520, ../scss/core/_modules.scss */
+/* line 531, ../scss/core/_modules.scss */
 .currency-button {
   background-color: #77c462;
   border-radius: 10em;
@@ -2231,7 +2235,7 @@ img.media__img {
   height: 3.5em;
 }
 
-/* line 530, ../scss/core/_modules.scss */
+/* line 541, ../scss/core/_modules.scss */
 .currency {
   line-height: 3.5em;
   text-align: center;

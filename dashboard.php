@@ -11,6 +11,7 @@
 				</h1>
 				<nav class="header__nav">
 					<ul>
+						<li><a href="dashboard.php">Dashboard</a></li>
 						<li><a href="">Search</a></li>
 						<li><a href="">View Profile</a></li>
 						<li><a href="">Edit Profile</a></li>

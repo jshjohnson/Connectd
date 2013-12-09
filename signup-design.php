@@ -126,7 +126,24 @@ if (isset($_SESSION['logged'])){
 					<input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
-					<input type="text" name="jobtitle" placeholder="Job Title">
+					<fieldset>
+						<label class="field-heading">What best describes what you do?</label>
+						<div class="checkbox">
+					   		<label><input type="checkbox" name="colour" value="blue"> Graphic Design </label>
+					    </div>
+					   	<div class="checkbox">
+					   		<label><input type="checkbox" name="colour" value="blue"> Web Design </label>
+					    </div>
+					   	<div class="checkbox">
+					   		<label><input type="checkbox" name="colour" value="blue"> App Design </label>
+					    </div>
+						<div class="checkbox">
+					   		<label><input type="checkbox" name="colour" value="blue"> UX Design </label>
+					    </div>
+					   	<div class="checkbox">
+					   		<label><input type="checkbox" name="colour" value="blue"> UI Design </label>
+					    </div>
+					</fieldset>
 					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left">
 					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right">
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."></textarea>

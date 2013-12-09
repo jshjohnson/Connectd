@@ -39,14 +39,25 @@ button, input { line-height: normal; }
 input, input[type=search], select, textarea { width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 button, html input[type=button], input[type=reset], input[type=submit] { width: auto; }
 input[type=file] { width: auto; border: 0; padding: 0; }
-input[type=checkbox], input[type=radio] { vertical-align: baseline; background: none; border: none; height: .8em; width: .8em; }
 // helper class added via jQuery
 .checkbox {
 	position: relative;
-	padding: 0 0 0 1.35em;
+	padding: 0 0 0 1.55em;
+	width: 32%;
+	display: inline-block;
+	margin: 1em 0 .5em;
+	@include box-sizing(border-box);
+	@include respond-max($bp2) {
+		width: 48%;
+	}
+	@include respond-max($bp1) {
+		width: 100%;
+	}
 	
 	label {
-		padding-bottom: 0; }
+		padding-bottom: 0; 
+		font-size: .8em;
+	}
 	
 	input {
 		position: absolute;
@@ -141,7 +152,17 @@ textarea { line-height: 1.5; }
 	}
 }
 
-input,
+fieldset {
+	.field-heading {
+		margin-bottom: .5em;
+		margin-top: 5em;
+		@include respond-max($bp1) {
+			margin-top: 9em;
+		}
+	}
+}
+
+input:not([type=checkbox]),
 select,
 textarea {
 	padding: .5em;
@@ -198,7 +219,7 @@ blockquote p { font-size: 1.35em; }
 blockquote p + .source { margin-top: -$baseline; }
 .source { display: block; @include font-sans; font-size: 1em; font-weight: bold; font-style: normal; margin-top: .5em;}
 .source:before { content:"\2013\0020"; }
-.intro-quote { @include font-serif; font-size: 2em; margin: .5em 0; .source { @include font-serif; font-size: .6em; } @include respond-max($bp1) { font-size: 1.5em;}}
+
 
 a:active, a:focus { position: relative; top: 1px; }
 
