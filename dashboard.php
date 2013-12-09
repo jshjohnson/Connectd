@@ -1,6 +1,8 @@
 <?php 	
 	include_once("inc/header-developer.php");
 	require_once('inc/checklog.php');
+	include_once("inc/errors.php"); 
+	include_once("inc/db_connect.php");
 ?>
 		<header class="header cf">
 			<div class="container">
@@ -21,82 +23,31 @@
 					</header>
 					<div class="media-wrapper">
 						<div class="media">
+						<?php	
+							// create the SQL query
+							$query = "SELECT firstname, lastname, jobtitle FROM connectdDB.designers";
+
+							$result = mysqli_query($db_server, $query);
+
+							if (!$result) die("Database access failed: " . mysqli_error($db_server));
+
+							// if there are any rows, print out the contents
+							while ($row = mysqli_fetch_array($result)) : ?>
+
 							<a href=""><img src="assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left">
-									<a href=""><i class="icon--star"></i></a><a href=""><h4 class="">Harry Fox</h4></a>
-									<p>Graphic Designer</p>
+									<a href=""><i class="icon--star"></i></a><a href=""><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">
 									<h5>£36</h5>
 									<span>per hour</span>
 								</div>
 							</div>
-						</div>
-						<div class="media">
-							<a href=""><img src="assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left">
-									<a href=""><h4>Harry Fox</h4></a>
-									<p>Graphic Designer</p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£36</h5>
-									<span>per hour</span>
-								</div>
-							</div>
-						</div>
-						<div class="media">
-							<a href=""><img src="assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left">
-									<a href=""><i class="icon--star"></i></a><a href=""><h4>Harry Fox</h4></a>
-									<p>Graphic Designer</p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£36</h5>
-									<span>per hour</span>
-								</div>
-							</div>
-						</div>
-						<div class="media">
-							<a href=""><img src="assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left">
-									<a href=""><h4>Harry Fox</h4></a>
-									<p>Graphic Designer</p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£36</h5>
-									<span>per hour</span>
-								</div>
-							</div>
-						</div>
-						<div class="media">
-							<a href=""><img src="assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left">
-									<a href=""><h4>Harry Fox</h4></a>
-									<p>Graphic Designer</p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£36</h5>
-									<span>per hour</span>
-								</div>
-							</div>
-						</div>
-						<div class="media">
-							<a href=""><img src="assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left">
-									<a href=""><h4>Harry Fox</h4></a>
-									<p>Graphic Designer</p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£36</h5>
-									<span>per hour</span>
-								</div>
-							</div>
+
+						<?php endwhile; ?>
+							
 						</div>
 					</div>
 				</article>
@@ -106,12 +57,22 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
+						<?php	
+							// create the SQL query
+							$query = "SELECT firstname, lastname, jobtitle FROM connectdDB.developers";
+
+							$result = mysqli_query($db_server, $query);
+
+							if (!$result) die("Database access failed: " . mysqli_error($db_server));
+
+							// if there are any rows, print out the contents
+							while ($row = mysqli_fetch_array($result)) : ?>
 						<div class="media">
 							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left">
-									<a href=""><h4>Josh Johnson</h4></a>
-									<p>Front-end Developer</p>
+									<a href=""><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">
 									<h5>£24</h5>
@@ -119,71 +80,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="media">
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left">
-									<a href=""><i class="icon--star"></i></a><a href=""><h4>Josh Johnson</h4></a>
-									<p>Front-end Developer</p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£24</h5>
-									<span>per hour</span>
-								</div>
-							</div>
-						</div>
-						<div class="media">
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left">
-									<a href=""><h4>Josh Johnson</h4></a>
-									<p>Front-end Developer</p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£24</h5>
-									<span>per hour</span>
-								</div>
-							</div>
-						</div>
-						<div class="media">
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left">
-									<a href=""><h4>Josh Johnson</h4></a>
-									<p>Front-end Developer</p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£24</h5>
-									<span>per hour</span>
-								</div>
-							</div>
-						</div>
-						<div class="media">
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left">
-									<a href=""><h4>Josh Johnson</h4></a>
-									<p>Front-end Developer</p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£24</h5>
-									<span>per hour</span>
-								</div>
-							</div>
-						</div>
-						<div class="media">
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left">
-									<a href=""><h4>Josh Johnson</h4></a>
-									<p>Front-end Developer</p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£24</h5>
-									<span>per hour</span>
-								</div>
-							</div>
-						</div>
+					<?php endwhile; ?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-1 module--no-pad">
@@ -280,4 +177,8 @@
 				</article>
 			</div>
 		</section>
-<?php include_once("inc/footer-page.php"); ?>
+
+<?php 
+require_once("inc/db_close.php"); //include file to do db connect
+include_once("inc/footer-page.php"); 
+?>

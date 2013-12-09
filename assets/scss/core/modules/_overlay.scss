@@ -33,6 +33,16 @@
 	}
 }
 
+.overlay__inner--small {
+	width: 20%;
+	@include respond-max($bp3-5) {
+		width: 30%;
+	}
+	@include respond-max($bp2) {
+		width: 75%;
+	}
+}
+
 .overlay > *:last-child,
 .overlay > *:last-child > *:last-child,
 .overlay > *:last-child > *:last-child > *:last-child {
