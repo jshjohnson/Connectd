@@ -34,7 +34,7 @@ include_once("inc/login.php");
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="sign-in.php" autocomplete="off">
-					<input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>" class="field-1-2">
+					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" class="field-1-2">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-right">
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Sign In'>					
