@@ -46,13 +46,13 @@ $(document).ready(function() {
 		});
 	}
 
-	overlay($(".apply-trigger"), "assets/ajax/apply.php");
-	overlay($(".hire-trigger"), "assets/ajax/hire.php");
-	overlay($(".post-job-trigger"), "assets/ajax/post-job.php");
-	overlay($(".collaborate-trigger"), "assets/ajax/collaborate.php");
-	overlay($(".search-trigger"), "assets/ajax/search.php");
-	overlay($(".dev-skills-trigger"), "assets/ajax/dev-skills.php");
-	overlay($(".des-skills-trigger"), "assets/ajax/des-skills.php");
-	overlay($(".login-trigger"), "assets/ajax/sign-in.php");
+	overlay($(".apply-trigger"), "/Connectd/assets/ajax/apply.php");
+	overlay($(".hire-trigger"), "/Connectd/assets/ajax/hire.php");
+	overlay($(".post-job-trigger"), "/Connectd/assets/ajax/post-job.php");
+	overlay($(".collaborate-trigger"), "/Connectd/assets/ajax/collaborate.php");
+	overlay($(".search-trigger"), "/Connectd/assets/ajax/search.php");
+	overlay($(".dev-skills-trigger"), "/Connectd/assets/ajax/dev-skills.php");
+	overlay($(".des-skills-trigger"), "/Connectd/assets/ajax/des-skills.php");
+	overlay($(".login-trigger"), "/Connectd/assets/ajax/sign-in.php");
 
 });
