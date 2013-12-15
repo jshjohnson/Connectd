@@ -1,8 +1,10 @@
-<?php 	
-	include_once($_SERVER["DOCUMENT_ROOT"]."/Connectd/inc/header-page.php");
-	require_once($_SERVER["DOCUMENT_ROOT"]."/Connectd/inc/checklog.php");
-	include_once($_SERVER["DOCUMENT_ROOT"]."/Connectd/inc/errors.php"); 
-	include_once($_SERVER["DOCUMENT_ROOT"]."/Connectd/inc/db_connect.php");
+<?php
+	require_once("../inc/config.php"); 
+	require_once(ROOT_PATH . "inc/checklog.php");
+
+	include_once(ROOT_PATH . "inc/header-page.php");
+	include_once(ROOT_PATH . "inc/errors.php"); 
+	include_once(ROOT_PATH . "inc/db_connect.php");
 ?>
 		<header class="header cf">
 			<div class="container">
@@ -15,7 +17,7 @@
 						<li><a href="">Search</a></li>
 						<li><a href="">View Profile</a></li>
 						<li><a href="">Edit Profile</a></li>
-						<li><a href="/Connectd/settings/">Settings</a></li>
+						<li><a href="<?php echo BASE_URL; ?>settings/">Settings</a></li>
 						<li><a href="/Connectd/logout.php">Log out</a></li>
 					</ul>
 				</nav>
@@ -185,6 +187,6 @@
 			</div>
 		</section>
 <?php 
-	require_once($_SERVER["DOCUMENT_ROOT"]."/Connectd/inc/db_close.php");
-	include_once($_SERVER["DOCUMENT_ROOT"]."/Connectd/inc/footer-page.php"); 
+	require_once(ROOT_PATH . "inc/db_close.php");
+	include_once(ROOT_PATH . "inc/footer-page.php"); 
 ?>
