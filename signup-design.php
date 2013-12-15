@@ -14,13 +14,14 @@ $age = trim($_POST['age']);
 $jobtitle = $_POST['jobtitle'];
 $experience = trim($_POST['experience']);
 $bio = trim($_POST['bio']);
+$speciality = trim($_POST['speciality']);
 $submit = trim($_POST['submit']);
 
 // Create some variables to hold output data
 $message = '';
 $s_username = '';
 
-if(isset($_POST['speciality'])) {
+if(isset($speciality)) {
 	$speciality = implode(", ", $_POST['speciality']);   
 } else {
 	$speciality = "";
@@ -128,13 +129,13 @@ if (isset($_SESSION['logged'])){
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="signup-design.php" autocomplete="off">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2">
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right">
-					<input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>">
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($surname)) { echo htmlspecialchars($surname); } ?>">
+					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" /> 
-					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2" />
-					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right"/>
+					<input type="number" name="age" placeholder="Age"  value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>" min="18" max="80" class="field-1-2" />
+					<input type="number" name="experience" placeholder="Years Experience" value="<?php if (isset($experience)) { echo htmlspecialchars($experience); } ?>" min="1" max="50" class="field-1-2 float-right"/>
 					<div class="select-container">
 						<select name="jobtitle">
 							<option value="">Job title..</option>
@@ -167,7 +168,7 @@ if (isset($_SESSION['logged'])){
 					   		<label><input type="checkbox" name="speciality[]" value="UI Design">Illustration</label>
 					    </div>
 					</fieldset>
-					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."></textarea>
+					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input id="submit" class="submit" name="submit" type="submit" value='Apply for your place'>					
 					</div>

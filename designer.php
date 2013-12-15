@@ -13,7 +13,7 @@
 						<li><a href="">Search</a></li>
 						<li><a href="">View Profile</a></li>
 						<li><a href="">Edit Profile</a></li>
-						<li><a href="">Settings</a></li>
+						<li><a href="settings.php">Settings</a></li>
 						<li><a href="logout.php">Log out</a></li>
 					</ul>
 				</nav>

@@ -123,12 +123,12 @@ if (isset($_SESSION['logged'])){
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="signup-employ.php" autocomplete="off">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left">
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right">
-					<input type="email" name="email" placeholder="Email">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>">
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
+					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
-					<input type="text" name="businessname" placeholder="Business name">
+					<input type="text" name="businessname" placeholder="Business name" value="<?php if (isset($businessname)) { echo htmlspecialchars($businessname); } ?>">
 					<label for="jobtitle">What industry is your business in?</label>
 					<div class="select-container">
 						<select name="businesstype">
@@ -150,8 +150,8 @@ if (isset($_SESSION['logged'])){
 							<option value="Extraordinary">Extraordinary</option>
 						</select>
 					</div> 
-					<input type="text" name="businesswebsite" placeholder="Business website">
-					<textarea name="businessbio" cols="30" rows="10" placeholder="A little about your business..."></textarea>
+					<input type="text" name="businesswebsite" placeholder="Business website" value="<?php if (isset($businesswebsite)) { echo htmlspecialchars($businesswebsite); } ?>">
+					<textarea name="businessbio" cols="30" rows="10" placeholder="A little about your business..."><?php if (isset($businessbio)) { echo htmlspecialchars($businessbio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Start employing'>						
 					</div>

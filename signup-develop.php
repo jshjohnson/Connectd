@@ -118,9 +118,9 @@ if (isset($_SESSION['logged'])){
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="signup-develop.php" autocomplete="off">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left">
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right">
-					<input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>">
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
+					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
 					<label for="jobtitle">What best describes what you do?</label>
@@ -134,9 +134,9 @@ if (isset($_SESSION['logged'])){
 							<option value="Full stack Developer">Full Stack Developer</option>
 						</select>
 					</div>
-					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left">
-					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right">
-					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."></textarea>
+					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left" value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>">
+					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right" <?php if (isset($experience)) { echo htmlspecialchars($experience); } ?>>
+					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>					
 					</div>
