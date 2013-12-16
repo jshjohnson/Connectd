@@ -1,11 +1,10 @@
 <?php 	
 	require_once("inc/config.php"); 
 	include_once(ROOT_PATH . "inc/functions.php");
-	require_once(ROOT_PATH . "inc/config.php"); 
 	session_start();
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
-		header('Location: /dashboard/');
+		header("Location:" . BASE_URL . "dashboard/");
 	}
 ?>
 <!doctype html>

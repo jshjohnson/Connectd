@@ -133,48 +133,6 @@
 								<p><small>jshjohnson</small></p>
 							</div>
 						</div>
-						<div class="media">
-							<div class="media__desc media-2-3">
-								<div class="media__button currency-button">
-									<span class="currency">
-										£300
-									</span>
-								</div>
-								<a href=""><p class="media__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, nihil aliquam quod adipisci repellendus. Omnis corporis blanditiis unde ipsa eaque!</p></a>
-							</div>
-							<div class="media-1-3 media__side">
-								<p><small>Posted 3rd July</small></p>
-								<p><small>jshjohnson</small></p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media__desc media-2-3">
-								<div class="media__button currency-button">
-									<span class="currency">
-										£4k
-									</span>
-								</div>
-								<a href=""><p class="media__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, nihil aliquam quod adipisci repellendus. Omnis corporis blanditiis unde ipsa eaque!</p></a>
-							</div>
-							<div class="media-1-3 media__side">
-								<p><small>Posted 3rd July</small></p>
-								<p><small>jshjohnson</small></p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media__desc media-2-3">
-								<div class="media__button currency-button">
-									<span class="currency">
-										£820
-									</span>
-								</div>
-								<a href=""><p class="media__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, nihil aliquam quod adipisci repellendus. Omnis corporis blanditiis unde ipsa eaque!</p></a>
-							</div>
-							<div class="media-1-3 media__side">
-								<p><small>Posted 3rd July</small></p>
-								<p><small>jshjohnson</small></p>
-							</div>
-						</div>
 					</div>
 				</article>
 			</div>

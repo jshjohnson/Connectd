@@ -2,6 +2,7 @@
 	require_once("../inc/config.php"); 
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/functions.php");
+	include_once(ROOT_PATH . "inc/errors.php");
 
 	// Grab the form data
 	$firstname = trim($_POST['firstname']);
@@ -49,7 +50,9 @@
 				$message = "Both password fields must match";
 			}else if (strlen($password)>25||strlen($password)<6) {
 				$message = "Password must be 6-25 characters long";
-			}else if($experience == ""){
+			}else if($location == ""){
+		    	$message= "Please enter your current job title";
+		    }else if($experience == ""){
 		        $message="Please enter your experience"; 
 		    }else if($jobtitle == ""){
 		    	$message= "Please enter your current job title";
@@ -137,8 +140,19 @@
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" /> 
+					<div class="select-container">
+					<?php 
+						require_once(ROOT_PATH . "inc/db_connect.php"); 
+						$query = ("SELECT county FROM connectdDB.locations");
+						$result = mysqli_query($db_server, $query);
+					?>
+						<select name="location">
+						<?php while($row = mysqli_fetch_array($result)) : ?>
+						  <option value="<?php echo $row['county']; ?>"><?php echo $row['county']; ?></option>
+						<?php endwhile; ?>
+						</select>
+					</div>
 					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
-					<input type="location" name="location" placeholder="Location" value="<?php if (isset($location)) { echo htmlspecialchars($location); } ?>">
 					<input type="number" name="age" placeholder="Age"  value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>" min="18" max="80" class="field-1-2" />
 					<input type="number" name="experience" placeholder="Years Experience" value="<?php if (isset($experience)) { echo htmlspecialchars($experience); } ?>" min="1" max="50" class="field-1-2 float-right"/>
 					<div class="select-container">

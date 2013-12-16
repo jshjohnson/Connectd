@@ -128,6 +128,18 @@
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
+					<div class="select-container">
+					<?php 
+						require_once(ROOT_PATH . "inc/db_connect.php"); 
+						$query = ("SELECT county FROM connectdDB.locations");
+						$result = mysqli_query($db_server, $query);
+					?>
+						<select name="location">
+						<?php while($row = mysqli_fetch_array($result)) : ?>
+						  <option value="<?php echo $row['county']; ?>"><?php echo $row['county']; ?></option>
+						<?php endwhile; ?>
+						</select>
+					</div>
 					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
 					<label for="jobtitle">What best describes what you do?</label>
 					<div class="select-container">
