@@ -43,16 +43,10 @@ input[type=file] { width: auto; border: 0; padding: 0; }
 .checkbox {
 	position: relative;
 	padding: 0 0 0 1.55em;
-	width: 32%;
+	width: 50%;
 	display: inline-block;
-	margin: 1em 0 .5em;
+	margin: 0 0 1em;
 	@include box-sizing(border-box);
-	@include respond-max($bp2) {
-		width: 48%;
-	}
-	@include respond-max($bp1) {
-		width: 100%;
-	}
 	
 	label {
 		padding-bottom: 0; 
@@ -62,8 +56,8 @@ input[type=file] { width: auto; border: 0; padding: 0; }
 	input {
 		position: absolute;
 		left: 0;
-		top: 50%;
-		margin-top: -.4em; }	
+		top: .4em;
+	}	
 }
 form ul, form ol { list-style: none; margin-left: 0; margin-bottom: 1em; }
 form li { margin-bottom: .5em; }
@@ -133,42 +127,29 @@ textarea { line-height: 1.5; }
 
 .select-container {
 	position: relative;
-	margin: 1em 0;
 	clear: both;
-	// &:after {
-	// 	content: '\e80f';
-	// 	font-family: "connectd";
-	// 	font-weight: normal;
-	// 	font-style: normal;
-	// 	speak: none;
-	// 	display: inline-block;
-	// 	text-decoration: inherit;
-	// 	margin-right: .5em;
-	// 	line-height: 1em;
-	// 	top: -1.85em;
-	// 	position: relative;
-	// 	right: .25em;
-	// 	font-size: 1.5em;
-	// 	cursor: pointer;
-	// 	float: right;
-	// }
 	select {
-		margin: 0;
-	}
-}
-
-fieldset {
-	.field-heading {
-		margin-bottom: .5em;
-		margin-top: .5em;
+		padding: .5em;
+		border: 1px solid;
+		color: $color-brand-dark;
+		background-color: #FFFFFF;
+		-webkit-appearance: none;
+		border: none;
+		border-radius: 0;
+		margin: $baseline/2 0;
 		@include respond-max($bp1) {
-			margin-top: 9em;
+			margin: $baseline/3 0;
 		}
 	}
 }
 
+.field-heading {
+	margin-bottom: .5em;
+	margin-top: .5em;
+}
+
+
 input:not([type=checkbox]),
-select,
 textarea {
 	padding: .5em;
 	border: 1px solid;
@@ -180,6 +161,9 @@ textarea {
 	margin: $baseline/2 0;
 	&:first-child {
 		margin-top: 0;
+	}
+	@include respond-max($bp1) {
+		margin: $baseline/3 0;
 	}
 }
 

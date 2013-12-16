@@ -12,7 +12,14 @@
 		<form method="post" action="<?php echo BASE_URL; ?>sign-in.php" autocomplete="off">
 			<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 			<input type='password' name='password' placeholder="Password">
-			<div class="button-container">
+			<fieldset class="checkbox float-left">
+				<label>
+					<input type="checkbox" value="1" name="remember_me" checked="checked">
+					Remember me
+				</label>
+	        </fieldset>
+	       	<a class="forgot float-right" href="#">Forgot password?</a>
+			<div class="button-container clear">
             	<input class="submit" name="submit" type="submit" value='Sign In'>					
 			</div>
         </form>

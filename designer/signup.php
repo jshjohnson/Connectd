@@ -144,28 +144,32 @@
 							<option value="Illustrator">Animator</option>
 						</select>
 					</div>
-					<fieldset>
-						<label class="field-heading">What do you specialise in?</label>
-						<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="Graphic Design">Graphic Design</label>
-					    </div>
-					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="Web Design">Web Design</label>
-					    </div>
-					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="App Design">App Design</label>
-					    </div>
-						<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="UX Design">UX Design</label>
+					<label class="field-heading">What do you specialise in?</label>
+					<fieldset class="grid">
+						<div class="grid__cell unit-1-2--bp2">
+							<div class="checkbox">
+						   		<label><input type="checkbox" name="speciality[]" value="Graphic Design">Graphic Design</label>
+						    </div>
+						   	<div class="checkbox">
+						   		<label><input type="checkbox" name="speciality[]" value="Web Design">Web Design</label>
+						    </div>
+						   	<div class="checkbox">
+						   		<label><input type="checkbox" name="speciality[]" value="App Design">App Design</label>
+						    </div>
+							<div class="checkbox">
+						   		<label><input type="checkbox" name="speciality[]" value="UX Design">UX Design</label>
+							</div>
 						</div>
-					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="UI Design">UI Design</label>
-					    </div>
-					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="UI Design">Motion/Animation</label>
-					    </div>
-					    <div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="UI Design">Illustration</label>
+						<div class="grid__cell unit-1-2--bp2">
+						   	<div class="checkbox">
+						   		<label><input type="checkbox" name="speciality[]" value="UI Design">UI Design</label>
+						    </div>
+						   	<div class="checkbox">
+						   		<label><input type="checkbox" name="speciality[]" value="UI Design">Motion/Animation</label>
+						    </div>
+						    <div class="checkbox">
+						   		<label><input type="checkbox" name="speciality[]" value="UI Design">Illustration</label>
+						    </div>
 					    </div>
 					</fieldset>
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
