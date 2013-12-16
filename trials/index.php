@@ -52,14 +52,14 @@
 							<h3 class="user-sidebar__title"><?php echo $user["firstname"] . "\n" . $user["lastname"]; ?></h3>
 							<h4 class="user-sidebar__job icon--attach icon--marg"><?php echo $user["jobtitle"]; ?></h4>
 							<h4 class="user-sidebar__geo icon--location icon--marg"><?php echo $user["location"]; ?></h4>
-							<h4 class="user-sidebar__web icon--globe icon--marg"><a href="<?php echo $user["portfolio"]; ?>" target="_blank"><?php echo $user["portfolio"]; ?></a></h4>
+							<h4 class="user-sidebar__web icon--globe icon--marg"><a href="<?php echo $user["portfolio"]; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $user["portfolio"] ); echo $url ?></a></h4>
 						</div>
 					</article>
 				</aside>
 			<?php endwhile; ?>
 			</div>
 		</section>
-		<section class="call-to-action">
+		<section class="call-to-action footer-push">
 			<div class="container">
 				<h4 class="as-h1 call-to-action__title">
 					Looking for freelance work?
