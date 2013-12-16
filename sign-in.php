@@ -1,8 +1,9 @@
 <?php
-include_once("inc/header.php");
-include_once("inc/functions.php"); 
-include_once("inc/errors.php"); 
-include_once("inc/login.php");
+	require_once("inc/config.php"); 
+	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "inc/functions.php"); 
+	include_once(ROOT_PATH . "inc/errors.php"); 
+	include_once(ROOT_PATH . "inc/login.php");
 ?>
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
@@ -10,7 +11,7 @@ include_once("inc/login.php");
 				Sign In<a href="index.php" class="page-title__link"> : Register
 			</h1>
 			<h2 class="page-logo header-logo">
-				<a href="index.php">connectd</a>
+				<a href="<?php echo BASE_URL; ?>">connectd</a>
 			</h2>
 		</div>
 	</header>
@@ -43,4 +44,4 @@ include_once("inc/login.php");
 			</div>
 		</div>
 	</section>
-<?php include_once("inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer.php"); ?>

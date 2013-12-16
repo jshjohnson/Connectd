@@ -12,17 +12,10 @@
 					Dashboard<a href="" class="menu-trigger page-title__link"> : Menu</a>
 				</h1>
 				<nav class="header__nav">
-					<ul>
-						<li><a href="dashboard.php">Dashboard</a></li>
-						<li><a href="">Search</a></li>
-						<li><a href="">View Profile</a></li>
-						<li><a href="">Edit Profile</a></li>
-						<li><a href="<?php echo BASE_URL; ?>settings/">Settings</a></li>
-						<li><a href="/Connectd/logout.php">Log out</a></li>
-					</ul>
+					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				</nav>
 				<h2 class="page-logo header-logo">
-					<a href="index.php" class="icon--home">connectd</a>
+					<a href="<?php echo BASE_URL; ?>dashboard/" class="icon--home">connectd</a>
 				</h2>
 			</div>
 		</header>
@@ -48,7 +41,7 @@
 							<a href=""><img src="/Connectd/assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left user-info">
-									<a href=""><i class="icon--star"></i></a><a href="designer.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<a href=""><i class="icon--star"></i></a><a href="<?php echo BASE_URL; ?>designer/"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
 									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">
@@ -80,7 +73,7 @@
 							<a href=""><img src="/Connectd/assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left">
-									<a href="developer.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<a href="<?php echo BASE_URL; ?>developer/"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
 									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">

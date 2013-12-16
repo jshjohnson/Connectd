@@ -27,7 +27,7 @@
 				Sign Up
 			</h1>
 			<h2 class="page-logo header-logo">
-				<a href="index.php">connectd</a>
+				<a href="<?php echo BASE_URL; ?>">connectd</a>
 			</h2>
 		</div>
 	</header>

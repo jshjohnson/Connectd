@@ -1,9 +1,11 @@
 <?php 	
-	include_once("inc/functions.php");
+	require_once("inc/config.php"); 
+	include_once(ROOT_PATH . "inc/functions.php");
+	require_once(ROOT_PATH . "inc/config.php"); 
 	session_start();
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
-		header('Location: dashboard.php');
+		header('Location: /dashboard/');
 	}
 ?>
 <!doctype html>
@@ -30,27 +32,27 @@
 </head>
 <body>
 	<div class="site-wrap">
-		<h2 class="logo text-right"><a href="index.php">connectd</a></h2>
+		<h2 class="logo text-right"><a href="<?php echo BASE_URL; ?>">connectd</a></h2>
 		<h2 class="text-left"><a href="" class="login-trigger">Login</a></h2>
 		<div class="panel-wrap">
 			<section class="panel panel--designer panel-1-3">
 				<div class="panel__container">
 					<h1 class="panel__title">
-						<a href="signup-design.php"><span>I'm a</span> Designer</a>
+						<a href="<?php echo BASE_URL; ?>designer/signup.php"><span>I'm a</span> Designer</a>
 					</h1>
 				</div>
 			</section>
 			<section class="panel panel--developer panel-1-3">
 				<div class="panel__container">
 					<h1 class="panel__title">
-						<a href="signup-develop.php"><span>I'm a</span> Developer</a>
+						<a href="<?php echo BASE_URL; ?>developer/signup.php"><span>I'm a</span> Developer</a>
 					</h1>
 				</div>
 			</section>
 			<section class="panel panel--employer panel-1-3 float-right">
 				<div class="panel__container">
 					<h1 class="panel__title">
-						<a href="signup-employ.php"><span>I'm an</span> Employer</a>
+						<a href="<?php echo BASE_URL; ?>employer/signup.php"><span>I'm an</span> Employer</a>
 					</h1>
 				</div>
 			</section>

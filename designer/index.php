@@ -1,6 +1,8 @@
-<?php 	
-	include_once("inc/header-page.php");
-	require_once('inc/checklog.php');
+<?php 
+	require_once("../inc/config.php"); 
+	require_once(ROOT_PATH . "inc/config.php"); 
+	include_once(ROOT_PATH . "inc/header-page.php");
+	require_once(ROOT_PATH . 'inc/checklog.php');
 ?>		
 		<header class="header header--designer cf">
 			<div class="container">
@@ -8,17 +10,10 @@
 					Designer<a href="" class="menu-trigger page-title__link"> : Menu</a>
 				</h1>
 				<nav class="header__nav">
-					<ul>
-						<li><a href="dashboard.php">Dashboard</a></li>
-						<li><a href="">Search</a></li>
-						<li><a href="">View Profile</a></li>
-						<li><a href="">Edit Profile</a></li>
-						<li><a href="settings.php">Settings</a></li>
-						<li><a href="logout.php">Log out</a></li>
-					</ul>
+					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				</nav>
 				<h2 class="page-logo header-logo">
-					<a href="index.php" class="icon--home">connectd</a>
+					<a href="<?php echo BASE_URL; ?>" class="icon--home">connectd</a>
 				</h2>
 			</div>
 		</header>
@@ -33,7 +28,7 @@
 					</div>
 					<div class="user-sidebar__header">
 						<div class="user-sidebar__avatar">
-							<img src="assets/img/avatar-designer.jpg" alt="">
+							<img src="<?php echo BASE_URL; ?>assets/img/avatar-designer.jpg" alt="">
 						</div>
 						<div class="button-wrapper">
 							<button class="button-green button-left cf hire-trigger">
@@ -65,22 +60,22 @@
 					<div class="container__inner">
 						<div class="grid grid__designer">
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="assets/img/designer-1.png" alt="">
+								<img src="<?php echo BASE_URL; ?>assets/img/designer-1.png" alt="">
 							</div>
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="assets/img/designer-2.png" alt="">
+								<img src="<?php echo BASE_URL; ?>assets/img/designer-2.png" alt="">
 							</div>
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="assets/img/designer-3.jpg" alt="">
+								<img src="<?php echo BASE_URL; ?>assets/img/designer-3.jpg" alt="">
 							</div>
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="assets/img/designer-4.jpg" alt="">
+								<img src="<?php echo BASE_URL; ?>assets/img/designer-4.jpg" alt="">
 							</div>
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="assets/img/designer-5.jpg" alt="">
+								<img src="<?php echo BASE_URL; ?>assets/img/designer-5.jpg" alt="">
 							</div>
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="assets/img/designer-6.gif" alt="">
+								<img src="<?php echo BASE_URL; ?>assets/img/designer-6.gif" alt="">
 							</div>
 						</div>
 					</div>
@@ -121,4 +116,4 @@
 				<button class="button-red"><a href="dashboard.php">See our talented bunch</a></button>
 			</div>
 		</section>
-<?php include_once("inc/footer-page.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer-page.php"); ?>

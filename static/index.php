@@ -21,7 +21,7 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-	<h2 class="logo text-right"><a href="index.php">connectd</a></h2>
+	<h2 class="logo text-right"><a href="<?php echo BASE_URL; ?>">connectd</a></h2>
 	<h2 class="text-left"><a href="" class="login-trigger">Sign in</a></h2>
 	<div class="panel-wrap">
 		<section class="panel panel--designer panel-1-3">

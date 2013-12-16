@@ -1,6 +1,8 @@
 <?php 	
-	include_once("inc/header-page.php");
-	require_once('inc/checklog.php');
+	require_once("../inc/config.php"); 
+	require_once(ROOT_PATH . "inc/config.php"); 
+	include_once(ROOT_PATH . "inc/header-page.php");
+	require_once(ROOT_PATH . 'inc/checklog.php');
 ?>
 		<header class="header header--developer cf">
 			<div class="container">
@@ -8,17 +10,10 @@
 					Developer<a href="" class="menu-trigger page-title__link"> : Menu</a>
 				</h1>
 				<nav class="header__nav">
-					<ul>
-						<li><a href="dashboard.php">Dashboard</a></li>
-						<li><a href="">Search</a></li>
-						<li><a href="">View Profile</a></li>
-						<li><a href="">Edit Profile</a></li>
-						<li><a href="settings.php">Settings</a></li>
-						<li><a href="logout.php">Log out</a></li>
-					</ul>
+					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				</nav>
 				<h2 class="page-logo header-logo">
-					<a href="index.php" class="icon--home">connectd</a>
+					<a href="<?php echo BASE_URL; ?>" class="icon--home">connectd</a>
 				</h2>
 			</div>
 		</header>
@@ -33,7 +28,7 @@
 					</div>
 					<div class="user-sidebar__header">
 						<div class="user-sidebar__avatar">
-							<img src="assets/img/avatar.jpg" alt="">
+							<img src="<?php echo BASE_URL; ?>assets/img/avatar.jpg" alt="">
 						</div>
 						<div class="button-wrapper">
 							<button class="button-green button-left cf hire-trigger">
@@ -99,16 +94,16 @@
 					<div class="container__inner">
 						<div class="grid grid__developer">
 							<div class="grid__cell grid__cell--img">
-								<img src="assets/img/developer-1.jpg" alt="">
+								<img src="<?php echo BASE_URL; ?>assets/img/developer-1.jpg" alt="">
 							</div>
 							<div class="grid__cell grid__cell--img">
-								<img src="assets/img/developer-2.jpg" alt="">
+								<img src="<?php echo BASE_URL; ?>assets/img/developer-2.jpg" alt="">
 							</div>
 							<div class="grid__cell grid__cell--img">
-								<img src="assets/img/developer-3.png" alt="">
+								<img src="<?php echo BASE_URL; ?>assets/img/developer-3.png" alt="">
 							</div>
 							<div class="grid__cell grid__cell--img">
-								<img src="assets/img/developer-4.jpg" alt="">
+								<img src="<?php echo BASE_URL; ?>assets/img/developer-4.jpg" alt="">
 							</div>
 						</div>
 					</div>
@@ -134,4 +129,4 @@
 				<button class="button-red"><a href="dashboard.php">See our talented bunch</a></button>
 			</div>
 		</section>
-<?php include_once("inc/footer-page.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer-page.php"); ?>

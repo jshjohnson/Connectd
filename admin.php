@@ -50,7 +50,7 @@
 					</ul>
 				</nav>
 				<h2 class="page-logo header-logo">
-					<a href="index.php" class="icon--home">connectd</a>
+					<a href="<?php echo BASE_URL; ?>" class="icon--home">connectd</a>
 				</h2>
 			</div>
 		</header>
