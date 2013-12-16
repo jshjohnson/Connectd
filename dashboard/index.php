@@ -2,7 +2,7 @@
 	require_once("../inc/config.php"); 
 	require_once(ROOT_PATH . "inc/checklog.php");
 
-	include_once(ROOT_PATH . "inc/header-page.php");
+	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/errors.php"); 
 	include_once(ROOT_PATH . "inc/db_connect.php");
 ?>

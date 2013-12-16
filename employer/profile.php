@@ -1,13 +1,16 @@
 <?php 
 	require_once("../inc/config.php"); 
-	include_once(ROOT_PATH . "inc/header-page.php");
+	include_once(ROOT_PATH . "inc/header.php");
 	require_once(ROOT_PATH . 'inc/checklog.php');
 ?>	
 		<header class="header header--employer cf">
 			<div class="container">
 				<h1 class="page-title">
-					Employer
+					Employer<a href="" class="menu-trigger page-title__link"> : Menu</a>
 				</h1>
+				<nav class="header__nav">
+					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
+				</nav>
 				<h2 class="page-logo header-logo">
 					<a href="<?php echo BASE_URL; ?>" class="icon--home">connectd</a>
 				</h2>
@@ -108,7 +111,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for freelance work?
 				</h4>
-				<button class="button-green"><a href="dashboard.php">See our jobs list</a></button>
+				<button class="button-green"><a href="<?php echo BASE_URL; ?>dashboard/">See our jobs list</a></button>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer-page.php"); ?>

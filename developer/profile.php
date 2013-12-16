@@ -1,6 +1,6 @@
 <?php 	
 	require_once("../inc/config.php"); 
-	include_once(ROOT_PATH . "inc/header-page.php");
+	include_once(ROOT_PATH . "inc/header.php");
 	require_once(ROOT_PATH . 'inc/checklog.php');
 ?>
 		<header class="header header--developer cf">
@@ -125,7 +125,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for someone else?
 				</h4>
-				<button class="button-red"><a href="dashboard.php">See our talented bunch</a></button>
+				<button class="button-red"><a href="<?php echo BASE_URL; ?>search/">See our talented bunch</a></button>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer-page.php"); ?>

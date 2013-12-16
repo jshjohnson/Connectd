@@ -2,7 +2,6 @@
 	require_once("../inc/config.php"); 
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/functions.php");
-	include_once(ROOT_PATH . "inc/errors.php");
 
 	// Grab the form data
 	$firstname = trim($_POST['firstname']);
@@ -15,6 +14,8 @@
 	$experience = trim($_POST['experience']);
 	$bio = trim($_POST['bio']);
 	$speciality = trim($_POST['speciality']);
+	$portfolio = trim($_POST['portfolio']);
+	$location = trim($_POST['location']);
 	$submit = trim($_POST['submit']);
 
 	// Create some variables to hold output data
@@ -69,7 +70,10 @@
 					$repeatpassword = clean_string($db_server, $repeatpassword);
 					$age = clean_string($db_server, $age);
 					$bio = clean_string($db_server, $bio);
+					$speciality = clean_string($db_server, $speciality);
 					$experience = clean_string($db_server, $experience);
+					$portfolio = clean_string($db_server, $portfolio);
+					$location = clean_string($db_server, $location);
 
 					mysqli_select_db($db_server, $db_database);
 
@@ -81,7 +85,7 @@
 					}else{
 						// Encrypt password
 						$password = salt($password);
-						$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, jobtitle, speciality, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtitle', '$speciality', '$age', '$experience', '$bio')";
+						$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, location, portfolio, jobtitle, speciality, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$location', '$portfolio', '$jobtitle', '$speciality', '$age', '$experience', '$bio')";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
 						header("Location:" . BASE_URL . "sign-in.php");				
 					}
@@ -133,6 +137,8 @@
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" /> 
+					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
+					<input type="location" name="location" placeholder="Location" value="<?php if (isset($location)) { echo htmlspecialchars($location); } ?>">
 					<input type="number" name="age" placeholder="Age"  value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>" min="18" max="80" class="field-1-2" />
 					<input type="number" name="experience" placeholder="Years Experience" value="<?php if (isset($experience)) { echo htmlspecialchars($experience); } ?>" min="1" max="50" class="field-1-2 float-right"/>
 					<div class="select-container">

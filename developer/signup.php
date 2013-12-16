@@ -13,6 +13,7 @@
 	$jobtitle = trim($_POST['jobtitle']);
 	$experience = trim($_POST['experience']);
 	$bio = trim($_POST['bio']);
+	$portfolio = trim($_POST['portfolio']);
 	$submit = trim($_POST['submit']);
 
 	// Create some variables to hold output data
@@ -62,6 +63,7 @@
 					$age = clean_string($db_server, $age);
 					$jobtitle = clean_string($db_server, $jobtitle);
 					$bio = clean_string($db_server, $bio);
+					$portfolio = clean_string($db_server, $portfolio);
 					$experience = clean_string($db_server, $experience);
 
 					mysqli_select_db($db_server, $db_database);
@@ -74,7 +76,7 @@
 					}else{
 						// Encrypt password
 						$password = salt($password);
-						$query = "INSERT INTO connectdDB.developers (firstname, lastname, email, password, jobtitle, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtitle', '$age', '$experience', '$bio')";
+						$query = "INSERT INTO connectdDB.developers (firstname, lastname, email, password, portfolio, jobtitle, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$portfolio', '$jobtitle', '$age', '$experience', '$bio')";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
 						header("Location:" . BASE_URL . "sign-in.php");
 					}
@@ -120,12 +122,13 @@
 				<?php elseif (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
-				<form method="post" action="<?php echo BASE_URL; ?>developer/signup.php">
+				<form method="post" action="<?php echo BASE_URL; ?>developer/signup.php" autocomplete="off">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
+					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
 					<label for="jobtitle">What best describes what you do?</label>
 					<div class="select-container">
 						<select name="jobtitle">

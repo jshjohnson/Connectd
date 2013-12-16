@@ -4,6 +4,6 @@
       if (!isset($_SESSION['logged'])){
       $_SESSION = array();
       session_destroy();
-      header('location: sign-in.php');
+      header("Location:" . BASE_URL . "sign-in.php");
      } 
 ?>
