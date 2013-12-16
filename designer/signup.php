@@ -52,15 +52,13 @@
 		        $message="Please enter your experience"; 
 		    }else if($jobtitle == ""){
 		    	$message= "Please enter your current job title";
-		    }else if($speciality == ""){
-		    	$message= "Please select a speciality";
 		    }else if($bio == ""){
 		        $message="Please write about yourself"; 
 		    }else if(strlen($bio)<25) {
 				$message = "You're not going to sell yourself without a decent bio!";
 			}else{
 				// Process details here
-				require_once("inc/db_connect.php"); //include file to do db connect
+				require_once(ROOT_PATH . "inc/db_connect.php"); 
 				if($db_server){
 
 					//clean the input now that we have a db connection
@@ -76,7 +74,7 @@
 					mysqli_select_db($db_server, $db_database);
 
 					// check whether email has been used before
-					$query="SELECT email FROM connectdDB.designers WHERE email='$email'";
+					$query="SELECT designers.email FROM connectdDB.designers WHERE designers.email='$email' UNION SELECT developers.email FROM connectdDB.developers WHERE developers.email='$email' UNION SELECT employers.email FROM connectdDB.employers WHERE employers.email='$email'";
 					$result = mysqli_query($db_server, $query);
 					if ($row = mysqli_fetch_array($result)){
 						$message = "Email already taken. Please try again.";
@@ -85,14 +83,13 @@
 						$password = salt($password);
 						$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, jobtitle, speciality, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtitle', '$speciality', '$age', '$experience', '$bio')";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-						header('Location: sign-in.php');
-						
+						header('Location: /Connectd/sign-in.php');				
 					}
 					mysqli_free_result($result);
 				}else{
 					$message = "Error: could not connect to the database.";
 				}
-				require_once("inc/db_close.php"); //include file to do db close
+				require_once(ROOT_PATH . "inc/db_close.php"); 
 			}
 
 		}
@@ -130,7 +127,7 @@
 				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>designer/signup.php" autocomplete="off">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>">
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($surname)) { echo htmlspecialchars($surname); } ?>">
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" /> 
@@ -144,32 +141,28 @@
 							<option value="Illustrator">Animator</option>
 						</select>
 					</div>
-					<label class="field-heading">What do you specialise in?</label>
-					<fieldset class="grid">
-						<div class="grid__cell unit-1-2--bp2">
-							<div class="checkbox">
-						   		<label><input type="checkbox" name="speciality[]" value="Graphic Design">Graphic Design</label>
-						    </div>
-						   	<div class="checkbox">
-						   		<label><input type="checkbox" name="speciality[]" value="Web Design">Web Design</label>
-						    </div>
-						   	<div class="checkbox">
-						   		<label><input type="checkbox" name="speciality[]" value="App Design">App Design</label>
-						    </div>
-							<div class="checkbox">
-						   		<label><input type="checkbox" name="speciality[]" value="UX Design">UX Design</label>
-							</div>
+					<fieldset>
+						<label class="field-heading">What do you specialise in?</label>
+						<div class="checkbox">
+					   		<label><input type="checkbox" name="speciality[]" value="Graphic Design">Graphic Design</label>
+					    </div>
+					   	<div class="checkbox">
+					   		<label><input type="checkbox" name="speciality[]" value="Web Design">Web Design</label>
+					    </div>
+					   	<div class="checkbox">
+					   		<label><input type="checkbox" name="speciality[]" value="App Design">App Design</label>
+					    </div>
+						<div class="checkbox">
+					   		<label><input type="checkbox" name="speciality[]" value="UX Design">UX Design</label>
 						</div>
-						<div class="grid__cell unit-1-2--bp2">
-						   	<div class="checkbox">
-						   		<label><input type="checkbox" name="speciality[]" value="UI Design">UI Design</label>
-						    </div>
-						   	<div class="checkbox">
-						   		<label><input type="checkbox" name="speciality[]" value="UI Design">Motion/Animation</label>
-						    </div>
-						    <div class="checkbox">
-						   		<label><input type="checkbox" name="speciality[]" value="UI Design">Illustration</label>
-						    </div>
+					   	<div class="checkbox">
+					   		<label><input type="checkbox" name="speciality[]" value="UI Design">UI Design</label>
+					    </div>
+					   	<div class="checkbox">
+					   		<label><input type="checkbox" name="speciality[]" value="UI Design">Motion/Animation</label>
+					    </div>
+					    <div class="checkbox">
+					   		<label><input type="checkbox" name="speciality[]" value="UI Design">Illustration</label>
 					    </div>
 					</fieldset>
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>

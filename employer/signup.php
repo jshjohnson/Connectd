@@ -51,7 +51,7 @@
 				$message = "Freelancers require a bit more information about your business!";
 			}else{
 				// Process details here
-				require_once("inc/db_connect.php"); //include file to do db connect
+				require_once(ROOT_PATH . "inc/db_connect.php"); //include file to do db connect
 				if($db_server){
 
 					//clean the input now that we have a db connection
@@ -71,7 +71,7 @@
 					mysqli_select_db($db_server, $db_database);
 
 					// check whether email has been used before
-					$query="SELECT email FROM connectdDB.employers WHERE email='$email'";
+					$query="SELECT designers.email FROM connectdDB.designers WHERE designers.email='$email' UNION SELECT developers.email FROM connectdDB.developers WHERE developers.email='$email' UNION SELECT employers.email FROM connectdDB.employers WHERE employers.email='$email'";
 					$result = mysqli_query($db_server, $query);
 					if ($row = mysqli_fetch_array($result)){
 						$message = "Email already taken. Please try again.";
@@ -80,13 +80,13 @@
 						$password = salt($password);
 						$query = "INSERT INTO connectdDB.employers (firstname, lastname, email, password, businessname, businesstype, businesswebsite, businessbio) VALUES ('$firstname', '$lastname', '$email', '$password', '$businessname', '$businesstype', '$businesswebsite', '$businessbio')";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-						header('Location: sign-in.php');
+						header('Location: /Connectd/sign-in.php');
 					}
 					mysqli_free_result($result);
 				}else{
 					$message = "Error: could not connect to the database.";
 				}
-				require_once("inc/db_close.php"); //include file to do db close
+				require_once(ROOT_PATH . "inc/db_close.php"); 
 			}
 
 		}

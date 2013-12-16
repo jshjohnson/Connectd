@@ -50,7 +50,7 @@
 				$message = "You're not going to sell yourself without a decent bio!";
 			}else{
 				// Process details here
-				require_once("inc/db_connect.php"); //include file to do db connect
+				require_once(ROOT_PATH . "inc/db_connect.php"); //include file to do db connect
 				if($db_server){
 
 					//clean the input now that we have a db connection
@@ -67,7 +67,7 @@
 					mysqli_select_db($db_server, $db_database);
 
 					// check whether email has been used before
-					$query="SELECT email FROM connectdDB.developers WHERE email='$email'";
+					$query="SELECT designers.email FROM connectdDB.designers WHERE designers.email='$email' UNION SELECT developers.email FROM connectdDB.developers WHERE developers.email='$email' UNION SELECT employers.email FROM connectdDB.employers WHERE employers.email='$email'";
 					$result = mysqli_query($db_server, $query);
 					if ($row = mysqli_fetch_array($result)){
 						$message = "Email already taken. Please try again.";
@@ -76,13 +76,13 @@
 						$password = salt($password);
 						$query = "INSERT INTO connectdDB.developers (firstname, lastname, email, password, jobtitle, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtitle', '$age', '$experience', '$bio')";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-						header('Location: sign-in.php');
+						header('Location: /Connectd/sign-in.php');
 					}
 					mysqli_free_result($result);
 				}else{
 					$message = "Error: could not connect to the database.";
 				}
-				require_once("inc/db_close.php"); //include file to do db close
+				require_once(ROOT_PATH . "inc/db_close.php"); 
 			}
 
 		}
@@ -118,7 +118,7 @@
 				<?php if (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
-				<form method="post" action="<?php echo BASE_URL; ?>developer/signup.php" autocomplete="off">
+				<form method="post" action="<?php echo BASE_URL; ?>developer/signup.php">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
@@ -136,7 +136,7 @@
 						</select>
 					</div>
 					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left" value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>">
-					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right" <?php if (isset($experience)) { echo htmlspecialchars($experience); } ?>>
+					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right" value="<?php if (isset($experience)) { echo htmlspecialchars($experience); } ?>">
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>					
