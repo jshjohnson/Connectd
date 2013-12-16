@@ -32,7 +32,7 @@
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['email'];
-		$message = "You are already logged in as $s_username. Please <a href='logout.php'>logout</a> before trying to register.";
+		$message = "You are already logged in as $s_username. Please <a href='/Connectd/logout.php'>logout</a> before trying to register.";
 	}else{
 		if ($submit=='Apply for your place'){
 
@@ -83,7 +83,7 @@
 						$password = salt($password);
 						$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, jobtitle, speciality, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtitle', '$speciality', '$age', '$experience', '$bio')";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-						header('Location: /Connectd/sign-in.php');				
+						header("Location:" . BASE_URL . "sign-in.php");				
 					}
 					mysqli_free_result($result);
 				}else{
@@ -122,7 +122,9 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
-				<?php if (strlen($message)>1) : ?>
+				<?php if (strlen($message)>70) : ?>
+					<p class="error error--long"><?php echo $message; ?></p>
+				<?php elseif (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>designer/signup.php" autocomplete="off">

@@ -41,7 +41,7 @@
 							<a href=""><img src="/Connectd/assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left user-info">
-									<a href=""><i class="icon--star"></i></a><a href="<?php echo BASE_URL; ?>designer/"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<a href=""><i class="icon--star"></i></a><a href="<?php echo BASE_URL; ?>designer/profile.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
 									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">
@@ -73,7 +73,7 @@
 							<a href=""><img src="/Connectd/assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left">
-									<a href="<?php echo BASE_URL; ?>developer/"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<a href="<?php echo BASE_URL; ?>developer/profile.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
 									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">

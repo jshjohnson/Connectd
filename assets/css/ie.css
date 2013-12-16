@@ -2993,9 +2993,15 @@ img.media__img {
   top: 4.7em;
 }
 
+/* line 101, ../scss/core/_overrides.scss */
+.error--long:after {
+  top: 6.2em;
+  border-top: transparent;
+}
+
 /* Debuggin'
 ----------------------------------*/
-/* line 122, ../scss/core/_overrides.scss */
+/* line 136, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3010,7 +3016,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 0";
 }
-/* line 125, ../scss/core/_overrides.scss */
+/* line 139, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3025,7 +3031,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 1";
 }
-/* line 128, ../scss/core/_overrides.scss */
+/* line 142, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3040,7 +3046,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 2";
 }
-/* line 131, ../scss/core/_overrides.scss */
+/* line 145, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;

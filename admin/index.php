@@ -1,11 +1,12 @@
 <?php 	
-	include_once("inc/header-page.php");
-	require_once('inc/checklog.php');
-	include_once("inc/errors.php"); 
+	require_once("../inc/config.php"); 
+	include_once(ROOT_PATH . "inc/header-page.php");
+	require_once(ROOT_PATH . 'inc/checklog.php');
+	include_once(ROOT_PATH . "inc/errors.php"); 
 
-	session_start(); 
+	session_start();
 	//Connect to DB
-	require_once("inc/db_connect.php");
+	require_once(ROOT_PATH . "inc/db_connect.php");
 
 	mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
 
@@ -41,12 +42,8 @@
 				</h1>
 				<nav class="header__nav">
 					<ul>
-						<li><a href="dashboard.php">Dashboard</a></li>
-						<li><a href="">Search</a></li>
-						<li><a href="">View Profile</a></li>
-						<li><a href="">Edit Profile</a></li>
-						<li><a href="settings.php">Settings</a></li>
-						<li><a href="logout.php">Log out</a></li>
+						<li><a href="<?php echo BASE_URL; ?>settings/">Settings</a></li>
+						<li><a href="<?php echo BASE_URL; ?>logout.php">Log out</a></li>
 					</ul>
 				</nav>
 				<h2 class="page-logo header-logo">
@@ -137,6 +134,6 @@
 			</div>
 		</section>
 <?php 
-	require_once("inc/db_close.php");
-	include_once("inc/footer-page.php"); 
+	require_once(ROOT_PATH . "inc/db_close.php");
+	include_once(ROOT_PATH . "inc/footer-page.php"); 
 ?>

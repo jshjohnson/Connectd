@@ -76,7 +76,7 @@
 						$password = salt($password);
 						$query = "INSERT INTO connectdDB.developers (firstname, lastname, email, password, jobtitle, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$jobtitle', '$age', '$experience', '$bio')";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-						header('Location: /Connectd/sign-in.php');
+						header("Location:" . BASE_URL . "sign-in.php");
 					}
 					mysqli_free_result($result);
 				}else{
@@ -115,7 +115,9 @@
 	<section class="footer--push color-grey">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
-				<?php if (strlen($message)>1) : ?>
+				<?php if (strlen($message)>70) : ?>
+					<p class="error error--long"><?php echo $message; ?></p>
+				<?php elseif (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>developer/signup.php">
