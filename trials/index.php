@@ -9,7 +9,7 @@
 
 	mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
 
-	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, datejoined FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, datejoined FROM connectdDB.developers";
+	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, datejoined FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, datejoined FROM connectdDB.developers ORDER BY datejoined DESC";
 	$result = mysqli_query($db_server, $query);
 
 ?>
