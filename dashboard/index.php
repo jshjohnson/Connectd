@@ -23,7 +23,7 @@
 			<div class="grid--no-marg cf">
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
 					<header class="header--panel header--designer cf">
-						<h3 class="float-left">Designers (recently viewed)</h3>
+						<h3 class="float-left">Designers</h3>
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
@@ -38,7 +38,7 @@
 							// if there are any rows, print out the contents
 							while ($row = mysqli_fetch_array($result)) : ?>
 						<div class="media">
-							<a href=""><img src="/Connectd/assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
+							<a href=""><img src="<?php echo BASE_URL; ?>assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left user-info">
 									<a href=""><i class="icon--star"></i></a><a href="<?php echo BASE_URL; ?>designer/profile.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
@@ -55,7 +55,7 @@
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
 					<header class="header--panel header--developer cf">
-						<h3 class="float-left">Developers (recently viewed)</h3>
+						<h3 class="float-left">Developers</h3>
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
@@ -70,7 +70,7 @@
 							// if there are any rows, print out the contents
 							while ($row = mysqli_fetch_array($result)) : ?>
 						<div class="media">
-							<a href=""><img src="/Connectd/assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
+							<a href=""><img src="<?php echo BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left">
 									<a href="<?php echo BASE_URL; ?>developer/profile.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
@@ -88,51 +88,34 @@
 				<article class="dashboard-panel grid__cell module-1-1 module--no-pad">
 					<header class="header--panel header--employer cf">
 						<h3 class="float-left">My Jobs</h3>
-						<button class="float-right button-action post-job-trigger">Post Job</button>
+						<a href="<?php echo BASE_URL; ?>post/"><button class="float-right button-action">Post Job</button></a>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
+												<?php	
+							// create the SQL query
+							$query = "SELECT jobtitle, budget FROM connectdDB.jobs";
+
+							$result = mysqli_query($db_server, $query);
+
+							if (!$result) die("Database access failed: " . mysqli_error($db_server));
+
+							// if there are any rows, print out the contents
+							while ($row = mysqli_fetch_array($result)) : ?>
 						<div class="media">
 							<div class="media__desc media-2-3">
 								<div class="media__button currency-button">
 									<span class="currency">
-										£1k
+										£<?php echo $row['budget']; ?>
 									</span>
 								</div>
-								<a href=""><p class="media__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, nihil aliquam quod adipisci repellendus. Omnis corporis blanditiis unde ipsa eaque!</p></a>
+								<a href=""><p class="media__body"><?php echo $row['jobtitle']; ?></p></a>
 							</div>
 							<div class="media-1-3 media__side">
 								<p><small>Posted 3rd July</small></p>
 								<p><small>jshjohnson</small></p>
 							</div>
 						</div>
-						<div class="media">
-							<div class="media__desc media-2-3">
-								<div class="media__button currency-button">
-									<span class="currency">
-										£3k
-									</span>
-								</div>
-								<a href=""><p class="media__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, nihil aliquam quod adipisci repellendus. Omnis corporis blanditiis unde ipsa eaque!</p></a>
-							</div>
-							<div class="media-1-3 media__side">
-								<p><small>Posted 3rd July</small></p>
-								<p><small>jshjohnson</small></p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media__desc media-2-3">
-								<div class="media__button currency-button">
-									<span class="currency">
-										£14k
-									</span>
-								</div>
-								<a href=""><p class="media__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, nihil aliquam quod adipisci repellendus. Omnis corporis blanditiis unde ipsa eaque!</p></a>
-							</div>
-							<div class="media-1-3 media__side">
-								<p><small>Posted 3rd July</small></p>
-								<p><small>jshjohnson</small></p>
-							</div>
-						</div>
+					<?php endwhile; ?>
 					</div>
 				</article>
 			</div>

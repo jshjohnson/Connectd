@@ -1,9 +1,10 @@
 <?php
-	include_once("inc/errors.php");  
-	//Form Vaidation
 	$email = trim($_POST['email']);
 	$password = trim($_POST['password']);
+	$remember = trim($_POST['remember']);
 	$submit = trim($_POST['submit']);
+
+	$year = time() + 31536000;
 
 	if ($submit=='Sign In'){
 				
@@ -30,6 +31,17 @@
 						$_SESSION['email']=$email;
 						$_SESSION['userID']=$DBID;
 						$_SESSION['logged']="logged";
+
+						if($remember) {
+							setcookie('remember_me', $email, $year);
+						}
+						elseif(!$remember) {
+							if(isset($_COOKIE['remember_me'])) {
+								$past = time() - 100;
+								setcookie(remember_me, gone, $past);
+							}
+						}
+
 						header('Location: dashboard/');
 					}else{
 		              $message = "Incorrect password!";

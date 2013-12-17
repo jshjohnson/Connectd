@@ -121,6 +121,14 @@ th, legend { font-weight: bold; background: $color-comp; color: white; padding: 
 td { background-color: #F6F6F6; border-top: .5em solid white; border-bottom: .5em solid white;}
 
 /* -- Forms -- */
+
+form {
+	>input {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
  
 label { display: block; font-weight: bold; }
 textarea { line-height: 1.5; }
@@ -143,6 +151,14 @@ textarea { line-height: 1.5; }
 	}
 }
 
+
+.select-container--alt {
+	select {
+		background-color: #f7f7f7;
+		padding: .7em;
+	}
+}
+
 .field-heading {
 	margin-bottom: .5em;
 	margin-top: .5em;
@@ -159,9 +175,6 @@ textarea {
 	border: none;
 	border-radius: 0;
 	margin: $baseline/2 0;
-	&:first-child {
-		margin-top: 0;
-	}
 	@include respond-max($bp1) {
 		margin: $baseline/3 0;
 	}

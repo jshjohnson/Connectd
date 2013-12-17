@@ -34,9 +34,23 @@
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="sign-in.php" autocomplete="off">
-					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" class="field-1-2">
+					<input type="email" name="email" placeholder="Email" value="<?php echo $_COOKIE['remember_me']; ?>" class="field-1-2">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-right">
-					<div class="button-container">
+					<fieldset class="checkbox float-left">
+						<label>
+							<input type="checkbox" value="1" name="remember" 
+								<?php if(isset($_COOKIE['remember_me'])) {
+									echo 'checked="checked"';
+								}
+								else {
+									echo '';
+								}
+								?>>
+							Remember me
+						</label>
+			        </fieldset>
+			       	<a class="forgot float-right" href="#">Forgot password?</a>
+					<div class="button-container clear">
 		            	<input class="submit" name="submit" type="submit" value='Sign In'>					
 					</div>
 		        </form>

@@ -8,13 +8,19 @@
 	<div class='overlay__inner overlay__inner--small'> 
 		<a href="" class="cancel-trigger"><i class="icon--cancel"></i></a>
 		<h2 class='overlay__title'>Sign In</h2>
-		<?php echo $message; ?>
 		<form method="post" action="<?php echo BASE_URL; ?>sign-in.php" autocomplete="off">
-			<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
+			<input type="email" name="email" placeholder="Email" value="<?php echo $_COOKIE['remember_me']; ?>">
 			<input type='password' name='password' placeholder="Password">
 			<fieldset class="checkbox float-left">
 				<label>
-					<input type="checkbox" value="1" name="remember_me" checked="checked">
+					<input type="checkbox" value="1" name="remember" 
+						<?php if(isset($_COOKIE['remember_me'])) {
+							echo 'checked="checked"';
+						}
+						else {
+							echo '';
+						}
+						?>>
 					Remember me
 				</label>
 	        </fieldset>
