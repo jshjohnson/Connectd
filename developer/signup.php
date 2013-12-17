@@ -14,6 +14,7 @@
 	$experience = trim($_POST['experience']);
 	$bio = trim($_POST['bio']);
 	$portfolio = trim($_POST['portfolio']);
+	$location = trim($_POST['location']);
 	$submit = trim($_POST['submit']);
 
 	// Create some variables to hold output data
@@ -65,6 +66,7 @@
 					$bio = clean_string($db_server, $bio);
 					$portfolio = clean_string($db_server, $portfolio);
 					$experience = clean_string($db_server, $experience);
+					$location = trim($_POST['location']);
 
 					mysqli_select_db($db_server, $db_database);
 
@@ -76,7 +78,7 @@
 					}else{
 						// Encrypt password
 						$password = salt($password);
-						$query = "INSERT INTO connectdDB.developers (firstname, lastname, email, password, portfolio, jobtitle, age, experience, bio) VALUES ('$firstname', '$lastname', '$email', '$password', '$portfolio', '$jobtitle', '$age', '$experience', '$bio')";
+						$query = "INSERT INTO connectdDB.developers (firstname, lastname, email, password, location, portfolio, jobtitle, age, experience, bio, datejoined) VALUES ('$firstname', '$lastname', '$email', '$password', '$location', '$portfolio', '$jobtitle', '$age', '$experience', '$bio', now())";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
 						header("Location:" . BASE_URL . "sign-in.php");
 					}

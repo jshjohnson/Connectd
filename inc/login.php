@@ -32,9 +32,11 @@
 						$_SESSION['userID']=$DBID;
 						$_SESSION['logged']="logged";
 
+						// If remember has been checked, set a cookie
 						if($remember) {
 							setcookie('remember_me', $email, $year);
 						}
+						// If remember has not been checked, kill off any past cookies
 						elseif(!$remember) {
 							if(isset($_COOKIE['remember_me'])) {
 								$past = time() - 100;

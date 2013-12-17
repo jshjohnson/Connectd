@@ -77,7 +77,7 @@
 					}else{
 						// Encrypt password
 						$password = salt($password);
-						$query = "INSERT INTO connectdDB.employers (firstname, lastname, email, password, businessname, businesstype, businesswebsite, businessbio) VALUES ('$firstname', '$lastname', '$email', '$password', '$businessname', '$businesstype', '$businesswebsite', '$businessbio')";
+						$query = "INSERT INTO connectdDB.employers (firstname, lastname, email, password, businessname, businesstype, businesswebsite, businessbio, datejoined) VALUES ('$firstname', '$lastname', '$email', '$password', '$businessname', '$businesstype', '$businesswebsite', '$businessbio', now())";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
 						header("Location:" . BASE_URL . "sign-in.php");
 					}

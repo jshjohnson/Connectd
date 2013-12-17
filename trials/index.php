@@ -3,29 +3,13 @@
 	include_once(ROOT_PATH . "inc/header.php");
 	require_once(ROOT_PATH . "inc/checklog.php");
 
-	// $users = array();
-	// $users[0] = array(
-	// 	"first_name" => "Josh",
-	// 	"last_name" => "Johnson",
-	// 	"job_title" => "Front-end Developer",
-	// 	"location" => "Essex",
-	// 	"portfolio" => "joshuajohnson.co.uk"
-	// );
-	// $users[1] = array(
-	// 	"first_name" => "Harry",
-	// 	"last_name" => "Fox",
-	// 	"job_title" => "Designer",
-	// 	"location" => "Bishops Stortford",
-	// 	"portfolio" => "harryfox.co.uk"
-	// );
-
 	session_start();
 	//Connect to DB
 	require_once(ROOT_PATH . "inc/db_connect.php");
 
 	mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
 
-	$query = "SELECT firstname, lastname, jobtitle, location, portfolio FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio FROM connectdDB.developers";
+	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, datejoined FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, datejoined FROM connectdDB.developers";
 	$result = mysqli_query($db_server, $query);
 
 ?>
@@ -47,7 +31,9 @@
 			<?php while ($user = mysqli_fetch_array($result)) : ?>
 				<aside class="grid__cell module-1-4 push-bottom">
 					<article class="user-sidebar module--no-pad">
-						<div class="ribbon"><h5>New</h5></div>
+						<?php  if(strtotime($user["datejoined"])>strtotime('-3 days')) : ?>
+						     <div class="ribbon"><h5>New</h5></div>
+						<?php endif ?>
 						<div class="user-sidebar__info">
 							<h3 class="user-sidebar__title"><?php echo $user["firstname"] . "\n" . $user["lastname"]; ?></h3>
 							<h4 class="user-sidebar__job icon--attach icon--marg"><?php echo $user["jobtitle"]; ?></h4>

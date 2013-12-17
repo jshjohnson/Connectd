@@ -93,7 +93,7 @@
 					<div class="media-wrapper media-wrapper--tall">
 												<?php	
 							// create the SQL query
-							$query = "SELECT jobtitle, budget FROM connectdDB.jobs";
+							$query = "SELECT jobtitle, budget, date FROM connectdDB.jobs";
 
 							$result = mysqli_query($db_server, $query);
 
@@ -111,7 +111,7 @@
 								<a href=""><p class="media__body"><?php echo $row['jobtitle']; ?></p></a>
 							</div>
 							<div class="media-1-3 media__side">
-								<p><small>Posted 3rd July</small></p>
+								<p><small>Posted <?php echo $row['date']; ?></small></p>
 								<p><small>jshjohnson</small></p>
 							</div>
 						</div>

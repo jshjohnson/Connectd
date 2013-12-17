@@ -1,5 +1,6 @@
 <?php
 	require_once("../inc/config.php"); 
+	include_once(ROOT_PATH . "inc/checklog.php");
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/functions.php");
 
@@ -14,7 +15,7 @@
 
 	// Create some variables to hold output data
 	$message = '';
-	$s_username = '';
+	$s_username = $_SESSION['email'];
 
 	// Start to use PHP session
 	session_start();
@@ -44,11 +45,9 @@
 				$jobcategory = clean_string($db_server, $jobcategory);
 				$jobdescription = clean_string($db_server, $jobdescription);
 
-				$submit = trim($_POST['submit']);
-
 				mysqli_select_db($db_server, $db_database);
 
-				$query = "INSERT INTO connectdDB.jobs (jobtitle, startdate, deadline, budget, jobcategory, jobdescription) VALUES ('$jobtitle', '$startdate', '$deadline', '$budget', '$jobcategory', '$jobdescription')";
+				$query = "INSERT INTO connectdDB.jobs (jobtitle, startdate, deadline, budget, jobcategory, jobdescription, date) VALUES ('$jobtitle', '$startdate', '$deadline', '$budget', '$jobcategory', '$jobdescription', now())";
 				mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
 				header("Location:" . BASE_URL . "dashboard/");
 
@@ -57,7 +56,6 @@
 			}
 			require_once(ROOT_PATH . "inc/db_close.php"); 
 		}
-
 	}
 
 ?>
