@@ -93,7 +93,7 @@
 					<div class="media-wrapper media-wrapper--tall">
 												<?php	
 							// create the SQL query
-							$query = "SELECT jobtitle, budget, date FROM connectdDB.jobs";
+							$query = "SELECT jobtitle, budget, date FROM connectdDB.jobs ORDER BY date DESC";
 
 							$result = mysqli_query($db_server, $query);
 
@@ -105,7 +105,15 @@
 							<div class="media__desc media-2-3">
 								<div class="media__button currency-button">
 									<span class="currency">
-										£<?php echo $row['budget']; ?>
+										<?php $budget = $row['budget']; 
+										if ($budget>=10000) : ?>
+											£<?php echo substr($budget, 0, 2); ?>k
+										<?php elseif ($budget>=1000) : ?>
+											£<?php echo substr($budget, 0, 1); ?>k
+										<?php else : ?>
+											£<?php echo $budget; ?>
+										<?php endif; ?>
+
 									</span>
 								</div>
 								<a href=""><p class="media__body"><?php echo $row['jobtitle']; ?></p></a>
