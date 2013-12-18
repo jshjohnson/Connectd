@@ -1,5 +1,6 @@
 <?php
 	require_once("../inc/config.php"); 
+	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/functions.php");
 
@@ -23,7 +24,7 @@
 	session_start();
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
-		$s_username = $_SESSION['email'];
+		$s_username = $_SESSION['firstname'];
 		$message = "You are already logged in as $s_username. Please <a href='logout.php'>logout</a> before trying to register.";
 	}else{
 		if ($submit=='Start employing'){
@@ -34,7 +35,9 @@
 		        $message="Please enter your last name"; 
 		    }else if($email == ""){
 		        $message="Please enter your email"; 
-		    }else if($password == ""){
+		    }else if (!$mail->ValidateAddress($email)){
+       			 $message = "You must specify a valid email address.";
+    		}else if($password == ""){
 		        $message="Please enter a password"; 
 		    }else if ($password!=$repeatpassword){ 
 				$message = "Both password fields must match";
@@ -118,7 +121,7 @@
 	<section class="footer--push color-grey">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
-				<?php if (strlen($message)>70) : ?>
+				<?php if (strlen($message)>96) : ?>
 					<p class="error error--long"><?php echo $message; ?></p>
 				<?php elseif (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>

@@ -525,6 +525,13 @@ img.media__img {
 	}
 }
 
+.call-to-action--top {
+	.call-to-action__title {
+		margin-top: 0;
+	}
+	margin-bottom: 2em;
+}
+
 .price-per-hour {
 	margin-top: .35em;
 	h5 {

@@ -13,6 +13,7 @@
 	    }else if($password == ""){
 	        $message="Please enter your password"; 
 	    }else{
+	    	//Start session
 			session_start(); 
 			require_once("inc/db_connect.php");
 
@@ -20,14 +21,18 @@
 
 			$email = clean_string($db_server, $email); 
 			$password = clean_string($db_server, $password);
-			$query = "SELECT designers.email, designers.password FROM connectdDB.designers WHERE designers.email='$email' UNION SELECT developers.email, developers.password FROM connectdDB.developers WHERE developers.email='$email' UNION SELECT employers.email, employers.password FROM connectdDB.employers WHERE employers.email='$email'"; 
+			$query = "SELECT designers.id, designers.firstname, designers.lastname, designers.email, designers.password FROM connectdDB.designers WHERE designers.email='$email' UNION SELECT developers.id, developers.firstname, developers.lastname, developers.email, developers.password FROM connectdDB.developers WHERE developers.email='$email' UNION SELECT employers.id, employers.firstname, employers.lastname, employers.email, employers.password FROM connectdDB.employers WHERE employers.email='$email'"; 
 			$result = mysqli_query($db_server, $query);
 			
 			if($row = mysqli_fetch_array($result)){
+
+				$db_name = $row['firstname'] . ' ' . $row['lastname'];
 				$db_email = $row['email'];
 				$db_password = $row['password'];
-				$DBID = $row['ID'];
+				$DBID = $row['id'];
+
 					if($email==$db_email&&salt($password)==$db_password){
+						$_SESSION['username'] = $db_name;
 						$_SESSION['email']=$email;
 						$_SESSION['userID']=$DBID;
 						$_SESSION['logged']="logged";

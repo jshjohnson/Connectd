@@ -2532,23 +2532,32 @@ img.media__img {
 }
 
 /* line 528, ../scss/core/_modules.scss */
+.call-to-action--top {
+  margin-bottom: 2em;
+}
+/* line 529, ../scss/core/_modules.scss */
+.call-to-action--top .call-to-action__title {
+  margin-top: 0;
+}
+
+/* line 535, ../scss/core/_modules.scss */
 .price-per-hour {
   margin-top: .35em;
 }
-/* line 530, ../scss/core/_modules.scss */
+/* line 537, ../scss/core/_modules.scss */
 .price-per-hour h5 {
   margin: 0;
   text-align: center;
   font-weight: 600;
 }
-/* line 535, ../scss/core/_modules.scss */
+/* line 542, ../scss/core/_modules.scss */
 .price-per-hour span {
   font-size: .7em;
   display: block;
   line-height: .9;
 }
 
-/* line 542, ../scss/core/_modules.scss */
+/* line 549, ../scss/core/_modules.scss */
 .currency-button {
   background-color: #77c462;
   border-radius: 10em;
@@ -2559,7 +2568,7 @@ img.media__img {
   height: 3.5em;
 }
 
-/* line 552, ../scss/core/_modules.scss */
+/* line 559, ../scss/core/_modules.scss */
 .currency {
   line-height: 3.5em;
   text-align: center;

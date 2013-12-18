@@ -8,6 +8,11 @@
 	// User data
 	include_once(ROOT_PATH . "inc/designers.php");
 	include_once(ROOT_PATH . "inc/developers.php");
+	session_start();
+	// Determine whether user is logged in - test for value in $_SESSION
+	if (isset($_SESSION['logged'])){
+		$s_username = $_SESSION['username'];
+	}
 ?>
 		<header class="header cf">
 			<div class="container">
@@ -22,6 +27,14 @@
 				</h2>
 			</div>
 		</header>
+		<section class="call-to-action call-to-action--top">
+			<div class="container">
+				<h4 class="as-h1 call-to-action__title">
+					Welcome <?php echo $s_username; ?>
+				</h4>
+				<button class="button-red"><a href="<?php echo BASE_URL; ?>#">Build your profile</a></button>
+			</div>
+		</section>
 		<section class="container footer--push">
 			<div class="grid--no-marg cf">
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
