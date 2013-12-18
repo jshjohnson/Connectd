@@ -27,21 +27,14 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<?php	
-							// create the SQL query
-							$query = "SELECT firstname, lastname, jobtitle FROM connectdDB.designers";
+						<?php include_once(ROOT_PATH . "inc/designers.php");
 
-							$result = mysqli_query($db_server, $query);
-
-							if (!$result) die("Database access failed: " . mysqli_error($db_server));
-
-							// if there are any rows, print out the contents
 							while ($row = mysqli_fetch_array($result)) : ?>
 						<div class="media">
-							<a href=""><img src="<?php echo BASE_URL; ?>assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
+							<a href="<?php echo BASE_URL; ?>designer/profile.php?id<?php echo $row['id']; ?>"><img src="<?php echo BASE_URL; ?>assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left user-info">
-									<a href=""><i class="icon--star"></i></a><a href="<?php echo BASE_URL; ?>designer/profile.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<a href=""><i class="icon--star"></i></a><a href="<?php echo BASE_URL; ?>designer/profile.php?id<?php echo $row['id']; ?>"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
 									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">
@@ -59,21 +52,14 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<?php	
-							// create the SQL query
-							$query = "SELECT firstname, lastname, jobtitle FROM connectdDB.developers";
+						<?php include_once(ROOT_PATH . "inc/developers.php");
 
-							$result = mysqli_query($db_server, $query);
-
-							if (!$result) die("Database access failed: " . mysqli_error($db_server));
-
-							// if there are any rows, print out the contents
-							while ($row = mysqli_fetch_array($result)) : ?>
+						while ($row = mysqli_fetch_array($result)) : ?>
 						<div class="media">
-							<a href=""><img src="<?php echo BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
+							<a href="<?php echo BASE_URL; ?>developer/profile.php?id<?php echo $row['id']; ?>"><img src="<?php echo BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left">
-									<a href="<?php echo BASE_URL; ?>developer/profile.php"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<a href="<?php echo BASE_URL; ?>developer/profile.php?id<?php echo $row['id']; ?>"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
 									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">
@@ -91,7 +77,7 @@
 						<a href="<?php echo BASE_URL; ?>post/"><button class="float-right button-action">Post Job</button></a>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
-												<?php	
+						<?php	
 							// create the SQL query
 							$query = "SELECT jobtitle, budget, date FROM connectdDB.jobs ORDER BY date DESC";
 

@@ -4,6 +4,6 @@
       $_SESSION = array();
       // Destroy the session
       session_destroy();
-      header('Location: sign-in.php');
+      header('Location: sign-in.php?status=logged');
       // Print out the confirmation page
 ?>

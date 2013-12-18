@@ -3,6 +3,7 @@
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/functions.php"); 
 	include_once(ROOT_PATH . "inc/login.php");
+	$status = $_GET["status"];
 ?>
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
@@ -30,6 +31,9 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
+				<?php if ($status == "logged") : ?>
+				<p class="success">Successfully logged out - see you soon!</p>
+				<?php endif; ?>
 				<?php if (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>

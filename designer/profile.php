@@ -2,6 +2,8 @@
 	require_once("../inc/config.php"); 
 	include_once(ROOT_PATH . "inc/header.php");
 	require_once(ROOT_PATH . 'inc/checklog.php');
+	include_once(ROOT_PATH . "inc/db_connect.php");
+	include_once(ROOT_PATH . "inc/designers.php");
 ?>		
 		<header class="header header--designer cf">
 			<div class="container">
