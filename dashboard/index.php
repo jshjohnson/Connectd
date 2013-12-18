@@ -1,6 +1,7 @@
 <?php
 	require_once("../inc/config.php"); 
 	require_once(ROOT_PATH . "inc/checklog.php");
+	require_once(ROOT_PATH . "inc/errors.php");
 
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/db_connect.php");
@@ -57,7 +58,8 @@
 								</div>
 							</div>
 						</div>
-						<?php endforeach; ?>
+
+						<?php endforeach;?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">

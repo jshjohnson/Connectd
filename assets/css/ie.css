@@ -1616,15 +1616,14 @@ a:hover {
   right: 1em;
   top: 0;
   background-color: #fc4349;
-  border-left: 1em solid transparent;
-  border-right: 1em solid transparent;
-  border-bottom: 1em solid #f7f7f7;
+  border-left: .8em solid transparent;
+  border-right: .8em solid transparent;
+  border-bottom: 0.6em solid #f7f7f7;
   width: 0;
 }
 /* line 228, ../scss/core/_layout.scss */
 .ribbon h5 {
-  line-height: 1.5;
-  font-size: .7em;
+  font-size: .6em;
   padding-right: 1em;
   color: white;
   padding-bottom: 1em;
@@ -2627,19 +2626,24 @@ img.media__img {
 }
 
 /* line 44, ../scss/core/modules/_sidebar.scss */
+.user-sidebar__title--alt {
+  font-size: 1.1em;
+}
+
+/* line 48, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__job, .user-sidebar__geo, .user-sidebar__web {
   font-size: .9em;
   margin-top: 0;
   margin-bottom: 0.66667em;
   font-weight: 500;
 }
-/* line 49, ../scss/core/modules/_sidebar.scss */
+/* line 53, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__job a, .user-sidebar__geo a, .user-sidebar__web a {
   color: #2c3e50;
   text-decoration: underline;
 }
 
-/* line 55, ../scss/core/modules/_sidebar.scss */
+/* line 59, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__price {
   background-color: #fc4349;
   border-radius: 10em;
@@ -2652,12 +2656,12 @@ img.media__img {
   left: -1.65em;
   position: absolute;
 }
-/* line 66, ../scss/core/modules/_sidebar.scss */
+/* line 70, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__price h5 {
   margin: 0;
   line-height: 2.5em;
 }
-/* line 70, ../scss/core/modules/_sidebar.scss */
+/* line 74, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__price small {
   display: block;
   line-height: 0;
@@ -2665,13 +2669,13 @@ img.media__img {
   margin-top: -.5em;
 }
 
-/* line 85, ../scss/core/modules/_sidebar.scss */
+/* line 89, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__price--alt {
   right: -1.65em;
   left: auto;
 }
 
-/* line 100, ../scss/core/modules/_sidebar.scss */
+/* line 104, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__info p {
   font-size: .9em;
   margin-bottom: 1em;

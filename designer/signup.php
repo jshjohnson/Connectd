@@ -96,7 +96,7 @@
 						$password = salt($password);
 						$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, location, portfolio, jobtitle, speciality, age, experience, bio, datejoined) VALUES ('$firstname', '$lastname', '$email', '$password', '$location', '$portfolio', '$jobtitle', '$speciality', '$age', '$experience', '$bio', now())";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-						header("Location:" . BASE_URL . "sign-in?status=registered.php");				
+						header("Location:" . BASE_URL . "sign-in.php?status=registered.php");				
 					}
 					mysqli_free_result($result);
 				}else{
@@ -144,7 +144,7 @@
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
-					<input type='password' name='password' placeholder="Password" class="field-1-2">
+					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" /> 
 					<div class="select-container">
 					<?php 
@@ -169,7 +169,7 @@
 							<option value="Illustrator">Animator</option>
 						</select>
 					</div>
-					<fieldset>
+<!-- 					<fieldset>
 						<label class="field-heading">What do you specialise in?</label>
 						<div class="checkbox">
 					   		<label><input type="checkbox" name="speciality[]" value="Graphic Design">Graphic Design</label>
@@ -192,7 +192,7 @@
 					    <div class="checkbox">
 					   		<label><input type="checkbox" name="speciality[]" value="UI Design">Illustration</label>
 					    </div>
-					</fieldset>
+					</fieldset> -->
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input id="submit" class="submit" name="submit" type="submit" value='Apply for your place'>					

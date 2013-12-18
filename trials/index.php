@@ -35,7 +35,7 @@
 						     <div class="ribbon"><h5>New</h5></div>
 						<?php endif ?>
 						<div class="user-sidebar__info">
-							<h3 class="user-sidebar__title"><?php echo $user["firstname"] . "\n" . $user["lastname"]; ?></h3>
+							<h3 class="user-sidebar__title user-sidebar__title--alt"><?php echo $user["firstname"] . "\n" . $user["lastname"]; ?></h3>
 							<h4 class="user-sidebar__job icon--attach icon--marg"><?php echo $user["jobtitle"]; ?></h4>
 							<h4 class="user-sidebar__geo icon--location icon--marg"><?php echo $user["location"]; ?>, UK</h4>
 							<h4 class="user-sidebar__web icon--globe icon--marg"><a href="<?php echo $user["portfolio"]; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $user["portfolio"] ); echo $url ?></a></h4>

@@ -1,5 +1,6 @@
 <?php 
 	require_once("../inc/config.php"); 	
+	require_once(ROOT_PATH . "inc/db_connect.php");
 	include_once(ROOT_PATH . "inc/developers.php");
 
 	$developer_id = $_GET["id"];
