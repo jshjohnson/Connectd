@@ -79,7 +79,7 @@
 						$password = salt($password);
 						$query = "INSERT INTO connectdDB.employers (firstname, lastname, email, password, businessname, businesstype, businesswebsite, businessbio, datejoined) VALUES ('$firstname', '$lastname', '$email', '$password', '$businessname', '$businesstype', '$businesswebsite', '$businessbio', now())";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-						header("Location:" . BASE_URL . "sign-in.php");
+						header("Location:" . BASE_URL . "sign-in.php?status=registered");
 					}
 					mysqli_free_result($result);
 				}else{

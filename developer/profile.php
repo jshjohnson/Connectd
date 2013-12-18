@@ -1,7 +1,11 @@
-<?php 	
-	require_once("../inc/config.php"); 
+<?php 
+	require_once("../inc/config.php"); 	
+	include_once(ROOT_PATH . "inc/developers.php");
+
+	$developer_id = $_GET["id"];
+	$developer = $developers[$developer_id];
+
 	include_once(ROOT_PATH . "inc/header.php");
-	require_once(ROOT_PATH . 'inc/checklog.php');
 ?>
 		<header class="header header--developer cf">
 			<div class="container">
@@ -27,7 +31,7 @@
 					</div>
 					<div class="user-sidebar__header">
 						<div class="user-sidebar__avatar">
-							<img src="<?php echo BASE_URL; ?>assets/img/avatar.jpg" alt="">
+							<img src="<?php echo $developer['avatar']; ?>" alt="">
 						</div>
 						<div class="button-wrapper">
 							<button class="button-green button-left cf hire-trigger">
@@ -39,13 +43,11 @@
 						</div>
 					</div>
 					<div class="user-sidebar__info">
-						<h3 class="user-sidebar__title">Josh Johnson</h3>
-						<h4 class="user-sidebar__job icon--attach icon--marg">Front-end Developer</h4>
-						<h4 class="user-sidebar__geo icon--location icon--marg">Chelmsford, UK</h4>
-						<h4 class="user-sidebar__web icon--globe icon--marg"><a href="" target="_blank">joshuajohnson.co.uk</a></h4>
-						<p>I am a third-year undergraduate student at the University of Leeds, UK and an award winning web designer/developer. Web design and web development is not only my career path but also my hobby and has been for years now.</p>
-
-						<p>My passion is to make accessible, unique websites that set themselves apart from standard websites on the web. I am a self-confessed perfectionist and immerse myself in the latest trends surrounding web design which is reflected in my work.</p>
+						<h3 class="user-sidebar__title"><?php echo $developer['firstname'] . ' ' . $developer['lastname']; ?></h3>
+						<h4 class="user-sidebar__job icon--attach icon--marg"><?php echo $developer['jobtitle']; ?></h4>
+						<h4 class="user-sidebar__geo icon--location icon--marg"><?php echo $developer['location']; ?></h4>
+						<h4 class="user-sidebar__web icon--globe icon--marg"><a href="<?php echo $developer['portfolio']; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
+						<p><?php echo $developer['bio']; ?></p>
 					</div>
 				</aside>
 				<article class="portfolio grid__cell module-2-3 module--no-pad float-right">

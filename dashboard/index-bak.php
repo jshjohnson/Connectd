@@ -3,11 +3,8 @@
 	require_once(ROOT_PATH . "inc/checklog.php");
 
 	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "inc/errors.php"); 
 	include_once(ROOT_PATH . "inc/db_connect.php");
-
-	// User data
-	include_once(ROOT_PATH . "inc/designers.php");
-	include_once(ROOT_PATH . "inc/developers.php");
 ?>
 		<header class="header cf">
 			<div class="container">
@@ -30,13 +27,20 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<?php foreach($designers as $designer_id => $designer) : ?>
+						<?php 					
+							$query = "SELECT id, firstname, lastname, jobtitle FROM connectdDB.designers ORDER BY datejoined DESC";
+
+							$result = mysqli_query($db_server, $query);
+
+							if (!$result) die("Database access failed: " . mysqli_error($db_server));
+
+						while ($row = mysqli_fetch_array($result)) : ?>
 						<div class="media">
-							<a href="<?php echo BASE_URL; ?>designer/profile.php?id=<?php echo $designer_id; ?>"><img src="<?php echo $designer['avatar']; ?>" alt="" class="media__img media__img--avatar"></a>
+							<a href="<?php echo BASE_URL; ?>designer/profile.php"><img src="<?php echo BASE_URL; ?>assets/img/avatar-small-alt.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
 								<div class="float-left user-info">
-									<a href=""><i class="icon--star"></i></a><a href="<?php echo BASE_URL; ?>designer/profile.php?id=<?php echo $designer_id; ?>"><h4><?php echo $designer['firstname'] . ' ' . $designer['lastname']; ?></h4></a>
-									<p><?php echo $designer['jobtitle']; ?></p>
+									<a href=""><i class="icon--star"></i></a><a href="<?php echo BASE_URL; ?>designer/profile.php?id<?php echo $row['id']; ?>"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">
 									<h5>£36</h5>
@@ -44,7 +48,7 @@
 								</div>
 							</div>
 						</div>
-						<?php endforeach; ?>
+						<?php endwhile; ?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
@@ -53,21 +57,28 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<?php foreach($developers as $developer_id => $developer) : ?>
+						<?php 					
+							$query = "SELECT id, firstname, lastname, jobtitle FROM connectdDB.developers ORDER BY datejoined DESC";
+
+							$result = mysqli_query($db_server, $query);
+
+							if (!$result) die("Database access failed: " . mysqli_error($db_server));
+
+						while ($row = mysqli_fetch_array($result)) : ?>
 						<div class="media">
-							<a href="<?php echo BASE_URL; ?>developer/profile.php?id=<?php echo $developer_id; ?>"><img src="<?php echo $developer['avatar']; ?>" alt="" class="media__img media__img--avatar"></a>
+							<a href="<?php echo BASE_URL; ?>developer/profile.php"><img src="<?php echo BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="media__img media__img--avatar"></a>
 							<div class="media__body">
-								<div class="float-left user-info">
-									<a href=""><i class="icon--star"></i></a><a href="<?php echo BASE_URL; ?>developer/profile.php?id=<?php echo $developer_id; ?>"><h4><?php echo $developer['firstname'] . ' ' . $developer['lastname']; ?></h4></a>
-									<p><?php echo $developer['jobtitle']; ?></p>
+								<div class="float-left">
+									<a href="<?php echo BASE_URL; ?>developer/profile.php?id<?php echo $row['id']; ?>"><h4><?php echo $row['firstname']. ' ' .$row['lastname']; ?></h4></a>
+									<p><?php echo $row['jobtitle']; ?></p>
 								</div>
 								<div class="float-right price-per-hour">
-									<h5>£36</h5>
+									<h5>£24</h5>
 									<span>per hour</span>
 								</div>
 							</div>
 						</div>
-					<?php endforeach; ?>
+					<?php endwhile; ?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-1 module--no-pad">

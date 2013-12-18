@@ -33,6 +33,8 @@
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
 				<?php if ($status == "logged") : ?>
 				<p class="success">Successfully logged out - see you soon!</p>
+				<?php elseif($status == "registered") : ?>
+				<p class="success">Welcome to Connectd! - Sign in below</p>
 				<?php endif; ?>
 				<?php if (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>

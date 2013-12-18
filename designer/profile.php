@@ -1,9 +1,11 @@
 <?php 
-	require_once("../inc/config.php"); 
-	include_once(ROOT_PATH . "inc/header.php");
-	require_once(ROOT_PATH . 'inc/checklog.php');
-	include_once(ROOT_PATH . "inc/db_connect.php");
+	require_once("../inc/config.php"); 	
 	include_once(ROOT_PATH . "inc/designers.php");
+
+	$designer_id = $_GET["id"];
+	$designer = $designers[$designer_id];
+
+	include_once(ROOT_PATH . "inc/header.php");
 ?>		
 		<header class="header header--designer cf">
 			<div class="container">
@@ -29,7 +31,7 @@
 					</div>
 					<div class="user-sidebar__header">
 						<div class="user-sidebar__avatar">
-							<img src="<?php echo BASE_URL; ?>assets/img/avatar-designer.jpg" alt="">
+							<img src="<?php echo $designer['avatar']; ?>" alt="">
 						</div>
 						<div class="button-wrapper">
 							<button class="button-green button-left cf hire-trigger">
@@ -41,12 +43,12 @@
 						</div>
 					</div>
 					<div class="user-sidebar__info">
-						<a href=""><i class="icon--star-alt"></i></a><h3 class="user-sidebar__title">Harry Fox</h3>
-						<h4 class="user-sidebar__job icon--attach icon--marg">Graphic Designer</h4>
-						<h4 class="user-sidebar__geo icon--location icon--marg">Bishops Stortford, UK</h4>
-						<h4 class="user-sidebar__web icon--globe icon--marg"><a href="" target="_blank">harryfox.co.uk</a></h4>
+						<a href=""><i class="icon--star-alt"></i></a><h3 class="user-sidebar__title"><?php echo $designer['firstname'] . ' ' . $designer['lastname']; ?></h3>
+						<h4 class="user-sidebar__job icon--attach icon--marg"><?php echo $designer['jobtitle']; ?></h4>
+						<h4 class="user-sidebar__geo icon--location icon--marg"><?php echo $designer['location']; ?></h4>
+						<h4 class="user-sidebar__web icon--globe icon--marg"><a href="<?php echo $designer['portfolio']; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, sequi, eius, similique, sint amet iusto nostrum sed harum quam quod voluptates laborum accusantium voluptas provident explicabo expedita aperiam perferendis eos.
+							<?php echo $designer['bio']; ?>
 						</p>
 					</div>
 				</aside>
