@@ -10,7 +10,6 @@
 	position: relative;
 	margin-top: -8.5em;
 	margin-bottom: 5em;
-	border-bottom: .2em solid darken($color-background-light, 20%);
 	@include respond-max($bp1-5) {
 		margin-top: -9em;
 		width: 80%;

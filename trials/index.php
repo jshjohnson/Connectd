@@ -57,4 +57,3 @@
 	require_once(ROOT_PATH . "inc/db_close.php");
 	include_once(ROOT_PATH . "inc/footer-page.php"); 
 ?>
-

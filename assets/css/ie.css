@@ -2727,23 +2727,22 @@ img.media__img {
   position: relative;
   margin-top: -8.5em;
   margin-bottom: 5em;
-  border-bottom: 0.2em solid #c4c4c4;
 }
-/* line 21, ../scss/core/modules/_forms.scss */
+/* line 20, ../scss/core/modules/_forms.scss */
 .form-overlay form {
   margin-bottom: 0;
 }
 
-/* line 26, ../scss/core/modules/_forms.scss */
+/* line 25, ../scss/core/modules/_forms.scss */
 .field-1-2 {
   width: 48%;
 }
-/* line 28, ../scss/core/modules/_forms.scss */
+/* line 27, ../scss/core/modules/_forms.scss */
 .field-1-2:nth-child(2) {
   margin-top: 0;
 }
 
-/* line 39, ../scss/core/modules/_forms.scss */
+/* line 38, ../scss/core/modules/_forms.scss */
 .button-container {
   border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
   position: relative;
@@ -2752,21 +2751,21 @@ img.media__img {
   text-align: center;
   z-index: 0;
 }
-/* line 46, ../scss/core/modules/_forms.scss */
+/* line 45, ../scss/core/modules/_forms.scss */
 .button-container button a, .button-container a:active, .button-container a:visited {
   color: white;
   text-decoration: none;
   font-weight: 500;
   top: 0;
 }
-/* line 52, ../scss/core/modules/_forms.scss */
+/* line 51, ../scss/core/modules/_forms.scss */
 .button-container input {
   top: 1.4em;
   position: relative;
   margin: auto;
   min-width: 13em;
 }
-/* line 57, ../scss/core/modules/_forms.scss */
+/* line 56, ../scss/core/modules/_forms.scss */
 .button-container input:hover {
   top: 1.5em;
 }
