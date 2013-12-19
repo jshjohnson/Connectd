@@ -41,6 +41,13 @@
 	}else{
 		if ($submit=='Apply for your place'){
 
+			// Form hijack prevention
+			foreach( $_POST as $value ){
+	            if( stripos($value,'Content-Type:') !== FALSE ){
+	                $message = "Hmmmm. Are you a robot? Try again.";
+	            }
+	        }
+	        
 		    if($firstname == ""){
 		        $message="Please enter your first name"; 
 		    }else if($lastname == ""){
@@ -146,6 +153,7 @@
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" /> 
+					<label for="jobtitle">Where do you work from?</label>
 					<div class="select-container">
 					<?php 
 						require_once(ROOT_PATH . "inc/db_connect.php"); 

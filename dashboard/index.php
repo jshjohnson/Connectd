@@ -44,22 +44,9 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<?php foreach($designers as $designer_id => $designer) : ?>
-						<div class="media">
-							<a href="<?php echo BASE_URL; ?>designer/profile.php?id=<?php echo $designer_id; ?>"><img src="<?php echo $designer['avatar']; ?>" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left user-info">
-									<a href=""><i class="icon--star"></i></a><a href="<?php echo BASE_URL; ?>designer/profile.php?id=<?php echo $designer_id; ?>"><h4><?php echo $designer['firstname'] . ' ' . $designer['lastname']; ?></h4></a>
-									<p><?php echo $designer['jobtitle']; ?></p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£36</h5>
-									<span>per hour</span>
-								</div>
-							</div>
-						</div>
-
-						<?php endforeach;?>
+						<?php foreach($designers as $designer_id => $designer) {
+							echo get_designer_list_view($designer_id, $designer);
+						} ?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
@@ -68,21 +55,9 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<?php foreach($developers as $developer_id => $developer) : ?>
-						<div class="media">
-							<a href="<?php echo BASE_URL; ?>developer/profile.php?id=<?php echo $developer_id; ?>"><img src="<?php echo $developer['avatar']; ?>" alt="" class="media__img media__img--avatar"></a>
-							<div class="media__body">
-								<div class="float-left user-info">
-									<a href=""><i class="icon--star"></i></a><a href="<?php echo BASE_URL; ?>developer/profile.php?id=<?php echo $developer_id; ?>"><h4><?php echo $developer['firstname'] . ' ' . $developer['lastname']; ?></h4></a>
-									<p><?php echo $developer['jobtitle']; ?></p>
-								</div>
-								<div class="float-right price-per-hour">
-									<h5>£36</h5>
-									<span>per hour</span>
-								</div>
-							</div>
-						</div>
-					<?php endforeach; ?>
+						<?php foreach($developers as $developer_id => $developer) {
+							echo get_developer_list_view($developer_id, $developer);
+						} ?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-1 module--no-pad">

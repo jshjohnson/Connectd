@@ -28,6 +28,13 @@
 		$message = "You are already logged in as $s_username. Please <a href='logout.php'>logout</a> before trying to register.";
 	}else{
 		if ($submit=='Start employing'){
+
+			// Form hijack prevention
+			foreach( $_POST as $value ){
+	            if( stripos($value,'Content-Type:') !== FALSE ){
+	                $message = "Hmmmm. Are you a robot? Try again.";
+	            }
+	        }
 				
 		    if($firstname == ""){
 		        $message="Please enter your first name"; 
@@ -133,6 +140,19 @@
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
 					<input type="text" name="businessname" placeholder="Business name" value="<?php if (isset($businessname)) { echo htmlspecialchars($businessname); } ?>">
+					<label for="jobtitle">What is the location of your business?</label>
+					<div class="select-container">
+					<?php 
+						require_once(ROOT_PATH . "inc/db_connect.php"); 
+						$query = ("SELECT county FROM connectdDB.locations ORDER BY county ASC");
+						$result = mysqli_query($db_server, $query);
+					?>
+						<select name="location">
+						<?php while($row = mysqli_fetch_array($result)) : ?>
+						  <option value="<?php echo $row['county']; ?>"><?php echo $row['county']; ?></option>
+						<?php endwhile; ?>
+						</select>
+					</div>
 					<label for="jobtitle">What industry is your business in?</label>
 					<div class="select-container">
 						<select name="businesstype">
