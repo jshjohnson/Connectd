@@ -1,5 +1,7 @@
 <?php 	
 	require_once("../inc/config.php"); 
+
+	$pageTitle = "Trials";
 	include_once(ROOT_PATH . "inc/header.php");
 	require_once(ROOT_PATH . "inc/checklog.php");
 

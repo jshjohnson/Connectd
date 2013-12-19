@@ -1,6 +1,8 @@
 <?php
 	require_once("../inc/config.php"); 
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
+
+	$pageTitle = "Sign Up";
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/functions.php");
 

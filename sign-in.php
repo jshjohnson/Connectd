@@ -1,5 +1,7 @@
 <?php
 	require_once("inc/config.php"); 
+
+	$pageTitle = "Sign in";
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/functions.php"); 
 	include_once(ROOT_PATH . "inc/login.php");

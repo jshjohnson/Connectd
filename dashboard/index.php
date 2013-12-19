@@ -3,6 +3,7 @@
 	require_once(ROOT_PATH . "inc/checklog.php");
 	require_once(ROOT_PATH . "inc/errors.php");
 
+	$pageTitle = "Dashboard";
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/db_connect.php");
 

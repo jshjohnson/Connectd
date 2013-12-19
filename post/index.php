@@ -1,6 +1,8 @@
 <?php
 	require_once("../inc/config.php"); 
 	include_once(ROOT_PATH . "inc/checklog.php");
+
+	$pageTitle = "Post a job";
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/functions.php");
 

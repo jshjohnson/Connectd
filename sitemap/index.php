@@ -1,4 +1,4 @@
-<?php include_once("inc/header-page.php"); ?>
+<?php include_once("inc/header.php"); ?>
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
 			<h1 class="page-title">

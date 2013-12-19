@@ -5,6 +5,7 @@
 	$designer_id = $_GET["id"];
 	$designer = $designers[$designer_id];
 
+	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'];
 	include_once(ROOT_PATH . "inc/header.php");
 ?>		
 		<header class="header header--designer cf">
@@ -43,7 +44,7 @@
 						</div>
 					</div>
 					<div class="user-sidebar__info">
-						<a href=""><i class="icon--star-alt"></i></a><h3 class="user-sidebar__title"><?php echo $designer['firstname'] . ' ' . $designer['lastname']; ?></h3>
+						<a href=""><i class="icon--star-alt"></i></a><h3 class="user-sidebar__title"><?php echo $pageTitle; ?></h3>
 						<h4 class="user-sidebar__job icon--attach icon--marg"><?php echo $designer['jobtitle']; ?></h4>
 						<h4 class="user-sidebar__geo icon--location icon--marg"><?php echo $designer['location']; ?></h4>
 						<h4 class="user-sidebar__web icon--globe icon--marg"><a href="<?php echo $designer['portfolio']; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>

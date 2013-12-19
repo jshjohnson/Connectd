@@ -5,7 +5,8 @@
 
 	$developer_id = $_GET["id"];
 	$developer = $developers[$developer_id];
-
+	
+	$pageTitle = $developer['firstname'] . ' ' . $developer['lastname'];
 	include_once(ROOT_PATH . "inc/header.php");
 ?>
 		<header class="header header--developer cf">
@@ -44,7 +45,7 @@
 						</div>
 					</div>
 					<div class="user-sidebar__info">
-						<h3 class="user-sidebar__title"><?php echo $developer['firstname'] . ' ' . $developer['lastname']; ?></h3>
+						<h3 class="user-sidebar__title"><?php echo $pageTitle; ?></h3>
 						<h4 class="user-sidebar__job icon--attach icon--marg"><?php echo $developer['jobtitle']; ?></h4>
 						<h4 class="user-sidebar__geo icon--location icon--marg"><?php echo $developer['location']; ?></h4>
 						<h4 class="user-sidebar__web icon--globe icon--marg"><a href="<?php echo $developer['portfolio']; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>

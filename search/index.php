@@ -1,5 +1,7 @@
 <?php 	
 	require_once("../inc/config.php"); 
+
+	$pageTitle = "Search";
 	include_once(ROOT_PATH . "inc/header.php");
 	require_once(ROOT_PATH . "inc/checklog.php");
 	include_once(ROOT_PATH . "inc/db_connect.php");
