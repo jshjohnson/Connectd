@@ -15,15 +15,17 @@
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['username'];
 	}
+
+	$designers = get_designers_all();
+	$developers = get_developers_all();
+
 ?>
 		<header class="header cf">
 			<div class="container">
 				<h1 class="page-title">
 					Dashboard<a href="" class="menu-trigger page-title__link"> : Menu</a>
 				</h1>
-				<nav class="header__nav">
-					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-				</nav>
+				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				<h2 class="page-logo header-logo">
 					<a href="<?php echo BASE_URL; ?>dashboard/" class="icon--home">connectd</a>
 				</h2>

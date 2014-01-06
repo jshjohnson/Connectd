@@ -24,18 +24,19 @@ $(document).ready(function() {
 	});
 
 	// Overlay function
-	var docHeight = $(document).height();
 
 	function overlay($param, $file) {
+		var docHeight = $(document).height();
+		
 		$param.on('click', function(e) {
 			e.preventDefault();
 
 		    $.get($file, function(data){
 			    $("body").append(data);
-			    $(".site-wrap").addClass("blur");
 				$(".overlay").css({
 					height: docHeight,
 				});
+				$(".site-wrap").addClass("blur");
 	    		$(".overlay").add(".cancel-trigger").click(function(e) {
 				    if (e.target == this) {
 				        $(this).remove();

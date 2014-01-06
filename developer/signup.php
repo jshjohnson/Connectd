@@ -3,6 +3,7 @@
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
 	$pageTitle = "Sign Up";
+	$section = "Developer";
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/functions.php");
 
@@ -29,7 +30,7 @@
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['email'];
-		$message = "You are already logged in as <b>$s_username</b>. Please <a href='logout.php'>logout</a> before trying to register.";
+		$message = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "logout.php'>logout</a> before trying to register.";
 	}else{
 		if ($submit=='Apply for your place'){
 
@@ -131,7 +132,7 @@
 	<section class="footer--push color-grey">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
-				<?php if (strlen($message)>96) : ?>
+				<?php if (strlen($message)>106) : ?>
 					<p class="error error--long"><?php echo $message; ?></p>
 				<?php elseif (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>

@@ -2,10 +2,12 @@
 	require_once("../inc/config.php"); 	
 	include_once(ROOT_PATH . "inc/designers.php");
 
+	$designers = get_designers_all();
 	$designer_id = $_GET["id"];
 	$designer = $designers[$designer_id];
 
 	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'];
+	$section = "Designer";
 	include_once(ROOT_PATH . "inc/header.php");
 ?>		
 		<header class="header header--designer cf">
@@ -13,9 +15,7 @@
 				<h1 class="page-title">
 					Designer<a href="" class="menu-trigger page-title__link"> : Menu</a>
 				</h1>
-				<nav class="header__nav">
-					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-				</nav>
+				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				<h2 class="page-logo header-logo">
 					<a href="<?php echo BASE_URL; ?>" class="icon--home">connectd</a>
 				</h2>

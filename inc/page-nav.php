@@ -1,3 +1,5 @@
+
+				<nav class="header__nav">
 					<ul>
 						<li><a href="<?php echo BASE_URL; ?>dashboard/">Dashboard</a></li>
 						<li><a href="<?php echo BASE_URL; ?>trials/">Trials</a></li>
@@ -7,3 +9,4 @@
 						<li><a href="<?php echo BASE_URL; ?>settings/">Settings</a></li>
 						<li><a href="<?php echo BASE_URL; ?>logout.php">Log out</a></li>
 					</ul>
+				</nav>

@@ -1049,42 +1049,48 @@ a:hover {
 
 /* '' */
 /* line 267, ../scss/core/_base.scss */
+.icon--check:before {
+  content: '\e811';
+}
+
+/* '' */
+/* line 268, ../scss/core/_base.scss */
 .icon--attach:before {
   content: '\e804';
 }
 
 /* '' */
-/* line 268, ../scss/core/_base.scss */
+/* line 269, ../scss/core/_base.scss */
 .icon--sitemap:before {
   content: '\e80b';
 }
 
 /* '' */
-/* line 269, ../scss/core/_base.scss */
+/* line 270, ../scss/core/_base.scss */
 .icon--lightbulb:before {
   content: '\e80c';
 }
 
 /* '' */
-/* line 270, ../scss/core/_base.scss */
+/* line 271, ../scss/core/_base.scss */
 .icon--search:before {
   content: '\e801';
 }
 
 /* '' */
-/* line 271, ../scss/core/_base.scss */
+/* line 272, ../scss/core/_base.scss */
 .icon--home:before {
   content: '\e802';
 }
 
 /* '' */
-/* line 272, ../scss/core/_base.scss */
+/* line 273, ../scss/core/_base.scss */
 .icon--bookmark:before {
   content: '\e80d';
 }
 
 /* '' */
-/* line 273, ../scss/core/_base.scss */
+/* line 274, ../scss/core/_base.scss */
 .icon--star:before {
   content: '\e80e';
   color: #E7E948;
@@ -1093,7 +1099,7 @@ a:hover {
 }
 
 /* '' */
-/* line 274, ../scss/core/_base.scss */
+/* line 275, ../scss/core/_base.scss */
 .icon--star-alt:before {
   content: '\e80e';
   color: #E7E948;
@@ -1102,19 +1108,19 @@ a:hover {
 }
 
 /* '' */
-/* line 275, ../scss/core/_base.scss */
+/* line 276, ../scss/core/_base.scss */
 .icon--down-micro:before {
   content: '\e80f';
 }
 
 /* '' */
-/* line 276, ../scss/core/_base.scss */
+/* line 277, ../scss/core/_base.scss */
 .icon--magic:before {
   content: '\e80a';
 }
 
 /* '' */
-/* line 277, ../scss/core/_base.scss */
+/* line 278, ../scss/core/_base.scss */
 .icon--cancel:before {
   content: '\e810';
   float: right;
@@ -2532,7 +2538,7 @@ img.media__img {
 
 /* line 528, ../scss/core/_modules.scss */
 .call-to-action--top {
-  margin-bottom: 2em;
+  margin-bottom: 2.5em;
 }
 /* line 529, ../scss/core/_modules.scss */
 .call-to-action--top .call-to-action__title {
@@ -2577,7 +2583,7 @@ img.media__img {
 @-moz-keyframes dropDown {
   /* line 2, ../scss/libs/_animate.scss */
   0% {
-    -moz-transform: translateY(-20px);
+    -moz-transform: translateY(-22em);
   }
 
   /* line 6, ../scss/libs/_animate.scss */
@@ -2589,7 +2595,7 @@ img.media__img {
 @-o-keyframes dropDown {
   /* line 12, ../scss/libs/_animate.scss */
   0% {
-    -o-transform: translateY(-20px);
+    -o-transform: translateY(-22em);
   }
 
   /* line 16, ../scss/libs/_animate.scss */
@@ -2601,7 +2607,7 @@ img.media__img {
 @keyframes dropDown {
   /* line 22, ../scss/libs/_animate.scss */
   0% {
-    transform: translateY(-20px);
+    transform: translateY(-22em);
   }
 
   /* line 26, ../scss/libs/_animate.scss */
@@ -2612,10 +2618,10 @@ img.media__img {
 
 /* line 31, ../scss/libs/_animate.scss */
 .dropDown {
-  -webkit-animation: fadeInDown 3s;
-  -moz-animation: fadeInDown 3s;
-  -o-animation: fadeInDown 3s;
-  animation: fadeInDown 3s;
+  -webkit-animation: dropDown 3s;
+  -moz-animation: dropDown 3s;
+  -o-animation: dropDown 3s;
+  animation: dropDown 3s;
 }
 
 /* Homepage
@@ -3248,6 +3254,10 @@ img.media__img {
 
 /* line 11, ../scss/core/modules/_overlay.scss */
 .overlay__inner {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   background-color: white;
   margin: auto;
   position: relative;
@@ -3256,14 +3266,14 @@ img.media__img {
   padding: 1.5em;
   margin-top: 6%;
 }
-/* line 19, ../scss/core/modules/_overlay.scss */
+/* line 20, ../scss/core/modules/_overlay.scss */
 .overlay__inner input:not([type=submit]), .overlay__inner textarea {
   background-color: #f7f7f7;
   font-size: .8em;
   padding: 1em;
   margin-top: 0;
 }
-/* line 25, ../scss/core/modules/_overlay.scss */
+/* line 26, ../scss/core/modules/_overlay.scss */
 .overlay__inner textarea {
   line-height: 1.5;
 }
@@ -3280,31 +3290,40 @@ img.media__img {
   }
 }
 
-/* line 36, ../scss/core/modules/_overlay.scss */
+/* line 37, ../scss/core/modules/_overlay.scss */
+.overlay__innner--animate {
+  top: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+/* line 42, ../scss/core/modules/_overlay.scss */
 .overlay__inner--small {
   width: 20%;
 }
 @media screen and (max-width: 74em) {
-  /* line 36, ../scss/core/modules/_overlay.scss */
+  /* line 42, ../scss/core/modules/_overlay.scss */
   .overlay__inner--small {
     width: 30%;
   }
 }
 @media screen and (max-width: 49em) {
-  /* line 36, ../scss/core/modules/_overlay.scss */
+  /* line 42, ../scss/core/modules/_overlay.scss */
   .overlay__inner--small {
     width: 75%;
   }
 }
 
-/* line 48, ../scss/core/modules/_overlay.scss */
+/* line 54, ../scss/core/modules/_overlay.scss */
 .overlay > *:last-child,
 .overlay > *:last-child > *:last-child,
 .overlay > *:last-child > *:last-child > *:last-child {
   margin-bottom: 0;
 }
 
-/* line 52, ../scss/core/modules/_overlay.scss */
+/* line 58, ../scss/core/modules/_overlay.scss */
 .overlay__title {
   margin-top: 0;
   font-weight: 600;

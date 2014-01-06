@@ -2,6 +2,7 @@
 	require_once("../inc/config.php"); 
 
 	$pageTitle = "Employer";
+	$section = "Employer";
 	include_once(ROOT_PATH . "inc/header.php");
 	require_once(ROOT_PATH . 'inc/checklog.php');
 ?>	
@@ -10,9 +11,7 @@
 				<h1 class="page-title">
 					Employer<a href="" class="menu-trigger page-title__link"> : Menu</a>
 				</h1>
-				<nav class="header__nav">
-					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-				</nav>
+				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				<h2 class="page-logo header-logo">
 					<a href="<?php echo BASE_URL; ?>" class="icon--home">connectd</a>
 				</h2>

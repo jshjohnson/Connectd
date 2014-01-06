@@ -11,7 +11,7 @@
 
 	mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
 
-	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, datejoined FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, datejoined FROM connectdDB.developers ORDER BY datejoined DESC";
+	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, datejoined, votes FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, datejoined, votes FROM connectdDB.developers ORDER BY datejoined DESC";
 	$result = mysqli_query($db_server, $query);
 
 ?>
@@ -20,9 +20,7 @@
 				<h1 class="page-title">
 					Trials<a href="" class="menu-trigger page-title__link"> : Menu</a>
 				</h1>
-				<nav class="header__nav">
-					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-				</nav>
+				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				<h2 class="page-logo header-logo">
 					<a href="index.php">connectd</a>
 				</h2>
@@ -41,6 +39,11 @@
 							<h4 class="user-sidebar__job icon--attach icon--marg"><?php echo $user["jobtitle"]; ?></h4>
 							<h4 class="user-sidebar__geo icon--location icon--marg"><?php echo $user["location"]; ?>, UK</h4>
 							<h4 class="user-sidebar__web icon--globe icon--marg"><a href="<?php echo $user["portfolio"]; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $user["portfolio"] ); echo $url ?></a></h4>
+							<div class="text-center">
+								<button class="button-green button-small">
+									<a href="" class="icon--check"><?php echo $user["votes"]; ?> votes</a>
+								</button>
+							</div>
 						</div>
 					</article>
 				</aside>

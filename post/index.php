@@ -66,9 +66,7 @@
 			<h1 class="page-title">
 				Post a job<a href="" class="menu-trigger page-title__link"> : Menu</a>
 			</h1>
-			<nav class="header__nav">
-				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-			</nav>
+			<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 			<h2 class="page-logo header-logo">
 				<a href="<?php echo BASE_URL; ?>">connectd</a>
 			</h2>
@@ -80,7 +78,7 @@
 				<div class="grid text-center">
 					<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
 						<blockquote class="intro-quote text-center">
-							Post a job
+							Let's get us the ball rolling...
 						</blockquote>
 					</div>
 				</div>

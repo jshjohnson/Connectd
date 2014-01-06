@@ -1,6 +1,6 @@
 @-moz-keyframes dropDown {
 	0% {
-		-moz-transform: translateY(-20px);
+		-moz-transform: translateY(-22em);
 	}
 	
 	100% {
@@ -10,7 +10,7 @@
 
 @-o-keyframes dropDown {
 	0% {
-		-o-transform: translateY(-20px);
+		-o-transform: translateY(-22em);
 	}
 	
 	100% {
@@ -20,7 +20,7 @@
 
 @keyframes dropDown {
 	0% {
-		transform: translateY(-20px);
+		transform: translateY(-22em);
 	}
 	
 	100% {
@@ -29,8 +29,8 @@
 }
 
 .dropDown {
-	-webkit-animation: fadeInDown 3s;
-	-moz-animation: fadeInDown 3s;
-	-o-animation: fadeInDown 3s;
-	animation: fadeInDown 3s;
+	-webkit-animation: dropDown 3s;
+	-moz-animation: dropDown 3s;
+	-o-animation: dropDown 3s;
+	animation: dropDown 3s;
 }
