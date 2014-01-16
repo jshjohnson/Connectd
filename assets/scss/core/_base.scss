@@ -72,10 +72,8 @@ textarea, .expandingText { min-height: 8em; }
 \*----------------------------------------------------------------------------------------*/
 html {
 	font-size: 100%;
-	
 	@include respond-min($bp3) {
 		font-size: 125%; }
-		
 }
 
 body {

@@ -1,4 +1,3 @@
-// @codekit-prepend "plugins.js"
 
 // Document Ready
 $(document).ready(function() {
@@ -46,7 +45,6 @@ $(document).ready(function() {
 			});
 		});
 	}
-
 	overlay($(".apply-trigger"), "/Connectd/assets/ajax/apply.php");
 	overlay($(".hire-trigger"), "/Connectd/assets/ajax/hire.php");
 	overlay($(".post-job-trigger"), "/Connectd/assets/ajax/post-job.php");

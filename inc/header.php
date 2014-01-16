@@ -15,7 +15,7 @@
 	    <script src="<?php echo BASE_URL; ?>assets/js/libs/selectivizr-min.js"></script>
 	<![endif]-->
 	<!--[if gt IE 8]><!-->
-	    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/screen.css">
+	    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/global.css">
 	<!--<![endif]-->
 	
 	<script src="<?php echo BASE_URL; ?>assets/js/libs/modernizr-2.5.3.min.js"></script>
