@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                 ],
                 dest: 'assets/js/production.js',
             }
-        },
+        },       
 
         // JS Minify
 
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'assets/img/',
-                    src: ['**/*.{png,jpg,gif}'],
+                    src: ['**/*.{png,jpg,gif,jpeg}'],
                     dest: 'assets/img/'
                 }]
             }
@@ -61,6 +61,9 @@ module.exports = function(grunt) {
         // Watch events
 
         watch: {
+            options: {
+                livereload: true,
+            },
             scripts: {
                 files: ['assets/js/*.js'],
                 tasks: ['concat', 'uglify'],
@@ -76,7 +79,7 @@ module.exports = function(grunt) {
                 }
             },
            images: {
-                files: ['assets/img/*.{png,jpg,gif}'],
+                files: ['assets/img/*.{png,jpg,gif,jpeg}'],
                 tasks: ['imagemin'],
                 options: {
                     spawn: false,
@@ -87,6 +90,7 @@ module.exports = function(grunt) {
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
