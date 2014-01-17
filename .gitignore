@@ -18,6 +18,9 @@ Thumbs.db
 # Misc #
 ###################
 
+node_modules
+npm-debug.log
+
 .htaccess
 
 _assets

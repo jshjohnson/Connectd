@@ -30,15 +30,8 @@ img.media__img {
 		font-size: 1.1em;
 		display: inline;
 	}
-	p {
-		font-size: .9em;
-		margin-bottom: 0;
-	}
 	&:last-child{
 		margin-bottom: 0;
-	}
-	@include respond-max($bp1) {
-		font-size: .9em;
 	}
 	.user-info {
 		width: 70%;
