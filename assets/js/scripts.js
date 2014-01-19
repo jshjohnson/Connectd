@@ -17,10 +17,10 @@ $(document).ready(function() {
 	}
 
 
-	// $(".menu-trigger").click(function(e) {
-	// 	e.preventDefault();
-	// 	$(".header__nav").toggleClass("block");
-	// });
+	$(".menu-trigger").click(function(e) {
+		e.preventDefault();
+		$(".header__nav").toggleClass("block");
+	});
 
 	// Overlay function
 

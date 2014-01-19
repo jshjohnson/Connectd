@@ -38,7 +38,7 @@
 		<header class="header cf">
 			<div class="container">
 				<h1 class="page-title">
-					Admin
+					Admin<a href="" class="menu-trigger page-title__link"> : Menu</a>
 				</h1>
 				<nav class="header__nav">
 					<ul>

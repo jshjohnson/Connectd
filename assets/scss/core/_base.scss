@@ -70,10 +70,6 @@ textarea, .expandingText { min-height: 8em; }
 /*----------------------------------------------------------------------------------------*\
  $.Project Defaults
 \*----------------------------------------------------------------------------------------*/
-body, html {
-	height: 100%;
-}
-
 html {
 	font-size: 100%;
 	@include respond-min($bp3) {
@@ -83,9 +79,10 @@ html {
 body {
 	@include font-sans;
 	line-height: 1.5;
+	height: 100%;
 	color: $color-text;
 	overflow-x: hidden;
-	background-color: darken($color-background,5%);
+	background-color: $color-background;
 }
 
 /* -- Vertical Rhythm -- */

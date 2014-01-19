@@ -24,9 +24,3 @@
 </head>
 <body>
 	<div class="site site-wrap">
-		<div id="inner-wrap">
-			<section class="menu">
-				<a href="#nav" class="nav-toggle nav-toggle--open icon--menu" id="nav-open-btn">Open</a>
-				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-			</section>
-			<section class="content">

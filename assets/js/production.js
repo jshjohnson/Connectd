@@ -7,161 +7,6 @@
 /* Expanding Textareas - https://github.com/bgrins/ExpandingTextareas */
 ;(function(e){typeof define=="function"&&define.amd?define(["jquery"],e):e(jQuery)})(function(e){function s(){e(this).closest(".expandingText").find("div").text(this.value+" ");e(this).trigger("resize.expanding")}e.expandingTextarea=e.extend({autoInitialize:!0,initialSelector:"textarea.expanding",opts:{resize:function(){}}},e.expandingTextarea||{});var t=["lineHeight","textDecoration","letterSpacing","fontSize","fontFamily","fontStyle","fontWeight","textTransform","textAlign","direction","wordSpacing","fontSizeAdjust","wordWrap","word-break","borderLeftWidth","borderRightWidth","borderTopWidth","borderBottomWidth","paddingLeft","paddingRight","paddingTop","paddingBottom","marginLeft","marginRight","marginTop","marginBottom","boxSizing","webkitBoxSizing","mozBoxSizing","msBoxSizing"],n={position:"absolute",height:"100%",resize:"none"},r={visibility:"hidden",border:"0 solid",whiteSpace:"pre-wrap"},i={position:"relative"};e.fn.expandingTextarea=function(o){var u=e.extend({},e.expandingTextarea.opts,o);if(o==="resize")return this.trigger("input.expanding");if(o==="destroy"){this.filter(".expanding-init").each(function(){var t=e(this).removeClass("expanding-init"),n=t.closest(".expandingText");n.before(t).remove();t.attr("style",t.data("expanding-styles")||"").removeData("expanding-styles")});return this}this.filter("textarea").not(".expanding-init").addClass("expanding-init").each(function(){var o=e(this);o.wrap("<div class='expandingText'></div>");o.after("<pre class='textareaClone'><div></div></pre>");var a=o.parent().css(i),f=a.find("pre").css(r);o.data("expanding-styles",o.attr("style"));o.css(n);e.each(t,function(e,t){var n=o.css(t);f.css(t)!==n&&f.css(t,n)});o.bind("input.expanding propertychange.expanding keyup.expanding",s);s.apply(this);u.resize&&o.bind("resize.expanding",u.resize)});return this};e(function(){e.expandingTextarea.autoInitialize&&e(e.expandingTextarea.initialSelector).expandingTextarea()})});
 
-/* Off canvas navigation |Copyright (c) David Bushell | http://dbushell.com/ */
-(function(window, document, undefined)
-{
-
-    // helper functions
-
-    var trim = function(str)
-    {
-        return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g,'');
-    };
-
-    var hasClass = function(el, cn)
-    {
-        return (' ' + el.className + ' ').indexOf(' ' + cn + ' ') !== -1;
-    };
-
-    var addClass = function(el, cn)
-    {
-        if (!hasClass(el, cn)) {
-            el.className = (el.className === '') ? cn : el.className + ' ' + cn;
-        }
-    };
-
-    var removeClass = function(el, cn)
-    {
-        el.className = trim((' ' + el.className + ' ').replace(' ' + cn + ' ', ' '));
-    };
-
-    var hasParent = function(el, id)
-    {
-        if (el) {
-            do {
-                if (el.id === id) {
-                    return true;
-                }
-                if (el.nodeType === 9) {
-                    break;
-                }
-            }
-            while((el = el.parentNode));
-        }
-        return false;
-    };
-
-    // normalize vendor prefixes
-
-    var doc = document.documentElement;
-
-    var transform_prop = window.Modernizr.prefixed('transform'),
-        transition_prop = window.Modernizr.prefixed('transition'),
-        transition_end = (function() {
-            var props = {
-                'WebkitTransition' : 'webkitTransitionEnd',
-                'MozTransition'    : 'transitionend',
-                'OTransition'      : 'oTransitionEnd otransitionend',
-                'msTransition'     : 'MSTransitionEnd',
-                'transition'       : 'transitionend'
-            };
-            return props.hasOwnProperty(transition_prop) ? props[transition_prop] : false;
-        })();
-
-    window.App = (function()
-    {
-
-        var _init = false, app = { };
-
-        var inner = document.getElementById('inner-wrap'),
-
-            nav_open = false,
-
-            nav_class = 'js-nav';
-
-
-        app.init = function()
-        {
-            if (_init) {
-                return;
-            }
-            _init = true;
-
-            var closeNavEnd = function(e)
-            {
-                if (e && e.target === inner) {
-                    document.removeEventListener(transition_end, closeNavEnd, false);
-                }
-                nav_open = false;
-            };
-
-            app.closeNav =function()
-            {
-                if (nav_open) {
-                    // close navigation after transition or immediately
-                    var duration = (transition_end && transition_prop) ? parseFloat(window.getComputedStyle(inner, '')[transition_prop + 'Duration']) : 0;
-                    if (duration > 0) {
-                        document.addEventListener(transition_end, closeNavEnd, false);
-                    } else {
-                        closeNavEnd(null);
-                    }
-                }
-                removeClass(doc, nav_class);
-                nav_open = false;
-            };
-
-            app.openNav = function()
-            {
-                if (nav_open) {
-                    return;
-                }
-                addClass(doc, nav_class);
-                nav_open = true;
-            };
-
-            app.toggleNav = function(e)
-            {
-                if (nav_open && hasClass(doc, nav_class)) {
-                    app.closeNav();
-                } else {
-                    app.openNav();
-                }
-                if (e) {
-                    e.preventDefault();
-                }
-            };
-
-            // open nav with main "nav" button
-            document.getElementById('nav-open-btn').addEventListener('click', app.toggleNav, false);
-
-            // close nav with main "close" button
-            document.getElementById('nav-close-btn').addEventListener('click', app.toggleNav, false);
-
-            // close nav by touching the partial off-screen content
-            document.addEventListener('click', function(e)
-            {
-                if (nav_open && !hasParent(e.target, 'nav')) {
-                    e.preventDefault();
-                    app.closeNav();
-                }
-            },
-            true);
-
-            addClass(doc, 'js-ready');
-
-        };
-
-        return app;
-
-    })();
-
-    if (window.addEventListener) {
-       window.addEventListener('DOMContentLoaded', window.App.init, false);
-    }
-
-})(window, window.document);
-
-
 
 // Document Ready
 $(document).ready(function() {
@@ -181,10 +26,10 @@ $(document).ready(function() {
 	}
 
 
-	// $(".menu-trigger").click(function(e) {
-	// 	e.preventDefault();
-	// 	$(".header__nav").toggleClass("block");
-	// });
+	$(".menu-trigger").click(function(e) {
+		e.preventDefault();
+		$(".header__nav").toggleClass("block");
+	});
 
 	// Overlay function
 
