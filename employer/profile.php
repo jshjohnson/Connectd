@@ -9,7 +9,7 @@
 		<header class="header header--employer cf">
 			<div class="container">
 				<h1 class="page-title">
-					Employer<a href="" class="menu-trigger page-title__link"> : Menu</a>
+					Employer
 				</h1>
 				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				<h2 class="page-logo header-logo">

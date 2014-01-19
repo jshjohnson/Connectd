@@ -23,9 +23,8 @@
 		<header class="header cf">
 			<div class="container">
 				<h1 class="page-title">
-					Dashboard<a href="" class="menu-trigger page-title__link"> : Menu</a>
+					Dashboard
 				</h1>
-				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				<h2 class="page-logo header-logo">
 					<a href="<?php echo BASE_URL; ?>dashboard/" class="icon--home">connectd</a>
 				</h2>

@@ -13,7 +13,7 @@
 		<header class="header header--designer cf">
 			<div class="container">
 				<h1 class="page-title">
-					Designer<a href="" class="menu-trigger page-title__link"> : Menu</a>
+					Designer
 				</h1>
 				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				<h2 class="page-logo header-logo">

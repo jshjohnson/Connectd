@@ -1,13 +1,21 @@
 /* Container / Inner
 ----------------------------------*/
-.site {
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column; 
-}
+// .site {
+// 	display: flex;
+// 	min-height: 100vh;
+// 	flex-direction: column; 
+// }
 
 .site-wrap {
 	height: 100%;
+}
+
+.content {
+	width: 95%;
+	float: right;
+	height: 100%;
+	background-color: $color-background;
+	display: inline-block;
 }
 
 .home {
@@ -38,9 +46,18 @@
 	flex: 1;
 }
 
+.menu {
+	width: 5%;
+	float: left;
+	height: 100%;
+	background-color: red;
+	@include box-sizing(border-box);
+}
+
 /* Grids (Griddle - http://goo.gl/P1JKB)
 ----------------------------------*/
 @import "../libs/_griddle";
+@import "../libs/_off-canvas";
 
 // Create 2, 3, 6 and 12 column grids
 @include griddle-build(2);
