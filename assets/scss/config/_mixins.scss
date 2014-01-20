@@ -61,7 +61,7 @@
 		font-style: normal;
 	}
 	
-	.icon:before,
+	%icon-before, .icon:before,
 	[class^="icon--"]:before,
 	[class*=" icon--"]:before {
 	    font-family: $icon-font-family;
@@ -75,6 +75,7 @@
 		line-height: 1em;
 	    top: 1px; }
 
+	
 
 	%icon-after:after {
 	    font-family: $icon-font-family;

@@ -1,26 +1,22 @@
 <?php 
 	require_once("../inc/config.php"); 	
+	require_once(ROOT_PATH . "inc/checklog.php");
 	include_once(ROOT_PATH . "inc/designers.php");
 
 	$designers = get_designers_all();
 	$designer_id = $_GET["id"];
 	$designer = $designers[$designer_id];
 
+	// Determine whether user is logged in - test for value in $_SESSION
+	if (isset($_SESSION['logged'])){
+		$s_username = $_SESSION['username'];
+	}
+
 	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'];
 	$section = "Designer";
 	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "inc/header-logged.php");
 ?>		
-		<header class="header header--designer cf">
-			<div class="container">
-				<h1 class="header__section header__section--title">
-					Designer<a href="" class="menu-trigger header__section--title__link "> : Menu</a>
-				</h1>
-				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-				<h2 class="header__section header-logo">
-					<a href="<?php echo BASE_URL; ?>" class="icon--home">connectd</a>
-				</h2>
-			</div>
-		</header>
 		<section class="container">
 			<div class="grid--no-marg cf">
 				<aside class="user-sidebar grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">

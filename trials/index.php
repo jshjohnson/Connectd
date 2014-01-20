@@ -2,9 +2,11 @@
 	require_once("../inc/config.php"); 
 
 	$pageTitle = "Trials";
-	include_once(ROOT_PATH . "inc/header.php");
 	require_once(ROOT_PATH . "inc/checklog.php");
-
+	// Determine whether user is logged in - test for value in $_SESSION
+	if (isset($_SESSION['logged'])){
+		$s_username = $_SESSION['username'];
+	}
 	session_start();
 	//Connect to DB
 	require_once(ROOT_PATH . "inc/db_connect.php");
@@ -14,18 +16,9 @@
 	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, datejoined, votes FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, datejoined, votes FROM connectdDB.developers ORDER BY datejoined DESC";
 	$result = mysqli_query($db_server, $query);
 
+	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "inc/header-logged.php");
 ?>
-		<header class="header cf">
-			<div class="container">
-				<h1 class="header__section header__section--title">
-					Trials<a href="" class="menu-trigger header__section--title__link "> : Menu</a>
-				</h1>
-				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-				<h2 class="header__section header-logo">
-					<a href="index.php">connectd</a>
-				</h2>
-			</div>
-		</header>
 		<section class="container">
 			<div class="grid cf">
 			<?php while ($user = mysqli_fetch_array($result)) : ?>

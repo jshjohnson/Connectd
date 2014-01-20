@@ -12,7 +12,7 @@
 			<h1 class="header__section header__section--title">
 				Sign In<a href="index.php" class="page-title__link"> : Register
 			</h1>
-			<h2 class="header__section header-logo">
+			<h2 class="header__section header__section--logo">
 				<a href="<?php echo BASE_URL; ?>">connectd</a>
 			</h2>
 		</div>

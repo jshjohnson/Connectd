@@ -1,22 +1,12 @@
 <?php 	
 	require_once("../inc/config.php"); 
+	require_once(ROOT_PATH . "inc/checklog.php");
+	include_once(ROOT_PATH . "inc/db_connect.php");
 
 	$pageTitle = "Search";
 	include_once(ROOT_PATH . "inc/header.php");
-	require_once(ROOT_PATH . "inc/checklog.php");
-	include_once(ROOT_PATH . "inc/db_connect.php");
+	include_once(ROOT_PATH . "inc/header-logged.php");
 ?>
-		<header class="header cf">
-			<div class="container">
-				<h1 class="header__section header__section--title">
-					Search<a href="" class="menu-trigger header__section--title__link "> : Menu</a>
-				</h1>
-				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-				<h2 class="header__section header-logo">
-					<a href="<?php echo BASE_URL; ?>dashboard/" class="icon--home">connectd</a>
-				</h2>
-			</div>
-		</header>
 		<section class="container footer--push">
 			<div class="grid--no-marg cf">
 				

@@ -46,7 +46,7 @@
 						<li><a href="<?php echo BASE_URL; ?>logout.php">Log out</a></li>
 					</ul>
 				</nav>
-				<h2 class="header__section header-logo">
+				<h2 class="header__section header__section--logo">
 					<a href="<?php echo BASE_URL; ?>" class="icon--home">connectd</a>
 				</h2>
 			</div>

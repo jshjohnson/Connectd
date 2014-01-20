@@ -214,9 +214,7 @@ img.media__img {
 ----------------------------------*/
 
 .header, .footer {
-	// padding-top: .8em;
-	// padding-bottom: .8em;
-	height: 3em;
+	max-height: 3em;
 	line-height: 3em;
 }
 
@@ -233,26 +231,20 @@ img.media__img {
 	@include box-sizing(border-box);
 	position: absolute;
 	background-color: #2c3e50;
-	padding: 1em 1em;
 	font-size: .8em;
-	top: 4.3em;
+	top: 3.75em;
 	z-index: 999;
+	line-height: 2.5em;
 	ul {
 		color: white;
 		list-style: none;
 		margin: 0;
 		li {
-			padding: .5em 0;
+			padding: .5em 1em;
 			width: 10em;
 			a {
 				color: white;
-			}	
-			&:first-child {
-				padding-top: 0;
-			}	
-			&:last-child {
-				padding-bottom: 0;
-			}	
+			}		
 		}
 	}
 }
@@ -300,6 +292,7 @@ img.media__img {
 	margin-bottom: 0;
 	color: white;
 	font-size: 1em;
+	position: relative;
 	a {
 		color: white;
 	}
@@ -313,7 +306,7 @@ img.media__img {
 	color: white;
 	.header__section--title__link {
 		color: white;
-		font-size: .5em;
+		font-size: .6em;
 		vertical-align: middle;
 	}
 }
@@ -322,24 +315,29 @@ img.media__img {
 	background-color: $color-brand-highlight;
 	padding: 0 1em;
 	float: right;
+	&:after {
+		content: "";
+		width: 0;
+		height: 0;
+		border-top: .5em solid transparent;
+		border-bottom: .5em solid transparent;
+		border-left: 0.5em solid $color-brand-highlight;
+		position: absolute;
+		right: -.5em;
+		top: 1em;
+	}
 }
 
-.header__section--settings {
-	background-color: $color-brand-light;
-	padding: 0 1em;
+.header__section--username, .header__section--logo {
 	float: right;
-}
-
-.header__section--username {
-	float: right;
-	margin-left: 1em;
+	margin-left: 1.2em;
 }
 
 .header-username {
 	&:after {
 		@extend %icon-after;
 		content: '\e802';
-		margin-left: .5em;
+		margin-left: .8em;
 		top: 0;
 	}
 }
@@ -368,18 +366,6 @@ img.media__img {
 	// }
 }
 
-.footer__logo {
-	text-align: right;
-	width: auto;
-	a {
-		color: $color-brand-dark;
-	}
-	@include respond-max($bp1) {
-		text-align: left;
-		width: 100%;
-	}
-}
-
 .footer__links { 
 	width: auto;
 	li {
@@ -397,9 +383,6 @@ img.media__img {
 				content: none;
 			}
 		}
-	}
-	@include respond-max($bp1) {
-		width: 100%;
 	}
 }
 

@@ -4,39 +4,24 @@
 	require_once(ROOT_PATH . "inc/errors.php");
 
 	$pageTitle = "Dashboard";
-	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/db_connect.php");
-
-	// User data
-	include_once(ROOT_PATH . "inc/designers.php");
-	include_once(ROOT_PATH . "inc/developers.php");
 	session_start();
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['username'];
 	}
+	
+	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "inc/header-logged.php");
+	include_once(ROOT_PATH . "inc/db_connect.php");
+
+	// User data
+	include_once(ROOT_PATH . "inc/designers.php");
+	include_once(ROOT_PATH . "inc/developers.php");
 
 	$designers = get_designers_all();
 	$developers = get_developers_all();
 
 ?>
-		<header class="header cf">
-			<div class="container">
-				<h1 class="header__section header__section--title">
-					Dashboard<a href="" class="menu-trigger header__section--title__link "> : Menu</a>
-				</h1>
-				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-				<h2 class="header__section header__section--username">
-					<a href="<?php echo BASE_URL; ?>dashboard/" class="header-username"><?php echo $s_username; ?></a>
-				</h2>
-				<h2 class="header__section header__section--notifications">
-					<a href="#">3</a>
-				</h2>
-				<h2 class="header__section header__section--settings">
-					<a href="#">2</a>
-				</h2>
-			</div>
-		</header>
 		<section class="call-to-action call-to-action--top">
 			<div class="container">
 				<h4 class="as-h1 call-to-action__title">
