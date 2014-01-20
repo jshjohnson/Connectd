@@ -1,11 +1,8 @@
 <?php 	
 	require_once("config/config.php"); 
 	include_once(ROOT_PATH . "inc/functions.php");
-	session_start();
-	// Determine whether user is logged in - test for value in $_SESSION
-	if (isset($_SESSION['logged'])){
-		header("Location:" . BASE_URL . "dashboard/");
-	}
+
+	checkLog();
 
 ?>
 <!doctype html>

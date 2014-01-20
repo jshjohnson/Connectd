@@ -1,16 +1,14 @@
 <?php
-	require_once("../config/config.php"); 
-	require_once(ROOT_PATH . "inc/checklog.php");
+	require_once("../config/config.php");
+	include_once(ROOT_PATH . "inc/functions.php");
 	
+	checkLog();
 
 	$pageTitle = "Dashboard";
 	$section = "Dashboard";
 
-	session_start();
-	// Determine whether user is logged in - test for value in $_SESSION
-	if (isset($_SESSION['logged'])){
-		$s_username = $_SESSION['username'];
-	}
+
+	$s_username = $_SESSION['username'];
 	
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "views/header-logged.php");
