@@ -79,6 +79,7 @@
 
 				// Process details here
 				require_once(ROOT_PATH . "inc/db_connect.php"); 
+				$db_server = mysqli_connect($db_hostname, $db_username, $db_password);
 				if($db_server){
 
 					//clean the input now that we have a db connection

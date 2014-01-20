@@ -8,7 +8,7 @@
 	$section = "Search";
 	
 	include_once(ROOT_PATH . "views/header.php");
-	include_once(ROOT_PATH . "views/header-logged.php");
+	include_once(ROOT_PATH . "views/page-header.php");
 ?>
 		<section class="container footer--push">
 			<div class="grid--no-marg cf">
