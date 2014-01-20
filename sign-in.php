@@ -1,8 +1,7 @@
 <?php
 	require_once("config/config.php"); 
-	showErrors();
+	include_once(ROOT_PATH . "inc/errors.php");
 
-	$section = "Sign in";
 	$pageTitle = "Sign in";
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "inc/functions.php"); 

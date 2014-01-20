@@ -11,7 +11,7 @@
 	$s_username = $_SESSION['username'];
 	
 	include_once(ROOT_PATH . "views/header.php");
-	include_once(ROOT_PATH . "views/page-header.php");
+	include_once(ROOT_PATH . "views/header-logged.php");
 	include_once(ROOT_PATH . "inc/db_connect.php");
 
 	// User data

@@ -13,7 +13,7 @@
 	$pageTitle = $developer['firstname'] . ' ' . $developer['lastname'];
 	$section = "Developer";
 	include_once(ROOT_PATH . "views/header.php");
-	include_once(ROOT_PATH . "views/page-header.php");
+	include_once(ROOT_PATH . "views/header-logged.php");
 
 ?>
 		<section class="container">

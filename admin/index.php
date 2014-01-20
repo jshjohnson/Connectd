@@ -2,7 +2,7 @@
 	require_once("../config/config.php"); 
 	include_once(ROOT_PATH . "views/header.php");
 	require_once(ROOT_PATH . 'inc/checklog.php');
-	showErrors();
+	include_once(ROOT_PATH . "inc/errors.php"); 
 
 	session_start();
 	//Connect to DB
