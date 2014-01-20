@@ -147,6 +147,7 @@
 					<div class="select-container">
 					<?php 
 						require_once(ROOT_PATH . "inc/db_connect.php"); 
+						$db_server = mysqli_connect($db_hostname, $db_username, $db_password);
 						$query = ("SELECT county FROM connectdDB.locations ORDER BY county ASC");
 						$result = mysqli_query($db_server, $query);
 					?>

@@ -1,18 +1,17 @@
 <?php 	
-	require_once("../config/config.php"); 
+	require_once("../config/config.php");
+	include_once(ROOT_PATH . "inc/functions.php");
+	checkLoggedOut();
 
 	$pageTitle = "Trials";
 	$section = "Trials";
-	
-	require_once(ROOT_PATH . "inc/checklog.php");
-	// Determine whether user is logged in - test for value in $_SESSION
-	if (isset($_SESSION['logged'])){
-		$s_username = $_SESSION['username'];
-	}
+
+	$s_username = $_SESSION['username'];
+
 	session_start();
 	//Connect to DB
 	require_once(ROOT_PATH . "inc/db_connect.php");
-
+	$db_server = mysqli_connect($db_hostname, $db_username, $db_password);
 	mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
 
 	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, datejoined, votes FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, datejoined, votes FROM connectdDB.developers ORDER BY datejoined DESC";

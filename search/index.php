@@ -1,7 +1,8 @@
 <?php 	
 	require_once("../config/config.php"); 
-	require_once(ROOT_PATH . "inc/checklog.php");
 	include_once(ROOT_PATH . "inc/db_connect.php");
+	include_once(ROOT_PATH . "inc/functions.php");
+	checkLoggedOut();
 
 	$pageTitle = "Search";
 	$section = "Search";

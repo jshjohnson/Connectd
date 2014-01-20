@@ -5,7 +5,7 @@
 	$pageTitle = "Settings";
 	$section = "Settings";
 	
-	require_once(ROOT_PATH . "inc/checklog.php");
+	checkLoggedOut();
 	
 	$sess_userID = $_SESSION['userID']; 
 	if(trim($_POST['submit'])=='submit'){

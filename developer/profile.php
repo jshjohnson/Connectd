@@ -1,16 +1,14 @@
 <?php 
 	require_once("../config/config.php"); 
-	require_once(ROOT_PATH . "inc/checklog.php");	
+	include_once(ROOT_PATH . "inc/functions.php");
+	checkLoggedOut();
 	include_once(ROOT_PATH . "views/developers.php");
 
 	$developers = get_developers_all();
 	$developer_id = $_GET["id"];
 	$developer = $developers[$developer_id];
 
-	// Determine whether user is logged in - test for value in $_SESSION
-	if (isset($_SESSION['logged'])){
-		$s_username = $_SESSION['username'];
-	}
+	$s_username = $_SESSION['username'];
 	
 	$pageTitle = $developer['firstname'] . ' ' . $developer['lastname'];
 	$section = "Developer";
@@ -29,7 +27,7 @@
 					</div>
 					<div class="user-sidebar__header">
 						<div class="user-sidebar__avatar">
-							<img src="<?php echo $developer['avatar']; ?>" alt="">
+							<img src="http://placehold.it/400x400" alt="">
 						</div>
 						<div class="button-wrapper">
 							<button class="button-green button-left cf hire-trigger">

@@ -1,19 +1,20 @@
 <?php 
-	require_once("../config/config.php"); 	
-	require_once(ROOT_PATH . "inc/checklog.php");
+	require_once("../config/config.php");
+	include_once(ROOT_PATH . "inc/functions.php"); 
+
+	checkLoggedOut();
+
 	include_once(ROOT_PATH . "views/designers.php");
+
+	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'];
+	$section = "Designer";
 
 	$designers = get_designers_all();
 	$designer_id = $_GET["id"];
 	$designer = $designers[$designer_id];
 
-	// Determine whether user is logged in - test for value in $_SESSION
-	if (isset($_SESSION['logged'])){
-		$s_username = $_SESSION['username'];
-	}
-
-	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'];
-	$section = "Designer";
+	$s_username = $_SESSION['username'];
+	
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "views/header-logged.php");
 ?>		
@@ -28,7 +29,7 @@
 					</div>
 					<div class="user-sidebar__header">
 						<div class="user-sidebar__avatar">
-							<img src="<?php echo $designer['avatar']; ?>" alt="">
+							<img src="http://placehold.it/400x400" alt="">
 						</div>
 						<div class="button-wrapper">
 							<button class="button-green button-left cf hire-trigger">
