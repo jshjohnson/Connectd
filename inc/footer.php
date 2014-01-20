@@ -6,7 +6,7 @@
 						<li><a href="<?php echo BASE_URL; ?>sitemap/">Sitemap</a></li>
 						<li><a href="<?php echo BASE_URL; ?>terms/">Terms</a></li>
 					</ul>
-					<h2 class="grid__cell unit-1-2--bp2 page-logo footer__logo">
+					<h2 class="grid__cell unit-1-2--bp2 footer__section footer__section--logo">
 						<a href="index.php">connectd</a>
 					</h2>
 				</div>

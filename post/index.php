@@ -63,11 +63,11 @@
 ?>
 	<header class="header header-green--alt zero-bottom cf">
 		<div class="container">
-			<h1 class="page-title">
-				Post a job<a href="" class="menu-trigger page-title__link"> : Menu</a>
+			<h1 class="header__section header__section--title">
+				Post a job<a href="" class="menu-trigger header__section--title__link "> : Menu</a>
 			</h1>
 			<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-			<h2 class="page-logo header-logo">
+			<h2 class="header__section header-logo">
 				<a href="<?php echo BASE_URL; ?>">connectd</a>
 			</h2>
 		</div>

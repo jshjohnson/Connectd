@@ -74,6 +74,19 @@
 	    position: relative;
 		line-height: 1em;
 	    top: 1px; }
+
+
+	%icon-after:after {
+	    font-family: $icon-font-family;
+	    font-weight: normal;
+	    font-style: normal;
+		speak: none;
+	    display: inline-block;
+	    text-decoration: inherit;
+	    margin-right: .5em;
+	    position: relative;
+		line-height: 1em;
+	    top: 1px; }
 	    
 	.icon--large:before {
 		vertical-align: middle;

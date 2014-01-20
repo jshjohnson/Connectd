@@ -214,8 +214,10 @@ img.media__img {
 ----------------------------------*/
 
 .header, .footer {
-	padding-top: .8em;
-	padding-bottom: .8em;
+	// padding-top: .8em;
+	// padding-bottom: .8em;
+	height: 3em;
+	line-height: 3em;
 }
 
 .header {
@@ -292,25 +294,8 @@ img.media__img {
 	background-color: #6bad55;
 }
 
-/* Page
-----------------------------------*/
-
-.page-title {
-	font-size: 1.4em;
-	float: left;
-	margin-top: 0;
-	margin-bottom: 0;
-	color: white;
-	.page-title__link {
-		color: white;
-		font-size: .5em;
-		vertical-align: middle;
-	}
-}
-
-.page-logo {
-	line-height: 1.7;
-	float: right;
+.header__section, .footer__section {
+	line-height: 3em;
 	margin-top: 0;
 	margin-bottom: 0;
 	color: white;
@@ -318,7 +303,52 @@ img.media__img {
 	a {
 		color: white;
 	}
+
 }
+
+.header__section--title {
+	float: left;
+	margin-top: 0;
+	margin-bottom: 0;
+	color: white;
+	.header__section--title__link {
+		color: white;
+		font-size: .5em;
+		vertical-align: middle;
+	}
+}
+
+.header__section--notifications {
+	background-color: $color-brand-highlight;
+	padding: 0 1em;
+	float: right;
+}
+
+.header__section--settings {
+	background-color: $color-brand-light;
+	padding: 0 1em;
+	float: right;
+}
+
+.header__section--username {
+	float: right;
+	margin-left: 1em;
+}
+
+.header-username {
+	&:after {
+		@extend %icon-after;
+		content: '\e802';
+		margin-left: .5em;
+		top: 0;
+	}
+}
+
+.footer__section--logo {
+	float: right;
+	text-align: right;
+}
+
 
 /* Footer
 ----------------------------------*/
@@ -333,9 +363,9 @@ img.media__img {
 	a {
 		color: $color-brand-dark;
 	}
-	@include respond-min($bp1) {
-		max-height: 1.8em;
-	}
+	// @include respond-min($bp1) {
+	// 	max-height: 1.8em;
+	// }
 }
 
 .footer__logo {
@@ -351,7 +381,6 @@ img.media__img {
 }
 
 .footer__links { 
-	line-height: 1.8;
 	width: auto;
 	li {
 		display: inline-block;

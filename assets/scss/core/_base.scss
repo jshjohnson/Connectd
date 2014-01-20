@@ -190,7 +190,7 @@ input[type=submit] {
 	min-width: 8em;
 	color: #FFF;
 	background-color: $color-comp;
-	a, a:visited {
+	a, a:hover, a:visited {
 		color: white;
 	}
 	&:hover {
@@ -220,8 +220,6 @@ blockquote p + .source { margin-top: -$baseline; }
 .source { display: block; @include font-sans; font-size: 1em; font-weight: bold; font-style: normal; margin-top: .5em;}
 .source:before { content:"\2013\0020"; }
 
-
-a:active, a:focus { position: relative; top: 1px; }
 
 /* Links
 ----------------------------------*/

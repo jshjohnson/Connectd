@@ -2030,7 +2030,7 @@ img.media__img {
 }
 
 /* line 282, ../scss/core/_modules.scss */
-.page-logo {
+.header__section {
   line-height: 1.7;
   float: right;
   margin-top: 0;
@@ -2039,7 +2039,7 @@ img.media__img {
   font-size: 1em;
 }
 /* line 289, ../scss/core/_modules.scss */
-.page-logo a {
+.header__section a {
   color: white;
 }
 

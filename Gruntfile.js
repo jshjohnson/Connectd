@@ -71,8 +71,10 @@ module.exports = function(grunt) {
             },
             dev: {
                 options: {
-                sassDir: 'assets/scss',
-                cssDir: 'assets/css'
+                    sassDir: 'assets/scss',
+                    cssDir: 'assets/css',
+                    environment: 'development',
+                    outputStyle: 'expanded'
                 }
             }
         },
@@ -89,7 +91,7 @@ module.exports = function(grunt) {
             },
             sass: {
                 files: ['assets/scss/**/*.scss'],
-                tasks: ['compass:dist'],
+                tasks: ['compass:dev'],
             },
             css: {
                 files: ['assets/css/*.css']
@@ -123,6 +125,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['exec:serverup', 'watch', 'exec:serverdown']);

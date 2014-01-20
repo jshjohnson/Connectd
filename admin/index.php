@@ -37,8 +37,8 @@
 ?>
 		<header class="header cf">
 			<div class="container">
-				<h1 class="page-title">
-					Admin<a href="" class="menu-trigger page-title__link"> : Menu</a>
+				<h1 class="header__section header__section--title">
+					Admin<a href="" class="menu-trigger header__section--title__link "> : Menu</a>
 				</h1>
 				<nav class="header__nav">
 					<ul>
@@ -46,7 +46,7 @@
 						<li><a href="<?php echo BASE_URL; ?>logout.php">Log out</a></li>
 					</ul>
 				</nav>
-				<h2 class="page-logo header-logo">
+				<h2 class="header__section header-logo">
 					<a href="<?php echo BASE_URL; ?>" class="icon--home">connectd</a>
 				</h2>
 			</div>

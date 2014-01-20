@@ -17,11 +17,11 @@
 ?>
 		<header class="header cf">
 			<div class="container">
-				<h1 class="page-title">
-					Trials<a href="" class="menu-trigger page-title__link"> : Menu</a>
+				<h1 class="header__section header__section--title">
+					Trials<a href="" class="menu-trigger header__section--title__link "> : Menu</a>
 				</h1>
 				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-				<h2 class="page-logo header-logo">
+				<h2 class="header__section header-logo">
 					<a href="index.php">connectd</a>
 				</h2>
 			</div>
