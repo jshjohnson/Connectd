@@ -1,6 +1,6 @@
 <?php 	
-	require_once("../inc/config.php"); 
-	include_once(ROOT_PATH . "inc/header.php");
+	require_once("../config/config.php"); 
+	include_once(ROOT_PATH . "views/header.php");
 ?>
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">

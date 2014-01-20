@@ -1,8 +1,8 @@
 <?php
-	require_once("inc/config.php"); 
+	require_once("config/config.php"); 
 
 	$pageTitle = "Sign in";
-	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "inc/functions.php"); 
 	include_once(ROOT_PATH . "inc/login.php");
 	$status = $_GET["status"];
@@ -65,4 +65,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "views/footer.php"); ?>

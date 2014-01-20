@@ -1,23 +1,25 @@
 <?php
-	require_once("../inc/config.php"); 
+	require_once("../config/config.php"); 
 	require_once(ROOT_PATH . "inc/checklog.php");
 	
 
 	$pageTitle = "Dashboard";
+	$section = "Dashboard";
+
 	session_start();
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['username'];
 	}
 	
-	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/header-logged.php");
+	include_once(ROOT_PATH . "views/header.php");
+	include_once(ROOT_PATH . "views/header-logged.php");
 	include_once(ROOT_PATH . "inc/db_connect.php");
 
 	// User data
-	include_once(ROOT_PATH . "inc/designers.php");
-	include_once(ROOT_PATH . "inc/developers.php");
-	include_once(ROOT_PATH . "inc/jobs.php");
+	include_once(ROOT_PATH . "views/designers.php");
+	include_once(ROOT_PATH . "views/developers.php");
+	include_once(ROOT_PATH . "views/jobs.php");
 
 	$designers = get_designers_all();
 	$developers = get_developers_all();
@@ -72,5 +74,5 @@
 		</section>
 <?php 
 	require_once(ROOT_PATH . "inc/db_close.php");
-	include_once(ROOT_PATH . "inc/footer-page.php"); 
+	include_once(ROOT_PATH . "views/footer-page.php"); 
 ?>

@@ -1,10 +1,10 @@
 <?php
-	require_once("../inc/config.php"); 
+	require_once("../config/config.php"); 
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
 	$pageTitle = "Sign Up";
 	$section = "Employer";
-	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "inc/functions.php");
 
 	// Grab the form data
@@ -186,4 +186,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "views/footer.php"); ?>

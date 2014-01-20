@@ -1,7 +1,9 @@
 <?php 	
-	require_once("../inc/config.php"); 
+	require_once("../config/config.php"); 
 
 	$pageTitle = "Trials";
+	$section = "Trials";
+	
 	require_once(ROOT_PATH . "inc/checklog.php");
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
@@ -16,8 +18,8 @@
 	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, datejoined, votes FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, datejoined, votes FROM connectdDB.developers ORDER BY datejoined DESC";
 	$result = mysqli_query($db_server, $query);
 
-	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/header-logged.php");
+	include_once(ROOT_PATH . "views/header.php");
+	include_once(ROOT_PATH . "views/header-logged.php");
 ?>
 		<section class="container">
 			<div class="grid cf">
@@ -53,5 +55,5 @@
 		</section>
 <?php 
 	require_once(ROOT_PATH . "inc/db_close.php");
-	include_once(ROOT_PATH . "inc/footer-page.php"); 
+	include_once(ROOT_PATH . "views/footer-page.php"); 
 ?>

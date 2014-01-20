@@ -1,5 +1,5 @@
 <?php 	
-	require_once("inc/config.php"); 
+	require_once("config/config.php"); 
 	include_once(ROOT_PATH . "inc/functions.php");
 	session_start();
 	// Determine whether user is logged in - test for value in $_SESSION

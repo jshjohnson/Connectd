@@ -1,5 +1,5 @@
 <?php 
-	require_once("../inc/config.php"); 
+	require_once("../config/config.php"); 
 	require_once(ROOT_PATH . "inc/checklog.php");
 	require_once(ROOT_PATH . 'inc/checklog.php');
 
@@ -11,8 +11,8 @@
 		$s_username = $_SESSION['username'];
 	}
 
-	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/header-logged.php");
+	include_once(ROOT_PATH . "views/header.php");
+	include_once(ROOT_PATH . "views/header-logged.php");
 ?>	
 		<section class="container">
 			<div class="grid--no-marg cf">
@@ -112,4 +112,4 @@
 				<button class="button-green"><a href="<?php echo BASE_URL; ?>dashboard/">See our jobs list</a></button>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "inc/footer-page.php"); ?>
+<?php include_once(ROOT_PATH . "views/footer-page.php"); ?>

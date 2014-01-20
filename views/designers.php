@@ -46,7 +46,7 @@
 		require(ROOT_PATH . "inc/db_connect.php");
 
 		try {
-			$results = $db->query("SELECT firstname, lastname, jobtitle FROM connectdDB.designers");
+			$results = $db->query("SELECT * FROM connectdDB.designers");
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
 			exit;

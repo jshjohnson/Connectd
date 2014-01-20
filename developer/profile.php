@@ -1,7 +1,7 @@
 <?php 
-	require_once("../inc/config.php"); 
+	require_once("../config/config.php"); 
 	require_once(ROOT_PATH . "inc/checklog.php");	
-	include_once(ROOT_PATH . "inc/developers.php");
+	include_once(ROOT_PATH . "views/developers.php");
 
 	$developers = get_developers_all();
 	$developer_id = $_GET["id"];
@@ -14,8 +14,8 @@
 	
 	$pageTitle = $developer['firstname'] . ' ' . $developer['lastname'];
 	$section = "Developer";
-	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/header-logged.php");
+	include_once(ROOT_PATH . "views/header.php");
+	include_once(ROOT_PATH . "views/header-logged.php");
 
 ?>
 		<section class="container">
@@ -128,4 +128,4 @@
 				<button class="button-red"><a href="<?php echo BASE_URL; ?>search/">See our talented bunch</a></button>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "inc/footer-page.php"); ?>
+<?php include_once(ROOT_PATH . "views/footer-page.php"); ?>
