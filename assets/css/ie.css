@@ -1916,8 +1916,8 @@ img.media__img {
   box-sizing: border-box;
   position: absolute;
   background-color: #2c3e50;
-  font-size: .8em;
-  top: 3.75em;
+  font-size: .7em;
+  top: 4.25em;
   z-index: 999;
   line-height: 2.5em;
 }
@@ -1929,30 +1929,35 @@ img.media__img {
 }
 /* line 242, ../scss/core/_modules.scss */
 .header__nav ul li {
-  padding: .5em 1em;
+  padding: .5em 1em .5em 1.5em;
   width: 10em;
+  border-bottom: 1px solid #354b60;
 }
-/* line 245, ../scss/core/_modules.scss */
+/* line 246, ../scss/core/_modules.scss */
 .header__nav ul li a {
   color: white;
 }
+/* line 249, ../scss/core/_modules.scss */
+.header__nav ul li:last-child {
+  border-bottom: transparent;
+}
 
-/* line 252, ../scss/core/_modules.scss */
+/* line 256, ../scss/core/_modules.scss */
 .header--designer {
   background-color: #6dbcdb;
 }
 
-/* line 256, ../scss/core/_modules.scss */
+/* line 260, ../scss/core/_modules.scss */
 .header--developer {
   background-color: #2c3e50;
 }
 
-/* line 260, ../scss/core/_modules.scss */
+/* line 264, ../scss/core/_modules.scss */
 .header--employer {
   background-color: #77c462;
 }
 
-/* line 265, ../scss/core/_modules.scss */
+/* line 269, ../scss/core/_modules.scss */
 .header--panel h1, .header--panel h2, .header--panel h3, .header--panel h4 {
   margin: 0;
   color: white;
@@ -1960,27 +1965,27 @@ img.media__img {
   padding: .7em 1em;
 }
 
-/* line 273, ../scss/core/_modules.scss */
+/* line 277, ../scss/core/_modules.scss */
 .header--alt {
   background-color: #fc4349;
 }
 
-/* line 277, ../scss/core/_modules.scss */
+/* line 281, ../scss/core/_modules.scss */
 .header-blue--alt {
   background-color: #51abd0;
 }
 
-/* line 281, ../scss/core/_modules.scss */
+/* line 285, ../scss/core/_modules.scss */
 .header-navy--alt {
   background-color: #253546;
 }
 
-/* line 285, ../scss/core/_modules.scss */
+/* line 289, ../scss/core/_modules.scss */
 .header-green--alt {
   background-color: #6bad55;
 }
 
-/* line 289, ../scss/core/_modules.scss */
+/* line 293, ../scss/core/_modules.scss */
 .header__section, .footer__section {
   line-height: 3em;
   margin-top: 0;
@@ -1989,32 +1994,32 @@ img.media__img {
   font-size: 1em;
   position: relative;
 }
-/* line 296, ../scss/core/_modules.scss */
+/* line 300, ../scss/core/_modules.scss */
 .header__section a, .footer__section a {
   color: white;
 }
 
-/* line 302, ../scss/core/_modules.scss */
+/* line 306, ../scss/core/_modules.scss */
 .header__section--title {
   float: left;
   margin-top: 0;
   margin-bottom: 0;
   color: white;
 }
-/* line 307, ../scss/core/_modules.scss */
+/* line 311, ../scss/core/_modules.scss */
 .header__section--title .header__section--title__link {
   color: white;
   font-size: .6em;
   vertical-align: middle;
 }
 
-/* line 314, ../scss/core/_modules.scss */
+/* line 318, ../scss/core/_modules.scss */
 .header__section--notifications {
   background-color: #fc4349;
   padding: 0 1em;
   float: right;
 }
-/* line 318, ../scss/core/_modules.scss */
+/* line 322, ../scss/core/_modules.scss */
 .header__section--notifications:after {
   content: "";
   width: 0;
@@ -2027,20 +2032,20 @@ img.media__img {
   top: 1em;
 }
 
-/* line 331, ../scss/core/_modules.scss */
+/* line 335, ../scss/core/_modules.scss */
 .header__section--username, .header__section--logo {
   float: right;
   margin-left: 1.2em;
 }
 
-/* line 337, ../scss/core/_modules.scss */
+/* line 341, ../scss/core/_modules.scss */
 .header-username:after {
   content: '\e802';
   margin-left: .8em;
   top: 0;
 }
 
-/* line 345, ../scss/core/_modules.scss */
+/* line 349, ../scss/core/_modules.scss */
 .footer__section--logo {
   float: right;
   text-align: right;
@@ -2048,7 +2053,7 @@ img.media__img {
 
 /* Footer
 ----------------------------------*/
-/* line 354, ../scss/core/_modules.scss */
+/* line 358, ../scss/core/_modules.scss */
 .footer {
   background-color: #f7f7f7;
   color: #2c3e50;
@@ -2057,16 +2062,16 @@ img.media__img {
   margin-top: 2.5em;
   max-height: 3.5em;
 }
-/* line 361, ../scss/core/_modules.scss */
+/* line 365, ../scss/core/_modules.scss */
 .footer a {
   color: #2c3e50;
 }
 
-/* line 369, ../scss/core/_modules.scss */
+/* line 373, ../scss/core/_modules.scss */
 .footer__links {
   width: auto;
 }
-/* line 371, ../scss/core/_modules.scss */
+/* line 375, ../scss/core/_modules.scss */
 .footer__links li {
   display: inline-block;
   *display: inline;
@@ -2074,38 +2079,38 @@ img.media__img {
   font-size: .8em;
   margin: 0;
 }
-/* line 377, ../scss/core/_modules.scss */
+/* line 381, ../scss/core/_modules.scss */
 .footer__links li:after {
   padding: 0 .25em 0 .5em;
   content: '•';
 }
-/* line 382, ../scss/core/_modules.scss */
+/* line 386, ../scss/core/_modules.scss */
 .footer__links li:last-child:after {
   content: none;
 }
 
 /* Misc
 ----------------------------------*/
-/* line 392, ../scss/core/_modules.scss */
+/* line 396, ../scss/core/_modules.scss */
 .section {
   padding: 3.5em 0;
 }
 
-/* line 400, ../scss/core/_modules.scss */
+/* line 404, ../scss/core/_modules.scss */
 .section__content h1, .section__content h2, .section__content h3, .section__content h4 {
   margin-top: 0;
 }
-/* line 403, ../scss/core/_modules.scss */
+/* line 407, ../scss/core/_modules.scss */
 .section__content *:last-child {
   margin-bottom: 0;
 }
 
-/* line 408, ../scss/core/_modules.scss */
+/* line 412, ../scss/core/_modules.scss */
 .section__img {
   max-width: 18.5em;
 }
 
-/* line 412, ../scss/core/_modules.scss */
+/* line 416, ../scss/core/_modules.scss */
 .section--mission {
   background-image: url("../img/bg.jpg");
   -webkit-background-size: cover;
@@ -2116,31 +2121,31 @@ img.media__img {
   background-position: top center;
 }
 
-/* line 422, ../scss/core/_modules.scss */
+/* line 426, ../scss/core/_modules.scss */
 .iphone-img {
   margin-top: -10em;
   margin-bottom: -3.5em;
   margin-top: 1em;
 }
 
-/* line 436, ../scss/core/_modules.scss */
+/* line 440, ../scss/core/_modules.scss */
 .blur {
   -webkit-filter: blur(2px);
   filter: blur(2px);
 }
 
-/* line 441, ../scss/core/_modules.scss */
+/* line 445, ../scss/core/_modules.scss */
 .forgot {
   font-size: .8em;
 }
 
-/* line 445, ../scss/core/_modules.scss */
+/* line 449, ../scss/core/_modules.scss */
 .intro-quote {
   font-family: "Georgia", serif;
   font-size: 2em;
   margin: .5em 0;
 }
-/* line 449, ../scss/core/_modules.scss */
+/* line 453, ../scss/core/_modules.scss */
 .intro-quote .source {
   font-family: "Georgia", serif;
   font-size: .6em;
@@ -2148,7 +2153,7 @@ img.media__img {
 
 /* Portfolio
 ----------------------------------*/
-/* line 459, ../scss/core/_modules.scss */
+/* line 463, ../scss/core/_modules.scss */
 .portfolio__headings-bg {
   background-color: #f0eded;
   font-size: .8em;
@@ -2160,12 +2165,12 @@ img.media__img {
   margin-top: 0;
 }
 
-/* line 471, ../scss/core/_modules.scss */
+/* line 475, ../scss/core/_modules.scss */
 .portfolio__headings {
   margin: 0;
   position: relative;
 }
-/* line 474, ../scss/core/_modules.scss */
+/* line 478, ../scss/core/_modules.scss */
 .portfolio__headings li {
   display: inline-block;
   *display: inline;
@@ -2174,20 +2179,20 @@ img.media__img {
   position: relative;
   padding: .5em 1.4em .4em;
 }
-/* line 481, ../scss/core/_modules.scss */
+/* line 485, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 484, ../scss/core/_modules.scss */
+/* line 488, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   background-color: #2c3e50;
   color: white;
 }
-/* line 487, ../scss/core/_modules.scss */
+/* line 491, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 490, ../scss/core/_modules.scss */
+/* line 494, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -2201,60 +2206,60 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 508, ../scss/core/_modules.scss */
+/* line 512, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   background-color: #6dbcdb;
   color: white;
 }
-/* line 511, ../scss/core/_modules.scss */
+/* line 515, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active:after {
   border-top-color: #6dbcdb;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 521, ../scss/core/_modules.scss */
+/* line 525, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
   flex: 1;
 }
-/* line 524, ../scss/core/_modules.scss */
+/* line 528, ../scss/core/_modules.scss */
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
 }
-/* line 528, ../scss/core/_modules.scss */
+/* line 532, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 533, ../scss/core/_modules.scss */
+/* line 537, ../scss/core/_modules.scss */
 .call-to-action--top {
   margin-bottom: 2.5em;
 }
-/* line 534, ../scss/core/_modules.scss */
+/* line 538, ../scss/core/_modules.scss */
 .call-to-action--top .call-to-action__title {
   margin-top: 0;
 }
 
-/* line 540, ../scss/core/_modules.scss */
+/* line 544, ../scss/core/_modules.scss */
 .price-per-hour {
   margin-top: .35em;
 }
-/* line 542, ../scss/core/_modules.scss */
+/* line 546, ../scss/core/_modules.scss */
 .price-per-hour h5 {
   margin: 0;
   text-align: center;
   font-weight: 600;
 }
-/* line 547, ../scss/core/_modules.scss */
+/* line 551, ../scss/core/_modules.scss */
 .price-per-hour span {
   font-size: .7em;
   display: block;
   line-height: .9;
 }
 
-/* line 554, ../scss/core/_modules.scss */
+/* line 558, ../scss/core/_modules.scss */
 .currency-button {
   background-color: #77c462;
   border-radius: 10em;
@@ -2265,7 +2270,7 @@ img.media__img {
   height: 3.5em;
 }
 
-/* line 564, ../scss/core/_modules.scss */
+/* line 568, ../scss/core/_modules.scss */
 .currency {
   line-height: 3.5em;
   text-align: center;
@@ -2754,6 +2759,16 @@ img.media__img {
 }
 
 /* line 38, ../scss/core/modules/_forms.scss */
+.field-1-3 {
+  width: 30%;
+}
+/* line 40, ../scss/core/modules/_forms.scss */
+.field-1-3:nth-child(2) {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+/* line 46, ../scss/core/modules/_forms.scss */
 .button-container {
   border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
   position: relative;
@@ -2762,21 +2777,21 @@ img.media__img {
   text-align: center;
   z-index: 0;
 }
-/* line 45, ../scss/core/modules/_forms.scss */
+/* line 53, ../scss/core/modules/_forms.scss */
 .button-container button a, .button-container a:active, .button-container a:visited {
   color: white;
   text-decoration: none;
   font-weight: 500;
   top: 0;
 }
-/* line 51, ../scss/core/modules/_forms.scss */
+/* line 59, ../scss/core/modules/_forms.scss */
 .button-container input {
   top: 1.4em;
   position: relative;
   margin: auto;
   min-width: 13em;
 }
-/* line 56, ../scss/core/modules/_forms.scss */
+/* line 64, ../scss/core/modules/_forms.scss */
 .button-container input:hover {
   top: 1.5em;
 }

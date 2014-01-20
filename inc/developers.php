@@ -43,35 +43,17 @@
 
 	function get_developers_all() {
 
-		$developers = array();
+		require(ROOT_PATH . "inc/db_connect.php");
 
-		$developers[101] = array(
-			"avatar" => "http://placehold.it/350/300",
-			"firstname" => "Harry",
-			"lastname" => "Fox",
-			"jobtitle" => "Front-end Developer",
-			"location" => "Hertfordshire, UK",
-			"portfolio" => "http://harryfox.com",
-			"bio" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, sequi, eius, similique, sint amet iusto nostrum sed harum quam quod voluptates laborum accusantium voluptas provident explicabo expedita aperiam perferendis eos."
-		);
-		$developers[102] = array(
-			"avatar" => "http://placehold.it/350/300",
-			"firstname" => "Josh",
-			"lastname" => "Johnson",
-			"jobtitle" => "Back-end Developer",
-			"location" => "Essex, UK",
-			"portfolio" => "http://joshuajohnson.co.uk",
-			"bio" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, sequi, eius, similique, sint amet iusto nostrum sed harum quam quod voluptates laborum accusantium voluptas provident explicabo expedita aperiam perferendis eos."
-		);
-		$developers[103] = array(
-			"avatar" => "http://placehold.it/350/300",
-			"firstname" => "Patrick",
-			"lastname" => "Manderson",
-			"jobtitle" => "Full-stack Developer",
-			"location" => "Cumbria, UK",
-			"portfolio" => "http://patrickmanderson.com",
-			"bio" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, sequi, eius, similique, sint amet iusto nostrum sed harum quam quod voluptates laborum accusantium voluptas provident explicabo expedita aperiam perferendis eos."
-		);
+		try {
+			$results = $db->query("SELECT firstname, lastname, jobtitle FROM connectdDB.developers");
+		} catch (Exception $e) {
+			echo "Data could not be retrieved";
+			exit;
+		}
+		
+		$developers = $results->fetchAll(PDO::FETCH_ASSOC);
 
 		return $developers;
+
 	}

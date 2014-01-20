@@ -1,11 +1,3 @@
-// Ensure server goes down after Grunt stops
-var exec = require('child_process').exec;
-process.on('SIGINT', function () {
-    exec('/Applications/MAMP/bin/stop.sh', function () {
-        process.exit();
-    });
-});
-
 module.exports = function(grunt) {
 
     // 1. All configuration goes here 
@@ -13,17 +5,6 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         // TASKS
-
-        // Start MAMP
-
-        exec: {
-          serverup: {
-            command: '/Applications/MAMP/bin/start.sh'
-          },
-          serverdown: {
-            command: '/Applications/MAMP/bin/stop.sh'
-          }
-        },
 
         // JS Concatenation
 
@@ -118,7 +99,6 @@ module.exports = function(grunt) {
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in. Use "npm i --save-dev load-grunt-tasks" to load new grunt tasks
-    grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -128,6 +108,6 @@ module.exports = function(grunt) {
     
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['exec:serverup', 'watch', 'exec:serverdown']);
+    grunt.registerTask('default', ['watch']);
 
 };

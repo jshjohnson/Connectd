@@ -1,7 +1,7 @@
 <?php
 	require_once("../inc/config.php"); 
 	require_once(ROOT_PATH . "inc/checklog.php");
-	require_once(ROOT_PATH . "inc/errors.php");
+	
 
 	$pageTitle = "Dashboard";
 	session_start();
@@ -17,9 +17,12 @@
 	// User data
 	include_once(ROOT_PATH . "inc/designers.php");
 	include_once(ROOT_PATH . "inc/developers.php");
+	include_once(ROOT_PATH . "inc/jobs.php");
 
 	$designers = get_designers_all();
 	$developers = get_developers_all();
+	$jobs = get_jobs_all();
+
 
 ?>
 		<section class="call-to-action call-to-action--top">
@@ -60,39 +63,9 @@
 						<a href="<?php echo BASE_URL; ?>post/"><button class="float-right button-action">Post Job</button></a>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
-						<?php	
-							// create the SQL query
-							$query = "SELECT jobtitle, budget, date FROM connectdDB.jobs ORDER BY date DESC";
-
-							$result = mysqli_query($db_server, $query);
-
-							if (!$result) die("Database access failed: " . mysqli_error($db_server));
-
-							// if there are any rows, print out the contents
-							while ($row = mysqli_fetch_array($result)) : ?>
-						<div class="media">
-							<div class="media__desc media-2-3">
-								<div class="media__button currency-button">
-									<span class="currency">
-										<?php $budget = $row['budget']; 
-										if ($budget>=10000) : ?>
-											£<?php echo substr($budget, 0, 2); ?>k
-										<?php elseif ($budget>=1000) : ?>
-											£<?php echo substr($budget, 0, 1); ?>k
-										<?php else : ?>
-											£<?php echo $budget; ?>
-										<?php endif; ?>
-
-									</span>
-								</div>
-								<a href=""><p class="media__body"><?php echo $row['jobtitle']; ?></p></a>
-							</div>
-							<div class="media-1-3 media__side">
-								<p><small>Posted <?php echo $row['date']; ?></small></p>
-								<p><small>jshjohnson</small></p>
-							</div>
-						</div>
-					<?php endwhile; ?>
+						<?php foreach($jobs as $job_id => $job) {
+							echo get_job_list_view($job_id, $job);
+						} ?>
 					</div>
 				</article>
 			</div>

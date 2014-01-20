@@ -2023,7 +2023,7 @@ img.media__img {
   color: white;
 }
 /* line 275, ../scss/core/_modules.scss */
-.page-title .page-title__link {
+.page-title .header__section--title__link {
   color: white;
   font-size: .5em;
   vertical-align: middle;

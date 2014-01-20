@@ -1,12 +1,5 @@
 <?php
 
-	// $query = "SELECT * FROM connectdDB.designers";
-
-	// $result = mysqli_query($db_server, $query);
-
-	// if (!$result) die("Database access failed: " . mysqli_error($db_server));
-
-	// $designers = $result;
 
 	function get_designer_list_view($designer_id, $designer) {
 
@@ -50,36 +43,19 @@
 
 	function get_designers_all() {
 
-		$designers = array();
+		require(ROOT_PATH . "inc/db_connect.php");
 
-		$designers[101] = array(
-			"avatar" => "http://placehold.it/350/300",
-			"firstname" => "Harry",
-			"lastname" => "Fox",
-			"jobtitle" => "Graphic Designer",
-			"location" => "Hertfordshire, UK",
-			"portfolio" => "http://harryfox.com",
-			"bio" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, sequi, eius, similique, sint amet iusto nostrum sed harum quam quod voluptates laborum accusantium voluptas provident explicabo expedita aperiam perferendis eos."
-		);
-		$designers[102] = array(
-			"avatar" => "http://placehold.it/350/300",
-			"firstname" => "Josh",
-			"lastname" => "Johnson",
-			"jobtitle" => "Graphic Designer",
-			"location" => "Essex, UK",
-			"portfolio" => "http://harryfox.com",
-			"bio" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, sequi, eius, similique, sint amet iusto nostrum sed harum quam quod voluptates laborum accusantium voluptas provident explicabo expedita aperiam perferendis eos."
-		);
-		$designers[103] = array(
-			"avatar" => "http://placehold.it/350/300",
-			"firstname" => "Patrick",
-			"lastname" => "Manderson",
-			"jobtitle" => "Illustrator",
-			"location" => "Cumbria, UK",
-			"portfolio" => "http://patrickmanderson.com",
-			"bio" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, sequi, eius, similique, sint amet iusto nostrum sed harum quam quod voluptates laborum accusantium voluptas provident explicabo expedita aperiam perferendis eos."
-		);
+		try {
+			$results = $db->query("SELECT firstname, lastname, jobtitle FROM connectdDB.designers");
+		} catch (Exception $e) {
+			echo "Data could not be retrieved";
+			exit;
+		}
+		
+		$designers = $results->fetchAll(PDO::FETCH_ASSOC);
 
 		return $designers;
 
 	}
+
+?>

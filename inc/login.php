@@ -16,6 +16,7 @@
 	    	//Start session
 			session_start(); 
 			require_once("inc/db_connect.php");
+			$db_server = mysqli_connect($db_hostname, $db_username, $db_password);
 
 			mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
 
