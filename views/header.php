@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title><?php echo $pageTitle; ?> : Connectd</title>
+	<title><?php echo $section; ?> : Connectd</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<!--[if lte IE 8]>

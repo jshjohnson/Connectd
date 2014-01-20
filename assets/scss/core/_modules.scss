@@ -324,6 +324,7 @@ img.media__img {
 	margin-top: .5em;
 	line-height: 2.8em;
 	@include border-radius(.4em);
+	@extend %shake;
 	&:after {
 		content: "";
 		width: 0;
@@ -370,9 +371,6 @@ img.media__img {
 	a {
 		color: $color-brand-dark;
 	}
-	// @include respond-min($bp1) {
-	// 	max-height: 1.8em;
-	// }
 }
 
 .footer__links { 
@@ -381,7 +379,7 @@ img.media__img {
 		display: inline-block;
 		*display:inline;
 	    zoom:1;
-	    font-size: .8em;
+	    font-size: .75em;
 	    margin: 0;
 	    &:after {
 	    	padding: 0 .25em 0 .5em;
