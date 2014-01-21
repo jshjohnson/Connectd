@@ -317,13 +317,11 @@ img.media__img {
 
 .header__section--notifications {
 	background-color: $color-brand-highlight;
-	padding: 0 1em;
+	padding: 0 .7em;
 	float: right;
 	font-size: .8em;
-	height: 2.8em;
-	margin-top: .5em;
-	line-height: 2.8em;
-	@include border-radius(.4em);
+	margin-top: .9em;
+	line-height: 2.1;
 	&:after {
 		content: "";
 		width: 0;
@@ -333,7 +331,7 @@ img.media__img {
 		border-left: 0.5em solid $color-brand-highlight;
 		position: absolute;
 		right: -.5em;
-		top: .95em;
+		top: .5em;
 	}
 }
 

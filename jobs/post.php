@@ -37,6 +37,7 @@
 	    }else{
 			// Process details here
 			require_once(ROOT_PATH . "inc/db_connect.php"); //include file to do db connect
+			$db_server = mysqli_connect($db_hostname, $db_username, $db_password);
 			if($db_server){
 
 				//clean the input now that we have a db connection
@@ -93,18 +94,18 @@
 				<?php elseif (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
-				<form method="post" action="<?php echo BASE_URL; ?>post/index.php">
-					<input type="text" name="jobtitle" placeholder="Job title">
+				<form method="post" action="<?php echo BASE_URL; ?>jobs/post.php">
+					<input type="text" name="jobtitle" placeholder="Job title" value="<?php if (isset($jobtitle)) { echo htmlspecialchars($jobtitle); } ?>">
 					<div class="float-left field-1-2">
 						<label for="">Start date:</label>
-						<input type="date" name="startdate" placeholder="Start date" value="">
+						<input type="date" name="startdate" placeholder="Start date" value="<?php if (isset($startdate)) { echo htmlspecialchars($startdate); } ?>">
 					</div>
 					<div class="float-right field-1-2">
 						<label for="">Deadline:</label>
-						<input type="date" name="deadline" placeholder="Deadline" value="">
+						<input type="date" name="deadline" placeholder="Deadline" value="<?php if (isset($deadline)) { echo htmlspecialchars($deadline); } ?>">
 					</div>
 					<div class="float-left field-1-2">
-						<input type="text" name="budget" placeholder="Minimum budget" value="">
+						<input type="text" name="budget" placeholder="Minimum budget" value="<?php if (isset($budget)) { echo htmlspecialchars($budget); } ?>">
 					</div>
 					<div class="float-right field-1-2">
 						<div class="select-container">
@@ -121,7 +122,7 @@
 							</select>
 						</div>
 					</div>			
-					<textarea name="jobdescription" cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!'></textarea>
+					<textarea name="jobdescription" cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!'><?php if (isset($jobdescription)) { echo htmlspecialchars($jobdescription); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Submit job'>						
 					</div>

@@ -60,7 +60,7 @@
 				<article class="dashboard-panel grid__cell module-1-1 module--no-pad">
 					<header class="header--panel header--employer cf">
 						<h3 class="float-left">My Jobs</h3>
-						<a href="<?php echo BASE_URL; ?>post/"><button class="float-right button-action">Post Job</button></a>
+						<a href="<?php echo BASE_URL; ?>jobs/post.php"><button class="float-right button-action">Post Job</button></a>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php foreach($jobs as $job_id => $job) {
