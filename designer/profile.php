@@ -4,7 +4,7 @@
 
 	checkLoggedOut();
 
-	include_once(ROOT_PATH . "views/designers.php");
+	include_once(ROOT_PATH . "model/designers.php");
 
 	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'];
 	$section = "Designer";

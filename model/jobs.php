@@ -20,11 +20,11 @@
 
 		$output = $output . "</span>";
 		$output = $output . "</div>";
-		$output = $output . "<a href=''><p class='media__body'>" . $job['jobtitle'] . "</p></a>";
+		$output = $output . "<a href='" . BASE_URL . "jobs/index.php?id=" . $job_id . "'><p class='media__body'>" . $job['jobtitle'] . "</p></a>";
 		$output = $output . "</div>";
 		$output = $output . "<div class='media-1-3 media__side'>";
 		$output = $output . "<p><small>Posted " . $job['date'] . "</small></p>";
-		$output = $output . "<p><small>jshjohnson</small></p>";
+		$output = $output . "<p><small>Username</small></p>";
 		$output = $output . "</div>";
 		$output = $output . "</div>";
 
@@ -55,7 +55,7 @@
 		require(ROOT_PATH . "inc/db_connect.php");
 
 		try {
-			$results = $db->query("SELECT jobtitle, budget, date FROM connectdDB.jobs ORDER BY date DESC");
+			$results = $db->query("SELECT jobtitle, budget, date, jobdescription FROM connectdDB.jobs ORDER BY date DESC");
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
 			exit;

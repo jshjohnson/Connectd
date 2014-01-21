@@ -15,9 +15,9 @@
 	include_once(ROOT_PATH . "inc/db_connect.php");
 
 	// User data
-	include_once(ROOT_PATH . "views/designers.php");
-	include_once(ROOT_PATH . "views/developers.php");
-	include_once(ROOT_PATH . "views/jobs.php");
+	include_once(ROOT_PATH . "model/designers.php");
+	include_once(ROOT_PATH . "model/developers.php");
+	include_once(ROOT_PATH . "model/jobs.php");
 
 	$designers = get_designers_all();
 	$developers = get_developers_all();

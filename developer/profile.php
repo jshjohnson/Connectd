@@ -2,7 +2,7 @@
 	require_once("../config/config.php"); 
 	include_once(ROOT_PATH . "inc/functions.php");
 	checkLoggedOut();
-	include_once(ROOT_PATH . "views/developers.php");
+	include_once(ROOT_PATH . "model/developers.php");
 
 	$developers = get_developers_all();
 	$developer_id = $_GET["id"];
