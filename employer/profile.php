@@ -21,9 +21,9 @@
 						<div class="user-sidebar__info">
 							<div class="ribbon"><h5>New</h5></div>
 							<h3 class="user-sidebar__title">Mixd</h3>
-							<h4 class="user-sidebar__job icon--attach icon--marg">Digital Design Agency</h4>
-							<h4 class="user-sidebar__geo icon--location icon--marg">Harrogate, UK</h4>
-							<h4 class="user-sidebar__web icon--globe icon--marg"><a href="">mixd.co.uk</a></h4>
+							<h4 class="user-sidebar__label icon--attach icon--marg">Digital Design Agency</h4>
+							<h4 class="user-sidebar__label icon--location icon--marg">Harrogate, UK</h4>
+							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="">mixd.co.uk</a></h4>
 							<p>
 								We create beautifully-crafted websites that stand out from the crowd – and perfect function comes as standard.
 							</p>

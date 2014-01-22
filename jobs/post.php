@@ -2,6 +2,7 @@
 	require_once("../config/config.php"); 
 	include_once(ROOT_PATH . "inc/checklog.php");
 
+	$section = "Post a job";
 	$pageTitle = "Post a job";
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "inc/functions.php");
@@ -17,7 +18,7 @@
 
 	// Create some variables to hold output data
 	$message = '';
-	$s_username = $_SESSION['email'];
+	$s_username = $_SESSION['username'];
 
 	// Start to use PHP session
 	session_start();

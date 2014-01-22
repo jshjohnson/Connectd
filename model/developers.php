@@ -13,7 +13,7 @@
 		$output = $output . "<p>" . $developer['jobtitle'] . "</p>";
 		$output = $output . "</div>";
 		$output = $output . "<div class='float-right price-per-hour'>";
-		$output = $output . "<h5>£36</h5>";
+		$output = $output . "<h5>£". $developer['priceperhour'] ."</h5>";
 		$output = $output . "<span>per hour</span>";
 		$output = $output . "</div>";
 		$output = $output . "</div>";

@@ -14,8 +14,9 @@
 	$password = trim($_POST['password']);
 	$repeatpassword = trim($_POST['repeatpassword']);
 	$age = trim($_POST['age']);
-	$jobtitle = $_POST['jobtitle'];
+	$jobtitle = trim($_POST['jobtitle']);
 	$experience = trim($_POST['experience']);
+	$priceperhour = trim($_POST['priceperhour']);
 	$bio = trim($_POST['bio']);
 	$speciality = trim($_POST['speciality']);
 	$portfolio = trim($_POST['portfolio']);
@@ -40,7 +41,7 @@
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['email'];
-		$message = "You are already logged in as $s_username. Please <a href='" . BASE_URL . "logout.php'>logout</a> before trying to register.";
+		$message = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "logout.php'>logout</a> before trying to register.";
 	}else{
 		if ($submit=='Apply for your place'){
 
@@ -89,8 +90,10 @@
 					$password = clean_string($db_server, $password);
 					$repeatpassword = clean_string($db_server, $repeatpassword);
 					$age = clean_string($db_server, $age);
+					$priceperhour = clean_string($db_server, $priceperhour);
 					$bio = clean_string($db_server, $bio);
 					$speciality = clean_string($db_server, $speciality);
+					$jobtitle = clean_string($db_server, $jobtitle);
 					$experience = clean_string($db_server, $experience);
 					$portfolio = clean_string($db_server, $portfolio);
 					$location = clean_string($db_server, $location);
@@ -105,9 +108,9 @@
 					}else{
 						// Encrypt password
 						$password = salt($password);
-						$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, location, portfolio, jobtitle, speciality, age, experience, bio, datejoined) VALUES ('$firstname', '$lastname', '$email', '$password', '$location', '$portfolio', '$jobtitle', '$speciality', '$age', '$experience', '$bio', now())";
+						$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, datejoined) VALUES ('$firstname', '$lastname', '$email', '$password', '$location', '$portfolio', '$jobtitle', '$age', '$priceperhour', '$experience', '$bio', now())";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-						header("Location:" . BASE_URL . "inc/sign-in.php?status=registered.php");				
+						header("Location:" . BASE_URL . "sign-in.php?status=registered");				
 					}
 					mysqli_free_result($result);
 				}else{
@@ -172,14 +175,24 @@
 						</select>
 					</div>
 					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
-					<input type="number" name="age" placeholder="Age"  value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>" min="18" max="80" class="field-1-2" />
-					<input type="number" name="experience" placeholder="Years Experience" value="<?php if (isset($experience)) { echo htmlspecialchars($experience); } ?>" min="1" max="50" class="field-1-2 float-right"/>
 					<div class="select-container">
 						<select name="jobtitle">
 							<option value="">Job title..</option>
 							<option value="Designer">Designer</option>
 							<option value="Illustrator">Illustrator</option>
-							<option value="Illustrator">Animator</option>
+							<option value="Animator">Animator</option>
+						</select>
+					</div>
+					<input type="number" name="age" placeholder="Age"  value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>" min="18" max="80" class="field-1-2" />
+					<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="200" class="field-1-2 float-right"  value="<?php if (isset($priceperhour)) { echo htmlspecialchars($priceperhour); } ?>">
+					<div class="select-container">
+						<select name="experience">
+							<option value="">Years experience...</option>
+							<option value="Less than 1 year">Less than 1 year</option>
+							<option value="Between 1-2 years">Between 1-2 years</option>
+							<option value="Between 3-5 years">Between 3-5 years</option>
+							<option value="Between 5-10 years">Between 5-10 years</option>
+							<option value="Over 10 years">Over 10 years</option>
 						</select>
 					</div>
 <!-- 					<fieldset>
@@ -208,7 +221,7 @@
 					</fieldset> -->
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
-		            	<input id="submit" class="submit" name="submit" type="submit" value='Apply for your place'>					
+		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>					
 					</div>
 		        </form>
 			</div>

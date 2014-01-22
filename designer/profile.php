@@ -6,12 +6,12 @@
 
 	include_once(ROOT_PATH . "model/designers.php");
 
-	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'];
-	$section = "Designer";
-
 	$designers = get_designers_all();
 	$designer_id = $_GET["id"];
 	$designer = $designers[$designer_id];
+
+	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'];
+	$section = "Designer";
 
 	$s_username = $_SESSION['username'];
 	
@@ -23,7 +23,7 @@
 				<aside class="user-sidebar grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">
 					<div class="user-sidebar__price">
 						<span class="currency">
-							<h5>£26</h5>
+							<h5>£<?php echo $designer['priceperhour']; ?></h5>
 							<small>per hour</small>
 						</span>
 					</div>
@@ -33,7 +33,7 @@
 						</div>
 						<div class="button-wrapper">
 							<button class="button-green button-left cf hire-trigger">
-								<a href="">Hire Me</a>
+								<a href="">Hire <?php echo $designer['firstname']; ?></a>
 							</button>
 							<button class="button-blue button-right cf collaborate-trigger">
 								<a href="">Collaborate</a>
@@ -42,9 +42,9 @@
 					</div>
 					<div class="user-sidebar__info">
 						<a href=""><i class="icon--star-alt"></i></a><h3 class="user-sidebar__title"><?php echo $pageTitle; ?></h3>
-						<h4 class="user-sidebar__job icon--attach icon--marg"><?php echo $designer['jobtitle']; ?></h4>
-						<h4 class="user-sidebar__geo icon--location icon--marg"><?php echo $designer['location']; ?></h4>
-						<h4 class="user-sidebar__web icon--globe icon--marg"><a href="<?php echo $designer['portfolio']; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>
+						<h4 class="user-sidebar__label icon--attach icon--marg"><?php echo $designer['jobtitle']; ?></h4>
+						<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $designer['location']; ?></h4>
+						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $designer['portfolio']; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>
 						<p>
 							<?php echo $designer['bio']; ?>
 						</p>

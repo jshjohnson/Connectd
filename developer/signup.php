@@ -15,11 +15,15 @@
 	$repeatpassword = trim($_POST['repeatpassword']);
 	$age = trim($_POST['age']);
 	$jobtitle = trim($_POST['jobtitle']);
+	$priceperhour = trim($_POST['priceperhour']);
 	$experience = trim($_POST['experience']);
 	$bio = trim($_POST['bio']);
 	$portfolio = trim($_POST['portfolio']);
 	$location = trim($_POST['location']);
 	$submit = trim($_POST['submit']);
+
+	// Mail validation using PHPMailer
+	$mail = new PHPMailer(); // defaults to using php "mail()"
 
 	// Create some variables to hold output data
 	$message = '';
@@ -64,8 +68,9 @@
 		    }else if(strlen($bio)<25) {
 				$message = "You're not going to sell yourself without a decent bio!";
 			}else{
+
 				// Process details here
-				require_once(ROOT_PATH . "inc/db_connect.php"); //include file to do db connect
+				require_once(ROOT_PATH . "inc/db_connect.php"); 
 				$db_server = mysqli_connect($db_hostname, $db_username, $db_password);
 				if($db_server){
 
@@ -77,10 +82,11 @@
 					$repeatpassword = clean_string($db_server, $repeatpassword);
 					$age = clean_string($db_server, $age);
 					$jobtitle = clean_string($db_server, $jobtitle);
+					$priceperhour = clean_string($db_server, $priceperhour);
 					$bio = clean_string($db_server, $bio);
 					$portfolio = clean_string($db_server, $portfolio);
 					$experience = clean_string($db_server, $experience);
-					$location = trim($_POST['location']);
+					$jobtitle = clean_string($db_server, $jobtitle);
 
 					mysqli_select_db($db_server, $db_database);
 
@@ -92,9 +98,9 @@
 					}else{
 						// Encrypt password
 						$password = salt($password);
-						$query = "INSERT INTO connectdDB.developers (firstname, lastname, email, password, location, portfolio, jobtitle, age, experience, bio, datejoined) VALUES ('$firstname', '$lastname', '$email', '$password', '$location', '$portfolio', '$jobtitle', '$age', '$experience', '$bio', now())";
+						$query = "INSERT INTO connectdDB.developers (firstname, lastname, email, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, datejoined) VALUES ('$firstname', '$lastname', '$email', '$password', '$location', '$portfolio', '$jobtitle', '$age', '$priceperhour', '$experience', '$bio', now())";
 						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-						header("Location:" . BASE_URL . "sign-in.php?status=registered.php");
+						header("Location:" . BASE_URL . "sign-in.php?status=registered");
 					}
 					mysqli_free_result($result);
 				}else{
@@ -171,10 +177,20 @@
 						</select>
 					</div>
 					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left" value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>">
-					<input type="number" name="experience" placeholder="Years Experience" min="1" max="50" class="field-1-2 float-right" value="<?php if (isset($experience)) { echo htmlspecialchars($experience); } ?>">
+					<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="200" class="field-1-2 float-right"  value="<?php if (isset($priceperhour)) { echo htmlspecialchars($priceperhour); } ?>">
+					<div class="select-container">
+						<select name="experience">
+							<option value="">Years experience...</option>
+							<option value="Less than 1 year">Less than 1 year</option>
+							<option value="Between 1-2 years">Between 1-2 years</option>
+							<option value="Between 3-5 years">Between 3-5 years</option>
+							<option value="Between 5-10 years">Between 5-10 years</option>
+							<option value="Over 10 years">Over 10 years</option>
+						</select>
+					</div>
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
-		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>					
+		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>				
 					</div>
 		        </form>
 			</div>

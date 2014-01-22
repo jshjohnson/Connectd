@@ -21,7 +21,7 @@
 				<aside class="user-sidebar grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-left">
 					<div class="user-sidebar__price user-sidebar__price--alt">
 						<span class="currency">
-							<h5>£42</h5>
+							<h5>£<?php echo $developer['priceperhour']; ?></h5>
 							<small>per hour</small>
 						</span>
 					</div>
@@ -31,7 +31,7 @@
 						</div>
 						<div class="button-wrapper">
 							<button class="button-green button-left cf hire-trigger">
-								<a href="">Hire Me</a>
+								<a href="">Hire <?php echo $developer['firstname']; ?></a>
 							</button>
 							<button class="button-blue button-right cf collaborate-trigger">
 								<a href="">Collaborate</a>
@@ -40,9 +40,9 @@
 					</div>
 					<div class="user-sidebar__info">
 						<h3 class="user-sidebar__title"><?php echo $pageTitle; ?></h3>
-						<h4 class="user-sidebar__job icon--attach icon--marg"><?php echo $developer['jobtitle']; ?></h4>
-						<h4 class="user-sidebar__geo icon--location icon--marg"><?php echo $developer['location']; ?></h4>
-						<h4 class="user-sidebar__web icon--globe icon--marg"><a href="<?php echo $developer['portfolio']; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
+						<h4 class="user-sidebar__label icon--attach icon--marg"><?php echo $developer['jobtitle']; ?></h4>
+						<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $developer['location']; ?></h4>
+						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $developer['portfolio']; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
 						<p><?php echo $developer['bio']; ?></p>
 					</div>
 				</aside>

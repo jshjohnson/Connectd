@@ -322,6 +322,7 @@ img.media__img {
 	font-size: .8em;
 	margin-top: .9em;
 	line-height: 2.1;
+	@include border-radius(.2em);
 	&:after {
 		content: "";
 		width: 0;
