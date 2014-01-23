@@ -1,4 +1,4 @@
 <?php
 
-	define("BASE_URL","/Connectd/");
-	define("ROOT_PATH",$_SERVER["DOCUMENT_ROOT"] . "/Connectd/");
+	define("BASE_URL","/Connectd/htdocs/");
+	define("ROOT_PATH",$_SERVER["DOCUMENT_ROOT"] . "/Connectd/htdocs/");
