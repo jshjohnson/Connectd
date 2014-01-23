@@ -28,7 +28,7 @@
 	function salt($string) { 
 		$salt1 = 'a9*g4qwgrsht';
 		$salt2 = 'bu59304fh8ura0';
-		$salted = md5("$salt1$string$salt2");
+		$salted = sha1("$salt1$string$salt2");
 		return $salted;
 	}
 

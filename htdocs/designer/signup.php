@@ -34,7 +34,7 @@
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['email'];
-		$message = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "logout.php'>logout</a> before trying to register.";
+		$message = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "inc/logout.php'>logout</a> before trying to register.";
 	}else{
 		if ($submit=='Apply for your place'){
 
@@ -77,18 +77,18 @@
 				if($db_server){
 
 					//clean the input now that we have a db connection
-					$firstname = clean_string($db_server, $firstname);
-					$lastname = clean_string($db_server, $lastname);
-					$email = clean_string($db_server, $email);
-					$password = clean_string($db_server, $password);
-					$repeatpassword = clean_string($db_server, $repeatpassword);
-					$age = clean_string($db_server, $age);
-					$priceperhour = clean_string($db_server, $priceperhour);
-					$bio = clean_string($db_server, $bio);
-					$jobtitle = clean_string($db_server, $jobtitle);
-					$experience = clean_string($db_server, $experience);
-					$portfolio = clean_string($db_server, $portfolio);
-					$location = clean_string($db_server, $location);
+					$firstname = clean_string($db, $firstname);
+					$lastname = clean_string($db, $lastname);
+					$email = clean_string($db, $email);
+					$password = clean_string($db, $password);
+					$repeatpassword = clean_string($db, $repeatpassword);
+					$age = clean_string($db, $age);
+					$priceperhour = clean_string($db, $priceperhour);
+					$bio = clean_string($db, $bio);
+					$jobtitle = clean_string($db, $jobtitle);
+					$experience = clean_string($db, $experience);
+					$portfolio = clean_string($db, $portfolio);
+					$location = clean_string($db, $location);
 
 					mysqli_select_db($db_server, DB_NAME);
 

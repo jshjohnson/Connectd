@@ -3123,6 +3123,7 @@ img.media__img {
 .user-sidebar__info p {
   font-size: .9em;
   margin-bottom: 1em;
+  word-break: break-word;
 }
 
 /* Dashboard panel
