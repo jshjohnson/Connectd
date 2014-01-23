@@ -18,7 +18,6 @@
 	$experience = trim($_POST['experience']);
 	$priceperhour = trim($_POST['priceperhour']);
 	$bio = trim($_POST['bio']);
-	$speciality = trim($_POST['speciality']);
 	$portfolio = trim($_POST['portfolio']);
 	$location = trim($_POST['location']);
 	$submit = trim($_POST['submit']);
@@ -29,12 +28,6 @@
 	// Create some variables to hold output data
 	$message = '';
 	$s_username = '';
-
-	if(isset($speciality)) {
-		$speciality = implode(", ", $_POST['speciality']);   
-	} else {
-		$speciality = "";
-	}
 
 	// Start to use PHP session
 	session_start();
@@ -92,7 +85,6 @@
 					$age = clean_string($db_server, $age);
 					$priceperhour = clean_string($db_server, $priceperhour);
 					$bio = clean_string($db_server, $bio);
-					$speciality = clean_string($db_server, $speciality);
 					$jobtitle = clean_string($db_server, $jobtitle);
 					$experience = clean_string($db_server, $experience);
 					$portfolio = clean_string($db_server, $portfolio);
@@ -195,30 +187,6 @@
 							<option value="Over 10 years">Over 10 years</option>
 						</select>
 					</div>
-<!-- 					<fieldset>
-						<label class="field-heading">What do you specialise in?</label>
-						<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="Graphic Design">Graphic Design</label>
-					    </div>
-					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="Web Design">Web Design</label>
-					    </div>
-					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="App Design">App Design</label>
-					    </div>
-						<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="UX Design">UX Design</label>
-						</div>
-					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="UI Design">UI Design</label>
-					    </div>
-					   	<div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="UI Design">Motion/Animation</label>
-					    </div>
-					    <div class="checkbox">
-					   		<label><input type="checkbox" name="speciality[]" value="UI Design">Illustration</label>
-					    </div>
-					</fieldset> -->
 					<textarea name="bio" cols="30" rows="10" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>					
