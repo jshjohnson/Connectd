@@ -21,8 +21,6 @@ Thumbs.db
 node_modules
 npm-debug.log
 
-.htaccess
-
 _assets
 
 ai-cache/*
