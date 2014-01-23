@@ -178,9 +178,9 @@
 							<option value="Copywriting">Copywriting</option>
 							<option value="Extraordinary">Extraordinary</option>
 						</select>
-					</div> 
+					</div>
 					<input type="text" name="businesswebsite" placeholder="Business website" value="<?php if (isset($businesswebsite)) { echo htmlspecialchars($businesswebsite); } ?>">
-					<textarea name="businessbio" cols="30" rows="10" placeholder="A little about your business..."><?php if (isset($businessbio)) { echo htmlspecialchars($businessbio); } ?></textarea>
+					<textarea name="businessbio" cols="30" rows="8" placeholder="A little about your business..."><?php if (isset($businessbio)) { echo htmlspecialchars($businessbio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Start employing'>						
 					</div>

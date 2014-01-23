@@ -4,9 +4,15 @@
 	checkLoggedOut();
 	include_once(ROOT_PATH . "model/developers.php");
 
-	$developers = get_developers_all();
-	$developer_id = $_GET["id"];
-	$developer = $developers[$developer_id];
+	if (isset($_GET["id"])) {
+		$developer_id = $_GET["id"];
+		$developer = get_developers_single($developer_id);
+	}
+
+	if (empty($developer)) {
+		header("Location: " . BASE_URL);
+		exit();
+	}
 
 	$s_username = $_SESSION['username'];
 	
@@ -42,7 +48,7 @@
 						<h3 class="user-sidebar__title"><?php echo $pageTitle; ?></h3>
 						<h4 class="user-sidebar__label icon--attach icon--marg"><?php echo $developer['jobtitle']; ?></h4>
 						<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $developer['location']; ?></h4>
-						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $developer['portfolio']; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
+						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $developer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
 						<p><?php echo $developer['bio']; ?></p>
 					</div>
 				</aside>

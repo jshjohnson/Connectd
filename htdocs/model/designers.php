@@ -6,10 +6,10 @@
 		$output = "";
 
 		$output = $output . "<div class='media'>";
-		$output = $output . "<a href='" . BASE_URL . "developer/profile.php?id=" . $designer_id . "'><img src='http://placehold.it/200x200' alt='' class='media__img media__img--avatar'></a>";
+		$output = $output . "<a href='" . BASE_URL . "developer/profile.php?id=" . $designer['id'] . "'><img src='http://placehold.it/200x200' alt='' class='media__img media__img--avatar'></a>";
 		$output = $output . "<div class='media__body'>";
 		$output = $output . "<div class='float-left user-info'>";
-		$output = $output . "<a href='#'><i class='icon--star'></i></a><a href='" . BASE_URL . "designer/profile.php?id=" . $designer_id . "'><h4>" . $designer['firstname'] . ' ' . $designer['lastname'] . "</h4></a>";
+		$output = $output . "<a href='#'><i class='icon--star'></i></a><a href='" . BASE_URL . "designer/profile.php?id=" . $designer['id'] . "'><h4>" . $designer['firstname'] . ' ' . $designer['lastname'] . "</h4></a>";
 		$output = $output . "<p>" . $designer['jobtitle'] . "</p>";
 		$output = $output . "</div>";
 		$output = $output . "<div class='float-right price-per-hour'>";
@@ -48,7 +48,7 @@
 		try {
 			$results = $db->query("SELECT * FROM connectdDB.designers");
 		} catch (Exception $e) {
-			echo "Data could not be retrieved";
+			echo "Damn. Data could not be retrieved";
 			exit;
 		}
 		
@@ -56,6 +56,23 @@
 
 		return $designers;
 
+	}
+
+	function get_designers_single($id) {
+		require(ROOT_PATH . "inc/db_connect.php");
+
+		try {
+			$results = $db->prepare("SELECT * FROM connectdDB.designers WHERE id = ?");
+			$results->bindParam(1, $id);
+			$results->execute();
+		} catch (Exception $e) {
+			echo "Damn. Data could not be retrieved.";
+			exit;
+		}
+
+		$designers = $results->fetch(PDO::FETCH_ASSOC);
+		
+		return $designers;
 	}
 
 ?>

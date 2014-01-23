@@ -1,14 +1,22 @@
 <?php 
 	require_once("../config/config.php");
 	include_once(ROOT_PATH . "inc/functions.php"); 
-
 	checkLoggedOut();
-
 	include_once(ROOT_PATH . "model/designers.php");
 
-	$designers = get_designers_all();
-	$designer_id = $_GET["id"];
-	$designer = $designers[$designer_id];
+	// Grab ID from URL, convert to interger to strip SQL injection, pass to get_designers_single function to pull
+
+	if (isset($_GET["id"])) {
+		$designer_id = intval($_GET["id"]);
+		$designer = get_designers_single($designer_id);
+	}
+
+	// If no ID in URL, return to dashboard;
+
+	if (empty($designer)) {
+		header("Location: " . BASE_URL);
+		exit();
+	}
 
 	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'];
 	$section = "Designer";
@@ -44,7 +52,7 @@
 						<a href=""><i class="icon--star-alt"></i></a><h3 class="user-sidebar__title"><?php echo $pageTitle; ?></h3>
 						<h4 class="user-sidebar__label icon--attach icon--marg"><?php echo $designer['jobtitle']; ?></h4>
 						<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $designer['location']; ?></h4>
-						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $designer['portfolio']; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>
+						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $designer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>
 						<p>
 							<?php echo $designer['bio']; ?>
 						</p>

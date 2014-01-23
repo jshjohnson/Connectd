@@ -33,7 +33,7 @@
 							<h4 class="user-sidebar__label icon--attach icon--marg"><?php echo $user["jobtitle"]; ?></h4>
 							<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $user["location"]; ?>, UK</h4>
 							<h4 class="user-sidebar__label icon--briefcase icon--marg"><?php $url = preg_replace("(Between)", "", $user["experience"] ); echo $url ?> experience</h4>
-							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $user["portfolio"]; ?>" target="_blank"><?php $url = preg_replace("(https?://)", "", $user["portfolio"] ); echo $url ?></a></h4>
+							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $user["portfolio"] ); echo $url ?></a></h4>
 							<div class="text-center">
 								<button class="button-green button-small">
 									<a href="" class="icon--check"><?php echo $user["votes"]; ?> votes</a>
