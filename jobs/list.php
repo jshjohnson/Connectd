@@ -20,8 +20,13 @@
 		<section class="container">
 			<div class="grid--no-marg cf">
 				<aside class="user-sidebar grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">
+					<header class="header--panel header--employer cf">
+						<h3 class="float-left">Search</h3>
+					</header>
+					<div class="media-wrapper media-wrapper--tall">
+					</div>
 				</aside>
-				<article class="dashboard-panel grid__cell module-2-3 module--no-pad">
+				<article class="dashboard-panel grid__cell module-2-3 module--no-pad float-left">
 					<header class="header--panel header--employer cf">
 						<h3 class="float-left">My Jobs</h3>
 						<a href="<?php echo BASE_URL; ?>post/"><button class="float-right button-action">Post Job</button></a>

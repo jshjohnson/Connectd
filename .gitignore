@@ -30,3 +30,4 @@ ai-cache/*
 .DS_Store
 
 .sass-cache
+config/deploy*

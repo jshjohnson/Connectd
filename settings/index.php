@@ -40,30 +40,11 @@
 					<header class="header--panel header--developer cf">
 						<h3 class="float-left">Change Password</h3>
 					</header>
-					<div class="container">
-						<form action="" method="post">
-							Current password:
-							<input type='password' id='password' name='currentpassword'><br>
-							New password:<br>
-							<input type='password' id='password' name='password'><br>
-							Repeat password:<br>
-							<input type='password' id='repeatpassword' name='repeatpassword'><br>
-
-							<input type='submit' name='submit' id='submit' value='Register'>
-						</form>
-					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
 					<header class="header--panel header--developer cf">
 						<h3 class="float-left">Delete Account</h3>
 					</header>
-					<div class="container">
-						<form action="delete.php" method="post">
-							<label>Yes: </label><input type="radio" name="delete" value="1" />
-							<labe>No: </label> <input type="radio" name="delete" value="0" checked="checked" />
-							<input id="submit" type="submit" name="submit" value="submit" />
-						</form>
-					</div>
 				</article>
 			</div>
 		</section>
