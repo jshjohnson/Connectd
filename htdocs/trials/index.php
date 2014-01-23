@@ -12,7 +12,7 @@
 	//Connect to DB
 	require_once(ROOT_PATH . "inc/db_connect.php");
 	$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
-	mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
+	mysqli_select_db($db_server, DB_NAME) or die("Couldn't find db");
 
 	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, experience, datejoined, votes FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, experience, datejoined, votes FROM connectdDB.developers ORDER BY datejoined DESC";
 	$result = mysqli_query($db_server, $query);
@@ -54,6 +54,5 @@
 			</div>
 		</section>
 <?php 
-	require_once(ROOT_PATH . "inc/db_close.php");
 	include_once(ROOT_PATH . "views/footer-page.php"); 
 ?>

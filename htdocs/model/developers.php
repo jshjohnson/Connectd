@@ -43,7 +43,7 @@
 	}
 
 	function get_developers_all() {
-
+		
 		require(ROOT_PATH . "inc/db_connect.php");
 
 		try {
@@ -60,6 +60,7 @@
 	}
 
 	function get_developers_single($id) {
+
 		require(ROOT_PATH . "inc/db_connect.php");
 
 		try {

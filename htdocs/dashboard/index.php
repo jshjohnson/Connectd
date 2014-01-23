@@ -12,7 +12,6 @@
 	
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "views/page-header.php");
-	include_once(ROOT_PATH . "inc/db_connect.php");
 
 	// User data
 	include_once(ROOT_PATH . "model/designers.php");
@@ -71,6 +70,5 @@
 			</div>
 		</section>
 <?php 
-	require_once(ROOT_PATH . "inc/db_close.php");
 	include_once(ROOT_PATH . "views/footer-page.php"); 
 ?>

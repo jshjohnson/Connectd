@@ -49,7 +49,7 @@
 				$jobcategory = clean_string($db_server, $jobcategory);
 				$jobdescription = clean_string($db_server, $jobdescription);
 
-				mysqli_select_db($db_server, $db_database);
+				mysqli_select_db($db_server, DB_NAME);
 
 				$query = "INSERT INTO connectdDB.jobs (jobtitle, startdate, deadline, budget, jobcategory, jobdescription, date) VALUES ('$jobtitle', '$startdate', '$deadline', '$budget', '$jobcategory', '$jobdescription', now())";
 				mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));

@@ -90,7 +90,7 @@
 					$portfolio = clean_string($db_server, $portfolio);
 					$location = clean_string($db_server, $location);
 
-					mysqli_select_db($db_server, $db_database);
+					mysqli_select_db($db_server, DB_NAME);
 
 					// check whether email has been used before
 					$query="SELECT designers.email FROM connectdDB.designers WHERE designers.email='$email' UNION SELECT developers.email FROM connectdDB.developers WHERE developers.email='$email' UNION SELECT employers.email FROM connectdDB.employers WHERE employers.email='$email'";

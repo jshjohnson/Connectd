@@ -15,7 +15,7 @@
 				die("Unable to connect to MySQL: " . mysqli_connect_error($db_server));
                 $db_status = "not connected";
             }else{
-            	mysqli_select_db($db_server, $db_database) or die ("<h1>Couldn't find db</h1>");
+            	mysqli_select_db($db_server, DB_NAME) or die ("<h1>Couldn't find db</h1>");
             		
             	//DELETE record from users table
                 $query = "DELETE FROM users WHERE ID=$sess_userID";
@@ -49,6 +49,5 @@
 			</div>
 		</section>
 <?php 
-	require_once(ROOT_PATH . "inc/db_close.php");
 	include_once(ROOT_PATH . "views/footer-page.php"); 
 ?>

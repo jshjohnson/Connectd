@@ -16,26 +16,36 @@
 	    	//Start session
 			session_start(); 
 			require_once("inc/db_connect.php");
-			$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
 
-			mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
+			$email = clean_string($db, $email); 
+			$password = clean_string($db, $password);
 
-			$email = clean_string($db_server, $email); 
-			$password = clean_string($db_server, $password);
-			$query = "SELECT designers.id, designers.firstname, designers.lastname, designers.email, designers.password FROM connectdDB.designers WHERE designers.email='$email' UNION SELECT developers.id, developers.firstname, developers.lastname, developers.email, developers.password FROM connectdDB.developers WHERE developers.email='$email' UNION SELECT employers.id, employers.firstname, employers.lastname, employers.email, employers.password FROM connectdDB.employers WHERE employers.email='$email'"; 
-			$result = mysqli_query($db_server, $query);
+			try {
+				$results = $db->prepare("SELECT designers.id, designers.firstname, designers.lastname, designers.email, designers.password FROM connectdDB.designers WHERE designers.email = ? UNION SELECT developers.id, developers.firstname, developers.lastname, developers.email, developers.password FROM connectdDB.developers WHERE developers.email = ? UNION SELECT employers.id, employers.firstname, employers.lastname, employers.email, employers.password FROM connectdDB.employers WHERE employers.email = ?");
+				$results->bindParam(1, $email);
+				$results->bindParam(2, $email);
+				$results->bindParam(3, $email);
+				$results->execute();
+
+				$total = $results->rowCount();
+				$row = $results->fetch();
 			
-			if($row = mysqli_fetch_array($result)){
+			} catch (Exception $e) {
+				echo "Damn. Data could not be retrieved.";
+				exit;
+			}
+
+			if($total > 0){
 
 				$db_name = $row['firstname'] . ' ' . $row['lastname'];
 				$db_email = $row['email'];
 				$db_password = $row['password'];
-				$DBID = $row['id'];
+				$db_id = $row['id'];
 
 					if($email==$db_email&&salt($password)==$db_password){
 						$_SESSION['username'] = $db_name;
 						$_SESSION['email']=$email;
-						$_SESSION['userID']=$DBID;
+						$_SESSION['userID']=$db_id;
 						$_SESSION['logged']="logged";
 
 						// If remember has been checked, set a cookie
@@ -57,7 +67,5 @@
 		    }else{
 		        $message = "That user does not exist!" . " Please try again";
 		   } 
-		   mysqli_free_result($result);	
-		   require_once("inc/db_close.php");
 		}
 	}

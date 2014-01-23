@@ -8,7 +8,7 @@
 	//Connect to DB
 	require_once(ROOT_PATH . "inc/db_connect.php");
 
-	mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
+	mysqli_select_db($db_server, DB_NAME) or die("Couldn't find db");
 
 	// Query designers
 	$designers = mysqli_query($db_server, "SELECT COUNT(1) FROM connectdDB.designers"); 
@@ -134,6 +134,5 @@
 			</div>
 		</section>
 <?php 
-	require_once(ROOT_PATH . "inc/db_close.php");
 	include_once(ROOT_PATH . "views/footer-page.php"); 
 ?>
