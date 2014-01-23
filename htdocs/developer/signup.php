@@ -71,7 +71,7 @@
 
 				// Process details here
 				require_once(ROOT_PATH . "inc/db_connect.php"); 
-				$db_server = mysqli_connect($db_hostname, $db_username, $db_password);
+				$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
 				if($db_server){
 
 					//clean the input now that we have a db connection
@@ -154,7 +154,7 @@
 					<div class="select-container">
 					<?php 
 						require_once(ROOT_PATH . "inc/db_connect.php"); 
-						$db_server = mysqli_connect($db_hostname, $db_username, $db_password);
+						$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
 						$query = ("SELECT county FROM connectdDB.locations ORDER BY county ASC");
 						$result = mysqli_query($db_server, $query);
 					?>

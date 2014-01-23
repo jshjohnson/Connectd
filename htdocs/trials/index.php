@@ -11,7 +11,7 @@
 	session_start();
 	//Connect to DB
 	require_once(ROOT_PATH . "inc/db_connect.php");
-	$db_server = mysqli_connect($db_hostname, $db_username, $db_password);
+	$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
 	mysqli_select_db($db_server, $db_database) or die("Couldn't find db");
 
 	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, experience, datejoined, votes FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, experience, datejoined, votes FROM connectdDB.developers ORDER BY datejoined DESC";

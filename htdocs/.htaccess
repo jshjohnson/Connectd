@@ -1,4 +1,4 @@
 RewriteEngine On
-RewriteRule ^designer/$ /../htdocs/designer/signup.php
-RewriteRule ^developer/$ /../htdocs/developer/signup.php
-RewriteRule ^employer/$ /../htdocs/employer/signup.php
+RewriteRule ^designer/$ /Connectd/htdocs/designer/signup.php
+RewriteRule ^developer/$ /Connectd/htdocs/developer/signup.php
+RewriteRule ^employer/$ /Connectd/htdocs/employer/signup.php

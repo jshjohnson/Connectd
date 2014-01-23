@@ -6,6 +6,7 @@
 database.yml
 inc/db_connect.php
 inc/functions.php
+htdocs/config/config.php
 
 
 # OS generated files #
