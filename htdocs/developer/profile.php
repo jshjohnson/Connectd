@@ -132,4 +132,4 @@
 				<button class="button-red"><a href="<?php echo BASE_URL; ?>search/">See our talented bunch</a></button>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "views/footer-page.php"); ?>
+<?php include_once(ROOT_PATH . "views/footer.php"); ?>

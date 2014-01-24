@@ -1,4 +1,4 @@
-		<footer class="footer zero-top cf">
+		<footer class="footer cf">
 			<div class="container">
 				<div class="grid">
 					<ul class="grid__cell unit-1-2 footer__links">
@@ -7,7 +7,7 @@
 						<li><a href="<?php echo BASE_URL; ?>terms/">Terms</a></li>
 					</ul>
 					<h2 class="grid__cell unit-1-2 footer__section footer__section--logo">
-						<a href="index.php">connectd</a>
+						<a href="index.php">connectd <small>beta</small></a>
 					</h2>
 				</div>
 			</div>

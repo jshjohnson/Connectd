@@ -112,4 +112,4 @@
 				<button class="button-green"><a href="<?php echo BASE_URL; ?>dashboard/">See our jobs list</a></button>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "views/footer-page.php"); ?>
+<?php include_once(ROOT_PATH . "views/footer.php"); ?>

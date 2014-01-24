@@ -2324,19 +2324,18 @@ img.media__img {
   color: #2c3e50;
   position: relative;
   bottom: 0;
-  margin-top: 2.5em;
   max-height: 3.5em;
 }
-/* line 372, ../scss/core/_modules.scss */
+/* line 371, ../scss/core/_modules.scss */
 .footer a {
   color: #2c3e50;
 }
 
-/* line 377, ../scss/core/_modules.scss */
+/* line 376, ../scss/core/_modules.scss */
 .footer__links {
   width: auto;
 }
-/* line 379, ../scss/core/_modules.scss */
+/* line 378, ../scss/core/_modules.scss */
 .footer__links li {
   display: inline-block;
   *display: inline;
@@ -2344,44 +2343,44 @@ img.media__img {
   font-size: .75em;
   margin: 0;
 }
-/* line 385, ../scss/core/_modules.scss */
+/* line 384, ../scss/core/_modules.scss */
 .footer__links li:after {
   padding: 0 .25em 0 .5em;
   content: '•';
 }
-/* line 390, ../scss/core/_modules.scss */
+/* line 389, ../scss/core/_modules.scss */
 .footer__links li:last-child:after {
   content: none;
 }
 
 /* Misc
 ----------------------------------*/
-/* line 400, ../scss/core/_modules.scss */
+/* line 399, ../scss/core/_modules.scss */
 .section {
   padding: 3.5em 0;
 }
 @media screen and (max-width: 62em) {
-  /* line 400, ../scss/core/_modules.scss */
+  /* line 399, ../scss/core/_modules.scss */
   .section {
     padding: 1.5em 0;
   }
 }
 
-/* line 408, ../scss/core/_modules.scss */
+/* line 407, ../scss/core/_modules.scss */
 .section__content h1, .section__content h2, .section__content h3, .section__content h4 {
   margin-top: 0;
 }
-/* line 411, ../scss/core/_modules.scss */
+/* line 410, ../scss/core/_modules.scss */
 .section__content *:last-child {
   margin-bottom: 0;
 }
 
-/* line 416, ../scss/core/_modules.scss */
+/* line 415, ../scss/core/_modules.scss */
 .section__img {
   max-width: 18.5em;
 }
 
-/* line 420, ../scss/core/_modules.scss */
+/* line 419, ../scss/core/_modules.scss */
 .section--mission {
   background-image: url("../img/bg.jpg");
   -webkit-background-size: cover;
@@ -2392,60 +2391,60 @@ img.media__img {
   background-position: top center;
 }
 @media screen and (max-width: 49em) {
-  /* line 420, ../scss/core/_modules.scss */
+  /* line 419, ../scss/core/_modules.scss */
   .section--mission {
     background-attachment: scroll;
   }
 }
 
-/* line 430, ../scss/core/_modules.scss */
+/* line 429, ../scss/core/_modules.scss */
 .iphone-img {
   margin-top: -10em;
   margin-bottom: -3.5em;
 }
 @media screen and (max-width: 74em) {
-  /* line 430, ../scss/core/_modules.scss */
+  /* line 429, ../scss/core/_modules.scss */
   .iphone-img {
     margin-top: 1em;
   }
 }
 @media screen and (max-width: 62em) {
-  /* line 430, ../scss/core/_modules.scss */
+  /* line 429, ../scss/core/_modules.scss */
   .iphone-img {
     margin-top: -6em;
   }
 }
 @media screen and (max-width: 49em) {
-  /* line 430, ../scss/core/_modules.scss */
+  /* line 429, ../scss/core/_modules.scss */
   .iphone-img {
     margin-top: 0;
   }
 }
 
-/* line 444, ../scss/core/_modules.scss */
+/* line 443, ../scss/core/_modules.scss */
 .blur {
   -webkit-filter: blur(2px);
   filter: blur(2px);
 }
 
-/* line 449, ../scss/core/_modules.scss */
+/* line 448, ../scss/core/_modules.scss */
 .forgot {
   font-size: .8em;
 }
 
-/* line 453, ../scss/core/_modules.scss */
+/* line 452, ../scss/core/_modules.scss */
 .intro-quote {
   font-family: "Georgia", serif;
   font-size: 2em;
   margin: .5em 0;
 }
-/* line 457, ../scss/core/_modules.scss */
+/* line 456, ../scss/core/_modules.scss */
 .intro-quote .source {
   font-family: "Georgia", serif;
   font-size: .6em;
 }
 @media screen and (max-width: 35em) {
-  /* line 453, ../scss/core/_modules.scss */
+  /* line 452, ../scss/core/_modules.scss */
   .intro-quote {
     margin: 0;
     font-size: 1.5em;
@@ -2454,7 +2453,7 @@ img.media__img {
 
 /* Portfolio
 ----------------------------------*/
-/* line 467, ../scss/core/_modules.scss */
+/* line 466, ../scss/core/_modules.scss */
 .portfolio__headings-bg {
   background-color: #f0eded;
   font-size: .8em;
@@ -2466,12 +2465,12 @@ img.media__img {
   margin-top: 0;
 }
 
-/* line 479, ../scss/core/_modules.scss */
+/* line 478, ../scss/core/_modules.scss */
 .portfolio__headings {
   margin: 0;
   position: relative;
 }
-/* line 482, ../scss/core/_modules.scss */
+/* line 481, ../scss/core/_modules.scss */
 .portfolio__headings li {
   display: inline-block;
   *display: inline;
@@ -2480,20 +2479,20 @@ img.media__img {
   position: relative;
   padding: .5em 1.4em .4em;
 }
-/* line 489, ../scss/core/_modules.scss */
+/* line 488, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 492, ../scss/core/_modules.scss */
+/* line 491, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   background-color: #2c3e50;
   color: white;
 }
-/* line 495, ../scss/core/_modules.scss */
+/* line 494, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 498, ../scss/core/_modules.scss */
+/* line 497, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -2507,21 +2506,22 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 516, ../scss/core/_modules.scss */
+/* line 515, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   background-color: #6dbcdb;
   color: white;
 }
-/* line 519, ../scss/core/_modules.scss */
+/* line 518, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active:after {
   border-top-color: #6dbcdb;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 529, ../scss/core/_modules.scss */
+/* line 528, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
+  margin-bottom: 2.5em;
   flex: 1;
 }
 /* line 532, ../scss/core/_modules.scss */
@@ -2542,25 +2542,31 @@ img.media__img {
 .call-to-action--top .call-to-action__title {
   margin-top: 0;
 }
+@media screen and (max-width: 30em) {
+  /* line 541, ../scss/core/_modules.scss */
+  .call-to-action--top {
+    margin-top: .5em;
+  }
+}
 
-/* line 548, ../scss/core/_modules.scss */
+/* line 551, ../scss/core/_modules.scss */
 .price-per-hour {
   margin-top: .35em;
 }
-/* line 550, ../scss/core/_modules.scss */
+/* line 553, ../scss/core/_modules.scss */
 .price-per-hour h5 {
   margin: 0;
   text-align: center;
   font-weight: 600;
 }
-/* line 555, ../scss/core/_modules.scss */
+/* line 558, ../scss/core/_modules.scss */
 .price-per-hour span {
   font-size: .7em;
   display: block;
   line-height: .9;
 }
 
-/* line 562, ../scss/core/_modules.scss */
+/* line 565, ../scss/core/_modules.scss */
 .currency-button {
   background-color: #77c462;
   border-radius: 10em;
@@ -2571,7 +2577,7 @@ img.media__img {
   height: 3.5em;
 }
 
-/* line 572, ../scss/core/_modules.scss */
+/* line 575, ../scss/core/_modules.scss */
 .currency {
   line-height: 3.5em;
   text-align: center;
@@ -3142,24 +3148,20 @@ img.media__img {
   max-height: 25em;
 }
 /* line 13, ../scss/core/modules/_dashboard.scss */
-.dashboard-panel:last-child {
-  margin-bottom: 0;
-}
-/* line 16, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel ::-webkit-scrollbar {
   width: .5em;
 }
 @media screen and (max-width: 30em) {
-  /* line 16, ../scss/core/modules/_dashboard.scss */
+  /* line 13, ../scss/core/modules/_dashboard.scss */
   .dashboard-panel ::-webkit-scrollbar {
     width: .25em;
   }
 }
-/* line 22, ../scss/core/modules/_dashboard.scss */
+/* line 19, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel ::-webkit-scrollbar-track {
   background-color: transparent;
 }
-/* line 25, ../scss/core/modules/_dashboard.scss */
+/* line 22, ../scss/core/modules/_dashboard.scss */
 .dashboard-panel ::-webkit-scrollbar-thumb {
   background-color: rgba(44, 62, 80, 0.3);
 }

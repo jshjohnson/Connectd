@@ -20,14 +20,14 @@
 
 	$designers = get_designers_all();
 	$developers = get_developers_all();
-	$jobs = get_jobs_all();
+	$jobs = get_jobs_recent();
 
 
 ?>
 		<section class="call-to-action call-to-action--top">
 			<div class="container">
 				<h4 class="as-h1 call-to-action__title">
-					Welcome <?php echo $s_username; ?>
+					Welcome <?php echo implode(' ', array_slice(explode(' ', $s_username), 0, 1)); ?>!
 				</h4>
 				<button class="button-red"><a href="<?php echo BASE_URL; ?>#">Build your profile</a></button>
 			</div>
@@ -36,7 +36,7 @@
 			<div class="grid--no-marg cf">
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
 					<header class="header--panel header--designer cf">
-						<h3 class="float-left">Designers</h3>
+						<h3 class="float-left"><a href="<?php echo BASE_URL; ?>designer/list.php">Designers</a></h3>
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
@@ -47,7 +47,7 @@
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
 					<header class="header--panel header--developer cf">
-						<h3 class="float-left">Developers</h3>
+						<h3 class="float-left"><a href="<?php echo BASE_URL; ?>developer/list.php">Developers</a></h3>
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
@@ -70,5 +70,5 @@
 			</div>
 		</section>
 <?php 
-	include_once(ROOT_PATH . "views/footer-page.php"); 
+	include_once(ROOT_PATH . "views/footer.php"); 
 ?>

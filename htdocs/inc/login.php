@@ -13,6 +13,7 @@
 	    }else if($password == ""){
 	        $message="Please enter your password"; 
 	    }else{
+
 	    	//Start session
 			session_start(); 
 			require_once("inc/db_connect.php");
