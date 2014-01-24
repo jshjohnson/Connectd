@@ -1,7 +1,7 @@
 <?php
 	require_once("../../inc/config.php"); 
 	include_once(ROOT_PATH . "inc/functions.php"); 
-	include_once(ROOT_PATH . "inc/errors.php"); 
+	 
 	include_once(ROOT_PATH . "inc/post.php");
 ?>
 <section class='overlay'>

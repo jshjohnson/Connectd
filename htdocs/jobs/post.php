@@ -68,7 +68,7 @@
 			<h1 class="header__section header__section--title">
 				Post a job<a href="" class="menu-trigger header__section--title__link "> : Menu</a>
 			</h1>
-			<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
+			<?php include_once(ROOT_PATH . "views/page-nav.php"); ?>
 			<h2 class="header__section header__section--logo">
 				<a href="<?php echo BASE_URL; ?>">connectd</a>
 			</h2>

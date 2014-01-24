@@ -2,7 +2,7 @@
 	require_once("../../config/config.php");
 	include_once(ROOT_PATH . "inc/functions.php"); 
 	include_once(ROOT_PATH . "inc/login.php");
-	include_once(ROOT_PATH . "inc/errors.php");
+	
 ?>
 <section class='overlay'>
 	<div class='overlay__inner overlay__inner--small'> 

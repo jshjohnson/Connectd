@@ -65,13 +65,13 @@ $(document).ready(function() {
 	overlay($(".login-trigger"), "/Connectd/htdocs/assets/ajax/sign-in.php");
 
 	// Production
-	// overlay($(".apply-trigger"), "/../../assets/ajax/apply.php");
-	// overlay($(".hire-trigger"), "/../../assets/ajax/hire.php");
-	// overlay($(".post-job-trigger"), "/../../assets/ajax/post-job.php");
-	// overlay($(".collaborate-trigger"), "/../../assets/ajax/collaborate.php");
-	// overlay($(".search-trigger"), "/../../assets/ajax/search.php");
-	// overlay($(".dev-skills-trigger"), "/../../assets/ajax/dev-skills.php");
-	// overlay($(".des-skills-trigger"), "/../../assets/ajax/des-skills.php");
-	// overlay($(".login-trigger"), "/../../assets/ajax/sign-in.php");
+	// overlay($(".apply-trigger"), "/connectd/assets/ajax/apply.php");
+	// overlay($(".hire-trigger"), "/connectd/assets/ajax/hire.php");
+	// overlay($(".post-job-trigger"), "/connectd/assets/ajax/post-job.php");
+	// overlay($(".collaborate-trigger"), "/connectd/assets/ajax/collaborate.php");
+	// overlay($(".search-trigger"), "/connectd/assets/ajax/search.php");
+	// overlay($(".dev-skills-trigger"), "/connectd/assets/ajax/dev-skills.php");
+	// overlay($(".des-skills-trigger"), "/connectd/assets/ajax/des-skills.php");
+	// overlay($(".login-trigger"), "/connectd/assets/ajax/sign-in.php");
 
 });

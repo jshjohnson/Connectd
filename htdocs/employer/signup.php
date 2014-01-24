@@ -19,6 +19,9 @@
 	$businessbio = trim($_POST['businessbio']);
 	$submit = trim($_POST['submit']);
 
+	// Mail validation using PHPMailer
+	$mail = new PHPMailer(); // defaults to using php "mail()"
+
 	// Create some variables to hold output data
 	$message = '';
 	$s_username = '';
