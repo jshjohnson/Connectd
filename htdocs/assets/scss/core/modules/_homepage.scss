@@ -3,6 +3,58 @@
 /* Homepage
 ----------------------------------*/
 
+.site-intro {
+	height: 100vh;
+	background-image: url("../img/bg.jpg");
+	@include background-size(cover);
+	@include respond-max($bp2) {
+		font-size: 40%;
+		height: 33.33%;
+	}
+}
+
+.site-intro__wrap {
+	position: relative;
+	top: 30%;
+	transform: translateY(-50%);
+	@include respond-max($bp2) {
+		top: 33.33%;
+	}
+	&:after {
+		content: "";
+		width: 0; 
+		height: 0; 
+		border-left: .45em solid transparent;
+		border-right: .45em solid transparent;
+		border-top: .45em solid white;
+		position: absolute;
+		bottom: -50%;
+		left: 50%;
+		margin-left: -.45em;
+		@include respond-max($bp2) {
+			border-left: .75em solid transparent;
+			border-right: .75em solid transparent;
+			border-top: .75em solid white;
+			margin-left: -.75em;
+		}
+	}
+}
+
+.site-intro__heading {
+	font-size: 7em;
+	color: white;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.site-intro__sub-heading {
+	font-size: 1.5em;
+	color: white;
+	text-align: center;
+	font-style: italic;
+	font-family: $font-serif;
+}
+
 .text-right, .text-left {
 	margin-top: 1.4em;
 	margin-bottom: 0;
@@ -19,7 +71,8 @@
 .text-right {
 	text-align: right;
 	right: 2.5em;
-	position: fixed;
+	position: absolute;
+	top: 0;
 	@include respond-max($bp1) {
 		margin-top: 1em;
 		right: 1em;
@@ -29,7 +82,8 @@
 .text-left {
 	text-align: left;
 	left: 2.5em;
-	position: fixed;
+	position: absolute;
+	top: 0;
 	@include respond-max($bp1) {
 		margin-top: 1em;
 		left: 1em;

@@ -28,7 +28,13 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-	<div class="site-wrap">
+	<section class="site-intro">
+		<div class="site-intro__wrap">
+			<h1 class="site-intro__heading">connectd.io</h1>
+			<h1 class="site-intro__sub-heading">An alternative for freelancers and employers</h1>
+		</div>
+	</section>
+	<section class="site-wrap">
 		<h2 class="logo text-right"><a href="<?php echo BASE_URL; ?>">connectd</a></h2>
 		<h2 class="text-left"><a href="" class="login-trigger">Login</a></h2>
 		<div class="panel-wrap">
@@ -54,7 +60,7 @@
 				</div>
 			</section>
 		</div>
-	</div>
+	</section>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="assets/js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 	<script src="assets/js/production.min.js"></script>

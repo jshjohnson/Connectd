@@ -2336,36 +2336,85 @@ img.media__img {
 /* Homepage
 ----------------------------------*/
 /* line 6, ../scss/core/modules/_homepage.scss */
+.site-intro {
+  height: 100vh;
+  background-image: url("../img/bg.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* line 16, ../scss/core/modules/_homepage.scss */
+.site-intro__wrap {
+  position: relative;
+  top: 30%;
+  transform: translateY(-50%);
+}
+/* line 23, ../scss/core/modules/_homepage.scss */
+.site-intro__wrap:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: .45em solid transparent;
+  border-right: .45em solid transparent;
+  border-top: .45em solid white;
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  margin-left: -.45em;
+}
+
+/* line 43, ../scss/core/modules/_homepage.scss */
+.site-intro__heading {
+  font-size: 7em;
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+/* line 50, ../scss/core/modules/_homepage.scss */
+.site-intro__sub-heading {
+  font-size: 1.5em;
+  color: white;
+  text-align: center;
+  font-style: italic;
+  font-family: "Georgia", serif;
+}
+
+/* line 58, ../scss/core/modules/_homepage.scss */
 .text-right, .text-left {
   margin-top: 1.4em;
   margin-bottom: 0;
   font-size: 1em;
   position: fixed;
 }
-/* line 11, ../scss/core/modules/_homepage.scss */
+/* line 63, ../scss/core/modules/_homepage.scss */
 .text-right a, .text-left a {
   color: white;
 }
 
-/* line 19, ../scss/core/modules/_homepage.scss */
+/* line 71, ../scss/core/modules/_homepage.scss */
 .text-right {
   text-align: right;
   right: 2.5em;
-  position: fixed;
+  position: absolute;
+  top: 0;
 }
 
-/* line 29, ../scss/core/modules/_homepage.scss */
+/* line 82, ../scss/core/modules/_homepage.scss */
 .text-left {
   text-align: left;
   left: 2.5em;
-  position: fixed;
+  position: absolute;
+  top: 0;
 }
 
-/* line 39, ../scss/core/modules/_homepage.scss */
+/* line 93, ../scss/core/modules/_homepage.scss */
 .panel {
   text-align: center;
 }
-/* line 41, ../scss/core/modules/_homepage.scss */
+/* line 95, ../scss/core/modules/_homepage.scss */
 .panel a {
   display: block;
   -webkit-transform: translateY(-0.7em);
@@ -2378,7 +2427,7 @@ img.media__img {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-/* line 48, ../scss/core/modules/_homepage.scss */
+/* line 102, ../scss/core/modules/_homepage.scss */
 .panel a span {
   opacity: 0;
   -webkit-transition: opacity 0.2s ease-in-out;
@@ -2386,7 +2435,7 @@ img.media__img {
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
-/* line 55, ../scss/core/modules/_homepage.scss */
+/* line 109, ../scss/core/modules/_homepage.scss */
 .panel a:hover {
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
@@ -2398,7 +2447,7 @@ img.media__img {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-/* line 57, ../scss/core/modules/_homepage.scss */
+/* line 111, ../scss/core/modules/_homepage.scss */
 .panel a:hover span {
   opacity: 1;
   -webkit-transition: opacity 0.2s ease-in-out;
@@ -2407,22 +2456,22 @@ img.media__img {
   transition: opacity 0.2s ease-in-out;
 }
 
-/* line 66, ../scss/core/modules/_homepage.scss */
+/* line 120, ../scss/core/modules/_homepage.scss */
 .panel--designer {
   background-color: #6dbcdb;
 }
 
-/* line 70, ../scss/core/modules/_homepage.scss */
+/* line 124, ../scss/core/modules/_homepage.scss */
 .panel--developer {
   background-color: #2c3e50;
 }
 
-/* line 74, ../scss/core/modules/_homepage.scss */
+/* line 128, ../scss/core/modules/_homepage.scss */
 .panel--employer {
   background-color: #77c462;
 }
 
-/* line 78, ../scss/core/modules/_homepage.scss */
+/* line 132, ../scss/core/modules/_homepage.scss */
 .panel__title {
   font-size: 2.8em;
   margin-bottom: 0;
@@ -2433,12 +2482,12 @@ img.media__img {
   font-size: 2.2em;
   font-size: 2em;
 }
-/* line 85, ../scss/core/modules/_homepage.scss */
+/* line 139, ../scss/core/modules/_homepage.scss */
 .panel__title a {
   color: white;
 }
 
-/* line 96, ../scss/core/modules/_homepage.scss */
+/* line 150, ../scss/core/modules/_homepage.scss */
 .panel__landing-page {
   font-size: 6em;
 }
