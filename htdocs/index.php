@@ -30,11 +30,11 @@
 <body>
 	<section class="site-intro">
 		<div class="site-intro__wrap">
-			<h1 class="site-intro__heading">connectd.io</h1>
-			<h1 class="site-intro__sub-heading">An alternative for freelancers and employers</h1>
+			<a href="#home"><h1 class="site-intro__heading">connectd.io</h1></a>
+			<a href="#home"><h1 class="site-intro__sub-heading">An alternative for freelancers and employers</h1></a>
 		</div>
 	</section>
-	<section class="site-wrap">
+	<section id="home" class="site-wrap">
 		<h2 class="logo text-right"><a href="<?php echo BASE_URL; ?>">connectd</a></h2>
 		<h2 class="text-left"><a href="" class="login-trigger">Login</a></h2>
 		<div class="panel-wrap">
