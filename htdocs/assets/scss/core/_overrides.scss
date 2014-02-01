@@ -51,7 +51,7 @@
 
 /* Specific text styles
 ----------------------------------*/
-
+.required { border: 1px solid $color-brand-highlight !important;}
 .intro { font-size: 1.25em; }
 .headline { border-bottom: 1px solid $color-keyline; padding-bottom: .45em; }
 

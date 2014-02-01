@@ -2,6 +2,7 @@
 $(document).ready(function() {
 	// HTML5 placeholder support
 	$("input, textarea").placeholder();
+	$(".error").hide();
 
 	// Target radios / checkboxes
 	$("input[type=radio]").parents('li').addClass('radio');
@@ -15,6 +16,25 @@ $(document).ready(function() {
 	    });
 	}
 
+
+	$("form").submit(function(){
+		var isFormValid = true;
+
+		$("input, textarea, select").each(function(){
+			if ($.trim($(this).val()).length == 0){
+			$(this).addClass("required");
+			isFormValid = false;
+		}else{
+			$(this).removeClass("highlight");
+		}
+	});
+
+		if (!isFormValid) {
+			$(".error").show().text("Please fill in input");
+		}
+
+		return isFormValid;
+	});
 
 	$(".menu-trigger").click(function(e) {
 		e.preventDefault();

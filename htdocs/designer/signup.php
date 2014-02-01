@@ -146,6 +146,7 @@
 				<?php elseif (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
+					<p class="error"></p>
 				<form method="post" action="<?php echo BASE_URL; ?>designer/signup.php" autocomplete="off">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
@@ -161,8 +162,9 @@
 						$result = mysqli_query($db_server, $query);
 					?>
 						<select name="location">
+							<option value="">Location...</option>
 						<?php while($row = mysqli_fetch_array($result)) : ?>
-						  <option value="<?php echo $row['county']; ?>"><?php echo $row['county']; ?></option>
+							<option value="<?php echo $row['county']; ?>"><?php echo $row['county']; ?></option>
 						<?php endwhile; ?>
 						</select>
 					</div>

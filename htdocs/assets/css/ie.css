@@ -2369,12 +2369,13 @@ img.media__img {
 /* line 37, ../scss/core/modules/_homepage.scss */
 .site-intro__sub-heading {
   font-size: 1.5em;
+  font-weight: 500;
   color: white;
   text-align: center;
   font-style: italic;
   font-family: "Georgia", serif;
 }
-/* line 43, ../scss/core/modules/_homepage.scss */
+/* line 44, ../scss/core/modules/_homepage.scss */
 .site-intro__sub-heading:after {
   content: "";
   width: 0;
@@ -2388,19 +2389,19 @@ img.media__img {
   margin-left: -.45em;
 }
 
-/* line 63, ../scss/core/modules/_homepage.scss */
+/* line 64, ../scss/core/modules/_homepage.scss */
 .text-right, .text-left {
   margin-top: 1.4em;
   margin-bottom: 0;
   font-size: 1em;
   position: fixed;
 }
-/* line 68, ../scss/core/modules/_homepage.scss */
+/* line 69, ../scss/core/modules/_homepage.scss */
 .text-right a, .text-left a {
   color: white;
 }
 
-/* line 76, ../scss/core/modules/_homepage.scss */
+/* line 77, ../scss/core/modules/_homepage.scss */
 .text-right {
   text-align: right;
   right: 2.5em;
@@ -2408,7 +2409,7 @@ img.media__img {
   top: 0;
 }
 
-/* line 87, ../scss/core/modules/_homepage.scss */
+/* line 88, ../scss/core/modules/_homepage.scss */
 .text-left {
   text-align: left;
   left: 2.5em;
@@ -2416,11 +2417,11 @@ img.media__img {
   top: 0;
 }
 
-/* line 98, ../scss/core/modules/_homepage.scss */
+/* line 99, ../scss/core/modules/_homepage.scss */
 .panel {
   text-align: center;
 }
-/* line 100, ../scss/core/modules/_homepage.scss */
+/* line 101, ../scss/core/modules/_homepage.scss */
 .panel a {
   display: block;
   -webkit-transform: translateY(-0.7em);
@@ -2433,7 +2434,7 @@ img.media__img {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-/* line 107, ../scss/core/modules/_homepage.scss */
+/* line 108, ../scss/core/modules/_homepage.scss */
 .panel a span {
   opacity: 0;
   -webkit-transition: opacity 0.2s ease-in-out;
@@ -2441,7 +2442,7 @@ img.media__img {
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
-/* line 114, ../scss/core/modules/_homepage.scss */
+/* line 115, ../scss/core/modules/_homepage.scss */
 .panel a:hover {
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
@@ -2453,7 +2454,7 @@ img.media__img {
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-/* line 116, ../scss/core/modules/_homepage.scss */
+/* line 117, ../scss/core/modules/_homepage.scss */
 .panel a:hover span {
   opacity: 1;
   -webkit-transition: opacity 0.2s ease-in-out;
@@ -2462,22 +2463,22 @@ img.media__img {
   transition: opacity 0.2s ease-in-out;
 }
 
-/* line 125, ../scss/core/modules/_homepage.scss */
+/* line 126, ../scss/core/modules/_homepage.scss */
 .panel--designer {
   background-color: #6dbcdb;
 }
 
-/* line 129, ../scss/core/modules/_homepage.scss */
+/* line 130, ../scss/core/modules/_homepage.scss */
 .panel--developer {
   background-color: #2c3e50;
 }
 
-/* line 133, ../scss/core/modules/_homepage.scss */
+/* line 134, ../scss/core/modules/_homepage.scss */
 .panel--employer {
   background-color: #77c462;
 }
 
-/* line 137, ../scss/core/modules/_homepage.scss */
+/* line 138, ../scss/core/modules/_homepage.scss */
 .panel__title {
   font-size: 2.8em;
   margin-bottom: 0;
@@ -2488,12 +2489,12 @@ img.media__img {
   font-size: 2.2em;
   font-size: 2em;
 }
-/* line 144, ../scss/core/modules/_homepage.scss */
+/* line 145, ../scss/core/modules/_homepage.scss */
 .panel__title a {
   color: white;
 }
 
-/* line 155, ../scss/core/modules/_homepage.scss */
+/* line 156, ../scss/core/modules/_homepage.scss */
 .panel__landing-page {
   font-size: 6em;
 }
@@ -3043,6 +3044,11 @@ img.media__img {
 
 /* Specific text styles
 ----------------------------------*/
+/* line 54, ../scss/core/_overrides.scss */
+.required {
+  border: 1px solid #fc4349 !important;
+}
+
 /* line 55, ../scss/core/_overrides.scss */
 .intro {
   font-size: 1.25em;
