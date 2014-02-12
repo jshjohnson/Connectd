@@ -1,5 +1,5 @@
 <?php 	
-	require_once("../config.php");  
+	require_once("../../config.php");  
 	include_once(ROOT_PATH . "views/header.php");
 	require_once(ROOT_PATH . 'inc/checklog.php');
 	 
