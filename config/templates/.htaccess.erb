@@ -1,4 +1,4 @@
 RewriteEngine On
-RewriteRule ^designer/$ <%= siteurl %>designer/signup.php
-RewriteRule ^developer/$ <%= siteurl %>developer/signup.php
-RewriteRule ^employer/$ <%= siteurl %>employer/signup.php
+RewriteRule ^designer/$ <%= database['urlpath'] %>designer/signup.php
+RewriteRule ^developer/$ <%= database['urlpath'] %>developer/signup.php
+RewriteRule ^employer/$ <%= database['urlpath'] %>employer/signup.php
