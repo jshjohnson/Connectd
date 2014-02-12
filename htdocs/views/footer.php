@@ -7,7 +7,7 @@
 						<li><a href="<?php echo BASE_URL; ?>terms/">Terms</a></li>
 					</ul>
 					<h2 class="grid__cell unit-1-2 footer__section footer__section--logo">
-						<a href="index.php">connectd <small>beta</small></a>
+						<a href="index.php">connectd <small><i>beta</i></small></a>
 					</h2>
 				</div>
 			</div>

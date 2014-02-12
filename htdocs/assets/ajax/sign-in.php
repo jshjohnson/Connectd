@@ -1,5 +1,6 @@
 <?php
-	require_once("../../config/config.php");
+	require_once("../../config.php");
+	
 	include_once(ROOT_PATH . "inc/functions.php"); 
 	include_once(ROOT_PATH . "inc/login.php");
 	

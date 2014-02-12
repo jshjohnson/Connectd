@@ -1,5 +1,5 @@
 <?php 	
-	require_once("../config/config.php"); 
+	require_once("../config.php");  
 	include_once(ROOT_PATH . "views/header.php");
 ?>
 	<header class="header header-blue--alt zero-bottom cf">
