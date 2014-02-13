@@ -29,7 +29,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Welcome <?php echo implode(' ', array_slice(explode(' ', $s_username), 0, 1)); ?>!
 				</h4>
-				<button class="button-red"><a href="<?php echo BASE_URL; ?>#">Build your profile</a></button>
+				<button class="button-red"><a href="<?php echo BASE_URL . "developer/profile.php?id=" . $_SESSION['userID']; ?>">Build your profile</a></button>
 			</div>
 		</section>
 		<section class="container footer--push">
