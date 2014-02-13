@@ -57,6 +57,31 @@
 		}
 	}
 
+	function checkUsers($db) {
+		try {
+			$result = $db->prepare("SELECT designers.email 
+									FROM connectdDB.designers 
+									WHERE designers.email = ? 
+									UNION SELECT developers.email 
+									FROM connectdDB.developers 
+									WHERE developers.email = ?
+									UNION SELECT employers.email 
+									FROM connectdDB.employers 
+									WHERE employers.email = ?");
+			$result->bindParam(1, $email);
+			$result->bindParam(2, $email);
+			$result->bindParam(3, $email);
+			$result->execute();
+
+			$total = $result->rowCount();
+			$row = $result->fetch();
+
+		} catch (Exception $e) {
+			echo "Damn. Data could not be retrieved.";
+			exit;
+		}
+	}
+
     // Logs the user out 
     function doLogout() {
 		session_start();

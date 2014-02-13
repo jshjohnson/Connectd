@@ -9,8 +9,7 @@ $(document).ready(function() {
 
 	// SVG fallback
 	if (!Modernizr.svg) {
-	    $('img[src$=".svg"]').each(function()
-	    {
+	    $('img[src$=".svg"]').each(function(){
 	        $(this).attr('src', $(this).attr('src').replace('.svg', '.png'));
 	    });
 	}
@@ -18,7 +17,6 @@ $(document).ready(function() {
 
 	(function() {
 	    $('.sign-up-form input[required], .sign-up-form textarea[required]').keyup(function() {
-
 	        var empty = false;
 	        $('.sign-up-form input[required], .sign-up-form textarea[required]').each(function() {
 	            if ($(this).val() == '') {

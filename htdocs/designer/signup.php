@@ -74,44 +74,55 @@
 
 				// Process details here
 				require_once(ROOT_PATH . "inc/db_connect.php"); 
-				$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
-				if($db_server){
 
-					//clean the input now that we have a db connection
-					$firstname = clean_string($db_server, $firstname);
-					$lastname = clean_string($db_server, $lastname);
-					$email = clean_string($db_server, $email);
-					$password = clean_string($db_server, $password);
-					$repeatpassword = clean_string($db_server, $repeatpassword);
-					$age = clean_string($db_server, $age);
-					$priceperhour = clean_string($db_server, $priceperhour);
-					$bio = clean_string($db_server, $bio);
-					$jobtitle = clean_string($db_server, $jobtitle);
-					$experience = clean_string($db_server, $experience);
-					$portfolio = clean_string($db_server, $portfolio);
-					$location = clean_string($db_server, $location);
+				//clean the input now that we have a db connection
+				$firstname = clean_string($db, $firstname);
+				$lastname = clean_string($db, $lastname);
+				$email = clean_string($db, $email);
+				$password = clean_string($db, $password);
+				$repeatpassword = clean_string($db, $repeatpassword);
+				$age = clean_string($db, $age);
+				$priceperhour = clean_string($db, $priceperhour);
+				$bio = clean_string($db, $bio);
+				$jobtitle = clean_string($db, $jobtitle);
+				$experience = clean_string($db, $experience);
+				$portfolio = clean_string($db, $portfolio);
+				$location = clean_string($db, $location);
 
-					mysqli_select_db($db_server, DB_NAME);
+				checkUsers();
 
-					// check whether email has been used before
-					$query="SELECT designers.email FROM connectdDB.designers WHERE designers.email='$email' UNION SELECT developers.email FROM connectdDB.developers WHERE developers.email='$email' UNION SELECT employers.email FROM connectdDB.employers WHERE employers.email='$email'";
-					$result = mysqli_query($db_server, $query);
-					if ($row = mysqli_fetch_array($result)){
-						$message = "Email already taken. Please try again.";
-					}else{
-						// Encrypt password
-						$password = salt($password);
-						$query = "INSERT INTO connectdDB.designers (firstname, lastname, email, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, datejoined) VALUES ('$firstname', '$lastname', '$email', '$password', '$location', '$portfolio', '$jobtitle', '$age', '$priceperhour', '$experience', '$bio', now())";
-						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-						header("Location:" . BASE_URL . "sign-in.php?status=registered");				
-					}
-					mysqli_free_result($result);
+				if ($total > 0) {
+					$message = "Email already taken. Please try again.";
 				}else{
-					$message = "Error: could not connect to the database.";
-				}
-				require_once(ROOT_PATH . "inc/db_close.php"); 
-			}
+					// Encrypt password
+					$password = salt($password);
 
+					try {
+						$result = $db->prepare("INSERT INTO connectdDB.designers 
+							(firstname, lastname, email, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, datejoined) 
+							VALUES 
+							(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
+						$result->bindParam(1, $firstname);
+						$result->bindParam(2, $lastname);
+						$result->bindParam(3, $email);
+						$result->bindParam(4, $password);
+						$result->bindParam(5, $location);
+						$result->bindParam(6, $portfolio);
+						$result->bindParam(7, $jobtitle);
+						$result->bindParam(8, $age);
+						$result->bindParam(9, $priceperhour);
+						$result->bindParam(10, $experience);
+						$result->bindParam(11, $bio);
+						$result->execute();
+					
+					} catch (Exception $e) {
+						echo "Damn. Couldn't add user to database.";
+						exit;
+					}
+				
+					header("Location:" . BASE_URL . "sign-in.php?status=registered");				
+				}
+			}
 		}
 	}
 
