@@ -85,7 +85,28 @@
 				$businesswebsite = clean_string($db, $businesswebsite);
 				$businessbio = clean_string($db, $businessbio);
 
-				checkUsers();
+				try {
+					$result = $db->prepare("SELECT designers.email 
+						FROM connectdDB.designers 
+						WHERE designers.email = ? 
+						UNION SELECT developers.email 
+						FROM connectdDB.developers 
+						WHERE developers.email = ?
+						UNION SELECT employers.email 
+						FROM connectdDB.employers 
+						WHERE employers.email = ?");
+					$result->bindParam(1, $email);
+					$result->bindParam(2, $email);
+					$result->bindParam(3, $email);
+					$result->execute();
+
+					$total = $result->rowCount();
+					$row = $result->fetch();
+				
+				} catch (Exception $e) {
+					echo "Damn. Data could not be retrieved.";
+					exit;
+				}
 
 				if ($total > 0) {
 					$message = "Email already taken. Please try again.";
@@ -125,9 +146,16 @@
 ?>
 	<header class="header header-green--alt zero-bottom cf">
 		<div class="container">
-			<h1 class="header__section header__section--title">
-				Sign Up<a href="" class="login-trigger header__section--title__link"> : Log In</a>
-			</h1>
+				<?php if (!isset($_SESSION['logged'])) :?>
+				<h1 class="header__section header__section--title"><?= $pageTitle ?>
+					<a href="" class="login-trigger header__section--title__link">: Log In</a>
+				</h1>
+				<?php else : ?>
+				<h1 class="header__section header__section--title"><?= $pageTitle ?>
+					<a href="" class="menu-trigger header__section--title__link">: Menu</a>
+				</h1>
+					<?php include_once(ROOT_PATH . "views/page-nav.php"); ?>
+				<?php endif; ?>
 			<h2 class="header__section header__section--logo">
 				<a href="<?php echo BASE_URL; ?>">connectd</a>
 			</h2>

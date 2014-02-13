@@ -89,7 +89,28 @@
 				$portfolio = clean_string($db, $portfolio);
 				$location = clean_string($db, $location);
 
-				checkUsers();
+				try {
+					$result = $db->prepare("SELECT designers.email 
+						FROM connectdDB.designers 
+						WHERE designers.email = ? 
+						UNION SELECT developers.email 
+						FROM connectdDB.developers 
+						WHERE developers.email = ?
+						UNION SELECT employers.email 
+						FROM connectdDB.employers 
+						WHERE employers.email = ?");
+					$result->bindParam(1, $email);
+					$result->bindParam(2, $email);
+					$result->bindParam(3, $email);
+					$result->execute();
+
+					$total = $result->rowCount();
+					$row = $result->fetch();
+				
+				} catch (Exception $e) {
+					echo "Damn. Data could not be retrieved.";
+					exit;
+				}
 
 				if ($total > 0) {
 					$message = "Email already taken. Please try again.";

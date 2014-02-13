@@ -6,8 +6,8 @@
 
 	include_once(ROOT_PATH . "model/designers.php");
 
-	$section = "Designers";
 	$pageTitle = "Designers";
+	$section = "Designer";
 
 	$designers = get_designers_all();
 	$designer_id = $_GET["id"];

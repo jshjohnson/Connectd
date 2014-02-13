@@ -152,15 +152,21 @@
 ?>
 	<header class="header header-navy--alt zero-bottom cf">
 		<div class="container">
-			<h1 class="header__section header__section--title">
-				Sign Up<a href="" class="login-trigger header__section--title__link"> : Log In</a>
-			</h1>
+				<?php if (!isset($_SESSION['logged'])) :?>
+				<h1 class="header__section header__section--title"><?= $pageTitle ?>
+					<a href="" class="login-trigger header__section--title__link">: Log In</a>
+				</h1>
+				<?php else : ?>
+				<h1 class="header__section header__section--title"><?= $pageTitle ?>
+					<a href="" class="menu-trigger header__section--title__link">: Menu</a>
+				</h1>
+					<?php include_once(ROOT_PATH . "views/page-nav.php"); ?>
+				<?php endif; ?>
 			<h2 class="header__section header__section--logo">
 				<a href="<?php echo BASE_URL; ?>">connectd</a>
 			</h2>
 		</div>
 	</header>
-	<section>
 		<div class="section-heading color-navy">
 			<div class="container">
 				<div class="grid text-center">

@@ -129,7 +129,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for someone else?
 				</h4>
-				<button class="button-red"><a href="<?php echo BASE_URL; ?>search/">See our talented bunch</a></button>
+				<button class="button-red"><a href="<?php echo BASE_URL; ?>developer/list.php">See our talented bunch</a></button>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "views/footer.php"); ?>

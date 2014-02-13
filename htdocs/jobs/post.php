@@ -2,7 +2,7 @@
 	require_once("../../config.php");  
 	include_once(ROOT_PATH . "inc/checklog.php");
 
-	$section = "Post a job";
+	$section = "Jobs";
 	$pageTitle = "Post a job";
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "inc/functions.php");

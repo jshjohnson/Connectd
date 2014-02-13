@@ -1,8 +1,4 @@
 <?php
-	/**
-	* Creates a PDO database connection (in this case to a SQLite flat-file database)
-	* @return bool Database creation success status, false by default
-	*/
 
 	function errors () {
 		error_reporting(E_ERROR|E_WARNING);
@@ -54,31 +50,6 @@
 		session_start();
 		if (!isset($_SESSION['logged'])){
 			header("Location:" . BASE_URL);
-		}
-	}
-
-	function checkUsers($db) {
-		try {
-			$result = $db->prepare("SELECT designers.email 
-									FROM connectdDB.designers 
-									WHERE designers.email = ? 
-									UNION SELECT developers.email 
-									FROM connectdDB.developers 
-									WHERE developers.email = ?
-									UNION SELECT employers.email 
-									FROM connectdDB.employers 
-									WHERE employers.email = ?");
-			$result->bindParam(1, $email);
-			$result->bindParam(2, $email);
-			$result->bindParam(3, $email);
-			$result->execute();
-
-			$total = $result->rowCount();
-			$row = $result->fetch();
-
-		} catch (Exception $e) {
-			echo "Damn. Data could not be retrieved.";
-			exit;
 		}
 	}
 

@@ -1,7 +1,9 @@
 <?php 
 	require_once("../../config.php"); 
 	include_once(ROOT_PATH . "inc/functions.php"); 
+	
 	checkLoggedOut();
+
 	include_once(ROOT_PATH . "model/designers.php");
 
 	// Grab ID from URL, convert to interger to strip SQL injection, pass to get_designers_single function to pull
@@ -19,7 +21,7 @@
 	}
 
 	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'];
-	$section = "Designer";
+	$section = "Designers";
 
 	$s_username = $_SESSION['username'];
 	
@@ -122,7 +124,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for someone else?
 				</h4>
-				<button class="button-red"><a href="<?php echo BASE_URL; ?>search/">See our talented bunch</a></button>
+				<button class="button-red"><a href="<?php echo BASE_URL; ?>designer/list.php">See our talented bunch</a></button>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "views/footer.php"); ?>
