@@ -392,8 +392,10 @@ img.media__img {
 .footer__section--logo {
 	@include respond-min($bp1) {
 		float: right;
-		text-align: right;		
+		text-align: right;	
+		line-height: 3em;	
 	}
+	line-height: 2em;
 }
 
 /* Misc

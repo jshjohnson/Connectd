@@ -74,45 +74,79 @@
 
 				// Process details here
 				require_once(ROOT_PATH . "inc/db_connect.php"); 
-				$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
-				if($db_server){
 
-					//clean the input now that we have a db connection
-					$firstname = clean_string($db_server, $firstname);
-					$lastname = clean_string($db_server, $lastname);
-					$email = clean_string($db_server, $email);
-					$password = clean_string($db_server, $password);
-					$repeatpassword = clean_string($db_server, $repeatpassword);
-					$age = clean_string($db_server, $age);
-					$jobtitle = clean_string($db_server, $jobtitle);
-					$priceperhour = clean_string($db_server, $priceperhour);
-					$bio = clean_string($db_server, $bio);
-					$portfolio = clean_string($db_server, $portfolio);
-					$experience = clean_string($db_server, $experience);
-					$jobtitle = clean_string($db_server, $jobtitle);
+				//clean the input now that we have a db connection
+				$firstname = clean_string($db, $firstname);
+				$lastname = clean_string($db, $lastname);
+				$email = clean_string($db, $email);
+				$password = clean_string($db, $password);
+				$repeatpassword = clean_string($db, $repeatpassword);
+				$age = clean_string($db, $age);
+				$jobtitle = clean_string($db, $jobtitle);
+				$priceperhour = clean_string($db, $priceperhour);
+				$bio = clean_string($db, $bio);
+				$portfolio = clean_string($db, $portfolio);
+				$experience = clean_string($db, $experience);
+				$jobtitle = clean_string($db, $jobtitle);
 
-					mysqli_select_db($db_server, DB_NAME);
+				try {
+					$result = $db->prepare("SELECT designers.email 
+						FROM connectdDB.designers 
+						WHERE designers.email = ? 
+						UNION SELECT developers.email 
+						FROM connectdDB.developers 
+						WHERE developers.email = ?
+						UNION SELECT employers.email 
+						FROM connectdDB.employers 
+						WHERE employers.email = ?
+					");
+					$result->bindParam(1, $email);
+					$result->bindParam(2, $email);
+					$result->bindParam(3, $email);
+					$result->execute();
 
-					// check whether email has been used before
-					$query="SELECT designers.email FROM connectdDB.designers WHERE designers.email='$email' UNION SELECT developers.email FROM connectdDB.developers WHERE developers.email='$email' UNION SELECT employers.email FROM connectdDB.employers WHERE employers.email='$email'";
-					$result = mysqli_query($db_server, $query);
-					if ($row = mysqli_fetch_array($result)){
-						$message = "Email already taken. Please try again.";
-					}else{
-						// Encrypt password
-						$password = salt($password);
-						$query = "INSERT INTO connectdDB.developers (firstname, lastname, email, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, datejoined) VALUES ('$firstname', '$lastname', '$email', '$password', '$location', '$portfolio', '$jobtitle', '$age', '$priceperhour', '$experience', '$bio', now())";
-						mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-						header("Location:" . BASE_URL . "sign-in.php?status=registered");
-					}
-					mysqli_free_result($result);
-				}else{
-					$message = "Error: could not connect to the database.";
+					$total = $result->rowCount();
+					$row = $result->fetch();
+				
+				} catch (Exception $e) {
+					echo "Damn. Data could not be retrieved.";
+					exit;
 				}
-				require_once(ROOT_PATH . "inc/db_close.php"); 
-			}
 
-		}
+				// check whether email has been used before
+				if ($total > 0) {
+					$message = "Email already taken. Please try again.";
+				}else{
+					// Encrypt password
+					$password = salt($password);
+
+					try {
+						$result = $db->prepare("INSERT INTO connectdDB.developers 
+							(firstname, lastname, email, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, datejoined) 
+							VALUES 
+							(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
+						$result->bindParam(1, $firstname);
+						$result->bindParam(2, $lastname);
+						$result->bindParam(3, $email);
+						$result->bindParam(4, $password);
+						$result->bindParam(5, $location);
+						$result->bindParam(6, $portfolio);
+						$result->bindParam(7, $jobtitle);
+						$result->bindParam(8, $age);
+						$result->bindParam(9, $priceperhour);
+						$result->bindParam(10, $experience);
+						$result->bindParam(11, $bio);
+						$result->execute();
+					
+					} catch (Exception $e) {
+						echo "Damn. Couldn't add user to database.";
+						exit;
+					}
+					
+					header("Location:" . BASE_URL . "sign-in.php?status=registered");
+				} 
+			}
+		}	
 	}
 
 ?>
@@ -148,11 +182,11 @@
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>developer/signup.php" autocomplete="off" class="sign-up-form">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>">
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
-					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
-					<input type='password' name='password' placeholder="Password" class="field-1-2">
-					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" required="required">
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" required="required">
+					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" required="required">
+					<input type='password' name='password' placeholder="Password" class="field-1-2" required="required">
+					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" required="required">
 					<label for="jobtitle">Where do you work from?</label>
 					<div class="select-container">
 					<?php 
@@ -167,7 +201,7 @@
 						<?php endwhile; ?>
 						</select>
 					</div>
-					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
+					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>" required="required">
 					<label for="jobtitle">What best describes what you do?</label>
 					<div class="select-container">
 						<select name="jobtitle">
@@ -191,7 +225,7 @@
 							<option value="Over 10 years">Over 10 years</option>
 						</select>
 					</div>
-					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
+					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..." required="required"><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Apply for your place' disabled="disabled">				
 					</div>
