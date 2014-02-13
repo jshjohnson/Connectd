@@ -26,10 +26,10 @@ $(document).ready(function() {
 
 
 	(function() {
-	    $('.sign-up-form > input[required]').keyup(function() {
+	    $('.sign-up-form input[required], .sign-up-form textarea[required]').keyup(function() {
 
 	        var empty = false;
-	        $('form > input[required]').each(function() {
+	        $('.sign-up-form input[required], .sign-up-form textarea[required]').each(function() {
 	            if ($(this).val() == '') {
 	                empty = true;
 	            }

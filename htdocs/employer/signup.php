@@ -143,7 +143,7 @@
 				<?php elseif (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
-				<form method="post" action="<?php echo BASE_URL; ?>employer/signup.php" autocomplete="off">
+				<form method="post" action="<?php echo BASE_URL; ?>employer/signup.php" autocomplete="off" class="sign-up-form">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
@@ -188,7 +188,7 @@
 					<input type="text" name="businesswebsite" placeholder="Business website" value="<?php if (isset($businesswebsite)) { echo htmlspecialchars($businesswebsite); } ?>">
 					<textarea name="businessbio" cols="30" rows="8" placeholder="A little about your business..."><?php if (isset($businessbio)) { echo htmlspecialchars($businessbio); } ?></textarea>
 					<div class="button-container">
-		            	<input class="submit" name="submit" type="submit" value='Start employing'>						
+		            	<input class="submit" name="submit" type="submit" value='Start employing' disabled="disabled">						
 					</div>
 		        </form>
 			</div>

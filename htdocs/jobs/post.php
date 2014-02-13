@@ -27,7 +27,7 @@
 			
 	    if($jobtitle == ""){
 	        $message = "Please enter a job title"; 
-	    }else if($deadline == ""){
+	    }else if($startdate == ""){
 	        $message = "Please enter a job deadline"; 
 	    }else if($budget == ""){
 	        $message = "Please enter a minimum budget"; 
@@ -95,22 +95,22 @@
 				<?php elseif (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
-				<form method="post" action="<?php echo BASE_URL; ?>jobs/post.php">
-					<input type="text" name="jobtitle" placeholder="Job title" value="<?php if (isset($jobtitle)) { echo htmlspecialchars($jobtitle); } ?>">
+				<form method="post" action="<?php echo BASE_URL; ?>jobs/post.php" class="sign-up-form">
+					<input type="text" name="jobtitle" placeholder="Job title" value="<?php if (isset($jobtitle)) { echo htmlspecialchars($jobtitle); } ?>" required="required">
 					<div class="float-left field-1-2">
 						<label for="">Start date:</label>
-						<input type="date" name="startdate" placeholder="Start date" value="<?php if (isset($startdate)) { echo htmlspecialchars($startdate); } ?>">
+						<input type="date" name="startdate" placeholder="Start date" value="<?php if (isset($startdate)) { echo htmlspecialchars($startdate); } ?>" required="required">
 					</div>
 					<div class="float-right field-1-2">
-						<label for="">Deadline:</label>
+						<label for="">Deadline: (if applicable)</label>
 						<input type="date" name="deadline" placeholder="Deadline" value="<?php if (isset($deadline)) { echo htmlspecialchars($deadline); } ?>">
 					</div>
 					<div class="float-left field-1-2">
-						<input type="text" name="budget" placeholder="Minimum budget" value="<?php if (isset($budget)) { echo htmlspecialchars($budget); } ?>">
+						<input type="text" name="budget" placeholder="Minimum budget" value="<?php if (isset($budget)) { echo htmlspecialchars($budget); } ?>" required="required">
 					</div>
 					<div class="float-right field-1-2">
 						<div class="select-container">
-							<select name="jobcategory">
+							<select name="jobcategory" required="required">
 								<option value="">Select a category..</option>
 								<option value="Web Design">Web Design</option>
 								<option value="Graphic Design">Graphic Design</option>
@@ -123,9 +123,9 @@
 							</select>
 						</div>
 					</div>			
-					<textarea name="jobdescription" cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!'><?php if (isset($jobdescription)) { echo htmlspecialchars($jobdescription); } ?></textarea>
+					<textarea name="jobdescription" cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!' required="required"><?php if (isset($jobdescription)) { echo htmlspecialchars($jobdescription); } ?></textarea>
 					<div class="button-container">
-		            	<input class="submit" name="submit" type="submit" value='Submit job'>						
+		            	<input class="submit" name="submit" type="submit" value='Submit job' disabled="disabled">						
 					</div>
 				</form> 
 			</div>

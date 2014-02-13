@@ -91,7 +91,7 @@
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
 							<li class="active">Skills</li>
-							<li class="float-right help"><a href="" class="des-skills-trigger">What are these skills?</a></li>
+							<li class="float-right info"><a href="" class="des-skills-trigger">What are these skills?</a></li>
 						</ul>
 					</nav>
 					<div class="container__inner skills-wrapper">
