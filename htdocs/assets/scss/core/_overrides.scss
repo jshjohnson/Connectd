@@ -70,10 +70,10 @@
 	position: absolute;
 	width: 1px; }
 
-.warning{color:#900;}
-.info{color:#990;}
-.alert{	color:#009;}
-.help{color:#7f7e7e}
+.warning, %warning {color:#900;}
+.info, %info {color:#7f7e7e;}
+.alert, %alert {	color:#009;}
+.help, %help {color:#7f7e7e}
 
 .success {
 	background-color: $color-brand-mid;

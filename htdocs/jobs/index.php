@@ -25,6 +25,7 @@
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
 							<li class="active">Job Title</li>
+							<li class="float-right portfolio__headings--label"><?php echo $job['jobcategory']; ?></li>
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">
@@ -37,7 +38,6 @@
 					</nav>
 					<div class="container__inner push-bottom">
 						<?php echo $job['budget']; ?>
-						<?php echo $job['jobcategory']; ?>
 					</div>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">

@@ -2196,19 +2196,23 @@ img.media__img {
   padding: .5em 1.4em .4em;
 }
 /* line 487, ../scss/core/_modules.scss */
+.portfolio__headings li.portfolio__headings--label {
+  padding-right: 0;
+}
+/* line 491, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 490, ../scss/core/_modules.scss */
+/* line 494, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   background-color: #2c3e50;
   color: white;
 }
-/* line 493, ../scss/core/_modules.scss */
+/* line 497, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 496, ../scss/core/_modules.scss */
+/* line 500, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -2222,61 +2226,61 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 514, ../scss/core/_modules.scss */
+/* line 518, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   background-color: #6dbcdb;
   color: white;
 }
-/* line 517, ../scss/core/_modules.scss */
+/* line 521, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active:after {
   border-top-color: #6dbcdb;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 527, ../scss/core/_modules.scss */
+/* line 531, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
   margin-bottom: 2.5em;
   flex: 1;
 }
-/* line 531, ../scss/core/_modules.scss */
+/* line 535, ../scss/core/_modules.scss */
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
 }
-/* line 535, ../scss/core/_modules.scss */
+/* line 539, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 540, ../scss/core/_modules.scss */
+/* line 544, ../scss/core/_modules.scss */
 .call-to-action--top {
   margin-bottom: 2.5em;
 }
-/* line 541, ../scss/core/_modules.scss */
+/* line 545, ../scss/core/_modules.scss */
 .call-to-action--top .call-to-action__title {
   margin-top: 0;
 }
 
-/* line 550, ../scss/core/_modules.scss */
+/* line 554, ../scss/core/_modules.scss */
 .price-per-hour {
   margin-top: .35em;
 }
-/* line 552, ../scss/core/_modules.scss */
+/* line 556, ../scss/core/_modules.scss */
 .price-per-hour h5 {
   margin: 0;
   text-align: center;
   font-weight: 600;
 }
-/* line 557, ../scss/core/_modules.scss */
+/* line 561, ../scss/core/_modules.scss */
 .price-per-hour span {
   font-size: .7em;
   display: block;
   line-height: .9;
 }
 
-/* line 564, ../scss/core/_modules.scss */
+/* line 568, ../scss/core/_modules.scss */
 .currency-button {
   background-color: #77c462;
   border-radius: 10em;
@@ -2287,7 +2291,7 @@ img.media__img {
   height: 3.5em;
 }
 
-/* line 574, ../scss/core/_modules.scss */
+/* line 578, ../scss/core/_modules.scss */
 .currency {
   line-height: 3.5em;
   text-align: center;
@@ -3091,8 +3095,8 @@ img.media__img {
 }
 
 /* line 74, ../scss/core/_overrides.scss */
-.info {
-  color: #990;
+.info, .portfolio__headings li.portfolio__headings--label {
+  color: #7f7e7e;
 }
 
 /* line 75, ../scss/core/_overrides.scss */

@@ -484,6 +484,10 @@ img.media__img {
 		margin-bottom: 0;
 		position: relative;
 		padding: .5em 1.4em .4em;
+		&.portfolio__headings--label {
+			padding-right: 0;
+			@extend %info;
+		}
 		a {
 			color: #7f7e7e;
 		}
