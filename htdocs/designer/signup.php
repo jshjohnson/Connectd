@@ -118,9 +118,16 @@
 ?>
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
-			<h1 class="header__section header__section--title">
-				Sign Up<a href="" class="login-trigger header__section--title__link"> : Log In</a>
-			</h1>
+				<?php if (!isset($_SESSION['logged'])) :?>
+				<h1 class="header__section header__section--title">Sign Up
+					<a href="" class="login-trigger header__section--title__link">: Log In</a>
+				</h1>
+				<?php else : ?>
+				<h1 class="header__section header__section--title">Sign Up
+					<a href="" class="menu-trigger header__section--title__link">: Menu</a>
+				</h1>
+					<?php include_once(ROOT_PATH . "views/page-nav.php"); ?>
+				<?php endif; ?>
 			<h2 class="header__section header__section--logo">
 				<a href="<?php echo BASE_URL; ?>">connectd</a>
 			</h2>
@@ -177,7 +184,7 @@
 							<option value="Animator">Animator</option>
 						</select>
 					</div>
-					<input type="number" name="age" placeholder="Age"  value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>" min="18" max="80" class="field-1-2" />
+					<input type="number" name="age" placeholder="Age"  value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>" min="18" max="80" class="field-1-2" required="required">
 					<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="200" class="field-1-2 float-right"  value="<?php if (isset($priceperhour)) { echo htmlspecialchars($priceperhour); } ?>">
 					<div class="select-container">
 						<select name="experience">
@@ -189,7 +196,7 @@
 							<option value="Over 10 years">Over 10 years</option>
 						</select>
 					</div>
-					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
+					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..." required="required"><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Apply for your place' disabled="disabled">					
 					</div>

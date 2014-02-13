@@ -1,5 +1,12 @@
-
+				<?php if ($section == "Developer") : ?>
+				<nav class="header__nav header-navy--alt">
+				<?php elseif ($section == "Designer") : ?>
+				<nav class="header__nav header-blue--alt">
+				<?php elseif ($section == "Employer") : ?>
+				<nav class="header__nav header-green--alt">
+				<?php else: ?>
 				<nav class="header__nav">
+				<?php endif; ?>
 					<ul>
 						<li><a href="<?php echo BASE_URL; ?>dashboard/">Dashboard</a></li>
 						<li><a href="<?php echo BASE_URL; ?>trials/">Trials</a></li>
