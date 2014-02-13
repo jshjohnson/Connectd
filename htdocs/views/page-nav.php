@@ -1,11 +1,11 @@
-				<?php if ($section == "Developer" || "Dashboard") : ?>
+				<?php if ($section == "Developer" || $section == "Dashboard") : ?>
 				<nav class="header__nav header-navy--alt">
 				<?php elseif ($section == "Designer") : ?>
 				<nav class="header__nav header-blue--alt">
-				<?php elseif ($section == "Employer") : ?>
+				<?php elseif ($section == "Employer" || $section == "Jobs") : ?>
 				<nav class="header__nav header-green--alt">
 				<?php else: ?>
-				<nav class="header__nav">
+				<nav class="header__nav header-navy--alt">
 				<?php endif; ?>
 					<ul>
 						<li><a href="<?php echo BASE_URL; ?>dashboard/">Dashboard</a></li>
