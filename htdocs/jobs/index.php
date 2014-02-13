@@ -85,7 +85,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Not the job for you?
 				</h4>
-				<button class="button-green"><a href="<?php echo BASE_URL; ?>dashboard/">See our jobs list</a></button>
+				<button class="button-green"><a href="<?php echo BASE_URL; ?>jobs/list.php">See our jobs list</a></button>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "views/footer.php"); ?>

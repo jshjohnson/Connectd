@@ -97,6 +97,16 @@
 	}
 }
 
+
+input:disabled {
+	background-color: #ccc !important;
+	@include box-shadow(0 0.1em 0 #948F8F !important);
+	&:hover {
+		@include box-shadow(0 0.1em 0 #948F8F !important);
+		top: 1.4em;
+	}
+}
+
 .error {
 	background-color: $color-brand-highlight;
 	color: white;
@@ -116,6 +126,10 @@
 			left: 2.8em;
 			top: 3.7em;	
 		}
+	}
+	a {
+		color: white;
+		font-weight: bolder;
 	}
 }
 

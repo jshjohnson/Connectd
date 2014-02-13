@@ -11,7 +11,6 @@
 $(document).ready(function() {
 	// HTML5 placeholder support
 	$("input, textarea").placeholder();
-	$(".error").hide();
 
 	// Target radios / checkboxes
 	$("input[type=radio]").parents('li').addClass('radio');
@@ -26,24 +25,23 @@ $(document).ready(function() {
 	}
 
 
-	$("form").submit(function(){
-		var isFormValid = true;
+	(function() {
+	    $('.sign-up-form > input[required]').keyup(function() {
 
-		$("input, textarea, select").each(function(){
-			if ($.trim($(this).val()).length == 0){
-			$(this).addClass("required");
-			isFormValid = false;
-		}else{
-			$(this).removeClass("highlight");
-		}
-	});
+	        var empty = false;
+	        $('form > input[required]').each(function() {
+	            if ($(this).val() == '') {
+	                empty = true;
+	            }
+	        });
 
-		if (!isFormValid) {
-			$(".error").show().text("Please fill in input");
-		}
-
-		return isFormValid;
-	});
+	        if (empty) {
+	            $('.submit').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+	        } else {
+	            $('.submit').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+	        }
+	    });
+	})();
 
 	$(".menu-trigger").click(function(e) {
 		e.preventDefault();

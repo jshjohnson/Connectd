@@ -21,10 +21,11 @@
 	max-width: $container-max-width; }
 
 .container__inner {
-	@extend .container;
 	@include respond-max($bp1) {
 		width: 85%;
 	}
+	padding-left: 5%;
+	padding-right: 5%;
 }
 
 .user-sidebar__info {

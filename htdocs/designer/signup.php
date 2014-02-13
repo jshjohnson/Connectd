@@ -1,5 +1,6 @@
 <?php
-	require_once("../../config.php");  
+	require_once("../../config.php");
+	include_once(ROOT_PATH . "inc/functions.php");
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
 	$pageTitle = "Sign Up";
@@ -146,13 +147,12 @@
 				<?php elseif (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
-					<p class="error"></p>
-				<form method="post" action="<?php echo BASE_URL; ?>designer/signup.php" autocomplete="off">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>">
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
-					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
-					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left">
-					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" /> 
+				<form method="post" action="<?php echo BASE_URL; ?>designer/signup.php" autocomplete="off" class="sign-up-form">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" required="required">
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" required="required">
+					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" required="required">
+					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left" required="required">
+					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" required="required"> 
 					<label for="jobtitle">Where do you work from?</label>
 					<div class="select-container">
 					<?php 
@@ -168,7 +168,7 @@
 						<?php endwhile; ?>
 						</select>
 					</div>
-					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
+					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>" required="required">
 					<div class="select-container">
 						<select name="jobtitle">
 							<option value="">Job title..</option>
@@ -191,7 +191,7 @@
 					</div>
 					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
-		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>					
+		            	<input class="submit" name="submit" type="submit" value='Apply for your place' disabled="disabled">					
 					</div>
 		        </form>
 			</div>
