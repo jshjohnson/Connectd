@@ -16,18 +16,22 @@ $(document).ready(function() {
 
 
 	(function() {
-	    $('.sign-up-form input[required], .sign-up-form textarea[required]').keyup(function() {
+		var submit = $('.submit'),
+			required = $('.sign-up-form input[required], .sign-up-form textarea[required]');
+
+		submit.attr('disabled', 'disabled').val('Form fields required');
+	    required.keyup(function() {
 	        var empty = false;
-	        $('.sign-up-form input[required], .sign-up-form textarea[required]').each(function() {
+	        required.each(function() {
 	            if ($(this).val() == '') {
 	                empty = true;
 	            }
 	        });
 
 	        if (empty) {
-	            $('.submit').attr('disabled', 'disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+	        	submit.attr('disabled', 'disabled').val('Form fields required');
 	        } else {
-	            $('.submit').removeAttr('disabled'); // updated according to http://stackoverflow.com/questions/7637790/how-to-remove-disabled-attribute-with-jquery-ie
+	        	submit.removeAttr('disabled').val('Apply for your place'); 
 	        }
 	    });
 	})();
