@@ -212,11 +212,12 @@
 					<div class="select-container">
 						<select name="jobtitle">
 							<option value="">Pick one..</option>
-							<option value="Web Developer">Web Developer</option>
-							<option value="Front-end Developer">Front-end Developer</option>
-							<option value="Front-end Engineer">Front-end Engineer</option>
-							<option value="Back-end Developer">Back-end Developer</option>
-							<option value="Full stack Developer">Full Stack Developer</option>
+							<option <?php if ($_POST['jobtitle'] == 'Web Developer') { ?>selected="true" <?php }; ?>value="Web Developer">Web Developer</option>
+							<option <?php if ($_POST['jobtitle'] == 'Front-end Developer') { ?>selected="true" <?php }; ?>value="Front-end Developer">Front-end Developer</option>
+							<option <?php if ($_POST['jobtitle'] == 'Front-end Engineer') { ?>selected="true" <?php }; ?>value="Front-end Engineer">Front-end Engineer</option>
+							<option <?php if ($_POST['jobtitle'] == 'Back-end Developer') { ?>selected="true" <?php }; ?>value="Back-end Developer">Back-end Developer</option>
+							<option <?php if ($_POST['jobtitle'] == 'Full Stack Developer') { ?>selected="true" <?php }; ?>value="Front-end Engineer">Full Stack Developer</option>
+							<option <?php if ($_POST['jobtitle'] == 'Javascript Engineer') { ?>selected="true" <?php }; ?>value="Javascript Engineer">Javascript Engineer</option>
 						</select>
 					</div>
 					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left" value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>">
@@ -224,11 +225,11 @@
 					<div class="select-container">
 						<select name="experience">
 							<option value="">Years experience...</option>
-							<option value="Less than 1 year">Less than 1 year</option>
-							<option value="Between 1-2 years">Between 1-2 years</option>
-							<option value="Between 3-5 years">Between 3-5 years</option>
-							<option value="Between 5-10 years">Between 5-10 years</option>
-							<option value="Over 10 years">Over 10 years</option>
+							<option <?php if ($_POST['experience'] == 'Less than 1 year') { ?>selected="true" <?php }; ?>value="Less than 1 year">Less than 1 year</option>
+							<option <?php if ($_POST['experience'] == 'Between 1-2 years') { ?>selected="true" <?php }; ?>value="Between 1-2 years">Between 1-2 years</option>
+							<option <?php if ($_POST['experience'] == 'Between 3-5 years') { ?>selected="true" <?php }; ?>value="Between 3-5 years">Between 3-5 years</option>
+							<option <?php if ($_POST['experience'] == 'Between 5-10 years') { ?>selected="true" <?php }; ?>value="Between 5-10 years">Between 5-10 years</option>
+							<option <?php if ($_POST['experience'] == 'Over 10 years') { ?>selected="true" <?php }; ?>value="Over 10 years">Over 10 years</option>
 						</select>
 					</div>
 					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..." required="required"><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
