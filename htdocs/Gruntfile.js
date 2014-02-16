@@ -1,112 +1,88 @@
 module.exports = function(grunt) {
 
-    // 1. All configuration goes here 
-    grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+  //Load NPM tasks
 
-        // TASKS
+  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-imageoptim');
+  grunt.loadNpmTasks('grunt-svg2png');
+ 
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
 
-        // JS Concatenation
+    //Minify JS
 
-        concat: {   
-            dist: {
-                src: [
-                    'assets/js/plugins.js',
-                    'assets/js/scripts.js'
-                ],
-                dest: 'assets/js/production.js',
+    uglify: {
+      prod: {
+        files: {
+          'assets/js/scripts.min.js': ['assets/js/scripts.js', 'assets/js/plugins.js']
+        }
+      }
+    },
+
+    // Compile Sass
+
+    compass: {
+      prod: {
+        options: {
+          config: 'config.rb'
+        }
+      }
+    },
+
+    // Optimise images
+
+    imageoptim: {
+        prod: {
+            src: ['assets/img'],
+            options: {
+                quitAfter: true
             }
-        },       
+        }
+    },
 
-        // JS Minify
+    // Rasterise SVGs
 
-        uglify: {
-            build: {
-                src: 'assets/js/production.js',
-                dest: 'assets/js/production.min.js'
-            }
-        },
-
-        // Image optimisation
-
-        imagemin: {
-            dynamic: {
-                files: [{
-                    expand: true,
-                    cwd: 'assets/img/',
-                    src: ['**/*.{png,jpg,gif,jpeg}'],
-                    dest: 'assets/img/'
-                }]
-            }
-        },
-
-        // Compass Concatenation
-
-        compass: {
-            dist: {
-                options: {
-                    sassDir: 'assets/scss',
-                    cssDir: 'assets/css',
-                    environment: 'production'
-                }
-            },
-            dev: {
-                options: {
-                    sassDir: 'assets/scss',
-                    cssDir: 'assets/css',
-                    environment: 'development',
-                    outputStyle: 'expanded'
-                }
-            }
-        },
-
-        // Watch events
-
-        watch: {
-            scripts: {
-                files: ['assets/js/*.js'],
-                tasks: ['concat', 'uglify'],
-                options: {
-                    spawn: false,
-                },
-            },
-            sass: {
-                files: ['assets/scss/**/*.scss'],
-                tasks: ['compass:dev'],
-            },
-            css: {
-                files: ['assets/css/*.css']
-            },
-            images: {
-                files: ['assets/img/*.{png,jpg,gif,ico,jpeg}'],
-                tasks: ['imagemin'],
-                options: {
-                    spawn: false,
-                }
-            },
-            livereload: {
-                options: {
-                    livereload: true
-                },
+    svg2png: {
+        prod: {
             files: [
-                '**/*.php',
-                'assets/css/{,*/}*.css',
-                'assets/js/{,*/}*.js'
-                ]
-            }
-        },
+                { src: ['assets/img/**/*.svg'] }
+            ]
+        }
+    },
 
-    });
+    // Watch
+ 
+    watch: {
+      scripts: {
+          files: ['assets/js/*.js'],
+          tasks: ['uglify'],
+          options: {
+              spawn: false,
+          },
+      },
 
-    // 3. Where we tell Grunt we plan to use this plug-in. Use "npm i --save-dev load-grunt-tasks" to load new grunt tasks
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-compass');
+      css: {
+        files: 'assets/scss/**/*.scss',
+        tasks: ['compass'],
+        options: {
+          livereload: true
+        }
 
-    // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['watch']);
+      }
+    }
+  
+  });
+ 
+  // Build
 
-};
+  grunt.registerTask('default',
+    [
+      'svg2png:prod',
+      'imageoptim:prod',
+      'compass:prod',
+      'uglify:prod'
+    ]);
+ 
+}
