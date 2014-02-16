@@ -1,7 +1,7 @@
 <?php
 
 	define('BASE_URL','<%= siteurl %>');
-	define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '/htdocs<%= database['urlpath'] %>');
+	define('ROOT_PATH', $_SERVER["DOCUMENT_ROOT"] . '<%= database['urlpath'] %>');
 	
 	define('DB_NAME', '<%= database['database'] %>');
 	define('DB_USER', '<%= database['username'] %>');
