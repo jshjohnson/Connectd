@@ -54,7 +54,7 @@ $(document).ready(function() {
 				$(".overlay").css({
 					height: docHeight,
 				});
-				$(".site-wrap").addClass("blur");
+				// $(".site-wrap").addClass("blur");
 	    		$(".overlay").add(".cancel-trigger").click(function(e) {
 				    if (e.target == this) {
 				        $(this).remove();
