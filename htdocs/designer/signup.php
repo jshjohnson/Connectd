@@ -190,8 +190,8 @@
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" required="required">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" required="required">
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" required="required">
-					<input type='password' name='password' placeholder="Password" class="field-1-2 float-left" required="required">
-					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" required="required"> 
+					<input type='password' name='password' placeholder="Password" class="field-1-2" required="required" value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
+					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" required="required" value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
 					<label for="jobtitle">Where do you work from?</label>
 					<div class="select-container">
 					<?php 

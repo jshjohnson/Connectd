@@ -2,7 +2,7 @@
 				<nav class="header__nav header-navy--alt">
 				<?php elseif ($section == "Designer") : ?>
 				<nav class="header__nav header-blue--alt">
-				<?php elseif ($section == "Employer" || $section == "Jobs") : ?>
+				<?php elseif ($section == "Employer") : ?>
 				<nav class="header__nav header-green--alt">
 				<?php else: ?>
 				<nav class="header__nav header-navy--alt">
