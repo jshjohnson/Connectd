@@ -21,6 +21,7 @@
 	<script src="<?php echo BASE_URL; ?>assets/js/libs/modernizr-2.5.3.min.js"></script>
 	<script type="text/javascript" src="//use.typekit.net/dxr1afv.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<script>var baseUrl = '<?= BASE_URL; ?>';</script>
 </head>
 <body>
 	<div class="site site-wrap">

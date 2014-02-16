@@ -16,7 +16,7 @@ $(document).ready(function() {
 
 
 	(function() {
-		var submit = $('.submit'),
+		var submit = $('.sign-up-form .submit'),
 			required = $('.sign-up-form input[required], .sign-up-form textarea[required]');
 
 		submit.attr('disabled', 'disabled').val('Form fields required');
@@ -65,23 +65,13 @@ $(document).ready(function() {
 		});
 	}
 	//Staging
-	overlay($(".apply-trigger"), "/Connectd/htdocs/assets/ajax/apply.php");
-	overlay($(".hire-trigger"), "/Connectd/htdocs/assets/ajax/hire.php");
-	overlay($(".post-job-trigger"), "/Connectd/htdocs/assets/ajax/post-job.php");
-	overlay($(".collaborate-trigger"), "/Connectd/htdocs/assets/ajax/collaborate.php");
-	overlay($(".search-trigger"), "/Connectd/htdocs/assets/ajax/search.php");
-	overlay($(".dev-skills-trigger"), "/Connectd/htdocs/assets/ajax/dev-skills.php");
-	overlay($(".des-skills-trigger"), "/Connectd/htdocs/assets/ajax/des-skills.php");
-	overlay($(".login-trigger"), "/Connectd/htdocs/assets/ajax/sign-in.php");
-
-	// Production
-	// overlay($(".apply-trigger"), "/connectd/assets/ajax/apply.php");
-	// overlay($(".hire-trigger"), "/connectd/assets/ajax/hire.php");
-	// overlay($(".post-job-trigger"), "/connectd/assets/ajax/post-job.php");
-	// overlay($(".collaborate-trigger"), "/connectd/assets/ajax/collaborate.php");
-	// overlay($(".search-trigger"), "/connectd/assets/ajax/search.php");
-	// overlay($(".dev-skills-trigger"), "/connectd/assets/ajax/dev-skills.php");
-	// overlay($(".des-skills-trigger"), "/connectd/assets/ajax/des-skills.php");
-	// overlay($(".login-trigger"), "/connectd/assets/ajax/sign-in.php");
+	overlay($(".apply-trigger"), ""+baseUrl+"/assets/ajax/apply.php");
+	overlay($(".hire-trigger"), ""+baseUrl+"/assets/ajax/hire.php");
+	overlay($(".post-job-trigger"), ""+baseUrl+"/assets/ajax/post-job.php");
+	overlay($(".collaborate-trigger"), ""+baseUrl+"/assets/ajax/collaborate.php");
+	overlay($(".search-trigger"), ""+baseUrl+"/assets/ajax/search.php");
+	overlay($(".dev-skills-trigger"), ""+baseUrl+"/assets/ajax/dev-skills.php");
+	overlay($(".des-skills-trigger"), ""+baseUrl+"/assets/ajax/des-skills.php");
+	overlay($(".login-trigger"), ""+baseUrl+"/assets/ajax/sign-in.php");
 
 });

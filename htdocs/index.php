@@ -26,15 +26,16 @@
 	<script src="<?php echo BASE_URL; ?>assets/js/libs/modernizr-2.5.3.min.js"></script>
 	<script type="text/javascript" src="//use.typekit.net/dxr1afv.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<script>var baseUrl = '<?= BASE_URL; ?>';</script>
 </head>
 <body>
-	<section class="site-intro">
-		<div class="site-intro__wrap">
-			<a href="#home"><h1 class="site-intro__heading">connectd.io</h1></a>
-			<a href="#home"><h1 class="site-intro__sub-heading">An alternative for freelancers and employers</h1></a>
-		</div>
-	</section>
 	<section id="home" class="site-wrap">
+		<header class="site-intro">
+			<div class="site-intro__wrap">
+				<a href="#home"><h1 class="site-intro__heading">connectd.io</h1></a>
+				<a href="#home"><h1 class="site-intro__sub-heading">An alternative for freelancers and employers</h1></a>
+			</div>
+		</header>
 		<h2 class="logo text-right"><a href="<?php echo BASE_URL; ?>">connectd</a></h2>
 		<h2 class="text-left"><a href="" class="login-trigger">Login</a></h2>
 		<div class="panel-wrap">
@@ -63,6 +64,6 @@
 	</section>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="assets/js/libs/jquery-1.7.2.min.js"><\/script>')</script>
-	<script src="assets/js/production.min.js"></script>
+	<script src="assets/js/scripts.min.js"></script>
 </body>
 </html>
