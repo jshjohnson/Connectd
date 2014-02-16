@@ -27,6 +27,6 @@ _assets
 ai-cache/*
 
 .DS_Store
-
+htdocs/config.php
 .sass-cache
 

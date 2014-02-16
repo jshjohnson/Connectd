@@ -23,8 +23,8 @@ after "deploy", "deploy:cleanup"
 ############################################
 
 set :site, "156312" # this is your site number, https://kb.mediatemple.net/questions/268/What+is+my+site+number%3F#gs
-set(:host) { "s#{site}.gridserver.com" }
-set(:domain) { "s#{site}.gridserver.com" }
+set(:host) { "s156312.gridserver.com" }
+set(:domain) { "s156312.gridserver.com" }
 set(:user) { "connectd.io" }
 
 ############################################
@@ -45,21 +45,44 @@ set :use_sudo, false
 ssh_options[:forward_agent] = true
 
 # Path stuff, make sure to symlink html to ./current
-set(:deploy_to) { "/home/#{site}/domains/#{application}" }
+set(:deploy_to) { "/home/156312/domains/#{application}" }
 set :current_dir, "html"
+
+# we need a relative path for the current symlink, without this
+# current is set to link to the release starting from the /home directory
+# which has a directory that is not owned by the serveradmin and apache
+# won't have access
+def relative_path(from_str, to_str)
+  require 'pathname'
+  Pathname.new(to_str).relative_path_from(Pathname.new(from_str)).to_s
+end
+ 
+# overwrite the symlink method to use the relative path method above
+namespace :deploy do
+  desc "Relative symlinks for current, so we don't use full path"
+  task :create_symlink, :except => { :no_release => true } do
+    if releases[-2] # not the first release
+      previous_release_relative = relative_path(deploy_to, previous_release + '/htdocs')
+      on_rollback { run "rm -f #{current_path}; ln -s #{previous_release_relative} #{current_path}; true" }
+    end
+    latest_release_relative = relative_path(deploy_to, latest_release + '/htdocs')
+    run "rm -f #{current_path} && ln -s #{latest_release_relative} #{current_path}"
+  end
+end
 
 ### WordPress
 
 namespace :site do
     desc "Setup symlinks for project"
     task :create_symlinks, :roles => :app do
-        run "ln -nfs /home/#{site}/domains/#{application}/shared/config.php #{current_path}/config.php"
-        run "ln -nfs /home/#{site}/domains/#{application}/shared/.htaccess-master #{current_path}/.htaccess"
+        run "ln -nfs /home/156312/domains/#{application}/shared/config.php #{current_path}/config.php"
+        run "ln -nfs /home/156312/domains/#{application}/shared/.htaccess-master #{current_path}/.htaccess"
     end
 
     desc "Create files and directories for WordPress environment"
     task :setup, :roles => :app do
         run "touch #{shared_path}/.htaccess-master"
+
         siteurl = Capistrano::CLI.ui.ask("#{stage} site URL: ")
         database = YAML::load_file('config/database.yml')[stage.to_s]
 
