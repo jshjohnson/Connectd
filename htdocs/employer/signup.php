@@ -200,7 +200,7 @@
 						<select name="location">
 							<option value="">Location...</option>
 						<?php while($row = mysqli_fetch_array($result)) : ?>
-							<option value="<?php echo $row['county']; ?>"><?php echo $row['county']; ?></option>
+							<option <?php if ($_POST['location'] == $row['county']) { ?>selected="true" <?php }; ?>value="<?php echo $row['county']; ?>"><?php echo $row['county']; ?></option>
 						<?php endwhile; ?>
 						</select>
 					</div>
