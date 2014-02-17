@@ -40,9 +40,13 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
+						<?php if (is_array($designers)) : ?>
+
 						<?php foreach($designers as $designer_id => $designer) {
 							echo get_designer_list_view($designer_id, $designer);
 						} ?>
+
+						<?php endif; ?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
@@ -51,9 +55,13 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
+						<?php if (is_array($developers)) : ?>
+
 						<?php foreach($developers as $developer_id => $developer) {
 							echo get_developer_list_view($developer_id, $developer);
 						} ?>
+
+						<?php endif; ?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-1 module--no-pad">
@@ -62,9 +70,13 @@
 						<a href="<?php echo BASE_URL; ?>jobs/post.php"><button class="float-right button-action">Post Job</button></a>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
+						<?php if (is_array($jobs)) : ?>
+
 						<?php foreach($jobs as $job_id => $job) {
 							echo get_job_list_view($job_id, $job);
 						} ?>
+
+						<?php endif; ?>
 					</div>
 				</article>
 			</div>
