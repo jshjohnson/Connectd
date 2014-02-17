@@ -32,7 +32,7 @@
 				$row = $results->fetch();
 			
 			} catch (Exception $e) {
-				echo "Damn. Data could not be retrieved.";
+				$message = "Damn. Data could not be retrieved.";
 				exit;
 			}
 
