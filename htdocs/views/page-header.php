@@ -13,8 +13,8 @@
 				<h2 class="header__section header__section--username">
 					<a href="<?php echo BASE_URL . "developer/profile.php?id=" . $_SESSION['userID']; ?>" class="header-username"><?php echo $s_username; ?></a>
 				</h2>
-				<h2 class="header__section header__section--notifications">
+<!-- 				<h2 class="header__section header__section--notifications">
 					<a href="#">3</a>
-				</h2>
+				</h2> -->
 			</div>
 		</header>
