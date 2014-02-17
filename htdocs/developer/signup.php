@@ -18,8 +18,8 @@
 	$repeatpassword = trim($_POST['repeatpassword']);
 	$age = trim($_POST['age']);
 	$jobtitle = trim($_POST['jobtitle']);
-	$priceperhour = trim($_POST['priceperhour']);
 	$experience = trim($_POST['experience']);
+	$priceperhour = trim($_POST['priceperhour']);
 	$bio = trim($_POST['bio']);
 	$portfolio = trim($_POST['portfolio']);
 	$location = trim($_POST['location']);
@@ -37,9 +37,9 @@
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['email'];
-		$message = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "logout.php'>logout</a> before trying to register.";
+		$message = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "inc/logout.php'>logout</a> before trying to register.";
 	}else{
-		if ($submit=='Apply for your place'){
+		if ($submit=='Submit'){
 
 			// Form hijack prevention
 			foreach( $_POST as $value ){
@@ -48,11 +48,9 @@
 	            }
 	        }
 
-	  //       else if (strlen($password)>25||strlen($password)<6) {
-			// 	$message = "Password must be 6-25 characters long";
-			// }
-
-			// valid_pass($password);
+	       	$r1='/[A-Z]/';  // Test for an uppercase character
+	       	$r2='/[a-z]/';  // Test for a lowercase character
+			$r3='/[0-9]/';  // Test for a number
 				
 		    if($firstname == ""){
 		        $message="Please enter your first name"; 
@@ -66,9 +64,15 @@
 		        $message="Please enter a password"; 
 		    }else if ($password!=$repeatpassword){ 
 				$message = "Both password fields must match";
-			}else if(!valid_pass($password)) {
-				$message = "Passwords must contain at least one capital letter and one number";
-			}else if($jobtitle == ""){
+			} else if(preg_match_all($r1,$password)<1) {
+				$message = "Your password needs to contain at least one uppercase character";
+			} else if(preg_match_all($r2,$password)<1) {
+				$message = "Your password needs to contain at least one lowercase character";
+			} else if(preg_match_all($r3,$password)<1) {
+				$message = "Your password needs to contain at least one number";
+			} else if (strlen($password)>25||strlen($password)<6) {
+				$message = "Password must be 6-25 characters long";
+			} else if($jobtitle == ""){
 		        $message="Please select your current job title"; 
 		    }else if($experience == ""){
 		        $message="Please enter your experience"; 
@@ -114,7 +118,7 @@
 					$row = $result->fetch();
 				
 				} catch (Exception $e) {
-					$message = "Damn. Data could not be retrieved.";
+					echo "Damn. Data could not be retrieved.";
 					exit;
 				}
 
@@ -126,7 +130,7 @@
 					$password = salt($password);
 
 					try {
-						$result = $db->prepare("INSERT INTO" . DB_NAME . ".developers 
+						$result = $db->prepare("INSERT INTO " . DB_NAME . ".developers
 							(firstname, lastname, email, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, datejoined) 
 							VALUES 
 							(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
@@ -144,7 +148,7 @@
 						$result->execute();
 					
 					} catch (Exception $e) {
-						$message = "Damn. Couldn't add user to database.";
+						echo "Damn. Couldn't add user to database.";
 						exit;
 					}
 					

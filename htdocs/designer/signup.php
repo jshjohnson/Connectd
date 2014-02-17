@@ -3,6 +3,8 @@
 	include_once(ROOT_PATH . "inc/functions.php");
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
+	checkLoggedIn();
+
 	$pageTitle = "Sign Up";
 	$section = "Designer";
 	include_once(ROOT_PATH . "views/header.php");
@@ -37,7 +39,7 @@
 		$s_username = $_SESSION['email'];
 		$message = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "inc/logout.php'>logout</a> before trying to register.";
 	}else{
-		if ($submit=='Apply for your place'){
+		if ($submit=='Submit'){
 
 			// Form hijack prevention
 			foreach( $_POST as $value ){
@@ -45,6 +47,10 @@
 	                $message = "Hmmmm. Are you a robot? Try again.";
 	            }
 	        }
+
+	     	$r1='/[A-Z]/';  // Test for an uppercase character
+	       	$r2='/[a-z]/';  // Test for a lowercase character
+			$r3='/[0-9]/';  // Test for a number
 
 		    if($firstname == ""){
 		        $message="Please enter your first name"; 
@@ -58,6 +64,12 @@
 		        $message="Please enter a password"; 
 		    }else if ($password!=$repeatpassword){ 
 				$message = "Both password fields must match";
+			}else if(preg_match_all($r1,$password)<1) {
+				$message = "Your password needs to contain at least one uppercase character";
+			}else if(preg_match_all($r2,$password)<1) {
+				$message = "Your password needs to contain at least one lowercase character";
+			}else if(preg_match_all($r3,$password)<1) {
+				$message = "Your password needs to contain at least one number";
 			}else if (strlen($password)>25||strlen($password)<6) {
 				$message = "Password must be 6-25 characters long";
 			}else if($location == ""){
@@ -108,7 +120,7 @@
 					$row = $result->fetch();
 				
 				} catch (Exception $e) {
-					$message = "Damn. Data could not be retrieved.";
+					echo "Damn. Data could not be retrieved.";
 					exit;
 				}
 
@@ -137,7 +149,7 @@
 						$result->execute();
 					
 					} catch (Exception $e) {
-						$message = "Damn. Couldn't add user to database.";
+						echo "Damn. Couldn't add user to database.";
 						exit;
 					}
 				

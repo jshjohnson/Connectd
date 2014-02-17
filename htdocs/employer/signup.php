@@ -4,7 +4,6 @@
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
 	checkLoggedIn();
-	errors();
 
 	$pageTitle = "Sign Up";
 	$section = "Employer";
@@ -38,7 +37,7 @@
 		$s_username = $_SESSION['firstname'];
 		$message = "You are already logged in as $s_username. Please <a href='" . BASE_URL . "logout.php'>logout</a> before trying to register.";
 	}else{
-		if ($submit=='Start employing'){
+		if ($submit=='Submit'){
 
 			// Form hijack prevention
 			foreach( $_POST as $value ){
@@ -46,6 +45,10 @@
 	                $message = "Hmmmm. Are you a robot? Try again.";
 	            }
 	        }
+
+	        $r1='/[A-Z]/';  // Test for an uppercase character
+	       	$r2='/[a-z]/';  // Test for a lowercase character
+			$r3='/[0-9]/';  // Test for a number
 				
 		    if($firstname == ""){
 		        $message="Please enter your first name"; 
@@ -59,6 +62,12 @@
 		        $message="Please enter a password"; 
 		    }else if ($password!=$repeatpassword){ 
 				$message = "Both password fields must match";
+			}else if(preg_match_all($r1,$password)<1) {
+				$message = "Your password needs to contain at least one uppercase character";
+			}else if(preg_match_all($r2,$password)<1) {
+				$message = "Your password needs to contain at least one lowercase character";
+			}else if(preg_match_all($r3,$password)<1) {
+				$message = "Your password needs to contain at least one number";
 			}else if (strlen($password)>25||strlen($password)<6) {
 				$message = "Password must be 6-25 characters long";
 			}else if($businessname == ""){
@@ -95,8 +104,7 @@
 						WHERE developers.email = ?
 						UNION SELECT employers.email 
 						FROM " . DB_NAME . ".employers 
-						WHERE employers.email = ?
-					");
+						WHERE employers.email = ?");
 					$result->bindParam(1, $email);
 					$result->bindParam(2, $email);
 					$result->bindParam(3, $email);
@@ -104,8 +112,9 @@
 
 					$total = $result->rowCount();
 					$row = $result->fetch();
+				
 				} catch (Exception $e) {
-					$message = "Damn. Data could not be retrieved.";
+					echo "Damn. Data could not be retrieved.";
 					exit;
 				}
 
@@ -116,7 +125,7 @@
 					$password = salt($password);
 					
 					try {
-						$result = $db->prepare("INSERT INTO " . DB_NAME . ".employers 
+						$result = $db->prepare("INSERT INTO " . DB_NAME . ".employers
 							(firstname, lastname, email, password, businessname, location, businesstype, businesswebsite, businessbio, datejoined) 
 							VALUES 
 							(?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
@@ -129,11 +138,10 @@
 						$result->bindParam(7, $businesstype);
 						$result->bindParam(8, $businesswebsite);
 						$result->bindParam(9, $businessbio);
-
 						$result->execute();
 					
 					} catch (Exception $e) {
-						$message = "Damn. Couldn't add user to database.";
+						echo "Damn. Couldn't add user to database.";
 						exit;
 					}
 

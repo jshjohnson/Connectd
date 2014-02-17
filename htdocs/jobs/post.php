@@ -23,7 +23,7 @@
 	// Start to use PHP session
 	session_start();
 
-	if ($submit=='Submit job'){
+	if ($submit=='Submit'){
 			
 	    if($jobtitle == ""){
 	        $message = "Please enter a job title"; 
