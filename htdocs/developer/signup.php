@@ -33,6 +33,7 @@
 
 	// Start to use PHP session
 	session_start();
+	
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['email'];

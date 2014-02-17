@@ -1,11 +1,12 @@
 <?php
 	require_once("../config.php");  
-	include_once(ROOT_PATH . "inc/checklog.php");
+	include_once(ROOT_PATH . "inc/functions.php");
+
+	checkLoggedOut();
 
 	$section = "Jobs";
 	$pageTitle = "Post a job";
 	include_once(ROOT_PATH . "views/header.php");
-	include_once(ROOT_PATH . "inc/functions.php");
 
 	// Grab the form data
 	$jobtitle = trim($_POST['jobtitle']);
@@ -20,10 +21,14 @@
 	$message = '';
 	$s_username = $_SESSION['username'];
 
-	// Start to use PHP session
-	session_start();
+	if ($submit=='Submit job'){
 
-	if ($submit=='Submit'){
+		// Form hijack prevention
+		foreach( $_POST as $value ){
+            if( stripos($value,'Content-Type:') !== FALSE ){
+                $message = "Hmmmm. Are you a robot? Try again.";
+            }
+        }
 			
 	    if($jobtitle == ""){
 	        $message = "Please enter a job title"; 
@@ -37,28 +42,32 @@
 	        $message = "Please enter a job description"; 
 	    }else{
 			// Process details here
-			require_once(ROOT_PATH . "inc/db_connect.php"); //include file to do db connect
-			$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
-			if($db_server){
+			require_once(ROOT_PATH . "inc/db_connect.php");
 
-				//clean the input now that we have a db connection
-				$jobtitle = clean_string($db_server, $jobtitle);
-				$startdate = clean_string($db_server, $startdate);
-				$deadline = clean_string($db_server, $deadline);
-				$budget = clean_string($db_server, $budget);
-				$jobcategory = clean_string($db_server, $jobcategory);
-				$jobdescription = clean_string($db_server, $jobdescription);
+			//clean the input now that we have a db connection
+			$jobtitle = clean_string($db, $jobtitle);
+			$startdate = clean_string($db, $startdate);
+			$deadline = clean_string($db, $deadline);
+			$budget = clean_string($db, $budget);
+			$jobcategory = clean_string($db, $jobcategory);
+			$jobdescription = clean_string($db, $jobdescription);
 
-				mysqli_select_db($db_server, DB_NAME);
-
-				$query = "INSERT INTO " . DB_NAME . ".jobs (jobtitle, startdate, deadline, budget, jobcategory, jobdescription, date) VALUES ('$jobtitle', '$startdate', '$deadline', '$budget', '$jobcategory', '$jobdescription', now())";
-				mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
-				header("Location:" . BASE_URL . "dashboard/");
-
-			}else{
-				$message = "Error: could not connect to the database.";
+			try {
+				$result = $db->prepare("INSERT INTO connectdDB.jobs(jobtitle, startdate, deadline, budget, jobcategory, jobdescription, date) VALUES (?, ?, ?, ?, ?, ?, now())");
+				$result->bindParam(1, $jobtitle);
+				$result->bindParam(2, $startdate);
+				$result->bindParam(3, $deadline);
+				$result->bindParam(4, $budget);
+				$result->bindParam(5, $jobcategory);
+				$result->bindParam(6, $jobdescription);
+				$result->execute();
+			
+			} catch (Exception $e) {
+				echo "Damn. Couldn't add user to database.";
+				exit;
 			}
-			require_once(ROOT_PATH . "inc/db_close.php"); 
+
+			header("Location:" . BASE_URL . "dashboard/");
 		}
 	}
 
@@ -95,7 +104,7 @@
 				<?php elseif (strlen($message)>1) : ?>
 					<p class="error"><?php echo $message; ?></p>
 				<?php endif; ?>
-				<form method="post" action="<?php echo BASE_URL; ?>jobs/post.php" class="sign-up-form">
+				<form method="post" action="<?php echo BASE_URL; ?>jobs/post.php">
 					<input type="text" name="jobtitle" placeholder="Job title" value="<?php if (isset($jobtitle)) { echo htmlspecialchars($jobtitle); } ?>" required="required">
 					<div class="float-left field-1-2">
 						<label for="">Start date:</label>
@@ -125,7 +134,7 @@
 					</div>			
 					<textarea name="jobdescription" cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!' required="required"><?php if (isset($jobdescription)) { echo htmlspecialchars($jobdescription); } ?></textarea>
 					<div class="button-container">
-		            	<input class="submit" name="submit" type="submit" value='Submit job' disabled="disabled">						
+		            	<input class="submit" name="submit" type="submit" value='Submit job'>						
 					</div>
 				</form> 
 			</div>
