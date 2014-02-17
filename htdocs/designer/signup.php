@@ -8,7 +8,6 @@
 	$pageTitle = "Sign Up";
 	$section = "Designer";
 	include_once(ROOT_PATH . "views/header.php");
-	include_once(ROOT_PATH . "inc/functions.php");
 
 	// Grab the form data
 	$firstname = trim($_POST['firstname']);
