@@ -1,5 +1,5 @@
 <?php
-	require_once("../config.php"); 
+	require_once("config.php"); 
 
 	$pageTitle = "Sign in";
 	include_once(ROOT_PATH . "views/header.php");
