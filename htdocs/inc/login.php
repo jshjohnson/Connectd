@@ -22,7 +22,7 @@
 			$password = clean_string($db, $password);
 
 			try {
-				$results = $db->prepare("SELECT designers.id, designers.firstname, designers.lastname, designers.email, designers.password FROM connectdDB.designers WHERE designers.email = ? UNION SELECT developers.id, developers.firstname, developers.lastname, developers.email, developers.password FROM connectdDB.developers WHERE developers.email = ? UNION SELECT employers.id, employers.firstname, employers.lastname, employers.email, employers.password FROM connectdDB.employers WHERE employers.email = ?");
+				$results = $db->prepare("SELECT designers.id, designers.firstname, designers.lastname, designers.email, designers.password FROM " . DB_NAME . ".designers WHERE designers.email = ? UNION SELECT developers.id, developers.firstname, developers.lastname, developers.email, developers.password FROM " . DB_NAME . ".developers WHERE developers.email = ? UNION SELECT employers.id, employers.firstname, employers.lastname, employers.email, employers.password FROM " . DB_NAME . ".employers WHERE employers.email = ?");
 				$results->bindParam(1, $email);
 				$results->bindParam(2, $email);
 				$results->bindParam(3, $email);

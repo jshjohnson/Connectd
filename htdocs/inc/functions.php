@@ -1,6 +1,6 @@
 <?php
 
-	function errors () {
+	function errors() {
 		error_reporting(E_ERROR|E_WARNING);
 	}
 
@@ -62,3 +62,27 @@
 		session_destroy();
 		header('Location: ../sign-in.php?status=logged');
     }
+
+
+	function valid_pass($password) {
+		$r1='/[A-Z]/';  // Test for an uppercase character
+		$r2='/[a-z]/';  // Test for a lowercase character
+		$r3='/[0-9]/';  // Test for a number
+
+		if(preg_match_all($r1,$password)<2) {
+			return FALSE;
+		} 
+
+		if(preg_match_all($r2,$password)<2) {
+			return FALSE;
+		}
+
+		if(preg_match_all($r3,$password)<2) {
+			return FALSE;
+		} 
+
+		if (strlen($password)>25||strlen($password)<6) {
+			return FALSE;
+		}
+		return TRUE;
+	}

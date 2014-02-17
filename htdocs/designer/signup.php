@@ -91,13 +91,13 @@
 
 				try {
 					$result = $db->prepare("SELECT designers.email 
-						FROM connectdDB.designers 
+						FROM " . DB_NAME . ".designers 
 						WHERE designers.email = ? 
 						UNION SELECT developers.email 
-						FROM connectdDB.developers 
+						FROM " . DB_NAME . ".developers 
 						WHERE developers.email = ?
 						UNION SELECT employers.email 
-						FROM connectdDB.employers 
+						FROM " . DB_NAME . ".employers 
 						WHERE employers.email = ?");
 					$result->bindParam(1, $email);
 					$result->bindParam(2, $email);
@@ -108,7 +108,7 @@
 					$row = $result->fetch();
 				
 				} catch (Exception $e) {
-					echo "Damn. Data could not be retrieved.";
+					$message = "Damn. Data could not be retrieved.";
 					exit;
 				}
 
@@ -119,7 +119,7 @@
 					$password = salt($password);
 
 					try {
-						$result = $db->prepare("INSERT INTO connectdDB.designers 
+						$result = $db->prepare("INSERT INTO " . DB_NAME . ".designers 
 							(firstname, lastname, email, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, datejoined) 
 							VALUES 
 							(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
@@ -137,7 +137,7 @@
 						$result->execute();
 					
 					} catch (Exception $e) {
-						echo "Damn. Couldn't add user to database.";
+						$message = "Damn. Couldn't add user to database.";
 						exit;
 					}
 				
@@ -197,7 +197,7 @@
 					<?php 
 						require_once(ROOT_PATH . "inc/db_connect.php");
 						$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
-						$query = ("SELECT county FROM connectdDB.locations ORDER BY county ASC");
+						$query = ("SELECT county FROM " . DB_NAME . ".locations ORDER BY county ASC");
 						$result = mysqli_query($db_server, $query);
 					?>
 						<select name="location">

@@ -47,7 +47,7 @@
 		require(ROOT_PATH . "inc/db_connect.php");
 
 		try {
-			$results = $db->query("SELECT * FROM connectdDB.developers");
+			$results = $db->query("SELECT * FROM " . DB_NAME . ".developers");
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
 			exit;
@@ -64,7 +64,7 @@
 		require(ROOT_PATH . "inc/db_connect.php");
 
 		try {
-			$results = $db->prepare("SELECT * FROM connectdDB.developers WHERE id = ?");
+			$results = $db->prepare("SELECT * FROM " . DB_NAME . ".developers WHERE id = ?");
 			$results->bindParam(1, $id);
 			$results->execute();
 		} catch (Exception $e) {

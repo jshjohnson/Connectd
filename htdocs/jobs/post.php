@@ -51,7 +51,7 @@
 
 				mysqli_select_db($db_server, DB_NAME);
 
-				$query = "INSERT INTO connectdDB.jobs (jobtitle, startdate, deadline, budget, jobcategory, jobdescription, date) VALUES ('$jobtitle', '$startdate', '$deadline', '$budget', '$jobcategory', '$jobdescription', now())";
+				$query = "INSERT INTO " . DB_NAME . ".jobs (jobtitle, startdate, deadline, budget, jobcategory, jobdescription, date) VALUES ('$jobtitle', '$startdate', '$deadline', '$budget', '$jobcategory', '$jobdescription', now())";
 				mysqli_query($db_server, $query) or die("Insert failed. ". mysqli_error($db_server));
 				header("Location:" . BASE_URL . "dashboard/");
 
@@ -112,14 +112,14 @@
 						<div class="select-container">
 							<select name="jobcategory" required="required">
 								<option value="">Select a category..</option>
-								<option value="Web Design">Web Design</option>
-								<option value="Graphic Design">Graphic Design</option>
-								<option value="UX Design">UX Design</option>
-								<option value="UI Design">UI Design</option>
-								<option value="App Design">App Design</option>
-								<option value="Illustration">Illustration</option>
-								<option value="Web Development">Web Development</option>
-								<option value="App Development">App Development</option>
+								<option <?php if ($_POST['jobcategory'] == 'Web Design') { ?>selected="true" <?php }; ?>value="Web Design">Web Design</option>
+								<option <?php if ($_POST['jobcategory'] == 'Graphic Design') { ?>selected="true" <?php }; ?>value="Graphic Design">Graphic Design</option>
+								<option <?php if ($_POST['jobcategory'] == 'UX Design') { ?>selected="true" <?php }; ?>value="UX Design">UX Design</option>
+								<option <?php if ($_POST['jobcategory'] == 'UI Design') { ?>selected="true" <?php }; ?>value="UI Design">UI Design</option>
+								<option <?php if ($_POST['jobcategory'] == 'App Design') { ?>selected="true" <?php }; ?>value="App Design">App Design</option>
+								<option <?php if ($_POST['jobcategory'] == 'Illustration') { ?>selected="true" <?php }; ?>value="Illustration">Illustration</option>
+								<option <?php if ($_POST['jobcategory'] == 'Web Development') { ?>selected="true" <?php }; ?>value="Web Development">Web Development</option>
+								<option <?php if ($_POST['jobcategory'] == 'App Development') { ?>selected="true" <?php }; ?>value="App Development">App Development</option>
 							</select>
 						</div>
 					</div>			

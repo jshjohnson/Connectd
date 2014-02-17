@@ -1,6 +1,6 @@
 <?php
 
-	$query = "SELECT * FROM connectdDB.employers";
+	$query = "SELECT * FROM " . DB_NAME . ".employers";
 
 	$result = mysqli_query($db_server, $query);
 

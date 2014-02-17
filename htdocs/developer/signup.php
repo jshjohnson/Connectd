@@ -47,6 +47,12 @@
 	                $message = "Hmmmm. Are you a robot? Try again.";
 	            }
 	        }
+
+	  //       else if (strlen($password)>25||strlen($password)<6) {
+			// 	$message = "Password must be 6-25 characters long";
+			// }
+
+			// valid_pass($password);
 				
 		    if($firstname == ""){
 		        $message="Please enter your first name"; 
@@ -60,8 +66,8 @@
 		        $message="Please enter a password"; 
 		    }else if ($password!=$repeatpassword){ 
 				$message = "Both password fields must match";
-			}else if (strlen($password)>25||strlen($password)<6) {
-				$message = "Password must be 6-25 characters long";
+			}else if(!valid_pass($password)) {
+				$message = "Passwords must contain at least one capital letter and one number";
 			}else if($jobtitle == ""){
 		        $message="Please select your current job title"; 
 		    }else if($experience == ""){
@@ -91,15 +97,14 @@
 
 				try {
 					$result = $db->prepare("SELECT designers.email 
-						FROM connectdDB.designers 
+						FROM " . DB_NAME . ".designers 
 						WHERE designers.email = ? 
 						UNION SELECT developers.email 
-						FROM connectdDB.developers 
+						FROM " . DB_NAME . ".developers 
 						WHERE developers.email = ?
 						UNION SELECT employers.email 
-						FROM connectdDB.employers 
-						WHERE employers.email = ?
-					");
+						FROM " . DB_NAME . ".employers 
+						WHERE employers.email = ?");
 					$result->bindParam(1, $email);
 					$result->bindParam(2, $email);
 					$result->bindParam(3, $email);
@@ -109,7 +114,7 @@
 					$row = $result->fetch();
 				
 				} catch (Exception $e) {
-					echo "Damn. Data could not be retrieved.";
+					$message = "Damn. Data could not be retrieved.";
 					exit;
 				}
 
@@ -121,7 +126,7 @@
 					$password = salt($password);
 
 					try {
-						$result = $db->prepare("INSERT INTO connectdDB.developers 
+						$result = $db->prepare("INSERT INTO" . DB_NAME . ".developers 
 							(firstname, lastname, email, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, datejoined) 
 							VALUES 
 							(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
@@ -139,7 +144,7 @@
 						$result->execute();
 					
 					} catch (Exception $e) {
-						echo "Damn. Couldn't add user to database.";
+						$message = "Damn. Couldn't add user to database.";
 						exit;
 					}
 					
@@ -198,7 +203,7 @@
 					<?php 
 						require_once(ROOT_PATH . "inc/db_connect.php"); 
 						$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
-						$query = ("SELECT county FROM connectdDB.locations ORDER BY county ASC");
+						$query = ("SELECT county FROM " . DB_NAME . ".locations ORDER BY county ASC");
 						$result = mysqli_query($db_server, $query);
 					?>
 						<select name="location">

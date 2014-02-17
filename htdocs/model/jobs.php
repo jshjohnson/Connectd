@@ -55,7 +55,7 @@
 		require(ROOT_PATH . "inc/db_connect.php");
 
 		try {
-			$results = $db->query("SELECT jobtitle, budget, date, jobdescription, jobcategory FROM connectdDB.jobs ORDER BY date DESC");
+			$results = $db->query("SELECT jobtitle, budget, date, jobdescription, jobcategory FROM " . DB_NAME . ".jobs ORDER BY date DESC");
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
 			exit;
