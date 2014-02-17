@@ -10,7 +10,7 @@
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
 			<h1 class="header__section header__section--title">
-				Sign In<a href="index.php" class="header__section--title__link"> : Register
+				Sign In<a href="index.php#register" class="header__section--title__link"> : Register
 			</h1>
 			<h2 class="header__section header__section--logo">
 				<a href="<?php echo BASE_URL; ?>">connectd</a>
