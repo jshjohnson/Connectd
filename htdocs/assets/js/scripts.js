@@ -31,7 +31,7 @@ $(document).ready(function() {
 	        if (empty) {
 	        	submit.attr('disabled', 'disabled').val('Form fields required');
 	        } else {
-	        	submit.removeAttr('disabled').val('Apply for your place'); 
+	        	submit.removeAttr('disabled').val('Submit'); 
 	        }
 	    });
 	})();
