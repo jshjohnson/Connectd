@@ -37,7 +37,7 @@
 		$s_username = $_SESSION['firstname'];
 		$message = "You are already logged in as $s_username. Please <a href='" . BASE_URL . "logout.php'>logout</a> before trying to register.";
 	}else{
-		if ($submit=='Submit'){
+		if ($submit){
 
 			// Form hijack prevention
 			foreach( $_POST as $value ){
