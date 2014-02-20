@@ -13,6 +13,19 @@
  
 		$email = trim($_POST['email']);
 		$password = trim($_POST['password']);
+		$submit = trim($_POST['submit']);
+		$remember = trim($_POST['remember']);
+		$year = time() + 31536000;
+
+		// If remember has been checked, set a cookie
+		if($remember) {
+			setcookie('remember_me', $email, $year);
+		} elseif(!$remember) {
+			if(isset($_COOKIE['remember_me'])) {
+				$past = time() - 100;
+				setcookie(remember_me, gone, $past);
+			}
+		}
  
 		if (empty($email) === true || empty($password) === true) {
 			$errors[] = 'Sorry, but we need your username and password.';
@@ -24,24 +37,13 @@
 	 
 			$login = $users->login($email, $password);
 
-			$db_name = $row['firstname'] . ' ' . $row['lastname'];
-			$db_email = $row['email'];
-
 			if ($login === false) {
 				$errors[] = 'Sorry, that username/password is invalid';
-			}else {
+			}else{
 				// username/password is correct and the login method of the $users object returns the user's id, which is stored in $login.
 	 
 	 			$_SESSION['id'] =  $login; // The user's id is now set into the user's session  in the form of $_SESSION['id'] 
-				$_SESSION['username'] = $db_name;
-				$_SESSION['email']=$email;
 				$_SESSION['logged']="logged";
-
-
-				// If remember has been checked, set a cookie
-				if($remember) {
-					setcookie('remember_me', $email, $year);
-				}
 				
 				#Redirect the user to the dashboard
 				header('Location: dashboard/');
@@ -76,8 +78,6 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
-
-
 			<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true)  { ?>
 	        <p class="success">Thank you, we've activated your account. You're free to log in!</p>
 	        <?php } else if (isset ($_GET['email'], $_GET['email_code'], $_GET['user']) === true) {
@@ -88,19 +88,19 @@
 				if($_GET['user'] == "developer") {     
 					if ($users->email_exists($email) === false) {
 						$errors[] = 'Sorry, we couldn\'t find that email address.';
-					} else if ($users->activateDeveloper($email, $email_code) === false) {
+					} else if ($developers->activateDeveloper($email, $email_code) === false) {
 						$errors[] = 'Sorry, we couldn\'t activate your account.';
 					}
 				} else if($_GET['user'] == "designer") {     
 					if ($users->email_exists($email) === false) {
 						$errors[] = 'Sorry, we couldn\'t find that email address.';
-					} else if ($users->activateDesigner($email, $email_code) === false) {
+					} else if ($designers->activateDesigner($email, $email_code) === false) {
 						$errors[] = 'Sorry, we couldn\'t activate your account.';
 					}
 				} else if($_GET['user'] == "employer") {     
 					if ($users->email_exists($email) === false) {
 						$errors[] = 'Sorry, we couldn\'t find that email address.';
-					} else if ($users->activateEmployer($email, $email_code) === false) {
+					} else if ($employers->activateEmployer($email, $email_code) === false) {
 						$errors[] = 'Sorry, we couldn\'t activate your account.';
 					}
 				}
