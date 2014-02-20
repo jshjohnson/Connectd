@@ -1,0 +1,233 @@
+/* Container / Inner
+----------------------------------*/
+.site {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column; 
+}
+
+.home {
+	height: 100%;
+}
+
+.container {
+	margin: 0 auto;
+	width: 90%;
+	min-width: 15em;
+	max-width: $container-max-width; }
+
+.container__inner {
+	@extend .container;
+	@include respond-max($bp1) {
+		width: 85%;
+	}
+}
+
+.user-sidebar__info {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1.5em;
+	@include box-sizing(border-box);
+}
+
+.footer--push {
+	flex: 1;
+}
+
+/* Grids (Griddle - http://goo.gl/P1JKB)
+----------------------------------*/
+@import "../libs/_griddle";
+
+// Create 2, 3, 6 and 12 column grids
+@include griddle-build(2);
+
+@include respond-min($bp1) {
+	@include griddle-build(2 3, "--bp1");
+}
+@include respond-min($bp2) {
+	@include griddle-build(2 3 4, "--bp2");
+}	
+@include respond-min($bp3) {
+	@include griddle-build(2 3 4 5 6 12, "--bp3");
+}	
+@include respond-min($bp4) {
+	@include griddle-build(2 3 4 5 6 12, "--bp4");
+}
+
+.panel {
+	display: table; 
+	height: 100%; 
+	float:left; 
+	overflow: hidden;
+	@include respond-max($bp2-5) {
+		width: 100%;
+		float: none;
+	}
+}
+
+.panel-1-1 {
+	width: 100%;
+	@include respond-max($bp2-5) {
+		height: 100%;
+	}
+}
+
+.panel-1-3 {
+	width: 33.33%;
+	@include respond-max($bp2-5) {
+		height: 33.33%;
+		width: 100%;
+	}
+}
+
+.panel-wrap {
+	height: 100%;
+}
+
+.panel__container {
+	display: table-cell; 
+	vertical-align: middle;
+	padding-left: 20%;
+	padding-right: 20%;
+	@include box-sizing(border-box);
+}
+
+/* Module layout
+----------------------------------*/
+
+.module {
+	margin-bottom: 2em;
+	padding: 1.5em;
+	.grid__cell:last-of-type p:last-child, .grid__cell:last-of-type img:last-child {
+		margin: 0;
+	}
+	> p:last-child, ul:last-child, ul li:last-of-type, iframe:last-child {
+		margin-bottom: 0;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.module--half-pad {
+	padding: .75em;
+}
+
+.module-sidebar {
+	margin-bottom: $baseline;
+	padding: 1.5em;
+	.grid__cell:last-of-type p:last-child, .grid__cell:last-of-type img:last-child {
+		margin: 0;
+	}
+	> p:last-child, ul:last-child, ul li:last-of-type, iframe:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.module > *:last-child,
+.module > *:last-child > *:last-child,
+.module > *:last-child > *:last-child > *:last-child {
+  margin-bottom: 0;
+}
+
+.module--no-pad {
+	padding: 0;
+}
+
+.module-2-3 {
+	width: 63.33%;
+	@include respond-max($bp2) {
+		width: 100%;
+	}
+}
+
+.module-1-3 {
+	width: 32.33%;
+	@include respond-max($bp2) {
+		width: 100%;
+	}
+}
+
+.module-1-2 {
+	width: 48.5%;
+	@include respond-max($bp2) {
+		width: 100%;
+	}
+}
+
+.module-1-4 {
+	width: 25%;
+	@include respond-max($bp4) {
+		width: 33.333333%;
+	}
+	@include respond-max($bp2) {
+		width: 50%;
+	}
+	@include respond-max($bp1) {
+		width: 100%;
+	}	
+}
+
+.module-1-1 {
+	width: 100%;
+}
+
+.module__avatar {
+	padding: 6px;
+	display: inline-block;
+}
+
+/* Buttons
+----------------------------------*/
+
+.button-wrapper {
+	text-align: center;
+	@include respond-max($bp2) {
+		margin-bottom: 1em;
+	}
+	@include respond-max($bp1) {
+		margin-bottom: 0;
+	}
+}
+
+.button-left, .button-right {
+	margin-left: 1em;
+	margin-right: 1em;
+	display: inline-block;
+	padding-left: 0;
+	padding-right: 0;
+	@include respond-max($bp4) {
+		margin: .5em 0;
+		padding: .9em 1.5em .8em;;
+		&:first-child {
+			margin-top: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	@include respond-max($bp1) {
+		margin-left: .5em;
+		margin-right: .5em;
+	}
+}
+
+.ribbon {
+	position: absolute;
+	right: 1em;
+	top: 0;
+	background-color: $color-brand-highlight;
+	border-left: 1em solid transparent;
+	border-right: 1em solid transparent;
+	border-bottom: 1em solid $color-background-light;
+	width: 0;
+	h5 {
+		line-height: 1.5;
+		font-size: .7em;
+		padding-right: 1em;
+		color: white;
+		padding-bottom: 1em;
+		@include transform(rotate(-90deg));
+		text-transform: uppercase;
+	}
+}
