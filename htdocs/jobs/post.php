@@ -17,9 +17,8 @@
 	$jobdescription = trim($_POST['jobdescription']);
 	$submit = trim($_POST['submit']);
 
-	// Create some variables to hold output data
-	$message = '';
-	$s_username = $_SESSION['username'];
+	$user = $users->userdata($_SESSION['id']);
+	$username = $user[0] . " " . $user[1];
 
 	if ($submit=='Submit job'){
 
@@ -102,7 +101,7 @@
 				<?php if (strlen($message)>70) : ?>
 					<p class="error error--long"><?php echo $message; ?></p>
 				<?php elseif (strlen($message)>1) : ?>
-					<p class="error"><?php echo $message; ?></p>
+					<p class="message message--error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>jobs/post.php">
 					<input type="text" name="jobtitle" placeholder="Job title" value="<?php if (isset($jobtitle)) { echo htmlspecialchars($jobtitle); } ?>" required="required">

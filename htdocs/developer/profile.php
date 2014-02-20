@@ -2,7 +2,7 @@
 	require_once("../config.php");  
 	require_once(ROOT_PATH . "core/init.php");
 	$general->logged_out_protect();
-	include_once(ROOT_PATH . "model/developers.php");
+	require_once(ROOT_PATH . "model/developers.php");
 
 	if (isset($_GET["id"])) {
 		$developer_id = $_GET["id"];
@@ -17,7 +17,7 @@
 	$user = $users->userdata($_SESSION['id']);
 	$username = $user[0] . " " . $user[1];
 	
-	$pageTitle = $developer['firstname'] . ' ' . $developer['lastname'];
+	$pageTitle = $developer['firstname'] . ' ' . $developer['lastname'] . ' : ' . $developer['jobtitle'];
 	$section = "Developer";
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "views/page-header.php");

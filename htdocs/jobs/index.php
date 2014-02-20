@@ -10,7 +10,8 @@
 	$job_id = $_GET["id"];
 	$job = $jobs[$job_id];
 
-	$s_username = $_SESSION['username'];
+	$user = $users->userdata($_SESSION['id']);
+	$username = $user[0] . " " . $user[1];
 
 	$pageTitle = $job['jobtitle'];
 	$section = "Jobs";

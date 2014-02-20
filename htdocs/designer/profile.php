@@ -4,7 +4,7 @@
 	
 	$general->logged_out_protect();
 
-	include_once(ROOT_PATH . "model/designers.php");
+	require_once(ROOT_PATH . "model/designers.php");
 
 	// Grab ID from URL, convert to interger to strip SQL injection, pass to get_designers_single function to pull
 
@@ -20,7 +20,7 @@
 		exit();
 	}
 
-	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'];
+	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'] . ' : ' . $designer['jobtitle'];
 	$section = "Designers";
 
 	$user = $users->userdata($_SESSION['id']);

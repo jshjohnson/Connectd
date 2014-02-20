@@ -15,9 +15,9 @@
 	include_once(ROOT_PATH . "views/page-header.php");
 
 	// User data
-	include_once(ROOT_PATH . "model/designers.php");
-	include_once(ROOT_PATH . "model/developers.php");
-	include_once(ROOT_PATH . "model/jobs.php");
+	require_once(ROOT_PATH . "model/designers.php");
+	require_once(ROOT_PATH . "model/developers.php");
+	require_once(ROOT_PATH . "model/jobs.php");
 
 	$designers = get_designers_all();
 	$developers = get_developers_all();
