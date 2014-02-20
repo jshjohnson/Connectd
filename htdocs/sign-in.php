@@ -1,9 +1,13 @@
 <?php
 	require_once("config.php"); 
+	require_once(ROOT_PATH . "core/init.php");
+
+
 
 	$pageTitle = "Sign in";
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "inc/functions.php"); 
+	errors();
 	include_once(ROOT_PATH . "inc/login.php");
 	$status = $_GET["status"];
 ?>
@@ -33,14 +37,43 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
-				<?php if ($status == "logged") : ?>
+
+
+			<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true)  { ?>
+	        <p class="success">Thank you, we've activated your account. You're free to log in!</p>
+	        <?php } else if (isset ($_GET['email'], $_GET['email_code']) === true) {
+		            
+			    $email 		= trim($_GET['email']);
+			    $email_code	= trim($_GET['email_code']);
+		            
+		            if ($users->email_exists($email) === false) {
+		                $errors[] = 'Sorry, we couldn\'t find that email address.';
+		            } else if ($users->activateDev($email, $email_code) === false) {
+		                $errors[] = 'Sorry, we couldn\'t activate your account.';
+		            }
+		            
+			    if(empty($errors) === false){
+					
+					echo '<p>' . implode('</p><p>', $errors) . '</p>';	
+				
+			    } else {
+		 
+		                header('Location: sign-in.php?status=activated');
+		                exit();
+		 
+		            }
+		        
+		        } else if ($status == "logged") : ?>
 				<p class="success">Successfully logged out - see you soon!</p>
-				<?php elseif($status == "registered") : ?>
+				<?php elseif($status == "activated") : ?>
 				<p class="success">Welcome to Connectd! - Sign in below</p>
 				<?php endif; ?>
-				<?php if (strlen($message)>1) : ?>
-					<p class="error"><?php echo $message; ?></p>
-				<?php endif; ?>
+				<?php 
+					# if there are errors, they would be displayed here.
+					if(empty($errors) === false){
+						echo '<p class="error">' . implode('</p><p>', $errors) . '</p>';
+					}
+				?>
 				<form method="post" action="sign-in.php" autocomplete="off">
 					<input type="email" name="email" placeholder="Email" value="<?php echo $_COOKIE['remember_me']; ?>" class="field-1-2">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-right">

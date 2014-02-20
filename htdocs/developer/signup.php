@@ -1,6 +1,6 @@
 <?php
 	require_once("../config.php");
-	require_once("../core/init.php");
+	require_once(ROOT_PATH . "core/init.php");
 
 	include_once(ROOT_PATH . "inc/functions.php");
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
@@ -26,9 +26,12 @@
 	$location = trim($_POST['location']);
 	$submit = trim($_POST['submit']);
 
+	$status = $_GET["status"];
+
 	// Mail validation using PHPMailer
 	$mail = new PHPMailer(); // defaults to using php "mail()"
 
+	$s_username = '';
 
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
@@ -36,78 +39,73 @@
 		$errors[] = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "inc/logout.php'>logout</a> before trying to register.";
 	}else if (isset($_POST['submit'])) {
 
-			// Form hijack prevention
-			foreach( $_POST as $value ){
-	            if( stripos($value,'Content-Type:') !== FALSE ){
-	                $errors[] = "Hmmmm. Are you a robot? Try again.";
-	            }
-	        }
-		 		        
-			$r1='/[A-Z]/';  // Test for an uppercase character
-				$r2='/[a-z]/';  // Test for a lowercase character
-			$r3='/[0-9]/';  // Test for a number
+		// Form hijack prevention
+		foreach( $_POST as $value ){
+            if( stripos($value,'Content-Type:') !== FALSE ){
+                $errors[] = "Hmmmm. Are you a robot? Try again.";
+            }
+        }
+	 		        
+		$r1='/[A-Z]/';  // Test for an uppercase character
+			$r2='/[a-z]/';  // Test for a lowercase character
+		$r3='/[0-9]/';  // Test for a number
 
-			#validating user's input with functions that we will create next
-			if ($users->email_exists($email) === true) {
-			    $errors[] = 'That username already exists';
-			}else if($firstname == ""){
-			    $errors[] ="Please enter your first name"; 
-			}else if($lastname == ""){
-			    $errors[] ="Please enter your last name"; 
-			}else if($email == ""){
-			    $errors[] ="Please enter your email"; 
-			}else if (!$mail->ValidateAddress($email)){
-					$errors[] = "You must specify a valid email address.";
-			}else if ($users->email_exists($email) === true) {
-			    $errors[] = "Email already taken. Please try again.";
-			}else if($password == ""){
-			    $errors[] ="Please enter a password"; 
-			}else if ($password!=$repeatpassword){ 
-				$errors[] = "Both password fields must match";
-			} else if(preg_match_all($r1,$password)<1) {
-				$errors[] = "Your password needs to contain at least one uppercase character";
-			} else if(preg_match_all($r2,$password)<1) {
-				$errors[] = "Your password needs to contain at least one lowercase character";
-			} else if(preg_match_all($r3,$password)<1) {
-				$errors[] = "Your password needs to contain at least one number";
-			} else if (strlen($password)>25||strlen($password)<6) {
-				$errors[] = "Password must be 6-25 characters long";
-			} else if($jobtitle == ""){
-			    $errors[] ="Please select your current job title"; 
-			}else if($experience == ""){
-			    $errors[] ="Please enter your experience"; 
-			}else if($bio == ""){
-			    $errors[] ="Please write about yourself"; 
-			}else if(strlen($bio)<25) {
-				$errors[] = "You're not going to sell yourself without a decent bio!";
-			}
-
-		 
-			if(empty($errors) === true){
-
-				$firstname = clean_string($db, $firstname);
-				$lastname = clean_string($db, $lastname);
-				$email = clean_string($db, $email);
-				$password = clean_string($db, $password);
-				$repeatpassword = clean_string($db, $repeatpassword);
-				$age = clean_string($db, $age);
-				$jobtitle = clean_string($db, $jobtitle);
-				$priceperhour = clean_string($db, $priceperhour);
-				$bio = clean_string($db, $bio);
-				$portfolio = clean_string($db, $portfolio);
-				$experience = clean_string($db, $experience);
-				$jobtitle = clean_string($db, $jobtitle);
-		 
-				$users->register($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);// Calling the register function, which we will create soon.
-				header("Location:" . BASE_URL . "sign-in.php?status=registered");
-				exit();
-			}
+		#validating user's input with functions that we will create next
+		if ($users->email_exists($email) === true) {
+		    $errors[] = 'That username already exists';
+		}else if($firstname == ""){
+		    $errors[] ="Please enter your first name"; 
+		}else if($lastname == ""){
+		    $errors[] ="Please enter your last name"; 
+		}else if($email == ""){
+		    $errors[] ="Please enter your email"; 
+		}else if (!$mail->ValidateAddress($email)){
+				$errors[] = "You must specify a valid email address.";
+		}else if ($users->email_exists($email) === true) {
+		    $errors[] = "Email already taken. Please try again.";
+		}else if($password == ""){
+		    $errors[] ="Please enter a password"; 
+		}else if ($password!=$repeatpassword){ 
+			$errors[] = "Both password fields must match";
+		} else if(preg_match_all($r1,$password)<1) {
+			$errors[] = "Your password needs to contain at least one uppercase character";
+		} else if(preg_match_all($r2,$password)<1) {
+			$errors[] = "Your password needs to contain at least one lowercase character";
+		} else if(preg_match_all($r3,$password)<1) {
+			$errors[] = "Your password needs to contain at least one number";
+		} else if (strlen($password)>25||strlen($password)<6) {
+			$errors[] = "Password must be 6-25 characters long";
+		} else if($jobtitle == ""){
+		    $errors[] ="Please select your current job title"; 
+		}else if($experience == ""){
+		    $errors[] ="Please enter your experience"; 
+		}else if($bio == ""){
+		    $errors[] ="Please write about yourself"; 
+		}else if(strlen($bio)<25) {
+			$errors[] = "You're not going to sell yourself without a decent bio!";
 		}
 
-	if (isset($_GET['success']) && empty($_GET['success'])) {
-	  echo 'Thank you for registering. Please check your email.';
-	}
+	 
+		if(empty($errors) === true){
 
+			$firstname = clean_string($db, $firstname);
+			$lastname = clean_string($db, $lastname);
+			$email = clean_string($db, $email);
+			$password = clean_string($db, $password);
+			$repeatpassword = clean_string($db, $repeatpassword);
+			$age = clean_string($db, $age);
+			$jobtitle = clean_string($db, $jobtitle);
+			$priceperhour = clean_string($db, $priceperhour);
+			$bio = clean_string($db, $bio);
+			$portfolio = clean_string($db, $portfolio);
+			$experience = clean_string($db, $experience);
+			$jobtitle = clean_string($db, $jobtitle);
+	 
+			$users->registerDev($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);// Calling the register function, which we will create soon.
+			header("Location:" . BASE_URL . "developer/signup.php?status=success");
+			exit();
+		}
+	}
 ?>
 	<header class="header header-navy--alt zero-bottom cf">
 		<div class="container">
@@ -147,6 +145,9 @@
 						echo '<p class="error">' . implode('</p><p>', $errors) . '</p>';
 					}
 				?>
+				<?php if ($status == "success") : ?>
+				<p class="success">Thank you for registering. Please check your email.</p>
+				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>developer/signup.php" autocomplete="off" class="sign-up-form">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" >
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" >
