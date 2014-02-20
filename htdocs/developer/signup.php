@@ -51,9 +51,7 @@
 		$r3='/[0-9]/';  // Test for a number
 
 		#validating user's input with functions that we will create next
-		if ($users->email_exists($email) === true) {
-		    $errors[] = 'That username already exists';
-		}else if($firstname == ""){
+		if($firstname == ""){
 		    $errors[] ="Please enter your first name"; 
 		}else if($lastname == ""){
 		    $errors[] ="Please enter your last name"; 
@@ -101,7 +99,7 @@
 			$experience = $general->clean_string($db, $experience);
 			$jobtitle = $general->clean_string($db, $jobtitle);
 	 
-			$users->registerDev($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);// Calling the register function, which we will create soon.
+			$users->registerDeveloper($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);// Calling the register function, which we will create soon.
 			header("Location:" . BASE_URL . "developer/signup.php?status=success");
 			exit();
 		}

@@ -22,7 +22,7 @@
 			$errors[] = 'Sorry, but you need to activate your account. Please check your emails.';
 		} else {
 	 
-			$login = $users->loginDev($email, $password);
+			$login = $users->login($email, $password);
 
 			$db_name = $row['firstname'] . ' ' . $row['lastname'];
 			$db_email = $row['email'];
