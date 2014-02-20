@@ -1,14 +1,14 @@
 <?php
 	require_once("../config.php");
-	include_once(ROOT_PATH . "inc/functions.php");
+	require_once(ROOT_PATH . "core/init.php");
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
-	checkLoggedIn();
+	$general->logged_in_protect();
 
 	$pageTitle = "Sign Up";
 	$section = "Employer";
 	include_once(ROOT_PATH . "views/header.php");
-	include_once(ROOT_PATH . "inc/functions.php");
+	require_once(ROOT_PATH . "core/init.php");
 
 	// Grab the form data
 	$firstname = trim($_POST['firstname']);
@@ -83,7 +83,7 @@
 			if(empty($errors) === true) {
 
 				// Process details here
-				require_once(ROOT_PATH . "inc/db_connect.php"); //include file to do db connect
+				require(ROOT_PATH . "core/connect/database.php");//include file to do db connect
 
 				//clean the input now that we have a db connection
 				$firstname = clean_string($db, $firstname);
@@ -204,7 +204,7 @@
 					<label for="jobtitle">What is the location of your business?</label>
 					<div class="select-container">
 					<?php 
-						require_once(ROOT_PATH . "inc/db_connect.php"); 
+						require(ROOT_PATH . "core/connect/database.php");
 						$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
 						$query = ("SELECT county FROM " . DB_NAME . ".locations ORDER BY county ASC");
 						$result = mysqli_query($db_server, $query);

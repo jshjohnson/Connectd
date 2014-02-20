@@ -1,11 +1,11 @@
 <?php
 	require_once("../config.php");
 	require_once(ROOT_PATH . "core/init.php");
-
-	include_once(ROOT_PATH . "inc/functions.php");
+	
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
-	checkLoggedIn();
+	$general->errors();
+	$general->logged_in_protect();
 
 	$pageTitle = "Sign Up";
 	$section = "Developer";
@@ -88,18 +88,18 @@
 	 
 		if(empty($errors) === true){
 
-			$firstname = clean_string($db, $firstname);
-			$lastname = clean_string($db, $lastname);
-			$email = clean_string($db, $email);
-			$password = clean_string($db, $password);
-			$repeatpassword = clean_string($db, $repeatpassword);
-			$age = clean_string($db, $age);
-			$jobtitle = clean_string($db, $jobtitle);
-			$priceperhour = clean_string($db, $priceperhour);
-			$bio = clean_string($db, $bio);
-			$portfolio = clean_string($db, $portfolio);
-			$experience = clean_string($db, $experience);
-			$jobtitle = clean_string($db, $jobtitle);
+			$firstname = $general->clean_string($db, $firstname);
+			$lastname = $general->clean_string($db, $lastname);
+			$email = $general->clean_string($db, $email);
+			$password = $general->clean_string($db, $password);
+			$repeatpassword = $general->clean_string($db, $repeatpassword);
+			$age = $general->clean_string($db, $age);
+			$jobtitle = $general->clean_string($db, $jobtitle);
+			$priceperhour = $general->clean_string($db, $priceperhour);
+			$bio = $general->clean_string($db, $bio);
+			$portfolio = $general->clean_string($db, $portfolio);
+			$experience = $general->clean_string($db, $experience);
+			$jobtitle = $general->clean_string($db, $jobtitle);
 	 
 			$users->registerDev($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);// Calling the register function, which we will create soon.
 			header("Location:" . BASE_URL . "developer/signup.php?status=success");
@@ -157,7 +157,7 @@
 					<label for="jobtitle">Where do you work from?</label>
 					<div class="select-container">
 					<?php 
-						require_once(ROOT_PATH . "inc/db_connect.php"); 
+						require(ROOT_PATH . "core/connect/database.php");
 						$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
 						$query = ("SELECT county FROM " . DB_NAME . ".locations ORDER BY county ASC");
 						$result = mysqli_query($db_server, $query);

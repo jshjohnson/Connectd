@@ -133,6 +133,4 @@
 				</article>
 			</div>
 		</section>
-<?php 
-	include_once(ROOT_PATH . "views/footer.php"); 
-?>
+<?php include_once(ROOT_PATH . "views/footer.php"); ?>

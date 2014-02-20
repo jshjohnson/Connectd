@@ -2,9 +2,10 @@
 	require_once("config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
+	$general->errors();
+
 	$pageTitle = "Sign in";
 	include_once(ROOT_PATH . "views/header.php");
-	include_once(ROOT_PATH . "inc/functions.php"); 
 
 	$status = $_GET["status"];
 

@@ -71,7 +71,7 @@
 			$time 		= time();
 			$ip 		= $_SERVER['REMOTE_ADDR'];
 			$email_code = sha1($email + microtime());
-			$password = salt($password);
+			$password = sha1($password);
 		 
 			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".developers
 				(firstname, lastname, email, email_code, time, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, ip) 
@@ -139,11 +139,11 @@
 			}
 		}
 
-
 		public function loginDev($email, $password) {
  
 			$query = $this->db->prepare("SELECT `password`, `id` FROM `developers` WHERE `email` = ?");
 			$query->bindValue(1, $email);
+
 			
 			try{
 				
@@ -153,7 +153,7 @@
 				$id 				= $data['id'];
 				
 				#hashing the supplied password and comparing it with the stored hashed password.
-				if($stored_password === salt($password)){
+				if($stored_password === sha1($password)){
 					return $id;	
 				}else{
 					return false;	

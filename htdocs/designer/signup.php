@@ -1,9 +1,9 @@
 <?php
 	require_once("../config.php");
-	include_once(ROOT_PATH . "inc/functions.php");
+	require_once(ROOT_PATH . "core/init.php");
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
-	checkLoggedIn();
+	$general->logged_in_protect();
 
 	$pageTitle = "Sign Up";
 	$section = "Designer";
@@ -84,7 +84,7 @@
 			}else{
 
 				// Process details here
-				require_once(ROOT_PATH . "inc/db_connect.php"); 
+				require(ROOT_PATH . "core/connect/database.php");
 
 				//clean the input now that we have a db connection
 				$firstname = clean_string($db, $firstname);

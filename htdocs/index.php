@@ -1,8 +1,8 @@
 <?php 	
 	require_once("config.php"); 
-	include_once(ROOT_PATH . "inc/functions.php");
+	require_once(ROOT_PATH . "core/init.php");
 
-	checkLoggedIn();
+	$general->logged_in_protect();
 
 ?>
 <!doctype html>

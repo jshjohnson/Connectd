@@ -52,7 +52,7 @@
 
 	function get_jobs_all() {
 
-		require(ROOT_PATH . "inc/db_connect.php");
+		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
 			$results = $db->query("SELECT jobtitle, budget, date, jobdescription, jobcategory FROM " . DB_NAME . ".jobs ORDER BY date DESC");

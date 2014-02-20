@@ -1,7 +1,7 @@
 <?php 
 	require_once("../config.php");  
-	include_once(ROOT_PATH . "inc/functions.php");
-	checkLoggedOut();
+	require_once(ROOT_PATH . "core/init.php");
+	$general->logged_out_protect();
 	include_once(ROOT_PATH . "model/developers.php");
 
 	if (isset($_GET["id"])) {

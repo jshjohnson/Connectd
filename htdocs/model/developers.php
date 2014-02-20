@@ -44,7 +44,7 @@
 
 	function get_developers_all() {
 		
-		require(ROOT_PATH . "inc/db_connect.php");
+		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
 			$results = $db->query("SELECT * FROM " . DB_NAME . ".developers");
@@ -61,7 +61,7 @@
 
 	function get_developers_single($id) {
 
-		require(ROOT_PATH . "inc/db_connect.php");
+		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
 			$results = $db->prepare("SELECT * FROM " . DB_NAME . ".developers WHERE id = ?");

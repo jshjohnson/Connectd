@@ -1,11 +1,11 @@
 <?php 	
 	require_once("../config.php");  
-	include_once(ROOT_PATH . "inc/functions.php");
+	require_once(ROOT_PATH . "core/init.php");
 
 	$pageTitle = "Settings";
 	$section = "Settings";
 	
-	checkLoggedOut();
+	$general->logged_out_protect();
 	
 	$sess_userID = $_SESSION['userID']; 
 	if(trim($_POST['submit'])=='submit'){
@@ -48,6 +48,4 @@
 				</article>
 			</div>
 		</section>
-<?php 
-	include_once(ROOT_PATH . "views/footer.php"); 
-?>
+<?php include_once(ROOT_PATH . "views/footer.php"); ?>
