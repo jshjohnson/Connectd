@@ -144,7 +144,7 @@
 				<?php if ($status == "success") : ?>
 				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
-				<form method="post" action="<?php echo BASE_URL; ?>designer/signup.php" autocomplete="off" class="sign-up-form">
+				<form method="post" action="<?php echo BASE_URL; ?>designers/signup.php" autocomplete="off" class="sign-up-form">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" >
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" >
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" >
