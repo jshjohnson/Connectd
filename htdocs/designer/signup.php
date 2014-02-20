@@ -28,7 +28,7 @@
 	$mail = new PHPMailer(); // defaults to using php "mail()"
 
 	// Create some variables to hold output data
-	$message = '';
+	$errors = array();
 	$s_username = '';
 
 	// Start to use PHP session
@@ -36,14 +36,14 @@
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['email'];
-		$message = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "inc/logout.php'>logout</a> before trying to register.";
+		$errors[] = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "inc/logout.php'>logout</a> before trying to register.";
 	}else{
 		if ($submit){
 
 			// Form hijack prevention
 			foreach( $_POST as $value ){
 	            if( stripos($value,'Content-Type:') !== FALSE ){
-	                $message = "Hmmmm. Are you a robot? Try again.";
+	                $errors[] = "Hmmmm. Are you a robot? Try again.";
 	            }
 	        }
 
@@ -52,35 +52,35 @@
 			$r3='/[0-9]/';  // Test for a number
 
 		    if($firstname == ""){
-		        $message="Please enter your first name"; 
+		        $errors[] = "Please enter your first name"; 
 		    }else if($lastname == ""){
-		        $message="Please enter your last name"; 
+		        $errors[] = "Please enter your last name"; 
 		    }else if($email == ""){
-		        $message="Please enter your email"; 
+		        $errors[] ="Please enter your email"; 
 		    }else if (!$mail->ValidateAddress($email)){
-       			 $message = "You must specify a valid email address.";
+       			$errors[] = "You must specify a valid email address.";
     		}else if($password == ""){
-		        $message="Please enter a password"; 
+		        $errors[] ="Please enter a password"; 
 		    }else if ($password!=$repeatpassword){ 
-				$message = "Both password fields must match";
+				$errors[] = "Both password fields must match";
 			}else if(preg_match_all($r1,$password)<1) {
-				$message = "Your password needs to contain at least one uppercase character";
+				$errors[] = "Your password needs to contain at least one uppercase character";
 			}else if(preg_match_all($r2,$password)<1) {
-				$message = "Your password needs to contain at least one lowercase character";
+				$errors[] = "Your password needs to contain at least one lowercase character";
 			}else if(preg_match_all($r3,$password)<1) {
-				$message = "Your password needs to contain at least one number";
+				$errors[] = "Your password needs to contain at least one number";
 			}else if (strlen($password)>25||strlen($password)<6) {
-				$message = "Password must be 6-25 characters long";
+				$errors[] = "Password must be 6-25 characters long";
 			}else if($location == ""){
-		    	$message= "Please enter your current job title";
+		    	$errors[] = "Please enter your current job title";
 		    }else if($experience == ""){
-		        $message="Please enter your experience"; 
+		        $errors[] ="Please enter your experience"; 
 		    }else if($jobtitle == ""){
-		    	$message= "Please enter your current job title";
+		    	$errors[] = "Please enter your current job title";
 		    }else if($bio == ""){
-		        $message="Please write about yourself"; 
+		        $errors[] = "Please write about yourself"; 
 		    }else if(strlen($bio)<25) {
-				$message = "You're not going to sell yourself without a decent bio!";
+				$errors[] = "You're not going to sell yourself without a decent bio!";
 			}else{
 
 				// Process details here
@@ -124,7 +124,7 @@
 				}
 
 				if ($total > 0) {
-					$message = "Email already taken. Please try again.";
+					$errors[] = "Email already taken. Please try again.";
 				}else{
 					// Encrypt password
 					$password = salt($password);
@@ -192,11 +192,12 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
-				<?php if (strlen($message)>106) : ?>
-					<p class="error error--long"><?php echo $message; ?></p>
-				<?php elseif (strlen($message)>1) : ?>
-					<p class="error"><?php echo $message; ?></p>
-				<?php endif; ?>
+				<?php 
+					# if there are errors, they would be displayed here.
+					if(empty($errors) === false){
+						echo '<p class="error">' . implode('</p><p>', $errors) . '</p>';
+					}
+				?>
 				<form method="post" action="<?php echo BASE_URL; ?>designer/signup.php" autocomplete="off" class="sign-up-form">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" required="required">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" required="required">

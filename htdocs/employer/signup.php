@@ -27,7 +27,7 @@
 	$mail = new PHPMailer(); // defaults to using php "mail()"
 
 	// Create some variables to hold output data
-	$message = '';
+	$errors = array();
 	$s_username = '';
 
 	// Start to use PHP session
@@ -35,14 +35,14 @@
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['firstname'];
-		$message = "You are already logged in as $s_username. Please <a href='" . BASE_URL . "logout.php'>logout</a> before trying to register.";
+		$errors[] = "You are already logged in as $s_username. Please <a href='" . BASE_URL . "logout.php'>logout</a> before trying to register.";
 	}else{
 		if ($submit){
 
 			// Form hijack prevention
 			foreach( $_POST as $value ){
 	            if( stripos($value,'Content-Type:') !== FALSE ){
-	                $message = "Hmmmm. Are you a robot? Try again.";
+	                $errors[] = "Hmmmm. Are you a robot? Try again.";
 	            }
 	        }
 
@@ -51,34 +51,36 @@
 			$r3='/[0-9]/';  // Test for a number
 				
 		    if($firstname == ""){
-		        $message="Please enter your first name"; 
+		        $errors[] ="Please enter your first name"; 
 		    }else if($lastname == ""){
-		        $message="Please enter your last name"; 
+		        $errors[] ="Please enter your last name"; 
 		    }else if($email == ""){
-		        $message="Please enter your email"; 
+		        $errors[] ="Please enter your email"; 
 		    }else if (!$mail->ValidateAddress($email)){
-       			 $message = "You must specify a valid email address.";
+       			 $errors[]  = "You must specify a valid email address.";
     		}else if($password == ""){
-		        $message="Please enter a password"; 
+		        $errors[] ="Please enter a password"; 
 		    }else if ($password!=$repeatpassword){ 
-				$message = "Both password fields must match";
+				$errors[]  = "Both password fields must match";
 			}else if(preg_match_all($r1,$password)<1) {
-				$message = "Your password needs to contain at least one uppercase character";
+				$errors[]  = "Your password needs to contain at least one uppercase character";
 			}else if(preg_match_all($r2,$password)<1) {
-				$message = "Your password needs to contain at least one lowercase character";
+				$errors[]  = "Your password needs to contain at least one lowercase character";
 			}else if(preg_match_all($r3,$password)<1) {
-				$message = "Your password needs to contain at least one number";
+				$errors[]  = "Your password needs to contain at least one number";
 			}else if (strlen($password)>25||strlen($password)<6) {
-				$message = "Password must be 6-25 characters long";
+				$errors[]  = "Password must be 6-25 characters long";
 			}else if($businessname == ""){
-		        $message="Please enter your business name"; 
+		        $errors[]  = "Please enter your business name"; 
 		    }else if($businesstype == ""){
-		        $message="Please enter your business type"; 
+		        $errors[]  = "Please enter your business type"; 
 		    }else if($businessbio == ""){
-		        $message="Please write about your business"; 
+		        $errors[]  = "Please write about your business"; 
 		    }else if(strlen($businessbio)<25) {
-				$message = "Freelancers require a bit more information about your business!";
-			}else{
+				$errors[]  = "Freelancers require a bit more information about your business!";
+			}
+
+			if(empty($errors) === true) {
 
 				// Process details here
 				require_once(ROOT_PATH . "inc/db_connect.php"); //include file to do db connect
@@ -186,11 +188,12 @@
 	<section class="footer--push color-grey">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
-				<?php if (strlen($message)>106) : ?>
-					<p class="error error--long"><?php echo $message; ?></p>
-				<?php elseif (strlen($message)>1) : ?>
-					<p class="error"><?php echo $message; ?></p>
-				<?php endif; ?>
+				<?php 
+					# if there are errors, they would be displayed here.
+					if(empty($errors) === false){
+						echo '<p class="error">' . implode('</p><p>', $errors) . '</p>';
+					}
+				?>
 				<form method="post" action="<?php echo BASE_URL; ?>employer/signup.php" autocomplete="off" class="sign-up-form">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" required="required">
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" required="required">
