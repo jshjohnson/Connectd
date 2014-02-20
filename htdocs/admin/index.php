@@ -43,7 +43,7 @@
 				<nav class="header__nav">
 					<ul>
 						<li><a href="<?php echo BASE_URL; ?>settings/">Settings</a></li>
-						<li><a href="<?php echo BASE_URL; ?>logout.php">Log out</a></li>
+						<li><a href="<?php echo BASE_URL; ?>sign-out.php">Log out</a></li>
 					</ul>
 				</nav>
 				<h2 class="header__section header__section--logo">

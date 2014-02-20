@@ -14,6 +14,6 @@
 						<li><a href="<?php echo BASE_URL . "developer/profile.php?id=" . $_SESSION['userID']; ?>">View Profile</a></li>
 						<li><a href="<?php echo BASE_URL . "developer/profile.php?id=" . $_SESSION['userID']; ?>?>">Edit Profile</a></li>
 						<li><a href="<?php echo BASE_URL; ?>settings/">Settings</a></li>
-						<li><a href="<?php echo BASE_URL; ?>logout.php">Log out</a></li>
+						<li><a href="<?php echo BASE_URL; ?>sign-out.php">Log out</a></li>
 					</ul>
 				</nav>

@@ -1,6 +1,7 @@
 <?php
 	require_once("../config.php");
 	require_once(ROOT_PATH . "core/init.php");
+
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
 	$general->logged_in_protect();
@@ -8,7 +9,6 @@
 	$pageTitle = "Sign Up";
 	$section = "Employer";
 	include_once(ROOT_PATH . "views/header.php");
-	require_once(ROOT_PATH . "core/init.php");
 
 	// Grab the form data
 	$firstname = trim($_POST['firstname']);
@@ -35,7 +35,7 @@
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['firstname'];
-		$errors[] = "You are already logged in as $s_username. Please <a href='" . BASE_URL . "logout.php'>logout</a> before trying to register.";
+		$errors[] = "You are already logged in as $s_username. Please <a href='" . BASE_URL . "sign-out.php'>logout</a> before trying to register.";
 	}else{
 		if ($submit){
 

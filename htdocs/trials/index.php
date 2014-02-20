@@ -1,6 +1,7 @@
 <?php 	
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
+
 	$general->logged_out_protect();
 
 	$pageTitle = "Trials";
@@ -10,11 +11,11 @@
 
 	session_start();
 	//Connect to DB
-	require_once(ROOT_PATH . "inc/db_connect.php");
+	require_once(ROOT_PATH . "core/connect/database.php");
 	$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
 	mysqli_select_db($db_server, DB_NAME) or die("Couldn't find db");
 
-	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, experience, datejoined, votes FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, experience, datejoined, votes FROM connectdDB.developers ORDER BY datejoined DESC";
+	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, experience, time, votes FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, experience, time, votes FROM connectdDB.developers ORDER BY datejoined DESC";
 	$result = mysqli_query($db_server, $query);
 
 	include_once(ROOT_PATH . "views/header.php");
@@ -25,7 +26,7 @@
 			<?php while ($user = mysqli_fetch_array($result)) : ?>
 				<aside class="grid__cell module-1-4 push-bottom">
 					<article class="user-sidebar module--no-pad">
-						<?php  if(strtotime($user["datejoined"])>strtotime('-3 days')) : ?>
+						<?php  if(strtotime($user["time"])>strtotime('-3 days')) : ?>
 						     <div class="ribbon"><h5>New</h5></div>
 						<?php endif ?>
 						<div class="user-sidebar__info">

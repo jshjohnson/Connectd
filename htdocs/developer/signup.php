@@ -4,7 +4,6 @@
 	
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
-	$general->errors();
 	$general->logged_in_protect();
 
 	$pageTitle = "Sign Up";
@@ -36,7 +35,7 @@
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['email'];
-		$errors[] = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "inc/logout.php'>logout</a> before trying to register.";
+		$errors[] = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "inc/sign-out.php'>logout</a> before trying to register.";
 	}else if (isset($_POST['submit'])) {
 
 		// Form hijack prevention
