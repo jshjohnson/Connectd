@@ -1,4 +1,9 @@
 RewriteEngine On
 RewriteRule ^designer/$ /Connectd/htdocs/designer/signup.php
+RewriteRule ^designer/([0-9]+)/$ /Connectd/htdocs/designer/profile.php?id=$1
+
 RewriteRule ^developer/$ /Connectd/htdocs/developer/signup.php
+RewriteRule ^developer/([0-9]+)/$ /Connectd/htdocs/developer/profile.php?id=$1
+
 RewriteRule ^employer/$ /Connectd/htdocs/employer/signup.php
+RewriteRule ^employer/([0-9]+)/$ /Connectd/htdocs/employer/profile.php?id=$1
