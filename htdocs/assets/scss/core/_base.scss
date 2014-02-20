@@ -168,8 +168,8 @@ textarea {
 	color: $color-brand-dark;
 	background-color: #FFFFFF;
 	-webkit-appearance: none;
-	border: none;
 	border-radius: 0;
+	border: 1px solid #eee;
 	margin: $baseline/2 0;
 	@include respond-max($bp1) {
 		margin: $baseline/3 0;

@@ -805,8 +805,8 @@ textarea {
   color: #2c3e50;
   background-color: #FFFFFF;
   -webkit-appearance: none;
-  border: none;
   border-radius: 0;
+  border: 1px solid #eee;
   margin: 1em 0;
 }
 
