@@ -1,5 +1,7 @@
 <?php
 	require_once("../config.php");
+	require_once("../core/init.php");
+
 	include_once(ROOT_PATH . "inc/functions.php");
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
@@ -27,19 +29,12 @@
 	// Mail validation using PHPMailer
 	$mail = new PHPMailer(); // defaults to using php "mail()"
 
-	// Create some variables to hold output data
-	$errors = array();
-	$s_username = '';
 
-	// Start to use PHP session
-	session_start();
-	
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['email'];
 		$errors[] = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "inc/logout.php'>logout</a> before trying to register.";
-	}else{
-		if ($submit){
+	}else if (isset($_POST['submit'])) {
 
 			// Form hijack prevention
 			foreach( $_POST as $value ){
@@ -47,22 +42,27 @@
 	                $errors[] = "Hmmmm. Are you a robot? Try again.";
 	            }
 	        }
-
-	       	$r1='/[A-Z]/';  // Test for an uppercase character
-	       	$r2='/[a-z]/';  // Test for a lowercase character
+		 		        
+			$r1='/[A-Z]/';  // Test for an uppercase character
+				$r2='/[a-z]/';  // Test for a lowercase character
 			$r3='/[0-9]/';  // Test for a number
-				
-		    if($firstname == ""){
-		        $errors[] ="Please enter your first name"; 
-		    }else if($lastname == ""){
-		        $errors[] ="Please enter your last name"; 
-		    }else if($email == ""){
-		        $errors[] ="Please enter your email"; 
-		    }else if (!$mail->ValidateAddress($email)){
-       			$errors[] = "You must specify a valid email address.";
-    		}else if($password == ""){
-		        $errors[] ="Please enter a password"; 
-		    }else if ($password!=$repeatpassword){ 
+
+			#validating user's input with functions that we will create next
+			if ($users->email_exists($email) === true) {
+			    $errors[] = 'That username already exists';
+			}else if($firstname == ""){
+			    $errors[] ="Please enter your first name"; 
+			}else if($lastname == ""){
+			    $errors[] ="Please enter your last name"; 
+			}else if($email == ""){
+			    $errors[] ="Please enter your email"; 
+			}else if (!$mail->ValidateAddress($email)){
+					$errors[] = "You must specify a valid email address.";
+			}else if ($users->email_exists($email) === true) {
+			    $errors[] = "Email already taken. Please try again.";
+			}else if($password == ""){
+			    $errors[] ="Please enter a password"; 
+			}else if ($password!=$repeatpassword){ 
 				$errors[] = "Both password fields must match";
 			} else if(preg_match_all($r1,$password)<1) {
 				$errors[] = "Your password needs to contain at least one uppercase character";
@@ -73,19 +73,18 @@
 			} else if (strlen($password)>25||strlen($password)<6) {
 				$errors[] = "Password must be 6-25 characters long";
 			} else if($jobtitle == ""){
-		        $errors[] ="Please select your current job title"; 
-		    }else if($experience == ""){
-		        $errors[] ="Please enter your experience"; 
-		    }else if($bio == ""){
-		        $errors[] ="Please write about yourself"; 
-		    }else if(strlen($bio)<25) {
+			    $errors[] ="Please select your current job title"; 
+			}else if($experience == ""){
+			    $errors[] ="Please enter your experience"; 
+			}else if($bio == ""){
+			    $errors[] ="Please write about yourself"; 
+			}else if(strlen($bio)<25) {
 				$errors[] = "You're not going to sell yourself without a decent bio!";
-			}else{
+			}
 
-				// Process details here
-				require_once(ROOT_PATH . "inc/db_connect.php"); 
+		 
+			if(empty($errors) === true){
 
-				//clean the input now that we have a db connection
 				$firstname = clean_string($db, $firstname);
 				$lastname = clean_string($db, $lastname);
 				$email = clean_string($db, $email);
@@ -98,64 +97,15 @@
 				$portfolio = clean_string($db, $portfolio);
 				$experience = clean_string($db, $experience);
 				$jobtitle = clean_string($db, $jobtitle);
-
-				try {
-					$result = $db->prepare("SELECT designers.email 
-						FROM " . DB_NAME . ".designers 
-						WHERE designers.email = ? 
-						UNION SELECT developers.email 
-						FROM " . DB_NAME . ".developers 
-						WHERE developers.email = ?
-						UNION SELECT employers.email 
-						FROM " . DB_NAME . ".employers 
-						WHERE employers.email = ?");
-					$result->bindParam(1, $email);
-					$result->bindParam(2, $email);
-					$result->bindParam(3, $email);
-					$result->execute();
-
-					$total = $result->rowCount();
-					$row = $result->fetch();
-				
-				} catch (Exception $e) {
-					echo "Damn. Data could not be retrieved.";
-					exit;
-				}
-
-				// check whether email has been used before
-				if ($total > 0) {
-					$errors[] = "Email already taken. Please try again.";
-				}else{
-					// Encrypt password
-					$password = salt($password);
-
-					try {
-						$result = $db->prepare("INSERT INTO " . DB_NAME . ".developers
-							(firstname, lastname, email, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, datejoined) 
-							VALUES 
-							(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
-						$result->bindParam(1, $firstname);
-						$result->bindParam(2, $lastname);
-						$result->bindParam(3, $email);
-						$result->bindParam(4, $password);
-						$result->bindParam(5, $location);
-						$result->bindParam(6, $portfolio);
-						$result->bindParam(7, $jobtitle);
-						$result->bindParam(8, $age);
-						$result->bindParam(9, $priceperhour);
-						$result->bindParam(10, $experience);
-						$result->bindParam(11, $bio);
-						$result->execute();
-					
-					} catch (Exception $e) {
-						echo "Damn. Couldn't add user to database.";
-						exit;
-					}
-					
-					header("Location:" . BASE_URL . "sign-in.php?status=registered");
-				} 
+		 
+				$users->register($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);// Calling the register function, which we will create soon.
+				header("Location:" . BASE_URL . "sign-in.php?status=registered");
+				exit();
 			}
-		}	
+		}
+
+	if (isset($_GET['success']) && empty($_GET['success'])) {
+	  echo 'Thank you for registering. Please check your email.';
 	}
 
 ?>
@@ -198,11 +148,11 @@
 					}
 				?>
 				<form method="post" action="<?php echo BASE_URL; ?>developer/signup.php" autocomplete="off" class="sign-up-form">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" required="required">
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" required="required">
-					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" required="required">
-					<input type='password' name='password' placeholder="Password" class="field-1-2" required="required" value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
-					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" required="required" value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" >
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" >
+					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" >
+					<input type='password' name='password' placeholder="Password" class="field-1-2"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
+					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
 					<label for="jobtitle">Where do you work from?</label>
 					<div class="select-container">
 					<?php 
@@ -218,7 +168,7 @@
 						<?php endwhile; ?>
 						</select>
 					</div>
-					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>" required="required">
+					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>" >
 					<label for="jobtitle">What best describes what you do?</label>
 					<div class="select-container">
 						<select name="jobtitle">
@@ -243,9 +193,9 @@
 							<option <?php if ($_POST['experience'] == 'Over 10 years') { ?>selected="true" <?php }; ?>value="Over 10 years">Over 10 years</option>
 						</select>
 					</div>
-					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..." required="required"><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
+					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..." ><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
-		            	<input class="submit" name="submit" type="submit" value='Apply for your place' disabled="disabled">				
+		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>				
 					</div>
 		        </form>
 			</div>
