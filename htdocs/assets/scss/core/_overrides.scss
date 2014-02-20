@@ -112,6 +112,7 @@ input:disabled {
 	color: white;
 	padding: .5em 1em;
 	font-size: .9em;
+	position: relative;
 	&:after {
 		content: "";
 		width: 0;
@@ -120,30 +121,12 @@ input:disabled {
 		border-right: .75em solid transparent;
 		border-top: 0.75em solid $color-brand-highlight;
 		position: absolute;
-		left: 3.5em;
-		top: 4.7em;
-		@include respond-max($bp1-5) {
-			left: 2.8em;
-			top: 3.7em;	
-		}
+		left: 1.5em;
+		top: 100%;
 	}
 	a {
 		color: white;
 		font-weight: bolder;
-	}
-}
-
-.error--long {
-	&:after {
-		top: 6.2em;
-		@include respond-max($bp4) {
-			border-top: transparent;
-		}
-		@include respond-max($bp1) {
-			border-top: 0.75em solid $color-brand-highlight;
-			left: 2.8em;
-			top: 6.7em;	
-		}
 	}
 }
 

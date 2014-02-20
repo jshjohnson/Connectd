@@ -3666,8 +3666,9 @@ input:disabled:hover {
   color: white;
   padding: .5em 1em;
   font-size: .9em;
+  position: relative;
 }
-/* line 115, ../scss/core/_overrides.scss */
+/* line 116, ../scss/core/_overrides.scss */
 .error:after {
   content: "";
   width: 0;
@@ -3676,44 +3677,18 @@ input:disabled:hover {
   border-right: .75em solid transparent;
   border-top: 0.75em solid #fc4349;
   position: absolute;
-  left: 3.5em;
-  top: 4.7em;
+  left: 1.5em;
+  top: 100%;
 }
-@media screen and (max-width: 35em) {
-  /* line 115, ../scss/core/_overrides.scss */
-  .error:after {
-    left: 2.8em;
-    top: 3.7em;
-  }
-}
-/* line 130, ../scss/core/_overrides.scss */
+/* line 127, ../scss/core/_overrides.scss */
 .error a {
   color: white;
   font-weight: bolder;
 }
 
-/* line 137, ../scss/core/_overrides.scss */
-.error--long:after {
-  top: 6.2em;
-}
-@media screen and (max-width: 82em) {
-  /* line 137, ../scss/core/_overrides.scss */
-  .error--long:after {
-    border-top: transparent;
-  }
-}
-@media screen and (max-width: 30em) {
-  /* line 137, ../scss/core/_overrides.scss */
-  .error--long:after {
-    border-top: 0.75em solid #fc4349;
-    left: 2.8em;
-    top: 6.7em;
-  }
-}
-
 /* Debuggin'
 ----------------------------------*/
-/* line 172, ../scss/core/_overrides.scss */
+/* line 155, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3729,7 +3704,7 @@ body.debug:before {
   content: "Breakpoint 0";
 }
 @media screen and (min-width: 30em) {
-  /* line 175, ../scss/core/_overrides.scss */
+  /* line 158, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;
@@ -3746,7 +3721,7 @@ body.debug:before {
   }
 }
 @media screen and (min-width: 49em) {
-  /* line 178, ../scss/core/_overrides.scss */
+  /* line 161, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;
@@ -3763,7 +3738,7 @@ body.debug:before {
   }
 }
 @media screen and (min-width: 62em) {
-  /* line 181, ../scss/core/_overrides.scss */
+  /* line 164, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;
@@ -3780,7 +3755,7 @@ body.debug:before {
   }
 }
 @media screen and (min-width: 82em) {
-  /* line 184, ../scss/core/_overrides.scss */
+  /* line 167, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;
