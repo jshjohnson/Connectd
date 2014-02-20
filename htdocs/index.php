@@ -42,21 +42,21 @@
 			<section class="panel panel--designer panel-1-3">
 				<div class="panel__container">
 					<h1 class="panel__title">
-						<a href="<?php echo BASE_URL; ?>designer/"><span>I'm a</span> Designer</a>
+						<a href="<?php echo BASE_URL; ?>designers/"><span>I'm a</span> Designer</a>
 					</h1>
 				</div>
 			</section>
 			<section class="panel panel--developer panel-1-3">
 				<div class="panel__container">
 					<h1 class="panel__title">
-						<a href="<?php echo BASE_URL; ?>developer/"><span>I'm a</span> Developer</a>
+						<a href="<?php echo BASE_URL; ?>developers/"><span>I'm a</span> Developer</a>
 					</h1>
 				</div>
 			</section>
 			<section class="panel panel--employer panel-1-3 float-right">
 				<div class="panel__container">
 					<h1 class="panel__title">
-						<a href="<?php echo BASE_URL; ?>employer/"><span>I'm an</span> Employer</a>
+						<a href="<?php echo BASE_URL; ?>employers/"><span>I'm an</span> Employer</a>
 					</h1>
 				</div>
 			</section>

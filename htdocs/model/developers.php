@@ -6,10 +6,10 @@
 
 		$output = $output . "<div class='media'>";
 		// $output = $output . "<a href='" . BASE_URL . "developer/profile.php?id=" . $developer_id . "'><img src='" . $developer['avatar'] . "' alt='' class='media__img media__img--avatar'></a>";
-		$output = $output . "<a href='" . BASE_URL . "developer/" . $developer['id'] . "/'><img src='http://placehold.it/200x200' alt='' class='media__img media__img--avatar'></a>";
+		$output = $output . "<a href='" . BASE_URL . "developers/" . $developer['id'] . "/'><img src='http://placehold.it/200x200' alt='' class='media__img media__img--avatar'></a>";
 		$output = $output . "<div class='media__body'>";
 		$output = $output . "<div class='float-left user-info'>";
-		$output = $output . "<a href='#'><i class='icon--star'></i></a><a href='" . BASE_URL . "developer/" . $developer['id'] . "/'><h4>" . $developer['firstname'] . ' ' . $developer['lastname'] . "</h4></a>";
+		$output = $output . "<a href='#'><i class='icon--star'></i></a><a href='" . BASE_URL . "developers/" . $developer['id'] . "/'><h4>" . $developer['firstname'] . ' ' . $developer['lastname'] . "</h4></a>";
 		$output = $output . "<p>" . $developer['jobtitle'] . "</p>";
 		$output = $output . "</div>";
 		$output = $output . "<div class='float-right price-per-hour'>";
