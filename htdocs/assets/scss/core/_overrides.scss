@@ -75,40 +75,7 @@
 .alert, %alert {	color:#009;}
 .help, %help {color:#7f7e7e}
 
-.success {
-	background-color: $color-brand-mid;
-	color: white;
-	padding: .5em 1em;
-	font-size: .9em;
-	&:after {
-		content: "";
-		width: 0;
-		height: 0;
-		border-left: .75em solid transparent;
-		border-right: .75em solid transparent;
-		border-top: 0.75em solid $color-brand-mid;
-		position: absolute;
-		left: 3.5em;
-		top: 4.7em;
-		@include respond-max($bp1-5) {
-			left: 2.8em;
-			top: 3.7em;	
-		}
-	}
-}
-
-
-input:disabled {
-	background-color: #ccc !important;
-	@include box-shadow(0 0.1em 0 #948F8F !important);
-	&:hover {
-		@include box-shadow(0 0.1em 0 #948F8F !important);
-		top: 1.4em;
-	}
-}
-
-.error {
-	background-color: $color-brand-highlight;
+.message {
 	color: white;
 	padding: .5em 1em;
 	font-size: .9em;
@@ -119,7 +86,6 @@ input:disabled {
 		height: 0;
 		border-left: .75em solid transparent;
 		border-right: .75em solid transparent;
-		border-top: 0.75em solid $color-brand-highlight;
 		position: absolute;
 		left: 1.5em;
 		top: 100%;
@@ -129,6 +95,30 @@ input:disabled {
 		font-weight: bolder;
 	}
 }
+
+.message--success {
+	background-color: $color-brand-mid;
+	&:after {
+		border-top: 0.75em solid $color-brand-mid;
+	}
+}
+
+.message--error {
+	background-color: $color-brand-highlight;
+	&:after {
+		border-top: 0.75em solid $color-brand-highlight;
+	}
+}
+
+input:disabled {
+	background-color: #ccc !important;
+	@include box-shadow(0 0.1em 0 #948F8F !important);
+	&:hover {
+		@include box-shadow(0 0.1em 0 #948F8F !important);
+		top: 1.4em;
+	}
+}
+
 
 /* Debuggin'
 ----------------------------------*/

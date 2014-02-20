@@ -133,7 +133,9 @@ textarea { line-height: 1.5; }
 .select-container {
 	position: relative;
 	clear: both;
+	overflow: hidden;
 	select {
+		width: 105%;
 		padding: .5em;
 		border: 1px solid;
 		color: $color-brand-dark;
