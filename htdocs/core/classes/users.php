@@ -39,6 +39,31 @@
 			}
 		 
 		}
+
+
+		public function email_confirmed($email) {
+ 
+			$query = $this->db->prepare("SELECT COUNT(`id`) FROM `developers` WHERE `email`= ? AND `confirmed` = ?");
+			$query->bindValue(1, $email);
+			$query->bindValue(2, 1);
+			
+			try{
+				
+				$query->execute();
+				$rows = $query->fetchColumn();
+		 
+				if($rows == 1){
+					return true;
+				}else{
+					return false;
+				}
+		 
+			} catch(PDOException $e){
+				die($e->getMessage());
+			}
+		 
+		}
+
 		
 		// Register a developer on sign up
 		public function registerDev($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio){
@@ -48,7 +73,11 @@
 			$email_code = sha1($email + microtime());
 			$password = salt($password);
 		 
-			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".developers(firstname, lastname, email, email_code, time, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".developers
+				(firstname, lastname, email, email_code, time, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, ip) 
+				VALUES 
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+				");
 		 
 			$query->bindValue(1, $firstname);
 			$query->bindValue(2, $lastname);
@@ -69,7 +98,7 @@
 			try{
 				$query->execute();
 		 
-				mail($email, 'Please activate your account', "Hello " . $firstname. ",\r\n\r\nThank you for registering with Connectd. Please visit the link below so we can activate your account:\r\n\r\nhttp://localhost:8888/Connectd/htdocs/sign-in.php?email=" . $email . "&email_code=" . $email_code . "\r\n\r\n-- Connectd team");
+				mail($email, 'Please activate your account', "Hello " . $firstname. ",\r\n\r\nThank you for registering with Connectd. Please visit the link below so we can activate your account:\r\n\r\n" . BASE_URL . "/sign-in.php?email=" . $email . "&email_code=" . $email_code . "\r\n\r\n-- Connectd team");
 			
 			}catch(PDOException $e){
 				die($e->getMessage());
@@ -106,6 +135,31 @@
 				}
 	 
 			} catch(PDOException $e){
+				die($e->getMessage());
+			}
+		}
+
+
+		public function loginDev($email, $password) {
+ 
+			$query = $this->db->prepare("SELECT `password`, `id` FROM `developers` WHERE `email` = ?");
+			$query->bindValue(1, $email);
+			
+			try{
+				
+				$query->execute();
+				$data 				= $query->fetch();
+				$stored_password 	= $data['password'];
+				$id 				= $data['id'];
+				
+				#hashing the supplied password and comparing it with the stored hashed password.
+				if($stored_password === salt($password)){
+					return $id;	
+				}else{
+					return false;	
+				}
+		 
+			}catch(PDOException $e){
 				die($e->getMessage());
 			}
 		}

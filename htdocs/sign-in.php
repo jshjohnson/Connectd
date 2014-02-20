@@ -2,14 +2,52 @@
 	require_once("config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
-
-
 	$pageTitle = "Sign in";
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "inc/functions.php"); 
-	errors();
-	include_once(ROOT_PATH . "inc/login.php");
+
 	$status = $_GET["status"];
+
+	if (isset($_POST['submit'])) {
+ 
+		$email = trim($_POST['email']);
+		$password = trim($_POST['password']);
+ 
+		if (empty($email) === true || empty($password) === true) {
+			$errors[] = 'Sorry, but we need your username and password.';
+		} else if ($users->email_exists($email) === false) {
+			$errors[] = 'Sorry that username doesn\'t exists.';
+		} else if ($users->email_confirmed($email) === false) {
+			$errors[] = 'Sorry, but you need to activate your account. Please check your emails.';
+		} else {
+	 
+			$login = $users->loginDev($email, $password);
+
+			$db_name = $row['firstname'] . ' ' . $row['lastname'];
+			$db_email = $row['email'];
+
+			if ($login === false) {
+				$errors[] = 'Sorry, that username/password is invalid';
+			}else {
+				// username/password is correct and the login method of the $users object returns the user's id, which is stored in $login.
+	 
+	 			$_SESSION['id'] =  $login; // The user's id is now set into the user's session  in the form of $_SESSION['id'] 
+				$_SESSION['username'] = $db_name;
+				$_SESSION['email']=$email;
+				$_SESSION['logged']="logged";
+
+
+				// If remember has been checked, set a cookie
+				if($remember) {
+					setcookie('remember_me', $email, $year);
+				}
+				
+				#Redirect the user to the dashboard
+				header('Location: dashboard/');
+				exit();
+			}
+		}
+	} 
 ?>
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
@@ -66,7 +104,7 @@
 		        } else if ($status == "logged") : ?>
 				<p class="success">Successfully logged out - see you soon!</p>
 				<?php elseif($status == "activated") : ?>
-				<p class="success">Welcome to Connectd! - Sign in below</p>
+				<p class="success">Successfully activated account. Welcome to Connectd!</p>
 				<?php endif; ?>
 				<?php 
 					# if there are errors, they would be displayed here.
