@@ -1,4 +1,12 @@
 RewriteEngine On
-RewriteRule ^designer/$ <%= database['urlpath'] %>designer/signup.php
-RewriteRule ^developer/$ <%= database['urlpath'] %>developer/signup.php
-RewriteRule ^employer/$ <%= database['urlpath'] %>employer/signup.php
+RewriteRule ^designers/$ <%= database['urlpath'] %>designers/signup.php
+RewriteRule ^designers/([0-9]+)/$ <%= database['urlpath'] %>designers/profile.php?id=$1
+
+RewriteRule ^developers/$ <%= database['urlpath'] %>developers/signup.php
+RewriteRule ^developers/([0-9]+)/$ <%= database['urlpath'] %>developers/profile.php?id=$1
+
+RewriteRule ^employers/$ <%= database['urlpath'] %>employers/signup.php
+RewriteRule ^employers/([0-9]+)/$ <%= database['urlpath'] %>employers/profile.php?id=$1
+
+RewriteRule ^jobs/([0-9]+)/$ <%= database['urlpath'] %>jobs/index.php?id=$1
+
