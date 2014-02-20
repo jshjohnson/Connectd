@@ -32,8 +32,7 @@
 
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
-		$s_username = $_SESSION['email'];
-		$errors[] = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "inc/sign-out.php'>logout</a> before trying to register.";
+		header('Location: dashboard/');
 	}else if (isset($_POST['submit'])) {
 
 		// Form hijack prevention
@@ -137,11 +136,11 @@
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
 				<?php 
 					if(empty($errors) === false){
-						echo '<p class="error">' . implode('</p><p>', $errors) . '</p>';
+						echo '<p class="message message--error">' . implode('</p><p>', $errors) . '</p>';
 					}
 				?>
 				<?php if ($status == "success") : ?>
-				<p class="success">Thank you for registering. Please check your emails to activate your account.</p>
+				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>developer/signup.php" autocomplete="off" class="sign-up-form">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" >

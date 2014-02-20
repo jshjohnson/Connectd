@@ -30,81 +30,77 @@
 	// Mail validation using PHPMailer
 	$mail = new PHPMailer(); // defaults to using php "mail()"
 
-	$s_username = '';
-
-
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
-		$s_username = $_SESSION['email'];
-		$errors[] = "You are already logged in as <b>$s_username</b>. Please <a href='" . BASE_URL . "inc/sign-out.php'>logout</a> before trying to register.";
+		header('Location: dashboard/');
 	}else if (isset($_POST['submit'])) {
 
-			// Form hijack prevention
-			foreach( $_POST as $value ){
-	            if( stripos($value,'Content-Type:') !== FALSE ){
-	                $errors[] = "Hmmmm. Are you a robot? Try again.";
-	            }
-	        }
+		// Form hijack prevention
+		foreach( $_POST as $value ){
+            if( stripos($value,'Content-Type:') !== FALSE ){
+                $errors[] = "Hmmmm. Are you a robot? Try again.";
+            }
+        }
 
-	     	$r1='/[A-Z]/';  // Test for an uppercase character
-	       	$r2='/[a-z]/';  // Test for a lowercase character
-			$r3='/[0-9]/';  // Test for a number
+     	$r1='/[A-Z]/';  // Test for an uppercase character
+       	$r2='/[a-z]/';  // Test for a lowercase character
+		$r3='/[0-9]/';  // Test for a number
 
-			if($firstname == ""){
-			    $errors[] ="Please enter your first name"; 
-			}else if($lastname == ""){
-			    $errors[] ="Please enter your last name"; 
-			}else if($email == ""){
-			    $errors[] ="Please enter your email"; 
-			}else if (!$mail->ValidateAddress($email)){
-					$errors[] = "You must specify a valid email address.";
-			}else if ($users->email_exists($email) === true) {
-			    $errors[] = "Email already taken. Please try again.";
-			}else if($password == ""){
-			    $errors[] ="Please enter a password"; 
-			}else if ($password!=$repeatpassword){ 
-				$errors[] = "Both password fields must match";
-			} else if(preg_match_all($r1,$password)<1) {
-				$errors[] = "Your password needs to contain at least one uppercase character";
-			} else if(preg_match_all($r2,$password)<1) {
-				$errors[] = "Your password needs to contain at least one lowercase character";
-			} else if(preg_match_all($r3,$password)<1) {
-				$errors[] = "Your password needs to contain at least one number";
-			} else if (strlen($password)>25||strlen($password)<6) {
-				$errors[] = "Password must be 6-25 characters long";
-			} else if($portfolio == ""){
-			    $errors[] ="You must have an active portfolio to join Connectd"; 
-			} else if($jobtitle == ""){
-			    $errors[] ="Please select your current job title"; 
-			}else if($experience == ""){
-			    $errors[] ="Please enter your experience"; 
-			}else if($bio == ""){
-			    $errors[] ="Please write about yourself"; 
-			}else if(strlen($bio)<25) {
-				$errors[] = "You're not going to sell yourself without a decent bio!";
-			}
-
-			if(empty($errors) === true){
-
-				$firstname = $general->clean_string($db, $firstname);
-				$lastname = $general->clean_string($db, $lastname);
-				$email = $general->clean_string($db, $email);
-				$password = $general->clean_string($db, $password);
-				$repeatpassword = $general->clean_string($db, $repeatpassword);
-				$age = $general->clean_string($db, $age);
-				$jobtitle = $general->clean_string($db, $jobtitle);
-				$priceperhour = $general->clean_string($db, $priceperhour);
-				$bio = $general->clean_string($db, $bio);
-				$portfolio = $general->clean_string($db, $portfolio);
-				$experience = $general->clean_string($db, $experience);
-				$jobtitle = $general->clean_string($db, $jobtitle);
-		 
-				$designers->registerDesigner($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);
-				header("Location:" . BASE_URL . "designer/signup.php?status=success");
-				exit();
-			}
-
+		if($firstname == ""){
+		    $errors[] ="Please enter your first name"; 
+		}else if($lastname == ""){
+		    $errors[] ="Please enter your last name"; 
+		}else if($email == ""){
+		    $errors[] ="Please enter your email"; 
+		}else if (!$mail->ValidateAddress($email)){
+				$errors[] = "You must specify a valid email address.";
+		}else if ($users->email_exists($email) === true) {
+		    $errors[] = "Email already taken. Please try again.";
+		}else if($password == ""){
+		    $errors[] ="Please enter a password"; 
+		}else if ($password!=$repeatpassword){ 
+			$errors[] = "Both password fields must match";
+		} else if(preg_match_all($r1,$password)<1) {
+			$errors[] = "Your password needs to contain at least one uppercase character";
+		} else if(preg_match_all($r2,$password)<1) {
+			$errors[] = "Your password needs to contain at least one lowercase character";
+		} else if(preg_match_all($r3,$password)<1) {
+			$errors[] = "Your password needs to contain at least one number";
+		} else if (strlen($password)>25||strlen($password)<6) {
+			$errors[] = "Password must be 6-25 characters long";
+		} else if($portfolio == ""){
+		    $errors[] ="You must have an active portfolio to join Connectd"; 
+		} else if($jobtitle == ""){
+		    $errors[] ="Please select your current job title"; 
+		}else if($experience == ""){
+		    $errors[] ="Please enter your experience"; 
+		}else if($bio == ""){
+		    $errors[] ="Please write about yourself"; 
+		}else if(strlen($bio)<25) {
+			$errors[] = "You're not going to sell yourself without a decent bio!";
 		}
+
+		if(empty($errors) === true){
+
+			$firstname = $general->clean_string($db, $firstname);
+			$lastname = $general->clean_string($db, $lastname);
+			$email = $general->clean_string($db, $email);
+			$password = $general->clean_string($db, $password);
+			$repeatpassword = $general->clean_string($db, $repeatpassword);
+			$age = $general->clean_string($db, $age);
+			$jobtitle = $general->clean_string($db, $jobtitle);
+			$priceperhour = $general->clean_string($db, $priceperhour);
+			$bio = $general->clean_string($db, $bio);
+			$portfolio = $general->clean_string($db, $portfolio);
+			$experience = $general->clean_string($db, $experience);
+			$jobtitle = $general->clean_string($db, $jobtitle);
+	 
+			$designers->registerDesigner($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);
+			header("Location:" . BASE_URL . "designer/signup.php?status=success");
+			exit();
+		}
+
+	}
 
 ?>
 	<header class="header header-blue--alt zero-bottom cf">
@@ -142,11 +138,11 @@
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
 				<?php 
 					if(empty($errors) === false){
-						echo '<p class="error">' . implode('</p><p>', $errors) . '</p>';
+						echo '<p class="message message--error">' . implode('</p><p>', $errors) . '</p>';
 					}
 				?>
 				<?php if ($status == "success") : ?>
-				<p class="success">Thank you for registering. Please check your emails to activate your account.</p>
+				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>designer/signup.php" autocomplete="off" class="sign-up-form">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" >
