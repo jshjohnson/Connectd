@@ -46,7 +46,7 @@
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->query("SELECT * FROM " . DB_NAME . ".designers");
+			$results = $db->query("SELECT * FROM " . DB_NAME . ".designers WHERE `confirmed` = 1");
 		} catch (Exception $e) {
 			echo "Damn. Data could not be retrieved";
 			exit;
