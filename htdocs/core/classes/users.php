@@ -44,11 +44,11 @@
 		public function email_confirmed($email) {
  
 			$query = $this->db->prepare("SELECT 
-				COUNT(`id`) FROM `developers` WHERE developers.email=  ? AND confirmed = ?
+				developers.id FROM " . DB_NAME . ".developers WHERE developers.email=  ? AND confirmed = ?
 				UNION SELECT 
-				COUNT(`id`) FROM `designers` WHERE designers.email = ? AND confirmed = ?
+				designers.id FROM " . DB_NAME . ".designers WHERE designers.email = ? AND confirmed = ?
 				UNION SELECT 
-				COUNT(`id`) FROM `employers` WHERE employers.email = ? AND confirmed = ?
+				employers.id FROM " . DB_NAME . ".employers WHERE employers.email = ? AND confirmed = ?
 				");
 			$query->bindValue(1, $email);
 			$query->bindValue(2, 1);
