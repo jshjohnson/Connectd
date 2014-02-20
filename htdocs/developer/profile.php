@@ -14,7 +14,8 @@
 		exit();
 	}
 
-	$s_username = $_SESSION['username'];
+	$user = $users->userdata($_SESSION['id']);
+	$username = $user[0] . " " . $user[1];
 	
 	$pageTitle = $developer['firstname'] . ' ' . $developer['lastname'];
 	$section = "Developer";

@@ -30,8 +30,6 @@
 	// Mail validation using PHPMailer
 	$mail = new PHPMailer(); // defaults to using php "mail()"
 
-	$s_username = '';
-
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['email'];

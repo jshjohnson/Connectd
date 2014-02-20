@@ -24,7 +24,7 @@
 	$section = "Designers";
 
 	$user = $users->userdata($_SESSION['id']);
-	$username = $user[1] . " " . $user[2];
+	$username = $user[0] . " " . $user[1];
 	
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "views/page-header.php");

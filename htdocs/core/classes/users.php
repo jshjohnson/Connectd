@@ -110,8 +110,14 @@
 		// Get user data
 		public function userdata($id) {
  
-			$query = $this->db->prepare("SELECT * FROM " . DB_NAME . ".developers WHERE `id`= ?");
+			$query = $this->db->prepare("
+				SELECT firstname, lastname FROM " . DB_NAME . ".developers WHERE `id`= ?
+				UNION SELECT firstname, lastname FROM " . DB_NAME . ".designers WHERE `id`= ?
+				UNION SELECT firstname, lastname FROM " . DB_NAME . ".employers WHERE `id`= ?
+				");
 			$query->bindValue(1, $id);
+			$query->bindValue(2, $id);
+			$query->bindValue(3, $id);
 		 
 			try{
 		 

@@ -4,6 +4,7 @@
 
 	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
 
+	$general->errors();
 	$general->logged_in_protect();
 
 	$pageTitle = "Sign Up";
@@ -23,137 +24,79 @@
 	$businessbio = trim($_POST['businessbio']);
 	$submit = trim($_POST['submit']);
 
+	$status = $_GET["status"];
+
 	// Mail validation using PHPMailer
 	$mail = new PHPMailer(); // defaults to using php "mail()"
 
-	// Create some variables to hold output data
-	$errors = array();
-	$s_username = '';
-
-	// Start to use PHP session
-	session_start();
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
 		$s_username = $_SESSION['firstname'];
 		$errors[] = "You are already logged in as $s_username. Please <a href='" . BASE_URL . "sign-out.php'>logout</a> before trying to register.";
-	}else{
-		if ($submit){
+	}else if (isset($_POST['submit'])) {
 
-			// Form hijack prevention
-			foreach( $_POST as $value ){
-	            if( stripos($value,'Content-Type:') !== FALSE ){
-	                $errors[] = "Hmmmm. Are you a robot? Try again.";
-	            }
-	        }
+		// Form hijack prevention
+		foreach( $_POST as $value ){
+            if( stripos($value,'Content-Type:') !== FALSE ){
+                $errors[] = "Hmmmm. Are you a robot? Try again.";
+            }
+        }
 
-	        $r1='/[A-Z]/';  // Test for an uppercase character
-	       	$r2='/[a-z]/';  // Test for a lowercase character
-			$r3='/[0-9]/';  // Test for a number
-				
-		    if($firstname == ""){
-		        $errors[] ="Please enter your first name"; 
-		    }else if($lastname == ""){
-		        $errors[] ="Please enter your last name"; 
-		    }else if($email == ""){
-		        $errors[] ="Please enter your email"; 
-		    }else if (!$mail->ValidateAddress($email)){
-       			 $errors[]  = "You must specify a valid email address.";
-    		}else if($password == ""){
-		        $errors[] ="Please enter a password"; 
-		    }else if ($password!=$repeatpassword){ 
-				$errors[]  = "Both password fields must match";
-			}else if(preg_match_all($r1,$password)<1) {
-				$errors[]  = "Your password needs to contain at least one uppercase character";
-			}else if(preg_match_all($r2,$password)<1) {
-				$errors[]  = "Your password needs to contain at least one lowercase character";
-			}else if(preg_match_all($r3,$password)<1) {
-				$errors[]  = "Your password needs to contain at least one number";
-			}else if (strlen($password)>25||strlen($password)<6) {
-				$errors[]  = "Password must be 6-25 characters long";
-			}else if($businessname == ""){
-		        $errors[]  = "Please enter your business name"; 
-		    }else if($businesstype == ""){
-		        $errors[]  = "Please enter your business type"; 
-		    }else if($businessbio == ""){
-		        $errors[]  = "Please write about your business"; 
-		    }else if(strlen($businessbio)<25) {
-				$errors[]  = "Freelancers require a bit more information about your business!";
-			}
-
-			if(empty($errors) === true) {
-
-				// Process details here
-				require(ROOT_PATH . "core/connect/database.php");//include file to do db connect
-
-				//clean the input now that we have a db connection
-				$firstname = clean_string($db, $firstname);
-				$lastname = clean_string($db, $lastname);
-				$email = clean_string($db, $email);
-				$password = clean_string($db, $password);
-				$repeatpassword = clean_string($db, $repeatpassword);
-				$businessname = clean_string($db, $businessname);
-				$location = clean_string($db, $location);
-				$businesstype = clean_string($db, $businesstype);
-				$businesswebsite = clean_string($db, $businesswebsite);
-				$businessbio = clean_string($db, $businessbio);
-
-				try {
-					$result = $db->prepare("SELECT designers.email 
-						FROM " . DB_NAME . ".designers 
-						WHERE designers.email = ? 
-						UNION SELECT developers.email 
-						FROM " . DB_NAME . ".developers 
-						WHERE developers.email = ?
-						UNION SELECT employers.email 
-						FROM " . DB_NAME . ".employers 
-						WHERE employers.email = ?");
-					$result->bindParam(1, $email);
-					$result->bindParam(2, $email);
-					$result->bindParam(3, $email);
-					$result->execute();
-
-					$total = $result->rowCount();
-					$row = $result->fetch();
-				
-				} catch (Exception $e) {
-					echo "Damn. Data could not be retrieved.";
-					exit;
-				}
-
-				if ($total > 0) {
-					$message = "Email already taken. Please try again.";
-				}else{
-					// Encrypt password
-					$password = salt($password);
-					
-					try {
-						$result = $db->prepare("INSERT INTO " . DB_NAME . ".employers
-							(firstname, lastname, email, password, businessname, location, businesstype, businesswebsite, businessbio, datejoined) 
-							VALUES 
-							(?, ?, ?, ?, ?, ?, ?, ?, ?, now())");
-						$result->bindParam(1, $firstname);
-						$result->bindParam(2, $lastname);
-						$result->bindParam(3, $email);
-						$result->bindParam(4, $password);
-						$result->bindParam(5, $businessname);
-						$result->bindParam(6, $location);
-						$result->bindParam(7, $businesstype);
-						$result->bindParam(8, $businesswebsite);
-						$result->bindParam(9, $businessbio);
-						$result->execute();
-					
-					} catch (Exception $e) {
-						echo "Damn. Couldn't add user to database.";
-						exit;
-					}
-
-					header("Location:" . BASE_URL . "sign-in.php?status=registered");
-				}
-			}
-
+        $r1='/[A-Z]/';  // Test for an uppercase character
+       	$r2='/[a-z]/';  // Test for a lowercase character
+		$r3='/[0-9]/';  // Test for a number
+			
+	    if($firstname == ""){
+	        $errors[] ="Please enter your first name"; 
+	    }else if($lastname == ""){
+	        $errors[] ="Please enter your last name"; 
+	    }else if($email == ""){
+	        $errors[] ="Please enter your email"; 
+	    }else if (!$mail->ValidateAddress($email)){
+   			 $errors[]  = "You must specify a valid email address.";
+		}else if($password == ""){
+	        $errors[] ="Please enter a password"; 
+	    }else if ($password!=$repeatpassword){ 
+			$errors[]  = "Both password fields must match";
+		}else if(preg_match_all($r1,$password)<1) {
+			$errors[]  = "Your password needs to contain at least one uppercase character";
+		}else if(preg_match_all($r2,$password)<1) {
+			$errors[]  = "Your password needs to contain at least one lowercase character";
+		}else if(preg_match_all($r3,$password)<1) {
+			$errors[]  = "Your password needs to contain at least one number";
+		}else if (strlen($password)>25||strlen($password)<6) {
+			$errors[]  = "Password must be 6-25 characters long";
+		}else if($businessname == ""){
+	        $errors[]  = "Please enter your business name"; 
+	    }else if($businesstype == ""){
+	        $errors[]  = "Please enter your business type"; 
+	    }else if($businessbio == ""){
+	        $errors[]  = "Please write about your business"; 
+	    }else if(strlen($businessbio)<25) {
+			$errors[]  = "Freelancers require a bit more information about your business!";
 		}
-	}
 
+		if(empty($errors) === true) {
+
+			//clean the input now that we have a db connection
+			$firstname = $general->clean_string($db, $firstname);
+			$lastname = $general->clean_string($db, $lastname);
+			$email = $general->clean_string($db, $email);
+			$password = $general->clean_string($db, $password);
+			$repeatpassword = $general->clean_string($db, $repeatpassword);
+			$businessname = $general->clean_string($db, $businessname);
+			$location = $general->clean_string($db, $location);
+			$businesstype = $general->clean_string($db, $businesstype);
+			$businesswebsite = $general->clean_string($db, $businesswebsite);
+			$businessbio = $general->clean_string($db, $businessbio);
+
+
+			$employers->registerEmployer($firstname, $lastname, $email, $password, $businessname, $location, $businesstype, $businesswebsite, $businessbio);
+			header("Location:" . BASE_URL . "employer/signup.php?status=success");
+			exit();
+		}
+
+	}
 ?>
 	<header class="header header-green--alt zero-bottom cf">
 		<div class="container">
@@ -189,18 +132,20 @@
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
 				<?php 
-					# if there are errors, they would be displayed here.
 					if(empty($errors) === false){
 						echo '<p class="error">' . implode('</p><p>', $errors) . '</p>';
 					}
 				?>
+				<?php if ($status == "success") : ?>
+				<p class="success">Thank you for registering. Please check your emails to activate your account.</p>
+				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>employer/signup.php" autocomplete="off" class="sign-up-form">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" required="required">
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" required="required">
-					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" required="required">
-					<input type='password' name='password' placeholder="Password" class="field-1-2" required="required" value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
-					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right" required="required" value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
-					<input type="text" name="businessname" placeholder="Business name" value="<?php if (isset($businessname)) { echo htmlspecialchars($businessname); } ?>" required="required">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" >
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" >
+					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" >
+					<input type='password' name='password' placeholder="Password" class="field-1-2"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
+					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
+					<input type="text" name="businessname" placeholder="Business name" value="<?php if (isset($businessname)) { echo htmlspecialchars($businessname); } ?>" >
 					<label for="jobtitle">What is the location of your business?</label>
 					<div class="select-container">
 					<?php 
@@ -238,9 +183,9 @@
 						</select>
 					</div>
 					<input type="text" name="businesswebsite" placeholder="Business website" value="<?php if (isset($businesswebsite)) { echo htmlspecialchars($businesswebsite); } ?>">
-					<textarea name="businessbio" cols="30" rows="8" placeholder="A little about your business..." required="required"><?php if (isset($businessbio)) { echo htmlspecialchars($businessbio); } ?></textarea>
+					<textarea name="businessbio" cols="30" rows="8" placeholder="A little about your business..." ><?php if (isset($businessbio)) { echo htmlspecialchars($businessbio); } ?></textarea>
 					<div class="button-container">
-		            	<input class="submit" name="submit" type="submit" value='Start employing' disabled="disabled">						
+		            	<input class="submit" name="submit" type="submit" value='Start employing'>						
 					</div>
 		        </form>
 			</div>

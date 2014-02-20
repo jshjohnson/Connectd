@@ -9,7 +9,7 @@
 	$section = "Dashboard";
 
 	$user = $users->userdata($_SESSION['id']);
-	$username = $user[1] . " " . $user[2];
+	$username = $user[0] . " " . $user[1];
 
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "views/page-header.php");
@@ -28,7 +28,7 @@
 		<section class="call-to-action call-to-action--top">
 			<div class="container">
 				<h4 class="as-h1 call-to-action__title">
-					Welcome <?php echo $user[1]; ?>!
+					Welcome <?php echo $user[0]; ?>!
 				</h4>
 				<button class="button-red"><a href="<?php echo BASE_URL . "developer/profile.php?id=" . $_SESSION['userID']; ?>">Build your profile</a></button>
 			</div>
