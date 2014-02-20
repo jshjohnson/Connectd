@@ -9,7 +9,9 @@
 
 	$status = $_GET["status"];
 
-	if (isset($_POST['submit'])) {
+	if (isset($_SESSION['logged'])){
+		header('Location: dashboard/');
+	}else if (isset($_POST['submit'])) {
  
 		$email = trim($_POST['email']);
 		$password = trim($_POST['password']);
@@ -79,7 +81,7 @@
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
 			<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true)  { ?>
-	        <p class="success">Thank you, we've activated your account. You're free to log in!</p>
+	        <p class="message message--success">Thank you, we've activated your account. You're free to log in!</p>
 	        <?php } else if (isset ($_GET['email'], $_GET['email_code'], $_GET['user']) === true) {
 		            
 			    $email 		= trim($_GET['email']);
@@ -111,14 +113,14 @@
 	            }
 	        
 		        } else if ($status == "logged") : ?>
-				<p class="success">Successfully logged out - see you soon!</p>
+				<p class="message message--success">Successfully logged out - see you soon!</p>
 				<?php elseif($status == "activated") : ?>
-				<p class="success">Successfully activated account. Welcome to Connectd!</p>
+				<p class="message message--success">Successfully activated account. Welcome to Connectd!</p>
 				<?php endif; ?>
 				<?php 
 					# if there are errors, they would be displayed here.
 					if(empty($errors) === false){
-						echo '<p class="error">' . implode('</p><p>', $errors) . '</p>';
+						echo '<p class="message message--error">' . implode('</p><p>', $errors) . '</p>';
 					}
 				?>
 				<form method="post" action="sign-in.php" autocomplete="off">
