@@ -100,7 +100,7 @@
 			$experience = $general->clean_string($db, $experience);
 			$jobtitle = $general->clean_string($db, $jobtitle);
 	 
-			$users->registerDeveloper($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);
+			$developers->registerDeveloper($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);
 			header("Location:" . BASE_URL . "developer/signup.php?status=success");
 			exit();
 		}
@@ -144,7 +144,7 @@
 					}
 				?>
 				<?php if ($status == "success") : ?>
-				<p class="success">Thank you for registering. Please check your emails to active your account.</p>
+				<p class="success">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>developer/signup.php" autocomplete="off" class="sign-up-form">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" >

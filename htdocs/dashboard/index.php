@@ -8,9 +8,10 @@
 	$pageTitle = "Dashboard";
 	$section = "Dashboard";
 
+	$user 		= $users->userdata($_SESSION['id']);
+	$username 	= $user['username'];
 
-	$s_username = $_SESSION['username'];
-	
+
 	include_once(ROOT_PATH . "views/header.php");
 	include_once(ROOT_PATH . "views/page-header.php");
 
@@ -28,7 +29,7 @@
 		<section class="call-to-action call-to-action--top">
 			<div class="container">
 				<h4 class="as-h1 call-to-action__title">
-					Welcome <?php echo implode(' ', array_slice(explode(' ', $s_username), 0, 1)); ?>!
+					Welcome <?php echo implode(' ', array_slice(explode(' ', $username), 0, 1)); ?>!
 				</h4>
 				<button class="button-red"><a href="<?php echo BASE_URL . "developer/profile.php?id=" . $_SESSION['userID']; ?>">Build your profile</a></button>
 			</div>
