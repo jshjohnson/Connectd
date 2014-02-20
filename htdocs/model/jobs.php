@@ -20,7 +20,7 @@
 
 		$output = $output . "</span>";
 		$output = $output . "</div>";
-		$output = $output . "<a href='" . BASE_URL . "jobs/index.php?id=" . $job_id . "'><p class='media__body'>" . $job['jobtitle'] . "</p></a>";
+		$output = $output . "<a href='" . BASE_URL . "jobs/" . $job_id . "/'><p class='media__body'>" . $job['jobtitle'] . "</p></a>";
 		$output = $output . "</div>";
 		$output = $output . "<div class='media-1-3 media__side'>";
 		$output = $output . "<p><small>Posted " . $job['date'] . "</small></p>";

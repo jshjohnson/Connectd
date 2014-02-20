@@ -7,3 +7,6 @@ RewriteRule ^developer/([0-9]+)/$ /Connectd/htdocs/developer/profile.php?id=$1
 
 RewriteRule ^employer/$ /Connectd/htdocs/employer/signup.php
 RewriteRule ^employer/([0-9]+)/$ /Connectd/htdocs/employer/profile.php?id=$1
+
+RewriteRule ^jobs/([0-9]+)/$ /Connectd/htdocs/jobs/index.php?id=$1
+
