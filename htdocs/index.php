@@ -32,8 +32,8 @@
 	<section id="home" class="site-wrap">
 		<header class="site-intro">
 			<div class="site-intro__wrap">
-				<a href="#home"><h1 class="site-intro__heading">connectd.io</h1></a>
-				<a href="#home"><h1 class="site-intro__sub-heading">An alternative for freelancers and employers</h1></a>
+				<a href="#register"><h1 class="site-intro__heading">connectd.io</h1></a>
+				<a href="#register"><h1 class="site-intro__sub-heading">An alternative for freelancers and employers</h1></a>
 			</div>
 		</header>
 		<h2 class="logo text-right"><a href="<?php echo BASE_URL; ?>">connectd</a></h2>
