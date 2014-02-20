@@ -43,9 +43,19 @@
 
 		public function email_confirmed($email) {
  
-			$query = $this->db->prepare("SELECT COUNT(`id`) FROM `developers` WHERE `email`= ? AND `confirmed` = ?");
+			$query = $this->db->prepare("SELECT 
+				COUNT(`id`) FROM `developers` WHERE developers.email=  ? AND confirmed = ?
+				UNION SELECT 
+				COUNT(`id`) FROM `designers` WHERE designers.email = ? AND confirmed = ?
+				UNION SELECT 
+				COUNT(`id`) FROM `employers` WHERE employers.email = ? AND confirmed = ?
+				");
 			$query->bindValue(1, $email);
 			$query->bindValue(2, 1);
+			$query->bindValue(3, $email);
+			$query->bindValue(4, 1);
+			$query->bindValue(5, $email);
+			$query->bindValue(6, 1);
 			
 			try{
 				
@@ -77,8 +87,6 @@
 			$query->bindValue(1, $email);
 			$query->bindValue(2, $email);
 			$query->bindValue(3, $email);
-
-
 			
 			try{
 				
@@ -95,6 +103,102 @@
 				}
 		 
 			}catch(PDOException $e){
+				die($e->getMessage());
+			}
+		}
+
+		// Activate developer after following emailed url
+
+		public function activateDeveloper($email, $email_code) {
+		
+			$query = $this->db->prepare("SELECT COUNT(`id`) FROM `developers` WHERE `email` = ? AND `email_code` = ? AND `confirmed` = ?");
+	 
+			$query->bindValue(1, $email);
+			$query->bindValue(2, $email_code);
+			$query->bindValue(3, 0);
+	 
+			try{
+	 
+				$query->execute();
+				$rows = $query->fetchColumn();
+	 
+				if($rows == 1){
+					
+					$query_2 = $this->db->prepare("UPDATE `developers` SET `confirmed` = ? WHERE `email` = ?");
+	 
+					$query_2->bindValue(1, 1);
+					$query_2->bindValue(2, $email);							
+	 
+					$query_2->execute();
+					return true;
+				} else {
+					return false;
+				}
+	 
+			} catch(PDOException $e){
+				die($e->getMessage());
+			}
+		}
+
+
+		public function activateDesigner($email, $email_code) {
+		
+			$query = $this->db->prepare("SELECT COUNT(`id`) FROM `designers` WHERE `email` = ? AND `email_code` = ? AND `confirmed` = ?");
+	 
+			$query->bindValue(1, $email);
+			$query->bindValue(2, $email_code);
+			$query->bindValue(3, 0);
+	 
+			try{
+	 
+				$query->execute();
+				$rows = $query->fetchColumn();
+	 
+				if($rows == 1){
+					
+					$query_2 = $this->db->prepare("UPDATE `designers` SET `confirmed` = ? WHERE `email` = ?");
+	 
+					$query_2->bindValue(1, 1);
+					$query_2->bindValue(2, $email);							
+	 
+					$query_2->execute();
+					return true;
+				} else {
+					return false;
+				}
+	 
+			} catch(PDOException $e){
+				die($e->getMessage());
+			}
+		}
+
+		public function activateEmployer($email, $email_code) {
+		
+			$query = $this->db->prepare("SELECT COUNT(`id`) FROM `developers` WHERE `email` = ? AND `email_code` = ? AND `confirmed` = ?");
+	 
+			$query->bindValue(1, $email);
+			$query->bindValue(2, $email_code);
+			$query->bindValue(3, 0);
+	 
+			try{
+	 
+				$query->execute();
+				$rows = $query->fetchColumn();
+	 
+				if($rows == 1){
+					
+					$query_2 = $this->db->prepare("UPDATE `employers` SET `confirmed` = ? WHERE `email` = ?");
+	 
+					$query_2->bindValue(1, 1);
+					$query_2->bindValue(2, $email);							
+	 
+					$query_2->execute();
+					return true;
+				} else {
+					return false;
+				}
+	 
+			} catch(PDOException $e){
 				die($e->getMessage());
 			}
 		}
@@ -134,50 +238,16 @@
 			try{
 				$query->execute();
 		 
-				mail($email, 'Please activate your account', "Hello " . $firstname. ",\r\n\r\nThank you for registering with Connectd. Please visit the link below so we can activate your account:\r\n\r\n" . BASE_URL . "/sign-in.php?email=" . $email . "&email_code=" . $email_code . "\r\n\r\n-- Connectd team");
+				mail($email, 'Please activate your account', "Hello " . $firstname. ",\r\n\r\nThank you for registering with Connectd. Please visit the link below so we can activate your account:\r\n\r\n" . BASE_URL . "sign-in.php?email=" . $email . "&email_code=" . $email_code . "&user=developer\r\n\r\n-- Connectd team");
 			
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}	
 		}
 
-		// Activate developer after following emailed url
-
-		public function activateDeveloper($email, $email_code) {
-		
-			$query = $this->db->prepare("SELECT COUNT(`id`) FROM `developers` WHERE `email` = ? AND `email_code` = ? AND `confirmed` = ?");
-	 
-			$query->bindValue(1, $email);
-			$query->bindValue(2, $email_code);
-			$query->bindValue(3, 0);
-	 
-			try{
-	 
-				$query->execute();
-				$rows = $query->fetchColumn();
-	 
-				if($rows == 1){
-					
-					$query_2 = $this->db->prepare("UPDATE `developers` SET `confirmed` = ? WHERE `email` = ?");
-	 
-					$query_2->bindValue(1, 1);
-					$query_2->bindValue(2, $email);				
-	 
-					$query_2->execute();
-					return true;
-	 
-				}else{
-					return false;
-				}
-	 
-			} catch(PDOException $e){
-				die($e->getMessage());
-			}
-		}
-
 		//***************************** Designer *****************************//
 
-		// Register a developer on sign up
+		// Register a designer on sign up
 		public function registerDesigner($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio){
 			
 			$time 		= time();
@@ -185,7 +255,7 @@
 			$email_code = sha1($email + microtime());
 			$password = sha1($password);
 		 
-			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".developers
+			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".designers
 				(firstname, lastname, email, email_code, time, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, ip) 
 				VALUES 
 				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -210,75 +280,17 @@
 			try{
 				$query->execute();
 		 
-				mail($email, 'Please activate your account', "Hello " . $firstname. ",\r\n\r\nThank you for registering with Connectd. Please visit the link below so we can activate your account:\r\n\r\n" . BASE_URL . "/sign-in.php?email=" . $email . "&email_code=" . $email_code . "\r\n\r\n-- Connectd team");
+				mail($email, 'Please activate your account', "Hello " . $firstname. ",\r\n\r\nThank you for registering with Connectd. Please visit the link below so we can activate your account:\r\n\r\n" . BASE_URL . "sign-in.php?email=" . $email . "&email_code=" . $email_code . "&user=designer\r\n\r\n-- Connectd team");
 			
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}	
 		}
 
-		// Activate developer after following emailed url
-
-		public function activateDesigner($email, $email_code) {
-		
-			$query = $this->db->prepare("SELECT COUNT(`id`) FROM `developers` WHERE `email` = ? AND `email_code` = ? AND `confirmed` = ?");
-	 
-			$query->bindValue(1, $email);
-			$query->bindValue(2, $email_code);
-			$query->bindValue(3, 0);
-	 
-			try{
-	 
-				$query->execute();
-				$rows = $query->fetchColumn();
-	 
-				if($rows == 1){
-					
-					$query_2 = $this->db->prepare("UPDATE `developers` SET `confirmed` = ? WHERE `email` = ?");
-	 
-					$query_2->bindValue(1, 1);
-					$query_2->bindValue(2, $email);				
-	 
-					$query_2->execute();
-					return true;
-	 
-				}else{
-					return false;
-				}
-	 
-			} catch(PDOException $e){
-				die($e->getMessage());
-			}
-		}
-
-		public function loginDesigner($email, $password) {
- 
-			$query = $this->db->prepare("SELECT `password`, `id` FROM `developers` WHERE `email` = ?");
-			$query->bindValue(1, $email);
-
-			
-			try{
-				
-				$query->execute();
-				$data 				= $query->fetch();
-				$stored_password 	= $data['password'];
-				$id 				= $data['id'];
-				
-				#hashing the supplied password and comparing it with the stored hashed password.
-				if($stored_password === sha1($password)){
-					return $id;	
-				}else{
-					return false;	
-				}
-		 
-			}catch(PDOException $e){
-				die($e->getMessage());
-			}
-		}
 
 		//***************************** Employer *****************************//
 
-				// Register a developer on sign up
+		// Register en employer on sign up
 		public function registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio){
 			
 			$time 		= time();
@@ -286,7 +298,7 @@
 			$email_code = sha1($email + microtime());
 			$password = sha1($password);
 		 
-			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".developers
+			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".employers
 				(firstname, lastname, email, email_code, time, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, ip) 
 				VALUES 
 				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -311,69 +323,11 @@
 			try{
 				$query->execute();
 		 
-				mail($email, 'Please activate your account', "Hello " . $firstname. ",\r\n\r\nThank you for registering with Connectd. Please visit the link below so we can activate your account:\r\n\r\n" . BASE_URL . "/sign-in.php?email=" . $email . "&email_code=" . $email_code . "\r\n\r\n-- Connectd team");
+				mail($email, 'Please activate your account', "Hello " . $firstname. ",\r\n\r\nThank you for registering with Connectd. Please visit the link below so we can activate your account:\r\n\r\n" . BASE_URL . "sign-in.php?email=" . $email . "&email_code=" . $email_code . "&user=employer\r\n\r\n-- Connectd team");
 			
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}	
 		}
 
-		// Activate developer after following emailed url
-
-		public function activateEmployer($email, $email_code) {
-		
-			$query = $this->db->prepare("SELECT COUNT(`id`) FROM `developers` WHERE `email` = ? AND `email_code` = ? AND `confirmed` = ?");
-	 
-			$query->bindValue(1, $email);
-			$query->bindValue(2, $email_code);
-			$query->bindValue(3, 0);
-	 
-			try{
-	 
-				$query->execute();
-				$rows = $query->fetchColumn();
-	 
-				if($rows == 1){
-					
-					$query_2 = $this->db->prepare("UPDATE `developers` SET `confirmed` = ? WHERE `email` = ?");
-	 
-					$query_2->bindValue(1, 1);
-					$query_2->bindValue(2, $email);				
-	 
-					$query_2->execute();
-					return true;
-	 
-				}else{
-					return false;
-				}
-	 
-			} catch(PDOException $e){
-				die($e->getMessage());
-			}
-		}
-
-		public function loginEmployer($email, $password) {
- 
-			$query = $this->db->prepare("SELECT `password`, `id` FROM `developers` WHERE `email` = ?");
-			$query->bindValue(1, $email);
-
-			
-			try{
-				
-				$query->execute();
-				$data 				= $query->fetch();
-				$stored_password 	= $data['password'];
-				$id 				= $data['id'];
-				
-				#hashing the supplied password and comparing it with the stored hashed password.
-				if($stored_password === sha1($password)){
-					return $id;	
-				}else{
-					return false;	
-				}
-		 
-			}catch(PDOException $e){
-				die($e->getMessage());
-			}
-		}
 	}

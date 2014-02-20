@@ -47,10 +47,9 @@
         }
 	 		        
 		$r1='/[A-Z]/';  // Test for an uppercase character
-			$r2='/[a-z]/';  // Test for a lowercase character
+		$r2='/[a-z]/';  // Test for a lowercase character
 		$r3='/[0-9]/';  // Test for a number
 
-		#validating user's input with functions that we will create next
 		if($firstname == ""){
 		    $errors[] ="Please enter your first name"; 
 		}else if($lastname == ""){
@@ -73,6 +72,8 @@
 			$errors[] = "Your password needs to contain at least one number";
 		} else if (strlen($password)>25||strlen($password)<6) {
 			$errors[] = "Password must be 6-25 characters long";
+		} else if($portfolio == ""){
+		    $errors[] ="You must have an active portfolio to join Connectd"; 
 		} else if($jobtitle == ""){
 		    $errors[] ="Please select your current job title"; 
 		}else if($experience == ""){
@@ -99,7 +100,7 @@
 			$experience = $general->clean_string($db, $experience);
 			$jobtitle = $general->clean_string($db, $jobtitle);
 	 
-			$users->registerDeveloper($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);// Calling the register function, which we will create soon.
+			$users->registerDeveloper($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);
 			header("Location:" . BASE_URL . "developer/signup.php?status=success");
 			exit();
 		}
@@ -138,7 +139,6 @@
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
 				<?php 
-					# if there are errors, they would be displayed here.
 					if(empty($errors) === false){
 						echo '<p class="error">' . implode('</p><p>', $errors) . '</p>';
 					}

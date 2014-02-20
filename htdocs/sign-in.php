@@ -80,28 +80,36 @@
 
 			<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true)  { ?>
 	        <p class="success">Thank you, we've activated your account. You're free to log in!</p>
-	        <?php } else if (isset ($_GET['email'], $_GET['email_code']) === true) {
+	        <?php } else if (isset ($_GET['email'], $_GET['email_code'], $_GET['user']) === true) {
 		            
 			    $email 		= trim($_GET['email']);
 			    $email_code	= trim($_GET['email_code']);
+
+				if($_GET['user'] == "developer") {     
+					if ($users->email_exists($email) === false) {
+						$errors[] = 'Sorry, we couldn\'t find that email address.';
+					} else if ($users->activateDeveloper($email, $email_code) === false) {
+						$errors[] = 'Sorry, we couldn\'t activate your account.';
+					}
+				} else if($_GET['user'] == "designer") {     
+					if ($users->email_exists($email) === false) {
+						$errors[] = 'Sorry, we couldn\'t find that email address.';
+					} else if ($users->activateDesigner($email, $email_code) === false) {
+						$errors[] = 'Sorry, we couldn\'t activate your account.';
+					}
+				} else if($_GET['user'] == "employer") {     
+					if ($users->email_exists($email) === false) {
+						$errors[] = 'Sorry, we couldn\'t find that email address.';
+					} else if ($users->activateEmployer($email, $email_code) === false) {
+						$errors[] = 'Sorry, we couldn\'t activate your account.';
+					}
+				}
 		            
-		            if ($users->email_exists($email) === false) {
-		                $errors[] = 'Sorry, we couldn\'t find that email address.';
-		            } else if ($users->activateDev($email, $email_code) === false) {
-		                $errors[] = 'Sorry, we couldn\'t activate your account.';
-		            }
-		            
-			    if(empty($errors) === false){
-					
-					echo '<p>' . implode('</p><p>', $errors) . '</p>';	
-				
-			    } else {
-		 
-		                header('Location: sign-in.php?status=activated');
-		                exit();
-		 
-		            }
-		        
+			    if(!empty($errors) === false){
+	                header('Location: sign-in.php?status=activated');
+	                exit();
+	            }
+	        
 		        } else if ($status == "logged") : ?>
 				<p class="success">Successfully logged out - see you soon!</p>
 				<?php elseif($status == "activated") : ?>
