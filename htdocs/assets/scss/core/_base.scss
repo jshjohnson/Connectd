@@ -135,15 +135,20 @@ textarea { line-height: 1.5; }
 	clear: both;
 	overflow: hidden;
 	select {
-		width: 105%;
+		width: 100%;
 		padding: .5em;
-		border: 1px solid;
+		border: 1px solid #eee;
 		color: $color-brand-dark;
-		background-color: #FFFFFF;
-		-webkit-appearance: none;
-		border: none;
+		@include appearance(none);
 		border-radius: 0;
+		text-indent: 0.01px;
+ 		text-overflow: "";
 		margin: $baseline/2 0;
+		background-color: #FFFFFF;
+		background-image: url('../img/select-bg.svg');
+		background-repeat: no-repeat;
+		background-position: 97% center;
+		background-size: .4em;
 		@include respond-max($bp1) {
 			margin: $baseline/3 0;
 		}
