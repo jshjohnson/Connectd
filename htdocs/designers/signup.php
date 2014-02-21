@@ -2,7 +2,7 @@
 	require_once("../config.php");
 	require_once(ROOT_PATH . "core/init.php");
 
-	require_once(ROOT_PATH . "inc/phpmailer/class.phpmailer.php");
+	require_once(ROOT_PATH . "core/inc/phpmailer/class.phpmailer.php");
 
 	$general->logged_in_protect();
 

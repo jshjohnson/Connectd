@@ -4,7 +4,6 @@
 
 	include_once(ROOT_PATH . "views/header-home.php");
 	$general->logged_in_protect();
-
 ?>
 		<header class="site-intro">
 			<div class="site-intro__wrap">
