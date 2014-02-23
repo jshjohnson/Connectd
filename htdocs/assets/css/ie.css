@@ -3163,13 +3163,24 @@ img.media__img {
 }
 
 /* line 113, ../scss/core/_overrides.scss */
+.message--hint {
+  background-color: #ebe9e9;
+  color: #8B8888;
+  margin-bottom: 0;
+}
+/* line 117, ../scss/core/_overrides.scss */
+.message--hint:after {
+  border-top: 0.75em solid #ebe9e9;
+}
+
+/* line 122, ../scss/core/_overrides.scss */
 input:disabled {
   background-color: #ccc !important;
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
   box-shadow: 0 0.1em 0 #948f8f !important;
 }
-/* line 116, ../scss/core/_overrides.scss */
+/* line 125, ../scss/core/_overrides.scss */
 input:disabled:hover {
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
@@ -3179,7 +3190,7 @@ input:disabled:hover {
 
 /* Debuggin'
 ----------------------------------*/
-/* line 145, ../scss/core/_overrides.scss */
+/* line 154, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3194,7 +3205,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 0";
 }
-/* line 148, ../scss/core/_overrides.scss */
+/* line 157, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3209,7 +3220,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 1";
 }
-/* line 151, ../scss/core/_overrides.scss */
+/* line 160, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3224,7 +3235,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 2";
 }
-/* line 154, ../scss/core/_overrides.scss */
+/* line 163, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;

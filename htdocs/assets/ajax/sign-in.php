@@ -1,9 +1,6 @@
 <?php
 	require_once("../../config.php");
-	
 	require_once(ROOT_PATH . "core/init.php"); 
-	include_once(ROOT_PATH . "inc/login.php");
-	
 ?>
 <section class='overlay'>
 	<div class='overlay__inner overlay__inner--small'> 

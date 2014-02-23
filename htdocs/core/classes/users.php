@@ -40,15 +40,13 @@
 		 
 		}
 
-
+		// Test if user has confirmed their email
 		public function email_confirmed($email) {
  
 			$query = $this->db->prepare("SELECT 
-				COUNT(developers.id) FROM " . DB_NAME . ".developers WHERE developers.email=  ? AND confirmed = ?
-				UNION SELECT 
-				COUNT(designers.id) FROM " . DB_NAME . ".designers WHERE designers.email = ? AND confirmed = ?
-				UNION SELECT 
-				COUNT(employers.id) FROM " . DB_NAME . ".employers WHERE employers.email = ? AND confirmed = ?
+				COUNT(developers.id) FROM " . DB_NAME . ".developers WHERE developers.email=  ? AND developers.confirmed = ? 
+				UNION SELECT COUNT(designers.id) FROM " . DB_NAME . ".designers WHERE designers.email = ? AND designers.confirmed = ? 
+				UNION SELECT COUNT(employers.id) FROM " . DB_NAME . ".employers WHERE employers.email = ? AND employers.confirmed = ?
 				");
 			$query->bindValue(1, $email);
 			$query->bindValue(2, 1);
@@ -71,7 +69,6 @@
 			} catch(PDOException $e){
 				die($e->getMessage());
 			}
-		 
 		}
 
 		public function login($email, $password) {

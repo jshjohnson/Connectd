@@ -110,6 +110,15 @@
 	}
 }
 
+.message--hint {
+	background-color: $color-background-mid;
+	color: #8B8888;
+	margin-bottom: 0;
+	&:after {
+		border-top: 0.75em solid $color-background-mid;
+	}
+}
+
 input:disabled {
 	background-color: #ccc !important;
 	@include box-shadow(0 0.1em 0 #948F8F !important);
