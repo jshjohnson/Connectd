@@ -43,11 +43,14 @@
 		// Test if user has confirmed their email
 		public function email_confirmed($email) {
  
-			$query = $this->db->prepare("SELECT 
-				COUNT(developers.id) FROM " . DB_NAME . ".developers WHERE developers.email=  ? AND developers.confirmed = ? 
-				UNION SELECT COUNT(designers.id) FROM " . DB_NAME . ".designers WHERE designers.email = ? AND designers.confirmed = ? 
-				UNION SELECT COUNT(employers.id) FROM " . DB_NAME . ".employers WHERE employers.email = ? AND employers.confirmed = ?
-				");
+			$query = $this->db->prepare("SELECT COUNT(*) FROM (
+				(SELECT 1 FROM " . DB_NAME . ".developers AS a WHERE a.email = ? AND a.confirmed = ?)
+				UNION ALL 
+				(SELECT 1 FROM " . DB_NAME . ".designers AS b WHERE b.email = ? AND b.confirmed = ?) 
+				UNION ALL
+				(SELECT 1 FROM " . DB_NAME . ".employers AS c WHERE c.email = ? AND c.confirmed = ?)) z
+			");
+
 			$query->bindValue(1, $email);
 			$query->bindValue(2, 1);
 			$query->bindValue(3, $email);
