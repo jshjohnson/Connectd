@@ -5,7 +5,7 @@
 	$general->errors();
 
 	$pageTitle = "Sign in";
-	include_once(ROOT_PATH . "views/header.php");
+	include_once(ROOT_PATH . "inc/header.php");
 
 	$status = $_GET["status"];
 
@@ -147,4 +147,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "views/footer.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer.php"); ?>

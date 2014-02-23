@@ -2,7 +2,7 @@
 	require_once("config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
-	include_once(ROOT_PATH . "views/header-home.php");
+	include_once(ROOT_PATH . "inc/header-home.php");
 	$general->logged_in_protect();
 ?>
 		<header class="site-intro">
@@ -36,4 +36,4 @@
 				</div>
 			</section>
 		</div>
-<?php include_once(ROOT_PATH . "views/footer-home.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer-home.php"); ?>

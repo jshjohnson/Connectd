@@ -16,8 +16,8 @@
 	$user = $users->userdata($_SESSION['id']);
 	$username = $user[0] . " " . $user[1];
 
-	include_once(ROOT_PATH . "views/header.php");
-	include_once(ROOT_PATH . "views/page-header.php");
+	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "inc/page-header.php");
 ?>		
 		<section class="container">
 			<div class="grid--no-marg cf">
@@ -48,4 +48,4 @@
 				<button class="button-red"><a href="<?php echo BASE_URL; ?>search/">Try refining your search</a></button>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "views/footer.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer.php"); ?>

@@ -18,8 +18,8 @@
 	$query = "SELECT firstname, lastname, jobtitle, location, portfolio, experience, time, votes FROM connectdDB.designers UNION SELECT firstname, lastname, jobtitle, location, portfolio, experience, time, votes FROM connectdDB.developers ORDER BY datejoined DESC";
 	$result = mysqli_query($db_server, $query);
 
-	include_once(ROOT_PATH . "views/header.php");
-	include_once(ROOT_PATH . "views/page-header.php");
+	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "inc/page-header.php");
 ?>
 		<section class="container">
 			<div class="grid cf">
@@ -54,4 +54,4 @@
 				<button class="button-green"><a href="dashboard.html">See our jobs list</a></button>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "views/footer.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer.php"); ?>

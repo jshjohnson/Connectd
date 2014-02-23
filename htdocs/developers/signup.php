@@ -8,7 +8,7 @@
 
 	$pageTitle = "Sign Up";
 	$section = "Developer";
-	include_once(ROOT_PATH . "views/header.php");
+	include_once(ROOT_PATH . "inc/header.php");
 
 	// Grab the form data
 	$firstname = trim($_POST['firstname']);
@@ -97,7 +97,7 @@
 			$jobtitle = $general->clean_string($db, $jobtitle);
 	 
 			$developers->registerDeveloper($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);
-			header("Location:" . BASE_URL . "developer/signup.php?status=success");
+			header("Location:" . BASE_URL . "developers/signup.php?status=success");
 			exit();
 		}
 	}
@@ -112,7 +112,7 @@
 				<h1 class="header__section header__section--title"><?= $pageTitle ?>
 					<a href="" class="menu-trigger header__section--title__link">: Menu</a>
 				</h1>
-					<?php include_once(ROOT_PATH . "views/page-nav.php"); ?>
+					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				<?php endif; ?>
 			<h2 class="header__section header__section--logo">
 				<a href="<?php echo BASE_URL; ?>">connectd</a>
@@ -196,4 +196,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "views/footer.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer.php"); ?>

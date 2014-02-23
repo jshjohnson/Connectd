@@ -6,7 +6,7 @@
 
 	$section = "Jobs";
 	$pageTitle = "Post a job";
-	include_once(ROOT_PATH . "views/header.php");
+	include_once(ROOT_PATH . "inc/header.php");
 
 	// Grab the form data
 	$jobtitle = trim($_POST['jobtitle']);
@@ -76,7 +76,7 @@
 			<h1 class="header__section header__section--title">
 				Post a job<a href="" class="menu-trigger header__section--title__link "> : Menu</a>
 			</h1>
-			<?php include_once(ROOT_PATH . "views/page-nav.php"); ?>
+			<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 			<h2 class="header__section header__section--logo">
 				<a href="<?php echo BASE_URL; ?>">connectd</a>
 			</h2>
@@ -139,4 +139,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "views/footer.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer.php"); ?>

@@ -11,8 +11,8 @@
 	$user = $users->userdata($_SESSION['id']);
 	$username = $user[0] . " " . $user[1];
 
-	include_once(ROOT_PATH . "views/header.php");
-	include_once(ROOT_PATH . "views/page-header.php");
+	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "inc/page-header.php");
 
 	// User data
 	require_once(ROOT_PATH . "model/designers.php");
@@ -82,4 +82,4 @@
 				</article>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "views/footer.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer.php"); ?>

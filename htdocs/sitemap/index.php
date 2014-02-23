@@ -7,7 +7,7 @@
 
 	$general->logged_out_protect();
 
-	include_once(ROOT_PATH . "views/header.php"); ?>
+	include_once(ROOT_PATH . "inc/header.php"); ?>
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
 				<?php if (!isset($_SESSION['logged'])) :?>
@@ -18,7 +18,7 @@
 				<h1 class="header__section header__section--title"><?= $pageTitle ?>
 					<a href="" class="menu-trigger header__section--title__link">: Menu</a>
 				</h1>
-					<?php include_once(ROOT_PATH . "views/page-nav.php"); ?>
+					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				<?php endif; ?>
 			<h2 class="header__section header__section--logo">
 				<a href="<?= BASE_URL ?>">connectd</a>
@@ -54,4 +54,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "views/footer.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer.php"); ?>

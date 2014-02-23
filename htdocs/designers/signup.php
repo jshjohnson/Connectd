@@ -8,7 +8,7 @@
 
 	$pageTitle = "Sign Up";
 	$section = "Designer";
-	include_once(ROOT_PATH . "views/header.php");
+	include_once(ROOT_PATH . "inc/header.php");
 
 	// Grab the form data
 	$firstname = trim($_POST['firstname']);
@@ -96,7 +96,7 @@
 			$jobtitle = $general->clean_string($db, $jobtitle);
 	 
 			$designers->registerDesigner($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);
-			header("Location:" . BASE_URL . "designer/signup.php?status=success");
+			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();
 		}
 
@@ -113,7 +113,7 @@
 				<h1 class="header__section header__section--title">Sign Up
 					<a href="" class="menu-trigger header__section--title__link">: Menu</a>
 				</h1>
-					<?php include_once(ROOT_PATH . "views/page-nav.php"); ?>
+					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				<?php endif; ?>
 			<h2 class="header__section header__section--logo">
 				<a href="<?php echo BASE_URL; ?>">connectd</a>
@@ -174,7 +174,7 @@
 							<option <?php if ($_POST['jobtitle'] == 'Animator') { ?>selected="true" <?php }; ?>value="Animator">Animator</option>
 						</select>
 					</div>
-					<input type="number" name="age" placeholder="Age"  value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>" min="18" max="80" class="field-1-2" >
+					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left" value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>">
 					<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="200" class="field-1-2 float-right"  value="<?php if (isset($priceperhour)) { echo htmlspecialchars($priceperhour); } ?>">
 					<div class="select-container">
 						<select name="experience">
@@ -194,4 +194,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "views/footer.php"); ?>
+<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
