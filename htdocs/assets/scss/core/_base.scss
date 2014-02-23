@@ -127,7 +127,7 @@ form {
 	}
 }
  
-label { display: block; font-weight: bold; }
+label { display: block; font-weight: bold; font-size: .75em;}
 textarea { line-height: 1.5; }
 
 .select-container {
@@ -143,7 +143,7 @@ textarea { line-height: 1.5; }
 		border-radius: 0;
 		text-indent: 0.01px;
  		text-overflow: "";
-		margin: $baseline/2 0;
+		margin: $baseline/2.5 0;
 		background-color: #FFFFFF;
 		background-image: url('../img/select-bg.svg');
 		background-repeat: no-repeat;
@@ -177,7 +177,7 @@ textarea {
 	-webkit-appearance: none;
 	border-radius: 0;
 	border: 1px solid #eee;
-	margin: $baseline/2 0;
+	margin: $baseline/2.5 0;
 	@include respond-max($bp1) {
 		margin: $baseline/3 0;
 	}

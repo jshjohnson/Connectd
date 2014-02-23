@@ -113,7 +113,7 @@
 .message--hint {
 	background-color: $color-background-mid;
 	color: #8B8888;
-	margin-bottom: 0;
+	margin: .5em 0;
 	&:after {
 		border-top: 0.75em solid $color-background-mid;
 	}

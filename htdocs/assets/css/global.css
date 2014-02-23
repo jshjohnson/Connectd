@@ -766,6 +766,7 @@ form > input:first-child {
 label {
   display: block;
   font-weight: bold;
+  font-size: .75em;
 }
 
 /* line 131, ../scss/core/_base.scss */
@@ -791,7 +792,7 @@ textarea {
   border-radius: 0;
   text-indent: 0.01px;
   text-overflow: "";
-  margin: 1em 0;
+  margin: 0.8em 0;
   background-color: #FFFFFF;
   background-image: url("../img/select-bg.svg");
   background-repeat: no-repeat;
@@ -827,7 +828,7 @@ textarea {
   -webkit-appearance: none;
   border-radius: 0;
   border: 1px solid #eee;
-  margin: 1em 0;
+  margin: 0.8em 0;
 }
 @media screen and (max-width: 30em) {
   /* line 172, ../scss/core/_base.scss */
@@ -3673,7 +3674,7 @@ img.media__img {
 .message--hint {
   background-color: #ebe9e9;
   color: #8B8888;
-  margin-bottom: 0;
+  margin: .5em 0;
 }
 /* line 117, ../scss/core/_overrides.scss */
 .message--hint:after {
