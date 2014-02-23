@@ -14,7 +14,6 @@
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");
 
-	// User data
 	require_once(ROOT_PATH . "model/designers.php");
 	require_once(ROOT_PATH . "model/developers.php");
 	require_once(ROOT_PATH . "model/jobs.php");
@@ -22,7 +21,6 @@
 	$designers = get_designers_all();
 	$developers = get_developers_all();
 	$jobs = get_jobs_recent();
-
 
 ?>
 		<section class="call-to-action call-to-action--top">

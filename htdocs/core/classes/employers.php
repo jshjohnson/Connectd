@@ -7,8 +7,6 @@
 		    $this->db = $database;
 		}
 
-		//***************************** Employer *****************************//
-
 		// Register en employer on sign up
 		public function registerEmployer($firstname, $lastname, $email, $password, $businessname, $location, $businesstype, $businesswebsite, $businessbio){
 			

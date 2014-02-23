@@ -107,6 +107,26 @@
 			}
 		}
 
+		public function get_trial_users() {
+ 
+			#preparing a statement that will select all the registered users, with the most recent ones first.
+			$query = $this->db->prepare("SELECT 
+				firstname, lastname, jobtitle, location, portfolio, experience, votes, time
+				FROM designers 
+				UNION SELECT 
+				firstname, lastname, jobtitle, location, portfolio, experience, votes, time
+				FROM developers");
+
+			try{
+				$query->execute();
+			}catch(PDOException $e){
+				die($e->getMessage());
+			}
+		 
+			# We use fetchAll() instead of fetch() to get an array of all the selected records.
+			return $query->fetchAll();
+		}
+
 		// Get user data
 		public function userdata($id) {
  
@@ -120,11 +140,8 @@
 			$query->bindValue(3, $id);
 		 
 			try{
-		 
 				$query->execute();
-		 
 				return $query->fetch();
-		 
 			} catch(PDOException $e){
 		 
 				die($e->getMessage());
