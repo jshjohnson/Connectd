@@ -40,7 +40,24 @@
 			try{
 				$query->execute();
 		 
-				mail($email, 'Please activate your account', "Hello " . $firstname. ",\r\n\r\nThank you for registering with Connectd. Please visit the link below so we can activate your account:\r\n\r\n" . BASE_URL . "sign-in.php?email=" . $email . "&email_code=" . $email_code . "&user=developer\r\n\r\n-- Connectd team");
+				$to = $email;
+
+				$subject = 'Activate your new Connectd Account';
+
+				$headers = "MIME-Version: 1.0\r\n";
+				$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+				$message = "<html><body>";
+				$message .= "<p>Hello " . $firstname . "</p>";
+				$message .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
+				$message .= "<p>" . BASE_URL . "sign-in.php?email=" . $email . "&email_code=" . $email_code . "&user=employer</p>";
+				$message .= "<p>-- Connectd team</p>";
+				$message .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
+				$message .= "<img src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'>";
+				$message .= "<small>Please ignore this email if you received it by mistake</small>";
+				$message .= "</body></html>";
+
+				mail($to, $subject, $message, $headers);
 			
 			}catch(PDOException $e){
 				die($e->getMessage());
