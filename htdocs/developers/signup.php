@@ -1,8 +1,6 @@
 <?php
 	require_once("../config.php");
 	require_once(ROOT_PATH . "core/init.php");
-	
-	require_once(ROOT_PATH . "core/inc/phpmailer/class.phpmailer.php");
 
 	$general->logged_in_protect();
 
@@ -26,9 +24,6 @@
 	$submit = trim($_POST['submit']);
 
 	$status = $_GET["status"];
-
-	// Mail validation using PHPMailer
-	$mail = new PHPMailer(); // defaults to using php "mail()"
 
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
