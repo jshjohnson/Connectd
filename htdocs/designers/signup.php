@@ -99,9 +99,7 @@
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();
 		}
-
 	}
-
 ?>
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
