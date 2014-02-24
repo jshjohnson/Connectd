@@ -13,12 +13,10 @@
 		header("Location: " . BASE_URL);
 		exit();
 	}
-
-	$user = $users->userdata($_SESSION['id']);
-	$username = $user[0] . " " . $user[1];
 	
 	$pageTitle = $developer['firstname'] . ' ' . $developer['lastname'] . ' : ' . $developer['jobtitle'];
 	$section = "Developer";
+
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");
 

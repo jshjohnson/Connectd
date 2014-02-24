@@ -22,10 +22,7 @@
 
 	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'] . ' : ' . $designer['jobtitle'];
 	$section = "Designers";
-
-	$user = $users->userdata($_SESSION['id']);
-	$username = $user[0] . " " . $user[1];
-	
+		
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");
 ?>		

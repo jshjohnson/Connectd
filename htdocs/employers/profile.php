@@ -6,11 +6,6 @@
 	$pageTitle = "Employer";
 	$section = "Employer";
 
-	// Determine whether user is logged in - test for value in $_SESSION
-	if (isset($_SESSION['logged'])){
-		$s_username = $_SESSION['username'];
-	}
-
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");
 ?>	
