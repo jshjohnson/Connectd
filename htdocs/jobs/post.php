@@ -97,13 +97,14 @@
 	</section>
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
-			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
+			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
 				<?php if (strlen($message)>70) : ?>
 					<p class="error error--long"><?php echo $message; ?></p>
 				<?php elseif (strlen($message)>1) : ?>
 					<p class="message message--error"><?php echo $message; ?></p>
 				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>jobs/post.php">
+					<p class="message message--hint">Psst. Make your job titles as descriptive as possible - it will avoid confusion in the Connectd community.</p>
 					<input type="text" name="jobtitle" placeholder="Job title" value="<?php if (isset($jobtitle)) { echo htmlspecialchars($jobtitle); } ?>" required="required">
 					<div class="float-left field-1-2">
 						<label for="">Start date:</label>

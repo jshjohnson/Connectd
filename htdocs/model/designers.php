@@ -5,7 +5,7 @@
 		$output = "";
 
 		$output = $output . "<div class='media'>";
-		$output = $output . "<a href='" . BASE_URL . "designers/" . $designer['id'] . "/'><img src='http://placehold.it/200x200' alt='' class='media__img media__img--avatar'></a>";
+		$output = $output . "<a href='" . BASE_URL . "designers/" . $designer['id'] . "/'><img src='" . BASE_URL . "assets/avatars/default_avatar.png' alt='' class='media__img media__img--avatar'></a>";
 		$output = $output . "<div class='media__body'>";
 		$output = $output . "<div class='float-left user-info'>";
 		$output = $output . "<a href='#'><i class='icon--star'></i></a><a href='" . BASE_URL . "designers/" . $designer['id'] . "/'><h4>" . $designer['firstname'] . ' ' . $designer['lastname'] . "</h4></a>";

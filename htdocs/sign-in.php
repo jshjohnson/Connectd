@@ -80,7 +80,7 @@
 	</section>
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
-			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
+			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
 			<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true)  { ?>
 	        <p class="message message--success">Thank you, we've activated your account. You're free to log in!</p>
 	        <?php } else if (isset ($_GET['email'], $_GET['email_code'], $_GET['user']) === true) {

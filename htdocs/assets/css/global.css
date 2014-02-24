@@ -3287,7 +3287,7 @@ img.media__img {
 }
 
 /* line 6, ../scss/core/modules/_forms.scss */
-.form-overlay {
+.content-overlay {
   background-color: #f7f7f7;
   color: #2c3e50;
   padding: 2em;
@@ -3297,7 +3297,7 @@ img.media__img {
 }
 @media screen and (max-width: 35em) {
   /* line 6, ../scss/core/modules/_forms.scss */
-  .form-overlay {
+  .content-overlay {
     margin-top: -9em;
     width: 80%;
     margin-left: auto;
@@ -3306,7 +3306,7 @@ img.media__img {
   }
 }
 /* line 20, ../scss/core/modules/_forms.scss */
-.form-overlay form {
+.content-overlay form {
   margin-bottom: 0;
 }
 

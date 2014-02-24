@@ -123,7 +123,7 @@
 	</section>
 	<section class="footer--push color-grey">
 		<div class="grid text-center">
-			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
+			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
 				<?php 
 					if(empty($errors) === false){
 						echo '<p class="message message--error">' . implode('</p><p>', $errors) . '</p>';

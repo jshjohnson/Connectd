@@ -40,7 +40,7 @@
 	</section>
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
-			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
+			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
 				<ul class="zero-bottom">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="about.php">About</a></li>

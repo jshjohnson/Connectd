@@ -32,7 +32,7 @@
 	</section>
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
-			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 form-overlay">
+			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
 			<?php
 				if (isset($_GET['success']) === true && empty($_GET['success']) === true) {
 					?>	
@@ -55,7 +55,7 @@
 	 
 					<form action="" method="post">
 						<p class="message message--hint">Enter your email below so we can confirm your request.</p>
-						<input type="text" required name="email">
+						<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" required>
 						<div class="button-container">
 			            	<input class="submit" name="submit" type="submit" value='Recover'>				
 						</div>
