@@ -75,6 +75,8 @@
 		}
 
 		public function login($email, $password) {
+
+			global $bcrypt;  // Make the bcrypt variable global, which is defined in init.php, which is included in login.php where this function is called
  
 			$query = $this->db->prepare("SELECT 
 				designers.id, designers.email, designers.password 
@@ -95,8 +97,8 @@
 				$stored_password 	= $data['password'];
 				$id 				= $data['id'];
 				
-				#hashing the supplied password and comparing it with the stored hashed password.
-				if($stored_password === sha1($password)){
+				// hashing the supplied password and comparing it with the stored hashed password.
+				if($bcrypt->verify($password, $stored_password) === true){ // using the verify method to compare the password with the stored hashed password.
 					return $id;	
 				}else{
 					return false;	

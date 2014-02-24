@@ -10,10 +10,12 @@
 		// Register a designer on sign up
 		public function registerDesigner($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio){
 			
+			global $bcrypt; // making the $bcrypt variable global so we can use here
+			
 			$time 		= time();
 			$ip 		= $_SERVER['REMOTE_ADDR'];
 			$email_code = sha1($email + microtime());
-			$password = sha1($password);
+			$password   = $bcrypt->genHash($password);// generating a hash using the $bcrypt object
 		 
 			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".designers
 				(firstname, lastname, email, email_code, time, password, location, portfolio, jobtitle, age, priceperhour, experience, bio, ip) 

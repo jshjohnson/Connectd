@@ -3,6 +3,7 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$general->logged_in_protect();
+	$general->errors();
 
 	$pageTitle = "Sign Up";
 	$section = "Designer";

@@ -52,7 +52,7 @@
 						</div>
 					</div>
 					<div class="user-sidebar__info">
-						<a href=""><i class="icon--star-alt"></i></a><h3 class="user-sidebar__title"><?php echo $username; ?></h3>
+						<a href=""><i class="icon--star-alt"></i></a><h3 class="user-sidebar__title"><?php echo $designer['firstname'] . " " . $designer['lastname']; ?></h3>
 						<h4 class="user-sidebar__label icon--attach icon--marg"><?php echo $designer['jobtitle']; ?></h4>
 						<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $designer['location']; ?></h4>
 						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $designer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>

@@ -8,6 +8,7 @@
 	require 'classes/developers.php';
 	require 'classes/designers.php';
 	require 'classes/employers.php';
+	require 'classes/bcrypt.php';
 	require 'classes/general.php';
 
 	$mail           = new PHPMailer(); // defaults to using php "mail()"
@@ -18,6 +19,7 @@
 	$employers 		= new Employers($db);
 
 	$general 	    = new General();
+	$bcrypt        = new Bcrypt();
 	 
 	$errors 	    = array();
 	

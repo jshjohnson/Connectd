@@ -46,7 +46,7 @@
 						</div>
 					</div>
 					<div class="user-sidebar__info">
-						<h3 class="user-sidebar__title"><?php echo $username ?></h3>
+						<h3 class="user-sidebar__title"><?php echo $developer['firstname'] . " " . $developer['lastname']; ?></h3>
 						<h4 class="user-sidebar__label icon--attach icon--marg"><?php echo $developer['jobtitle']; ?></h4>
 						<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $developer['location']; ?></h4>
 						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $developer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
