@@ -161,7 +161,7 @@
 						</select>
 					</div>
 					<p class="message message--hint">Psst. Prospective users need an online portfolio to prove themselves in the Connectd community.</p>
-					<input type="portfolio" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>" >
+					<input type="url" name="portfolio" placeholder="Portfolio URL" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>" >
 					<div class="select-container">
 						<select name="jobtitle">
 							<option value="">Job title..</option>
