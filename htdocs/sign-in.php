@@ -125,7 +125,7 @@
 					}
 				?>
 				<form method="post" action="sign-in.php" autocomplete="off">
-					<input type="email" name="email" placeholder="Email" value="<?php echo $_COOKIE['remember_me']; ?>" class="field-1-2">
+					<input type="email" name="email" placeholder="Email" value="<?php if(isset($_COOKIE['remember_me'])) { echo $_COOKIE['remember_me']; } else if(isset($_POST['email'])) echo htmlentities($_POST['email']); ?>" class="field-1-2">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-right">
 					<fieldset class="checkbox float-left">
 						<label>
