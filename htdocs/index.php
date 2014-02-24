@@ -2,8 +2,9 @@
 	require_once("config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
-	include_once(ROOT_PATH . "inc/header-home.php");
 	$general->logged_in_protect();
+
+	include_once(ROOT_PATH . "inc/header-home.php");
 ?>
 		<header class="site-intro">
 			<div class="site-intro__wrap">
