@@ -140,7 +140,7 @@
 							Remember me
 						</label>
 			        </fieldset>
-			       	<a class="forgot float-right" href="#">Forgot password?</a>
+			       	<a class="forgot float-right" href="recover-pass.php">Forgot password?</a>
 					<div class="button-container clear">
 		            	<input class="submit" name="submit" type="submit" value='Sign In'>					
 					</div>
