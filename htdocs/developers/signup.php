@@ -3,6 +3,9 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$general->logged_in_protect();
+	$general->errors();
+
+	$counties = $general->getCounties();
 
 	$pageTitle = "Sign Up";
 	$section = "Developer";
@@ -146,17 +149,11 @@
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
 					<label for="jobtitle">Where do you work from?</label>
 					<div class="select-container">
-					<?php 
-						require(ROOT_PATH . "core/connect/database.php");
-						$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
-						$query = ("SELECT county FROM " . DB_NAME . ".locations ORDER BY county ASC");
-						$result = mysqli_query($db_server, $query);
-					?>
 						<select name="location">
 							<option value="">Location...</option>
-						<?php while($row = mysqli_fetch_array($result)) : ?>
-							<option <?php if ($_POST['location'] == $row['county']) { ?>selected="true" <?php }; ?>value="<?php echo $row['county']; ?>"><?php echo $row['county']; ?></option>
-						<?php endwhile; ?>
+						<?php foreach ($counties as $county) : ?>
+							<option <?php if ($_POST['location'] == $county['county']) { ?>selected="true" <?php }; ?>value="<?php echo $county['county']; ?>"><?php echo $county['county']; ?></option>
+						<?php endforeach; ?>
 						</select>
 					</div>
 					<p class="message message--hint">Psst. Prospective users need an online portfolio to prove themselves in the Connectd community.</p>

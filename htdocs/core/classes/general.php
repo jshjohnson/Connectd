@@ -1,5 +1,11 @@
 <?php 
 	class General{
+
+		private $db;
+
+		public function __construct($database) {
+		    $this->db = $database;
+		}
 	 
 		public function errors() {
 			error_reporting(E_ERROR|E_WARNING);
@@ -72,27 +78,18 @@
 	    }
 
 
-		public function valid_pass($password) {
-			$r1='/[A-Z]/';  // Test for an uppercase character
-			$r2='/[a-z]/';  // Test for a lowercase character
-			$r3='/[0-9]/';  // Test for a number
+	    public function getCounties() {
 
-			if(preg_match_all($r1,$password)<2) {
-				return FALSE;
-			} 
+			$query = $this->db->prepare("SELECT county FROM " . DB_NAME . ".locations ORDER BY county ASC");
 
-			if(preg_match_all($r2,$password)<2) {
-				return FALSE;
+			try{
+				$query->execute();
+			}catch(PDOException $e){
+				die($e->getMessage());
 			}
-
-			if(preg_match_all($r3,$password)<2) {
-				return FALSE;
-			} 
-
-			if (strlen($password)>25||strlen($password)<6) {
-				return FALSE;
-			}
-			return TRUE;
-		}
+		 
+			# We use fetchAll() instead of fetch() to get an array of all the selected records.
+			return $query->fetchAll();
+	    }
 	 
 	}

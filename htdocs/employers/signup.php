@@ -3,6 +3,7 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$general->logged_in_protect();
+	$counties = $general->getCounties();
 
 	$pageTitle = "Sign Up";
 	$section = "Employer";
@@ -142,17 +143,11 @@
 					<input type="text" name="businessname" placeholder="Business name" value="<?php if (isset($businessname)) { echo htmlspecialchars($businessname); } ?>" >
 					<label for="jobtitle">What is the location of your business?</label>
 					<div class="select-container">
-					<?php 
-						require(ROOT_PATH . "core/connect/database.php");
-						$db_server = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
-						$query = ("SELECT county FROM " . DB_NAME . ".locations ORDER BY county ASC");
-						$result = mysqli_query($db_server, $query);
-					?>
 						<select name="location">
 							<option value="">Location...</option>
-						<?php while($row = mysqli_fetch_array($result)) : ?>
-							<option <?php if ($_POST['location'] == $row['county']) { ?>selected="true" <?php }; ?>value="<?php echo $row['county']; ?>"><?php echo $row['county']; ?></option>
-						<?php endwhile; ?>
+						<?php foreach ($counties as $county) : ?>
+							<option <?php if ($_POST['location'] == $county['county']) { ?>selected="true" <?php }; ?>value="<?php echo $county['county']; ?>"><?php echo $county['county']; ?></option>
+						<?php endforeach; ?>
 						</select>
 					</div>
 					<label for="jobtitle">What industry is your business in?</label>
