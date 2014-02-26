@@ -141,8 +141,8 @@
 				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
 				<form method="post" action="<?php echo BASE_URL; ?>developers/signup.php" autocomplete="off" class="sign-up-form">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" >
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" >
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" autofocus>
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
 					<input type='password' name='password' placeholder="Password" class="field-1-2"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
@@ -182,7 +182,7 @@
 							<option <?php if ($_POST['experience'] == 'Over 10 years') { ?>selected="true" <?php }; ?>value="Over 10 years">Over 10 years</option>
 						</select>
 					</div>
-					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..." ><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
+					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>				
 					</div>

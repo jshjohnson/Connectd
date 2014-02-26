@@ -821,6 +821,10 @@ textarea {
 /* line 172, ../scss/core/_base.scss */
 input:not([type=checkbox]),
 textarea {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   padding: .5em;
   border: 1px solid;
   color: #2c3e50;
@@ -838,7 +842,7 @@ textarea {
   }
 }
 
-/* line 188, ../scss/core/_base.scss */
+/* line 189, ../scss/core/_base.scss */
 button,
 .btn:link,
 input[type=submit] {
@@ -858,7 +862,7 @@ input[type=submit] {
   color: #FFF;
   background-color: #6dbcdb;
 }
-/* line 198, ../scss/core/_base.scss */
+/* line 199, ../scss/core/_base.scss */
 button a, button a:hover, button a:visited,
 .btn:link a,
 .btn:link a:hover,
@@ -868,7 +872,7 @@ input[type=submit] a:hover,
 input[type=submit] a:visited {
   color: white;
 }
-/* line 201, ../scss/core/_base.scss */
+/* line 202, ../scss/core/_base.scss */
 button:hover,
 .btn:link:hover,
 input[type=submit]:hover {
@@ -879,7 +883,7 @@ input[type=submit]:hover {
   box-shadow: 0 2px 0;
 }
 @media screen and (max-width: 82em) {
-  /* line 188, ../scss/core/_base.scss */
+  /* line 189, ../scss/core/_base.scss */
   button,
   .btn:link,
   input[type=submit] {
@@ -887,36 +891,63 @@ input[type=submit]:hover {
   }
 }
 
-/* line 212, ../scss/core/_base.scss */
-input[type=text]:focus, textarea:focus, button:focus {
+/* line 213, ../scss/core/_base.scss */
+button:focus {
   outline: none;
 }
 
-/* -- Blockquotes -- */
 /* line 218, ../scss/core/_base.scss */
+input:not([type=checkbox]):focus, textarea:focus, select:focus {
+  -webkit-box-shadow: 0 0 5px #77c462;
+  -moz-box-shadow: 0 0 5px #77c462;
+  box-shadow: 0 0 5px #77c462;
+  border: 1px solid #77c462;
+  outline: 0;
+}
+
+/* line 224, ../scss/core/_base.scss */
+input:not(:focus):invalid {
+  -webkit-box-shadow: 0 0 5px red;
+  -moz-box-shadow: 0 0 5px red;
+  box-shadow: 0 0 5px red;
+  border: 1px solid red;
+  outline: 0;
+}
+
+/* line 229, ../scss/core/_base.scss */
+input:focus:invalid {
+  -webkit-box-shadow: 0 0 5px red;
+  -moz-box-shadow: 0 0 5px red;
+  box-shadow: 0 0 5px red;
+  border: 1px solid red;
+  outline: 0;
+}
+
+/* -- Blockquotes -- */
+/* line 236, ../scss/core/_base.scss */
 blockquote {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 222, ../scss/core/_base.scss */
+/* line 240, ../scss/core/_base.scss */
 blockquote {
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
   font-style: italic;
   clear: both;
 }
 
-/* line 223, ../scss/core/_base.scss */
+/* line 241, ../scss/core/_base.scss */
 blockquote p {
   font-size: 1.35em;
 }
 
-/* line 224, ../scss/core/_base.scss */
+/* line 242, ../scss/core/_base.scss */
 blockquote p + .source {
   margin-top: -2em;
 }
 
-/* line 225, ../scss/core/_base.scss */
+/* line 243, ../scss/core/_base.scss */
 .source {
   display: block;
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
@@ -926,27 +957,27 @@ blockquote p + .source {
   margin-top: .5em;
 }
 
-/* line 226, ../scss/core/_base.scss */
+/* line 244, ../scss/core/_base.scss */
 .source:before {
   content: "\2013\0020";
 }
 
 /* Links
 ----------------------------------*/
-/* line 232, ../scss/core/_base.scss */
+/* line 250, ../scss/core/_base.scss */
 a {
   text-decoration: none;
   color: #2c3e50;
 }
 
 /* -- visited -- */
-/* line 237, ../scss/core/_base.scss */
+/* line 255, ../scss/core/_base.scss */
 a:visited {
   color: #2c3e50;
 }
 
 /* -- hovers -- */
-/* line 244, ../scss/core/_base.scss */
+/* line 262, ../scss/core/_base.scss */
 a:hover {
   color: #222222;
 }
@@ -1005,97 +1036,97 @@ a:hover {
   padding-right: .3em;
 }
 
-/* line 256, ../scss/core/_base.scss */
+/* line 274, ../scss/core/_base.scss */
 .icon--marg:before {
   top: 0;
   width: 1em;
 }
 
-/* line 261, ../scss/core/_base.scss */
+/* line 279, ../scss/core/_base.scss */
 .icon--clock:before {
   content: '\e803';
 }
 
 /* '' */
-/* line 262, ../scss/core/_base.scss */
+/* line 280, ../scss/core/_base.scss */
 .icon--users:before {
   content: '\e800';
 }
 
 /* '' */
-/* line 263, ../scss/core/_base.scss */
+/* line 281, ../scss/core/_base.scss */
 .icon--location:before {
   content: '\e805';
 }
 
 /* '' */
-/* line 264, ../scss/core/_base.scss */
+/* line 282, ../scss/core/_base.scss */
 .icon--calendar:before {
   content: '\e806';
 }
 
 /* '' */
-/* line 265, ../scss/core/_base.scss */
+/* line 283, ../scss/core/_base.scss */
 .icon--male:before {
   content: '\e807';
 }
 
 /* '' */
-/* line 266, ../scss/core/_base.scss */
+/* line 284, ../scss/core/_base.scss */
 .icon--globe:before {
   content: '\e808';
 }
 
 /* '' */
-/* line 267, ../scss/core/_base.scss */
+/* line 285, ../scss/core/_base.scss */
 .icon--briefcase:before {
   content: '\e809';
 }
 
 /* '' */
-/* line 268, ../scss/core/_base.scss */
+/* line 286, ../scss/core/_base.scss */
 .icon--check:before {
   content: '\e811';
 }
 
 /* '' */
-/* line 269, ../scss/core/_base.scss */
+/* line 287, ../scss/core/_base.scss */
 .icon--attach:before {
   content: '\e804';
 }
 
 /* '' */
-/* line 270, ../scss/core/_base.scss */
+/* line 288, ../scss/core/_base.scss */
 .icon--sitemap:before {
   content: '\e80b';
 }
 
 /* '' */
-/* line 271, ../scss/core/_base.scss */
+/* line 289, ../scss/core/_base.scss */
 .icon--lightbulb:before {
   content: '\e80c';
 }
 
 /* '' */
-/* line 272, ../scss/core/_base.scss */
+/* line 290, ../scss/core/_base.scss */
 .icon--search:before {
   content: '\e801';
 }
 
 /* '' */
-/* line 273, ../scss/core/_base.scss */
+/* line 291, ../scss/core/_base.scss */
 .icon--home:before {
   content: '\e802';
 }
 
 /* '' */
-/* line 274, ../scss/core/_base.scss */
+/* line 292, ../scss/core/_base.scss */
 .icon--bookmark:before {
   content: '\e80d';
 }
 
 /* '' */
-/* line 275, ../scss/core/_base.scss */
+/* line 293, ../scss/core/_base.scss */
 .icon--star:before {
   content: '\e80e';
   color: #E7E948;
@@ -1104,7 +1135,7 @@ a:hover {
 }
 
 /* '' */
-/* line 276, ../scss/core/_base.scss */
+/* line 294, ../scss/core/_base.scss */
 .icon--star-alt:before {
   content: '\e80e';
   color: #E7E948;
@@ -1113,19 +1144,19 @@ a:hover {
 }
 
 /* '' */
-/* line 277, ../scss/core/_base.scss */
+/* line 295, ../scss/core/_base.scss */
 .icon--down-micro:before {
   content: '\e80f';
 }
 
 /* '' */
-/* line 278, ../scss/core/_base.scss */
+/* line 296, ../scss/core/_base.scss */
 .icon--magic:before {
   content: '\e80a';
 }
 
 /* '' */
-/* line 279, ../scss/core/_base.scss */
+/* line 297, ../scss/core/_base.scss */
 .icon--cancel:before {
   content: '\e810';
   float: right;

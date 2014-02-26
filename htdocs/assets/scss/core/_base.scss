@@ -170,6 +170,7 @@ textarea { line-height: 1.5; }
 
 input:not([type=checkbox]),
 textarea {
+	@include transition(all 0.30s ease-in-out);
 	padding: .5em;
 	border: 1px solid;
 	color: $color-brand-dark;
@@ -208,10 +209,27 @@ input[type=submit] {
 	}
 }
 
-input[type=text], textarea, button {
+button {
 	&:focus {
 		outline: none;	
 	}
+}
+
+input:not([type=checkbox]):focus, textarea:focus, select:focus {
+  @include box-shadow(0 0 5px rgba($color-brand-mid, 1));
+  border: 1px solid rgba($color-brand-mid, 1);
+  outline: 0;
+}
+
+input:not(:focus):invalid {
+  @include box-shadow(0 0 5px rgba(red, 1));
+  border: 1px solid rgba(red, 1);
+  outline: 0;
+}
+input:focus:invalid {
+  @include box-shadow(0 0 5px rgba(red, 1));
+  border: 1px solid rgba(red, 1);
+  outline: 0;
 }
 
 /* -- Blockquotes -- */
