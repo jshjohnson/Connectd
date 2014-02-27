@@ -10,18 +10,11 @@
 		// Test if email already exists in database
 		public function emailExists($email) {
 		 
-			$query = $this->db->prepare("SELECT designers.email 
-						FROM " . DB_NAME . ".designers 
-						WHERE designers.email = ? 
-						UNION SELECT developers.email 
-						FROM " . DB_NAME . ".developers 
-						WHERE developers.email = ?
-						UNION SELECT employers.email 
-						FROM " . DB_NAME . ".employers 
-						WHERE employers.email = ?");
+			$query = $this->db->prepare("SELECT `email`
+						FROM " . DB_NAME . ".users
+						WHERE `email` = ? 
+					");
 			$query->bindParam(1, $email);
-			$query->bindParam(2, $email);
-			$query->bindParam(3, $email);
 
 			try{
 		 
@@ -44,19 +37,11 @@
 		public function emailConfirmed($email) {
  
 			$query = $this->db->prepare("SELECT COUNT(*) FROM (
-				(SELECT 1 FROM " . DB_NAME . ".developers AS a WHERE a.email = ? AND a.confirmed = ?)
-				UNION ALL 
-				(SELECT 1 FROM " . DB_NAME . ".designers AS b WHERE b.email = ? AND b.confirmed = ?) 
-				UNION ALL
-				(SELECT 1 FROM " . DB_NAME . ".employers AS c WHERE c.email = ? AND c.confirmed = ?)) z
+				(SELECT 1 FROM " . DB_NAME . ".users AS a WHERE a.email = ? AND a.confirmed = ?)) z
 			");
 
 			$query->bindValue(1, $email);
 			$query->bindValue(2, 1);
-			$query->bindValue(3, $email);
-			$query->bindValue(4, 1);
-			$query->bindValue(5, $email);
-			$query->bindValue(6, 1);
 			
 			try{
 				
@@ -79,16 +64,11 @@
 			global $bcrypt;  // Make the bcrypt variable global, which is defined in init.php, which is included in login.php where this function is called
  
 			$query = $this->db->prepare("SELECT 
-				designers.id, designers.email, designers.password 
-				FROM " . DB_NAME . ".designers 
-				WHERE designers.email = ? 
-				UNION SELECT developers.id, developers.email, developers.password 
-				FROM " . DB_NAME . ".developers WHERE developers.email = ? 
-				UNION SELECT employers.id, employers.email, employers.password 
-				FROM " . DB_NAME . ".employers WHERE employers.email = ?");
+					`id`, `email`, `password`
+					FROM " . DB_NAME . ".users
+					WHERE `email` = ? 
+				");
 			$query->bindValue(1, $email);
-			$query->bindValue(2, $email);
-			$query->bindValue(3, $email);
 			
 			try{
 				
@@ -113,11 +93,14 @@
  
 			#preparing a statement that will select all the registered users, with the most recent ones first.
 			$query = $this->db->prepare("SELECT 
-				firstname, lastname, jobtitle, location, portfolio, experience, votes, time
-				FROM designers 
+				`firstname`, `lastname`, `jobtitle`, `location`, `portfolio`, `experience`, `votes`, `time`
+				FROM designers WHERE `confirmed` = ?
 				UNION SELECT 
-				firstname, lastname, jobtitle, location, portfolio, experience, votes, time
-				FROM developers");
+				`firstname`, `lastname`, `jobtitle`, `location`, `portfolio`, `experience`, `votes`, `time`
+				FROM developers WHERE `confirmed` = ?");
+
+			$query->bindValue(1, 0);
+			$query->bindValue(2, 0);
 
 			try{
 				$query->execute();
@@ -133,13 +116,13 @@
 		public function userData($id) {
  
 			$query = $this->db->prepare("
-				SELECT firstname, lastname FROM " . DB_NAME . ".developers WHERE `id`= ?
-				UNION SELECT firstname, lastname FROM " . DB_NAME . ".designers WHERE `id`= ?
-				UNION SELECT firstname, lastname FROM " . DB_NAME . ".employers WHERE `id`= ?
+				SELECT firstname, lastname FROM " . DB_NAME . ".users WHERE `id`= ?
 				");
+			// UNION SELECT firstname, lastname FROM " . DB_NAME . ".designers WHERE `id`= ?
+			// UNION SELECT firstname, lastname FROM " . DB_NAME . ".employers WHERE `id`= ?
 			$query->bindValue(1, $id);
-			$query->bindValue(2, $id);
-			$query->bindValue(3, $id);
+			// $query->bindValue(2, $id);
+			// $query->bindValue(3, $id);
 		 
 			try{
 				$query->execute();
@@ -180,5 +163,47 @@
 				die($e->getMessage());
 			}
 		}
+
+		// Test if user has been verified into the community
+		public function userVotedFor($email) {
+ 
+			$query = $this->db->prepare("SELECT designers.email
+						FROM " . DB_NAME . ".designers 
+						WHERE designers.votes >= ? 
+						UNION SELECT developers.email
+						FROM " . DB_NAME . ".developers 
+						WHERE developers.votes >= ?
+					");
+			$query->bindValue(1, 10);
+			$query->bindValue(2, 10);
+			
+			try{
+				
+				$query->execute();
+				$rows = $query->fetchColumn();
+		 
+				if($rows == 1){
+					return true;
+				}else{
+					return false;
+				}
+		 
+			} catch(PDOException $e){
+				die($e->getMessage());
+			}
+		}
+
+		public function userVotedForProtect($email) {
+
+			if($users->userVotedFor($email) === true) {
+				#Redirect the user to the dashboard
+				header('Location: dashboard/');
+				exit();
+			} else if($users->userVotedFor($email) === false) {
+				header('Location: welcome/');
+				exit();
+			}
+
+		} 
 
 	}
