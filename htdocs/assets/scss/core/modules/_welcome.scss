@@ -1,0 +1,29 @@
+@import "./libs/animate";
+
+/* Homepage
+----------------------------------*/
+
+.welcome-intro {
+	height: 100%;
+	background-image: url("../img/bg.jpg");
+	@include background-size(cover);
+	background-position: center;
+	@include respond-min($bp3) {
+		@include background-size(100%);
+		background-attachment: fixed;
+	}
+}
+
+.welcome-message {
+	width: 60%;
+	margin: auto;
+	color: white;
+	padding-top: 15%;
+	@include respond-max($bp3) {
+		padding-top: 25%;
+	}
+}
+
+.welcome-message__title {
+	margin-top: 0;
+}
