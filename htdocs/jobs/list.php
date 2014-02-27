@@ -2,7 +2,7 @@
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php"); 
 
-	$general->logged_out_protect();
+	$general->loggedOutProtect();
 
 	include_once(ROOT_PATH . "model/jobs.php");
 
@@ -12,7 +12,7 @@
 	$job_id = $_GET["id"];
 	$job = $jobs[$job_id];
 
-	$user = $users->userdata($_SESSION['id']);
+	$user = $users->userData($_SESSION['id']);
 	$username = $user[0] . " " . $user[1];
 	
 	include_once(ROOT_PATH . "inc/header.php");

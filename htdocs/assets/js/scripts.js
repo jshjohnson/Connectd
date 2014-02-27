@@ -66,9 +66,9 @@ $(document).ready(function() {
 	}
 	//Staging
 	overlay($(".apply-trigger"), ""+baseUrl+"/assets/ajax/apply.php");
-	overlay($(".hire-trigger"), ""+baseUrl+"/assets/ajax/hire.php");
+	// overlay($(".hire-trigger"), ""+baseUrl+"/assets/ajax/hire.php");
 	overlay($(".post-job-trigger"), ""+baseUrl+"/assets/ajax/post-job.php");
-	overlay($(".collaborate-trigger"), ""+baseUrl+"/assets/ajax/collaborate.php");
+	// overlay($(".collaborate-trigger"), ""+baseUrl+"/assets/ajax/collaborate.php");
 	overlay($(".search-trigger"), ""+baseUrl+"/assets/ajax/search.php");
 	overlay($(".dev-skills-trigger"), ""+baseUrl+"/assets/ajax/dev-skills.php");
 	overlay($(".des-skills-trigger"), ""+baseUrl+"/assets/ajax/des-skills.php");

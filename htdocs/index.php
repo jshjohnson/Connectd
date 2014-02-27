@@ -2,7 +2,7 @@
 	require_once("config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
-	$general->logged_in_protect();
+	$general->loggedInProtect();
 
 	include_once(ROOT_PATH . "inc/header-home.php");
 ?>

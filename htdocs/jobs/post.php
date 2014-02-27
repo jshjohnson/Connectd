@@ -2,7 +2,7 @@
 	require_once("../config.php");  
 	require_once(ROOT_PATH . "core/init.php");
 
-	$general->logged_out_protect();
+	$general->loggedOutProtect();
 
 	$section = "Jobs";
 	$pageTitle = "Post a job";
@@ -17,7 +17,7 @@
 	$jobdescription = trim($_POST['jobdescription']);
 	$submit = trim($_POST['submit']);
 
-	$user = $users->userdata($_SESSION['id']);
+	$user = $users->userData($_SESSION['id']);
 	$username = $user[0] . " " . $user[1];
 
 	if ($submit=='Submit job'){
@@ -44,12 +44,12 @@
 			require_once(ROOT_PATH . "inc/db_connect.php");
 
 			//clean the input now that we have a db connection
-			$jobtitle = clean_string($db, $jobtitle);
-			$startdate = clean_string($db, $startdate);
-			$deadline = clean_string($db, $deadline);
-			$budget = clean_string($db, $budget);
-			$jobcategory = clean_string($db, $jobcategory);
-			$jobdescription = clean_string($db, $jobdescription);
+			$jobtitle = cleanString($db, $jobtitle);
+			$startdate = cleanString($db, $startdate);
+			$deadline = cleanString($db, $deadline);
+			$budget = cleanString($db, $budget);
+			$jobcategory = cleanString($db, $jobcategory);
+			$jobdescription = cleanString($db, $jobdescription);
 
 			try {
 				$result = $db->prepare("INSERT INTO connectdDB.jobs(jobtitle, startdate, deadline, budget, jobcategory, jobdescription, date) VALUES (?, ?, ?, ?, ?, ?, now())");

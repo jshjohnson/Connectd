@@ -5,7 +5,7 @@
 	$pageTitle = "Terms & Conditions";
 	$section = "Terms & Conditions";
 
-	$general->logged_out_protect();
+	$general->loggedOutProtect();
 
 	include_once(ROOT_PATH . "inc/header.php"); ?>
 	<header class="header header-blue--alt zero-bottom cf">

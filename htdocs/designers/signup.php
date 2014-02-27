@@ -2,7 +2,7 @@
 	require_once("../config.php");
 	require_once(ROOT_PATH . "core/init.php");
 
-	$general->logged_in_protect();
+	$general->loggedInProtect();
 	$counties = $general->getCounties();
 
 	$pageTitle = "Sign Up";
@@ -50,7 +50,7 @@
 		    $errors[] ="Please enter your email"; 
 		}else if (!$mail->ValidateAddress($email)){
 				$errors[] = "You must specify a valid email address.";
-		}else if ($users->email_exists($email) === true) {
+		}else if ($users->emailExists($email) === true) {
 		    $errors[] = "Email already taken. Please try again.";
 		}else if($password == ""){
 		    $errors[] ="Please enter a password"; 
@@ -78,18 +78,18 @@
 
 		if(empty($errors) === true){
 
-			$firstname = $general->clean_string($db, $firstname);
-			$lastname = $general->clean_string($db, $lastname);
-			$email = $general->clean_string($db, $email);
-			$password = $general->clean_string($db, $password);
-			$repeatpassword = $general->clean_string($db, $repeatpassword);
-			$age = $general->clean_string($db, $age);
-			$jobtitle = $general->clean_string($db, $jobtitle);
-			$priceperhour = $general->clean_string($db, $priceperhour);
-			$bio = $general->clean_string($db, $bio);
-			$portfolio = $general->clean_string($db, $portfolio);
-			$experience = $general->clean_string($db, $experience);
-			$jobtitle = $general->clean_string($db, $jobtitle);
+			$firstname = $general->cleanString($db, $firstname);
+			$lastname = $general->cleanString($db, $lastname);
+			$email = $general->cleanString($db, $email);
+			$password = $general->cleanString($db, $password);
+			$repeatpassword = $general->cleanString($db, $repeatpassword);
+			$age = $general->cleanString($db, $age);
+			$jobtitle = $general->cleanString($db, $jobtitle);
+			$priceperhour = $general->cleanString($db, $priceperhour);
+			$bio = $general->cleanString($db, $bio);
+			$portfolio = $general->cleanString($db, $portfolio);
+			$experience = $general->cleanString($db, $experience);
+			$jobtitle = $general->cleanString($db, $jobtitle);
 	 
 			$designers->registerDesigner($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");

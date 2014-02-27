@@ -2,7 +2,7 @@
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php"); 
 	
-	$general->logged_out_protect();
+	$general->loggedOutProtect();
 
 	require_once(ROOT_PATH . "model/designers.php");
 
@@ -41,10 +41,10 @@
 						</div>
 						<div class="button-wrapper">
 							<button class="button-green button-left cf hire-trigger">
-								<a href="">Hire <?php echo $designer['firstname']; ?></a>
+								<a href="mailto:<?php echo $designer['email']; ?>?subject=I would like to hire you! -- Connectd&body=Hey <?php echo $designer['firstname']; ?>...">Hire <?php echo $designer['firstname']; ?></a>
 							</button>
 							<button class="button-blue button-right cf collaborate-trigger">
-								<a href="">Collaborate</a>
+								<a href="mailto:<?php echo $designer['email']; ?>?subject=I would like to collaborate with you! -- Connectd&body=Hey <?php echo $designer['firstname']; ?>...">Collaborate</a>
 							</button>
 						</div>
 					</div>

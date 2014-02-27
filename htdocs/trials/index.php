@@ -2,15 +2,15 @@
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
-	$general->logged_out_protect();
+	$general->loggedOutProtect();
 
 	$pageTitle = "Trials";
 	$section = "Trials";
 
-	$user = $users->userdata($_SESSION['id']);
+	$user = $users->userData($_SESSION['id']);
 	$username = $user[0] . " " . $user[1];
 
-	$trial_users 		= $users->get_trial_users();
+	$trial_users 		= $users->getTrialUsers();
 	$trial_users_count   = count($members);
 
 	include_once(ROOT_PATH . "inc/header.php");

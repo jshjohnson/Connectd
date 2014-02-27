@@ -21,9 +21,9 @@
 	$general 	    = new General($db);
 	$bcrypt        = new Bcrypt(12);
 
-	if ($general->logged_in() === true)  { // check if the user is logged in
+	if ($general->loggedIn () === true)  { // check if the user is logged in
 		$user_id 	= $_SESSION['id']; // getting user's id from the session.
-		$user 	= $users->userdata($user_id); // getting all the data about the logged in user.
+		$user 	= $users->userData($user_id); // getting all the data about the logged in user.
 		$username = $user['firstname'] . " " . $user['lastname'];
 	}
 	 

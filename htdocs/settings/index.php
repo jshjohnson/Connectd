@@ -5,7 +5,7 @@
 	$pageTitle = "Settings";
 	$section = "Settings";
 	
-	$general->logged_out_protect();
+	$general->loggedOutProtect();
 	
 	$sess_userID = $_SESSION['userID']; 
 	if(trim($_POST['submit'])=='submit'){

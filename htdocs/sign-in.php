@@ -31,9 +31,9 @@
  
 		if (empty($email) === true || empty($password) === true) {
 			$errors[] = 'Sorry, but we need your username and password.';
-		} else if ($users->email_exists($email) === false) {
+		} else if ($users->emailExists($email) === false) {
 			$errors[] = 'Sorry that username doesn\'t exists.';
-		} else if ($users->email_confirmed($email) === false) {
+		} else if ($users->emailConfirmed($email) === false) {
 			$errors[] = 'Sorry, but you need to activate your account. Please check your emails.';
 		} else {
 	 
@@ -89,19 +89,19 @@
 			    $email_code	= trim($_GET['email_code']);
 
 				if($_GET['user'] == "developer") {     
-					if ($users->email_exists($email) === false) {
+					if ($users->emailExists($email) === false) {
 						$errors[] = 'Sorry, we couldn\'t find that email address.';
 					} else if ($developers->activateDeveloper($email, $email_code) === false) {
 						$errors[] = 'Sorry, we couldn\'t activate your account.';
 					}
 				} else if($_GET['user'] == "designer") {     
-					if ($users->email_exists($email) === false) {
+					if ($users->emailExists($email) === false) {
 						$errors[] = 'Sorry, we couldn\'t find that email address.';
 					} else if ($designers->activateDesigner($email, $email_code) === false) {
 						$errors[] = 'Sorry, we couldn\'t activate your account.';
 					}
 				} else if($_GET['user'] == "employer") {     
-					if ($users->email_exists($email) === false) {
+					if ($users->emailExists($email) === false) {
 						$errors[] = 'Sorry, we couldn\'t find that email address.';
 					} else if ($employers->activateEmployer($email, $email_code) === false) {
 						$errors[] = 'Sorry, we couldn\'t activate your account.';

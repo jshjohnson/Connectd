@@ -2,7 +2,7 @@
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php"); 
 
-	$general->logged_out_protect();
+	$general->loggedOutProtect();
 
 	require_once(ROOT_PATH . "model/designers.php");
 

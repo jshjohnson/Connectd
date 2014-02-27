@@ -17,7 +17,7 @@
 		}
 
 		// Strip data from malicious data
-		public function clean_string($db = null, $string){
+		public function cleanString($db = null, $string){
 			$string = trim($string);
 			$string = utf8_decode($string);
 			$string = str_replace("#", "&#35", $string);
@@ -28,40 +28,22 @@
 			return htmlentities($string);
 		}
 
-		// Encrypt password
-		public function salt($string) { 
-			$salt1 = 'a9*g4qwgrsht';
-			$salt2 = 'bu59304fh8ura0';
-			$salted = sha1("$salt1$string$salt2");
-			return $salted;
-		}
-
-
-	    public function showErrors() {
-	    	error_reporting(E_ERROR|E_WARNING);
-	    }
-
-	    // Simply starts the session. 
-	    public function doStartSession() {
-	        session_start();
-	    }
-
 	    // Test if user is logged in @boolean
-		public function logged_in () {
+		public function loggedIn() {
 			return(isset($_SESSION['id'])) ? true : false;
 		}
 	 
 		// Check if user is logged in, if so direct them to the dashboard
-		public function logged_in_protect() {
-			if ($this->logged_in() === true) {
+		public function loggedInProtect() {
+			if ($this->loggedIn () === true) {
 				header("Location:" . BASE_URL . "dashboard/");
 				exit();		
 			}
 		}
 		
 		// Check if user is logged out, if so direct them to the homepage
-		public function logged_out_protect() {
-			if ($this->logged_in() === false) {
+		public function loggedOutProtect() {
+			if ($this->loggedIn () === false) {
 				header("Location:" . BASE_URL);
 				exit();
 			}	
@@ -79,15 +61,12 @@
 
 
 	    public function getCounties() {
-
 			$query = $this->db->prepare("SELECT county FROM " . DB_NAME . ".locations ORDER BY county ASC");
-
 			try{
 				$query->execute();
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}
-		 
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
 	    }

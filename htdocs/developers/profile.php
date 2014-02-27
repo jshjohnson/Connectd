@@ -1,7 +1,7 @@
 <?php 
 	require_once("../config.php");  
 	require_once(ROOT_PATH . "core/init.php");
-	$general->logged_out_protect();
+	$general->loggedOutProtect();
 	require_once(ROOT_PATH . "model/developers.php");
 
 	if (isset($_GET["id"])) {
@@ -36,10 +36,10 @@
 						</div>
 						<div class="button-wrapper">
 							<button class="button-green button-left cf hire-trigger">
-								<a href="">Hire <?php echo $developer['firstname']; ?></a>
+								<a href="mailto:<?php echo $developer['email']; ?>?subject=I would like to hire you! -- Connectd&body=Hey <?php echo $developer['firstname']; ?>...">Hire <?php echo $developer['firstname']; ?></a>
 							</button>
 							<button class="button-blue button-right cf collaborate-trigger">
-								<a href="">Collaborate</a>
+								<a href="mailto:<?php echo $developer['email']; ?>?subject=I would like to collaborate with you! -- Connectd&body=&body=Hey <?php echo $developer['firstname']; ?>...">Collaborate</a>
 							</button>
 						</div>
 					</div>

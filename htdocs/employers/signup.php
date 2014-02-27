@@ -2,7 +2,7 @@
 	require_once("../config.php");
 	require_once(ROOT_PATH . "core/init.php");
 
-	$general->logged_in_protect();
+	$general->loggedInProtect();
 	$counties = $general->getCounties();
 
 	$pageTitle = "Sign Up";
@@ -73,16 +73,16 @@
 		if(empty($errors) === true) {
 
 			//clean the input now that we have a db connection
-			$firstname = $general->clean_string($db, $firstname);
-			$lastname = $general->clean_string($db, $lastname);
-			$email = $general->clean_string($db, $email);
-			$password = $general->clean_string($db, $password);
-			$repeatpassword = $general->clean_string($db, $repeatpassword);
-			$businessname = $general->clean_string($db, $businessname);
-			$location = $general->clean_string($db, $location);
-			$businesstype = $general->clean_string($db, $businesstype);
-			$businesswebsite = $general->clean_string($db, $businesswebsite);
-			$businessbio = $general->clean_string($db, $businessbio);
+			$firstname = $general->cleanString($db, $firstname);
+			$lastname = $general->cleanString($db, $lastname);
+			$email = $general->cleanString($db, $email);
+			$password = $general->cleanString($db, $password);
+			$repeatpassword = $general->cleanString($db, $repeatpassword);
+			$businessname = $general->cleanString($db, $businessname);
+			$location = $general->cleanString($db, $location);
+			$businesstype = $general->cleanString($db, $businesstype);
+			$businesswebsite = $general->cleanString($db, $businesswebsite);
+			$businessbio = $general->cleanString($db, $businessbio);
 
 
 			$employers->registerEmployer($firstname, $lastname, $email, $password, $businessname, $location, $businesstype, $businesswebsite, $businessbio);
