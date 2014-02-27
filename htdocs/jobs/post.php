@@ -3,6 +3,7 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$general->logged_out_protect();
+	$general->errors();
 
 	$section = "Jobs";
 	$pageTitle = "Post a job";
@@ -40,16 +41,14 @@
 	    }else if($jobdescription == ""){
 	        $message = "Please enter a job description"; 
 	    }else{
-			// Process details here
-			require_once(ROOT_PATH . "inc/db_connect.php");
 
 			//clean the input now that we have a db connection
-			$jobtitle = clean_string($db, $jobtitle);
-			$startdate = clean_string($db, $startdate);
-			$deadline = clean_string($db, $deadline);
-			$budget = clean_string($db, $budget);
-			$jobcategory = clean_string($db, $jobcategory);
-			$jobdescription = clean_string($db, $jobdescription);
+			$jobtitle = $general->clean_string($db, $jobtitle);
+			$startdate = $general->clean_string($db, $startdate);
+			$deadline = $general->clean_string($db, $deadline);
+			$budget = $general->clean_string($db, $budget);
+			$jobcategory = $general->clean_string($db, $jobcategory);
+			$jobdescription = $general->clean_string($db, $jobdescription);
 
 			try {
 				$result = $db->prepare("INSERT INTO connectdDB.jobs(jobtitle, startdate, deadline, budget, jobcategory, jobdescription, date) VALUES (?, ?, ?, ?, ?, ?, now())");
@@ -77,8 +76,8 @@
 				Post a job<a href="" class="menu-trigger header__section--title__link "> : Menu</a>
 			</h1>
 			<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-			<h2 class="header__section header__section--logo">
-				<a href="<?php echo BASE_URL; ?>">connectd</a>
+			<h2 class="header__section header__section--username">
+				<a href="<?php echo BASE_URL . "developer/profile.php?id=" . $_SESSION['userID']; ?>" class="header-username"><?php echo $username; ?></a>
 			</h2>
 		</div>
 	</header>

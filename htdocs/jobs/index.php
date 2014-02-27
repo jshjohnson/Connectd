@@ -3,15 +3,13 @@
 	require_once(ROOT_PATH . "core/init.php"); 
 
 	$general->logged_out_protect();
+	$general->errors();
 
 	include_once(ROOT_PATH . "model/jobs.php");
 
 	$jobs = get_jobs_all();
 	$job_id = $_GET["id"];
 	$job = $jobs[$job_id];
-
-	$user = $users->userdata($_SESSION['id']);
-	$username = $user[0] . " " . $user[1];
 
 	$pageTitle = $job['jobtitle'];
 	$section = "Jobs";
