@@ -88,26 +88,12 @@
 			    $email 		= trim($_GET['email']);
 			    $email_code	= trim($_GET['email_code']);
 
-				if($_GET['user'] == "developer") {     
-					if ($users->emailExists($email) === false) {
-						$errors[] = 'Sorry, we couldn\'t find that email address.';
-					} else if ($developers->activateDeveloper($email, $email_code) === false) {
-						$errors[] = 'Sorry, we couldn\'t activate your account.';
-					}
-				} else if($_GET['user'] == "designer") {     
-					if ($users->emailExists($email) === false) {
-						$errors[] = 'Sorry, we couldn\'t find that email address.';
-					} else if ($designers->activateDesigner($email, $email_code) === false) {
-						$errors[] = 'Sorry, we couldn\'t activate your account.';
-					}
-				} else if($_GET['user'] == "employer") {     
-					if ($users->emailExists($email) === false) {
-						$errors[] = 'Sorry, we couldn\'t find that email address.';
-					} else if ($employers->activateEmployer($email, $email_code) === false) {
-						$errors[] = 'Sorry, we couldn\'t activate your account.';
-					}
+				if ($users->emailExists($email) === false) {
+					$errors[] = 'Sorry, we couldn\'t find that email address.';
+				} else if ($employers->activateUser($email, $email_code) === false) {
+					$errors[] = 'Sorry, we couldn\'t activate your account.';
 				}
-		            
+	            
 			    if(!empty($errors) === false){
 	                header('Location: sign-in.php?status=activated');
 	                exit();
