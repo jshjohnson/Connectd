@@ -10,9 +10,6 @@
 	$job_id = $_GET["id"];
 	$job = $jobs[$job_id];
 
-	$user = $users->userData($_SESSION['id']);
-	$username = $user[0] . " " . $user[1];
-
 	$pageTitle = $job['jobtitle'];
 	$section = "Jobs";
 	
@@ -52,7 +49,7 @@
 				<aside class="grid__cell module-1-3 module--no-pad user-sidebar--employer float-right">
 					<article class="user-sidebar module module--no-pad">
 						<div class="user-sidebar__info">
-							<h3 class="user-sidebar__title">Mixd</h3>
+							<h3 class="user-sidebar__title"><?= $job['firstname'] . ' ' .  $job['lastname']; ?></h3>
 							<h4 class="user-sidebar__label icon--attach icon--marg">Digital Design Agency</h4>
 							<h4 class="user-sidebar__label icon--location icon--marg">Harrogate, UK</h4>
 							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="">mixd.co.uk</a></h4>

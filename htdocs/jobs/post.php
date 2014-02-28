@@ -2,12 +2,13 @@
 	require_once("../config.php");  
 	require_once(ROOT_PATH . "core/init.php");
 
+	include_once(ROOT_PATH . "inc/header.php");
+
+	$general->errors();
 	$general->loggedOutProtect();
 
 	$section = "Jobs";
 	$pageTitle = "Post a job";
-	include_once(ROOT_PATH . "inc/header.php");
-
 	// Grab the form data
 	$jobtitle = trim($_POST['jobtitle']);
 	$startdate = trim($_POST['startdate']);
@@ -16,9 +17,6 @@
 	$jobcategory = trim($_POST['jobcategory']);
 	$jobdescription = trim($_POST['jobdescription']);
 	$submit = trim($_POST['submit']);
-
-	$user = $users->userData($_SESSION['id']);
-	$username = $user[0] . " " . $user[1];
 
 	if ($submit=='Submit job'){
 
@@ -40,25 +38,27 @@
 	    }else if($jobdescription == ""){
 	        $message = "Please enter a job description"; 
 	    }else{
-			// Process details here
-			require_once(ROOT_PATH . "inc/db_connect.php");
 
 			//clean the input now that we have a db connection
-			$jobtitle = cleanString($db, $jobtitle);
-			$startdate = cleanString($db, $startdate);
-			$deadline = cleanString($db, $deadline);
-			$budget = cleanString($db, $budget);
-			$jobcategory = cleanString($db, $jobcategory);
-			$jobdescription = cleanString($db, $jobdescription);
+			$jobtitle       = $general->cleanString($db, $jobtitle);
+			$startdate      = $general->cleanString($db, $startdate);
+			$deadline       = $general->cleanString($db, $deadline);
+			$budget         = $general->cleanString($db, $budget);
+			$jobcategory    = $general->cleanString($db, $jobcategory);
+			$jobdescription = $general->cleanString($db, $jobdescription);
+			$time 		    = time();
 
 			try {
-				$result = $db->prepare("INSERT INTO connectdDB.jobs(jobtitle, startdate, deadline, budget, jobcategory, jobdescription, date) VALUES (?, ?, ?, ?, ?, ?, now())");
-				$result->bindParam(1, $jobtitle);
-				$result->bindParam(2, $startdate);
-				$result->bindParam(3, $deadline);
-				$result->bindParam(4, $budget);
-				$result->bindParam(5, $jobcategory);
-				$result->bindParam(6, $jobdescription);
+				$result = $db->prepare("INSERT INTO connectdDB.jobs(user_id, jobtitle, startdate, deadline, budget, jobcategory, jobdescription, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+				$result->bindValue(1, $user_id);
+				$result->bindValue(2, $jobtitle);
+				$result->bindValue(3, $startdate);
+				$result->bindValue(4, $deadline);
+				$result->bindValue(5, $budget);
+				$result->bindValue(6, $jobcategory);
+				$result->bindValue(7, $jobdescription);
+				$result->bindValue(8, $time);
+
 				$result->execute();
 			
 			} catch (Exception $e) {

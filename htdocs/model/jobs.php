@@ -23,8 +23,8 @@
 		$output = $output . "<a href='" . BASE_URL . "jobs/" . $job_id . "/'><p class='media__body'>" . $job['jobtitle'] . "</p></a>";
 		$output = $output . "</div>";
 		$output = $output . "<div class='media-1-3 media__side'>";
-		$output = $output . "<p><small>Posted " . $job['date'] . "</small></p>";
-		$output = $output . "<p><small>Username</small></p>";
+		$output = $output . "<p><small>Posted " . date('F j, Y', $job['date']) . "</small></p>";
+		$output = $output . "<p><small>" . $job['firstname'] . ' ' .  $job['lastname'] . "</small></p>";
 		$output = $output . "</div>";
 		$output = $output . "</div>";
 
@@ -55,7 +55,9 @@
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->query("SELECT jobtitle, budget, date, jobdescription, jobcategory FROM " . DB_NAME . ".jobs ORDER BY date DESC");
+			$results = $db->query("SELECT 
+				jobs.id, jobs.user_id, jobs.jobtitle, jobs.budget, jobs.date, jobs.jobdescription, jobs.jobcategory, users.firstname, users.lastname
+				FROM jobs JOIN users ON jobs.user_id = users.id ORDER BY jobs.date DESC");
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
 			exit;
