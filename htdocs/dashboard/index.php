@@ -2,8 +2,9 @@
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
-	$general->loggedOutProtect();
 	$general->errors();
+	$general->loggedOutProtect();
+	$general->userVotedForProtect();
 
 	$pageTitle = "Dashboard";
 	$section = "Dashboard";

@@ -22,4 +22,3 @@
 	<script>var baseUrl = '<?= BASE_URL; ?>';</script>
 </head>
 <body>
-	<section id="home" class="site-wrap">

@@ -450,6 +450,13 @@ img.media__img {
 	filter: blur(2px);
 }
 
+.vote-count {
+	font-family: $font-serif;
+	font-style: italic;
+	padding: 0 .2em;
+	font-size: 1.5em;
+}
+
 .forgot {
 	font-size: .8em;
 }

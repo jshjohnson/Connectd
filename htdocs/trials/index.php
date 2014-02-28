@@ -25,7 +25,7 @@
 						     <div class="ribbon"><h5>New</h5></div>
 						<?php endif ?>
 						<div class="user-sidebar__info">
-							<h5 class="user-trial__label"><?php echo date('F j, Y', $trial_user['time']); ?></h5>
+							<time class="user-trial__label"><?php echo date('F j, Y', $trial_user['time']); ?></time>
 							<h3 class="user-sidebar__title user-sidebar__title--alt"><?php echo $trial_user["firstname"] . "\n" . $trial_user["lastname"]; ?></h3>
 							<h4 class="user-sidebar__label icon--attach icon--marg"><?php echo $trial_user["jobtitle"]; ?></h4>
 							<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $trial_user["location"]; ?>, UK</h4>

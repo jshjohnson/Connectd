@@ -1,7 +1,8 @@
 <?php 	
 	require_once("config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
-
+	
+	$general->errors();
 	$general->loggedInProtect();
 
 	include_once(ROOT_PATH . "inc/header-home.php");
@@ -10,6 +11,7 @@
 			<div class="site-intro__wrap">
 				<a href="#register"><h1 class="site-intro__heading">connectd.io</h1></a>
 				<a href="#register"><h1 class="site-intro__sub-heading">An alternative for freelancers and employers</h1></a>
+				<a href="" class="site-intro__link">Find out more</a>
 			</div>
 		</header>
 		<h2 class="logo text-right"><a href="<?php echo BASE_URL; ?>">connectd</a></h2>

@@ -43,18 +43,18 @@
 		$r3='/[0-9]/';  // Test for a number
 
 		if($firstname == ""){
-		    $errors[] ="Please enter your first name"; 
+		    $errors[] ="Please enter your first name";
 		}else if($lastname == ""){
-		    $errors[] ="Please enter your last name"; 
+		    $errors[] ="Please enter your last name";
 		}else if($email == ""){
-		    $errors[] ="Please enter your email"; 
+		    $errors[] ="Please enter your email";
 		}else if (!$mail->ValidateAddress($email)){
 				$errors[] = "You must specify a valid email address.";
 		}else if ($users->emailExists($email) === true) {
 		    $errors[] = "Email already taken. Please try again.";
 		}else if($password == ""){
-		    $errors[] ="Please enter a password"; 
-		}else if ($password!=$repeatpassword){ 
+		    $errors[] ="Please enter a password";
+		}else if ($password!=$repeatpassword){
 			$errors[] = "Both password fields must match";
 		} else if(preg_match_all($r1,$password)<1) {
 			$errors[] = "Your password needs to contain at least one uppercase character";
@@ -65,13 +65,13 @@
 		} else if (strlen($password)>25||strlen($password)<6) {
 			$errors[] = "Password must be 6-25 characters long";
 		} else if($portfolio == ""){
-		    $errors[] ="You must have an active portfolio to join Connectd"; 
+		    $errors[] ="You must have an active portfolio to join Connectd";
 		} else if($jobtitle == ""){
-		    $errors[] ="Please select your current job title"; 
+		    $errors[] ="Please select your current job title";
 		}else if($experience == ""){
-		    $errors[] ="Please enter your experience"; 
+		    $errors[] ="Please enter your experience";
 		}else if($bio == ""){
-		    $errors[] ="Please write about yourself"; 
+		    $errors[] ="Please write about yourself";
 		}else if(strlen($bio)<25) {
 			$errors[] = "You're not going to sell yourself without a decent bio!";
 		}
@@ -90,7 +90,7 @@
 			$portfolio = $general->cleanString($db, $portfolio);
 			$experience = $general->cleanString($db, $experience);
 			$jobtitle = $general->cleanString($db, $jobtitle);
-	 
+
 			$designers->registerDesigner($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();
@@ -130,7 +130,7 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
-				<?php 
+				<?php
 					if(empty($errors) === false){
 						echo '<p class="message message--error">' . implode('</p><p>', $errors) . '</p>';
 					}
@@ -178,7 +178,7 @@
 					</div>
 					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
-		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>					
+		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>
 					</div>
 		        </form>
 			</div>

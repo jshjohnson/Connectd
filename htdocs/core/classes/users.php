@@ -163,47 +163,4 @@
 				die($e->getMessage());
 			}
 		}
-
-		// Test if user has been verified into the community
-		public function userVotedFor($email) {
- 
-			$query = $this->db->prepare("SELECT designers.email
-						FROM " . DB_NAME . ".designers 
-						WHERE designers.votes >= ? 
-						UNION SELECT developers.email
-						FROM " . DB_NAME . ".developers 
-						WHERE developers.votes >= ?
-					");
-			$query->bindValue(1, 10);
-			$query->bindValue(2, 10);
-			
-			try{
-				
-				$query->execute();
-				$rows = $query->fetchColumn();
-		 
-				if($rows == 1){
-					return true;
-				}else{
-					return false;
-				}
-		 
-			} catch(PDOException $e){
-				die($e->getMessage());
-			}
-		}
-
-		public function userVotedForProtect($email) {
-
-			if($users->userVotedFor($email) === true) {
-				#Redirect the user to the dashboard
-				header('Location: dashboard/');
-				exit();
-			} else if($users->userVotedFor($email) === false) {
-				header('Location: welcome/');
-				exit();
-			}
-
-		} 
-
 	}

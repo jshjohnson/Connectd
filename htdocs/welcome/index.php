@@ -29,7 +29,7 @@
 				</h4>
 				<p>Welcome to Connectd. You have successfully signed up and have therefore been added to the Connectd Trials where the community will decide whether you are of a good enough quality to be hired. We will email you to update you on your progress in the Trials and whether you have achieved a vote.</p>
 				<p>Good luck!</p>
-				<p>-- Connectd team</p>
+				<p>You currently have <span class="vote-count">5</span> votes</p>
 			</div>
 		</section>
 	</div>
