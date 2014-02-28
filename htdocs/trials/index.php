@@ -7,9 +7,6 @@
 	$pageTitle = "Trials";
 	$section = "Trials";
 
-	$user = $users->userData($_SESSION['id']);
-	$username = $user[0] . " " . $user[1];
-
 	$trial_users 		= $users->getTrialUsers();
 	$trial_users_count   = count($members);
 

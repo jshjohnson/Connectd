@@ -7,12 +7,6 @@
 	$pageTitle = "Trials";
 	$section = "Trials";
 
-	$user = $users->userData($_SESSION['id']);
-	$username = $user[0] . " " . $user[1];
-
-	$trial_users 		= $users->getTrialUsers();
-	$trial_users_count   = count($members);
-
 	include_once(ROOT_PATH . "inc/header-home.php");
 ?>
 	<div class="welcome-intro">
@@ -25,11 +19,11 @@
 		<section class="welcome-message">
 			<div class="container">
 				<h4 class="as-h1 welcome-message__title">
-					Hey <?php echo $user[0]; ?>!
+					Hey <?php echo $user['firstname']; ?>!
 				</h4>
 				<p>Welcome to Connectd. You have successfully signed up and have therefore been added to the Connectd Trials where the community will decide whether you are of a good enough quality to be hired. We will email you to update you on your progress in the Trials and whether you have achieved a vote.</p>
 				<p>Good luck!</p>
-				<p>You currently have <span class="vote-count">5</span> votes</p>
+				<p class="message-flipped message-flipped--notification">You currently have <strong>5</strong> votes</p>
 			</div>
 		</section>
 	</div>
