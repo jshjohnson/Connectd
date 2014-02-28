@@ -2,16 +2,13 @@
 	session_start();
 	require 'connect/database.php';
 
-	require 'inc/phpmailer/class.phpmailer.php';
-
 	require 'classes/users.php';
 	require 'classes/developers.php';
 	require 'classes/designers.php';
 	require 'classes/employers.php';
 	require 'classes/bcrypt.php';
 	require 'classes/general.php';
-
-	$mail           = new PHPMailer(); // defaults to using php "mail()"
+	require 'inc/phpmailer/PHPMailerAutoload.php';
 	 
 	$users 			= new Users($db);
 	$developers		= new Developers($db);
@@ -19,7 +16,8 @@
 	$employers 		= new Employers($db);
 
 	$general 	    = new General($db);
-	$bcrypt        = new Bcrypt(12);
+	$bcrypt         = new Bcrypt(12);
+	$mail           = new PHPMailer(); // defaults to using php "mail()"
 
 	if ($general->loggedIn () === true)  { // check if the user is logged in
 		$user_id 	= $_SESSION['id']; // getting user's id from the session.

@@ -89,14 +89,14 @@
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
 			<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true)  { ?>
 	        <p class="message message--success">Thank you, we've activated your account. You're free to log in!</p>
-	        <?php } else if (isset ($_GET['email'], $_GET['email_code'], $_GET['user']) === true) {
+	        <?php } else if (isset ($_GET['email'], $_GET['email_code']) === true) {
 		            
 			    $email 		= trim($_GET['email']);
 			    $email_code	= trim($_GET['email_code']);
 
 				if ($users->emailExists($email) === false) {
 					$errors[] = 'Sorry, we couldn\'t find that email address.';
-				} else if ($employers->activateUser($email, $email_code) === false) {
+				} else if ($users->activateUser($email, $email_code) === false) {
 					$errors[] = 'Sorry, we couldn\'t activate your account.';
 				}
 	            

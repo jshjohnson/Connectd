@@ -11,6 +11,7 @@
 		public function registerDeveloper($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio){
 
 			global $bcrypt; // making the $bcrypt variable global so we can use here
+			global $mail;
 			
 			$time 		= time();
 			$ip 		= $_SERVER['REMOTE_ADDR'];
@@ -59,22 +60,33 @@
 		 
 				$to = $email;
 
-				$subject = 'Activate your new Connectd Account';
+				$mail->Host = "localhost";  // specify main and backup server
+				$mail->Username = "josh@joshuajohnson.co.uk";  // SMTP username
+				$mail->Password = "cheeseball27"; // SMTP password
+				$mail->SMTPAuth = true;     // turn on SMTP authentication
+				$mail->addAddress($to);  // Add a recipient=
+                
+                $mail->From = 'noreply@connectd.io';
+				$mail->FromName = 'Connectd.io';
+                // Set word wrap to 50 characters
+				$mail->isHTML(true); // Set email format to HTML
 
-				$headers = "MIME-Version: 1.0\r\n";
-				$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+				$mail->Subject = 'Activate your new Connectd account';
 
-				$message = "<html><body>";
-				$message .= "<p>Hey " . $firstname . "!</p>";
-				$message .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
-				$message .= "<p>" . BASE_URL . "sign-in.php?email=" . $email . "&email_code=" . $email_code . "</p>";
-				$message .= "<p>-- Connectd team</p>";
-				$message .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-				$message .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
-				$message .= "</body></html>";
+				$mail->Body = "<p>Hey " . $firstname . "!</p>";
+				$mail->Body .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
+				$mail->Body .= "<p>" . BASE_URL . "sign-in.php?email=" . $email . "&email_code=" . $email_code . "</p>";
+				$mail->Body .= "<p>-- Connectd team</p>";
+				$mail->Body .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
+				$mail->Body .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
+				$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-				// mail($to, $subject, $message, $headers);
-			
+				if(!$mail->send()) {
+				   echo 'Message could not be sent.';
+				   echo 'Mailer Error: ' . $mail->ErrorInfo;
+				   exit;
+				}
+							
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}	

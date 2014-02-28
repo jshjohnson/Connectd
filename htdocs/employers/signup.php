@@ -2,6 +2,7 @@
 	require_once("../config.php");
 	require_once(ROOT_PATH . "core/init.php");
 
+	$general->errors();
 	$general->loggedInProtect();
 	$counties = $general->getCounties();
 
@@ -48,6 +49,8 @@
 	        $errors[] ="Please enter your email"; 
 	    }else if (!$mail->ValidateAddress($email)){
    			 $errors[]  = "You must specify a valid email address.";
+		}else if ($users->emailExists($email) === true) {
+		    $errors[] = "Email already taken. Please try again.";
 		}else if($password == ""){
 	        $errors[] ="Please enter a password"; 
 	    }else if ($password!=$repeatpassword){ 
