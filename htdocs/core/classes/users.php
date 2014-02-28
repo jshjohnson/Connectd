@@ -116,7 +116,7 @@
 		public function userData($id) {
  
 			$query = $this->db->prepare("
-				SELECT firstname, lastname FROM " . DB_NAME . ".users WHERE `id`= ?
+				SELECT firstname, lastname, user_type FROM " . DB_NAME . ".users WHERE `id`= ?
 				");
 			// UNION SELECT firstname, lastname FROM " . DB_NAME . ".designers WHERE `id`= ?
 			// UNION SELECT firstname, lastname FROM " . DB_NAME . ".employers WHERE `id`= ?

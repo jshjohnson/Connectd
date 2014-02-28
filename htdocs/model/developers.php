@@ -47,7 +47,7 @@
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->query("SELECT * FROM " . DB_NAME . ".developers WHERE `confirmed` = 1");
+			$results = $db->query("SELECT * FROM " . DB_NAME . ".users WHERE `confirmed` = 1 AND `user_type` = 'developer'");
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
 			exit;
@@ -64,7 +64,7 @@
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->prepare("SELECT * FROM " . DB_NAME . ".developers WHERE id = ?");
+			$results = $db->prepare("SELECT * FROM " . DB_NAME . ".users WHERE id = ? AND `user_type` = 'developer'");
 			$results->bindParam(1, $id);
 			$results->execute();
 		} catch (Exception $e) {

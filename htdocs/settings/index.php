@@ -32,20 +32,57 @@
     	 	}
    		}
 	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/page-header.php");
 ?>  
-		<section class="container footer--push">
-			<div class="grid--no-marg cf">
-				<article class="dashboard-panel grid__cell module-1-2 module--no-pad">
-					<header class="header--panel header--developer cf">
-						<h3 class="float-left">Change Password</h3>
-					</header>
-				</article>
-				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
-					<header class="header--panel header--developer cf">
-						<h3 class="float-left">Delete Account</h3>
-					</header>
-				</article>
+	<header class="header header-blue--alt zero-bottom cf">
+		<div class="container">
+				<?php if (!isset($_SESSION['logged'])) :?>
+				<h1 class="header__section header__section--title">Settings
+					<a href="" class="login-trigger header__section--title__link">: Log In</a>
+				</h1>
+				<?php else : ?>
+				<h1 class="header__section header__section--title">Settings
+					<a href="" class="menu-trigger header__section--title__link">: Menu</a>
+				</h1>
+					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
+				<?php endif; ?>
+			<h2 class="header__section header__section--logo">
+				<a href="<?php echo BASE_URL; ?>">connectd</a>
+			</h2>
+		</div>
+	</header>
+	<section>
+		<div class="section-heading color-blue">
+			<div class="container">
+				<div class="grid text-center">
+					<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
+						<blockquote class="intro-quote text-center">
+							Settings
+						</blockquote>
+					</div>
+				</div>
 			</div>
-		</section>
+		</div>
+	</section>
+	<section class="footer--push color-navy">
+		<div class="grid text-center">
+			<div class="grid__cell unit-1-2--bp4 unit-2-3--bp1 content-overlay">
+				<?php
+					if(empty($errors) === false){
+						echo '<p class="message message--error">' . implode('</p><p>', $errors) . '</p>';
+					}
+				?>
+				<?php if ($status == "success") : ?>
+				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
+				<?php endif; ?>
+				<form method="post" action="<?php echo BASE_URL; ?>designers/signup.php" autocomplete="off" class="sign-up-form">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" autofocus>
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
+					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
+					<div class="button-container">
+		            	<input class="submit" name="submit" type="submit" value='Update Settings'>
+					</div>
+		        </form>
+			</div>
+		</div>
+	</section>
 <?php include_once(ROOT_PATH . "inc/footer.php"); ?>

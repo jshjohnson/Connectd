@@ -23,7 +23,7 @@
 		$output = $output . "<a href='" . BASE_URL . "jobs/" . $job_id . "/'><p class='media__body'>" . $job['jobtitle'] . "</p></a>";
 		$output = $output . "</div>";
 		$output = $output . "<div class='media-1-3 media__side'>";
-		$output = $output . "<p><small>Posted " . date('F j, Y', $job['date']) . "</small></p>";
+		$output = $output . "<p><small>" . date('F j, Y', $job['date']) . "</small></p>";
 		$output = $output . "<p><small>" . $job['firstname'] . ' ' .  $job['lastname'] . "</small></p>";
 		$output = $output . "</div>";
 		$output = $output . "</div>";
