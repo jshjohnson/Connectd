@@ -769,45 +769,7 @@ textarea {
   line-height: 1.5;
 }
 
-/* line 133, ../scss/core/_base.scss */
-.select-container {
-  position: relative;
-  clear: both;
-  overflow: hidden;
-}
-/* line 137, ../scss/core/_base.scss */
-.select-container select {
-  width: 100%;
-  padding: .5em;
-  border: 1px solid #eee;
-  color: #2c3e50;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 0;
-  text-indent: 0.01px;
-  text-overflow: "";
-  margin: 0.8em 0;
-  background-color: #FFFFFF;
-  background-image: url("../img/select-bg.svg");
-  background-repeat: no-repeat;
-  background-position: 97% center;
-  background-size: .4em;
-}
-
-/* line 160, ../scss/core/_base.scss */
-.select-container--alt select {
-  background-color: #f7f7f7;
-  padding: .7em;
-}
-
-/* line 166, ../scss/core/_base.scss */
-.field-heading {
-  margin-bottom: .5em;
-  margin-top: .5em;
-}
-
-/* line 172, ../scss/core/_base.scss */
+/* line 134, ../scss/core/_base.scss */
 input:not([type=checkbox]),
 textarea {
   -webkit-transition: all 0.3s ease-in-out;
@@ -824,7 +786,7 @@ textarea {
   margin: 0.8em 0;
 }
 
-/* line 189, ../scss/core/_base.scss */
+/* line 151, ../scss/core/_base.scss */
 button,
 .btn:link,
 input[type=submit] {
@@ -845,7 +807,7 @@ input[type=submit] {
   background-color: #6dbcdb;
   min-width: 0;
 }
-/* line 199, ../scss/core/_base.scss */
+/* line 161, ../scss/core/_base.scss */
 button a, button a:hover, button a:visited,
 .btn:link a,
 .btn:link a:hover,
@@ -855,7 +817,7 @@ input[type=submit] a:hover,
 input[type=submit] a:visited {
   color: white;
 }
-/* line 202, ../scss/core/_base.scss */
+/* line 164, ../scss/core/_base.scss */
 button:hover,
 .btn:link:hover,
 input[type=submit]:hover {
@@ -866,12 +828,77 @@ input[type=submit]:hover {
   box-shadow: 0 2px 0;
 }
 
-/* line 213, ../scss/core/_base.scss */
+/* line 174, ../scss/core/_base.scss */
+.button-container {
+  border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-top: 1em;
+  bottom: 1.1em;
+  text-align: center;
+  z-index: 0;
+}
+/* line 181, ../scss/core/_base.scss */
+.button-container button a, .button-container a:active, .button-container a:visited {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  top: 0;
+}
+/* line 187, ../scss/core/_base.scss */
+.button-container input {
+  top: 1.4em;
+  position: relative;
+  margin: auto;
+  min-width: 13em;
+}
+/* line 192, ../scss/core/_base.scss */
+.button-container input:hover {
+  top: 1.5em;
+}
+
+/* line 198, ../scss/core/_base.scss */
+.select-container {
+  position: relative;
+  clear: both;
+}
+/* line 201, ../scss/core/_base.scss */
+.select-container select {
+  width: 100%;
+  padding: .5em;
+  border: 1px solid #eee;
+  color: #2c3e50;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  text-indent: 0.01px;
+  text-overflow: "";
+  margin: 0.8em 0;
+  background-color: #FFFFFF;
+  background-image: url("../img/select-bg.svg");
+  background-repeat: no-repeat;
+  background-position: 97% center;
+  background-size: .4em;
+}
+
+/* line 223, ../scss/core/_base.scss */
+.select-container--alt select {
+  background-color: #f7f7f7;
+  padding: .7em;
+}
+
+/* line 229, ../scss/core/_base.scss */
+.field-heading {
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+
+/* line 235, ../scss/core/_base.scss */
 button:focus {
   outline: none;
 }
 
-/* line 218, ../scss/core/_base.scss */
+/* line 240, ../scss/core/_base.scss */
 input:not([type=checkbox]):focus, textarea:focus, select:focus {
   -webkit-box-shadow: 0 0 5px #77c462;
   -moz-box-shadow: 0 0 5px #77c462;
@@ -880,7 +907,7 @@ input:not([type=checkbox]):focus, textarea:focus, select:focus {
   outline: 0;
 }
 
-/* line 224, ../scss/core/_base.scss */
+/* line 246, ../scss/core/_base.scss */
 input:not(:focus):invalid {
   -webkit-box-shadow: 0 0 5px red;
   -moz-box-shadow: 0 0 5px red;
@@ -889,7 +916,7 @@ input:not(:focus):invalid {
   outline: 0;
 }
 
-/* line 229, ../scss/core/_base.scss */
+/* line 251, ../scss/core/_base.scss */
 input:focus:invalid {
   -webkit-box-shadow: 0 0 5px red;
   -moz-box-shadow: 0 0 5px red;
@@ -899,30 +926,30 @@ input:focus:invalid {
 }
 
 /* -- Blockquotes -- */
-/* line 236, ../scss/core/_base.scss */
+/* line 258, ../scss/core/_base.scss */
 blockquote {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 240, ../scss/core/_base.scss */
+/* line 262, ../scss/core/_base.scss */
 blockquote {
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
   font-style: italic;
   clear: both;
 }
 
-/* line 241, ../scss/core/_base.scss */
+/* line 263, ../scss/core/_base.scss */
 blockquote p {
   font-size: 1.35em;
 }
 
-/* line 242, ../scss/core/_base.scss */
+/* line 264, ../scss/core/_base.scss */
 blockquote p + .source {
   margin-top: -2em;
 }
 
-/* line 243, ../scss/core/_base.scss */
+/* line 265, ../scss/core/_base.scss */
 .source {
   display: block;
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
@@ -932,27 +959,27 @@ blockquote p + .source {
   margin-top: .5em;
 }
 
-/* line 244, ../scss/core/_base.scss */
+/* line 266, ../scss/core/_base.scss */
 .source:before {
   content: "\2013\0020";
 }
 
 /* Links
 ----------------------------------*/
-/* line 250, ../scss/core/_base.scss */
+/* line 272, ../scss/core/_base.scss */
 a {
   text-decoration: none;
   color: #2c3e50;
 }
 
 /* -- visited -- */
-/* line 255, ../scss/core/_base.scss */
+/* line 277, ../scss/core/_base.scss */
 a:visited {
   color: #2c3e50;
 }
 
 /* -- hovers -- */
-/* line 262, ../scss/core/_base.scss */
+/* line 284, ../scss/core/_base.scss */
 a:hover {
   color: #222222;
 }
@@ -1011,97 +1038,97 @@ a:hover {
   padding-right: .3em;
 }
 
-/* line 274, ../scss/core/_base.scss */
+/* line 296, ../scss/core/_base.scss */
 .icon--marg:before {
   top: 0;
   width: 1em;
 }
 
-/* line 279, ../scss/core/_base.scss */
+/* line 301, ../scss/core/_base.scss */
 .icon--clock:before {
   content: '\e803';
 }
 
 /* '' */
-/* line 280, ../scss/core/_base.scss */
+/* line 302, ../scss/core/_base.scss */
 .icon--users:before {
   content: '\e800';
 }
 
 /* '' */
-/* line 281, ../scss/core/_base.scss */
+/* line 303, ../scss/core/_base.scss */
 .icon--location:before {
   content: '\e805';
 }
 
 /* '' */
-/* line 282, ../scss/core/_base.scss */
+/* line 304, ../scss/core/_base.scss */
 .icon--calendar:before {
   content: '\e806';
 }
 
 /* '' */
-/* line 283, ../scss/core/_base.scss */
+/* line 305, ../scss/core/_base.scss */
 .icon--male:before {
   content: '\e807';
 }
 
 /* '' */
-/* line 284, ../scss/core/_base.scss */
+/* line 306, ../scss/core/_base.scss */
 .icon--globe:before {
   content: '\e808';
 }
 
 /* '' */
-/* line 285, ../scss/core/_base.scss */
+/* line 307, ../scss/core/_base.scss */
 .icon--briefcase:before {
   content: '\e809';
 }
 
 /* '' */
-/* line 286, ../scss/core/_base.scss */
+/* line 308, ../scss/core/_base.scss */
 .icon--check:before {
   content: '\e811';
 }
 
 /* '' */
-/* line 287, ../scss/core/_base.scss */
+/* line 309, ../scss/core/_base.scss */
 .icon--attach:before {
   content: '\e804';
 }
 
 /* '' */
-/* line 288, ../scss/core/_base.scss */
+/* line 310, ../scss/core/_base.scss */
 .icon--sitemap:before {
   content: '\e80b';
 }
 
 /* '' */
-/* line 289, ../scss/core/_base.scss */
+/* line 311, ../scss/core/_base.scss */
 .icon--lightbulb:before {
   content: '\e80c';
 }
 
 /* '' */
-/* line 290, ../scss/core/_base.scss */
+/* line 312, ../scss/core/_base.scss */
 .icon--search:before {
   content: '\e801';
 }
 
 /* '' */
-/* line 291, ../scss/core/_base.scss */
+/* line 313, ../scss/core/_base.scss */
 .icon--home:before {
   content: '\e802';
 }
 
 /* '' */
-/* line 292, ../scss/core/_base.scss */
+/* line 314, ../scss/core/_base.scss */
 .icon--bookmark:before {
   content: '\e80d';
 }
 
 /* '' */
-/* line 293, ../scss/core/_base.scss */
+/* line 315, ../scss/core/_base.scss */
 .icon--star:before {
   content: '\e80e';
   color: #E7E948;
@@ -1110,7 +1137,7 @@ a:hover {
 }
 
 /* '' */
-/* line 294, ../scss/core/_base.scss */
+/* line 316, ../scss/core/_base.scss */
 .icon--star-alt:before {
   content: '\e80e';
   color: #E7E948;
@@ -1119,19 +1146,19 @@ a:hover {
 }
 
 /* '' */
-/* line 295, ../scss/core/_base.scss */
+/* line 317, ../scss/core/_base.scss */
 .icon--down-micro:before {
   content: '\e80f';
 }
 
 /* '' */
-/* line 296, ../scss/core/_base.scss */
+/* line 318, ../scss/core/_base.scss */
 .icon--magic:before {
   content: '\e80a';
 }
 
 /* '' */
-/* line 297, ../scss/core/_base.scss */
+/* line 319, ../scss/core/_base.scss */
 .icon--cancel:before {
   content: '\e810';
   float: right;
@@ -2194,25 +2221,17 @@ img.media__img {
 }
 
 /* line 453, ../scss/core/_modules.scss */
-.vote-count {
-  font-family: "Georgia", serif;
-  font-style: italic;
-  padding: 0 .2em;
-  font-size: 1.5em;
-}
-
-/* line 460, ../scss/core/_modules.scss */
 .forgot {
   font-size: .8em;
 }
 
-/* line 464, ../scss/core/_modules.scss */
+/* line 457, ../scss/core/_modules.scss */
 .intro-quote {
   font-family: "Georgia", serif;
   font-size: 2em;
   margin: .5em 0;
 }
-/* line 468, ../scss/core/_modules.scss */
+/* line 461, ../scss/core/_modules.scss */
 .intro-quote .source {
   font-family: "Georgia", serif;
   font-size: .6em;
@@ -2220,7 +2239,7 @@ img.media__img {
 
 /* Portfolio
 ----------------------------------*/
-/* line 478, ../scss/core/_modules.scss */
+/* line 471, ../scss/core/_modules.scss */
 .portfolio__headings-bg {
   background-color: #f0eded;
   font-size: .8em;
@@ -2232,12 +2251,12 @@ img.media__img {
   margin-top: 0;
 }
 
-/* line 490, ../scss/core/_modules.scss */
+/* line 483, ../scss/core/_modules.scss */
 .portfolio__headings {
   margin: 0;
   position: relative;
 }
-/* line 493, ../scss/core/_modules.scss */
+/* line 486, ../scss/core/_modules.scss */
 .portfolio__headings li {
   display: inline-block;
   *display: inline;
@@ -2246,24 +2265,24 @@ img.media__img {
   position: relative;
   padding: .5em 1.4em .4em;
 }
-/* line 500, ../scss/core/_modules.scss */
+/* line 493, ../scss/core/_modules.scss */
 .portfolio__headings li.portfolio__headings--label {
   padding-right: 0;
 }
-/* line 504, ../scss/core/_modules.scss */
+/* line 497, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 507, ../scss/core/_modules.scss */
+/* line 500, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   background-color: #2c3e50;
   color: white;
 }
-/* line 510, ../scss/core/_modules.scss */
+/* line 503, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 513, ../scss/core/_modules.scss */
+/* line 506, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -2277,61 +2296,61 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 531, ../scss/core/_modules.scss */
+/* line 524, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   background-color: #6dbcdb;
   color: white;
 }
-/* line 534, ../scss/core/_modules.scss */
+/* line 527, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active:after {
   border-top-color: #6dbcdb;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 544, ../scss/core/_modules.scss */
+/* line 537, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
   margin-bottom: 2.5em;
   flex: 1;
 }
-/* line 548, ../scss/core/_modules.scss */
+/* line 541, ../scss/core/_modules.scss */
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
 }
-/* line 552, ../scss/core/_modules.scss */
+/* line 545, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 557, ../scss/core/_modules.scss */
+/* line 550, ../scss/core/_modules.scss */
 .call-to-action--top {
   margin-bottom: 2.5em;
 }
-/* line 558, ../scss/core/_modules.scss */
+/* line 551, ../scss/core/_modules.scss */
 .call-to-action--top .call-to-action__title {
   margin-top: 0;
 }
 
-/* line 567, ../scss/core/_modules.scss */
+/* line 560, ../scss/core/_modules.scss */
 .price-per-hour {
   margin-top: .35em;
 }
-/* line 569, ../scss/core/_modules.scss */
+/* line 562, ../scss/core/_modules.scss */
 .price-per-hour h5 {
   margin: 0;
   text-align: center;
   font-weight: 600;
 }
-/* line 574, ../scss/core/_modules.scss */
+/* line 567, ../scss/core/_modules.scss */
 .price-per-hour span {
   font-size: .7em;
   display: block;
   line-height: .9;
 }
 
-/* line 581, ../scss/core/_modules.scss */
+/* line 574, ../scss/core/_modules.scss */
 .currency-button {
   background-color: #77c462;
   border-radius: 10em;
@@ -2342,14 +2361,14 @@ img.media__img {
   height: 3.5em;
 }
 
-/* line 591, ../scss/core/_modules.scss */
+/* line 584, ../scss/core/_modules.scss */
 .currency {
   line-height: 3.5em;
   text-align: center;
   display: block;
 }
 
-/* line 597, ../scss/core/_modules.scss */
+/* line 590, ../scss/core/_modules.scss */
 .user-trial__label {
   color: #7f7e7e;
   font-size: .7em;
@@ -2913,34 +2932,6 @@ img.media__img {
   margin-right: 1%;
 }
 
-/* line 46, ../scss/core/modules/_forms.scss */
-.button-container {
-  border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
-  position: relative;
-  margin-top: 1em;
-  bottom: 1.1em;
-  text-align: center;
-  z-index: 0;
-}
-/* line 53, ../scss/core/modules/_forms.scss */
-.button-container button a, .button-container a:active, .button-container a:visited {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  top: 0;
-}
-/* line 59, ../scss/core/modules/_forms.scss */
-.button-container input {
-  top: 1.4em;
-  position: relative;
-  margin: auto;
-  min-width: 13em;
-}
-/* line 64, ../scss/core/modules/_forms.scss */
-.button-container input:hover {
-  top: 1.5em;
-}
-
 /* line 1, ../scss/core/modules/_overlay.scss */
 .overlay {
   position: absolute;
@@ -3282,42 +3273,75 @@ img.media__img {
 }
 
 /* line 99, ../scss/core/_overrides.scss */
+.message-flipped {
+  color: white;
+  padding: .5em 1em;
+  font-size: .9em;
+  position: relative;
+}
+/* line 104, ../scss/core/_overrides.scss */
+.message-flipped:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: .75em solid transparent;
+  border-right: .75em solid transparent;
+  position: absolute;
+  left: 1.5em;
+  top: -28%;
+}
+/* line 114, ../scss/core/_overrides.scss */
+.message-flipped a {
+  color: white;
+  font-weight: bolder;
+}
+
+/* line 120, ../scss/core/_overrides.scss */
 .message--success {
   background-color: #77c462;
 }
-/* line 101, ../scss/core/_overrides.scss */
+/* line 122, ../scss/core/_overrides.scss */
 .message--success:after {
   border-top: 0.75em solid #77c462;
 }
 
-/* line 106, ../scss/core/_overrides.scss */
+/* line 127, ../scss/core/_overrides.scss */
 .message--error {
   background-color: #fc4349;
 }
-/* line 108, ../scss/core/_overrides.scss */
+/* line 129, ../scss/core/_overrides.scss */
 .message--error:after {
   border-top: 0.75em solid #fc4349;
 }
 
-/* line 113, ../scss/core/_overrides.scss */
+/* line 134, ../scss/core/_overrides.scss */
 .message--hint {
   background-color: #ebe9e9;
   color: #8B8888;
   margin: .5em 0;
 }
-/* line 117, ../scss/core/_overrides.scss */
+/* line 138, ../scss/core/_overrides.scss */
 .message--hint:after {
   border-top: 0.75em solid #ebe9e9;
 }
 
-/* line 122, ../scss/core/_overrides.scss */
+/* line 143, ../scss/core/_overrides.scss */
+.message-flipped--notification {
+  background-color: orange;
+}
+/* line 145, ../scss/core/_overrides.scss */
+.message-flipped--notification:before {
+  border-bottom: 0.75em solid orange;
+}
+
+/* line 150, ../scss/core/_overrides.scss */
 input:disabled {
   background-color: #ccc !important;
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
   box-shadow: 0 0.1em 0 #948f8f !important;
 }
-/* line 125, ../scss/core/_overrides.scss */
+/* line 153, ../scss/core/_overrides.scss */
 input:disabled:hover {
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
@@ -3327,7 +3351,7 @@ input:disabled:hover {
 
 /* Debuggin'
 ----------------------------------*/
-/* line 154, ../scss/core/_overrides.scss */
+/* line 182, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3342,7 +3366,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 0";
 }
-/* line 157, ../scss/core/_overrides.scss */
+/* line 185, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3357,7 +3381,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 1";
 }
-/* line 160, ../scss/core/_overrides.scss */
+/* line 188, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3372,7 +3396,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 2";
 }
-/* line 163, ../scss/core/_overrides.scss */
+/* line 191, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
