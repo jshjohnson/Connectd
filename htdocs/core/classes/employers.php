@@ -8,7 +8,7 @@
 		}
 
 		// Register en employer on sign up
-		public function registerEmployer($firstname, $lastname, $email, $password, $businessname, $location, $businesstype, $businesswebsite, $businessbio){
+		public function registerEmployer($firstname, $lastname, $email, $password, $businessname, $location, $businesstype, $businesswebsite, $businessbio, $user_type){
 
 			global $bcrypt; // making the $bcrypt variable global so we can use here
 			global $mail;
@@ -31,7 +31,7 @@
 			$query->bindValue(5, $time);
 			$query->bindValue(6, $password);
 			$query->bindValue(7, $ip);
-			$query->bindValue(8, 'employer');
+			$query->bindValue(8, $user_type);
 			
 		 
 			try{

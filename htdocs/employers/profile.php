@@ -1,7 +1,20 @@
 <?php 
 	require_once("../config.php");  
-	require_once(ROOT_PATH . "inc/checklog.php");
-	require_once(ROOT_PATH . 'inc/checklog.php');
+	require_once(ROOT_PATH . "core/init.php");
+	$general->loggedOutProtect();
+	require_once(ROOT_PATH . "model/employers.php");
+
+
+	if (isset($_GET["id"])) {
+		$employer_id = $_GET["id"];
+		$employer = get_employers_single($employer_id);
+	}
+
+	if (empty($employer)) {
+		header("Location: " . BASE_URL);
+		exit();
+	}
+	
 
 	$pageTitle = "Employer";
 	$section = "Employer";

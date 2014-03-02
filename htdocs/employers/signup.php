@@ -86,9 +86,10 @@
 			$businesstype = $general->cleanString($db, $businesstype);
 			$businesswebsite = $general->cleanString($db, $businesswebsite);
 			$businessbio = $general->cleanString($db, $businessbio);
+			$user_type = 'employer';
 
 
-			$employers->registerEmployer($firstname, $lastname, $email, $password, $businessname, $location, $businesstype, $businesswebsite, $businessbio);
+			$employers->registerEmployer($firstname, $lastname, $email, $password, $businessname, $location, $businesstype, $businesswebsite, $businessbio, $user_type);
 			header("Location:" . BASE_URL . "employers/signup.php?status=success");
 			exit();
 		}

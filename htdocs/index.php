@@ -5,6 +5,9 @@
 	$general->errors();
 	$general->loggedInProtect();
 
+	$pageTitle = "Connectd";
+	$section = "Home";
+
 	include_once(ROOT_PATH . "inc/header-home.php");
 ?>
 		<header class="site-intro">

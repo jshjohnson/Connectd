@@ -84,14 +84,16 @@
 			$password = $general->cleanString($db, $password);
 			$repeatpassword = $general->cleanString($db, $repeatpassword);
 			$age = $general->cleanString($db, $age);
+			$location = $general->cleanString($db, $location);
 			$jobtitle = $general->cleanString($db, $jobtitle);
 			$priceperhour = $general->cleanString($db, $priceperhour);
 			$bio = $general->cleanString($db, $bio);
 			$portfolio = $general->cleanString($db, $portfolio);
 			$experience = $general->cleanString($db, $experience);
 			$jobtitle = $general->cleanString($db, $jobtitle);
+			$user_type = 'designer';
 
-			$designers->registerDesigner($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio);
+			$users->registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio, $user_type);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();
 		}
