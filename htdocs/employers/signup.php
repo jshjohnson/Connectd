@@ -5,6 +5,7 @@
 	$general->errors();
 	$general->loggedInProtect();
 	$counties = $general->getCounties();
+	$businessTypes = $general->getBusinessTypes();
 
 	$pageTitle = "Sign Up";
 	$section = "Employer";
@@ -158,21 +159,9 @@
 					<div class="select-container">
 						<select name="businesstype">
 							<option value="">Pick one..</option>
-							<option <?php if ($_POST['businesstype'] == 'Admin') { ?>selected="true" <?php }; ?>value="Admin">Admin</option>
-							<option <?php if ($_POST['businesstype'] == 'Business Support') { ?>selected="true" <?php }; ?>value="Business Support">Business Support</option>
-							<option <?php if ($_POST['businesstype'] == 'Creative Arts') { ?>selected="true" <?php }; ?>value="Creative Arts">Creative Arts</option>
-							<option <?php if ($_POST['businesstype'] == 'Design') { ?>selected="true" <?php }; ?>value="Design">Design</option>
-							<option <?php if ($_POST['businesstype'] == 'Marketing &amp; PR') { ?>selected="true" <?php }; ?>value="Marketing &amp; PR">Marketing &amp; PR</option>
-							<option <?php if ($_POST['businesstype'] == 'Mobile') { ?>selected="true" <?php }; ?>value="Mobile">Mobile</option>
-							<option <?php if ($_POST['businesstype'] == 'Search Marketing') { ?>selected="true" <?php }; ?>value="Search Marketing">Search Marketing</option>
-							<option <?php if ($_POST['businesstype'] == 'Social Media') { ?>selected="true" <?php }; ?>value="Social Media">Social Media</option>
-							<option <?php if ($_POST['businesstype'] == 'Software Development') { ?>selected="true" <?php }; ?>value="Software Development">Software Development</option>
-							<option <?php if ($_POST['businesstype'] == 'Translation') { ?>selected="true" <?php }; ?>value="Translation">Translation</option>
-							<option <?php if ($_POST['businesstype'] == 'Tutorials') { ?>selected="true" <?php }; ?>value="Tutorials">Tutorials</option>
-							<option <?php if ($_POST['businesstype'] == 'Video, Photo &amp; Audio') { ?>selected="true" <?php }; ?>value="Video, Photo &amp; Audio">Video, Photo &amp; Audio</option>
-							<option <?php if ($_POST['businesstype'] == 'Web Development') { ?>selected="true" <?php }; ?>value="Web Development">Web Development</option>
-							<option <?php if ($_POST['businesstype'] == 'Copywriting') { ?>selected="true" <?php }; ?>value="Copywriting">Copywriting</option>
-							<option <?php if ($_POST['businesstype'] == 'Extraordinary') { ?>selected="true" <?php }; ?>value="Extraordinary">Extraordinary</option>
+							<?php foreach ($businessTypes as $businessType) : ?>
+								<option <?php if ($_POST['businesstype'] == $businessType['business_type']) { ?>selected="true" <?php }; ?>value="<?php echo $businessType['business_type']; ?>"><?php echo $businessType['business_type']; ?></option>
+							<?php endforeach; ?>
 						</select>
 					</div>
 					<input type="text" name="businesswebsite" placeholder="Business website" value="<?php if (isset($businesswebsite)) { echo htmlspecialchars($businesswebsite); } ?>">

@@ -101,9 +101,19 @@
 			header('Location: sign-in.php?status=logged');
 	    }
 
-
 	    public function getCounties() {
 			$query = $this->db->prepare("SELECT county FROM " . DB_NAME . ".locations ORDER BY county ASC");
+			try{
+				$query->execute();
+			}catch(PDOException $e){
+				die($e->getMessage());
+			}
+			# We use fetchAll() instead of fetch() to get an array of all the selected records.
+			return $query->fetchAll();
+	    }
+
+	    public function getBusinessTypes() {
+			$query = $this->db->prepare("SELECT business_type FROM " . DB_NAME . ".business_types ORDER BY business_type ASC");
 			try{
 				$query->execute();
 			}catch(PDOException $e){
