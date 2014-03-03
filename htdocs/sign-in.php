@@ -48,7 +48,7 @@
 	 			$_SESSION['user_id'] =  $login; // The user's id is now set into the user's session  in the form of $_SESSION['id'] 
 				$_SESSION['logged']="logged";
 				
-				if($general->userVotedFor($email) === true) {
+				if($users->userVotedFor($email) === true) {
 					#Redirect the user to the dashboard
 					header('Location: dashboard/');
 					exit();

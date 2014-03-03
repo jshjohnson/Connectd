@@ -6,10 +6,10 @@
 
 		$output = $output . "<div class='media'>";
 		// $output = $output . "<a href='" . BASE_URL . "developer/profile.php?id=" . $developer_id . "'><img src='" . $developer['avatar'] . "' alt='' class='media__img media__img--avatar'></a>";
-		$output = $output . "<a href='" . BASE_URL . "developers/" . $developer['id'] . "/'><img src='" . BASE_URL . "assets/avatars/default_avatar.png' alt='' class='media__img media__img--avatar'></a>";
+		$output = $output . "<a href='" . BASE_URL . "developers/" . $developer['user_id'] . "/'><img src='" . BASE_URL . "assets/avatars/default_avatar.png' alt='' class='media__img media__img--avatar'></a>";
 		$output = $output . "<div class='media__body'>";
 		$output = $output . "<div class='float-left user-info'>";
-		$output = $output . "<a href='#'><i class='icon--star'></i></a><a href='" . BASE_URL . "developers/" . $developer['id'] . "/'><h4>" . $developer['firstname'] . ' ' . $developer['lastname'] . "</h4></a>";
+		$output = $output . "<a href='#'><i class='icon--star'></i></a><a href='" . BASE_URL . "developers/" . $developer['user_id'] . "/'><h4>" . $developer['firstname'] . ' ' . $developer['lastname'] . "</h4></a>";
 		$output = $output . "<p>" . $developer['jobtitle'] . "</p>";
 		$output = $output . "</div>";
 		$output = $output . "<div class='float-right price-per-hour'>";
@@ -64,7 +64,7 @@
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->prepare("SELECT * FROM " . DB_NAME . ".users WHERE id = ? AND `user_type` = 'developer'");
+			$results = $db->prepare("SELECT * FROM " . DB_NAME . ".users WHERE user_id = ? AND `user_type` = 'developer'");
 			$results->bindParam(1, $id);
 			$results->execute();
 		} catch (Exception $e) {

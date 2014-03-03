@@ -2,13 +2,14 @@
 	require_once("../config.php");  
 	require_once(ROOT_PATH . "core/init.php");
 
-	include_once(ROOT_PATH . "inc/header.php");
-
 	$general->errors();
 	$general->loggedOutProtect();
 
 	$section = "Jobs";
 	$pageTitle = "Post a job";
+
+	include_once(ROOT_PATH . "inc/header.php");
+	
 	// Grab the form data
 	$jobtitle = trim($_POST['jobtitle']);
 	$startdate = trim($_POST['startdate']);

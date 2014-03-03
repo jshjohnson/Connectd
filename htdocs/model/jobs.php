@@ -24,7 +24,7 @@
 		$output = $output . "</div>";
 		$output = $output . "<div class='media-1-3 media__side'>";
 		$output = $output . "<p><small>" . date('F j, Y', $job['date']) . "</small></p>";
-		$output = $output . "<p><small>" . $job['firstname'] . ' ' .  $job['lastname'] . "</small></p>";
+		$output = $output . "<p><small><a href=\"" . $job['firstname'] . ' ' .  $job['lastname'] . "\">" . $job['firstname'] . ' ' .  $job['lastname'] . "</a></small></p>";
 		$output = $output . "</div>";
 		$output = $output . "</div>";
 
@@ -57,7 +57,7 @@
 		try {
 			$results = $db->query("SELECT 
 				jobs.id, jobs.user_id, jobs.jobtitle, jobs.budget, jobs.date, jobs.jobdescription, jobs.jobcategory, users.firstname, users.lastname
-				FROM jobs JOIN users ON jobs.user_id = users.id ORDER BY jobs.date DESC");
+				FROM jobs JOIN users ON jobs.user_id = users.user_id ORDER BY jobs.date DESC");
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
 			exit;

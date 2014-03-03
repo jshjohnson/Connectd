@@ -4,7 +4,7 @@
 
 	$general->errors();
 	$general->loggedOutProtect();
-	// $general->userVotedForProtect();
+	// $users->userVotedForProtect();
 
 	$pageTitle = "Dashboard";
 	$section = "Dashboard";

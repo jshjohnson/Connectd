@@ -28,44 +28,6 @@
 			return htmlentities($string);
 		}
 
-		// Test if user has been verified into the community
-		public function userVotedFor($email) {
- 
-			$query = $this->db->prepare("SELECT `email`
-						FROM " . DB_NAME . ".users
-						WHERE `votes` >= ? 
-					");
-			$query->bindValue(1, 10);
-			
-			try{
-				
-				$query->execute();
-				$rows = $query->fetchColumn();
-		 
-				if($rows == 1){
-					return true;
-				}else{
-					return false;
-				}
-		 
-			} catch(PDOException $e){
-				die($e->getMessage());
-			}
-		}
-
-
-		public function userVotedForProtect() {
-
-			if($this->userVotedFor($email) === true) {
-				#Redirect the user to the dashboard
-				header("Location:" . BASE_URL . "dashboard/");
-				exit();
-			} else if($this->userVotedFor($email) === false) {
-				header("Location:" . BASE_URL . "welcome/");
-				exit();
-			}
-		} 
-
 	    // Test if user is logged in @boolean
 		public function loggedIn() {
 			return(isset($_SESSION['user_id'])) ? true : false;
