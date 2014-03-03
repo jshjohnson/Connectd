@@ -64,7 +64,7 @@
 			global $bcrypt;  // Make the bcrypt variable global, which is defined in init.php, which is included in login.php where this function is called
  
 			$query = $this->db->prepare("SELECT 
-					`id`, `email`, `password`
+					`user_id`, `email`, `password`
 					FROM " . DB_NAME . ".users
 					WHERE `email` = ? 
 				");
@@ -75,7 +75,7 @@
 				$query->execute();
 				$data 				= $query->fetch();
 				$stored_password 	= $data['password'];
-				$id 				= $data['id'];
+				$id 				= $data['user_id'];
 				
 				// hashing the supplied password and comparing it with the stored hashed password.
 				if($bcrypt->verify($password, $stored_password) === true){ // using the verify method to compare the password with the stored hashed password.
@@ -116,7 +116,7 @@
 		public function userData($id) {
  
 			$query = $this->db->prepare("
-				SELECT firstname, lastname, user_type FROM " . DB_NAME . ".users WHERE `id`= ?
+				SELECT firstname, lastname, user_type FROM " . DB_NAME . ".users WHERE `user_id`= ?
 				");
 			$query->bindValue(1, $id);
 
@@ -131,7 +131,7 @@
 		
 		public function activateUser($email, $email_code) {
 		
-			$query = $this->db->prepare("SELECT COUNT(`id`) FROM `users` WHERE `email` = ? AND `email_code` = ? AND `confirmed` = ?");
+			$query = $this->db->prepare("SELECT COUNT(`user_id`) FROM `users` WHERE `email` = ? AND `email_code` = ? AND `confirmed` = ?");
 	 
 			$query->bindValue(1, $email);
 			$query->bindValue(2, $email_code);
@@ -161,7 +161,7 @@
 		}
 
 		// Register a developer on sign up
-		public function registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio, $user_type){
+		public function registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio, $user_type, $votes){
 
 			global $bcrypt; // making the $bcrypt variable global so we can use here
 			global $mail;
@@ -172,20 +172,24 @@
 			$password   = $bcrypt->genHash($password);// generating a hash using the $bcrypt object
 
 			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".users
-				(firstname, lastname, email, email_code, time_joined, location, password, ip, user_type) 
+				(firstname, lastname, email, email_code, password, time_joined, location, experience, portfolio, bio, ip, user_type, votes) 
 				VALUES 
-				(?, ?, ?, ?, ?, ?, ?, ?, ?)
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 			");
 			
 			$query->bindValue(1, $firstname);
 			$query->bindValue(2, $lastname);
 			$query->bindValue(3, $email);
 			$query->bindValue(4, $email_code);
-			$query->bindValue(5, $time);
-			$query->bindValue(6, $location);
-			$query->bindValue(7, $password);
-			$query->bindValue(8, $ip);
-			$query->bindValue(9, $user_type);
+			$query->bindValue(5, $password);
+			$query->bindValue(6, $time);
+			$query->bindValue(7, $location);
+			$query->bindValue(8, $experience);
+			$query->bindValue(9, $portfolio);
+			$query->bindValue(10, $bio);
+			$query->bindValue(11, $ip);
+			$query->bindValue(12, $user_type);
+			$query->bindValue(13, $votes);
 			
 		 
 			try{
@@ -199,7 +203,7 @@
 				$mail->SMTPAuth = true;     // turn on SMTP authentication
 				$mail->addAddress($to);  // Add a recipient=
                 
-                $mail->From = 'noreply@connectd.io';
+                $mail->From = 'robot@connectd.io';
 				$mail->FromName = 'Connectd.io';
                 // Set word wrap to 50 characters
 				$mail->isHTML(true); // Set email format to HTML
