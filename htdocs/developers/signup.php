@@ -4,11 +4,14 @@
 
 	$general->loggedInProtect();
 	$general->errors();
-
 	$counties = $general->getCounties();
+
+	$userType = "Developer";
+	$jobTitles = $general->getJobTitles($userType);
 
 	$pageTitle = "Sign Up";
 	$section = "Developer";
+
 	include_once(ROOT_PATH . "inc/header.php");
 
 	// Grab the form data
@@ -163,12 +166,9 @@
 					<div class="select-container">
 						<select name="jobtitle">
 							<option value="">Pick one..</option>
-							<option <?php if ($_POST['jobtitle'] == 'Web Developer') { ?>selected="true" <?php }; ?>value="Web Developer">Web Developer</option>
-							<option <?php if ($_POST['jobtitle'] == 'Front-end Developer') { ?>selected="true" <?php }; ?>value="Front-end Developer">Front-end Developer</option>
-							<option <?php if ($_POST['jobtitle'] == 'Front-end Engineer') { ?>selected="true" <?php }; ?>value="Front-end Engineer">Front-end Engineer</option>
-							<option <?php if ($_POST['jobtitle'] == 'Back-end Developer') { ?>selected="true" <?php }; ?>value="Back-end Developer">Back-end Developer</option>
-							<option <?php if ($_POST['jobtitle'] == 'Full Stack Developer') { ?>selected="true" <?php }; ?>value="Front-end Engineer">Full Stack Developer</option>
-							<option <?php if ($_POST['jobtitle'] == 'Javascript Engineer') { ?>selected="true" <?php }; ?>value="Javascript Engineer">Javascript Engineer</option>
+							<?php foreach ($jobTitles as $jobTitle) : ?>
+								<option <?php if ($_POST['jobtitle'] == $jobTitle['job_title']) { ?>selected="true" <?php }; ?>value="<?php echo $jobTitle['job_title']; ?>"><?php echo $jobTitle['job_title']; ?></option>
+							<?php endforeach; ?>
 						</select>
 					</div>
 					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left" value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>">

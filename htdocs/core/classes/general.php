@@ -122,5 +122,18 @@
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
 	    }
-	 
+
+
+	    public function getJobTitles($userType) {
+			$query = $this->db->prepare("SELECT job_title, user_type FROM " . DB_NAME . ".job_titles WHERE user_type = ?");
+			$query->bindValue(1, $userType);
+			
+			try{
+				$query->execute();
+			}catch(PDOException $e){
+				die($e->getMessage());
+			}
+			# We use fetchAll() instead of fetch() to get an array of all the selected records.
+			return $query->fetchAll();
+	    }	 
 	}

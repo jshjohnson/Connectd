@@ -5,6 +5,9 @@
 	$general->loggedInProtect();
 	$counties = $general->getCounties();
 
+	$userType = "Designer";
+	$jobTitles = $general->getJobTitles($userType);
+
 	$pageTitle = "Sign Up";
 	$section = "Designer";
 	include_once(ROOT_PATH . "inc/header.php");
@@ -161,9 +164,9 @@
 					<div class="select-container">
 						<select name="jobtitle">
 							<option value="">Job title..</option>
-							<option <?php if ($_POST['jobtitle'] == 'Designer') { ?>selected="true" <?php }; ?>value="Designer">Designer</option>
-							<option <?php if ($_POST['jobtitle'] == 'Illustrator') { ?>selected="true" <?php }; ?>value="Illustrator">Illustrator</option>
-							<option <?php if ($_POST['jobtitle'] == 'Animator') { ?>selected="true" <?php }; ?>value="Animator">Animator</option>
+							<?php foreach ($jobTitles as $jobTitle) : ?>
+								<option <?php if ($_POST['jobtitle'] == $jobTitle['job_title']) { ?>selected="true" <?php }; ?>value="<?php echo $jobTitle['job_title']; ?>"><?php echo $jobTitle['job_title']; ?></option>
+							<?php endforeach; ?>
 						</select>
 					</div>
 					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left" value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>">
