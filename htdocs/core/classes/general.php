@@ -31,15 +31,11 @@
 		// Test if user has been verified into the community
 		public function userVotedFor($email) {
  
-			$query = $this->db->prepare("SELECT designers.email
-						FROM " . DB_NAME . ".designers 
-						WHERE designers.votes >= ? 
-						UNION SELECT developers.email
-						FROM " . DB_NAME . ".developers 
-						WHERE developers.votes >= ?
+			$query = $this->db->prepare("SELECT `email`
+						FROM " . DB_NAME . ".users
+						WHERE `votes` >= ? 
 					");
 			$query->bindValue(1, 10);
-			$query->bindValue(2, 10);
 			
 			try{
 				
@@ -72,12 +68,12 @@
 
 	    // Test if user is logged in @boolean
 		public function loggedIn() {
-			return(isset($_SESSION['id'])) ? true : false;
+			return(isset($_SESSION['user_id'])) ? true : false;
 		}
 	 
 		// Check if user is logged in, if so direct them to the dashboard or welcome page
 		public function loggedInProtect() {
-			if ($this->loggedIn () === true) {
+			if ($this->loggedIn() === true) {
 				header("Location:" . BASE_URL . "dashboard/");
 				exit();		
 			}
@@ -102,7 +98,7 @@
 	    }
 
 	    public function getCounties() {
-			$query = $this->db->prepare("SELECT county FROM " . DB_NAME . ".locations ORDER BY county ASC");
+			$query = $this->db->prepare("SELECT county FROM " . DB_NAME . ".counties ORDER BY county ASC");
 			try{
 				$query->execute();
 			}catch(PDOException $e){
