@@ -93,14 +93,11 @@
  
 			#preparing a statement that will select all the registered users, with the most recent ones first.
 			$query = $this->db->prepare("SELECT 
-				`firstname`, `lastname`, `jobtitle`, `location`, `portfolio`, `experience`, `votes`, `time`
-				FROM designers WHERE `confirmed` = ?
-				UNION SELECT 
-				`firstname`, `lastname`, `jobtitle`, `location`, `portfolio`, `experience`, `votes`, `time`
-				FROM developers WHERE `confirmed` = ?");
+				`firstname`, `lastname`, `location`, `portfolio`, `experience`, `votes`, `time_joined`
+				FROM users WHERE `confirmed` = ? AND `user_type` != ?");
 
 			$query->bindValue(1, 0);
-			$query->bindValue(2, 0);
+			$query->bindValue(2, 'employer');
 
 			try{
 				$query->execute();
