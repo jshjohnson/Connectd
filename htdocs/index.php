@@ -18,7 +18,11 @@
 			</div>
 		</header>
 		<h2 class="logo text-right"><a href="<?php echo BASE_URL; ?>">connectd</a></h2>
+		<?php if (isset($_SESSION['logged'])) : ?>
+		<h2 class="text-left"><a href="<?= BASE_URL ?>sign-out.php">Logout</a></h2>
+		<?php else : ?>
 		<h2 class="text-left"><a href="" class="login-trigger">Login</a></h2>
+		<?php endif; ?>
 		<div id="register" class="panel-wrap">
 			<section class="panel panel--designer panel-1-3">
 				<div class="panel__container">
