@@ -128,6 +128,43 @@
 				die($e->getMessage());
 			}
 		}
+
+		// Test if user has been verified into the community
+		public function userVotedFor($email) {
+ 
+			$query = $this->db->prepare("SELECT `email`
+						FROM " . DB_NAME . ".users
+						WHERE `votes` >= ? 
+					");
+			$query->bindValue(1, 10);
+			
+			try{
+				
+				$query->execute();
+				$rows = $query->fetchColumn();
+		 
+				if($rows == 1){
+					return true;
+				}else{
+					return false;
+				}
+		 
+			} catch(PDOException $e){
+				die($e->getMessage());
+			}
+		}
+
+		public function userVotedForProtect() {
+
+			if($this->userVotedFor($email) === true) {
+				#Redirect the user to the dashboard
+				header("Location:" . BASE_URL . "dashboard/");
+				exit();
+			} else if($this->userVotedFor($email) === false) {
+				header("Location:" . BASE_URL . "welcome/");
+				exit();
+			}
+		}
 		
 		public function activateUser($email, $email_code) {
 		
@@ -227,5 +264,21 @@
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}	
+		}
+
+		public function getUserVotes($id) {
+ 
+			$query = $this->db->prepare("
+				SELECT votes FROM " . DB_NAME . ".users WHERE `user_id`= ?
+				");
+			$query->bindValue(1, $id);
+
+			try{
+				$query->execute();
+				return $query->fetch();
+			} catch(PDOException $e){
+		 
+				die($e->getMessage());
+			}
 		}
 	}
