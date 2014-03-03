@@ -237,7 +237,7 @@ button {
 	}
 }
 
-input:not([type=checkbox]):focus, textarea:focus, select:focus {
+input:not([type=checkbox]):not([type="submit"]):focus, textarea:focus, select:focus {
   @include box-shadow(0 0 5px rgba($color-brand-mid, 1));
   border: 1px solid rgba($color-brand-mid, 1);
   outline: 0;

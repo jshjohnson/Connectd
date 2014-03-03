@@ -924,7 +924,7 @@ button:focus {
 }
 
 /* line 240, ../scss/core/_base.scss */
-input:not([type=checkbox]):focus, textarea:focus, select:focus {
+input:not([type=checkbox]):not([type="submit"]):focus, textarea:focus, select:focus {
   -webkit-box-shadow: 0 0 5px #77c462;
   -moz-box-shadow: 0 0 5px #77c462;
   box-shadow: 0 0 5px #77c462;
