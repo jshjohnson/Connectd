@@ -96,9 +96,10 @@
 			$bio = $general->cleanString($db, $bio);
 			$portfolio = $general->cleanString($db, $portfolio);
 			$experience = $general->cleanString($db, $experience);
+			$votes = '0';
 			$user_type = 'developer';
 	 
-			$users->registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio, $user_type);
+			$users->registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio, $user_type, $votes);
 			header("Location:" . BASE_URL . "developers/signup.php?status=success");
 			exit();
 		}

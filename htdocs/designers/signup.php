@@ -94,9 +94,10 @@
 			$portfolio = $general->cleanString($db, $portfolio);
 			$experience = $general->cleanString($db, $experience);
 			$jobtitle = $general->cleanString($db, $jobtitle);
+			$votes = '0';
 			$user_type = 'designer';
 
-			$users->registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio, $user_type);
+			$users->registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio, $user_type, $votes);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();
 		}

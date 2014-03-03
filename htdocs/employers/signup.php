@@ -4,6 +4,7 @@
 
 	$general->errors();
 	$general->loggedInProtect();
+
 	$counties = $general->getCounties();
 	$businessTypes = $general->getBusinessTypes();
 
@@ -19,9 +20,10 @@
 	$repeatpassword = trim($_POST['repeatpassword']);
 	$businessname = trim($_POST['businessname']);
 	$location = trim($_POST['location']);
+	$experience = trim($_POST['experience']);
 	$businesstype = trim($_POST['businesstype']);
-	$businesswebsite = trim($_POST['businesswebsite']);
-	$businessbio = trim($_POST['businessbio']);
+	$portfolio = trim($_POST['portfolio']);
+	$bio = trim($_POST['bio']);
 	$submit = trim($_POST['submit']);
 
 	$status = $_GET["status"];
@@ -68,7 +70,9 @@
 	        $errors[]  = "Please enter your business name"; 
 	    }else if($businesstype == ""){
 	        $errors[]  = "Please enter your business type"; 
-	    }else if($businessbio == ""){
+	    }else if($experience == ""){
+		    $errors[] ="Please enter your experience";
+		}else if($businessbio == ""){
 	        $errors[]  = "Please write about your business"; 
 	    }else if(strlen($businessbio)<25) {
 			$errors[]  = "Freelancers require a bit more information about your business!";
@@ -85,12 +89,14 @@
 			$businessname = $general->cleanString($db, $businessname);
 			$location = $general->cleanString($db, $location);
 			$businesstype = $general->cleanString($db, $businesstype);
-			$businesswebsite = $general->cleanString($db, $businesswebsite);
-			$businessbio = $general->cleanString($db, $businessbio);
+			$portfolio = $general->cleanString($db, $website);
+			$experience = $general->cleanString($db, $experience);
+			$bio = $general->cleanString($db, $bio);
+			$votes = '100';
 			$user_type = 'employer';
 
 
-			$employers->registerEmployer($firstname, $lastname, $email, $password, $businessname, $location, $businesstype, $businesswebsite, $businessbio, $user_type);
+			$employers->registerUser($firstname, $lastname, $email, $password, $businessname, $location, $businesstype, $portfolio, $experience, $bio, $user_type, $votes);
 			header("Location:" . BASE_URL . "employers/signup.php?status=success");
 			exit();
 		}
@@ -164,8 +170,19 @@
 							<?php endforeach; ?>
 						</select>
 					</div>
-					<input type="text" name="businesswebsite" placeholder="Business website" value="<?php if (isset($businesswebsite)) { echo htmlspecialchars($businesswebsite); } ?>">
-					<textarea name="businessbio" cols="30" rows="8" placeholder="A little about your business..." ><?php if (isset($businessbio)) { echo htmlspecialchars($businessbio); } ?></textarea>
+					<label for="jobtitle">How long have you been in business for?</label>
+					<div class="select-container">
+						<select name="experience">
+							<option value="">Years experience...</option>
+							<option <?php if ($_POST['experience'] == 'Less than 1 year') { ?>selected="true" <?php }; ?>value="Less than 1 year">Less than 1 year</option>
+							<option <?php if ($_POST['experience'] == 'Between 1-2 years') { ?>selected="true" <?php }; ?>value="Between 1-2 years">Between 1-2 years</option>
+							<option <?php if ($_POST['experience'] == 'Between 3-5 years') { ?>selected="true" <?php }; ?>value="Between 3-5 years">Between 3-5 years</option>
+							<option <?php if ($_POST['experience'] == 'Between 5-10 years') { ?>selected="true" <?php }; ?>value="Between 5-10 years">Between 5-10 years</option>
+							<option <?php if ($_POST['experience'] == 'Over 10 years') { ?>selected="true" <?php }; ?>value="Over 10 years">Over 10 years</option>
+						</select>
+					</div>
+					<input type="url" name="portfolio" placeholder="Business website" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
+					<textarea name="bio" cols="30" rows="8" placeholder="A little about your company..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Start employing'>						
 					</div>
