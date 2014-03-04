@@ -3,17 +3,12 @@
 	require 'connect/database.php';
 
 	require 'classes/users.php';
-	require 'classes/developers.php';
-	require 'classes/designers.php';
-	require 'classes/employers.php';
 	require 'classes/bcrypt.php';
 	require 'classes/general.php';
+
 	require 'inc/phpmailer/PHPMailerAutoload.php';
 	 
 	$users 			= new Users($db);
-	$developers		= new Developers($db);
-	$designers		= new Designers($db);
-	$employers 		= new Employers($db);
 
 	$general 	    = new General($db);
 	$bcrypt         = new Bcrypt(12);
