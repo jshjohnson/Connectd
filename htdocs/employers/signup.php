@@ -136,11 +136,9 @@
 	<section class="footer--push color-grey">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp4 unit-2-3--bp1 content-overlay">
-				<?php 
-					if(empty($errors) === false){
-						echo '<p class="message message--error">' . implode('</p><p>', $errors) . '</p>';
-					}
-				?>
+				<?php if(empty($errors) === false) : ?>
+					<p class="message message--error"> <?= implode('</p><p>', $errors); ?></p>
+				<?php endif; ?>
 				<?php if ($status == "success") : ?>
 				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
@@ -151,9 +149,11 @@
 					<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
 					<input type='password' name='password' placeholder="Password" class="field-1-2"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
+					<hr>
 					<input type="text" name="businessname" placeholder="Business name" value="<?php if (isset($businessname)) { echo htmlspecialchars($businessname); } ?>">
-					<label for="jobtitle">What is the location of your business?</label>
+					<input type="url" name="portfolio" placeholder="Business website" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
 					<div class="select-container">
+						<label for="location">What is the location of your business?</label>
 						<select name="location">
 							<option value="">Location...</option>
 						<?php foreach ($counties as $county) : ?>
@@ -161,8 +161,8 @@
 						<?php endforeach; ?>
 						</select>
 					</div>
-					<label for="jobtitle">What industry is your business in?</label>
-					<div class="select-container">
+					<div class="select-container field-1-2 float-left">
+						<label for="businesstype">What industry is your business in?</label>
 						<select name="businesstype">
 							<option value="">Pick one..</option>
 							<?php foreach ($businessTypes as $businessType) : ?>
@@ -170,8 +170,8 @@
 							<?php endforeach; ?>
 						</select>
 					</div>
-					<label for="jobtitle">How long have you been in business for?</label>
-					<div class="select-container">
+					<div class="select-container field-1-2 float-right">
+						<label for="experience">How long have you been in business for?</label>
 						<select name="experience">
 							<option value="">Years experience...</option>
 							<option <?php if ($_POST['experience'] == 'Less than 1 year') { ?>selected="true" <?php }; ?>value="Less than 1 year">Less than 1 year</option>
@@ -181,7 +181,6 @@
 							<option <?php if ($_POST['experience'] == 'Over 10 years') { ?>selected="true" <?php }; ?>value="Over 10 years">Over 10 years</option>
 						</select>
 					</div>
-					<input type="url" name="portfolio" placeholder="Business website" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
 					<textarea name="bio" cols="30" rows="8" placeholder="A little about your company..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Start employing'>						

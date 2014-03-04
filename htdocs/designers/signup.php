@@ -2,6 +2,7 @@
 	require_once("../config.php");
 	require_once(ROOT_PATH . "core/init.php");
 
+	$general->errors();
 	$general->loggedInProtect();
 	$counties = $general->getCounties();
 
@@ -18,7 +19,6 @@
 	$email = trim($_POST['email']);
 	$password = trim($_POST['password']);
 	$repeatpassword = trim($_POST['repeatpassword']);
-	$age = trim($_POST['age']);
 	$jobtitle = trim($_POST['jobtitle']);
 	$experience = trim($_POST['experience']);
 	$priceperhour = trim($_POST['priceperhour']);
@@ -86,7 +86,6 @@
 			$email = $general->cleanString($db, $email);
 			$password = $general->cleanString($db, $password);
 			$repeatpassword = $general->cleanString($db, $repeatpassword);
-			$age = $general->cleanString($db, $age);
 			$location = $general->cleanString($db, $location);
 			$jobtitle = $general->cleanString($db, $jobtitle);
 			$priceperhour = $general->cleanString($db, $priceperhour);
@@ -97,7 +96,7 @@
 			$votes = '0';
 			$user_type = 'designer';
 
-			$users->registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio, $user_type, $votes);
+			$users->registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type, $votes);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();
 		}
@@ -136,11 +135,9 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp4 unit-2-3--bp1 content-overlay">
-				<?php
-					if(empty($errors) === false){
-						echo '<p class="message message--error">' . implode('</p><p>', $errors) . '</p>';
-					}
-				?>
+				<?php if(empty($errors) === false) : ?>
+					<p class="message message--error"> <?= implode('</p><p>', $errors); ?></p>
+				<?php endif; ?>
 				<?php if ($status == "success") : ?>
 				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
@@ -151,8 +148,9 @@
 					<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
 					<input type='password' name='password' placeholder="Password" class="field-1-2"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
-					<label for="jobtitle">Where do you work from?</label>
+					<hr>
 					<div class="select-container">
+						<label for="location">Where do you work from?</label>
 						<select name="location">
 							<option value="">Location...</option>
 						<?php foreach ($counties as $county) : ?>
@@ -170,9 +168,7 @@
 							<?php endforeach; ?>
 						</select>
 					</div>
-					<input type="number" name="age" placeholder="Age" min="18" max="80" class="field-1-2 float-left" value="<?php if (isset($age)) { echo htmlspecialchars($age); } ?>">
-					<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="200" class="field-1-2 float-right"  value="<?php if (isset($priceperhour)) { echo htmlspecialchars($priceperhour); } ?>">
-					<div class="select-container">
+					<div class="select-container field-1-2 float-left">
 						<select name="experience">
 							<option value="">Years experience...</option>
 							<option <?php if ($_POST['experience'] == 'Less than 1 year') { ?>selected="true" <?php }; ?>value="Less than 1 year">Less than 1 year</option>
@@ -182,6 +178,7 @@
 							<option <?php if ($_POST['experience'] == 'Over 10 years') { ?>selected="true" <?php }; ?>value="Over 10 years">Over 10 years</option>
 						</select>
 					</div>
+					<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="200" class="field-1-2 float-right"  value="<?php if (isset($priceperhour)) { echo htmlspecialchars($priceperhour); } ?>">
 					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>

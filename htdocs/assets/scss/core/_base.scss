@@ -10,7 +10,7 @@ html { overflow-y: scroll; -webkit-font-smoothing: antialiased; }
 a:link { -webkit-tap-highlight-color: rgba(102,102,102,.5); }
 
 /* -- Text-Level -- */
-hr { display: block; clear: both; height: 1px; border: 0; padding: 0; }
+hr { display: block; clear: both; height: 1px; border: 0; padding: 0;}
 ins { background: #ff9; color: #000; text-decoration: none; }
 mark { font-style: italic; font-weight: bold; }
 pre { overflow-x: auto; }
@@ -88,8 +88,8 @@ body {
 /* -- Vertical Rhythm -- */
 h1, h2, h3, h4, h5, h6 { margin-bottom: .65em; margin-top: 1.5em; }
 h1, blockquote, pre, p, ul, ol, dl, hr { margin-top: 0; }
-p, ul, ol, dl, hr, form, table, blockquote, pre { margin-bottom: $baseline; }
-hr { border-top: 1px solid $color-keyline; }
+p, ul, ol, dl, form, table, blockquote, pre { margin-bottom: $baseline; }
+hr { border-top: 1px solid $color-keyline; border-top: 1px solid #E0E0E0; margin: 1.5em 5em;}
 blockquote > :last-child, ul > :last-child, ol > :last-child, dl > :last-child { margin-bottom: 0; }
 
 /* -- Headings -- */
@@ -172,7 +172,7 @@ input[type=submit] {
 }
 
 .button-container {
-	border-bottom: .1em solid rgba(black, 0.1);
+	border-bottom: 1px solid rgba(black, 0.1);
 	position: relative;
 	margin-top: 1em;
 	bottom: 1.1em;
@@ -197,7 +197,6 @@ input[type=submit] {
 
 .select-container {
 	position: relative;
-	clear: both;
 	select {
 		width: 100%;
 		padding: .5em;
@@ -211,8 +210,8 @@ input[type=submit] {
 		background-color: #FFFFFF;
 		background-image: url('../img/select-bg.svg');
 		background-repeat: no-repeat;
-		background-position: 97% center;
-		background-size: .4em;
+		background-position: right center;
+		background-size: 1.2em;
 		@include respond-max($bp1) {
 			margin: $baseline/3 0;
 		}
