@@ -93,10 +93,10 @@
  
 			#preparing a statement that will select all the registered users, with the most recent ones first.
 			$query = $this->db->prepare("SELECT 
-				`firstname`, `lastname`, `location`, `portfolio`, `experience`, `votes`, `time_joined`
-				FROM users WHERE `confirmed` = ? AND `user_type` != ?");
+				`user_id`, `firstname`, `lastname`, `location`, `portfolio`, `experience`, `votes`, `time_joined`
+				FROM users WHERE `votes` < ? AND `user_type` != ?");
 
-			$query->bindValue(1, 0);
+			$query->bindValue(1, 10);
 			$query->bindValue(2, 'employer');
 
 			try{
@@ -195,7 +195,7 @@
 		}
 
 		// Register a developer on sign up
-		public function registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $age, $priceperhour, $experience, $bio, $user_type, $votes){
+		public function registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type, $votes){
 
 			global $bcrypt; // making the $bcrypt variable global so we can use here
 			global $mail;
@@ -229,34 +229,34 @@
 			try{
 				$query->execute();
 		 
-				$to = $email;
+				// $to = $email;
 
-				$mail->Host = "localhost";  // specify main and backup server
-				$mail->Username = "josh@joshuajohnson.co.uk";  // SMTP username
-				$mail->Password = "cheeseball27"; // SMTP password
-				$mail->SMTPAuth = true;     // turn on SMTP authentication
-				$mail->addAddress($to);  // Add a recipient=
+				// $mail->Host = "localhost";  // specify main and backup server
+				// $mail->Username = "josh@joshuajohnson.co.uk";  // SMTP username
+				// $mail->Password = "cheeseball27"; // SMTP password
+				// $mail->SMTPAuth = true;     // turn on SMTP authentication
+				// $mail->addAddress($to);  // Add a recipient=
                 
-                $mail->From = 'robot@connectd.io';
-				$mail->FromName = 'Connectd.io';
-                // Set word wrap to 50 characters
-				$mail->isHTML(true); // Set email format to HTML
+    //             $mail->From = 'robot@connectd.io';
+				// $mail->FromName = 'Connectd.io';
+    //             // Set word wrap to 50 characters
+				// $mail->isHTML(true); // Set email format to HTML
 
-				$mail->Subject = 'Activate your new Connectd account';
+				// $mail->Subject = 'Activate your new Connectd account';
 
-				$mail->Body = "<p>Hey " . $firstname . "!</p>";
-				$mail->Body .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
-				$mail->Body .= "<p>" . BASE_URL . "sign-in.php?email=" . $email . "&email_code=" . $email_code . "</p>";
-				$mail->Body .= "<p>-- Connectd team</p>";
-				$mail->Body .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-				$mail->Body .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
-				$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+				// $mail->Body = "<p>Hey " . $firstname . "!</p>";
+				// $mail->Body .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
+				// $mail->Body .= "<p>" . BASE_URL . "sign-in.php?email=" . $email . "&email_code=" . $email_code . "</p>";
+				// $mail->Body .= "<p>-- Connectd team</p>";
+				// $mail->Body .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
+				// $mail->Body .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
+				// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-				if(!$mail->send()) {
-				   echo 'Message could not be sent.';
-				   echo 'Mailer Error: ' . $mail->ErrorInfo;
-				   exit;
-				}
+				// if(!$mail->send()) {
+				//    echo 'Message could not be sent.';
+				//    echo 'Mailer Error: ' . $mail->ErrorInfo;
+				//    exit;
+				// }
 							
 			}catch(PDOException $e){
 				die($e->getMessage());
@@ -276,6 +276,65 @@
 			} catch(PDOException $e){
 		 
 				die($e->getMessage());
+			}
+		}
+
+		public function validateUser($firstname, $lastname, $email, $password, $portfolio, $jobtitle, $experience, $bio) {
+
+			global $mail;	
+
+			$r1='/[A-Z]/';  // Test for an uppercase character
+			$r2='/[a-z]/';  // Test for a lowercase character
+			$r3='/[0-9]/';  // Test for a number
+
+			if($firstname == ""){
+			    $errors[] ="Please enter your first name";
+			    return;
+			}else if($lastname == ""){
+			    $errors[] ="Please enter your last name";
+			    return;
+			}else if($email == ""){
+			    $errors[] ="Please enter your email";
+			    return;
+			}else if (!$mail->ValidateAddress($email)){
+				$errors[] = "You must specify a valid email address.";
+				return;
+			}else if ($users->emailExists($email) === true) {
+			    $errors[] = "Email already taken. Please try again.";
+			    return;
+			}else if($password == ""){
+			    $errors[] ="Please enter a password"; 
+			    return;
+			}else if ($password!=$repeatpassword){ 
+				$errors[] = "Both password fields must match";
+				return;
+			} else if(preg_match_all($r1,$password)<1) {
+				$errors[] = "Your password needs to contain at least one uppercase character";
+				return;
+			} else if(preg_match_all($r2,$password)<1) {
+				$errors[] = "Your password needs to contain at least one lowercase character";
+				return;
+			} else if(preg_match_all($r3,$password)<1) {
+				$errors[] = "Your password needs to contain at least one number";
+				return;
+			} else if (strlen($password)>25||strlen($password)<6) {
+				$errors[] = "Password must be 6-25 characters long";
+				return;
+			} else if($portfolio == ""){
+			    $errors[] ="You must have an active portfolio to join Connectd"; 
+			    return;
+			} else if($jobtitle == ""){
+			    $errors[] ="Please select your current job title"; 
+			    return;
+			}else if($experience == ""){
+			    $errors[] ="Please enter your experience"; 
+			    return;
+			}else if($bio == ""){
+			    $errors[] ="Please write about yourself"; 
+			    return;
+			}else if(strlen($bio)<25) {
+				$errors[] = "You're not going to sell yourself without a decent bio!";
+				return;
 			}
 		}
 	}

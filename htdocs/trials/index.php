@@ -22,7 +22,7 @@
 						     <div class="ribbon"><h5>New</h5></div>
 						<?php endif ?>
 						<div class="user-sidebar__info">
-							<time class="user-trial__label"><?php echo date('F j, Y', $trial_user['time']); ?></time>
+							<time class="user-trial__label"><?php echo date('F j, Y', $trial_user['time_joined']); ?></time>
 							<h3 class="user-sidebar__title user-sidebar__title--alt"><?php echo $trial_user["firstname"] . "\n" . $trial_user["lastname"]; ?></h3>
 							<h4 class="user-sidebar__label icon--attach icon--marg"><?php echo $trial_user["jobtitle"]; ?></h4>
 							<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $trial_user["location"]; ?>, UK</h4>
@@ -30,7 +30,7 @@
 							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $trial_user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trial_user["portfolio"] ); echo $url ?></a></h4>
 							<div class="text-center">
 								<button class="button-green button-small">
-									<a href="" class="icon--check"><?php echo $trial_user["votes"]; ?> votes</a>
+									<a href="add-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="icon--check"><?php echo $trial_user["votes"]; ?> votes</a>
 								</button>
 							</div>
 						</div>

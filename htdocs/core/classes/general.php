@@ -1,5 +1,5 @@
 <?php 
-	class General{
+	class General {
 
 		private $db;
 
@@ -18,7 +18,7 @@
 
 		// Strip data from malicious data
 		public function cleanString($db = null, $string){
-			$string = trim($string);
+			$string = trim($string, " \t\0\x0B");
 			$string = utf8_decode($string);
 			$string = str_replace("#", "&#35", $string);
 			$string = str_replace("%", "&#37", $string);
@@ -93,5 +93,30 @@
 			}
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
-	    }	 
+	    }
+
+	    public function addVote($user_id) {
+			$query = $this->db->prepare("UPDATE users SET votes = votes + 1 WHERE user_id = ?");
+			$query->bindValue(1, $user_id);
+
+			try{
+				$query->execute();
+				header("Location:" . BASE_URL . "trials/"); 
+			}catch(PDOException $e){
+				die($e->getMessage());
+			}	
+	    }
+
+	    public function removeVote() {
+	    	$query = $this->db->prepare("UPDATE users SET votes = votes - 1 WHERE user_id = ?");
+	    	$query->bindValue(1, $user_id);
+
+			try{
+				$query->execute();
+				header("Location:" . BASE_URL . "trials/"); 
+			}catch(PDOException $e){
+				die($e->getMessage());
+			}	
+
+	    } 
 	}
