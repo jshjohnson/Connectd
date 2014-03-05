@@ -20,7 +20,7 @@
 
 		$output = $output . "</span>";
 		$output = $output . "</div>";
-		$output = $output . "<a href='" . BASE_URL . "jobs/" . $job_id . "/'><p class='media__body'>" . $job['job_name'] . "</p></a>";
+		$output = $output . "<a href='" . BASE_URL . "jobs/" . $job['job_id'] . "/'><p class='media__body'>" . $job['job_name'] . "</p></a>";
 		$output = $output . "</div>";
 		$output = $output . "<div class='media-1-3 media__side'>";
 		$output = $output . "<p><small>" . date('F j, Y', $job['job_post_date']) . "</small></p>";
@@ -67,4 +67,25 @@
 
 		return $jobs;
 
+	}
+
+
+	function get_jobs_single($id) {
+
+		require(ROOT_PATH . "core/connect/database.php");
+
+		try {
+			$results = $db->prepare("SELECT
+				*
+				FROM jobs, users WHERE users.user_id = jobs.user_id
+			");
+			$results->execute();
+		} catch (Exception $e) {
+			echo "Damn. Data could not be retrieved.";
+			exit;
+		}
+
+		$jobs = $results->fetch(PDO::FETCH_ASSOC);
+		
+		return $jobs;
 	}

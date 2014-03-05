@@ -6,9 +6,15 @@
 
 	include_once(ROOT_PATH . "model/jobs.php");
 
-	$jobs = get_jobs_all();
-	$job_id = $_GET["id"];
-	$job = $jobs[$job_id];
+	if (isset($_GET["id"])) {
+		$job_id = $_GET["id"];
+		$job = get_jobs_single($job_id);
+	}
+
+	if (empty($job)) {
+		header("Location: " . BASE_URL);
+		exit();
+	}
 
 	$pageTitle = $job['jobtitle'];
 	$section = "Jobs";
@@ -23,11 +29,11 @@
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
 							<li class="active">Job Title</li>
-							<li class="float-right portfolio__headings--label"><?php echo $job['jobcategory']; ?></li>
+							<li class="float-right portfolio__headings--label"><?= $job['job_category']; ?></li>
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">
-						<h4><?php echo $job['jobtitle']; ?></h4>
+						<h4><?= $job['job_name']; ?></h4>
 					</div>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
@@ -35,7 +41,7 @@
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">
-						<?php echo $job['budget']; ?>
+						<?= $job['job_budget']; ?>
 					</div>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
@@ -43,7 +49,7 @@
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">
-						<?php echo $job['jobdescription']; ?>
+						<?= $job['job_description']; ?>
 					</div>
 				</article>
 				<aside class="grid__cell module-1-3 module--no-pad user-sidebar--employer float-right">
@@ -51,14 +57,9 @@
 						<div class="user-sidebar__info">
 							<h3 class="user-sidebar__title"><?= $job['firstname'] . ' ' .  $job['lastname']; ?></h3>
 							<h4 class="user-sidebar__label icon--attach icon--marg">Digital Design Agency</h4>
-							<h4 class="user-sidebar__label icon--location icon--marg">Harrogate, UK</h4>
-							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="">mixd.co.uk</a></h4>
-							<p>
-								We create beautifully-crafted websites that stand out from the crowd – and perfect function comes as standard.
-							</p>
-							<p>
-								Our success is not only due to the quality of our work; it's down to attitude, our approach and the way we treat our clients.
-							</p>
+							<h4 class="user-sidebar__label icon--location icon--marg"><?= $job['location']; ?></h4>
+							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $job['portfolio']; ?>"><?= $job['portfolio']; ?></a></h4>
+							<p><?= $job['bio']; ?></p>
 						</div>
 					</article>
 					<aside class="dashboard-panel module module--no-pad">
@@ -83,7 +84,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Not the job for you?
 				</h4>
-				<button class="button-green"><a href="<?php echo BASE_URL; ?>jobs/list.php">See our jobs list</a></button>
+				<a class="btn button-green" href="<?= BASE_URL; ?>jobs/list.php">See our jobs list</a>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer.php"); ?>
