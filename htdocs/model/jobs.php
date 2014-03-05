@@ -2,7 +2,7 @@
 	
 	function get_job_list_view($job_id, $job) {
 
-		$budget = $job['budget'];
+		$budget = $job['job_budget'];
 		$output = "";
 
 		$output = $output . "<div class='media'>";
@@ -20,11 +20,11 @@
 
 		$output = $output . "</span>";
 		$output = $output . "</div>";
-		$output = $output . "<a href='" . BASE_URL . "jobs/" . $job_id . "/'><p class='media__body'>" . $job['jobtitle'] . "</p></a>";
+		$output = $output . "<a href='" . BASE_URL . "jobs/" . $job_id . "/'><p class='media__body'>" . $job['job_name'] . "</p></a>";
 		$output = $output . "</div>";
 		$output = $output . "<div class='media-1-3 media__side'>";
-		$output = $output . "<p><small>" . date('F j, Y', $job['date']) . "</small></p>";
-		$output = $output . "<p><small><a href=\"" . $job['firstname'] . ' ' .  $job['lastname'] . "\">" . $job['firstname'] . ' ' .  $job['lastname'] . "</a></small></p>";
+		$output = $output . "<p><small>" . date('F j, Y', $job['job_post_date']) . "</small></p>";
+		$output = $output . "<p><small><a href='" . BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . "'>" . $job['firstname'] . ' ' .  $job['lastname'] . "</a></small></p>";
 		$output = $output . "</div>";
 		$output = $output . "</div>";
 
@@ -56,8 +56,8 @@
 
 		try {
 			$results = $db->query("SELECT 
-				jobs.id, jobs.user_id, jobs.jobtitle, jobs.budget, jobs.date, jobs.jobdescription, jobs.jobcategory, users.firstname, users.lastname
-				FROM jobs JOIN users ON jobs.user_id = users.user_id ORDER BY jobs.date DESC");
+				jobs.job_id, users.user_id, jobs.job_name, jobs.job_budget, jobs.job_post_date, jobs.job_description, jobs.job_category, users.firstname, users.lastname, users.user_type
+				FROM jobs, users WHERE users.user_id = jobs.user_id");
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
 			exit;

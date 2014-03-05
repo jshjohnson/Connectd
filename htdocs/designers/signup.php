@@ -81,20 +81,20 @@
 
 		if(empty($errors) === true){
 
-			$firstname = $general->cleanString($db, $firstname);
-			$lastname = $general->cleanString($db, $lastname);
-			$email = $general->cleanString($db, $email);
-			$password = $general->cleanString($db, $password);
+			$firstname      = $general->cleanString($db, $firstname);
+			$lastname       = $general->cleanString($db, $lastname);
+			$email          = $general->cleanString($db, $email);
+			$password       = $general->cleanString($db, $password);
 			$repeatpassword = $general->cleanString($db, $repeatpassword);
-			$location = $general->cleanString($db, $location);
-			$jobtitle = $general->cleanString($db, $jobtitle);
-			$priceperhour = $general->cleanString($db, $priceperhour);
-			$bio = $general->cleanString($db, $bio);
-			$portfolio = $general->cleanString($db, $portfolio);
-			$experience = $general->cleanString($db, $experience);
-			$jobtitle = $general->cleanString($db, $jobtitle);
-			$votes = '0';
-			$user_type = 'designer';
+			$location       = $general->cleanString($db, $location);
+			$jobtitle       = $general->cleanString($db, $jobtitle);
+			$priceperhour   = $general->cleanString($db, $priceperhour);
+			$bio            = $general->cleanString($db, $bio);
+			$portfolio      = $general->cleanString($db, $portfolio);
+			$experience     = $general->cleanString($db, $experience);
+			$jobtitle       = $general->cleanString($db, $jobtitle);
+			$votes          = '0';
+			$user_type      = 'designer';
 
 			$users->registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type, $votes);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
