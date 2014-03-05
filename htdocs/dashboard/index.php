@@ -26,7 +26,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Welcome <?php echo $user[0]; ?>!
 				</h4>
-				<button class="button-red"><a href="<?= BASE_URL . $user_type . "s/" . $user_id . "/" ?>">Build your profile</a></button>
+				<a class="btn button-red" href="<?= BASE_URL . $user_type . "s/" . $user_id . "/" ?>search/">Build your profile</a>
 			</div>
 		</section>
 		<section class="container footer--push">
@@ -64,7 +64,7 @@
 				<article class="dashboard-panel grid__cell module-1-1 module--no-pad">
 					<header class="header--panel header--employer cf">
 						<h3 class="float-left"><a href="<?php echo BASE_URL; ?>jobs/list.php">My Jobs</a></h3>
-						<a href="<?php echo BASE_URL; ?>jobs/post.php"><button class="float-right button-action">Post Job</button></a>
+						<a href="<?php echo BASE_URL; ?>jobs/post.php" class="float-right button-action">Post Job</a>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php if (is_array($jobs)) : ?>

@@ -40,12 +40,8 @@
 							<img src="http://placehold.it/400x400" alt="">
 						</div>
 						<div class="button-wrapper">
-							<button class="button-green button-left cf hire-trigger">
-								<a href="mailto:<?php echo $designer['email']; ?>?subject=I would like to hire you! -- Connectd&body=Hey <?php echo $designer['firstname']; ?>...">Hire <?php echo $designer['firstname']; ?></a>
-							</button>
-							<button class="button-blue button-right cf collaborate-trigger">
-								<a href="mailto:<?php echo $designer['email']; ?>?subject=I would like to collaborate with you! -- Connectd&body=Hey <?php echo $designer['firstname']; ?>...">Collaborate</a>
-							</button>
+							<a class="button-left btn button-green cf hire-trigger" href="mailto:<?php echo $designer['email']; ?>?subject=I would like to hire you! -- Connectd&body=Hey <?php echo $designer['firstname']; ?>...">Hire <?php echo $designer['firstname']; ?></a>
+							<a class="button-right btn button-blue cf hire-trigger" href="mailto:<?php echo $designer['email']; ?>?subject=I would like to collaborate with you! -- Connectd&body=Hey <?php echo $designer['firstname']; ?>..."?>Collaborate</a>
 						</div>
 					</div>
 					<div class="user-sidebar__info">
@@ -122,7 +118,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for someone else?
 				</h4>
-				<button class="button-red"><a href="<?php echo BASE_URL; ?>designer/list.php">See our talented bunch</a></button>
+				<a class="btn button-red" href="<?= BASE_URL; ?>designers/list.php">See our talented bunch</a>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer.php"); ?>

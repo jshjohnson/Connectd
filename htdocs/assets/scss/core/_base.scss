@@ -146,28 +146,26 @@ textarea {
 	}
 }
 
-button,
-.btn:link,
+.btn,
 input[type=submit] {
 	display: inline-block;
 	padding: .9em 1.5em .8em;
 	font-size: .8em;
-	@include box-shadow(0 3px 0);
-	border: 0;
 	@include border-radius;
 	min-width: 8em;
 	color: #FFF;
-	background-color: $color-comp;
-	a, a:hover, a:visited {
+	&:hover, &:visited {
 		color: white;
 	}
 	&:hover {
 		position: relative;
 		top: .1em;
-		@include box-shadow(0 2px 0);
 	}
 	@include respond-max($bp4) {
 		min-width: 0;
+	}
+	span {
+		color: #FFF;
 	}
 }
 

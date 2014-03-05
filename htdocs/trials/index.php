@@ -28,10 +28,10 @@
 							<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $trial_user["location"]; ?>, UK</h4>
 							<h4 class="user-sidebar__label icon--briefcase icon--marg"><?php $url = preg_replace("(Between)", "", $trial_user["experience"] ); echo $url ?> experience</h4>
 							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $trial_user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trial_user["portfolio"] ); echo $url ?></a></h4>
-							<div class="text-center">
-								<a href="add-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="button-green button-small">
-									 class="icon--check"><?php echo $trial_user["votes"]; ?> votes</a>
-								</button>
+							<div class="button-wrapper">
+								<a href="add-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="btn button-green button-small">
+									 <span class="icon--check"><?php echo $trial_user["votes"]; ?> votes</span>
+								</a>
 							</div>
 						</div>
 					</article>
@@ -44,7 +44,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for freelance work?
 				</h4>
-				<button class="button-green"><a href="dashboard.html">See our jobs list</a></button>
+				<a class="btn button-green" href="<?= BASE_URL; ?>dashboard/">See our jobs list</a>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer.php"); ?>
