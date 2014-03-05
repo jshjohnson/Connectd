@@ -93,8 +93,8 @@
  
 			#preparing a statement that will select all the registered users, with the most recent ones first.
 			$query = $this->db->prepare("SELECT 
-				`user_id`, `firstname`, `lastname`, `location`, `portfolio`, `experience`, `votes`, `time_joined`
-				FROM users WHERE `votes` < ? AND `user_type` != ?");
+				users.user_id, users.firstname, users.lastname, users.location, users.portfolio, users.experience, users.votes, users.time_joined, freelancers.jobtitle
+				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers WHERE `votes` < ? AND `user_type` != ? AND users.user_id = freelancers.user_id");
 
 			$query->bindValue(1, 10);
 			$query->bindValue(2, 'employer');
@@ -257,6 +257,27 @@
 				//    echo 'Mailer Error: ' . $mail->ErrorInfo;
 				//    exit;
 				// }
+
+
+				$rows = $query->rowCount();
+	 
+				if($rows > 0){
+
+					$last_user_id =  $this->db->lastInsertId('user_id');
+					
+					$query_2 = $this->db->prepare("INSERT INTO " . DB_NAME . ".freelancers (user_id, jobtitle, priceperhour) VALUE (?,?,?)");
+	 
+	 				$query_2->bindValue(1, $last_user_id);
+					$query_2->bindValue(2, $jobtitle);
+					$query_2->bindValue(3, $priceperhour);						
+	 
+					$query_2->execute();
+					
+					return true;
+
+				} else {
+					return false;
+				}
 							
 			}catch(PDOException $e){
 				die($e->getMessage());

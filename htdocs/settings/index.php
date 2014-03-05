@@ -66,11 +66,9 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp4 unit-2-3--bp1 content-overlay">
-				<?php
-					if(empty($errors) === false){
-						echo '<p class="message message--error">' . implode('</p><p>', $errors) . '</p>';
-					}
-				?>
+				<?php if(empty($errors) === false) : ?>
+					<p class="message message--error"><?= implode('</p><p>', $errors); ?></p>
+				<?php endif; ?>
 				<?php if ($status == "success") : ?>
 				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>

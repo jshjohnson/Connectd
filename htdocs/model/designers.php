@@ -45,9 +45,17 @@
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->query("SELECT * FROM " . DB_NAME . ".users WHERE `confirmed` = 1 AND `user_type` = 'designer'");
+			$results = $db->prepare("
+				SELECT users.user_id, users.firstname, users.lastname, freelancers.jobtitle, freelancers.priceperhour 
+				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers  
+				WHERE `confirmed` = ? 
+				AND `user_type` = 'designer' 
+				AND users.user_id = freelancers.user_id
+			");
+			$results->bindValue(1, 1);
+			$results->execute();
 		} catch (Exception $e) {
-			echo "Damn. Data could not be retrieved";
+			echo "Data could not be retrieved";
 			exit;
 		}
 		
@@ -58,19 +66,28 @@
 	}
 
 	function get_designers_single($id) {
-		
+
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->prepare("SELECT * FROM " . DB_NAME . ".users WHERE user_id = ? AND `user_type` = 'designer'");
-			$results->bindParam(1, $id);
+			$results = $db->prepare("
+				SELECT *
+				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers  
+				WHERE `confirmed` = ? 
+				AND users.user_id = ?
+				AND `user_type` = 'designer' 
+				AND users.user_id = freelancers.user_id
+			");
+			$results->bindValue(1, 1);
+			$results->bindValue(2, $id);
+
 			$results->execute();
 		} catch (Exception $e) {
 			echo "Damn. Data could not be retrieved.";
 			exit;
 		}
 
-		$designers = $results->fetch(PDO::FETCH_ASSOC);
+		$designers= $results->fetch(PDO::FETCH_ASSOC);
 		
 		return $designers;
 	}

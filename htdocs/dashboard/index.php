@@ -26,7 +26,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Welcome <?php echo $user[0]; ?>!
 				</h4>
-				<button class="button-red"><a href="<?php echo BASE_URL . "developer/profile.php?id=" . $_SESSION['userID']; ?>">Build your profile</a></button>
+				<button class="button-red"><a href="<?= BASE_URL . $user_type . "s/" . $user_id . "/" ?>">Build your profile</a></button>
 			</div>
 		</section>
 		<section class="container footer--push">

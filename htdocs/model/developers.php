@@ -47,7 +47,15 @@
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->query("SELECT * FROM " . DB_NAME . ".users WHERE `confirmed` = 1 AND `user_type` = 'developer'");
+			$results = $db->prepare("
+				SELECT users.user_id, users.firstname, users.lastname, freelancers.jobtitle, freelancers.priceperhour 
+				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers  
+				WHERE `confirmed` = ? 
+				AND `user_type` = 'developer' 
+				AND users.user_id = freelancers.user_id
+			");
+			$results->bindValue(1, 1);
+			$results->execute();
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
 			exit;
@@ -64,8 +72,17 @@
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->prepare("SELECT * FROM " . DB_NAME . ".users WHERE user_id = ? AND `user_type` = 'developer'");
-			$results->bindParam(1, $id);
+			$results = $db->prepare("
+				SELECT *
+				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers  
+				WHERE `confirmed` = ? 
+				AND users.user_id = ?
+				AND `user_type` = 'developer' 
+				AND users.user_id = freelancers.user_id
+			");
+			$results->bindValue(1, 1);
+			$results->bindValue(2, $id);
+
 			$results->execute();
 		} catch (Exception $e) {
 			echo "Damn. Data could not be retrieved.";
@@ -76,3 +93,5 @@
 		
 		return $developers;
 	}
+
+?>

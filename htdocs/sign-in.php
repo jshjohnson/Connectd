@@ -34,7 +34,7 @@
 		} else if ($users->emailExists($email) === false) {
 			$errors[] = 'Sorry that username doesn\'t exists.';
 		} else if ($users->emailConfirmed($email) === false) {
-			$errors[] = 'Sorry, but you need to activate your account. Please check your emails.';
+			$errors[] = 'Uh oh! Looks like your account hasn\'t been activated yet. <a href="">Resend confirmation email</a>' ;
 		} else {
 	 
 			$login = $users->login($email, $password);

@@ -18,7 +18,7 @@
 			<?php foreach ($trial_users as $trial_user) : ?>
 				<aside class="grid__cell module-1-4 push-bottom">
 					<article class="user-sidebar module--no-pad">
-						<?php  if(strtotime($trial_user["time"])>strtotime('-3 days')) : ?>
+						<?php  if(strtotime($trial_user["time_joined"])>strtotime('-3 days')) : ?>
 						     <div class="ribbon"><h5>New</h5></div>
 						<?php endif ?>
 						<div class="user-sidebar__info">
@@ -29,8 +29,8 @@
 							<h4 class="user-sidebar__label icon--briefcase icon--marg"><?php $url = preg_replace("(Between)", "", $trial_user["experience"] ); echo $url ?> experience</h4>
 							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $trial_user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trial_user["portfolio"] ); echo $url ?></a></h4>
 							<div class="text-center">
-								<button class="button-green button-small">
-									<a href="add-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="icon--check"><?php echo $trial_user["votes"]; ?> votes</a>
+								<a href="add-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="button-green button-small">
+									 class="icon--check"><?php echo $trial_user["votes"]; ?> votes</a>
 								</button>
 							</div>
 						</div>

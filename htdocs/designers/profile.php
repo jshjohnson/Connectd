@@ -25,7 +25,7 @@
 		
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");
-?>		
+?>
 		<section class="container">
 			<div class="grid--no-marg cf">
 				<aside class="user-sidebar grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">
