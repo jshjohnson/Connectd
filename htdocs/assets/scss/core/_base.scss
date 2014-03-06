@@ -39,6 +39,7 @@ button, input { line-height: normal; }
 input, input[type=search], select, textarea { width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 button, html input[type=button], input[type=reset], input[type=submit] { width: auto; }
 input[type=file] { width: auto; border: 0; padding: 0; }
+.btn {font-weight: 600;}
 // helper class added via jQuery
 .checkbox {
 	position: relative;
@@ -153,7 +154,6 @@ input[type=submit] {
 	font-size: .8em;
 	@include border-radius;
 	min-width: 8em;
-	font-weight: 600;
 	color: #FFF;
 	&:hover, &:visited {
 		color: white;
@@ -246,6 +246,7 @@ input:not(:focus):invalid {
   border: 1px solid rgba(red, 1);
   outline: 0;
 }
+
 input:focus:invalid {
   @include box-shadow(0 0 5px rgba(red, 1));
   border: 1px solid rgba(red, 1);

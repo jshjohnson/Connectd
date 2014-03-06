@@ -30,14 +30,15 @@
 }
 
 .button-action {
-	margin-top: .76em;
+	margin-top: .7em;
 	margin-right: 1em;
 	font-size: .7em;
 	font-weight: 500;
 	color: white;
+	line-height: 2.5;
 	@include border-radius;
 	background-color: darken($color-brand-mid, 20%); 
-	padding: .6em 1em .5em;
+	padding: 0 1em;
 	@include box-shadow(inset 0 0 .1em transparent);
 	border: 1px solid darken($color-brand-mid, 30%);
 	@include transition(all .2s ease-in-out);
