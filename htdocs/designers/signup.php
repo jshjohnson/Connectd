@@ -4,13 +4,16 @@
 
 	$general->errors();
 	$general->loggedInProtect();
+
 	$towns = $general->getLocations();
+	$experiences = $general->getExperiences();
 
 	$userType = "Designer";
 	$jobTitles = $general->getJobTitles($userType);
 
 	$pageTitle = "Sign Up";
 	$section = "Designer";
+	
 	include_once(ROOT_PATH . "inc/header.php");
 
 	// Grab the form data
@@ -171,11 +174,9 @@
 					<div class="select-container field-1-2 float-left">
 						<select name="experience">
 							<option value="">Years experience...</option>
-							<option <?php if ($_POST['experience'] == 'Less than 1 year') { ?>selected="true" <?php }; ?>value="Less than 1 year">Less than 1 year</option>
-							<option <?php if ($_POST['experience'] == 'Between 1-2 years') { ?>selected="true" <?php }; ?>value="Between 1-2 years">Between 1-2 years</option>
-							<option <?php if ($_POST['experience'] == 'Between 3-5 years') { ?>selected="true" <?php }; ?>value="Between 3-5 years">Between 3-5 years</option>
-							<option <?php if ($_POST['experience'] == 'Between 5-10 years') { ?>selected="true" <?php }; ?>value="Between 5-10 years">Between 5-10 years</option>
-							<option <?php if ($_POST['experience'] == 'Over 10 years') { ?>selected="true" <?php }; ?>value="Over 10 years">Over 10 years</option>
+							<?php foreach ($experiences as $experience) : ?>
+								<option <?php if ($_POST['experience'] == $experience['experience']) { ?>selected="true" <?php }; ?>value="<?= $experience['experience']; ?>"><?= $experience['experience']; ?></option>
+							<?php endforeach; ?>
 						</select>
 					</div>
 					<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="200" class="field-1-2 float-right"  value="<?php if (isset($priceperhour)) { echo htmlspecialchars($priceperhour); } ?>">

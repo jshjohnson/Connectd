@@ -7,6 +7,7 @@
 
 	$towns = $general->getLocations();
 	$employerTypes = $general->getEmployerTypes();
+	$experiences = $general->getExperiences();
 
 	$pageTitle = "Sign Up";
 	$section = "Employer";
@@ -174,11 +175,9 @@
 						<label for="experience">How long have you been in business for?</label>
 						<select name="experience">
 							<option value="">Years experience...</option>
-							<option <?php if ($_POST['experience'] == 'Less than 1 year') { ?>selected="true" <?php }; ?>value="Less than 1 year">Less than 1 year</option>
-							<option <?php if ($_POST['experience'] == 'Between 1-2 years') { ?>selected="true" <?php }; ?>value="Between 1-2 years">Between 1-2 years</option>
-							<option <?php if ($_POST['experience'] == 'Between 3-5 years') { ?>selected="true" <?php }; ?>value="Between 3-5 years">Between 3-5 years</option>
-							<option <?php if ($_POST['experience'] == 'Between 5-10 years') { ?>selected="true" <?php }; ?>value="Between 5-10 years">Between 5-10 years</option>
-							<option <?php if ($_POST['experience'] == 'Over 10 years') { ?>selected="true" <?php }; ?>value="Over 10 years">Over 10 years</option>
+							<?php foreach ($experiences as $experience) : ?>
+								<option <?php if ($_POST['experience'] == $experience['experience']) { ?>selected="true" <?php }; ?>value="<?= $experience['experience']; ?>"><?= $experience['experience']; ?></option>
+							<?php endforeach; ?>
 						</select>
 					</div>
 					<textarea name="bio" cols="30" rows="8" placeholder="A little about your company..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
