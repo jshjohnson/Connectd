@@ -18,7 +18,7 @@
 
 	$designers = get_designers_all();
 	$developers = get_developers_all();
-	$jobs = get_jobs_recent();
+	$jobs = get_jobs_all();
 
 ?>
 		<section class="call-to-action call-to-action--top">
