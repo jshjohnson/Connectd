@@ -59,8 +59,8 @@
 			header('Location: sign-in.php?status=logged');
 	    }
 
-	    public function getCounties() {
-			$query = $this->db->prepare("SELECT county FROM " . DB_NAME . ".counties ORDER BY county ASC");
+	    public function getLocations() {
+			$query = $this->db->prepare("SELECT town FROM " . DB_NAME . ".towns ORDER BY town ASC");
 			try{
 				$query->execute();
 			}catch(PDOException $e){
@@ -70,8 +70,8 @@
 			return $query->fetchAll();
 	    }
 
-	    public function getBusinessTypes() {
-			$query = $this->db->prepare("SELECT business_type FROM " . DB_NAME . ".business_types ORDER BY business_type ASC");
+	    public function getEmployerTypes() {
+			$query = $this->db->prepare("SELECT employer_type FROM " . DB_NAME . ".employer_types ORDER BY employer_type ASC");
 			try{
 				$query->execute();
 			}catch(PDOException $e){

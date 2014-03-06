@@ -67,7 +67,7 @@
 				Sign In<a href="index.php#register" class="header__section--title__link"> : Register
 			</h1>
 			<h2 class="header__section header__section--logo">
-				<a href="<?php echo BASE_URL; ?>">connectd</a>
+				<a href="<?= BASE_URL; ?>">connectd</a>
 			</h2>
 		</div>
 	</header>
@@ -124,11 +124,7 @@
 							<input type="checkbox" value="1" name="remember" 
 								<?php if(isset($_COOKIE['remember_me'])) {
 									echo 'checked="checked"';
-								}
-								else {
-									echo '';
-								}
-								?>>
+								}?>>
 							Remember me
 						</label>
 			        </fieldset>
