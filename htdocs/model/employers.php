@@ -64,8 +64,15 @@
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->prepare("SELECT * FROM " . DB_NAME . ".users WHERE user_id = ? AND `user_type` = 'employer'");
-			$results->bindParam(1, $id);
+			$results = $db->prepare("SELECT 
+				* 
+				FROM " . DB_NAME . ".users u
+				INNER JOIN " . DB_NAME . ".jobs j on u.user_id = j.user_id
+				INNER JOIN " . DB_NAME . ".employers e ON u.user_id = e.user_id
+				WHERE u.user_id = ? AND `user_type` = ?
+			");
+			$results->bindValue(1, $id);
+			$results->bindValue(2, 'employer');
 			$results->execute();
 		} catch (Exception $e) {
 			echo "Damn. Data could not be retrieved.";

@@ -4,7 +4,6 @@
 	$general->loggedOutProtect();
 	require_once(ROOT_PATH . "model/employers.php");
 
-
 	if (isset($_GET["id"])) {
 		$employer_id = $_GET["id"];
 		$employer = get_employers_single($employer_id);
@@ -15,7 +14,6 @@
 		exit();
 	}
 	
-
 	$pageTitle = "Employer";
 	$section = "Employer";
 
@@ -27,17 +25,12 @@
 				<aside class="float-left grid__cell module-1-3 module--no-pad user-sidebar--employer">
 					<article class="user-sidebar module module--no-pad">
 						<div class="user-sidebar__info">
-							<div class="ribbon"><h5>New</h5></div>
-							<h3 class="user-sidebar__title">Mixd</h3>
-							<h4 class="user-sidebar__label icon--attach icon--marg">Digital Design Agency</h4>
-							<h4 class="user-sidebar__label icon--location icon--marg">Harrogate, UK</h4>
-							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="">mixd.co.uk</a></h4>
-							<p>
-								We create beautifully-crafted websites that stand out from the crowd – and perfect function comes as standard.
-							</p>
-							<p>
-								Our success is not only due to the quality of our work; it's down to attitude, our approach and the way we treat our clients.
-							</p>
+							<!-- <div class="ribbon"><h5>New</h5></div> -->
+							<h3 class="user-sidebar__title"><?= $employer['employer_name']; ?></h3>
+							<h4 class="user-sidebar__label icon--attach icon--marg"><?= $employer['employer_type']; ?></h4>
+							<h4 class="user-sidebar__label icon--location icon--marg"><?= $employer['location']; ?></h4>
+							<h4 class="user-sidebar__label icon--globe icon--marg"><a href=""><?= $employer['portfolio']; ?></a></h4>
+							<p><?= $employer['bio']; ?></p>
 						</div>
 					</article>
 					<aside class="dashboard-panel module module--no-pad">
@@ -117,7 +110,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for freelance work?
 				</h4>
-				<button class="button-green"><a href="<?php echo BASE_URL; ?>dashboard/">See our jobs list</a></button>
+				<a class="btn button-green" href="<?= BASE_URL; ?>dashboard/">See our jobs list</a>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer.php"); ?>
