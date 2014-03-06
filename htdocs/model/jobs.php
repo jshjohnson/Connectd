@@ -61,7 +61,6 @@
 				INNER JOIN users u ON j.user_id = u.user_id
 				INNER JOIN employers e ON j.user_id = e.user_id
 			");
-
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
 			exit;
@@ -80,10 +79,12 @@
 		try {
 			$results = $db->prepare("SELECT
 				*
-				FROM jobs, users, employers 
-				WHERE users.user_id = jobs.user_id
+				FROM jobs j
+				INNER JOIN users u ON j.user_id = u.user_id
+				INNER JOIN employers e ON j.user_id = e.user_id
+				WHERE j.job_id = ?
 			");
-
+			$results->bindValue(1, $id);
 			$results->execute();
 		} catch (Exception $e) {
 			echo "Damn. Data could not be retrieved.";
