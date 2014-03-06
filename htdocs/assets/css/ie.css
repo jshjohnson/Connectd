@@ -3338,24 +3338,28 @@ img.media__img {
 .message--hint:after {
   border-top: 0.75em solid #ebe9e9;
 }
+/* line 141, ../scss/core/_overrides.scss */
+.message--hint:first-child {
+  margin: 0 0 .5em;
+}
 
-/* line 143, ../scss/core/_overrides.scss */
+/* line 146, ../scss/core/_overrides.scss */
 .message-flipped--notification {
   background-color: orange;
 }
-/* line 145, ../scss/core/_overrides.scss */
+/* line 148, ../scss/core/_overrides.scss */
 .message-flipped--notification:before {
   border-bottom: 0.75em solid orange;
 }
 
-/* line 150, ../scss/core/_overrides.scss */
+/* line 153, ../scss/core/_overrides.scss */
 input:disabled {
   background-color: #ccc !important;
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
   box-shadow: 0 0.1em 0 #948f8f !important;
 }
-/* line 153, ../scss/core/_overrides.scss */
+/* line 156, ../scss/core/_overrides.scss */
 input:disabled:hover {
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
@@ -3365,7 +3369,7 @@ input:disabled:hover {
 
 /* Debuggin'
 ----------------------------------*/
-/* line 182, ../scss/core/_overrides.scss */
+/* line 185, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3380,7 +3384,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 0";
 }
-/* line 185, ../scss/core/_overrides.scss */
+/* line 188, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3395,7 +3399,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 1";
 }
-/* line 188, ../scss/core/_overrides.scss */
+/* line 191, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -3410,7 +3414,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 2";
 }
-/* line 191, ../scss/core/_overrides.scss */
+/* line 194, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;

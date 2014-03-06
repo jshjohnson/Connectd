@@ -138,6 +138,9 @@
 	&:after {
 		border-top: 0.75em solid $color-background-mid;
 	}
+	&:first-child {
+		margin: 0 0 .5em;
+	}
 }
 
 .message-flipped--notification {
