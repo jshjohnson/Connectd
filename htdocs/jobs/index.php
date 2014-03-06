@@ -16,7 +16,7 @@
 		exit();
 	}
 
-	$pageTitle = $job['jobtitle'];
+	$pageTitle = $job['job_name'];
 	$section = "Jobs";
 	
 	include_once(ROOT_PATH . "inc/header.php");

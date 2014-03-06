@@ -4,7 +4,7 @@
 
 	$general->loggedInProtect();
 	$general->errors();
-	$counties = $general->getCounties();
+	$towns = $general->getLocations();
 
 	$userType = "Developer";
 	$jobTitles = $general->getJobTitles($userType);
@@ -96,7 +96,7 @@
 			$votes = '0';
 			$user_type = 'developer';
 	 
-			$users->registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type, $votes);
+			$users->registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type, $votes);
 			header("Location:" . BASE_URL . "developers/signup.php?status=success");
 			exit();
 		}
@@ -152,8 +152,8 @@
 						<label for="location">Where do you work from?</label>
 						<select name="location">
 							<option value="">Location...</option>
-						<?php foreach ($counties as $county) : ?>
-							<option <?php if ($_POST['location'] == $county['county']) { ?>selected="true" <?php }; ?>value="<?php echo $county['county']; ?>"><?php echo $county['county']; ?></option>
+						<?php foreach ($towns as $town) : ?>
+							<option <?php if ($_POST['location'] == $town['town']) { ?>selected="true" <?php }; ?>value="<?= $town['town']; ?>"><?= $town['town']; ?></option>
 						<?php endforeach; ?>
 						</select>
 					</div>

@@ -4,7 +4,7 @@
 
 	$general->errors();
 	$general->loggedInProtect();
-	$counties = $general->getCounties();
+	$towns = $general->getLocations();
 
 	$userType = "Designer";
 	$jobTitles = $general->getJobTitles($userType);
@@ -96,7 +96,7 @@
 			$votes          = '0';
 			$user_type      = 'designer';
 
-			$users->registerUser($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type, $votes);
+			$users->registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type, $votes);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();
 		}
@@ -153,8 +153,8 @@
 						<label for="location">Where do you work from?</label>
 						<select name="location">
 							<option value="">Location...</option>
-						<?php foreach ($counties as $county) : ?>
-							<option <?php if ($_POST['location'] == $county['county']) { ?>selected="true" <?php }; ?>value="<?php echo $county['county']; ?>"><?php echo $county['county']; ?></option>
+						<?php foreach ($towns as $town) : ?>
+							<option <?php if ($_POST['location'] == $town['town']) { ?>selected="true" <?php }; ?>value="<?= $town['town']; ?>"><?= $town['town']; ?></option>
 						<?php endforeach; ?>
 						</select>
 					</div>
@@ -164,7 +164,7 @@
 						<select name="jobtitle">
 							<option value="">Job title..</option>
 							<?php foreach ($jobTitles as $jobTitle) : ?>
-								<option <?php if ($_POST['jobtitle'] == $jobTitle['job_title']) { ?>selected="true" <?php }; ?>value="<?php echo $jobTitle['job_title']; ?>"><?php echo $jobTitle['job_title']; ?></option>
+								<option <?php if ($_POST['jobtitle'] == $jobTitle['job_title']) { ?>selected="true" <?php }; ?>value="<?= $jobTitle['job_title']; ?>"><?= $jobTitle['job_title']; ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>

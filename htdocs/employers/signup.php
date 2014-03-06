@@ -5,26 +5,26 @@
 	$general->errors();
 	$general->loggedInProtect();
 
-	$counties = $general->getCounties();
-	$businessTypes = $general->getBusinessTypes();
+	$towns = $general->getLocations();
+	$employerTypes = $general->getEmployerTypes();
 
 	$pageTitle = "Sign Up";
 	$section = "Employer";
 	include_once(ROOT_PATH . "inc/header.php");
 
 	// Grab the form data
-	$firstname = trim($_POST['firstname']);
-	$lastname = trim($_POST['lastname']);
-	$email = trim($_POST['email']);
-	$password = trim($_POST['password']);
-	$repeatpassword = trim($_POST['repeatpassword']);
-	$businessname = trim($_POST['businessname']);
-	$location = trim($_POST['location']);
-	$experience = trim($_POST['experience']);
-	$businesstype = trim($_POST['businesstype']);
-	$portfolio = trim($_POST['portfolio']);
-	$bio = trim($_POST['bio']);
-	$submit = trim($_POST['submit']);
+	$firstname          = trim($_POST['firstname']);
+	$lastname           = trim($_POST['lastname']);
+	$email              = trim($_POST['email']);
+	$password           = trim($_POST['password']);
+	$repeatpassword     = trim($_POST['repeatpassword']);
+	$employerName       = trim($_POST['employer_name']);
+	$employerType       = trim($_POST['employer_type']);
+	$location           = trim($_POST['location']);
+	$experience         = trim($_POST['experience']);
+	$portfolio          = trim($_POST['portfolio']);
+	$bio                = trim($_POST['bio']);
+	$submit             = trim($_POST['submit']);
 
 	$status = $_GET["status"];
 	
@@ -66,37 +66,37 @@
 			$errors[]  = "Your password needs to contain at least one number";
 		}else if (strlen($password)>25||strlen($password)<6) {
 			$errors[]  = "Password must be 6-25 characters long";
-		}else if($businessname == ""){
+		}else if($employerName == ""){
 	        $errors[]  = "Please enter your business name"; 
-	    }else if($businesstype == ""){
+	    }else if($employerType == ""){
 	        $errors[]  = "Please enter your business type"; 
 	    }else if($experience == ""){
 		    $errors[] ="Please enter your experience";
-		}else if($businessbio == ""){
+		}else if($bio == ""){
 	        $errors[]  = "Please write about your business"; 
-	    }else if(strlen($businessbio)<25) {
+	    }else if(strlen($bio)<25) {
 			$errors[]  = "Freelancers require a bit more information about your business!";
 		}
 
 		if(empty($errors) === true) {
 
 			//clean the input now that we have a db connection
-			$firstname = $general->cleanString($db, $firstname);
-			$lastname = $general->cleanString($db, $lastname);
-			$email = $general->cleanString($db, $email);
-			$password = $general->cleanString($db, $password);
-			$repeatpassword = $general->cleanString($db, $repeatpassword);
-			$businessname = $general->cleanString($db, $businessname);
-			$location = $general->cleanString($db, $location);
-			$businesstype = $general->cleanString($db, $businesstype);
-			$portfolio = $general->cleanString($db, $website);
-			$experience = $general->cleanString($db, $experience);
-			$bio = $general->cleanString($db, $bio);
-			$votes = '100';
-			$user_type = 'employer';
+			$firstname          = $general->cleanString($db, $firstname);
+			$lastname           = $general->cleanString($db, $lastname);
+			$email              = $general->cleanString($db, $email);
+			$password           = $general->cleanString($db, $password);
+			$repeatpassword     = $general->cleanString($db, $repeatpassword);
+			$employerName       = $general->cleanString($db, $employerName);
+			$location           = $general->cleanString($db, $location);
+			$employerType       = $general->cleanString($db, $employerType);
+			$portfolio          = $general->cleanString($db, $portfolio);
+			$experience         = $general->cleanString($db, $experience);
+			$bio                = $general->cleanString($db, $bio);
+			$votes              = '100';
+			$user_type          = 'employer';
 
 
-			$employers->registerUser($firstname, $lastname, $email, $password, $businessname, $location, $businesstype, $portfolio, $experience, $bio, $user_type, $votes);
+			$users->registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $user_type, $votes);
 			header("Location:" . BASE_URL . "employers/signup.php?status=success");
 			exit();
 		}
@@ -150,23 +150,23 @@
 					<input type='password' name='password' placeholder="Password" class="field-1-2"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
 					<hr>
-					<input type="text" name="businessname" placeholder="Business name" value="<?php if (isset($businessname)) { echo htmlspecialchars($businessname); } ?>">
-					<input type="url" name="portfolio" placeholder="Business website" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
+					<input type="text" name="employer_name" placeholder="Employer name" value="<?php if (isset($employerName)) { echo htmlspecialchars($employerName); } ?>">
+					<input type="url" name="portfolio" placeholder="Employer website" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
 					<div class="select-container">
 						<label for="location">What is the location of your business?</label>
 						<select name="location">
 							<option value="">Location...</option>
-						<?php foreach ($counties as $county) : ?>
-							<option <?php if ($_POST['location'] == $county['county']) { ?>selected="true" <?php }; ?>value="<?php echo $county['county']; ?>"><?php echo $county['county']; ?></option>
+						<?php foreach ($towns as $town) : ?>
+							<option <?php if ($_POST['location'] == $town['town']) { ?>selected="true" <?php }; ?>value="<?= $town['town']; ?>"><?= $town['town']; ?></option>
 						<?php endforeach; ?>
 						</select>
 					</div>
 					<div class="select-container field-1-2 float-left">
-						<label for="businesstype">What industry is your business in?</label>
-						<select name="businesstype">
+						<label for="employer_type">What industry is your business in?</label>
+						<select name="employer_type">
 							<option value="">Pick one..</option>
-							<?php foreach ($businessTypes as $businessType) : ?>
-								<option <?php if ($_POST['businesstype'] == $businessType['business_type']) { ?>selected="true" <?php }; ?>value="<?php echo $businessType['business_type']; ?>"><?php echo $businessType['business_type']; ?></option>
+							<?php foreach ($employerTypes as $employerType) : ?>
+								<option <?php if ($_POST['employer_type'] == $employerType['employer_type']) { ?>selected="true" <?php }; ?>value="<?= $employerType['employer_type']; ?>"><?= $employerType['employer_type']; ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
