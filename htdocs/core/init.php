@@ -18,7 +18,7 @@
 		$user_id 	= $_SESSION['user_id']; // getting user's id from the session.
 		$user 	= $users->userData($user_id); // getting all the data about the logged in user.
 		$username = $user['firstname'] . " " . $user['lastname'];
-		$user_type = $user['user_type'];
+		$userType = $user['user_type'];
 	}
 	 
 	$errors 	    = array();

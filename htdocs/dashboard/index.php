@@ -64,7 +64,9 @@
 				<article class="dashboard-panel grid__cell module-1-1 module--no-pad">
 					<header class="header--panel header--employer cf">
 						<h3 class="float-left"><a href="<?php echo BASE_URL; ?>jobs/list.php">My Jobs</a></h3>
-						<a href="<?php echo BASE_URL; ?>jobs/post.php" class="float-right button-action">Post Job</a>
+						<?php if($userType == 'employer') : ?>
+						<a href="<?= BASE_URL; ?>jobs/post.php" class="float-right button-action">Post Job</a>
+						<?php endif; ?>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php if (is_array($jobs)) : ?>
