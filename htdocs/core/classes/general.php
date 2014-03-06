@@ -56,7 +56,7 @@
 			$_SESSION = array();
 			// Destroy the session
 			session_destroy();
-			header('Location: sign-in.php?status=logged');
+			header('Location: login.php?status=logged');
 	    }
 
 	    public function getLocations() {

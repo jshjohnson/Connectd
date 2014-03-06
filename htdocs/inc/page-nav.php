@@ -14,6 +14,6 @@
 						<li><a href="<?= BASE_URL . $user_type . "s/" . $user_id . "/" ?>">View Profile</a></li>
 						<li><a href="<?= BASE_URL . $user_type . "s/" . $user_id . "/" ?>">Edit Profile</a></li>
 						<li><a href="<?= BASE_URL; ?>settings/">Settings</a></li>
-						<li><a href="<?= BASE_URL; ?>sign-out.php">Log out</a></li>
+						<li><a href="<?= BASE_URL; ?>logout.php">Log out</a></li>
 					</ul>
 				</nav>

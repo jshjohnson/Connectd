@@ -24,9 +24,9 @@
 		<section class="call-to-action call-to-action--top">
 			<div class="container">
 				<h4 class="as-h1 call-to-action__title">
-					Welcome <?php echo $user[0]; ?>!
+					Welcome <?= $user[0]; ?>!
 				</h4>
-				<a class="btn button-red" href="<?= BASE_URL . $user_type . "s/" . $user_id . "/" ?>search/">Build your profile</a>
+				<a class="btn button-red" href="<?= BASE_URL . $user_type . "s/" . $user_id . "/" ?>">Build your profile</a>
 			</div>
 		</section>
 		<section class="container footer--push">

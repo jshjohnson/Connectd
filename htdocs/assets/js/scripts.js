@@ -72,6 +72,6 @@ $(document).ready(function() {
 	overlay($(".search-trigger"), ""+baseUrl+"/assets/ajax/search.php");
 	overlay($(".dev-skills-trigger"), ""+baseUrl+"/assets/ajax/dev-skills.php");
 	overlay($(".des-skills-trigger"), ""+baseUrl+"/assets/ajax/des-skills.php");
-	overlay($(".login-trigger"), ""+baseUrl+"/assets/ajax/sign-in.php");
+	overlay($(".login-trigger"), ""+baseUrl+"/assets/ajax/login.php");
 
 });

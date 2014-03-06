@@ -4,7 +4,7 @@
 
 	$general->errors();
 
-	$pageTitle = "Sign in";
+	$pageTitle = "Log in";
 	include_once(ROOT_PATH . "inc/header.php");
 
 	$status = $_GET["status"];
@@ -64,7 +64,7 @@
 	<header class="header header-blue--alt zero-bottom cf">
 		<div class="container">
 			<h1 class="header__section header__section--title">
-				Sign In<a href="index.php#register" class="header__section--title__link"> : Register
+				Log In<a href="index.php#register" class="header__section--title__link"> : Register
 			</h1>
 			<h2 class="header__section header__section--logo">
 				<a href="<?= BASE_URL; ?>">connectd</a>
@@ -116,7 +116,7 @@
 						echo '<p class="message message--error">' . implode('</p><p>', $errors) . '</p>';
 					}
 				?>
-				<form method="post" action="sign-in.php" autocomplete="off">
+				<form method="post" action="login.php" autocomplete="off">
 					<input type="email" name="email" placeholder="Email" value="<?php if(isset($_COOKIE['remember_me'])) { echo $_COOKIE['remember_me']; } else if(isset($_POST['email'])) echo htmlentities($_POST['email']); ?>" class="field-1-2">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-right">
 					<fieldset class="checkbox float-left">
