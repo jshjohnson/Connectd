@@ -5,6 +5,8 @@
 	$general->errors();
 	$general->loggedOutProtect();
 
+	$jobCategories = $general->getJobCategories();
+
 	$section   = "Jobs";
 	$pageTitle = "Post a job";
 
@@ -109,14 +111,9 @@
 					<div class="select-container float-right field-1-2">
 						<select name="category" required="required">
 							<option value="">Select a category..</option>
-							<option <?php if ($_POST['jobcategory'] == 'Web Design') { ?>selected="true" <?php }; ?>value="Web Design">Web Design</option>
-							<option <?php if ($_POST['jobcategory'] == 'Graphic Design') { ?>selected="true" <?php }; ?>value="Graphic Design">Graphic Design</option>
-							<option <?php if ($_POST['jobcategory'] == 'UX Design') { ?>selected="true" <?php }; ?>value="UX Design">UX Design</option>
-							<option <?php if ($_POST['jobcategory'] == 'UI Design') { ?>selected="true" <?php }; ?>value="UI Design">UI Design</option>
-							<option <?php if ($_POST['jobcategory'] == 'App Design') { ?>selected="true" <?php }; ?>value="App Design">App Design</option>
-							<option <?php if ($_POST['jobcategory'] == 'Illustration') { ?>selected="true" <?php }; ?>value="Illustration">Illustration</option>
-							<option <?php if ($_POST['jobcategory'] == 'Web Development') { ?>selected="true" <?php }; ?>value="Web Development">Web Development</option>
-							<option <?php if ($_POST['jobcategory'] == 'App Development') { ?>selected="true" <?php }; ?>value="App Development">App Development</option>
+							<?php foreach ($jobCategories as $jobCategory) : ?>
+								<option <?php if ($_POST['category'] == $jobCategory['job_category']) { ?>selected="true" <?php }; ?>value="<?= $jobCategory['job_category']; ?>"><?= $jobCategory['job_category']; ?></option>
+							<?php endforeach; ?>
 						</select>
 					</div>		
 					<textarea name="description" cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!' required="required"><?php if (isset($jobdescription)) { echo htmlspecialchars($jobdescription); } ?></textarea>
