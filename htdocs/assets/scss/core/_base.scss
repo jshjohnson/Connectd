@@ -153,6 +153,7 @@ input[type=submit] {
 	font-size: .8em;
 	@include border-radius;
 	min-width: 8em;
+	font-weight: 600;
 	color: #FFF;
 	&:hover, &:visited {
 		color: white;
