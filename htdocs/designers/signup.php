@@ -5,30 +5,30 @@
 	$general->errors();
 	$general->loggedInProtect();
 
-	$towns = $general->getLocations();
-	$experiences = $general->getExperiences();
+	$towns            = $general->getLocations();
+	$experiences      = $general->getExperiences();
 
-	$userType = "Designer";
-	$jobTitles = $general->getJobTitles($userType);
+	$userType         = "Designer";
+	$jobTitles        = $general->getJobTitles($userType);
 
-	$pageTitle = "Sign Up";
-	$section = "Designer";
+	$pageTitle        = "Sign Up";
+	$section          = "Designer";
 	
 	include_once(ROOT_PATH . "inc/header.php");
 
 	// Grab the form data
-	$firstname = trim($_POST['firstname']);
-	$lastname = trim($_POST['lastname']);
-	$email = trim($_POST['email']);
-	$password = trim($_POST['password']);
-	$repeatpassword = trim($_POST['repeatpassword']);
-	$jobtitle = trim($_POST['jobtitle']);
-	$experience = trim($_POST['experience']);
-	$priceperhour = trim($_POST['priceperhour']);
-	$bio = trim($_POST['bio']);
-	$portfolio = trim($_POST['portfolio']);
-	$location = trim($_POST['location']);
-	$submit = trim($_POST['submit']);
+	$firstname        = trim($_POST['firstname']);
+	$lastname         = trim($_POST['lastname']);
+	$email            = trim($_POST['email']);
+	$password         = trim($_POST['password']);
+	$repeatpassword   = trim($_POST['repeatpassword']);
+	$jobtitle         = trim($_POST['jobtitle']);
+	$experience       = trim($_POST['experience']);
+	$priceperhour     = trim($_POST['priceperhour']);
+	$bio              = trim($_POST['bio']);
+	$portfolio        = trim($_POST['portfolio']);
+	$location         = trim($_POST['location']);
+	$submit           = trim($_POST['submit']);
 
 	$status = $_GET["status"];
 
@@ -62,11 +62,11 @@
 		    $errors[] ="Please enter a password";
 		}else if ($password!=$repeatpassword){
 			$errors[] = "Both password fields must match";
-		} else if(preg_match_all($r1,$password)<1) {
+		} else if(preg_match_all($r1,$password, $o)<1) {
 			$errors[] = "Your password needs to contain at least one uppercase character";
-		} else if(preg_match_all($r2,$password)<1) {
+		} else if(preg_match_all($r2,$password, $o)<1) {
 			$errors[] = "Your password needs to contain at least one lowercase character";
-		} else if(preg_match_all($r3,$password)<1) {
+		} else if(preg_match_all($r3,$password, $o)<1) {
 			$errors[] = "Your password needs to contain at least one number";
 		} else if (strlen($password)>25||strlen($password)<6) {
 			$errors[] = "Password must be 6-25 characters long";

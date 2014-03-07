@@ -16,8 +16,8 @@
 		exit();
 	}
 	
-	$pageTitle = $developer['firstname'] . ' ' . $developer['lastname'] . ' : ' . $developer['jobtitle'];
-	$section = "Developer";
+	$pageTitle  = $developer['firstname'] . ' ' . $developer['lastname'] . ' : ' . $developer['jobtitle'];
+	$section    = "Developer";
 
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");

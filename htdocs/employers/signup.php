@@ -5,12 +5,13 @@
 	$general->errors();
 	$general->loggedInProtect();
 
-	$towns = $general->getLocations();
-	$employerTypes = $general->getEmployerTypes();
-	$experiences = $general->getExperiences();
+	$towns              = $general->getLocations();
+	$employerTypes      = $general->getEmployerTypes();
+	$experiences        = $general->getExperiences();
 
-	$pageTitle = "Sign Up";
-	$section = "Employer";
+	$pageTitle          = "Sign Up";
+	$section            = "Employer";
+
 	include_once(ROOT_PATH . "inc/header.php");
 
 	// Grab the form data
@@ -59,11 +60,11 @@
 	        $errors[] ="Please enter a password"; 
 	    }else if ($password!=$repeatpassword){ 
 			$errors[]  = "Both password fields must match";
-		}else if(preg_match_all($r1,$password)<1) {
+		}else if(preg_match_all($r1,$password, $o)<1) {
 			$errors[]  = "Your password needs to contain at least one uppercase character";
-		}else if(preg_match_all($r2,$password)<1) {
+		}else if(preg_match_all($r2,$password, $o)<1) {
 			$errors[]  = "Your password needs to contain at least one lowercase character";
-		}else if(preg_match_all($r3,$password)<1) {
+		}else if(preg_match_all($r3,$password, $o)<1) {
 			$errors[]  = "Your password needs to contain at least one number";
 		}else if (strlen($password)>25||strlen($password)<6) {
 			$errors[]  = "Password must be 6-25 characters long";
