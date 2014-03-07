@@ -48,11 +48,13 @@
 			$results = $db->prepare("
 				SELECT users.user_id, users.firstname, users.lastname, freelancers.jobtitle, freelancers.priceperhour 
 				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers  
-				WHERE `confirmed` = ? 
+				WHERE `confirmed` = ?
+				AND `votes` >= ?
 				AND `user_type` = 'designer' 
 				AND users.user_id = freelancers.user_id
 			");
 			$results->bindValue(1, 1);
+			$results->bindValue(2, 10);
 			$results->execute();
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
