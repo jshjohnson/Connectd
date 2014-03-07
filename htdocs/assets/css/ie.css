@@ -2825,23 +2825,22 @@ img.media__img {
 /* line 45, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__title--alt {
   font-size: 1.1em;
-  margin-top: .5em;
 }
 
-/* line 50, ../scss/core/modules/_sidebar.scss */
+/* line 49, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__label {
   font-size: .9em;
   margin-top: 0;
   margin-bottom: 0.66667em;
   font-weight: 500;
 }
-/* line 55, ../scss/core/modules/_sidebar.scss */
+/* line 54, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__label a {
   color: #2c3e50;
   text-decoration: underline;
 }
 
-/* line 61, ../scss/core/modules/_sidebar.scss */
+/* line 60, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__price {
   background-color: #fc4349;
   border-radius: 10em;
@@ -2854,12 +2853,12 @@ img.media__img {
   left: -1.65em;
   position: absolute;
 }
-/* line 72, ../scss/core/modules/_sidebar.scss */
+/* line 71, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__price h5 {
   margin: 0;
   line-height: 2.5em;
 }
-/* line 76, ../scss/core/modules/_sidebar.scss */
+/* line 75, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__price small {
   display: block;
   line-height: 0;
@@ -2867,13 +2866,13 @@ img.media__img {
   margin-top: -.5em;
 }
 
-/* line 91, ../scss/core/modules/_sidebar.scss */
+/* line 90, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__price--alt {
   right: -1.65em;
   left: auto;
 }
 
-/* line 106, ../scss/core/modules/_sidebar.scss */
+/* line 105, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__info p {
   font-size: .9em;
   margin-bottom: 1em;
