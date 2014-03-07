@@ -2,6 +2,7 @@
 ----------------------------------*/
 
 .user-sidebar__header {
+	@include box-sizing(border-box);
 	@include respond-max($bp2) {
 		float: left;
 		width: 40%;	

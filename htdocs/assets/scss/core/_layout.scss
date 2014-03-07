@@ -23,6 +23,7 @@
 .container__inner {
 	@include respond-max($bp1) {
 		width: 85%;
+		margin: auto;
 	}
 	padding-left: 5%;
 	padding-right: 5%;
