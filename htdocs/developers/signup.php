@@ -17,18 +17,18 @@
 	include_once(ROOT_PATH . "inc/header.php");
 
 	// Grab the form data
-	$firstname = trim($_POST['firstname']);
-	$lastname = trim($_POST['lastname']);
-	$email = trim($_POST['email']);
-	$password = trim($_POST['password']);
-	$repeatpassword = trim($_POST['repeatpassword']);
-	$jobtitle = trim($_POST['jobtitle']);
-	$experience = trim($_POST['experience']);
-	$priceperhour = trim($_POST['priceperhour']);
-	$bio = trim($_POST['bio']);
-	$portfolio = trim($_POST['portfolio']);
-	$location = trim($_POST['location']);
-	$submit = trim($_POST['submit']);
+	$firstname         = trim($_POST['firstname']);
+	$lastname          = trim($_POST['lastname']);
+	$email             = trim($_POST['email']);
+	$password          = trim($_POST['password']);
+	$repeatpassword    = trim($_POST['repeatpassword']);
+	$jobtitle          = trim($_POST['jobtitle']);
+	$experience        = trim($_POST['experience']);
+	$priceperhour      = trim($_POST['priceperhour']);
+	$bio               = trim($_POST['bio']);
+	$portfolio         = trim($_POST['portfolio']);
+	$location          = trim($_POST['location']);
+	$submit            = trim($_POST['submit']);
 
 	$status = $_GET["status"];
 
@@ -62,11 +62,11 @@
 		    $errors[] ="Please enter a password"; 
 		}else if ($password!=$repeatpassword){ 
 			$errors[] = "Both password fields must match";
-		} else if(preg_match_all($r1,$password)<1) {
+		} else if(preg_match_all($r1,$password, $o)<1) {
 			$errors[] = "Your password needs to contain at least one uppercase character";
-		} else if(preg_match_all($r2,$password)<1) {
+		} else if(preg_match_all($r2,$password, $o)<1) {
 			$errors[] = "Your password needs to contain at least one lowercase character";
-		} else if(preg_match_all($r3,$password)<1) {
+		} else if(preg_match_all($r3,$password, $o)<1) {
 			$errors[] = "Your password needs to contain at least one number";
 		} else if (strlen($password)>25||strlen($password)<6) {
 			$errors[] = "Password must be 6-25 characters long";
@@ -84,19 +84,19 @@
 
 		if(empty($errors) === true){
 
-			$firstname = $general->cleanString($db, $firstname);
-			$lastname = $general->cleanString($db, $lastname);
-			$email = $general->cleanString($db, $email);
-			$password = $general->cleanString($db, $password);
-			$repeatpassword = $general->cleanString($db, $repeatpassword);
-			$location = $general->cleanString($db, $location);
-			$jobtitle = $general->cleanString($db, $jobtitle);
-			$priceperhour = $general->cleanString($db, $priceperhour);
-			$bio = $general->cleanString($db, $bio);
-			$portfolio = $general->cleanString($db, $portfolio);
-			$experience = $general->cleanString($db, $experience);
-			$votes = '0';
-			$user_type = 'developer';
+			$firstname         = $general->cleanString($db, $firstname);
+			$lastname          = $general->cleanString($db, $lastname);
+			$email             = $general->cleanString($db, $email);
+			$password          = $general->cleanString($db, $password);
+			$repeatpassword    = $general->cleanString($db, $repeatpassword);
+			$location          = $general->cleanString($db, $location);
+			$jobtitle          = $general->cleanString($db, $jobtitle);
+			$priceperhour      = $general->cleanString($db, $priceperhour);
+			$bio               = $general->cleanString($db, $bio);
+			$portfolio         = $general->cleanString($db, $portfolio);
+			$experience        = $general->cleanString($db, $experience);
+			$votes             = '0';
+			$user_type         = 'developer';
 	 
 			$users->registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type, $votes);
 			header("Location:" . BASE_URL . "developers/signup.php?status=success");

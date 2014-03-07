@@ -1,13 +1,15 @@
 <?php 
 	require_once("../config.php");  
 	require_once(ROOT_PATH . "core/init.php");
+
 	$general->loggedOutProtect();
+
 	require_once(ROOT_PATH . "model/employers.php");
 
 	if (isset($_GET["id"])) {
-		$employer_id = $_GET["id"];
-		$employer = get_employers_single($employer_id);
-		$jobs = $general->getEmployerJobs($employer_id);
+		$employer_id       = $_GET["id"];
+		$employer          = get_employers_single($employer_id);
+		$jobs              = $general->getEmployerJobs($employer_id);
 	}
 
 	if (empty($employer)) {
@@ -15,8 +17,8 @@
 		exit();
 	}
 	
-	$pageTitle = "Employer";
-	$section = "Employer";
+	$pageTitle     = "Employer";
+	$section       = "Employer";
 
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");
@@ -64,7 +66,6 @@
 						<h3 class="float-left">Current jobs</h3>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
-
 						<?php foreach($jobs as $job) { ?>
 						<?php 
 							$budget = $job['job_budget'];
@@ -98,8 +99,6 @@
 								<a class="btn btn--green btn--small apply-trigger" href="<?= BASE_URL . "jobs/" . $job['job_id']; ?>">Apply</a>
 							</div>
 						</div>
-
-
 						<?php }; ?>
 					</div>
 				</aside>

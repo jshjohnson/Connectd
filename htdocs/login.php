@@ -120,13 +120,11 @@
 					<input type="email" name="email" placeholder="Email" value="<?php if(isset($_COOKIE['remember_me'])) { echo $_COOKIE['remember_me']; } else if(isset($_POST['email'])) echo htmlentities($_POST['email']); ?>" class="field-1-2">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-right">
 					<fieldset class="checkbox float-left">
-						<label>
+						<label>Remember me</label>
 							<input type="checkbox" value="1" name="remember" 
 								<?php if(isset($_COOKIE['remember_me'])) {
 									echo 'checked="checked"';
 								}?>>
-							Remember me
-						</label>
 			        </fieldset>
 			       	<a class="forgot float-right" href="recover-pass.php">Forgot password?</a>
 					<div class="button-container clear">

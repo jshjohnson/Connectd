@@ -6,14 +6,14 @@
 
 	include_once(ROOT_PATH . "model/jobs.php");
 
-	$section = "Jobs";
+	$section     = "Jobs";
 
-	$jobs = get_jobs_all();
-	$job_id = $_GET["id"];
-	$job = $jobs[$job_id];
+	$jobs        = get_jobs_all();
+	$job_id      = $_GET["id"];
+	$job         = $jobs[$job_id];
 
-	$user = $users->userData($_SESSION['id']);
-	$username = $user[0] . " " . $user[1];
+	$user        = $users->userData($_SESSION['id']);
+	$username    = $user[0] . " " . $user[1];
 	
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");

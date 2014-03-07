@@ -6,12 +6,12 @@
 
 	require_once(ROOT_PATH . "model/developers.php");
 
-	$section = "Developers";
-	$pageTitle = "Developers";
+	$section         = "Developers";
+	$pageTitle       = "Developers";
 
-	$developers = get_developers_all();
-	$developer_id = $_GET["id"];
-	$developer = $developers[$developer_id];
+	$developers      = get_developers_all();
+	$developer_id    = $_GET["id"];
+	$developer       = $developers[$developer_id];
 
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");
