@@ -117,6 +117,19 @@
 			return $query->fetchAll();
 	    }
 
+	    public function getEmployerJobs($employer_id) {
+	    	$query = $this->db->prepare("SELECT * FROM " . DB_NAME . ".jobs WHERE user_id = ?");
+	    	$query->bindValue(1, $employer_id);
+			try{
+				$query->execute();
+			}catch(PDOException $e){
+				die($e->getMessage());
+			}
+			# We use fetchAll() instead of fetch() to get an array of all the selected records.
+			return $query->fetchAll();
+	    }
+
+
 	    public function addVote($user_id) {
 			$query = $this->db->prepare("UPDATE users SET votes = votes + 1 WHERE user_id = ?");
 			$query->bindValue(1, $user_id);

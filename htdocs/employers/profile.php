@@ -7,6 +7,7 @@
 	if (isset($_GET["id"])) {
 		$employer_id = $_GET["id"];
 		$employer = get_employers_single($employer_id);
+		$jobs = $general->getEmployerJobs($employer_id);
 	}
 
 	if (empty($employer)) {
@@ -53,54 +54,43 @@
 						<h3 class="float-left">Current jobs</h3>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
+
+						<?php foreach($jobs as $job) { ?>
+						<?php 
+							$budget = $job['job_budget'];
+							$jobName = $job['job_name']
+							?>
 						<div class="media">
 							<div class="media__desc media-2-3">
 								<div class="media__button currency-button">
 									<span class="currency">
-										£1k
+										<?php if ($budget>=10000) {
+												echo "£" . substr($budget, 0, 2) . "k";
+											} elseif ($budget>=1000) {
+												echo "£" . substr($budget, 0, 1) . "k";
+											} else {
+												echo "£" . $budget;
+											}
+										?>
 									</span>
 								</div>
-								<a href=""><p class="media__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, nihil aliquam quod adipisci repellendus. Omnis corporis blanditiis unde ipsa eaque!</p></a>
+								<a href="<?= BASE_URL . "jobs/" . $job['job_id'] . "/"; ?>"><p class="media__body">
+										<?php if ($jobName>=150) {
+												echo substr($jobName, 0, 150) . "...";
+											} else {
+												echo $jobName;
+											}
+										?>
+								</p></a>
 							</div>
 							<div class="media-1-3 media__side">
-								<p><small>Posted 3rd July</small></p>
-								<button class="button-green button-small apply-trigger">
-									<a href="">Apply</a>
-								</button>
+								<p><small><?= date('F j, Y', $job['job_post_date']); ?></small></p>
+								<a class="btn btn--green btn--small apply-trigger" href="<?= BASE_URL . "jobs/" . $job['job_id']; ?>">Apply</a>
 							</div>
 						</div>
-						<div class="media">
-							<div class="media__desc media-2-3">
-								<div class="media__button currency-button apply-trigger">
-									<span class="currency">
-										£14k
-									</span>
-								</div>
-								<a href=""><p class="media__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, nihil aliquam quod adipisci repellendus. Omnis corporis blanditiis unde ipsa eaque!</p></a>
-							</div>
-							<div class="media-1-3 media__side">
-								<p><small>Posted 3rd July</small></p>
-								<button class="button-green button-small apply-trigger">
-									<a href="">Apply</a>
-								</button>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media__desc media-2-3">
-								<div class="media__button currency-button">
-									<span class="currency">
-										£300
-									</span>
-								</div>
-								<a href=""><p class="media__body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, nihil aliquam quod adipisci repellendus. Omnis corporis blanditiis unde ipsa eaque!</p></a>
-							</div>
-							<div class="media-1-3 media__side">
-								<p><small>Posted 3rd July</small></p>
-								<button class="button-green button-small apply-trigger">
-									<a href="">Apply</a>
-								</button>
-							</div>
-						</div>
+
+
+						<?php }; ?>
 					</div>
 				</aside>
 			</div>
@@ -110,7 +100,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for freelance work?
 				</h4>
-				<a class="btn button-green" href="<?= BASE_URL; ?>dashboard/">See our jobs list</a>
+				<a class="btn btn--green" href="<?= BASE_URL; ?>dashboard/">See our jobs list</a>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer.php"); ?>
