@@ -10,6 +10,10 @@ RewriteRule ^employers/([0-9]+)/$ /Connectd/htdocs/employers/profile.php?id=$1
 
 RewriteRule ^jobs/([0-9]+)/$ /Connectd/htdocs/jobs/index.php?id=$1
 
+RewriteRule ^developers/list/ /Connectd/htdocs/developers/list.php
+RewriteRule ^designers/list/ /Connectd/htdocs/designers/list.php
+RewriteRule ^jobs/list/ /Connectd/htdocs/jobs/list.php
+
 ErrorDocument 404 /Connectd/htdocs/404.php
 
 Options -Indexes
