@@ -1,7 +1,7 @@
 /* Buttons
 ----------------------------------*/
 
-.button-red { 
+.btn--red { 
 	background-color: $color-brand-highlight;  
 	@include box-shadow(0 .18em 0 darken($color-brand-highlight, 20%));
 	border: 1px solid darken($color-brand-highlight, 10%);
@@ -10,7 +10,7 @@
 		@include box-shadow(0 .1em 0 darken($color-brand-highlight, 20%))
 	}
 }
-.button-blue { 
+.btn--blue { 
 	background-color: $color-brand-dark;  
 	@include box-shadow(0 .18em 0 darken($color-brand-dark, 20%));
 	border: 1px solid darken($color-brand-dark, 10%);
@@ -19,7 +19,7 @@
 		@include box-shadow(0 .1em 0 darken($color-brand-dark, 20%))
 	}
 }
-.button-green, input[type=submit] { 
+.btn--green, input[type=submit] { 
 	background-color: $color-brand-mid; 
 	@include box-shadow(0 .18em 0 darken($color-brand-mid, 20%));
 	border: 1px solid darken($color-brand-mid, 10%);
@@ -29,8 +29,8 @@
 	}
 }
 
-.button-action {
-	margin-top: .7em;
+.btn--action {
+	margin-top: .68em;
 	margin-right: 1em;
 	font-size: .7em;
 	font-weight: 500;
@@ -52,7 +52,7 @@
 	}
 }
 
-.button-small {
+.btn--small {
 	margin-left: 0;
 	margin-right: 0;
 	padding: .6em 0;

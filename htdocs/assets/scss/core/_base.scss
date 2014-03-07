@@ -152,6 +152,7 @@ input[type=submit] {
 	display: inline-block;
 	padding: .9em 1.5em .8em;
 	font-size: .8em;
+	text-align: center;
 	@include border-radius;
 	min-width: 8em;
 	color: #FFF;
