@@ -55,7 +55,18 @@
 				<aside class="grid__cell module-1-3 module--no-pad user-sidebar--employer float-right">
 					<article class="user-sidebar module module--no-pad">
 						<div class="user-sidebar__info">
-							<h3 class="user-sidebar__title"><a href="<?= BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" ?>"><?= $job['employer_name']; ?></a></h3>
+							<?php  if(strtotime(date('F j, Y', $job['time_joined']))>strtotime('-3 days')) : ?>
+							     <div class="ribbon"><h5>New</h5></div>
+							<?php endif ?>
+							<?php 
+								$employerName = $job['employer_name'];
+
+								if (strlen($employerName)>=23) {
+									echo "<h3 class=\"user-sidebar__title user-sidebar__title--alt\"><a href=". BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . ">" . $employerName . "</h3>";
+								} else {
+									echo "<h3 class=\"user-sidebar__title\">" . $employerName . "</h3>";
+								}
+							?>
 							<h4 class="user-sidebar__label icon--attach icon--marg"><?= $job['employer_type']; ?></h4>
 							<h4 class="user-sidebar__label icon--location icon--marg"><?= $job['location']; ?></h4>
 							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $job['portfolio']; ?>"><?= $job['portfolio']; ?></a></h4>
@@ -67,13 +78,13 @@
 							<h3 class="float-left">Freelancers who have applied</h3>
 						</header>
 						<div class="module--half-pad">
-							<a href=""><img src="<?php echo BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="<?php echo BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="<?php echo BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="<?php echo BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="<?php echo BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="<?php echo BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="<?php echo BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
 						</div>
 					</aside>
 				</aside>
