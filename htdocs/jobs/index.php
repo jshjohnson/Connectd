@@ -64,7 +64,7 @@
 								if (strlen($employerName)>=23) {
 									echo "<h3 class=\"user-sidebar__title user-sidebar__title--alt\"><a href=". BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . ">" . $employerName . "</h3>";
 								} else {
-									echo "<h3 class=\"user-sidebar__title\">" . $employerName . "</h3>";
+									echo "<h3 class=\"user-sidebar__title\"><a href=". BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . ">" . $employerName . "</h3>";
 								}
 							?>
 							<h4 class="user-sidebar__label icon--attach icon--marg"><?= $job['employer_type']; ?></h4>
@@ -95,7 +95,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Not the job for you?
 				</h4>
-				<a class="btn btn--green" href="<?= BASE_URL; ?>jobs/list.php">See our jobs list</a>
+				<a class="btn btn--green" href="<?= BASE_URL; ?>jobs/list/">See our jobs list</a>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer.php"); ?>

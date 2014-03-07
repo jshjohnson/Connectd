@@ -45,7 +45,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for someone else?
 				</h4>
-				<button class="btn--red"><a href="<?= BASE_URL; ?>search/">See our talented bunch</a></button>
+				<a class="btn btn--red" href="<?= BASE_URL; ?>designers/list/">See our talented bunch</a>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer.php"); ?>
