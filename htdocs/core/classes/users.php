@@ -94,10 +94,11 @@
 			#preparing a statement that will select all the registered users, with the most recent ones first.
 			$query = $this->db->prepare("SELECT 
 				users.user_id, users.firstname, users.lastname, users.location, users.portfolio, users.experience, users.votes, users.time_joined, freelancers.jobtitle
-				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers WHERE `votes` < ? AND `user_type` != ? AND users.user_id = freelancers.user_id");
+				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers WHERE `votes` < ? AND `user_type` != ? AND `confirmed` = ? AND users.user_id = freelancers.user_id");
 
 			$query->bindValue(1, 10);
 			$query->bindValue(2, 'employer');
+			$query->bindValue(3, 1);
 
 			try{
 				$query->execute();
