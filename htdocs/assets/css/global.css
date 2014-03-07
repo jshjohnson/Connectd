@@ -3341,10 +3341,15 @@ img.media__img {
   /* line 99, ../scss/core/modules/_sidebar.scss */
   .user-sidebar--employer {
     margin-bottom: 2em;
+    margin-top: 2em;
+  }
+  /* line 103, ../scss/core/modules/_sidebar.scss */
+  .user-sidebar--employer:first-child {
+    margin-top: 0;
   }
 }
 
-/* line 106, ../scss/core/modules/_sidebar.scss */
+/* line 110, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__info p {
   font-size: .9em;
   margin-bottom: 1em;

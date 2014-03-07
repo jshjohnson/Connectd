@@ -99,6 +99,10 @@
 .user-sidebar--employer {
 	@include respond-max($bp2) {
 		margin-bottom: $baseline;
+		margin-top: $baseline;
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 }
 
