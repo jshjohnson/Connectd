@@ -85,7 +85,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="footer--push color-navy">
+	<section class="footer--push color-grey">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
 				<?php if(empty($errors) === false) : ?>
@@ -96,17 +96,17 @@
 				<?php endif; ?>
 				<form method="post" action="<?= BASE_URL; ?>jobs/post.php">
 					<p class="message message--hint">Psst. Make your job titles as descriptive as possible - it will avoid confusion in the Connectd community.</p>
-					<input type="text" name="job_name" placeholder="Job title" value="<?php if (isset($jobName)) { echo htmlspecialchars($jobName); } ?>" required="required">
+					<input type="text" name="job_name" placeholder="Job title" value="<?php if (isset($jobName)) { echo htmlspecialchars($jobName); } ?>">
 					<div class="float-left field-1-2">
 						<label for="">Start date:</label>
-						<input type="date" name="start_date" placeholder="Start date" value="<?php if (isset($startDate)) { echo htmlspecialchars($startDate); } ?>" required="required">
+						<input type="date" name="start_date" placeholder="Start date" value="<?php if (isset($startDate)) { echo htmlspecialchars($startDate); } ?>">
 					</div>
 					<div class="float-right field-1-2">
 						<label for="">Deadline: (if applicable)</label>
 						<input type="date" name="deadline" placeholder="Deadline" value="<?php if (isset($deadline)) { echo htmlspecialchars($deadline); } ?>">
 					</div>
 					<div class="float-left field-1-2">
-						<input type="text" name="budget" placeholder="Minimum budget" value="<?php if (isset($budget)) { echo htmlspecialchars($budget); } ?>" required="required">
+						<input type="text" name="budget" placeholder="Minimum budget" value="<?php if (isset($budget)) { echo htmlspecialchars($budget); } ?>">
 					</div>
 					<div class="select-container float-right field-1-2">
 						<select name="category" required="required">

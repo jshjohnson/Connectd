@@ -22,7 +22,7 @@
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");
 
-?>		
+?>	
 		<section class="container">
 			<div class="grid--no-marg cf">
 				<article class="portfolio grid__cell module-2-3 module--no-pad float-left">
@@ -84,7 +84,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Not the job for you?
 				</h4>
-				<a class="btn button-green" href="<?= BASE_URL; ?>jobs/list.php">See our jobs list</a>
+				<a class="btn btn--green" href="<?= BASE_URL; ?>jobs/list.php">See our jobs list</a>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer.php"); ?>

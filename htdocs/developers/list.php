@@ -42,7 +42,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Can't find the right developer?
 				</h4>
-				<a class="btn button-red" href="<?= BASE_URL; ?>search/">Try refining your search</a>
+				<a class="btn btn--red" href="<?= BASE_URL; ?>search/">Try refining your search</a>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer.php"); ?>
