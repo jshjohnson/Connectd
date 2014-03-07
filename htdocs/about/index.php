@@ -8,7 +8,7 @@
 				About
 			</h1>
 			<h2 class="header__section header__section--logo">
-				<a href="<?php echo BASE_URL; ?>">connectd</a>
+				<a href="<?= BASE_URL; ?>">connectd</a>
 			</h2>
 		</div>
 	</header>
@@ -37,7 +37,7 @@
 					</p>
 				</div>
 				<div class="grid__cell unit-1-2--bp2">
-					<img src="<?php echo BASE_URL; ?>assets/img/iphone.png" alt="" class="iphone-img">
+					<img src="<?= BASE_URL; ?>assets/img/iphone.png" alt="" class="iphone-img">
 				</div>
 			</div>
 		</div>
@@ -53,7 +53,7 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, libero, eveniet, odit, dignissimos natus reprehenderit inventore qui laudantium iure corporis voluptatibus ut quae doloremque reiciendis perferendis numquam minima. Blanditiis, quasi.</p>
 				</div>
 				<div class="grid__cell unit-1-2--bp2 float-left">
-					<img src="<?php echo BASE_URL; ?>assets/img/bubbles.png" alt="" class="section__img">
+					<img src="<?= BASE_URL; ?>assets/img/bubbles.png" alt="" class="section__img">
 				</div>
 			</div>
 		</div>

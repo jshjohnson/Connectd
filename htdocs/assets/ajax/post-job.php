@@ -8,7 +8,7 @@
 	<div class='overlay__inner'>
 		<a href="" class="cancel-trigger"><i class="icon--cancel"></i></a>
 		<h2 class='overlay__title'>Post a job</h2>
-		<form method="post" action="<?php echo BASE_URL; ?>inc/post.php">
+		<form method="post" action="<?= BASE_URL; ?>inc/post.php">
 			<input type="text" name="firstname" required placeholder="Job title">
 			<div class="float-left field-1-2">
 				<label for="">Start date:</label>

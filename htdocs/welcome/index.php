@@ -11,7 +11,7 @@
 	include_once(ROOT_PATH . "inc/header-home.php");
 ?>
 	<div class="welcome-intro">
-		<h2 class="logo text-right"><a href="<?php echo BASE_URL; ?>">connectd</a></h2>
+		<h2 class="logo text-right"><a href="<?= BASE_URL; ?>">connectd</a></h2>
 		<?php if (isset($_SESSION['logged'])) : ?>
 			<h2 class="text-left"><a href="<?= BASE_URL ?>logout.php">Logout</a></h2>
 		<?php else : ?>

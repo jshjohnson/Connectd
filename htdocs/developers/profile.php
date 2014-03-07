@@ -94,16 +94,16 @@
 					<div class="container__inner">
 						<div class="grid grid__developer">
 							<div class="grid__cell grid__cell--img">
-								<img src="<?php echo BASE_URL; ?>assets/img/developer-1.jpg" alt="">
+								<img src="<?= BASE_URL; ?>assets/img/developer-1.jpg" alt="">
 							</div>
 							<div class="grid__cell grid__cell--img">
-								<img src="<?php echo BASE_URL; ?>assets/img/developer-2.jpg" alt="">
+								<img src="<?= BASE_URL; ?>assets/img/developer-2.jpg" alt="">
 							</div>
 							<div class="grid__cell grid__cell--img">
-								<img src="<?php echo BASE_URL; ?>assets/img/developer-3.png" alt="">
+								<img src="<?= BASE_URL; ?>assets/img/developer-3.png" alt="">
 							</div>
 							<div class="grid__cell grid__cell--img">
-								<img src="<?php echo BASE_URL; ?>assets/img/developer-4.jpg" alt="">
+								<img src="<?= BASE_URL; ?>assets/img/developer-4.jpg" alt="">
 							</div>
 						</div>
 					</div>

@@ -49,13 +49,13 @@
 							<h3 class="float-left">Worked with</h3>
 						</header>
 						<div class="module--half-pad">
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
-							<a href=""><img src="assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
+							<a href=""><img src="<?= BASE_URL; ?>assets/img/avatar-small.jpg" alt="" class="module__avatar img--avatar"></a>
 						</div>
 					</aside>
 				</aside>

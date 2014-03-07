@@ -65,22 +65,22 @@
 					<div class="container__inner">
 						<div class="grid grid__designer">
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?php echo BASE_URL; ?>assets/img/designer-1.png" alt="">
+								<img src="<?= BASE_URL; ?>assets/img/designer-1.png" alt="">
 							</div>
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?php echo BASE_URL; ?>assets/img/designer-2.png" alt="">
+								<img src="<?= BASE_URL; ?>assets/img/designer-2.png" alt="">
 							</div>
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?php echo BASE_URL; ?>assets/img/designer-3.jpg" alt="">
+								<img src="<?= BASE_URL; ?>assets/img/designer-3.jpg" alt="">
 							</div>
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?php echo BASE_URL; ?>assets/img/designer-4.jpg" alt="">
+								<img src="<?= BASE_URL; ?>assets/img/designer-4.jpg" alt="">
 							</div>
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?php echo BASE_URL; ?>assets/img/designer-5.jpg" alt="">
+								<img src="<?= BASE_URL; ?>assets/img/designer-5.jpg" alt="">
 							</div>
 							<div class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?php echo BASE_URL; ?>assets/img/designer-6.gif" alt="">
+								<img src="<?= BASE_URL; ?>assets/img/designer-6.gif" alt="">
 							</div>
 						</div>
 					</div>

@@ -33,7 +33,7 @@
 			<div class="grid--no-marg cf">
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
 					<header class="header--panel header--designer cf">
-						<h3 class="float-left"><a href="<?php echo BASE_URL; ?>designer/list.php">Designers</a></h3>
+						<h3 class="float-left"><a href="<?= BASE_URL; ?>designer/list.php">Designers</a></h3>
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
@@ -48,7 +48,7 @@
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
 					<header class="header--panel header--developer cf">
-						<h3 class="float-left"><a href="<?php echo BASE_URL; ?>developer/list.php">Developers</a></h3>
+						<h3 class="float-left"><a href="<?= BASE_URL; ?>developer/list.php">Developers</a></h3>
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
@@ -63,7 +63,7 @@
 				</article>
 				<article class="dashboard-panel grid__cell module-1-1 module--no-pad">
 					<header class="header--panel header--employer cf">
-						<h3 class="float-left"><a href="<?php echo BASE_URL; ?>jobs/list.php">My Jobs</a></h3>
+						<h3 class="float-left"><a href="<?= BASE_URL; ?>jobs/list.php">My Jobs</a></h3>
 						<?php if($userType == 'employer') : ?>
 						<a href="<?= BASE_URL; ?>jobs/post.php" class="float-right btn btn--action">Post Job</a>
 						<?php endif; ?>

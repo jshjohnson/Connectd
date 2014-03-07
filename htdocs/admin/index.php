@@ -42,12 +42,12 @@
 				</h1>
 				<nav class="header__nav">
 					<ul>
-						<li><a href="<?php echo BASE_URL; ?>settings/">Settings</a></li>
-						<li><a href="<?php echo BASE_URL; ?>sign-out.php">Log out</a></li>
+						<li><a href="<?= BASE_URL; ?>settings/">Settings</a></li>
+						<li><a href="<?= BASE_URL; ?>sign-out.php">Log out</a></li>
 					</ul>
 				</nav>
 				<h2 class="header__section header__section--logo">
-					<a href="<?php echo BASE_URL; ?>" class="icon--home">connectd</a>
+					<a href="<?= BASE_URL; ?>" class="icon--home">connectd</a>
 				</h2>
 			</div>
 		</header>

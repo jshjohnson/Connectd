@@ -17,7 +17,7 @@
 				<a href="" class="site-intro__link">Find out more</a>
 			</div>
 		</header>
-		<h2 class="logo text-right"><a href="<?php echo BASE_URL; ?>">connectd</a></h2>
+		<h2 class="logo text-right"><a href="<?= BASE_URL; ?>">connectd</a></h2>
 		<?php if (isset($_SESSION['logged'])) : ?>
 		<h2 class="text-left"><a href="<?= BASE_URL ?>logout.php">Logout</a></h2>
 		<?php else : ?>
@@ -27,21 +27,21 @@
 			<section class="panel panel--designer panel-1-3">
 				<div class="panel__container">
 					<h1 class="panel__title">
-						<a href="<?php echo BASE_URL; ?>designers/"><span>I'm a</span> Designer</a>
+						<a href="<?= BASE_URL; ?>designers/"><span>I'm a</span> Designer</a>
 					</h1>
 				</div>
 			</section>
 			<section class="panel panel--developer panel-1-3">
 				<div class="panel__container">
 					<h1 class="panel__title">
-						<a href="<?php echo BASE_URL; ?>developers/"><span>I'm a</span> Developer</a>
+						<a href="<?= BASE_URL; ?>developers/"><span>I'm a</span> Developer</a>
 					</h1>
 				</div>
 			</section>
 			<section class="panel panel--employer panel-1-3 float-right">
 				<div class="panel__container">
 					<h1 class="panel__title">
-						<a href="<?php echo BASE_URL; ?>employers/"><span>I'm an</span> Employer</a>
+						<a href="<?= BASE_URL; ?>employers/"><span>I'm an</span> Employer</a>
 					</h1>
 				</div>
 			</section>

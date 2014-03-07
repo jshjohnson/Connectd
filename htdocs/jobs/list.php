@@ -30,7 +30,7 @@
 				<article class="dashboard-panel grid__cell module-2-3 module--no-pad float-left">
 					<header class="header--panel header--employer cf">
 						<h3 class="float-left">My Jobs</h3>
-						<a href="<?php echo BASE_URL; ?>post/"><button class="float-right btn--action">Post Job</button></a>
+						<a href="<?= BASE_URL; ?>post/"><button class="float-right btn--action">Post Job</button></a>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php foreach($jobs as $job_id => $job) {
@@ -45,7 +45,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for someone else?
 				</h4>
-				<button class="btn--red"><a href="<?php echo BASE_URL; ?>search/">See our talented bunch</a></button>
+				<button class="btn--red"><a href="<?= BASE_URL; ?>search/">See our talented bunch</a></button>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "inc/footer.php"); ?>

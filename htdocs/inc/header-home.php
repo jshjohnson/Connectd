@@ -10,14 +10,14 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<!--[if lte IE 8]>
-	    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/ie.css" media="screen">
+	    <link rel="stylesheet" href="<?= BASE_URL; ?>assets/css/ie.css" media="screen">
 	    
-	    <script src="<?php echo BASE_URL; ?>assets/js/libs/selectivizr-min.js"></script>
+	    <script src="<?= BASE_URL; ?>assets/js/libs/selectivizr-min.js"></script>
 	<![endif]-->
 	<!--[if gt IE 8]><!-->
-	    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/global.css">
+	    <link rel="stylesheet" href="<?= BASE_URL; ?>assets/css/global.css">
 	<!--<![endif]-->	
-	<script src="<?php echo BASE_URL; ?>assets/js/libs/modernizr-2.5.3.min.js"></script>
+	<script src="<?= BASE_URL; ?>assets/js/libs/modernizr-2.5.3.min.js"></script>
 	<script type="text/javascript" src="//use.typekit.net/dxr1afv.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<script>var baseUrl = '<?= BASE_URL; ?>';</script>
