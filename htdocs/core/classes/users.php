@@ -94,7 +94,7 @@
 			#preparing a statement that will select all the registered users, with the most recent ones first.
 			$query = $this->db->prepare("SELECT 
 				users.user_id, users.firstname, users.lastname, users.location, users.portfolio, users.experience, users.votes, users.time_joined, freelancers.jobtitle
-				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers WHERE `votes` < ? AND `user_type` != ? AND `confirmed` = ? AND users.user_id = freelancers.user_id");
+				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers WHERE `votes` < ? AND `user_type` != ? AND `confirmed` = ? AND users.user_id = freelancers.user_id ORDER BY users.time_joined DESC");
 
 			$query->bindValue(1, 10);
 			$query->bindValue(2, 'employer');
@@ -248,7 +248,7 @@
 
 				$mail->Body = "<p>Hey " . $firstname . "!</p>";
 				$mail->Body .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
-				$mail->Body .= "<p>" . BASE_URL . "sign-in.php?email=" . $email . "&email_code=" . $email_code . "</p>";
+				$mail->Body .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $email_code . "</p>";
 				$mail->Body .= "<p>-- Connectd team</p>";
 				$mail->Body .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
 				$mail->Body .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
@@ -335,7 +335,7 @@
 
 				$mail->Body = "<p>Hey " . $firstname . "!</p>";
 				$mail->Body .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
-				$mail->Body .= "<p>" . BASE_URL . "sign-in.php?email=" . $email . "&email_code=" . $email_code . "</p>";
+				$mail->Body .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $email_code . "</p>";
 				$mail->Body .= "<p>-- Connectd team</p>";
 				$mail->Body .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
 				$mail->Body .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
