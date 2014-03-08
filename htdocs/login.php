@@ -101,7 +101,7 @@
 				}
 	            
 			    if(!empty($errors) === false){
-	                header('Location: sign-in.php?status=activated');
+	                header('Location: login.php?status=activated');
 	                exit();
 	            }
 	        
