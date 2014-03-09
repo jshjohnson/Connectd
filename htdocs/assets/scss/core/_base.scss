@@ -260,8 +260,7 @@ blockquote {
 	margin-right: 0;
 }
 blockquote { @include font-sans; font-style: italic; clear: both;}
-blockquote p { font-size: 1.35em; }
-blockquote p + .source { margin-top: -$baseline; }
+blockquote p { margin-bottom: $baseline/2; }
 .source { display: block; @include font-sans; font-size: 1em; font-weight: bold; font-style: normal; margin-top: .5em;}
 .source:before { content:"\2013\0020"; }
 

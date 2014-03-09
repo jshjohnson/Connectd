@@ -57,33 +57,33 @@
 						</ul>
 					</nav>
 					<div class="container__inner">
-						<div class="grid--no-marg">
-							<div class="grid__cell--no-pad skills--developer">
+						<ul class="grid--no-marg">
+							<li class="grid__cell--no-pad skills--developer">
 								<div class="skills__bar">
 									<div class="skill__name" data-skill="5">HTML5</div>
 								</div>
-							</div>
-							<div class="grid__cell--no-pad skills--developer">
+							</li>
+							<li class="grid__cell--no-pad skills--developer">
 								<div class="skills__bar">
 									<div class="skill__name" data-skill="3">CSS3</div>
 								</div>
-							</div>
-							<div class="grid__cell--no-pad skills--developer">
+							</li>
+							<li class="grid__cell--no-pad skills--developer">
 								<div class="skills__bar">
 									<div class="skill__name" data-skill="3">WordPress</div>
 								</div>
-							</div>
-							<div class="grid__cell--no-pad skills--developer">
+							</li>
+							<li class="grid__cell--no-pad skills--developer">
 								<div class="skills__bar">
 									<div class="skill__name" data-skill="4">jQuery</div>
 								</div>
-							</div>
-							<div class="grid__cell--no-pad skills--developer">
+							</li>
+							<li class="grid__cell--no-pad skills--developer">
 								<div class="skills__bar">
 									<div class="skill__name" data-skill="2">Git</div>
 								</div>
-							</div>
-						</div>
+							</li>
+						</ul>
 					</div>
 					<nav class="portfolio__headings-bg zero-bottom">
 						<ul class="portfolio__headings portfolio__headings">
@@ -92,20 +92,20 @@
 						</ul>
 					</nav>
 					<div class="container__inner">
-						<div class="grid grid__developer">
-							<div class="grid__cell grid__cell--img">
+						<ul class="grid grid__developer">
+							<li class="grid__cell grid__cell--img">
 								<img src="<?= BASE_URL; ?>assets/img/developer-1.jpg" alt="">
-							</div>
-							<div class="grid__cell grid__cell--img">
+							</li>
+							<li class="grid__cell grid__cell--img">
 								<img src="<?= BASE_URL; ?>assets/img/developer-2.jpg" alt="">
-							</div>
-							<div class="grid__cell grid__cell--img">
+							</li>
+							<li class="grid__cell grid__cell--img">
 								<img src="<?= BASE_URL; ?>assets/img/developer-3.png" alt="">
-							</div>
-							<div class="grid__cell grid__cell--img">
+							</li>
+							<li class="grid__cell grid__cell--img">
 								<img src="<?= BASE_URL; ?>assets/img/developer-4.jpg" alt="">
-							</div>
-						</div>
+							</li>
+						</ul>
 					</div>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
@@ -114,9 +114,9 @@
 					</nav>
 					<div class="container__inner push-bottom">
 					<blockquote>
-						"I have found Josh to be a very hard-working colleague. He is highly organised, has great communication skills and I have always been very impressed with the way that he has approached work. As such, we have been very happy to ask Josh to support our development team with on-going client work."
+						<p>"I have found Josh to be a very hard-working colleague. He is highly organised, has great communication skills and I have always been very impressed with the way that he has approached work. As such, we have been very happy to ask Josh to support our development team with on-going client work."</p>
+						<b class="source">Phil Shackleton, Mixd</b>
 					</blockquote>
-					<b>Phil Shackleton, Mixd</b>
 					</div>
 				</article>
 			</div>

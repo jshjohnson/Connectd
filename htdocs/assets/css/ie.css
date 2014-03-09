@@ -939,15 +939,10 @@ blockquote {
 
 /* line 263, ../scss/core/_base.scss */
 blockquote p {
-  font-size: 1.35em;
+  margin-bottom: 1em;
 }
 
 /* line 264, ../scss/core/_base.scss */
-blockquote p + .source {
-  margin-top: -2em;
-}
-
-/* line 265, ../scss/core/_base.scss */
 .source {
   display: block;
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
@@ -957,27 +952,27 @@ blockquote p + .source {
   margin-top: .5em;
 }
 
-/* line 266, ../scss/core/_base.scss */
+/* line 265, ../scss/core/_base.scss */
 .source:before {
   content: "\2013\0020";
 }
 
 /* Links
 ----------------------------------*/
-/* line 272, ../scss/core/_base.scss */
+/* line 271, ../scss/core/_base.scss */
 a {
   text-decoration: none;
   color: #2c3e50;
 }
 
 /* -- visited -- */
-/* line 277, ../scss/core/_base.scss */
+/* line 276, ../scss/core/_base.scss */
 a:visited {
   color: #2c3e50;
 }
 
 /* -- hovers -- */
-/* line 284, ../scss/core/_base.scss */
+/* line 283, ../scss/core/_base.scss */
 a:hover {
   color: #222222;
 }
@@ -1036,97 +1031,97 @@ a:hover {
   padding-right: .3em;
 }
 
-/* line 296, ../scss/core/_base.scss */
+/* line 295, ../scss/core/_base.scss */
 .icon--marg:before {
   top: 0;
   width: 1em;
 }
 
-/* line 301, ../scss/core/_base.scss */
+/* line 300, ../scss/core/_base.scss */
 .icon--clock:before {
   content: '\e803';
 }
 
 /* '' */
-/* line 302, ../scss/core/_base.scss */
+/* line 301, ../scss/core/_base.scss */
 .icon--users:before {
   content: '\e800';
 }
 
 /* '' */
-/* line 303, ../scss/core/_base.scss */
+/* line 302, ../scss/core/_base.scss */
 .icon--location:before {
   content: '\e805';
 }
 
 /* '' */
-/* line 304, ../scss/core/_base.scss */
+/* line 303, ../scss/core/_base.scss */
 .icon--calendar:before {
   content: '\e806';
 }
 
 /* '' */
-/* line 305, ../scss/core/_base.scss */
+/* line 304, ../scss/core/_base.scss */
 .icon--male:before {
   content: '\e807';
 }
 
 /* '' */
-/* line 306, ../scss/core/_base.scss */
+/* line 305, ../scss/core/_base.scss */
 .icon--globe:before {
   content: '\e808';
 }
 
 /* '' */
-/* line 307, ../scss/core/_base.scss */
+/* line 306, ../scss/core/_base.scss */
 .icon--briefcase:before {
   content: '\e809';
 }
 
 /* '' */
-/* line 308, ../scss/core/_base.scss */
+/* line 307, ../scss/core/_base.scss */
 .icon--check:before {
   content: '\e811';
 }
 
 /* '' */
-/* line 309, ../scss/core/_base.scss */
+/* line 308, ../scss/core/_base.scss */
 .icon--attach:before {
   content: '\e804';
 }
 
 /* '' */
-/* line 310, ../scss/core/_base.scss */
+/* line 309, ../scss/core/_base.scss */
 .icon--sitemap:before {
   content: '\e80b';
 }
 
 /* '' */
-/* line 311, ../scss/core/_base.scss */
+/* line 310, ../scss/core/_base.scss */
 .icon--lightbulb:before {
   content: '\e80c';
 }
 
 /* '' */
-/* line 312, ../scss/core/_base.scss */
+/* line 311, ../scss/core/_base.scss */
 .icon--search:before {
   content: '\e801';
 }
 
 /* '' */
-/* line 313, ../scss/core/_base.scss */
+/* line 312, ../scss/core/_base.scss */
 .icon--home:before {
   content: '\e802';
 }
 
 /* '' */
-/* line 314, ../scss/core/_base.scss */
+/* line 313, ../scss/core/_base.scss */
 .icon--bookmark:before {
   content: '\e80d';
 }
 
 /* '' */
-/* line 315, ../scss/core/_base.scss */
+/* line 314, ../scss/core/_base.scss */
 .icon--star:before {
   content: '\e80e';
   color: #E7E948;
@@ -1135,7 +1130,7 @@ a:hover {
 }
 
 /* '' */
-/* line 316, ../scss/core/_base.scss */
+/* line 315, ../scss/core/_base.scss */
 .icon--star-alt:before {
   content: '\e80e';
   color: #E7E948;
@@ -1144,19 +1139,19 @@ a:hover {
 }
 
 /* '' */
-/* line 317, ../scss/core/_base.scss */
+/* line 316, ../scss/core/_base.scss */
 .icon--down-micro:before {
   content: '\e80f';
 }
 
 /* '' */
-/* line 318, ../scss/core/_base.scss */
+/* line 317, ../scss/core/_base.scss */
 .icon--magic:before {
   content: '\e80a';
 }
 
 /* '' */
-/* line 319, ../scss/core/_base.scss */
+/* line 318, ../scss/core/_base.scss */
 .icon--cancel:before {
   content: '\e810';
   float: right;
@@ -2316,42 +2311,38 @@ img.media__img {
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
-}
-/* line 545, ../scss/core/_modules.scss */
-.call-to-action button {
-  min-width: 14em;
-}
-
-/* line 550, ../scss/core/_modules.scss */
-.call-to-action--top {
-  margin-bottom: 2.5em;
-}
-/* line 551, ../scss/core/_modules.scss */
-.call-to-action--top .call-to-action__title {
-  margin-top: 0;
   font-family: "Georgia", serif;
   font-style: italic;
   font-weight: 400;
 }
+/* line 548, ../scss/core/_modules.scss */
+.call-to-action button {
+  min-width: 14em;
+}
 
-/* line 563, ../scss/core/_modules.scss */
+/* line 553, ../scss/core/_modules.scss */
+.call-to-action--top {
+  margin-bottom: 2.5em;
+}
+
+/* line 560, ../scss/core/_modules.scss */
 .price-per-hour {
   margin-top: .35em;
 }
-/* line 565, ../scss/core/_modules.scss */
+/* line 562, ../scss/core/_modules.scss */
 .price-per-hour h5 {
   margin: 0;
   text-align: center;
   font-weight: 600;
 }
-/* line 570, ../scss/core/_modules.scss */
+/* line 567, ../scss/core/_modules.scss */
 .price-per-hour span {
   font-size: .7em;
   display: block;
   line-height: .9;
 }
 
-/* line 577, ../scss/core/_modules.scss */
+/* line 574, ../scss/core/_modules.scss */
 .currency-button {
   background-color: #77c462;
   border-radius: 10em;
@@ -2362,14 +2353,14 @@ img.media__img {
   height: 3.5em;
 }
 
-/* line 587, ../scss/core/_modules.scss */
+/* line 584, ../scss/core/_modules.scss */
 .currency {
   line-height: 3.5em;
   text-align: center;
   display: block;
 }
 
-/* line 593, ../scss/core/_modules.scss */
+/* line 590, ../scss/core/_modules.scss */
 .user-trial__label {
   color: #7f7e7e;
   font-size: .7em;
@@ -2703,23 +2694,24 @@ img.media__img {
 /* line 4, ../scss/core/modules/_skills.scss */
 .skills-wrapper {
   margin-bottom: .5em;
+  margin-left: 0;
 }
 
-/* line 8, ../scss/core/modules/_skills.scss */
+/* line 9, ../scss/core/modules/_skills.scss */
 .skills--developer {
   width: 100%;
   width: 49.95%;
 }
-/* line 13, ../scss/core/modules/_skills.scss */
+/* line 14, ../scss/core/modules/_skills.scss */
 .skills--developer:nth-child(odd) {
   padding-right: 1em;
 }
-/* line 19, ../scss/core/modules/_skills.scss */
+/* line 20, ../scss/core/modules/_skills.scss */
 .skills--developer:nth-child(even) {
   padding-left: 1em;
 }
 
-/* line 27, ../scss/core/modules/_skills.scss */
+/* line 28, ../scss/core/modules/_skills.scss */
 .skills__tag {
   position: relative;
   font-size: .7em;
@@ -2732,11 +2724,11 @@ img.media__img {
   margin-bottom: 1em;
   margin-right: 2em;
 }
-/* line 38, ../scss/core/modules/_skills.scss */
+/* line 39, ../scss/core/modules/_skills.scss */
 .skills__tag:last-child {
   margin-right: 0;
 }
-/* line 41, ../scss/core/modules/_skills.scss */
+/* line 42, ../scss/core/modules/_skills.scss */
 .skills__tag:after {
   content: "";
   background-image: url("../img/tag-end.svg");
@@ -2752,7 +2744,7 @@ img.media__img {
   bottom: 0;
 }
 
-/* line 54, ../scss/core/modules/_skills.scss */
+/* line 55, ../scss/core/modules/_skills.scss */
 .skills__bar {
   background-color: #f0eded;
   font-size: .8em;
@@ -2767,7 +2759,7 @@ img.media__img {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 65, ../scss/core/modules/_skills.scss */
+/* line 66, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name {
   background-color: #6dbcdb;
   padding: .6em .6em .6em 1.2em;
@@ -2776,23 +2768,23 @@ img.media__img {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 70, ../scss/core/modules/_skills.scss */
+/* line 71, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="5"] {
   width: 100%;
 }
-/* line 73, ../scss/core/modules/_skills.scss */
+/* line 74, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="4"] {
   width: 75%;
 }
-/* line 76, ../scss/core/modules/_skills.scss */
+/* line 77, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="3"] {
   width: 50%;
 }
-/* line 79, ../scss/core/modules/_skills.scss */
+/* line 80, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="2"] {
   width: 25%;
 }
-/* line 82, ../scss/core/modules/_skills.scss */
+/* line 83, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="1"] {
   width: 0%;
 }

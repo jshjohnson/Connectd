@@ -541,6 +541,9 @@ img.media__img {
 	.call-to-action__title {
 		color: white;
 		font-weight: 600;
+		font-family: $font-serif;
+		font-style: italic;
+		font-weight: 400;
 	}
 	button {
 		min-width: 14em;
@@ -548,12 +551,6 @@ img.media__img {
 }
 
 .call-to-action--top {
-	.call-to-action__title {
-		margin-top: 0;
-		font-family: $font-serif;
-		font-style: italic;
-		font-weight: 400;
-	}
 	margin-bottom: 2.5em;
 	@include respond-max($bp1) {
 		margin-top: .5em;
