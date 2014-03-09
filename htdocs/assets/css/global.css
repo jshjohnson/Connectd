@@ -1179,7 +1179,9 @@ a:hover {
 .icon--cancel:before {
   content: '\e810';
   float: right;
-  margin-right: 0;
+  margin-right: -3em;
+  margin-top: -1.6em;
+  color: white;
 }
 
 /* '' */
@@ -3475,7 +3477,7 @@ img.media__img {
   background-color: white;
   margin: auto;
   position: relative;
-  width: 50%;
+  width: 75%;
   height: auto;
   padding: 1.5em;
   margin-top: 6%;
@@ -3491,12 +3493,6 @@ img.media__img {
 .overlay__inner textarea {
   line-height: 1.5;
 }
-@media screen and (max-width: 74em) {
-  /* line 11, ../scss/core/modules/_overlay.scss */
-  .overlay__inner {
-    width: 75%;
-  }
-}
 @media screen and (max-width: 35em) {
   /* line 11, ../scss/core/modules/_overlay.scss */
   .overlay__inner {
@@ -3504,7 +3500,7 @@ img.media__img {
   }
 }
 
-/* line 37, ../scss/core/modules/_overlay.scss */
+/* line 34, ../scss/core/modules/_overlay.scss */
 .overlay__innner--animate {
   top: 0;
   -webkit-transition: all 0.2s ease-in-out;
@@ -3513,31 +3509,48 @@ img.media__img {
   transition: all 0.2s ease-in-out;
 }
 
-/* line 42, ../scss/core/modules/_overlay.scss */
+/* line 39, ../scss/core/modules/_overlay.scss */
 .overlay__inner--small {
   width: 20%;
 }
 @media screen and (max-width: 74em) {
-  /* line 42, ../scss/core/modules/_overlay.scss */
+  /* line 39, ../scss/core/modules/_overlay.scss */
   .overlay__inner--small {
     width: 30%;
   }
 }
 @media screen and (max-width: 49em) {
-  /* line 42, ../scss/core/modules/_overlay.scss */
+  /* line 39, ../scss/core/modules/_overlay.scss */
   .overlay__inner--small {
     width: 75%;
   }
 }
 
-/* line 54, ../scss/core/modules/_overlay.scss */
+/* line 49, ../scss/core/modules/_overlay.scss */
+.overlay__inner--mid {
+  width: 50%;
+}
+@media screen and (max-width: 74em) {
+  /* line 49, ../scss/core/modules/_overlay.scss */
+  .overlay__inner--mid {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 49em) {
+  /* line 49, ../scss/core/modules/_overlay.scss */
+  .overlay__inner--mid {
+    width: 80%;
+  }
+}
+
+/* line 61, ../scss/core/modules/_overlay.scss */
 .overlay > *:last-child,
 .overlay > *:last-child > *:last-child,
 .overlay > *:last-child > *:last-child > *:last-child {
   margin-bottom: 0;
 }
 
-/* line 58, ../scss/core/modules/_overlay.scss */
+/* line 65, ../scss/core/modules/_overlay.scss */
 .overlay__title {
   margin-top: 0;
   font-weight: 600;
