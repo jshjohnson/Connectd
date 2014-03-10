@@ -5,12 +5,12 @@
 
 .media {
 	padding: $baseline/2 1em;
-	@extend .cf; 
+	@extend .cf;
 	&:nth-child(odd) {
 		background-color: rgba(white, 0.8);
 	}
 }
-	
+
 .media__img img,
 img.media__img {
 	margin-bottom: 0; 
@@ -82,6 +82,15 @@ img.media__img {
 		@include respond-max($bp1) {
 			margin-right: $media-img-gutter/2;
 		}
+	}
+}
+
+.media--blank {
+	background-color: #E4E4E4; 
+	color: #A7A7A7; 
+	text-align: center;
+	&:nth-child(odd) {
+		background-color: #E4E4E4;
 	}
 }
 
