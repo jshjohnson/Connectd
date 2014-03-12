@@ -178,7 +178,10 @@
 							<?php endforeach; ?>
 						</select>
 					</div>
-					<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="200" class="field-1-2 float-right"  value="<?php if (isset($priceperhour)) { echo htmlspecialchars($priceperhour); } ?>">
+					<div class="currency-container field-1-2 float-right">
+						<span class="currency">£</span>
+						<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" class="input--currency" value="<?php if (isset($priceperhour)) { echo htmlspecialchars($priceperhour); } ?>">
+					</div>
 					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">
 		            	<input class="submit" name="submit" type="submit" value='Apply for your place'>

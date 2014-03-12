@@ -224,6 +224,21 @@ input[type=submit] {
 	}
 }
 
+.currency-container {
+	position: relative;
+	.currency {
+		position: absolute;
+		left: .7em;
+		line-height: 3.9;
+		@include respond-max($bp1) {
+			line-height: 3.75;
+		}
+	}
+	.input--currency {
+		padding-left: 1.6em;
+	}
+}
+
 .field-heading {
 	margin-bottom: .5em;
 	margin-top: .5em;
