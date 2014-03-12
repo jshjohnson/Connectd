@@ -154,7 +154,6 @@ input[type=submit] {
 	font-size: .8em;
 	text-align: center;
 	@include border-radius;
-	min-width: 8em;
 	color: #FFF;
 	&:hover, &:visited {
 		color: white;

@@ -805,29 +805,28 @@ input[type=submit] {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  min-width: 8em;
   color: #FFF;
   min-width: 0;
 }
-/* line 159, ../scss/core/_base.scss */
+/* line 158, ../scss/core/_base.scss */
 .btn:hover, .btn:visited,
 input[type=submit]:hover,
 input[type=submit]:visited {
   color: white;
 }
-/* line 162, ../scss/core/_base.scss */
+/* line 161, ../scss/core/_base.scss */
 .btn:hover,
 input[type=submit]:hover {
   position: relative;
   top: .1em;
 }
-/* line 169, ../scss/core/_base.scss */
+/* line 168, ../scss/core/_base.scss */
 .btn span, .btn:visited span,
 input[type=submit] span {
   color: #FFF;
 }
 
-/* line 174, ../scss/core/_base.scss */
+/* line 173, ../scss/core/_base.scss */
 .button-container {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
@@ -836,30 +835,30 @@ input[type=submit] span {
   text-align: center;
   z-index: 0;
 }
-/* line 181, ../scss/core/_base.scss */
+/* line 180, ../scss/core/_base.scss */
 .button-container button a, .button-container a:active, .button-container a:visited {
   color: white;
   text-decoration: none;
   font-weight: 500;
   top: 0;
 }
-/* line 187, ../scss/core/_base.scss */
+/* line 186, ../scss/core/_base.scss */
 .button-container input {
   top: 1.4em;
   position: relative;
   margin: auto;
   min-width: 13em;
 }
-/* line 192, ../scss/core/_base.scss */
+/* line 191, ../scss/core/_base.scss */
 .button-container input:hover {
   top: 1.5em;
 }
 
-/* line 198, ../scss/core/_base.scss */
+/* line 197, ../scss/core/_base.scss */
 .select-container {
   position: relative;
 }
-/* line 200, ../scss/core/_base.scss */
+/* line 199, ../scss/core/_base.scss */
 .select-container select {
   width: 100%;
   padding: .5em;
@@ -879,24 +878,24 @@ input[type=submit] span {
   background-size: 1.2em;
 }
 
-/* line 222, ../scss/core/_base.scss */
+/* line 221, ../scss/core/_base.scss */
 .select-container--alt select {
   background-color: #f7f7f7;
   padding: .7em;
 }
 
-/* line 228, ../scss/core/_base.scss */
+/* line 227, ../scss/core/_base.scss */
 .field-heading {
   margin-bottom: .5em;
   margin-top: .5em;
 }
 
-/* line 234, ../scss/core/_base.scss */
+/* line 233, ../scss/core/_base.scss */
 button:focus {
   outline: none;
 }
 
-/* line 239, ../scss/core/_base.scss */
+/* line 238, ../scss/core/_base.scss */
 input:not([type=checkbox]):not([type="submit"]):focus, textarea:focus, select:focus {
   -webkit-box-shadow: 0 0 5px #77c462;
   -moz-box-shadow: 0 0 5px #77c462;
@@ -905,7 +904,7 @@ input:not([type=checkbox]):not([type="submit"]):focus, textarea:focus, select:fo
   outline: 0;
 }
 
-/* line 245, ../scss/core/_base.scss */
+/* line 244, ../scss/core/_base.scss */
 input:not(:focus):invalid {
   -webkit-box-shadow: 0 0 5px red;
   -moz-box-shadow: 0 0 5px red;
@@ -914,7 +913,7 @@ input:not(:focus):invalid {
   outline: 0;
 }
 
-/* line 251, ../scss/core/_base.scss */
+/* line 250, ../scss/core/_base.scss */
 input:focus:invalid {
   -webkit-box-shadow: 0 0 5px red;
   -moz-box-shadow: 0 0 5px red;
@@ -924,25 +923,25 @@ input:focus:invalid {
 }
 
 /* -- Blockquotes -- */
-/* line 258, ../scss/core/_base.scss */
+/* line 257, ../scss/core/_base.scss */
 blockquote {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 262, ../scss/core/_base.scss */
+/* line 261, ../scss/core/_base.scss */
 blockquote {
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
   font-style: italic;
   clear: both;
 }
 
-/* line 263, ../scss/core/_base.scss */
+/* line 262, ../scss/core/_base.scss */
 blockquote p {
   margin-bottom: 1em;
 }
 
-/* line 264, ../scss/core/_base.scss */
+/* line 263, ../scss/core/_base.scss */
 .source {
   display: block;
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
@@ -952,27 +951,27 @@ blockquote p {
   margin-top: .5em;
 }
 
-/* line 265, ../scss/core/_base.scss */
+/* line 264, ../scss/core/_base.scss */
 .source:before {
   content: "\2013\0020";
 }
 
 /* Links
 ----------------------------------*/
-/* line 271, ../scss/core/_base.scss */
+/* line 270, ../scss/core/_base.scss */
 a {
   text-decoration: none;
   color: #2c3e50;
 }
 
 /* -- visited -- */
-/* line 276, ../scss/core/_base.scss */
+/* line 275, ../scss/core/_base.scss */
 a:visited {
   color: #2c3e50;
 }
 
 /* -- hovers -- */
-/* line 283, ../scss/core/_base.scss */
+/* line 282, ../scss/core/_base.scss */
 a:hover {
   color: #222222;
 }
@@ -1031,97 +1030,97 @@ a:hover {
   padding-right: .3em;
 }
 
-/* line 295, ../scss/core/_base.scss */
+/* line 294, ../scss/core/_base.scss */
 .icon--marg:before {
   top: 0;
   width: 1em;
 }
 
-/* line 300, ../scss/core/_base.scss */
+/* line 299, ../scss/core/_base.scss */
 .icon--clock:before {
   content: '\e803';
 }
 
 /* '' */
-/* line 301, ../scss/core/_base.scss */
+/* line 300, ../scss/core/_base.scss */
 .icon--users:before {
   content: '\e800';
 }
 
 /* '' */
-/* line 302, ../scss/core/_base.scss */
+/* line 301, ../scss/core/_base.scss */
 .icon--location:before {
   content: '\e805';
 }
 
 /* '' */
-/* line 303, ../scss/core/_base.scss */
+/* line 302, ../scss/core/_base.scss */
 .icon--calendar:before {
   content: '\e806';
 }
 
 /* '' */
-/* line 304, ../scss/core/_base.scss */
+/* line 303, ../scss/core/_base.scss */
 .icon--male:before {
   content: '\e807';
 }
 
 /* '' */
-/* line 305, ../scss/core/_base.scss */
+/* line 304, ../scss/core/_base.scss */
 .icon--globe:before {
   content: '\e808';
 }
 
 /* '' */
-/* line 306, ../scss/core/_base.scss */
+/* line 305, ../scss/core/_base.scss */
 .icon--briefcase:before {
   content: '\e809';
 }
 
 /* '' */
-/* line 307, ../scss/core/_base.scss */
+/* line 306, ../scss/core/_base.scss */
 .icon--check:before {
   content: '\e811';
 }
 
 /* '' */
-/* line 308, ../scss/core/_base.scss */
+/* line 307, ../scss/core/_base.scss */
 .icon--attach:before {
   content: '\e804';
 }
 
 /* '' */
-/* line 309, ../scss/core/_base.scss */
+/* line 308, ../scss/core/_base.scss */
 .icon--sitemap:before {
   content: '\e80b';
 }
 
 /* '' */
-/* line 310, ../scss/core/_base.scss */
+/* line 309, ../scss/core/_base.scss */
 .icon--lightbulb:before {
   content: '\e80c';
 }
 
 /* '' */
-/* line 311, ../scss/core/_base.scss */
+/* line 310, ../scss/core/_base.scss */
 .icon--search:before {
   content: '\e801';
 }
 
 /* '' */
-/* line 312, ../scss/core/_base.scss */
+/* line 311, ../scss/core/_base.scss */
 .icon--home:before {
   content: '\e802';
 }
 
 /* '' */
-/* line 313, ../scss/core/_base.scss */
+/* line 312, ../scss/core/_base.scss */
 .icon--bookmark:before {
   content: '\e80d';
 }
 
 /* '' */
-/* line 314, ../scss/core/_base.scss */
+/* line 313, ../scss/core/_base.scss */
 .icon--star:before {
   content: '\e80e';
   color: #E7E948;
@@ -1130,7 +1129,7 @@ a:hover {
 }
 
 /* '' */
-/* line 315, ../scss/core/_base.scss */
+/* line 314, ../scss/core/_base.scss */
 .icon--star-alt:before {
   content: '\e80e';
   color: #E7E948;
@@ -1139,19 +1138,19 @@ a:hover {
 }
 
 /* '' */
-/* line 316, ../scss/core/_base.scss */
+/* line 315, ../scss/core/_base.scss */
 .icon--down-micro:before {
   content: '\e80f';
 }
 
 /* '' */
-/* line 317, ../scss/core/_base.scss */
+/* line 316, ../scss/core/_base.scss */
 .icon--magic:before {
   content: '\e80a';
 }
 
 /* '' */
-/* line 318, ../scss/core/_base.scss */
+/* line 317, ../scss/core/_base.scss */
 .icon--cancel:before {
   content: '\e810';
   float: right;
@@ -1666,21 +1665,19 @@ a:hover {
   margin-left: 1em;
   margin-right: 1em;
   display: inline-block;
-  padding-left: 0;
-  padding-right: 0;
   margin: .5em 0;
   padding: .9em 1.5em .8em;
 }
-/* line 208, ../scss/core/_layout.scss */
+/* line 206, ../scss/core/_layout.scss */
 .button-left:first-child, .button-right:first-child {
   margin-top: 0;
 }
-/* line 211, ../scss/core/_layout.scss */
+/* line 209, ../scss/core/_layout.scss */
 .button-left:last-child, .button-right:last-child {
   margin-bottom: 0;
 }
 
-/* line 221, ../scss/core/_layout.scss */
+/* line 219, ../scss/core/_layout.scss */
 .ribbon {
   position: absolute;
   right: 1em;
@@ -1691,7 +1688,7 @@ a:hover {
   border-bottom: 0.6em solid #f7f7f7;
   width: 0;
 }
-/* line 230, ../scss/core/_layout.scss */
+/* line 228, ../scss/core/_layout.scss */
 .ribbon h5 {
   font-size: .6em;
   padding-right: 1em;
@@ -1732,7 +1729,9 @@ img.media__img {
 
 /* line 23, ../scss/core/_modules.scss */
 .media-2-3 {
-  width: 75%;
+  width: -moz-calc(80% - 5em);
+  width: -webkit-calc(80% - 5em);
+  width: calc(80% - 5em);
 }
 
 /* line 27, ../scss/core/_modules.scss */
