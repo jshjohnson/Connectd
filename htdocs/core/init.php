@@ -5,11 +5,12 @@
 	require 'classes/users.php';
 	require 'classes/bcrypt.php';
 	require 'classes/general.php';
+	require 'classes/votes.php';
 
 	require 'inc/phpmailer/PHPMailerAutoload.php';
 	 
 	$users 			= new Users($db);
-
+	$votes          = new Votes($db);
 	$general 	    = new General($db);
 	$bcrypt         = new Bcrypt(12);
 	$mail           = new PHPMailer(); // defaults to using php "mail()"

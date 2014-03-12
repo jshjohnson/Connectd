@@ -129,32 +129,6 @@
 			return $query->fetchAll();
 	    }
 
-
-	    public function addVote($user_id) {
-			$query = $this->db->prepare("UPDATE users SET votes = votes + 1 WHERE user_id = ?");
-			$query->bindValue(1, $user_id);
-
-			try{
-				$query->execute();
-				header("Location:" . BASE_URL . "trials/"); 
-			}catch(PDOException $e){
-				die($e->getMessage());
-			}	
-	    }
-
-	    public function removeVote() {
-	    	$query = $this->db->prepare("UPDATE users SET votes = votes - 1 WHERE user_id = ?");
-	    	$query->bindValue(1, $user_id);
-
-			try{
-				$query->execute();
-				header("Location:" . BASE_URL . "trials/"); 
-			}catch(PDOException $e){
-				die($e->getMessage());
-			}	
-
-	    }
-
 	    public function postJob($user_id, $jobName, $startDate, $deadline, $budget, $category, $description) {
 
     		$postDate = time();

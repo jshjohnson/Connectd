@@ -91,14 +91,51 @@
 
 		public function getTrialUsers() {
  
-			#preparing a statement that will select all the registered users, with the most recent ones first.
-			$query = $this->db->prepare("SELECT 
-				users.user_id, users.firstname, users.lastname, users.location, users.portfolio, users.experience, users.votes, users.time_joined, freelancers.jobtitle
-				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers WHERE `votes` < ? AND `user_type` != ? AND `confirmed` = ? AND users.user_id = freelancers.user_id ORDER BY users.time_joined DESC");
+ 		// 	ORDER BY users.time_joined DESC
+			// preparing a statement that will select all the registered users, with the most recent ones first.
+			// $query = $this->db->prepare("SELECT 
+			// 	users.user_id, users.firstname, users.lastname, users.location, users.portfolio, users.experience, users.time_joined, 
+			// 	freelancers.jobtitle, 
+			// 	COUNT(user_votes.votes)
+			// 	FROM " . DB_NAME . ".users, 
+			// 	" . DB_NAME . ".freelancers,
+			// 	" . DB_NAME . ".user_votes 
+			// 	WHERE 
+			// 	users.user_type != ? 
+			// 	AND users.confirmed = ? 
+			// 	AND users.user_id = freelancers.user_id 
+			// 	HAVING COUNT(user_votes.votes) < ?");
 
-			$query->bindValue(1, 10);
-			$query->bindValue(2, 'employer');
-			$query->bindValue(3, 1);
+			// $query = $this->db->prepare("
+			// 	SELECT users.*, COUNT(user_votes.votes), user_votes.user_id, user_votes.voted_by_id
+			// 	FROM " . DB_NAME . ".users, " . DB_NAME . ".user_votes
+			// 	WHERE users.confirmed = ?
+			// 	AND users.user_type != ?
+			// 	HAVING COUNT(user_votes.votes) < ?
+			// ");
+
+			// $query = $this->db->prepare("SELECT
+			// 	*
+			// 	FROM " . DB_NAME . ".users u
+			// 	INNER JOIN " . DB_NAME . ".freelancers f ON u.user_id = f.user_id
+			// 	INNER JOIN " . DB_NAME . ".user_votes v ON u.user_id = v.user_id
+			// 	WHERE u.confirmed = ?
+			// 	AND u.user_type != ?
+			// 	AND u.user_id = f.user_id
+			// 	AND f.user_id = v.user_id
+			// ");
+
+			$query = $this->db->prepare("
+				SELECT COUNT(users.user_id)
+				FROM " . DB_NAME . ".users
+				INNER JOIN " . DB_NAME . ".user_votes
+				ON users.user_id = user_votes.user_id
+				HAVING COUNT(users.user_id)<10;
+			");
+		
+			// $query->bindValue(1, 1);
+			// $query->bindValue(2, 'employer');		
+			// $query->bindValue(3, 10);
 
 			try{
 				$query->execute();
@@ -124,44 +161,6 @@
 			} catch(PDOException $e){
 		 
 				die($e->getMessage());
-			}
-		}
-
-		// Test if user has been verified into the community
-		public function userVotedFor($email) {
-
-			$query = $this->db->prepare("SELECT COUNT(*) FROM (
-				(SELECT 1 FROM " . DB_NAME . ".users AS a WHERE a.email = ? AND a.votes >= ?)) z
-			");
-
-			$query->bindValue(1, $email);
-			$query->bindValue(2, 10);
-			
-			try{
-				
-				$query->execute();
-				$rows = $query->fetchColumn();
-		 
-				if($rows == 1){
-					return true;
-				}else{
-					return false;
-				}
-		 
-			} catch(PDOException $e){
-				die($e->getMessage());
-			}
-		}
-
-		public function userVotedForProtect() {
-
-			if($this->userVotedFor($email) === true) {
-				#Redirect the user to the dashboard
-				header("Location:" . BASE_URL . "dashboard/");
-				exit();
-			} else if($this->userVotedFor($email) === false) {
-				header("Location:" . BASE_URL . "welcome/");
-				exit();
 			}
 		}
 		
@@ -233,26 +232,27 @@
 		 
 				$to = $email;
 
-				$mail->Host = DB_HOST;  // specify main and backup server
-				$mail->Username = "josh@joshuajohnson.co.uk";  // SMTP username
-				$mail->Password = "cheeseball27"; // SMTP password
-				$mail->SMTPAuth = true;     // turn on SMTP authentication
+				$mail->Host               = DB_EMAIL;  // specify main and backup server
+				$mail->Username           = "josh@joshuajohnson.co.uk";  // SMTP username
+				$mail->Password           = "cheeseball27"; // SMTP password
+				$mail->SMTPAuth           = true;               // enable SMTP authentication
+				$mail->SMTPSecure         = "tls"; 
 				$mail->addAddress($to);  // Add a recipient=
                 
-                $mail->From = 'robot@connectd.io';
-				$mail->FromName = 'Connectd.io';
+                $mail->From               = 'robot@connectd.io';
+				$mail->FromName           = 'Connectd.io';
                 // Set word wrap to 50 characters
 				$mail->isHTML(true); // Set email format to HTML
 
-				$mail->Subject = 'Activate your new Connectd account';
+				$mail->Subject            = 'Activate your new Connectd account';
 
-				$mail->Body = "<p>Hey " . $firstname . "!</p>";
-				$mail->Body .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
-				$mail->Body .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $email_code . "</p>";
-				$mail->Body .= "<p>-- Connectd team</p>";
-				$mail->Body .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-				$mail->Body .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
-				$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+				$mail->Body               = "<p>Hey " . $firstname . "!</p>";
+				$mail->Body              .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
+				$mail->Body              .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $email_code . "</p>";
+				$mail->Body              .= "<p>-- Connectd team</p>";
+				$mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
+				$mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
+				$mail->AltBody            = 'This is the body in plain text for non-HTML mail clients';
 
 				if(!$mail->send()) {
 				   echo 'Message could not be sent.';
@@ -320,26 +320,27 @@
 		 
 				$to = $email;
 
-				$mail->Host = DB_HOST;  // specify main and backup server
-				$mail->Username = "josh@joshuajohnson.co.uk";  // SMTP username
-				$mail->Password = "cheeseball27"; // SMTP password
-				$mail->SMTPAuth = true;     // turn on SMTP authentication
-				$mail->addAddress($to);  // Add a recipient=
+				$mail->Host               = DB_EMAIL;  // specify main and backup server
+				$mail->Username           = "josh@joshuajohnson.co.uk";  // SMTP username
+				$mail->Password           = "cheeseball27"; // SMTP password
+				$mail->SMTPAuth           = true;               // enable SMTP authentication
+				$mail->SMTPSecure         = "tls"; 
+				$mail->addAddress($to);  // Add a recipient
                 
-                $mail->From = 'robot@connectd.io';
-				$mail->FromName = 'Connectd.io';
+                $mail->From               = 'robot@connectd.io';
+				$mail->FromName           = 'Connectd.io';
                 // Set word wrap to 50 characters
 				$mail->isHTML(true); // Set email format to HTML
 
-				$mail->Subject = 'Activate your new Connectd account';
+				$mail->Subject            = 'Activate your new Connectd account';
 
-				$mail->Body = "<p>Hey " . $firstname . "!</p>";
-				$mail->Body .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
-				$mail->Body .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $email_code . "</p>";
-				$mail->Body .= "<p>-- Connectd team</p>";
-				$mail->Body .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-				$mail->Body .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
-				$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+				$mail->Body               = "<p>Hey " . $firstname . "!</p>";
+				$mail->Body              .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
+				$mail->Body              .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $email_code . "</p>";
+				$mail->Body              .= "<p>-- Connectd team</p>";
+				$mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
+				$mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
+				$mail->AltBody            = 'This is the body in plain text for non-HTML mail clients';
 
 				if(!$mail->send()) {
 				   echo 'Message could not be sent.';
@@ -369,80 +370,5 @@
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}	
-		}
-
-		public function getUserVotes($id) {
- 
-			$query = $this->db->prepare("
-				SELECT votes FROM " . DB_NAME . ".users WHERE `user_id`= ?
-				");
-			$query->bindValue(1, $id);
-
-			try{
-				$query->execute();
-				return $query->fetch();
-			} catch(PDOException $e){
-		 
-				die($e->getMessage());
-			}
-		}
-
-		public function validateUser($firstname, $lastname, $email, $password, $portfolio, $jobtitle, $experience, $bio) {
-
-			global $mail;	
-
-			$r1='/[A-Z]/';  // Test for an uppercase character
-			$r2='/[a-z]/';  // Test for a lowercase character
-			$r3='/[0-9]/';  // Test for a number
-
-			if($firstname == ""){
-			    $errors[] ="Please enter your first name";
-			    return;
-			}else if($lastname == ""){
-			    $errors[] ="Please enter your last name";
-			    return;
-			}else if($email == ""){
-			    $errors[] ="Please enter your email";
-			    return;
-			}else if (!$mail->ValidateAddress($email)){
-				$errors[] = "You must specify a valid email address.";
-				return;
-			}else if ($users->emailExists($email) === true) {
-			    $errors[] = "Email already taken. Please try again.";
-			    return;
-			}else if($password == ""){
-			    $errors[] ="Please enter a password"; 
-			    return;
-			}else if ($password!=$repeatpassword){ 
-				$errors[] = "Both password fields must match";
-				return;
-			} else if(preg_match_all($r1,$password)<1) {
-				$errors[] = "Your password needs to contain at least one uppercase character";
-				return;
-			} else if(preg_match_all($r2,$password)<1) {
-				$errors[] = "Your password needs to contain at least one lowercase character";
-				return;
-			} else if(preg_match_all($r3,$password)<1) {
-				$errors[] = "Your password needs to contain at least one number";
-				return;
-			} else if (strlen($password)>25||strlen($password)<6) {
-				$errors[] = "Password must be 6-25 characters long";
-				return;
-			} else if($portfolio == ""){
-			    $errors[] ="You must have an active portfolio to join Connectd"; 
-			    return;
-			} else if($jobtitle == ""){
-			    $errors[] ="Please select your current job title"; 
-			    return;
-			}else if($experience == ""){
-			    $errors[] ="Please enter your experience"; 
-			    return;
-			}else if($bio == ""){
-			    $errors[] ="Please write about yourself"; 
-			    return;
-			}else if(strlen($bio)<25) {
-				$errors[] = "You're not going to sell yourself without a decent bio!";
-				return;
-			}
 		}
 	}
