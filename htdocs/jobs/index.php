@@ -41,7 +41,7 @@
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">
-						<?= $job['job_budget']; ?>
+						<h4>£<?= $job['job_budget']; ?></h4>
 					</div>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">

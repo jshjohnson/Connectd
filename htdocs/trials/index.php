@@ -2,6 +2,7 @@
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
+	$general->errors();
 	$general->loggedOutProtect();
 
 	$pageTitle = "Trials";

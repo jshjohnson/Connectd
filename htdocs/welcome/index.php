@@ -3,7 +3,7 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$general->loggedOutProtect();
-	$userVotes = $users->getUserVotes($user_id);
+	$userVotes = $votes->getUserVotes($user_id);
 
 	$pageTitle = "Trials";
 	$section = "Trials";

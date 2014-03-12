@@ -50,7 +50,7 @@
 
 				header('Location: dashboard/');
 				
-				// if($users->userVotedFor($email) === true) {
+				// if($votes->userVotedFor($email) === true) {
 				// 	#Redirect the user to the dashboard
 				// 	header('Location: dashboard/');
 				// 	exit();

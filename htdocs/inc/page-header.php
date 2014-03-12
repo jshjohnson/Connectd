@@ -1,5 +1,7 @@
 		<?php if($section == "Designer") : ?>
 		<header class="header header--designer cf">
+		<?php elseif($section == "Employer") : ?>
+		<header class="header header--employer cf">
 		<?php else : ?>
 		<header class="header cf">
 		<?php endif ?>
