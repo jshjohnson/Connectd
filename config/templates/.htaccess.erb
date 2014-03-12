@@ -10,7 +10,7 @@ RewriteRule ^employers/([0-9]+)/$ <%= database['urlpath'] %>employers/profile.ph
 
 RewriteRule ^jobs/([0-9]+)/$ <%= database['urlpath'] %>jobs/index.php?id=$1
 
-RewriteRule ^developers/list/ /<%= database['urlpath'] %>developers/list.php
+RewriteRule ^developers/list/ <%= database['urlpath'] %>developers/list.php
 RewriteRule ^designers/list/ <%= database['urlpath'] %>designers/list.php
 RewriteRule ^jobs/list/ <%= database['urlpath'] %>jobs/list.php
 

@@ -101,8 +101,8 @@ namespace :site do
         accessfile = ERB.new(File.read('./config/templates/.htaccess.erb')).result(binding)
 
         puts "Creating local config.php and .htaccess"
-        File.open("config.php", 'w') {|f| f.write(db_config) }
-        File.open(".htaccess", 'w') {|f| f.write(accessfile) }
+        File.open("htdocs/config.php", 'w') {|f| f.write(db_config) }
+        File.open("htdocs/.htaccess", 'w') {|f| f.write(accessfile) }
 
     end
 
