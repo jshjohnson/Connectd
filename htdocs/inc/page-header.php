@@ -2,6 +2,8 @@
 		<header class="header header--designer cf">
 		<?php elseif($section == "Employer") : ?>
 		<header class="header header--employer cf">
+		<?php elseif($section == "About") : ?>
+		<header class="header header-blue--alt zero-bottom cf zero-bottom">
 		<?php else : ?>
 		<header class="header cf">
 		<?php endif ?>
@@ -11,7 +13,7 @@
 				</h1>
 				<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
 				<h2 class="header__section header__section--username">
-					<a href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>" class="header-username"><?= $username; ?></a>
+					<a href="<?= BASE_URL . "dashboard/" ?>" class="header-username"><?= $username; ?></a>
 				</h2>
 <!-- 				<h2 class="header__section header__section--notifications">
 					<a href="#">3</a>

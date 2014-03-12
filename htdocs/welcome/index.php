@@ -12,7 +12,7 @@
 ?>
 	<div class="welcome-intro">
 		<h2 class="logo text-right"><a href="<?= BASE_URL; ?>">connectd</a></h2>
-		<?php if (isset($_SESSION['logged'])) : ?>
+		<?php if ($general->loggedIn() === true) : ?>
 			<h2 class="text-left"><a href="<?= BASE_URL ?>logout.php">Logout</a></h2>
 		<?php else : ?>
 		<h2 class="text-left"><a href="" class="login-trigger">Login</a></h2>
