@@ -94,11 +94,10 @@
 			$portfolio          = $general->cleanString($db, $portfolio);
 			$experience         = $general->cleanString($db, $experience);
 			$bio                = $general->cleanString($db, $bio);
-			$votes              = '100';
 			$user_type          = 'employer';
 
 
-			$users->registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $user_type, $votes);
+			$users->registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $user_type;
 			header("Location:" . BASE_URL . "employers/signup.php?status=success");
 			exit();
 		}

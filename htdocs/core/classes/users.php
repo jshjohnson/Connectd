@@ -196,7 +196,7 @@
 		}
 
 		// Register a developer on sign up
-		public function registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type, $votes){
+		public function registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type){
 
 			global $bcrypt; // making the $bcrypt variable global so we can use here
 			global $mail;
@@ -207,9 +207,9 @@
 			$password   = $bcrypt->genHash($password);// generating a hash using the $bcrypt object
 
 			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".users
-				(firstname, lastname, email, email_code, password, time_joined, location, experience, portfolio, bio, ip, user_type, votes) 
+				(firstname, lastname, email, email_code, password, time_joined, location, experience, portfolio, bio, ip, user_type) 
 				VALUES 
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 			");
 			
 			$query->bindValue(1, $firstname);
@@ -224,7 +224,6 @@
 			$query->bindValue(10, $bio);
 			$query->bindValue(11, $ip);
 			$query->bindValue(12, $user_type);
-			$query->bindValue(13, $votes);
 			
 		 
 			try{
@@ -284,7 +283,7 @@
 			}	
 		}
 
-		public function registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $user_type, $votes) {
+		public function registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $user_type) {
 
 			global $bcrypt; // making the $bcrypt variable global so we can use here
 			global $mail;
@@ -295,9 +294,9 @@
 			$password   = $bcrypt->genHash($password);// generating a hash using the $bcrypt object
 
 			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".users
-				(firstname, lastname, email, email_code, password, time_joined, location, experience, portfolio, bio, ip, user_type, votes) 
+				(firstname, lastname, email, email_code, password, time_joined, location, experience, portfolio, bio, ip, user_type) 
 				VALUES 
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 			");
 			
 			$query->bindValue(1, $firstname);
@@ -312,8 +311,6 @@
 			$query->bindValue(10, $bio);
 			$query->bindValue(11, $ip);
 			$query->bindValue(12, $user_type);
-			$query->bindValue(13, $votes);
-			
 		 
 			try{
 				$query->execute();

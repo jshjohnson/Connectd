@@ -49,12 +49,12 @@
 				SELECT users.user_id, users.firstname, users.lastname, freelancers.jobtitle, freelancers.priceperhour 
 				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers  
 				WHERE `confirmed` = ?
-				AND `votes` >= ?
-				AND `user_type` = 'designer' 
+				AND `user_type` = ?
 				AND users.user_id = freelancers.user_id
 			");
 			$results->bindValue(1, 1);
-			$results->bindValue(2, 10);
+			$results->bindValue(2, 'designer');
+
 			$results->execute();
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
@@ -77,11 +77,12 @@
 				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers  
 				WHERE `confirmed` = ? 
 				AND users.user_id = ?
-				AND `user_type` = 'designer' 
+				AND `user_type` = ?
 				AND users.user_id = freelancers.user_id
 			");
 			$results->bindValue(1, 1);
 			$results->bindValue(2, $id);
+			$results->bindValue(3, 'designer');
 
 			$results->execute();
 		} catch (Exception $e) {

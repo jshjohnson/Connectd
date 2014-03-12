@@ -96,10 +96,9 @@
 			$portfolio      = $general->cleanString($db, $portfolio);
 			$experience     = $general->cleanString($db, $experience);
 			$jobtitle       = $general->cleanString($db, $jobtitle);
-			$votes          = '0';
 			$user_type      = 'designer';
 
-			$users->registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type, $votes);
+			$users->registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();
 		}

@@ -9,12 +9,8 @@
 		$output = $output . "<a href='" . BASE_URL . "employers/" . $employer['user_id'] . "/'><img src='" . BASE_URL . "assets/avatars/default_avatar.png' alt='' class='media__img media__img--avatar'></a>";
 		$output = $output . "<div class='media__body'>";
 		$output = $output . "<div class='float-left user-info'>";
-		$output = $output . "<a href='#'><i class='icon--star'></i></a><a href='" . BASE_URL . "employers/" . $employer['user_id'] . "/'><h4>" . $employer['firstname'] . ' ' . $employer['lastname'] . "</h4></a>";
-		$output = $output . "<p>" . $employer['jobtitle'] . "</p>";
-		$output = $output . "</div>";
-		$output = $output . "<div class='float-right price-per-hour'>";
-		$output = $output . "<h5>£" . $employer['priceperhour'] ."</h5>";
-		$output = $output . "<span>per hour</span>";
+		$output = $output . "<a href='#'><i class='icon--star'></i></a><a href='" . BASE_URL . "employers/" . $employer['user_id'] . "/'><h4>" . $employer['employer_name'] . "</h4></a>";
+		$output = $output . "<p>" . $employer['employer_type'] . "</p>";
 		$output = $output . "</div>";
 		$output = $output . "</div>";
 		$output = $output . "</div>";
@@ -47,7 +43,17 @@
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->query("SELECT * FROM " . DB_NAME . ".users WHERE `confirmed` = 1 AND `user_type` = 'employer'");
+			$results = $db->prepare("
+				SELECT users.user_id, users.firstname, users.lastname, employers.employer_name, employers.employer_type
+				FROM " . DB_NAME . ".users, " . DB_NAME . ".employers 
+				WHERE users.confirmed = ? 
+				AND users.user_type = ?
+				AND users.user_id = employers.user_id
+			");
+			$results->bindValue(1, 1);
+			$results->bindValue(2, 'employer');
+
+			$results->execute();
 		} catch (Exception $e) {
 			echo "Data could not be retrieved";
 			exit;
@@ -64,15 +70,19 @@
 		require(ROOT_PATH . "core/connect/database.php");
 
 		try {
-			$results = $db->prepare("SELECT 
-				* 
-				FROM " . DB_NAME . ".users u
-				INNER JOIN " . DB_NAME . ".jobs j on u.user_id = j.user_id
-				INNER JOIN " . DB_NAME . ".employers e ON u.user_id = e.user_id
-				WHERE u.user_id = ? AND `user_type` = ?
+			$results = $db->prepare("
+				SELECT *
+				FROM " . DB_NAME . ".users, " . DB_NAME . ".employers
+				WHERE `confirmed` = ? 
+				AND users.user_id = ?
+				AND `user_type` = ?
+				AND users.user_id = employers.user_id
 			");
-			$results->bindValue(1, $id);
-			$results->bindValue(2, 'employer');
+
+			$results->bindValue(1, 1);
+			$results->bindValue(2, $id);
+			$results->bindValue(3, 'employer');
+
 			$results->execute();
 		} catch (Exception $e) {
 			echo "Damn. Data could not be retrieved.";
@@ -83,3 +93,5 @@
 		
 		return $employers;
 	}
+
+?>
