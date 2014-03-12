@@ -51,6 +51,11 @@
 					<div class="container__inner push-bottom">
 						<?= $job['job_description']; ?>
 					</div>
+					<hr>
+					<div class="button-wrapper push-bottom">
+						<a class="button-left btn btn--green cf hire-trigger" href="mailto:<?= $job['email']; ?>?subject=I would like to work for you! -- Connectd">Send Proposal</a>
+						<a class="button-right btn btn--blue cf hire-trigger" href="mailto:<?= $job['email']; ?>?subject=I would like to collaborate with you! -- Connectd"?>Collaborate with user</a>
+					</div>
 				</article>
 				<aside class="grid__cell module-1-3 module--no-pad user-sidebar--employer float-right">
 					<article class="user-sidebar module module--no-pad">
@@ -62,9 +67,9 @@
 								$employerName = $job['employer_name'];
 
 								if (strlen($employerName)>=23) {
-									echo "<h3 class=\"user-sidebar__title user-sidebar__title--alt\"><a href=". BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . ">" . $employerName . "</h3>";
+									echo "<h3 class=\"user-sidebar__title user-sidebar__title--alt\"><a href=". BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . ">" . $employerName . "</a></h3>";
 								} else {
-									echo "<h3 class=\"user-sidebar__title\"><a href=". BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . ">" . $employerName . "</h3>";
+									echo "<h3 class=\"user-sidebar__title\"><a href=". BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . ">" . $employerName . "</a></h3>";
 								}
 							?>
 							<h4 class="user-sidebar__label icon--attach icon--marg"><?= $job['employer_type']; ?></h4>

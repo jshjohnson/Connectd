@@ -64,7 +64,7 @@
 									<h4>Number of designers:</h4>
 								</div>
 								<div class="float-right price-per-hour">
-									<h5><?php echo $designerTotal; ?></h5>
+									<h5><?= $designerTotal; ?></h5>
 								</div>
 							</div>
 						</div>
@@ -81,7 +81,7 @@
 									<h4>Number of developers:</h4>
 								</div>
 								<div class="float-right price-per-hour">
-									<h5><?php echo $developerTotal; ?></h5>
+									<h5><?= $developerTotal; ?></h5>
 								</div>
 							</div>
 						</div>
@@ -98,7 +98,7 @@
 									<h4>Number of employers:</h4>
 								</div>
 								<div class="float-right price-per-hour">
-									<h5><?php echo $employerTotal; ?></h5>
+									<h5><?= $employerTotal; ?></h5>
 								</div>
 							</div>
 						</div>
@@ -115,7 +115,7 @@
 									<h4>Total number of users:</h4>
 								</div>
 								<div class="float-right price-per-hour">
-									<h5><?php echo $userTotal; ?></h5>
+									<h5><?= $userTotal; ?></h5>
 								</div>
 							</div>
 						</div>
@@ -125,7 +125,7 @@
 									<h4>Total number of jobs:</h4>
 								</div>
 								<div class="float-right price-per-hour">
-									<h5><?php echo $jobTotal; ?></h5>
+									<h5><?= $jobTotal; ?></h5>
 								</div>
 							</div>
 						</div>

@@ -166,7 +166,7 @@
 						<select name="jobtitle">
 							<option value="">Pick one..</option>
 							<?php foreach ($jobTitles as $jobTitle) : ?>
-								<option <?php if ($_POST['jobtitle'] == $jobTitle['job_title']) { ?>selected="true" <?php }; ?>value="<?php echo $jobTitle['job_title']; ?>"><?php echo $jobTitle['job_title']; ?></option>
+								<option <?php if ($_POST['jobtitle'] == $jobTitle['job_title']) { ?>selected="true" <?php }; ?>value="<?= $jobTitle['job_title']; ?>"><?= $jobTitle['job_title']; ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>

@@ -16,7 +16,7 @@
 		exit();
 	}
 	
-	$pageTitle  = $developer['firstname'] . ' ' . $developer['lastname'] . ' : ' . $developer['jobtitle'];
+	$pageTitle  = $developer['firstname'] . ' ' . $developer['lastname'] . ' :: ' . $developer['jobtitle'];
 	$section    = "Developer";
 
 	include_once(ROOT_PATH . "inc/header.php");
@@ -28,7 +28,7 @@
 				<aside class="user-sidebar grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-left">
 					<div class="user-sidebar__price user-sidebar__price--alt">
 						<span class="currency">
-							<h5>£<?php echo $developer['priceperhour']; ?></h5>
+							<h5>£<?= $developer['priceperhour']; ?></h5>
 							<small>per hour</small>
 						</span>
 					</div>
@@ -37,16 +37,16 @@
 							<img src="http://placehold.it/400x400" alt="">
 						</div>
 						<div class="button-wrapper">
-							<a class="button-left btn btn--green cf hire-trigger" href="mailto:<?php echo $developer['email']; ?>?subject=I would like to hire you! -- Connectd&body=Hey <?php echo $developer['firstname']; ?>...">Hire <?php echo $developer['firstname']; ?></a>
-							<a class="button-right btn btn--blue cf hire-trigger" href="mailto:<?php echo $developer['email']; ?>?subject=I would like to collaborate with you! -- Connectd&body=Hey <?php echo $developer['firstname']; ?>..."?>Collaborate</a>
+							<a class="button-left btn btn--green cf hire-trigger" href="mailto:<?= $developer['email']; ?>?subject=I would like to hire you! -- Connectd&body=Hey <?= $developer['firstname']; ?>...">Hire <?= $developer['firstname']; ?></a>
+							<a class="button-right btn btn--blue cf hire-trigger" href="mailto:<?= $developer['email']; ?>?subject=I would like to collaborate with you! -- Connectd&body=Hey <?= $developer['firstname']; ?>..."?>Collaborate</a>
 						</div>
 					</div>
 					<div class="user-sidebar__info">
-						<h3 class="user-sidebar__title"><?php echo $developer['firstname'] . " " . $developer['lastname']; ?></h3>
-						<h4 class="user-sidebar__label icon--attach icon--marg"><?php echo $developer['jobtitle']; ?></h4>
-						<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $developer['location']; ?></h4>
-						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $developer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
-						<p><?php echo $developer['bio']; ?></p>
+						<h3 class="user-sidebar__title"><?= $developer['firstname'] . " " . $developer['lastname']; ?></h3>
+						<h4 class="user-sidebar__label icon--attach icon--marg"><?= $developer['jobtitle']; ?></h4>
+						<h4 class="user-sidebar__label icon--location icon--marg"><?= $developer['location']; ?></h4>
+						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $developer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
+						<p><?= $developer['bio']; ?></p>
 					</div>
 				</aside>
 				<article class="portfolio grid__cell module-2-3 module--no-pad float-right">

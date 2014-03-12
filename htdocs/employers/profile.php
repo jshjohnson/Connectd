@@ -42,7 +42,7 @@
 							?>
 							<h4 class="user-sidebar__label icon--attach icon--marg"><?= $employer['employer_type']; ?></h4>
 							<h4 class="user-sidebar__label icon--location icon--marg"><?= $employer['location']; ?></h4>
-							<h4 class="user-sidebar__label icon--globe icon--marg"><a href=""><?= $employer['portfolio']; ?></a></h4>
+							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $employer['portfolio']; ?>"><?= $employer['portfolio']; ?></a></h4>
 							<p><?= $employer['bio']; ?></p>
 						</div>
 					</article>
@@ -66,7 +66,8 @@
 						<h3 class="float-left">Current jobs</h3>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
-						<?php foreach($jobs as $job) { ?>
+					<?php if (!empty($jobs)) : ?>
+					<?php foreach($jobs as $job) { ?>
 						<?php 
 							$budget = $job['job_budget'];
 							$jobName = $job['job_name']
@@ -99,7 +100,16 @@
 								<a class="btn btn--green btn--small apply-trigger" href="<?= BASE_URL . "jobs/" . $job['job_id']; ?>">Apply</a>
 							</div>
 						</div>
-						<?php }; ?>
+					<?php }; ?>
+					<?php else : ?>
+						<div class="media media--blank">
+							<div class="media__desc media-2-3">
+								<p class="media__body">
+								<?= $employer['employer_name']; ?> has not posted a job yet. Try checking back later!
+								</p>
+							</div>
+						</div>
+					<?php endif;?>
 					</div>
 				</aside>
 			</div>

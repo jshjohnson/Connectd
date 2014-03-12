@@ -14,16 +14,18 @@
 
 	require_once(ROOT_PATH . "model/designers.php");
 	require_once(ROOT_PATH . "model/developers.php");
+	require_once(ROOT_PATH . "model/employers.php");
 	require_once(ROOT_PATH . "model/jobs.php");
 
 	$designers    = get_designers_all();
 	$developers   = get_developers_all();
+	$employers    = get_employers_all();
 	$jobs         = get_jobs_all();
 
 ?>
 		<section class="call-to-action call-to-action--top">
 			<div class="container">
-				<h4 class="as-h1 call-to-action__title">
+				<h4 class="as-h1 call-to-action__title zero-top">
 					Welcome <?= $user[0]; ?>!
 				</h4>
 				<a class="btn btn--red" href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>">Build your profile</a>
@@ -61,7 +63,22 @@
 						<?php endif; ?>
 					</div>
 				</article>
-				<article class="dashboard-panel grid__cell module-1-1 module--no-pad">
+				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
+					<header class="header--panel header--employer cf">
+						<h3 class="float-left"><a href="<?= BASE_URL; ?>developer/list.php">Employers</a></h3>
+						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
+					</header>
+					<div class="media-wrapper">
+						<?php if (is_array($employers)) : ?>
+
+						<?php foreach($employers as $employer_id => $employer) {
+							echo get_employer_list_view($employer_id, $employer);
+						} ?>
+
+						<?php endif; ?>
+					</div>
+				</article>
+				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
 					<header class="header--panel header--employer cf">
 						<h3 class="float-left"><a href="<?= BASE_URL; ?>jobs/list.php">My Jobs</a></h3>
 						<?php if($userType == 'employer') : ?>

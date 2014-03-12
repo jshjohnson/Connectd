@@ -1,6 +1,6 @@
 				<?php if ($section == "Developer" || $section == "Dashboard") : ?>
 				<nav class="header__nav header-navy--alt">
-				<?php elseif ($section == "Designer") : ?>
+				<?php elseif ($section == "Designer" || $section == "Settings" || $section == "Sitemap") : ?>
 				<nav class="header__nav header-blue--alt">
 				<?php else: ?>
 				<nav class="header__nav header-navy--alt">

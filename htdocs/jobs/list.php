@@ -7,13 +7,11 @@
 	include_once(ROOT_PATH . "model/jobs.php");
 
 	$section     = "Jobs";
+	$pageTitle   = "Job search";
 
 	$jobs        = get_jobs_all();
 	$job_id      = $_GET["id"];
 	$job         = $jobs[$job_id];
-
-	$user        = $users->userData($_SESSION['id']);
-	$username    = $user[0] . " " . $user[1];
 	
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");
@@ -30,7 +28,9 @@
 				<article class="dashboard-panel grid__cell module-2-3 module--no-pad float-left">
 					<header class="header--panel header--employer cf">
 						<h3 class="float-left">My Jobs</h3>
-						<a href="<?= BASE_URL; ?>post/"><button class="float-right btn--action">Post Job</button></a>
+						<?php if($userType == 'employer') : ?>
+						<a href="<?= BASE_URL; ?>jobs/post.php" class="float-right btn btn--action">Post Job</a>
+						<?php endif; ?>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php foreach($jobs as $job_id => $job) {

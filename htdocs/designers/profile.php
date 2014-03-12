@@ -7,20 +7,18 @@
 	require_once(ROOT_PATH . "model/designers.php");
 
 	// Grab ID from URL, convert to interger to strip SQL injection, pass to get_designers_single function to pull
-
 	if (isset($_GET["id"])) {
 		$designer_id = intval($_GET["id"]);
 		$designer = get_designers_single($designer_id);
 	}
 
 	// If no ID in URL, return to dashboard;
-
 	if (empty($designer)) {
 		header("Location: " . BASE_URL);
 		exit();
 	}
 
-	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'] . ' : ' . $designer['jobtitle'];
+	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'] . ' :: ' . $designer['jobtitle'];
 	$section = "Designers";
 		
 	include_once(ROOT_PATH . "inc/header.php");
@@ -31,7 +29,7 @@
 				<aside class="user-sidebar grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">
 					<div class="user-sidebar__price">
 						<span class="currency">
-							<h5>£<?php echo $designer['priceperhour']; ?></h5>
+							<h5>£<?= $designer['priceperhour']; ?></h5>
 							<small>per hour</small>
 						</span>
 					</div>
@@ -40,18 +38,16 @@
 							<img src="http://placehold.it/400x400" alt="">
 						</div>
 						<div class="button-wrapper">
-							<a class="button-left btn btn--green cf hire-trigger" href="mailto:<?php echo $designer['email']; ?>?subject=I would like to hire you! -- Connectd&body=Hey <?php echo $designer['firstname']; ?>...">Hire <?php echo $designer['firstname']; ?></a>
-							<a class="button-right btn btn--blue cf hire-trigger" href="mailto:<?php echo $designer['email']; ?>?subject=I would like to collaborate with you! -- Connectd&body=Hey <?php echo $designer['firstname']; ?>..."?>Collaborate</a>
+							<a class="button-left btn btn--green cf hire-trigger" href="mailto:<?= $designer['email']; ?>?subject=I would like to hire you! -- Connectd&body=Hey <?= $designer['firstname']; ?>...">Hire <?= $designer['firstname']; ?></a>
+							<a class="button-right btn btn--blue cf hire-trigger" href="mailto:<?= $designer['email']; ?>?subject=I would like to collaborate with you! -- Connectd&body=Hey <?= $designer['firstname']; ?>..."?>Collaborate</a>
 						</div>
 					</div>
 					<div class="user-sidebar__info">
-						<a href=""><i class="icon--star-alt"></i></a><h3 class="user-sidebar__title"><?php echo $designer['firstname'] . " " . $designer['lastname']; ?></h3>
-						<h4 class="user-sidebar__label icon--attach icon--marg"><?php echo $designer['jobtitle']; ?></h4>
-						<h4 class="user-sidebar__label icon--location icon--marg"><?php echo $designer['location']; ?></h4>
-						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?php echo $designer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>
-						<p>
-							<?php echo $designer['bio']; ?>
-						</p>
+						<a href=""><i class="icon--star-alt"></i></a><h3 class="user-sidebar__title"><?= $designer['firstname'] . " " . $designer['lastname']; ?></h3>
+						<h4 class="user-sidebar__label icon--attach icon--marg"><?= $designer['jobtitle']; ?></h4>
+						<h4 class="user-sidebar__label icon--location icon--marg"><?= $designer['location']; ?></h4>
+						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $designer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>
+						<p><?= $designer['bio']; ?></p>
 					</div>
 				</aside>
 				<article class="portfolio grid__cell module-2-3 module--no-pad float-left">
