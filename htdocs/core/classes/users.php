@@ -90,52 +90,23 @@
 		}
 
 		public function getTrialUsers() {
- 
- 		// 	ORDER BY users.time_joined DESC
-			// preparing a statement that will select all the registered users, with the most recent ones first.
-			// $query = $this->db->prepare("SELECT 
-			// 	users.user_id, users.firstname, users.lastname, users.location, users.portfolio, users.experience, users.time_joined, 
-			// 	freelancers.jobtitle, 
-			// 	COUNT(user_votes.votes)
-			// 	FROM " . DB_NAME . ".users, 
-			// 	" . DB_NAME . ".freelancers,
-			// 	" . DB_NAME . ".user_votes 
-			// 	WHERE 
-			// 	users.user_type != ? 
-			// 	AND users.confirmed = ? 
-			// 	AND users.user_id = freelancers.user_id 
-			// 	HAVING COUNT(user_votes.votes) < ?");
-
-			// $query = $this->db->prepare("
-			// 	SELECT users.*, COUNT(user_votes.votes), user_votes.user_id, user_votes.voted_by_id
-			// 	FROM " . DB_NAME . ".users, " . DB_NAME . ".user_votes
-			// 	WHERE users.confirmed = ?
-			// 	AND users.user_type != ?
-			// 	HAVING COUNT(user_votes.votes) < ?
-			// ");
-
-			// $query = $this->db->prepare("SELECT
-			// 	*
-			// 	FROM " . DB_NAME . ".users u
-			// 	INNER JOIN " . DB_NAME . ".freelancers f ON u.user_id = f.user_id
-			// 	INNER JOIN " . DB_NAME . ".user_votes v ON u.user_id = v.user_id
-			// 	WHERE u.confirmed = ?
-			// 	AND u.user_type != ?
-			// 	AND u.user_id = f.user_id
-			// 	AND f.user_id = v.user_id
-			// ");
 
 			$query = $this->db->prepare("
-				SELECT COUNT(users.user_id)
-				FROM " . DB_NAME . ".users
-				INNER JOIN " . DB_NAME . ".user_votes
-				ON users.user_id = user_votes.user_id
-				HAVING COUNT(users.user_id)<10;
+				SELECT u.user_id, u.firstname, u.lastname, u.location, u.portfolio, u.experience, u.time_joined
+				FROM " . DB_NAME . ".users u
+				JOIN " . DB_NAME . ".user_votes v ON u.user_id = v.user_id
+				HAVING COUNT(u.user_id)< ?;
+				GROUP BY u.user_id
+				WHERE u.user_type != ?  
+				AND u.confirmed = ? 
+				AND u.user_id = f.user_id
+				ORDER BY u.time_joined DESC
 			");
-		
-			// $query->bindValue(1, 1);
-			// $query->bindValue(2, 'employer');		
-			// $query->bindValue(3, 10);
+
+			$query->bindValue(1, 10);
+			$query->bindValue(2, 'employer');
+			$query->bindValue(3, 2);	
+			
 
 			try{
 				$query->execute();

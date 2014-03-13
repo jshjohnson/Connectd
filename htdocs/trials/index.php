@@ -9,7 +9,6 @@
 	$section = "Trials";
 
 	$trial_users 		= $users->getTrialUsers();
-	$trial_users_count   = count($members);
 
 	include_once(ROOT_PATH . "inc/header.php");
 	include_once(ROOT_PATH . "inc/page-header.php");
@@ -30,7 +29,7 @@
 							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $trial_user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trial_user["portfolio"] ); echo $url ?></a></h4>
 							<div class="button-wrapper">
 								<a href="add-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="btn btn--green btn--small">
-									 <span class="icon--check"><?= $trial_user["votes"]; ?> votes</span>
+									 <span class="icon--check">Add vote</span>
 								</a>
 							</div>
 						</div>

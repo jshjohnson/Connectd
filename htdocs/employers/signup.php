@@ -97,7 +97,7 @@
 			$user_type          = 'employer';
 
 
-			$users->registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $user_type;
+			$users->registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $user_type);
 			header("Location:" . BASE_URL . "employers/signup.php?status=success");
 			exit();
 		}
@@ -152,7 +152,10 @@
 					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
 					<hr>
 					<input type="text" name="employer_name" placeholder="Employer name" value="<?php if (isset($employerName)) { echo htmlspecialchars($employerName); } ?>">
-					<input type="url" name="portfolio" placeholder="Employer website" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
+					<div class="url-container">
+						<span class="url-prepend">http://</span>
+						<input type="url" name="portfolio" placeholder="Employer website" class="input--url" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
+					</div>
 					<div class="select-container">
 						<label for="location">What is the location of your business?</label>
 						<select name="location">

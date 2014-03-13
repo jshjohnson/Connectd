@@ -10,7 +10,10 @@
 		public function getUserVotes($id) {
  
 			$query = $this->db->prepare("
-				SELECT COUNT(user_votes.votes), user_votes.user_id, users.user_id FROM " . DB_NAME . ".user_votes, " . DB_NAME . ".users WHERE users.user_id = ? AND users.user_id = users_votes.user_id 
+				SELECT COUNT(v.votes), v.user_id, u.user_id 
+				FROM " . DB_NAME . ".users u, " . DB_NAME . ".user_votes v
+				WHERE u.user_id = ? 
+				AND u.user_id = v.user_id 
 				");
 			$query->bindValue(1, $id);
 

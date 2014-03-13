@@ -226,7 +226,7 @@ input[type=submit] {
 
 .currency-container {
 	position: relative;
-	.currency {
+	.currency-prepend {
 		position: absolute;
 		left: .7em;
 		line-height: 3.9;
@@ -236,6 +236,21 @@ input[type=submit] {
 	}
 	.input--currency {
 		padding-left: 1.6em;
+	}
+}
+
+.url-container {
+	position: relative;
+	.url-prepend {
+		position: absolute;
+		left: .7em;
+		line-height: 3.9;
+		@include respond-max($bp1) {
+			line-height: 3.75;
+		}
+	}
+	.input--url {
+		padding-left: 3.5em;
 	}
 }
 

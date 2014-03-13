@@ -1,17 +1,13 @@
-<?php 	
-	require_once("../config.php");  
+<?php
+	require_once("../config.php"); 
+	require_once(ROOT_PATH . "core/init.php");
+
+	$pageTitle    = "About Us";
+	$section      = "About";
+
 	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "inc/page-header.php");
 ?>
-	<header class="header header-blue--alt zero-bottom cf">
-		<div class="container">
-			<h1 class="header__section header__section--title">
-				About
-			</h1>
-			<h2 class="header__section header__section--logo">
-				<a href="<?= BASE_URL; ?>">connectd</a>
-			</h2>
-		</div>
-	</header>
 	<section class="section color-blue">
 		<div class="container__inner">
 			<div class="grid text-center">
@@ -69,23 +65,4 @@
 			</div>
 		</div>
 	</section>
-	<footer class="footer zero-top cf">
-		<div class="container">
-			<div class="grid">
-				<ul class="grid__cell unit-1-2--bp2 footer__links">
-					<li><a href="about.html">About</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms</a></li>
-				</ul>
-				<h2 class="grid__cell unit-1-2--bp2 header__section footer__logo">
-					<a href="index.php">connectd</a>
-				</h2>
-			</div>
-		</div>
-	</footer>
-
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="assets/js/libs/jquery-1.7.2.min.js"><\/script>')</script>
-	<script src="assets/js/production.min.js"></script>
-</body>
-</html>
+<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
