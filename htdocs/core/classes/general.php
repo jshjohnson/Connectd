@@ -71,14 +71,17 @@
 	    }
 
 	    public function getEmployerTypes() {
-			$query = $this->db->prepare("SELECT employer_type FROM " . DB_NAME . ".employer_types ORDER BY employer_type ASC");
+			$query = $this->db->prepare("SHOW COLUMNS FROM " . DB_NAME . ".employer_types LIKE 'employer_type'");
 			try{
 				$query->execute();
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}
-			# We use fetchAll() instead of fetch() to get an array of all the selected records.
-			return $query->fetchAll();
+			$row = $query->fetch(PDO::FETCH_ASSOC);
+			
+			preg_match_all("/'(.*?)'/", $row['Type'], $categories);
+			$fields = $categories[1];
+			return $fields;
 	    }
 
 

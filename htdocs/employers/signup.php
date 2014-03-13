@@ -170,7 +170,7 @@
 						<select name="employer_type">
 							<option value="">Pick one..</option>
 							<?php foreach ($employerTypes as $employerType) : ?>
-								<option <?php if ($_POST['employer_type'] == $employerType['employer_type']) { ?>selected="true" <?php }; ?>value="<?= $employerType['employer_type']; ?>"><?= $employerType['employer_type']; ?></option>
+								<option <?php if ($_POST['employer_type'] == $employerType) { ?>selected="true" <?php }; ?>value="<?= $employerType; ?>"><?= $employerType; ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
@@ -179,7 +179,7 @@
 						<select name="experience">
 							<option value="">Years experience...</option>
 							<?php foreach ($experiences as $experience) : ?>
-								<option <?php if ($_POST['experience'] == $experience['experience']) { ?>selected="true" <?php }; ?>value="<?= $experience['experience']; ?>"><?= $experience['experience']; ?></option>
+								<option <?php if ($_POST['experience'] == $experience) { ?>selected="true" <?php }; ?>value="<?= $experience; ?>"><?= $experience; ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>

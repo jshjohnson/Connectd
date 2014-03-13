@@ -335,6 +335,13 @@
 					$query_2->bindValue(3, $employerType);						
 	 
 					$query_2->execute();
+
+					$query_3 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_id, user_type) VALUE (?,?)");
+	 
+	 				$query_3->bindValue(1, $last_user_id);
+					$query_3->bindValue(2, $user_type);				
+	 
+					$query_3->execute();
 					
 					return true;
 
