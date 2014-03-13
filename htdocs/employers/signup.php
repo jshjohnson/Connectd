@@ -154,7 +154,7 @@
 					<input type="text" name="employer_name" placeholder="Employer name" value="<?php if (isset($employerName)) { echo htmlspecialchars($employerName); } ?>">
 					<div class="url-container">
 						<span class="url-prepend">http://</span>
-						<input type="text" name="portfolio" placeholder="Employer website" class="input--url" value="http://<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
+						<input type="url" name="portfolio" placeholder="Employer website" class="input--url" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
 					</div>
 					<div class="select-container">
 						<label for="location">What is the location of your business?</label>

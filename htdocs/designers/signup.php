@@ -163,7 +163,7 @@
 					<p class="message message--hint">Psst. Prospective users need an online portfolio to prove themselves in the Connectd community.</p>
 					<div class="url-container">
 						<span class="url-prepend">http://</span>
-						<input type="text" name="portfolio" placeholder="Portfolio URL" class="input--url" value="http://<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>" >
+						<input type="url" name="portfolio" placeholder="Portfolio URL" class="input--url" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>" >
 					</div>
 					<div class="select-container">
 						<select name="jobtitle">
