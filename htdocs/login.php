@@ -50,14 +50,14 @@
 
 				header('Location: dashboard/');
 				
-				if($votes->userVotedFor($email) === true) {
-					#Redirect the user to the dashboard
-					header('Location: dashboard/');
-					exit();
-				} else {
-					header('Location: welcome/');
-					exit();
-				}
+				// if($votes->userVotedFor($email) === true) {
+				// 	#Redirect the user to the dashboard
+				// 	header('Location: dashboard/');
+				// 	exit();
+				// } else {
+				// 	header('Location: welcome/');
+				// 	exit();
+				// }
 
 			}
 		}

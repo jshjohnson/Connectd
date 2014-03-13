@@ -167,7 +167,7 @@
 		}
 
 		// Register a developer on sign up
-		public function registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type){
+		public function registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $userType){
 
 			global $bcrypt; // making the $bcrypt variable global so we can use here
 			global $mail;
@@ -178,9 +178,9 @@
 			$password   = $bcrypt->genHash($password);// generating a hash using the $bcrypt object
 
 			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".users
-				(firstname, lastname, email, email_code, password, time_joined, location, experience, portfolio, bio, ip) 
+				(firstname, lastname, email, email_code, password, time_joined, location, portfolio, bio, ip) 
 				VALUES 
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 			");
 			
 			$query->bindValue(1, $firstname);
@@ -190,10 +190,9 @@
 			$query->bindValue(5, $password);
 			$query->bindValue(6, $time);
 			$query->bindValue(7, $location);
-			$query->bindValue(8, $experience);
-			$query->bindValue(9, $portfolio);
-			$query->bindValue(10, $bio);
-			$query->bindValue(11, $ip);
+			$query->bindValue(8, $portfolio);
+			$query->bindValue(9, $bio);
+			$query->bindValue(10, $ip);
 		 
 			try{
 				$query->execute();
@@ -231,7 +230,7 @@
 
 				$rows = $query->rowCount();
 	 
-				if($rows > 0 && $user_type != 'employer'){
+				if($rows > 0){
 
 					$last_user_id =  $this->db->lastInsertId('user_id');
 					
@@ -246,11 +245,36 @@
 					$query_3 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_id, user_type) VALUE (?,?)");
 	 
 	 				$query_3->bindValue(1, $last_user_id);
-					$query_3->bindValue(2, $user_type);				
+					$query_3->bindValue(2, $userType);				
 	 
 					$query_3->execute();
+
+					$query_4 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (user_id, experience) VALUE (?,?)");
+
+					$query_4->bindValue(1, $last_user_id);
+					$query_4->bindValue(2, $experience);							
+	 
+					$query_4->execute();
+
+					if($userType == 'designer') {
+						$query_5 = $this->db->prepare("INSERT INTO " . DB_NAME . ".designer_titles (user_id, job_title) VALUE (?,?)");
+	 
+		 				$query_5->bindValue(1, $last_user_id);
+						$query_5->bindValue(2, $jobtitle);				
+		 
+						$query_5->execute();
+					} else if ($userType == 'developer') {
+						$query_5 = $this->db->prepare("INSERT INTO " . DB_NAME . ".developer_titles (user_id, job_title) VALUE (?,?)");
+	 
+		 				$query_5->bindValue(1, $last_user_id);
+						$query_5->bindValue(2, $jobtitle);				
+		 
+						$query_5->execute();
+					}
 					
 					return true;
+
+
 
 				}
 							
@@ -259,7 +283,7 @@
 			}	
 		}
 
-		public function registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $user_type) {
+		public function registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $userType) {
 
 			global $bcrypt; // making the $bcrypt variable global so we can use here
 			global $mail;
@@ -270,9 +294,9 @@
 			$password   = $bcrypt->genHash($password);// generating a hash using the $bcrypt object
 
 			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".users
-				(firstname, lastname, email, email_code, password, time_joined, location, experience, portfolio, bio, ip, user_type) 
+				(firstname, lastname, email, email_code, password, time_joined, location, portfolio, bio, ip) 
 				VALUES 
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 			");
 			
 			$query->bindValue(1, $firstname);
@@ -282,11 +306,9 @@
 			$query->bindValue(5, $password);
 			$query->bindValue(6, $time);
 			$query->bindValue(7, $location);
-			$query->bindValue(8, $experience);
-			$query->bindValue(9, $portfolio);
-			$query->bindValue(10, $bio);
-			$query->bindValue(11, $ip);
-			$query->bindValue(12, $user_type);
+			$query->bindValue(8, $portfolio);
+			$query->bindValue(9, $bio);
+			$query->bindValue(10, $ip);
 		 
 			try{
 				$query->execute();
@@ -324,24 +346,40 @@
 
 				$rows = $query->rowCount();
 	 
-				if($rows > 0 && $user_type = 'employer'){
+				if($rows > 0 && $userType = 'employer'){
 
 					$last_user_id =  $this->db->lastInsertId('user_id');
 					
-					$query_2 = $this->db->prepare("INSERT INTO " . DB_NAME . ".employers (user_id, employer_name, employer_type) VALUE (?,?,?)");
+					$query_2 = $this->db->prepare("INSERT INTO " . DB_NAME . ".employers (user_id, employer_name) VALUE (?,?)");
 	 
 	 				$query_2->bindValue(1, $last_user_id);
 					$query_2->bindValue(2, $employerName);
-					$query_2->bindValue(3, $employerType);						
-	 
+
 					$query_2->execute();
 
-					$query_3 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_id, user_type) VALUE (?,?)");
-	 
-	 				$query_3->bindValue(1, $last_user_id);
-					$query_3->bindValue(2, $user_type);				
+
+					$query_3 = $this->db->prepare("INSERT INTO " . DB_NAME . ".employer_types (user_id, employer_type) VALUE (?, ?)");
+
+					$query_3->bindValue(1, $last_user_id);
+					$query_3->bindValue(2, $employerType);						
 	 
 					$query_3->execute();
+
+
+					$query_4 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (user_id, experience) VALUE (?,?)");
+
+					$query_4->bindValue(1, $last_user_id);
+					$query_4->bindValue(2, $experience);							
+	 
+					$query_4->execute();
+
+
+					$query_5 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_id, user_type) VALUE (?,?)");
+	 
+	 				$query_5->bindValue(1, $last_user_id);
+					$query_5->bindValue(2, $user_type);				
+	 
+					$query_5->execute();
 					
 					return true;
 

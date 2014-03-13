@@ -28,6 +28,15 @@
 			return htmlentities($string);
 		}
 
+		// Form hijack prevention
+		public function hijackPrevention() {
+			foreach( $_POST as $value ){
+	            if( stripos($value,'Content-Type:') !== FALSE ){
+	                $errors[] = "Hmmmm. Are you a robot? Try again.";
+	            }
+	        }
+		}
+		
 	    // Test if user is logged in @boolean
 		public function loggedIn() {
 			return(isset($_SESSION['user_id'])) ? true : false;
@@ -86,16 +95,38 @@
 
 
 	    public function getJobTitles($userType) {
-			$query = $this->db->prepare("SELECT job_title, user_type FROM " . DB_NAME . ".job_titles WHERE user_type = ?");
-			$query->bindValue(1, $userType);
-			
-			try{
-				$query->execute();
-			}catch(PDOException $e){
-				die($e->getMessage());
-			}
-			# We use fetchAll() instead of fetch() to get an array of all the selected records.
-			return $query->fetchAll();
+
+	    	if ($userType == "Developer") {
+
+		    	$query = $this->db->prepare("SHOW COLUMNS FROM " . DB_NAME . ".developer_titles LIKE 'job_title'");
+				try{
+					$query->execute();
+				}catch(PDOException $e){
+					die($e->getMessage());
+				}
+				$row = $query->fetch(PDO::FETCH_ASSOC);
+				
+				preg_match_all("/'(.*?)'/", $row['Type'], $categories);
+				$fields = $categories[1];
+				return $fields;
+
+	    	} else if ($userType == "Designer") {
+		    	$query = $this->db->prepare("SHOW COLUMNS FROM " . DB_NAME . ".designer_titles LIKE 'job_title'");
+				try{
+					$query->execute();
+				}catch(PDOException $e){
+					die($e->getMessage());
+				}
+				$row = $query->fetch(PDO::FETCH_ASSOC);
+				
+				preg_match_all("/'(.*?)'/", $row['Type'], $categories);
+				$fields = $categories[1];
+				return $fields;
+	    	}
+
+
+
+
 	    }
 
 	    public function getExperiences() {

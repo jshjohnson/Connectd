@@ -37,12 +37,7 @@
 		header('Location: dashboard/');
 	}else if (isset($_POST['submit'])) {
 
-		// Form hijack prevention
-		foreach( $_POST as $value ){
-            if( stripos($value,'Content-Type:') !== FALSE ){
-                $errors[] = "Hmmmm. Are you a robot? Try again.";
-            }
-        }
+		$general->highjackPrevention();
 
      	$r1='/[A-Z]/';  // Test for an uppercase character
        	$r2='/[a-z]/';  // Test for a lowercase character
@@ -96,9 +91,9 @@
 			$portfolio      = $general->cleanString($db, $portfolio);
 			$experience     = $general->cleanString($db, $experience);
 			$jobtitle       = $general->cleanString($db, $jobtitle);
-			$user_type      = 'designer';
+			$userType      = 'designer';
 
-			$users->registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $user_type);
+			$users->registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $userType);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();
 		}
@@ -169,7 +164,7 @@
 						<select name="jobtitle">
 							<option value="">Job title..</option>
 							<?php foreach ($jobTitles as $jobTitle) : ?>
-								<option <?php if ($_POST['jobtitle'] == $jobTitle['job_title']) { ?>selected="true" <?php }; ?>value="<?= $jobTitle['job_title']; ?>"><?= $jobTitle['job_title']; ?></option>
+								<option <?php if ($_POST['jobtitle'] == $jobTitle) { ?>selected="true" <?php }; ?>value="<?= $jobTitle; ?>"><?= $jobTitle; ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
