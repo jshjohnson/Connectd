@@ -178,9 +178,9 @@
 			$password   = $bcrypt->genHash($password);// generating a hash using the $bcrypt object
 
 			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".users
-				(firstname, lastname, email, email_code, password, time_joined, location, experience, portfolio, bio, ip, user_type) 
+				(firstname, lastname, email, email_code, password, time_joined, location, experience, portfolio, bio, ip) 
 				VALUES 
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 			");
 			
 			$query->bindValue(1, $firstname);
@@ -194,8 +194,6 @@
 			$query->bindValue(9, $portfolio);
 			$query->bindValue(10, $bio);
 			$query->bindValue(11, $ip);
-			$query->bindValue(12, $user_type);
-			
 		 
 			try{
 				$query->execute();
@@ -244,6 +242,13 @@
 					$query_2->bindValue(3, $priceperhour);						
 	 
 					$query_2->execute();
+
+					$query_3 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_id, user_type) VALUE (?,?)");
+	 
+	 				$query_3->bindValue(1, $last_user_id);
+					$query_3->bindValue(2, $user_type);				
+	 
+					$query_3->execute();
 					
 					return true;
 

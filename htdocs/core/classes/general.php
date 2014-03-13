@@ -96,14 +96,17 @@
 	    }
 
 	    public function getExperiences() {
-	    	$query = $this->db->prepare("SELECT experience FROM " . DB_NAME . ".user_experience");
+	    	$query = $this->db->prepare("SHOW COLUMNS FROM " . DB_NAME . ".user_experience LIKE 'experience'");
 			try{
 				$query->execute();
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}
-			# We use fetchAll() instead of fetch() to get an array of all the selected records.
-			return $query->fetchAll();
+			$row = $query->fetch(PDO::FETCH_ASSOC);
+			
+			preg_match_all("/'(.*?)'/", $row['Type'], $categories);
+			$fields = $categories[1];
+			return $fields;
 	    }
 
 	    public function getJobCategories() {

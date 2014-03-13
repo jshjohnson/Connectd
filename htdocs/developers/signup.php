@@ -5,14 +5,14 @@
 	$general->errors();
 	$general->loggedInProtect();
 
-	$towns = $general->getLocations();
-	$experiences = $general->getExperiences();
+	$towns             = $general->getLocations();
+	$experiences       = $general->getExperiences();
 
-	$userType = "Developer";
-	$jobTitles = $general->getJobTitles($userType);
+	$userType          = "Developer";
+	$jobTitles         = $general->getJobTitles($userType);
 
-	$pageTitle = "Sign Up";
-	$section = "Developer";
+	$pageTitle         = "Sign Up";
+	$section           = "Developer";
 
 	include_once(ROOT_PATH . "inc/header.php");
 
@@ -176,7 +176,7 @@
 						<select name="experience">
 							<option value="">Years experience...</option>
 							<?php foreach ($experiences as $experience) : ?>
-								<option <?php if ($_POST['experience'] == $experience['experience']) { ?>selected="true" <?php }; ?>value="<?= $experience['experience']; ?>"><?= $experience['experience']; ?></option>
+								<option <?php if ($_POST['experience'] == $experience) { ?>selected="true" <?php }; ?>value="<?= $experience; ?>"><?= $experience; ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
