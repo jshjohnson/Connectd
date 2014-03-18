@@ -44,13 +44,19 @@
 
 		try {
 			$results = $db->prepare("
-				SELECT users.user_id, users.firstname, users.lastname, employers.employer_name
-				FROM " . DB_NAME . ".users
-				JOIN " . DB_NAME . ".employers ON users.user_id = employers.employer_id
-				WHERE users.confirmed = ?
+				SELECT u.user_id, u.firstname, u.lastname, e.employer_id, e.employer_name, ut.*, et.*
+				FROM (((" . DB_NAME . ".users AS u
+				LEFT JOIN " . DB_NAME . ".employers AS e
+				ON u.user_id = e.employer_id)
+				LEFT JOIN " . DB_NAME . ".employer_types as et
+				ON u.user_id = et.employer_type_id)
+				LEFT JOIN " . DB_NAME . ".user_types AS ut
+				ON u.user_id = ut.user_type_id)
+				WHERE u.confirmed = ?
+				AND ut.user_type = ?
 			");
 			$results->bindValue(1, 1);
-			// $results->bindValue(2, 'employer');
+			$results->bindValue(2, 'employer');
 
 			$results->execute();
 		} catch (Exception $e) {
