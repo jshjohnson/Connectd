@@ -44,18 +44,17 @@
 
 		try {
 			$results = $db->prepare("
-				SELECT users.user_id, users.firstname, users.lastname, employers.employer_name, employers.employer_type
-				FROM " . DB_NAME . ".users, " . DB_NAME . ".employers 
-				WHERE users.confirmed = ? 
-				AND users.user_type = ?
-				AND users.user_id = employers.user_id
+				SELECT users.user_id, users.firstname, users.lastname, employers.employer_name
+				FROM " . DB_NAME . ".users
+				JOIN " . DB_NAME . ".employers ON users.user_id = employers.employer_id
+				WHERE users.confirmed = ?
 			");
 			$results->bindValue(1, 1);
-			$results->bindValue(2, 'employer');
+			// $results->bindValue(2, 'employer');
 
 			$results->execute();
 		} catch (Exception $e) {
-			echo "Data could not be retrieved";
+			echo "Damn. All employer data could not be retrieved.";
 			exit;
 		}
 		
@@ -75,7 +74,6 @@
 				FROM " . DB_NAME . ".users, " . DB_NAME . ".employers
 				WHERE `confirmed` = ? 
 				AND users.user_id = ?
-				AND `user_type` = ?
 				AND users.user_id = employers.user_id
 			");
 
@@ -85,7 +83,7 @@
 
 			$results->execute();
 		} catch (Exception $e) {
-			echo "Damn. Data could not be retrieved.";
+			echo "Damn. Single employer data could not be retrieved.";
 			exit;
 		}
 

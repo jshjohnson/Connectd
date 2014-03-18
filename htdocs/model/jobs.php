@@ -57,12 +57,11 @@
 		try {
 			$results = $db->query("SELECT 
 				*
-				FROM " . DB_NAME . ".jobs j
-				INNER JOIN " . DB_NAME . ".users u ON j.user_id = u.user_id
-				INNER JOIN " . DB_NAME . ".employers e ON j.user_id = e.user_id
+				FROM " . DB_NAME . ".jobs
+				JOIN " . DB_NAME . ".users ON jobs.user_id = users.user_id
 			");
 		} catch (Exception $e) {
-			echo "Data could not be retrieved";
+			echo "Damn. All job data could not be retrieved";
 			exit;
 		}
 		
@@ -87,7 +86,7 @@
 			$results->bindValue(1, $id);
 			$results->execute();
 		} catch (Exception $e) {
-			echo "Damn. Data could not be retrieved.";
+			echo "Damn. Single job data could not be retrieved.";
 			exit;
 		}
 

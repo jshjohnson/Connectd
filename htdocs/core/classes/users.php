@@ -121,7 +121,11 @@
 		// Get user data
 		public function userData($id) {
 			$query = $this->db->prepare("
-				SELECT firstname, lastname FROM " . DB_NAME . ".users WHERE `user_id`= ?
+				SELECT users.firstname, users.lastname, user_types.*
+				FROM " . DB_NAME . ".users 
+				JOIN " . DB_NAME . ".user_types 
+				ON users.user_id = user_types.user_type_id
+				WHERE users.user_id= ?
 				");
 			$query->bindValue(1, $id);
 
@@ -310,35 +314,35 @@
 			try{
 				$query->execute();
 		 
-				$to = $email;
+			// 	$to = $email;
 
-				$mail->Host               = DB_EMAIL;  // specify main and backup server
-				$mail->Username           = "josh@joshuajohnson.co.uk";  // SMTP username
-				$mail->Password           = "cheeseball27"; // SMTP password
-				$mail->SMTPAuth           = true;               // enable SMTP authentication
-				$mail->SMTPSecure         = "tls"; 
-				$mail->addAddress($to);  // Add a recipient
+			// 	$mail->Host               = DB_EMAIL;  // specify main and backup server
+			// 	$mail->Username           = "josh@joshuajohnson.co.uk";  // SMTP username
+			// 	$mail->Password           = "cheeseball27"; // SMTP password
+			// 	$mail->SMTPAuth           = true;               // enable SMTP authentication
+			// 	$mail->SMTPSecure         = "tls"; 
+			// 	$mail->addAddress($to);  // Add a recipient
                 
-                $mail->From               = 'robot@connectd.io';
-				$mail->FromName           = 'Connectd.io';
-                // Set word wrap to 50 characters
-				$mail->isHTML(true); // Set email format to HTML
+   //              $mail->From               = 'robot@connectd.io';
+			// 	$mail->FromName           = 'Connectd.io';
+   //              // Set word wrap to 50 characters
+			// 	$mail->isHTML(true); // Set email format to HTML
 
-				$mail->Subject            = 'Activate your new Connectd account';
+			// 	$mail->Subject            = 'Activate your new Connectd account';
 
-				$mail->Body               = "<p>Hey " . $firstname . "!</p>";
-				$mail->Body              .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
-				$mail->Body              .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $email_code . "</p>";
-				$mail->Body              .= "<p>-- Connectd team</p>";
-				$mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-				$mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
-				$mail->AltBody            = 'This is the body in plain text for non-HTML mail clients';
+			// 	$mail->Body               = "<p>Hey " . $firstname . "!</p>";
+			// 	$mail->Body              .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
+			// 	$mail->Body              .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $email_code . "</p>";
+			// 	$mail->Body              .= "<p>-- Connectd team</p>";
+			// 	$mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
+			// 	$mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
+			// 	$mail->AltBody            = 'This is the body in plain text for non-HTML mail clients';
 
-				if(!$mail->send()) {
-				   echo 'Message could not be sent.';
-				   echo 'Mailer Error: ' . $mail->ErrorInfo;
-				   exit;
-				}
+			// 	if(!$mail->send()) {
+			// 	   echo 'Message could not be sent.';
+			// 	   echo 'Mailer Error: ' . $mail->ErrorInfo;
+			// 	   exit;
+			// 	}
 
 
 				$rows = $query->rowCount();
@@ -347,7 +351,7 @@
 
 					$last_user_id =  $this->db->lastInsertId('user_id');
 					
-					$query_2 = $this->db->prepare("INSERT INTO " . DB_NAME . ".employers (user_id, employer_name) VALUE (?,?)");
+					$query_2 = $this->db->prepare("INSERT INTO " . DB_NAME . ".employers (employer_id, employer_name) VALUE (?,?)");
 	 
 	 				$query_2->bindValue(1, $last_user_id);
 					$query_2->bindValue(2, $employerName);
@@ -355,7 +359,7 @@
 					$query_2->execute();
 
 
-					$query_3 = $this->db->prepare("INSERT INTO " . DB_NAME . ".employer_types (user_id, employer_type) VALUE (?, ?)");
+					$query_3 = $this->db->prepare("INSERT INTO " . DB_NAME . ".employer_types (employer_type_id, employer_type) VALUE (?, ?)");
 
 					$query_3->bindValue(1, $last_user_id);
 					$query_3->bindValue(2, $employerType);						
@@ -363,7 +367,7 @@
 					$query_3->execute();
 
 
-					$query_4 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (user_id, experience) VALUE (?,?)");
+					$query_4 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (experience_id, experience) VALUE (?,?)");
 
 					$query_4->bindValue(1, $last_user_id);
 					$query_4->bindValue(2, $experience);							
@@ -371,10 +375,10 @@
 					$query_4->execute();
 
 
-					$query_5 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_id, user_type) VALUE (?,?)");
+					$query_5 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_type_id, user_type) VALUE (?,?)");
 	 
 	 				$query_5->bindValue(1, $last_user_id);
-					$query_5->bindValue(2, $user_type);				
+					$query_5->bindValue(2, $userType);				
 	 
 					$query_5->execute();
 					
