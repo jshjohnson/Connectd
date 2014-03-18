@@ -1,12 +1,12 @@
 <?php 	
 	require_once("../config.php");  
-	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "includes/header.inc.php");
 	require_once(ROOT_PATH . 'inc/checklog.php');
 	 
 
 	session_start();
 	//Connect to DB
-	require_once(ROOT_PATH . "inc/db_connect.php");
+	require_once(ROOT_PATH . "includes/db_connect.php");
 
 	mysqli_select_db($db_server, DB_NAME) or die("Couldn't find db");
 
@@ -133,4 +133,4 @@
 				</article>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>

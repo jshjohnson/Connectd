@@ -13,8 +13,7 @@
 	$developer_id    = $_GET["id"];
 	$developer       = $developers[$developer_id];
 
-	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/page-header.php");
+	include_once(ROOT_PATH . "includes/header.inc.php");
 ?>		
 		<section class="container">
 			<div class="grid--no-marg cf">
@@ -45,4 +44,4 @@
 				<a class="btn btn--red" href="<?= BASE_URL; ?>search/">Try refining your search</a>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>

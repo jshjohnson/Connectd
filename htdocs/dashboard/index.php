@@ -9,8 +9,7 @@
 	$pageTitle    = "Dashboard";
 	$section      = "Dashboard";
 
-	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/page-header.php");
+	include_once(ROOT_PATH . "includes/header.inc.php");
 
 	require_once(ROOT_PATH . "model/designers.php");
 	require_once(ROOT_PATH . "model/developers.php");
@@ -97,4 +96,4 @@
 				</article>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>

@@ -123,10 +123,6 @@
 				$fields = $categories[1];
 				return $fields;
 	    	}
-
-
-
-
 	    }
 
 	    public function getExperiences() {

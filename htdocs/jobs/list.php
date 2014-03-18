@@ -13,8 +13,7 @@
 	$job_id      = $_GET["id"];
 	$job         = $jobs[$job_id];
 	
-	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/page-header.php");
+	include_once(ROOT_PATH . "includes/header.inc.php");
 ?>		
 		<section class="container">
 			<div class="grid--no-marg cf">
@@ -48,4 +47,4 @@
 				<a class="btn btn--red" href="<?= BASE_URL; ?>designers/list/">See our talented bunch</a>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>

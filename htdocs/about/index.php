@@ -3,10 +3,9 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$pageTitle    = "About Us";
-	$section      = "About";
+	$section = "Page";
 
-	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/page-header.php");
+	include_once(ROOT_PATH . "includes/header.inc.php");
 ?>
 	<section class="section color-blue">
 		<div class="container__inner">
@@ -65,4 +64,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>

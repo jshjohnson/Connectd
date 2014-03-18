@@ -5,10 +5,10 @@
 	$general->loggedOutProtect();
 	$userVotes = $votes->getUserVotes($user_id);
 
-	$pageTitle = "Trials";
-	$section = "Trials";
+	$pageTitle = "Welcome";
+	$section = "Welcome";
 
-	include_once(ROOT_PATH . "inc/header-home.php");
+	include_once(ROOT_PATH . "includes/header-home.php");
 ?>
 	<div class="welcome-intro">
 		<h2 class="logo text-right"><a href="<?= BASE_URL; ?>">connectd</a></h2>
@@ -28,4 +28,4 @@
 			</div>
 		</section>
 	</div>
-<?php include_once(ROOT_PATH . "inc/footer-home.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer-home.php"); ?>

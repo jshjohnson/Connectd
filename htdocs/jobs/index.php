@@ -19,8 +19,7 @@
 	$pageTitle = $job['job_name'];
 	$section = "Jobs";
 	
-	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/page-header.php");
+	include_once(ROOT_PATH . "includes/header.inc.php");
 
 ?>	
 		<section class="container">
@@ -103,4 +102,4 @@
 				<a class="btn btn--green" href="<?= BASE_URL; ?>jobs/list/">See our jobs list</a>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>

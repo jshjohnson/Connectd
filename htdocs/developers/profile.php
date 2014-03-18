@@ -19,8 +19,7 @@
 	$pageTitle  = $developer['firstname'] . ' ' . $developer['lastname'] . ' :: ' . $developer['jobtitle'];
 	$section    = "Developer";
 
-	include_once(ROOT_PATH . "inc/header.php");
-	include_once(ROOT_PATH . "inc/page-header.php");
+	include_once(ROOT_PATH . "includes/header.inc.php");
 
 ?>
 		<section class="container">
@@ -129,4 +128,4 @@
 				<a class="btn btn--red" href="<?= BASE_URL; ?>developers/list/">See our talented bunch</a>
 			</div>
 		</section>
-<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>

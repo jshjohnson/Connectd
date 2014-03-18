@@ -12,9 +12,10 @@
 	$jobTitles         = $general->getJobTitles($userType);
 
 	$pageTitle         = "Sign Up";
+	$pageType          = "Page";
 	$section           = "Designer";
 	
-	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "includes/header.inc.php");
 
 	// Grab the form data
 	$firstname         = trim($_POST['firstname']);
@@ -37,7 +38,7 @@
 		header('Location: dashboard/');
 	}else if (isset($_POST['submit'])) {
 
-		$general->highjackPrevention();
+		$general->hijackPrevention();
 
      	$r1='/[A-Z]/';  // Test for an uppercase character
        	$r2='/[a-z]/';  // Test for a lowercase character
@@ -91,7 +92,7 @@
 			$portfolio      = $general->cleanString($db, $portfolio);
 			$experience     = $general->cleanString($db, $experience);
 			$jobtitle       = $general->cleanString($db, $jobtitle);
-			$userType      = 'designer';
+			$userType       = 'designer';
 
 			$users->registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $userType);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
@@ -99,23 +100,6 @@
 		}
 	}
 ?>
-	<header class="header header-blue--alt zero-bottom cf">
-		<div class="container">
-				<?php if (!isset($_SESSION['logged'])) :?>
-				<h1 class="header__section header__section--title">Sign Up
-					<a href="" class="login-trigger header__section--title__link">: Log In</a>
-				</h1>
-				<?php else : ?>
-				<h1 class="header__section header__section--title">Sign Up
-					<a href="" class="menu-trigger header__section--title__link">: Menu</a>
-				</h1>
-					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-				<?php endif; ?>
-			<h2 class="header__section header__section--logo">
-				<a href="<?= BASE_URL; ?>">connectd</a>
-			</h2>
-		</div>
-	</header>
 	<section>
 		<div class="section-heading color-blue">
 			<div class="container">
@@ -188,4 +172,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>

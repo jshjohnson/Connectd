@@ -10,9 +10,10 @@
 	$experiences        = $general->getExperiences();
 
 	$pageTitle          = "Sign Up";
+	$pageType           = "Page";
 	$section            = "Employer";
 
-	include_once(ROOT_PATH . "inc/header.php");
+	include_once(ROOT_PATH . "includes/header.inc.php");
 
 	// Grab the form data
 	$firstname          = trim($_POST['firstname']);
@@ -34,6 +35,8 @@
 	if (isset($_SESSION['logged'])){
 		header('Location: dashboard/');
 	}else if (isset($_POST['submit'])) {
+
+		$general->hijackPrevention();
 
 		// Form hijack prevention
 		foreach( $_POST as $value ){
@@ -104,23 +107,6 @@
 
 	}
 ?>
-	<header class="header header-green--alt zero-bottom cf">
-		<div class="container">
-				<?php if (!isset($_SESSION['logged'])) :?>
-				<h1 class="header__section header__section--title"><?= $pageTitle ?>
-					<a href="" class="login-trigger header__section--title__link">: Log In</a>
-				</h1>
-				<?php else : ?>
-				<h1 class="header__section header__section--title"><?= $pageTitle ?>
-					<a href="" class="menu-trigger header__section--title__link">: Menu</a>
-				</h1>
-					<?php include_once(ROOT_PATH . "inc/page-nav.php"); ?>
-				<?php endif; ?>
-			<h2 class="header__section header__section--logo">
-				<a href="<?= BASE_URL; ?>">connectd</a>
-			</h2>
-		</div>
-	</header>
 	<section>
 		<div class="section-heading color-green">
 			<div class="container">
@@ -191,4 +177,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "inc/footer.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>

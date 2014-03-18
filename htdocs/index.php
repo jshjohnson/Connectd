@@ -5,10 +5,11 @@
 	$general->errors();
 	$general->loggedInProtect();
 
-	$pageTitle = "Connectd";
-	$section = "Home";
+	$pageTitle         = "Connectd";
+	$pageType          = "Home";
+	$section           = "Home";
 
-	include_once(ROOT_PATH . "inc/header-home.php");
+	include_once(ROOT_PATH . "includes/header.inc.php");
 ?>
 		<header class="site-intro">
 			<div class="site-intro__wrap">
@@ -46,4 +47,4 @@
 				</div>
 			</section>
 		</div>
-<?php include_once(ROOT_PATH . "inc/footer-home.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer-home.php"); ?>
