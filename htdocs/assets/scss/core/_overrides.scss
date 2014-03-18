@@ -17,8 +17,8 @@
 
 .block {display: block;}
 
-.float-right { float: right; }
-.float-left { float:left; }
+.float-right { float: right; clear: right}
+.float-left { float:left; clear: left;}
 
 .text-center {
 	text-align: center;

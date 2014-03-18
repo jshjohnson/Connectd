@@ -3213,11 +3213,13 @@ img.media__img {
 /* line 20, ../scss/core/_overrides.scss */
 .float-right {
   float: right;
+  clear: right;
 }
 
 /* line 21, ../scss/core/_overrides.scss */
 .float-left {
   float: left;
+  clear: left;
 }
 
 /* line 23, ../scss/core/_overrides.scss */
