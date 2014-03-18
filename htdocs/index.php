@@ -47,4 +47,4 @@
 				</div>
 			</section>
 		</div>
-<?php include_once(ROOT_PATH . "includes/footer-home.php"); ?>
+<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>
