@@ -76,11 +76,17 @@
 
 		try {
 			$results = $db->prepare("
-				SELECT *
-				FROM " . DB_NAME . ".users, " . DB_NAME . ".employers
-				WHERE `confirmed` = ? 
-				AND users.user_id = ?
-				AND users.user_id = employers.user_id
+				SELECT u.*, e.*, et.*
+				FROM (((" . DB_NAME . ".users AS u
+				LEFT JOIN " . DB_NAME . ".employers AS e
+				ON u.user_id = e.employer_id)
+				LEFT JOIN " . DB_NAME . ".employer_types as et
+				ON u.user_id = et.employer_type_id)
+				LEFT JOIN " . DB_NAME . ".user_types AS ut
+				ON u.user_id = ut.user_type_id)
+				WHERE u.confirmed = ?
+				AND u.user_id = ?
+				AND ut.user_type = ?
 			");
 
 			$results->bindValue(1, 1);

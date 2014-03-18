@@ -80,15 +80,19 @@
 
 		try {
 			$results = $db->prepare("
-				SELECT *
-				FROM " . DB_NAME . ".users, " . DB_NAME . ".freelancers  
-				WHERE users.confirmed = ? 
-				AND users.user_id = ?
-				AND users.user_id = freelancers.user_id
+				SELECT u.user_id, u.firstname, u.lastname, u.bio, u.portfolio, u.location, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
+				FROM ((" . DB_NAME . ".users AS u
+				LEFT JOIN " . DB_NAME . ".freelancers AS f
+				ON u.user_id = f.freelancer_id)
+				LEFT JOIN " . DB_NAME . ".user_types AS ut
+				ON u.user_id = ut.user_type_id)
+				WHERE u.confirmed = ?
+				AND u.user_id = ?
+				AND ut.user_type = ?
 			");
 			$results->bindValue(1, 1);
 			$results->bindValue(2, $id);
-			// $results->bindValue(3, 'developer');
+			$results->bindValue(3, 'developer');
 
 
 			$results->execute();
