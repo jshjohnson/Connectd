@@ -16,4 +16,8 @@ RewriteRule ^jobs/list/ /Connectd/htdocs/jobs/list.php
 
 ErrorDocument 404 /Connectd/htdocs/404.php
 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
 Options -Indexes
