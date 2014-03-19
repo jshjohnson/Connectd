@@ -7,8 +7,8 @@
 	include_once(ROOT_PATH . "model/jobs.php");
 
 	if (isset($_GET["id"])) {
-		$job_id = $_GET["id"];
-		$job = get_jobs_single($job_id);
+		$job_id    = $_GET["id"];
+		$job       = get_jobs_single($job_id);
 	}
 
 	if (empty($job)) {
