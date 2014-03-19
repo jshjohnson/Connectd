@@ -56,10 +56,16 @@
 
 		try {
 			$results = $db->query("SELECT 
-				*
-				FROM " . DB_NAME . ".jobs
-				JOIN " . DB_NAME . ".users ON jobs.user_id = users.user_id
+				j.*, u.user_id, ut.user_type_id, ut.user_type, e.employer_name
+				FROM (((" . DB_NAME . ".jobs AS j
+				LEFT JOIN " . DB_NAME . ".users AS u
+				ON j.user_id = u.user_id)
+				LEFT JOIN " . DB_NAME . ".user_types AS ut
+				ON j.user_id = ut.user_type_id)
+				LEFT JOIN " . DB_NAME . ".employers AS e 
+				ON j.user_id = e.employer_id)
 			");
+			$results->execute();
 		} catch (Exception $e) {
 			echo "Damn. All job data could not be retrieved";
 			exit;
@@ -77,10 +83,14 @@
 
 		try {
 			$results = $db->prepare("SELECT
-				*
-				FROM " . DB_NAME . ".jobs j
-				INNER JOIN " . DB_NAME . ".users u ON j.user_id = u.user_id
-				INNER JOIN " . DB_NAME . ".employers e ON j.user_id = e.user_id
+				j.*, u.user_id, u.location, u.portfolio, u.bio, e.employer_name, et.employer_type
+				FROM (((" . DB_NAME . ".jobs AS j
+				INNER JOIN " . DB_NAME . ".users AS u 
+				ON j.user_id = u.user_id)
+				INNER JOIN " . DB_NAME . ".employers AS e 
+				ON j.user_id = e.employer_id)
+				INNER JOIN " . DB_NAME . ".employer_types AS et 
+				ON j.user_id = et.employer_type_id)
 				WHERE j.job_id = ?
 			");
 			$results->bindValue(1, $id);

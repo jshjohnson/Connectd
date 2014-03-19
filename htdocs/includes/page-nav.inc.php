@@ -1,8 +1,8 @@
-				<?php if ($section == "Developer" || $section == "Dashboard") : ?>
+				<?php if ($section == "Developers" || $section == "Dashboard") : ?>
 				<nav class="header__nav header-navy--alt">
-				<?php elseif ($section == "Designer" || $section == "Settings" || $section == "Sitemap" || $section == "About") : ?>
+				<?php elseif ($section == "Designers" || $section == "Settings" || $section == "Sitemap" || $section == "About") : ?>
 				<nav class="header__nav header-blue--alt">
-				<?php elseif ($section == "Employer") : ?>
+				<?php elseif ($section == "Employers") : ?>
 				<nav class="header__nav header-green--alt">
 				<?php else : ?>
 				<nav class="header__nav header-navy--alt">

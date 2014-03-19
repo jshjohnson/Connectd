@@ -18,8 +18,8 @@
 		exit();
 	}
 
-	$pageTitle = $designer['firstname'] . ' ' . $designer['lastname'] . ' :: ' . $designer['jobtitle'];
-	$section = "Designers";
+	$pageTitle  = $designer['firstname'] . ' ' . $designer['lastname'] . ' :: ' . $designer['jobtitle'];
+	$section    = "Designers";
 		
 	include_once(ROOT_PATH . "includes/header.inc.php");
 ?>

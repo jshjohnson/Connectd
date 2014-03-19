@@ -19,7 +19,7 @@
 	}
 	
 	$pageTitle     = "Employer";
-	$section       = "Employer";
+	$section       = "Employers";
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
 ?>	
@@ -73,7 +73,7 @@
 							$jobName = $job['job_name']
 							?>
 						<div class="media">
-							<div class="media__desc media-2-3">
+							<div class="media__desc media-2-3 media-2-3--wide">
 								<div class="media__button currency-button">
 									<span class="currency">
 										<?php if ($budget>=10000) {

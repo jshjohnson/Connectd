@@ -7,21 +7,22 @@
 
 	$jobCategories = $general->getJobCategories();
 
-	$section   = "Jobs";
-	$pageTitle = "Post a job";
+	$pageTitle     = "Post a job";
+	$pageType      = "Page";
+	$section       = "Jobs";
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
 	
 	// Grab the form data
-	$jobName     = trim($_POST['job_name']);
-	$startDate   = trim($_POST['start_date']);
-	$deadline    = trim($_POST['deadline']);
-	$budget      = trim($_POST['budget']);
-	$category    = trim($_POST['category']);
-	$description = trim($_POST['description']);
-	$submit      = trim($_POST['submit']);
+	$jobName        = trim($_POST['job_name']);
+	$startDate      = trim($_POST['start_date']);
+	$deadline       = trim($_POST['deadline']);
+	$budget         = trim($_POST['budget']);
+	$category       = trim($_POST['category']);
+	$description    = trim($_POST['description']);
+	$submit         = trim($_POST['submit']);
 
-	$status      = trim($_GET['status']);
+	$status         = trim($_GET['status']);
 
 	if (isset($_POST['submit'])){
 
@@ -61,17 +62,6 @@
 	}
 
 ?>
-	<header class="header header-green--alt zero-bottom cf">
-		<div class="container">
-			<h1 class="header__section header__section--title">
-				Post a job<a href="" class="menu-trigger header__section--title__link "> : Menu</a>
-			</h1>
-			<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
-			<h2 class="header__section header__section--logo">
-				<a href="<?= BASE_URL; ?>">connectd</a>
-			</h2>
-		</div>
-	</header>
 	<section>
 		<div class="section-heading color-green">
 			<div class="container">

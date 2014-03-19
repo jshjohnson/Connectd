@@ -21,6 +21,10 @@ img.media__img {
 }
 
 .media-2-3 {
+	width: 80%;
+}
+
+.media-2-3--wide {
 	@include calc(width,'80% - 5em');
 }
 

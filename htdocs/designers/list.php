@@ -6,12 +6,12 @@
 
 	require_once(ROOT_PATH . "model/designers.php");
 
-	$pageTitle = "Designers";
-	$section = "Designer";
+	$pageTitle       = "Designers";
+	$section         = "Designers";
 
-	$designers = get_designers_all();
-	$designer_id = $_GET["id"];
-	$designer = $designers[$designer_id];
+	$designers       = get_designers_all();
+	$designer_id     = $_GET["id"];
+	$designer        = $designers[$designer_id];
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
 ?>		

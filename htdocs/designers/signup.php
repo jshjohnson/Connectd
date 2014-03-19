@@ -13,7 +13,7 @@
 
 	$pageTitle         = "Sign Up";
 	$pageType          = "Page";
-	$section           = "Designer";
+	$section           = "Designers";
 	
 	include_once(ROOT_PATH . "includes/header.inc.php");
 

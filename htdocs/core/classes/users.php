@@ -92,14 +92,14 @@
 		public function getTrialUsers() {
 
 			$query = $this->db->prepare("
-				SELECT u.user_id, u.firstname, u.lastname, u.location, u.portfolio, u.experience, u.time_joined
-				FROM " . DB_NAME . ".users u
-				JOIN " . DB_NAME . ".user_votes v ON u.user_id = v.user_id
+				SELECT u.user_id, u.firstname, u.lastname, u.location, u.portfolio, u.time_joined
+				FROM (" . DB_NAME . ".users AS u
+				JOIN " . DB_NAME . ".user_votes AS v 
+				ON u.user_id = v.user_id)
 				HAVING COUNT(u.user_id)< ?;
 				GROUP BY u.user_id
 				WHERE u.user_type != ?  
 				AND u.confirmed = ? 
-				AND u.user_id = f.user_id
 				ORDER BY u.time_joined DESC
 			");
 

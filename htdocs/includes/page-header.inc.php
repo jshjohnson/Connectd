@@ -1,7 +1,7 @@
 	<header class="header cf 
-		<?php if($section == "Designer") { ?>
+		<?php if($section == "Designers") { ?>
 			header--designer 
-		<?php } else if($section == "Employer") { ?> 
+		<?php } else if($section == "Employers") { ?> 
 			header--employer 
 		<?php } ?>
 
@@ -9,11 +9,11 @@
 			zero-bottom
 		<?php } ?>
 		
-		<?php if($pageType == "Page" && $section == "Designer") { ?>
+		<?php if($pageType == "Page" && $section == "Designers") { ?>
 			header-blue--alt
-		<?php } else if($pageType == "Page" && $section == "Developer") { ?>
+		<?php } else if($pageType == "Page" && $section == "Developers") { ?>
 			header-navy--alt
-		<?php } else if($pageType == "Page" && $section == "Employer") { ?>
+		<?php } else if($pageType == "Page" && $section == "Employers") { ?>
 			header-green--alt
 		<?php } ?>
 		">
@@ -32,7 +32,11 @@
 					<a href="<?= BASE_URL; ?>">connectd</a>
 				</h2>
 				<?php else : ?>
+				<?php if($section == "Jobs" || $section == "Developers" || $section == "Designers" || $section == "Employers") : ?>	
+				<h1 class="header__section header__section--title"><?= $section; ?>
+				<?php else : ?>
 				<h1 class="header__section header__section--title"><?= $pageTitle; ?>
+				<?php endif; ?>
 					<a href="" class="menu-trigger header__section--title__link">: Menu</a>
 				</h1>
 				<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
