@@ -34,7 +34,7 @@
 			<div class="grid--no-marg cf">
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
 					<header class="header--panel header--designer cf">
-						<h3 class="float-left"><a href="<?= BASE_URL; ?>designer/list.php">Designers</a></h3>
+						<h3 class="float-left"><a href="<?= BASE_URL; ?>designers/list/">Designers</a></h3>
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
@@ -49,7 +49,7 @@
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
 					<header class="header--panel header--developer cf">
-						<h3 class="float-left"><a href="<?= BASE_URL; ?>developer/list.php">Developers</a></h3>
+						<h3 class="float-left"><a href="<?= BASE_URL; ?>developers/list/">Developers</a></h3>
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
@@ -64,7 +64,7 @@
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
 					<header class="header--panel header--employer cf">
-						<h3 class="float-left"><a href="<?= BASE_URL; ?>developer/list.php">Employers</a></h3>
+						<h3 class="float-left"><a href="<?= BASE_URL; ?>employers/list/">Employers</a></h3>
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">

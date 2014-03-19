@@ -28,7 +28,7 @@
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
 							<li class="active">Job Title</li>
-							<li class="float-right portfolio__headings--label"><?= $job['job_category']; ?></li>
+							<li class="float-right portfolio__headings--label"><?= $job['job_category'] . ' • Posted on ' . date('F j, Y', $job['job_post_date']) . ' • #' . $job['job_id']; ?></li>
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">

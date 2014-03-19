@@ -1,5 +1,5 @@
 <section class='overlay'>
-	<div class='overlay__inner'>
+	<div class='overlay__inner overlay__inner--mid'>
 		<a href="" class="cancel-trigger"><i class="icon--cancel"></i></a>
 		<h2 class='overlay__title'>Show them what you are made of...</h2>
 		<form action=''>
