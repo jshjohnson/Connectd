@@ -94,6 +94,7 @@
 			$query = $this->db->prepare("
 					SELECT 
 					user_types.user_type,
+					users.user_id,
 					users.firstname, 
 					users.lastname, 
 					users.location, 
@@ -116,7 +117,8 @@
 					ON users.user_id = user_types.user_type_id) 
 					ON voters.user_id = user_votes.user_id
 					WHERE user_types.user_type != ?
-					GROUP BY 
+					GROUP BY
+					users.user_id,
 					users.firstname, 
 					users.lastname, 
 					users.location,

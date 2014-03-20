@@ -64,27 +64,30 @@
 			}
 		}
 
-		public function addVote($user_id, $votedBy) {
-			$query = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_votes (user_id, voted_by_id) VALUES (?, ?)");
+		public function addVote($votedBy, $user_id) {
+			$query = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_votes (user_id, vote_id) VALUES (?, ?)");
 
-			$query->bindValue(1, $user_id);
-			$query->bindValue(2, $votedBy);
+			$query->bindValue(1, $votedBy);
+			$query->bindValue(2, $user_id);
+			
 
 			try{
 				$query->execute();
 				$rows = $query->rowCount();
 
-				if($rows > 0) {
+				header("Location:" . BASE_URL . "trials/");
+
+				// if($rows > 0) {
 					
-					$query_2 = $this->db->prepare("UPDATE " . DB_NAME . ".user_votes SET votes = ? WHERE user_id = ?");
+				// 	$query_2 = $this->db->prepare("UPDATE " . DB_NAME . ".user_votes SET votes = ? WHERE user_id = ?");
 	 
-	 				$query_2->bindValue(1, 1);
-	 				$query_2->bindValue(2, $user_id);
+	 		// 		$query_2->bindValue(1, 1);
+	 		// 		$query_2->bindValue(2, $user_id);
 					 
-					$query_2->execute();
+				// 	$query_2->execute();
 					
-					header("Location:" . BASE_URL . "trials/");
-				}
+				// 	header("Location:" . BASE_URL . "trials/");
+				// }
 
 			}catch(PDOException $e){
 				die($e->getMessage());
