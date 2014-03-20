@@ -52,7 +52,7 @@
 				<article class="portfolio grid__cell module-2-3 module--no-pad float-left">
 					<nav class="portfolio__headings-bg zero-bottom">
 						<ul class="portfolio__headings portfolio__headings--alt">
-							<li class="active"><a href="">Graphic Design</a></li>
+							<li class="active active--blue"><a href="">Graphic Design</a></li>
 							<li><a href="">Web Design</a></li>
 							<li><a href="">App Design</a></li>
 						</ul>
@@ -81,7 +81,7 @@
 					</div>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
-							<li class="active">Skills</li>
+							<li class="active active--blue">Skills</li>
 							<li class="float-right info"><a href="" class="des-skills-trigger">What are these skills?</a></li>
 						</ul>
 					</nav>
@@ -96,7 +96,7 @@
 					</ul>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
-							<li class="active">Testimonial</li>
+							<li class="active active--blue">Testimonial</li>
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">

@@ -9,7 +9,7 @@
 
 	$pageTitle     = "Post a job";
 	$pageType      = "Page";
-	$section       = "Jobs";
+	$section       = "Green";
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
 	

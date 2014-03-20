@@ -11,7 +11,7 @@
 
 	$pageTitle          = "Sign Up";
 	$pageType           = "Page";
-	$section            = "Employers";
+	$section            = "Green";
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
 

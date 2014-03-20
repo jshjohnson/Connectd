@@ -511,7 +511,6 @@ img.media__img {
 			color: #7f7e7e;
 		}
 		&.active {
-			background-color: $color-brand-dark;
 			color: white;
 			a {
 				color: white;
@@ -522,7 +521,7 @@ img.media__img {
 				height: 0; 
 				border-left: .75em solid transparent;
 				border-right: .75em solid transparent;
-				border-top: .75em solid $color-brand-dark;
+				border-top: .75em solid inherit;
 				position: absolute;
 				bottom: -.7em;
 				left: 50%;
@@ -535,12 +534,27 @@ img.media__img {
 .portfolio__headings--alt {
 	li {
 		&.active {
-			background-color: $color-brand-light;
 			color: white;
-			&:after {
-				border-top-color: $color-brand-light;
-			}
 		}
+	}
+}
+
+.active--blue {
+	background-color: $color-brand-light;
+	&:after {
+		border-top: .75em solid $color-brand-light;
+	}
+}
+.active--green {
+	background-color: $color-brand-mid;
+	&:after {
+		border-top: .75em solid $color-brand-mid;
+	}
+}
+.active--navy {
+	background-color: $color-brand-dark;
+	&:after {
+		border-top: .75em solid $color-brand-dark;
 	}
 }
 

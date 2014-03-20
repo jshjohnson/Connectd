@@ -20,6 +20,17 @@
 	form {
 		margin-bottom: 0;
 	}
+	&:after {
+		content: "";
+		background-image: url("../img/container-footer.svg");
+		display: block;
+		position: absolute;
+		height: 2.5em;
+		width: 100%;
+		left: 0;
+		bottom: -2.5em;
+		-webkit-background-size: 100%;
+	}
 }
 
 .content-overlay > *:last-child,

@@ -51,7 +51,7 @@
 				<article class="portfolio grid__cell module-2-3 module--no-pad float-right">
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
-							<li class="active">Skills</li>
+							<li class="active active--navy">Skills</li>
 							<li class="float-right help"><a href="" class="dev-skills-trigger">What are these skills?</a></li>
 						</ul>
 					</nav>
@@ -86,7 +86,7 @@
 					</div>
 					<nav class="portfolio__headings-bg zero-bottom">
 						<ul class="portfolio__headings portfolio__headings">
-							<li class="active"><a href="">Responsive websites</a></li>
+							<li class="active active--navy"><a href="">Responsive websites</a></li>
 							<li><a href="">WordPress</a></li>
 						</ul>
 					</nav>
@@ -108,7 +108,7 @@
 					</div>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
-							<li class="active">Testimonial</li>
+							<li class="active active--navy">Testimonial</li>
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">

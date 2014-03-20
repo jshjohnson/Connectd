@@ -2,8 +2,9 @@
 	require_once("config.php");  
 	require_once(ROOT_PATH . "core/init.php");
 
-	$pageTitle = "404";
-	$section = "Page";
+	$pageTitle  = "404";
+	$pageType   = "Page";
+	$section    = "Blue";
 
 	include_once(ROOT_PATH . "includes/header.inc.php"); ?>
 	<section>

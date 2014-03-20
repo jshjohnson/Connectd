@@ -17,7 +17,8 @@
 	}
 
 	$pageTitle = $job['job_name'];
-	$section = "Jobs";
+	$pageType  = "Jobs";
+	$section   = "Employers";
 	
 	include_once(ROOT_PATH . "includes/header.inc.php");
 
@@ -27,7 +28,7 @@
 				<article class="portfolio grid__cell module-2-3 module--no-pad float-left">
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
-							<li class="active">Job Title</li>
+							<li class="active active--green">Job Title</li>
 							<li class="float-right portfolio__headings--label"><?= $job['job_category'] . ' • Posted on ' . date('F j, Y', $job['job_post_date']) . ' • #' . $job['job_id']; ?></li>
 						</ul>
 					</nav>
@@ -36,7 +37,7 @@
 					</div>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
-							<li class="active">Job Details</li>
+							<li class="active active--green">Job Details</li>
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">
@@ -44,7 +45,7 @@
 					</div>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
-							<li class="active">Job Description</li>
+							<li class="active active--green">Job Description</li>
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">

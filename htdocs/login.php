@@ -6,7 +6,8 @@
 
 	$pageTitle = "Log In";
 	$pageType = "Page";
-	$section = "Designers";
+	$section = "Blue";
+	
 	include_once(ROOT_PATH . "includes/header.inc.php");
 
 	$status = $_GET["status"];

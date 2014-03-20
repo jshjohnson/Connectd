@@ -9,11 +9,11 @@
 			zero-bottom
 		<?php } ?>
 		
-		<?php if($pageType == "Page" && $section == "Designers") { ?>
+		<?php if($pageType == "Page" && $section == "Blue") { ?>
 			header-blue--alt
-		<?php } else if($pageType == "Page" && $section == "Developers") { ?>
+		<?php } else if($pageType == "Page" && $section == "Navy") { ?>
 			header-navy--alt
-		<?php } else if($pageType == "Page" && $section == "Employers") { ?>
+		<?php } else if($pageType == "Page" && $section == "Green") { ?>
 			header-green--alt
 		<?php } ?>
 		">
