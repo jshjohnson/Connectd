@@ -512,6 +512,10 @@ fieldset {
   margin: 0;
   padding: 0;
 }
+/* line 35, ../scss/core/_base.scss */
+fieldset label {
+  margin-top: 1em;
+}
 
 /* line 36, ../scss/core/_base.scss */
 label, select {

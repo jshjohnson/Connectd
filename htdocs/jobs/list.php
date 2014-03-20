@@ -26,7 +26,7 @@
 				</aside>
 				<article class="dashboard-panel grid__cell module-2-3 module--no-pad float-left">
 					<header class="header--panel header--employer cf">
-						<h3 class="float-left">My Jobs</h3>
+						<h3 class="float-left">Jobs</h3>
 						<?php if($userType == 'employer') : ?>
 						<a href="<?= BASE_URL; ?>jobs/post.php" class="float-right btn btn--action">Post Job</a>
 						<?php endif; ?>

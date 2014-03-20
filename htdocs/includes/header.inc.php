@@ -1,5 +1,5 @@
 <?php ob_start();
-	$isHome = $pageType == "Home";
+	$isHome = $pageType == "Home" || $section == "Welcome";
 	$isPage = $pageType == "Page";
 
 	$general->errors();

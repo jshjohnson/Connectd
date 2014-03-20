@@ -121,7 +121,7 @@
 		// Get user data
 		public function userData($id) {
 			$query = $this->db->prepare("
-				SELECT users.firstname, users.lastname, user_types.*
+				SELECT users.firstname, users.lastname, users.email, user_types.*
 				FROM " . DB_NAME . ".users 
 				JOIN " . DB_NAME . ".user_types 
 				ON users.user_id = user_types.user_type_id

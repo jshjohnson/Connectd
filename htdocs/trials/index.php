@@ -42,7 +42,7 @@
 				<h4 class="as-h1 call-to-action__title">
 					Looking for freelance work?
 				</h4>
-				<a class="btn btn--green" href="<?= BASE_URL; ?>dashboard/">See our jobs list</a>
+				<a class="btn btn--green" href="<?= BASE_URL; ?>jobs/list/">See our jobs list</a>
 			</div>
 		</section>
 <?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>
