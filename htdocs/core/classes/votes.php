@@ -10,10 +10,11 @@
 		public function getUserVotes($id) {
  
 			$query = $this->db->prepare("
-				SELECT COUNT(v.votes), v.user_id, u.user_id 
-				FROM " . DB_NAME . ".users u, " . DB_NAME . ".user_votes v
+				SELECT COUNT(uv.vote_id) AS CountOfvote_id, u.user_id
+				FROM " . DB_NAME . ".user_votes uv
+				JOIN " . DB_NAME . ".users u ON uv.vote_id = u.user_id
 				WHERE u.user_id = ? 
-				AND u.user_id = v.user_id 
+				AND u.user_id = uv.vote_id 
 				");
 			$query->bindValue(1, $id);
 
@@ -72,7 +73,7 @@
 			
 			try{
 				$query->execute();
-				header("Location:" . BASE_URL . "trials?added");
+				header("Location:" . BASE_URL . "trials?status=added");
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}	
@@ -86,7 +87,7 @@
 			
 			try{
 				$query->execute();
-				header("Location:" . BASE_URL . "trials?removed");
+				header("Location:" . BASE_URL . "trials?status=removed");
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}	

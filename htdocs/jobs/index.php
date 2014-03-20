@@ -11,6 +11,7 @@
 		$job       = get_jobs_single($job_id);
 	}
 
+
 	if (empty($job)) {
 		header("Location: " . BASE_URL);
 		exit();
@@ -29,7 +30,7 @@
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
 							<li class="active active--green">Job Title</li>
-							<li class="float-right portfolio__headings--label"><?= $job['job_category'] . ' • Posted on ' . date('F j, Y', $job['job_post_date']) . ' • #' . $job['job_id']; ?></li>
+							<li class="float-right portfolio__headings--label"><?= $job['job_category'] . ' • Posted ' . $general->timeAgo($job['job_post_date']) . 'ago • #' . $job['job_id']; ?></li>
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">

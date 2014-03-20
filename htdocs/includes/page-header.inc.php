@@ -1,7 +1,7 @@
 	<header class="header cf 
 		<?php if($section == "Designers") { ?>
 			header--designer 
-		<?php } else if($section == "Employers") { ?> 
+		<?php } else if($section == "Employers" || $section == "Jobs") { ?> 
 			header--employer 
 		<?php } ?>
 

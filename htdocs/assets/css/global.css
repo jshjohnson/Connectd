@@ -1193,7 +1193,7 @@ a:hover {
 /* line 343, ../scss/core/_base.scss */
 .icon--star:before {
   content: '\e80e';
-  color: #E7E948;
+  color: #EFF123;
   float: left;
   top: 5px;
 }
@@ -1202,9 +1202,9 @@ a:hover {
 /* line 344, ../scss/core/_base.scss */
 .icon--star-alt:before {
   content: '\e80e';
-  color: #E7E948;
-  float: left;
-  top: 9px;
+  color: #EFF123;
+  padding: .5em;
+  margin: 0;
 }
 
 /* '' */
@@ -1221,6 +1221,12 @@ a:hover {
 
 /* '' */
 /* line 347, ../scss/core/_base.scss */
+.icon--cross:before {
+  content: '\e810';
+}
+
+/* '' */
+/* line 348, ../scss/core/_base.scss */
 .icon--cancel:before {
   content: '\e810';
   float: right;
@@ -3403,34 +3409,73 @@ img.media__img {
 }
 
 /* line 91, ../scss/core/modules/_sidebar.scss */
+.user-sidebar__price--small {
+  background-color: #fc4349;
+  border-radius: 10em;
+  color: white;
+  font-weight: 600;
+  font-size: .9em;
+  width: 3em;
+  height: 3em;
+  top: -1.65em;
+  left: -1.65em;
+  position: absolute;
+}
+/* line 102, ../scss/core/modules/_sidebar.scss */
+.user-sidebar__price--small h5 {
+  margin: 0;
+  line-height: 2.25em;
+}
+/* line 106, ../scss/core/modules/_sidebar.scss */
+.user-sidebar__price--small small {
+  display: block;
+  line-height: 0;
+  font-size: .7em;
+  margin-top: -.5em;
+}
+@media screen and (max-width: 62em) {
+  /* line 91, ../scss/core/modules/_sidebar.scss */
+  .user-sidebar__price--small {
+    top: -1.1em;
+    left: -1.1em;
+  }
+}
+@media screen and (max-width: 30em) {
+  /* line 91, ../scss/core/modules/_sidebar.scss */
+  .user-sidebar__price--small {
+    left: -.6em;
+  }
+}
+
+/* line 122, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__price--alt {
   right: -1.65em;
   left: auto;
 }
 @media screen and (max-width: 30em) {
-  /* line 91, ../scss/core/modules/_sidebar.scss */
+  /* line 122, ../scss/core/modules/_sidebar.scss */
   .user-sidebar__price--alt {
     right: -1.1em;
   }
 }
 
 @media screen and (max-width: 49em) {
-  /* line 99, ../scss/core/modules/_sidebar.scss */
+  /* line 130, ../scss/core/modules/_sidebar.scss */
   .user-sidebar--employer {
     margin-bottom: 2em;
     margin-top: 2em;
   }
-  /* line 103, ../scss/core/modules/_sidebar.scss */
+  /* line 134, ../scss/core/modules/_sidebar.scss */
   .user-sidebar--employer:first-child {
     margin-top: 0;
   }
 }
 
-/* line 109, ../scss/core/modules/_sidebar.scss */
+/* line 140, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__info {
   position: relative;
 }
-/* line 111, ../scss/core/modules/_sidebar.scss */
+/* line 142, ../scss/core/modules/_sidebar.scss */
 .user-sidebar__info p {
   font-size: .9em;
   margin-bottom: 1em;

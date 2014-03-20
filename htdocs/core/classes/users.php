@@ -100,7 +100,7 @@
 					users.location, 
 					user_experience.experience,
 					users.portfolio,
-					Count(user_votes.voted_by_id) 
+					Count(user_votes.vote_id) 
 					AS CountOfvote_id, 
 					freelancers.jobtitle, 
 					freelancers.priceperhour
@@ -124,10 +124,14 @@
 					users.location,
 					user_experience.experience,
 					users.portfolio,
+					user_votes.vote_id,
 					freelancers.jobtitle, 
 					freelancers.priceperhour
+					HAVING CountOfvote_id < ?
 			");
 			$query->bindValue(1, 'employer');
+			$query->bindValue(2, 10);
+
 			try{
 				$query->execute();
 			}catch(PDOException $e){
