@@ -1,7 +1,11 @@
 <?php 
 	class General {
 
+		// Properties
+		
 		private $db;
+
+		// Methods
 
 		public function __construct($database) {
 		    $this->db = $database;
@@ -10,10 +14,6 @@
 		public function errors() {
 			error_reporting(E_ERROR|E_WARNING);
 			ini_set('display_errors', 1);
-		}
-
-		public function closeDB() {
-			$db = NULL;
 		}
 
 		// Strip data from malicious data

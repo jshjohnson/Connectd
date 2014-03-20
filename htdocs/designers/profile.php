@@ -42,7 +42,7 @@
 						</div>
 					</div>
 					<div class="user-sidebar__info">
-						<a href=""><i class="icon--star-alt"></i></a><h3 class="user-sidebar__title"><?= $designer['firstname'] . " " . $designer['lastname']; ?></h3>
+						<a href=""><i class="icon--star"></i></a><h3 class="user-sidebar__title"><?= $designer['firstname'] . " " . $designer['lastname']; ?></h3>
 						<h4 class="user-sidebar__label icon--attach icon--marg"><?= $designer['jobtitle']; ?></h4>
 						<h4 class="user-sidebar__label icon--location icon--marg"><?= $designer['location']; ?></h4>
 						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $designer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>

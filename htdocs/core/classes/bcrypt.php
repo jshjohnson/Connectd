@@ -1,6 +1,11 @@
 <?php
 	class Bcrypt {
+		
+		// Properties
+	 	
 		private $rounds;
+
+		// Methods
 
 		public function __construct($rounds = 12) {
 			if(CRYPT_BLOWFISH != 1) {
