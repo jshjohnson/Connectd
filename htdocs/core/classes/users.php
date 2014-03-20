@@ -92,20 +92,41 @@
 		public function getTrialUsers() {
 
 			$query = $this->db->prepare("
-				SELECT u.user_id, u.firstname, u.lastname, u.location, u.portfolio, u.time_joined
-				FROM (" . DB_NAME . ".users AS u
-				JOIN " . DB_NAME . ".user_votes AS v 
-				ON u.user_id = v.user_id)
-				HAVING COUNT(u.user_id)< ?;
-				GROUP BY u.user_id
-				WHERE u.user_type != ?  
-				AND u.confirmed = ? 
-				ORDER BY u.time_joined DESC
+					SELECT 
+					user_types.user_type,
+					users.firstname, 
+					users.lastname, 
+					users.location, 
+					user_experience.experience,
+					users.portfolio,
+					Count(user_votes.user_id) 
+					AS CountOfuser_id, 
+					freelancers.jobtitle, 
+					freelancers.priceperhour
+					FROM users 
+					AS voters
+					RIGHT JOIN 
+					((((users LEFT JOIN user_votes 
+					ON users.user_id = user_votes.user_id) 
+					LEFT JOIN freelancers 
+					ON users.user_id = freelancers.freelancer_id) 
+					LEFT JOIN user_experience
+					ON users.user_id = user_experience.experience_id) 
+					LEFT JOIN user_types
+					ON users.user_id = user_types.user_type_id) 
+					ON voters.user_id = user_votes.user_id
+					WHERE user_types.user_type != ?
+					GROUP BY 
+					users.firstname, 
+					users.lastname, 
+					users.location,
+					user_experience.experience,
+					users.portfolio,
+					freelancers.jobtitle, 
+					freelancers.priceperhour
 			");
 
-			$query->bindValue(1, 10);
-			$query->bindValue(2, 'employer');
-			$query->bindValue(3, 2);	
+			$query->bindValue(1, 'employer');
 			
 
 			try{

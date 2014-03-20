@@ -6,7 +6,7 @@
 
 	$pageTitle = "Edit Profile";
 	$pageType = "Page";
-	$section = "Designers";
+	$section = "Blue";
 	include_once(ROOT_PATH . "includes/header.inc.php");
 
 ?>
