@@ -72,8 +72,21 @@
 			
 			try{
 				$query->execute();
-				$rows = $query->rowCount();
-				header("Location:" . BASE_URL . "trials?success");
+				header("Location:" . BASE_URL . "trials?added");
+			}catch(PDOException $e){
+				die($e->getMessage());
+			}	
+	    }
+
+	    public function removeVote($user_id, $votedBy) {
+			$query = $this->db->prepare("DELETE FROM " . DB_NAME . ".user_votes WHERE user_votes.vote_id = ? AND user_votes.voted_by_id = ?");
+
+			$query->bindValue(1, $user_id);
+			$query->bindValue(2, $votedBy);
+			
+			try{
+				$query->execute();
+				header("Location:" . BASE_URL . "trials?removed");
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}	
@@ -110,18 +123,5 @@
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}
-	    }
-
-	    public function removeVote() {
-	    	$query = $this->db->prepare("UPDATE users SET votes = votes - 1 WHERE user_id = ?");
-	    	$query->bindValue(1, $user_id);
-
-			try{
-				$query->execute();
-				header("Location:" . BASE_URL . "trials/"); 
-			}catch(PDOException $e){
-				die($e->getMessage());
-			}	
-
 	    }
 	}

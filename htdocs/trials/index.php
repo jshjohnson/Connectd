@@ -17,7 +17,7 @@
 ?>
 
 		<section class="container">
-			<div class="grid cf">
+			<div class="grid grid--center cf">
 			<?php foreach ($trial_users as $trial_user) : ?>
 				<?php $vote_id == $trial_user["firstname"]; ?>
 				<aside class="grid__cell module-1-4 push-bottom">
@@ -40,7 +40,9 @@
 									 <span class="icon--check">Add vote</span>
 								</a>
 							<?php else : ?>
-								voted
+								<a href="remove-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="btn btn--red btn--small">
+									 <span class="icon--check">Remove vote</span>
+								</a>
 							<?php endif;?>
 							</div>
 						</div>
