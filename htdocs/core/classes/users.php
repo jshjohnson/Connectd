@@ -100,22 +100,22 @@
 					users.location, 
 					user_experience.experience,
 					users.portfolio,
-					Count(user_votes.user_id) 
-					AS CountOfuser_id, 
+					Count(user_votes.voted_by_id) 
+					AS CountOfvote_id, 
 					freelancers.jobtitle, 
 					freelancers.priceperhour
 					FROM users 
 					AS voters
 					RIGHT JOIN 
 					((((users LEFT JOIN user_votes 
-					ON users.user_id = user_votes.user_id) 
+					ON users.user_id = user_votes.vote_id) 
 					LEFT JOIN freelancers 
 					ON users.user_id = freelancers.freelancer_id) 
 					LEFT JOIN user_experience
 					ON users.user_id = user_experience.experience_id) 
 					LEFT JOIN user_types
 					ON users.user_id = user_types.user_type_id) 
-					ON voters.user_id = user_votes.user_id
+					ON voters.user_id = user_votes.vote_id
 					WHERE user_types.user_type != ?
 					GROUP BY
 					users.user_id,
@@ -127,16 +127,12 @@
 					freelancers.jobtitle, 
 					freelancers.priceperhour
 			");
-
 			$query->bindValue(1, 'employer');
-			
-
 			try{
 				$query->execute();
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}
-		 
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
 		}

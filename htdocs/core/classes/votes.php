@@ -64,34 +64,52 @@
 			}
 		}
 
-		public function addVote($votedBy, $user_id) {
-			$query = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_votes (user_id, vote_id) VALUES (?, ?)");
+		public function addVote($user_id, $votedBy) {
+			$query = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_votes (vote_id, voted_by_id) VALUES (?, ?)");
 
-			$query->bindValue(1, $votedBy);
-			$query->bindValue(2, $user_id);
+			$query->bindValue(1, $user_id);
+			$query->bindValue(2, $votedBy);
 			
+			try{
+				$query->execute();
+				$rows = $query->rowCount();
+				header("Location:" . BASE_URL . "trials?success");
+			}catch(PDOException $e){
+				die($e->getMessage());
+			}	
+	    }
+
+	    // vote_id = the person getting voted
+	    // voted_by_id = the person voting
+
+	    public function sessionUserVoted($vote_id, $votedBy) {
+	    	$query = $this->db->prepare("
+	    		SELECT uv.vote_id, uv.voted_by_id 
+
+	    		FROM " . DB_NAME . ".user_votes AS uv
+
+	    		WHERE uv.vote_id = ?
+
+	    		AND uv.voted_by_id = ?
+	    	");
+
+	    	$query->bindValue(1, $vote_id);
+	    	$query->bindValue(2, $votedBy);
 
 			try{
 				$query->execute();
 				$rows = $query->rowCount();
 
-				header("Location:" . BASE_URL . "trials/");
-
-				// if($rows > 0) {
-					
-				// 	$query_2 = $this->db->prepare("UPDATE " . DB_NAME . ".user_votes SET votes = ? WHERE user_id = ?");
-	 
-	 		// 		$query_2->bindValue(1, 1);
-	 		// 		$query_2->bindValue(2, $user_id);
-					 
-				// 	$query_2->execute();
-					
-				// 	header("Location:" . BASE_URL . "trials/");
-				// }
+				// If there are over 0 rows returned, the user has voted
+				if($rows > 0){
+					return true;
+				}else{
+					return false;
+				}
 
 			}catch(PDOException $e){
 				die($e->getMessage());
-			}	
+			}
 	    }
 
 	    public function removeVote() {
