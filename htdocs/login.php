@@ -111,7 +111,7 @@
 						echo '<p class="message message--error">' . implode('</p><p>', $errors) . '</p>';
 					}
 				?>
-				<form method="post" action="login" autocomplete="off">
+				<form method="post" action="<?= BASE_URL; ?>login.php" autocomplete="off">
 					<input type="email" name="email" placeholder="Email" value="<?php if(isset($_COOKIE['remember_me'])) { echo $_COOKIE['remember_me']; } else if(isset($_POST['email'])) echo htmlentities($_POST['email']); ?>" class="field-1-2">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-right">
 					<fieldset class="checkbox float-left">
