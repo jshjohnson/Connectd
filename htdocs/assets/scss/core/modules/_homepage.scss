@@ -25,6 +25,16 @@
 	}
 }
 
+.site-intro__logo {
+	@include respond-min($bp2) {
+		max-width: 55%;
+	}
+	@include respond-min($bp4) {
+		max-width: 50%;
+	}
+	margin-bottom: $baseline;
+}
+
 .site-intro__heading {
 	font-size: 7em;
 	color: white;
@@ -42,6 +52,7 @@
 	text-align: center;
 	font-style: italic;
 	font-family: $font-serif;
+	margin-bottom: $baseline/2;
 	&:after {
 		content: "";
 		width: 0; 
@@ -61,7 +72,7 @@
 		}
 	}
 	@include respond-max($bp2) {
-		font-size: 1em;
+		font-size: 1.4em;
 	}
 }
 

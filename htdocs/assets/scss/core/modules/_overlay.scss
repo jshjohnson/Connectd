@@ -29,6 +29,18 @@
 	@include respond-max($bp1-5) {
 		width: 80%;
 	}
+	.icon--cancel {
+		float: right;
+		margin-right: 0;
+		&:before {
+			margin-right: 0;
+		}
+		@include respond-min($bp1) {
+			margin-right: -3em;
+			margin-top: -1.9em;
+			color: white;	
+		}
+	}
 }
 
 .overlay__innner--animate {

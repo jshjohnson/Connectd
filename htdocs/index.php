@@ -13,12 +13,14 @@
 ?>
 		<header class="site-intro">
 			<div class="site-intro__wrap">
-				<a href="#register"><h1 class="site-intro__heading">connectd.io</h1></a>
+<!-- 				<a href="#register"><h1 class="site-intro__heading">connectd.io</h1></a> -->
+				<a href="#register"><img src="<?= BASE_URL ?>assets/img/logo-test.svg" alt="" class="site-intro__logo"></a>
 				<a href="#register"><h1 class="site-intro__sub-heading">An alternative for freelancers and employers</h1></a>
 				<a href="<?= BASE_URL; ?>about/" class="site-intro__link">Find out more</a>
 			</div>
 		</header>
 		<h2 class="logo text-right"><a href="<?= BASE_URL; ?>">connectd</a></h2>
+
 		<?php if (isset($_SESSION['logged'])) : ?>
 		<h2 class="text-left"><a href="<?= BASE_URL ?>logout.php">Logout</a></h2>
 		<?php else : ?>
