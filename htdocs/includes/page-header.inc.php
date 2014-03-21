@@ -24,7 +24,7 @@
 					<a href="" class="login-trigger header__section--title__link">: Log In</a>
 					<!-- Revisit this -->
 					<?php else : ?>
-					<a href="" class="login-trigger header__section--title__link">: Register</a>
+					<a href="<?= BASE_URL; ?>/#register" class="header__section--title__link">: Register</a>
 					<?php endif;?>
 				</h1>
 				<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>

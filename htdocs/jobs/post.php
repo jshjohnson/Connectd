@@ -5,7 +5,7 @@
 	$general->errors();
 	$general->loggedOutProtect();
 
-	$jobCategories = $general->getJobCategories();
+	$jobCategories = $jobs->getJobCategories();
 
 	$pageTitle     = "Post a job";
 	$pageType      = "Page";
@@ -55,7 +55,7 @@
 			$category       = $general->cleanString($db, $category);
 			$description    = $general->cleanString($db, $description);
 
-			$general->postJob($user_id, $jobName, $startDate, $deadline, $budget, $category, $description);
+			$jobs->postJob($user_id, $jobName, $startDate, $deadline, $budget, $category, $description);
 			header("Location:" . BASE_URL . "jobs/post.php?status=success");
 			exit();
 		}

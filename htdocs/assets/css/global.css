@@ -573,42 +573,43 @@ input[type=file] {
 .checkbox label {
   padding-bottom: 0;
   font-size: .8em;
+  margin-top: 0;
 }
-/* line 57, ../scss/core/_base.scss */
+/* line 58, ../scss/core/_base.scss */
 .checkbox input {
   position: absolute;
   left: 0;
   top: .4em;
 }
 
-/* line 63, ../scss/core/_base.scss */
+/* line 64, ../scss/core/_base.scss */
 form ul, form ol {
   list-style: none;
   margin-left: 0;
   margin-bottom: 1em;
 }
 
-/* line 64, ../scss/core/_base.scss */
+/* line 65, ../scss/core/_base.scss */
 form li {
   margin-bottom: .5em;
 }
 
-/* line 65, ../scss/core/_base.scss */
+/* line 66, ../scss/core/_base.scss */
 form li:last-child, fieldset:last-child {
   margin-bottom: 0;
 }
 
-/* line 66, ../scss/core/_base.scss */
+/* line 67, ../scss/core/_base.scss */
 form br {
   display: none;
 }
 
-/* line 67, ../scss/core/_base.scss */
+/* line 68, ../scss/core/_base.scss */
 textarea {
   resize: vertical;
 }
 
-/* line 69, ../scss/core/_base.scss */
+/* line 70, ../scss/core/_base.scss */
 textarea, .expandingText {
   min-height: 8em;
 }
@@ -616,18 +617,18 @@ textarea, .expandingText {
 /*----------------------------------------------------------------------------------------*\
  $.Project Defaults
 \*----------------------------------------------------------------------------------------*/
-/* line 74, ../scss/core/_base.scss */
+/* line 75, ../scss/core/_base.scss */
 html {
   font-size: 100%;
 }
 @media screen and (min-width: 62em) {
-  /* line 74, ../scss/core/_base.scss */
+  /* line 75, ../scss/core/_base.scss */
   html {
     font-size: 125%;
   }
 }
 
-/* line 80, ../scss/core/_base.scss */
+/* line 81, ../scss/core/_base.scss */
 body {
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
   line-height: 1.5;
@@ -638,90 +639,90 @@ body {
 }
 
 /* -- Vertical Rhythm -- */
-/* line 90, ../scss/core/_base.scss */
+/* line 91, ../scss/core/_base.scss */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .65em;
   margin-top: 1.5em;
 }
 
-/* line 91, ../scss/core/_base.scss */
+/* line 92, ../scss/core/_base.scss */
 h1, blockquote, pre, p, ul, ol, dl, hr {
   margin-top: 0;
 }
 
-/* line 92, ../scss/core/_base.scss */
+/* line 93, ../scss/core/_base.scss */
 p, ul, ol, dl, form, table, blockquote, pre {
   margin-bottom: 2em;
 }
 
-/* line 93, ../scss/core/_base.scss */
+/* line 94, ../scss/core/_base.scss */
 hr {
   border-top: 1px solid #cccccc;
   border-top: 1px solid #E0E0E0;
   margin: 1.5em 5em;
 }
 
-/* line 94, ../scss/core/_base.scss */
+/* line 95, ../scss/core/_base.scss */
 blockquote > :last-child, ul > :last-child, ol > :last-child, dl > :last-child {
   margin-bottom: 0;
 }
 
 /* -- Headings -- */
-/* line 97, ../scss/core/_base.scss */
+/* line 98, ../scss/core/_base.scss */
 h1, .as-h1 {
   line-height: 1.333;
   font-size: 2em;
 }
 
-/* line 98, ../scss/core/_base.scss */
+/* line 99, ../scss/core/_base.scss */
 h2, .as-h2 {
   line-height: 1.4;
   font-size: 1.5em;
 }
 
-/* line 99, ../scss/core/_base.scss */
+/* line 100, ../scss/core/_base.scss */
 h3, .as-h3 {
   line-height: 1.5;
   font-size: 1.25em;
 }
 
-/* line 100, ../scss/core/_base.scss */
+/* line 101, ../scss/core/_base.scss */
 h4, .as-h4 {
   line-height: 1.5;
   font-size: 1.125em;
 }
 
-/* line 101, ../scss/core/_base.scss */
+/* line 102, ../scss/core/_base.scss */
 h5, .as-h5 {
   line-height: 1.5;
   font-size: 1em;
 }
 
-/* line 102, ../scss/core/_base.scss */
+/* line 103, ../scss/core/_base.scss */
 h6, .as-h6 {
   line-height: 1.5;
   font-size: 0.875em;
 }
 
 /* -- Lists -- */
-/* line 105, ../scss/core/_base.scss */
+/* line 106, ../scss/core/_base.scss */
 ul, ol {
   margin-left: 2em;
   padding-left: 0;
 }
 
-/* line 106, ../scss/core/_base.scss */
+/* line 107, ../scss/core/_base.scss */
 li ul, li ol {
   margin-top: 1em;
   margin-bottom: 0;
 }
 
-/* line 107, ../scss/core/_base.scss */
+/* line 108, ../scss/core/_base.scss */
 dt {
   font-weight: bold;
 }
 
-/* line 108, ../scss/core/_base.scss */
+/* line 109, ../scss/core/_base.scss */
 dd {
   margin-left: 0;
   margin-bottom: 1em;
@@ -729,29 +730,29 @@ dd {
 }
 
 /* -- Tables -- */
-/* line 111, ../scss/core/_base.scss */
+/* line 112, ../scss/core/_base.scss */
 caption {
   padding-bottom: .5em;
   font-style: italic;
 }
 
-/* line 112, ../scss/core/_base.scss */
+/* line 113, ../scss/core/_base.scss */
 th, td {
   padding: .25em .5em;
   font-size: .9em;
   padding: 1em;
 }
-/* line 113, ../scss/core/_base.scss */
+/* line 114, ../scss/core/_base.scss */
 th *:last-child, td *:last-child {
   margin-bottom: 0;
 }
 
-/* line 117, ../scss/core/_base.scss */
+/* line 118, ../scss/core/_base.scss */
 tr:nth-child(odd) td {
   background-color: #F6F6F6;
 }
 
-/* line 118, ../scss/core/_base.scss */
+/* line 119, ../scss/core/_base.scss */
 th, legend {
   font-weight: bold;
   background: #6dbcdb;
@@ -760,7 +761,7 @@ th, legend {
   font-size: .9em;
 }
 
-/* line 119, ../scss/core/_base.scss */
+/* line 120, ../scss/core/_base.scss */
 td {
   background-color: #F6F6F6;
   border-top: .5em solid white;
@@ -768,24 +769,24 @@ td {
 }
 
 /* -- Forms -- */
-/* line 125, ../scss/core/_base.scss */
+/* line 126, ../scss/core/_base.scss */
 form > input:first-child {
   margin-top: 0;
 }
 
-/* line 131, ../scss/core/_base.scss */
+/* line 132, ../scss/core/_base.scss */
 label {
   display: block;
   font-weight: bold;
   font-size: .75em;
 }
 
-/* line 132, ../scss/core/_base.scss */
+/* line 133, ../scss/core/_base.scss */
 textarea {
   line-height: 1.5;
 }
 
-/* line 135, ../scss/core/_base.scss */
+/* line 136, ../scss/core/_base.scss */
 input:not([type=checkbox]),
 textarea {
   -webkit-transition: all 0.3s ease-in-out;
@@ -802,14 +803,14 @@ textarea {
   margin: 0.8em 0;
 }
 @media screen and (max-width: 30em) {
-  /* line 135, ../scss/core/_base.scss */
+  /* line 136, ../scss/core/_base.scss */
   input:not([type=checkbox]),
   textarea {
     margin: 0.66667em 0;
   }
 }
 
-/* line 151, ../scss/core/_base.scss */
+/* line 152, ../scss/core/_base.scss */
 .btn, .btn:visited,
 input[type=submit] {
   display: inline-block;
@@ -823,32 +824,32 @@ input[type=submit] {
   border-radius: 5px;
   color: #FFF;
 }
-/* line 158, ../scss/core/_base.scss */
+/* line 159, ../scss/core/_base.scss */
 .btn:hover, .btn:visited,
 input[type=submit]:hover,
 input[type=submit]:visited {
   color: white;
 }
-/* line 161, ../scss/core/_base.scss */
+/* line 162, ../scss/core/_base.scss */
 .btn:hover,
 input[type=submit]:hover {
   position: relative;
   top: .1em;
 }
 @media screen and (max-width: 82em) {
-  /* line 151, ../scss/core/_base.scss */
+  /* line 152, ../scss/core/_base.scss */
   .btn, .btn:visited,
   input[type=submit] {
     min-width: 0;
   }
 }
-/* line 168, ../scss/core/_base.scss */
+/* line 169, ../scss/core/_base.scss */
 .btn span, .btn:visited span,
 input[type=submit] span {
   color: #FFF;
 }
 
-/* line 173, ../scss/core/_base.scss */
+/* line 174, ../scss/core/_base.scss */
 .button-container {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
@@ -857,30 +858,30 @@ input[type=submit] span {
   text-align: center;
   z-index: 0;
 }
-/* line 180, ../scss/core/_base.scss */
+/* line 181, ../scss/core/_base.scss */
 .button-container button a, .button-container a:active, .button-container a:visited {
   color: white;
   text-decoration: none;
   font-weight: 500;
   top: 0;
 }
-/* line 186, ../scss/core/_base.scss */
+/* line 187, ../scss/core/_base.scss */
 .button-container input {
   top: 1.4em;
   position: relative;
   margin: auto;
   min-width: 13em;
 }
-/* line 191, ../scss/core/_base.scss */
+/* line 192, ../scss/core/_base.scss */
 .button-container input:hover {
   top: 1.5em;
 }
 
-/* line 197, ../scss/core/_base.scss */
+/* line 198, ../scss/core/_base.scss */
 .select-container {
   position: relative;
 }
-/* line 199, ../scss/core/_base.scss */
+/* line 200, ../scss/core/_base.scss */
 .select-container select {
   width: 100%;
   padding: .5em;
@@ -900,72 +901,72 @@ input[type=submit] span {
   background-size: 1.2em;
 }
 @media screen and (max-width: 30em) {
-  /* line 199, ../scss/core/_base.scss */
+  /* line 200, ../scss/core/_base.scss */
   .select-container select {
     margin: 0.66667em 0;
   }
 }
 
-/* line 221, ../scss/core/_base.scss */
+/* line 222, ../scss/core/_base.scss */
 .select-container--alt select {
   background-color: #f7f7f7;
   padding: .7em;
 }
 
-/* line 227, ../scss/core/_base.scss */
+/* line 228, ../scss/core/_base.scss */
 .currency-container {
   position: relative;
 }
-/* line 229, ../scss/core/_base.scss */
+/* line 230, ../scss/core/_base.scss */
 .currency-container .currency-prepend {
   position: absolute;
   left: .7em;
   line-height: 3.9;
 }
 @media screen and (max-width: 30em) {
-  /* line 229, ../scss/core/_base.scss */
+  /* line 230, ../scss/core/_base.scss */
   .currency-container .currency-prepend {
     line-height: 3.75;
   }
 }
-/* line 237, ../scss/core/_base.scss */
+/* line 238, ../scss/core/_base.scss */
 .currency-container .input--currency {
   padding-left: 1.6em;
 }
 
-/* line 242, ../scss/core/_base.scss */
+/* line 243, ../scss/core/_base.scss */
 .url-container {
   position: relative;
 }
-/* line 244, ../scss/core/_base.scss */
+/* line 245, ../scss/core/_base.scss */
 .url-container .url-prepend {
   position: absolute;
   left: .7em;
   line-height: 3.9;
 }
 @media screen and (max-width: 30em) {
-  /* line 244, ../scss/core/_base.scss */
+  /* line 245, ../scss/core/_base.scss */
   .url-container .url-prepend {
     line-height: 3.75;
   }
 }
-/* line 252, ../scss/core/_base.scss */
+/* line 253, ../scss/core/_base.scss */
 .url-container .input--url {
   padding-left: 3.5em;
 }
 
-/* line 257, ../scss/core/_base.scss */
+/* line 258, ../scss/core/_base.scss */
 .field-heading {
   margin-bottom: .5em;
   margin-top: .5em;
 }
 
-/* line 263, ../scss/core/_base.scss */
+/* line 264, ../scss/core/_base.scss */
 button:focus {
   outline: none;
 }
 
-/* line 268, ../scss/core/_base.scss */
+/* line 269, ../scss/core/_base.scss */
 input:not([type=checkbox]):not([type="submit"]):focus, textarea:focus, select:focus {
   -webkit-box-shadow: 0 0 5px #77c462;
   -moz-box-shadow: 0 0 5px #77c462;
@@ -974,7 +975,7 @@ input:not([type=checkbox]):not([type="submit"]):focus, textarea:focus, select:fo
   outline: 0;
 }
 
-/* line 274, ../scss/core/_base.scss */
+/* line 275, ../scss/core/_base.scss */
 input:not(:focus):invalid {
   -webkit-box-shadow: 0 0 5px red;
   -moz-box-shadow: 0 0 5px red;
@@ -983,7 +984,7 @@ input:not(:focus):invalid {
   outline: 0;
 }
 
-/* line 280, ../scss/core/_base.scss */
+/* line 281, ../scss/core/_base.scss */
 input:focus:invalid {
   -webkit-box-shadow: 0 0 5px red;
   -moz-box-shadow: 0 0 5px red;
@@ -993,25 +994,25 @@ input:focus:invalid {
 }
 
 /* -- Blockquotes -- */
-/* line 287, ../scss/core/_base.scss */
+/* line 288, ../scss/core/_base.scss */
 blockquote {
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 291, ../scss/core/_base.scss */
+/* line 292, ../scss/core/_base.scss */
 blockquote {
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
   font-style: italic;
   clear: both;
 }
 
-/* line 292, ../scss/core/_base.scss */
+/* line 293, ../scss/core/_base.scss */
 blockquote p {
   margin-bottom: 1em;
 }
 
-/* line 293, ../scss/core/_base.scss */
+/* line 294, ../scss/core/_base.scss */
 .source {
   display: block;
   font-family: "proxima-nova", "Proxima Nova", sans-serif;
@@ -1021,27 +1022,27 @@ blockquote p {
   margin-top: .5em;
 }
 
-/* line 294, ../scss/core/_base.scss */
+/* line 295, ../scss/core/_base.scss */
 .source:before {
   content: "\2013\0020";
 }
 
 /* Links
 ----------------------------------*/
-/* line 300, ../scss/core/_base.scss */
+/* line 301, ../scss/core/_base.scss */
 a {
   text-decoration: none;
   color: #2c3e50;
 }
 
 /* -- visited -- */
-/* line 305, ../scss/core/_base.scss */
+/* line 306, ../scss/core/_base.scss */
 a:visited {
   color: #2c3e50;
 }
 
 /* -- hovers -- */
-/* line 312, ../scss/core/_base.scss */
+/* line 313, ../scss/core/_base.scss */
 a:hover {
   color: #222222;
 }
@@ -1100,97 +1101,97 @@ a:hover {
   padding-right: .3em;
 }
 
-/* line 324, ../scss/core/_base.scss */
+/* line 325, ../scss/core/_base.scss */
 .icon--marg:before {
   top: 0;
   width: 1em;
 }
 
-/* line 329, ../scss/core/_base.scss */
+/* line 330, ../scss/core/_base.scss */
 .icon--clock:before {
   content: '\e803';
 }
 
 /* '' */
-/* line 330, ../scss/core/_base.scss */
+/* line 331, ../scss/core/_base.scss */
 .icon--users:before {
   content: '\e800';
 }
 
 /* '' */
-/* line 331, ../scss/core/_base.scss */
+/* line 332, ../scss/core/_base.scss */
 .icon--location:before {
   content: '\e805';
 }
 
 /* '' */
-/* line 332, ../scss/core/_base.scss */
+/* line 333, ../scss/core/_base.scss */
 .icon--calendar:before {
   content: '\e806';
 }
 
 /* '' */
-/* line 333, ../scss/core/_base.scss */
+/* line 334, ../scss/core/_base.scss */
 .icon--male:before {
   content: '\e807';
 }
 
 /* '' */
-/* line 334, ../scss/core/_base.scss */
+/* line 335, ../scss/core/_base.scss */
 .icon--globe:before {
   content: '\e808';
 }
 
 /* '' */
-/* line 335, ../scss/core/_base.scss */
+/* line 336, ../scss/core/_base.scss */
 .icon--briefcase:before {
   content: '\e809';
 }
 
 /* '' */
-/* line 336, ../scss/core/_base.scss */
+/* line 337, ../scss/core/_base.scss */
 .icon--check:before {
   content: '\e811';
 }
 
 /* '' */
-/* line 337, ../scss/core/_base.scss */
+/* line 338, ../scss/core/_base.scss */
 .icon--attach:before {
   content: '\e804';
 }
 
 /* '' */
-/* line 338, ../scss/core/_base.scss */
+/* line 339, ../scss/core/_base.scss */
 .icon--sitemap:before {
   content: '\e80b';
 }
 
 /* '' */
-/* line 339, ../scss/core/_base.scss */
+/* line 340, ../scss/core/_base.scss */
 .icon--lightbulb:before {
   content: '\e80c';
 }
 
 /* '' */
-/* line 340, ../scss/core/_base.scss */
+/* line 341, ../scss/core/_base.scss */
 .icon--search:before {
   content: '\e801';
 }
 
 /* '' */
-/* line 341, ../scss/core/_base.scss */
+/* line 342, ../scss/core/_base.scss */
 .icon--home:before {
   content: '\e802';
 }
 
 /* '' */
-/* line 342, ../scss/core/_base.scss */
+/* line 343, ../scss/core/_base.scss */
 .icon--bookmark:before {
   content: '\e80d';
 }
 
 /* '' */
-/* line 343, ../scss/core/_base.scss */
+/* line 344, ../scss/core/_base.scss */
 .icon--star:before {
   content: '\e80e';
   color: #EFF123;
@@ -1199,7 +1200,7 @@ a:hover {
 }
 
 /* '' */
-/* line 344, ../scss/core/_base.scss */
+/* line 345, ../scss/core/_base.scss */
 .icon--star-alt:before {
   content: '\e80e';
   color: #EFF123;
@@ -1208,25 +1209,25 @@ a:hover {
 }
 
 /* '' */
-/* line 345, ../scss/core/_base.scss */
+/* line 346, ../scss/core/_base.scss */
 .icon--down-micro:before {
   content: '\e80f';
 }
 
 /* '' */
-/* line 346, ../scss/core/_base.scss */
+/* line 347, ../scss/core/_base.scss */
 .icon--magic:before {
   content: '\e80a';
 }
 
 /* '' */
-/* line 347, ../scss/core/_base.scss */
+/* line 348, ../scss/core/_base.scss */
 .icon--cross:before {
   content: '\e810';
 }
 
 /* '' */
-/* line 348, ../scss/core/_base.scss */
+/* line 349, ../scss/core/_base.scss */
 .icon--cancel:before {
   content: '\e810';
   float: right;
@@ -3555,7 +3556,10 @@ img.media__img {
   width: 100%;
   left: 0;
   bottom: -2.5em;
-  -webkit-background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /* line 38, ../scss/core/modules/_forms.scss */

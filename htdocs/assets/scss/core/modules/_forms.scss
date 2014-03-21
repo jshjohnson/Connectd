@@ -29,7 +29,7 @@
 		width: 100%;
 		left: 0;
 		bottom: -2.5em;
-		-webkit-background-size: 100%;
+		@include background-size(cover);
 	}
 }
 

@@ -5,8 +5,8 @@
 	$general->errors();
 	$general->loggedInProtect();
 
-	$towns             = $general->getLocations();
-	$experiences       = $general->getExperiences();
+	$towns             = $users->getLocations();
+	$experiences       = $users->getExperiences();
 
 	$userType          = "Designer";
 	$jobTitles         = $general->getJobTitles($userType);
@@ -94,7 +94,7 @@
 			$jobtitle       = $general->cleanString($db, $jobtitle);
 			$userType       = 'designer';
 
-			$users->registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $userType);
+			$freelancers->registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $userType);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();
 		}

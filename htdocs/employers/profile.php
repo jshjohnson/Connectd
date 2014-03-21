@@ -10,7 +10,7 @@
 	if (isset($_GET["id"])) {
 		$employer_id       = $_GET["id"];
 		$employer          = get_employers_single($employer_id);
-		$jobs              = $general->getEmployerJobs($employer_id);
+		$jobs              = $employers->getEmployerJobs($employer_id);
 	}
 
 	if (empty($employer)) {

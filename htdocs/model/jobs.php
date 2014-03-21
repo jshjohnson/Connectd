@@ -24,7 +24,7 @@
 		$output = $output . "</div>";
 		$output = $output . "<div class='media-1-3 media__side'>";
 		$output = $output . "<p><small>" . date('F j, Y', $job['job_post_date']) . "</small></p>";
-		$output = $output . "<p><small><a href='" . BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . "'>" . $job['employer_name'] . "</a></small></p>";
+		$output = $output . "<p><small><strong><a href='" . BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . "'>" . $job['employer_name'] . "</strong></a></small></p>";
 		$output = $output . "</div>";
 		$output = $output . "</div>";
 

@@ -11,7 +11,7 @@
 
 	$status = $_GET["status"];
 
-	$trial_users 		  = $users->getTrialUsers();
+	$trial_users 		  = $trials->getTrialUsers();
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
 ?>

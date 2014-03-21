@@ -5,9 +5,9 @@
 	$general->errors();
 	$general->loggedInProtect();
 
-	$towns              = $general->getLocations();
-	$employerTypes      = $general->getEmployerTypes();
-	$experiences        = $general->getExperiences();
+	$towns              = $users->getLocations();
+	$employerTypes      = $employers->getEmployerTypes();
+	$experiences        = $users->getExperiences();
 
 	$pageTitle          = "Sign Up";
 	$pageType           = "Page";
@@ -100,7 +100,7 @@
 			$userType          = 'employer';
 
 
-			$users->registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $userType);
+			$employers->registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $userType);
 			header("Location:" . BASE_URL . "employers/signup.php?status=success");
 			exit();
 		}
