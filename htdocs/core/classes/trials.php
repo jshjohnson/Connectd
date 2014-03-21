@@ -65,4 +65,32 @@
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
 		}
+
+		public function getTrialUser($user_id) {
+
+			$query = $this->db->prepare("
+				SELECT 
+				users.user_id,
+				Count(user_votes.vote_id) 
+				AS CountOfvote_id
+				FROM users 
+				LEFT JOIN user_votes 
+				ON users.user_id = user_votes.vote_id
+				WHERE user_votes.vote_id = ?
+				GROUP BY
+				users.user_id,
+				user_votes.vote_id
+				HAVING CountOfvote_id < ?
+			");
+			$query->bindValue(1, $user_id);
+			$query->bindValue(2, 10);
+
+			try{
+				$query->execute();
+			}catch(PDOException $e){
+				die($e->getMessage());
+			}
+			# We use fetchAll() instead of fetch() to get an array of all the selected records.
+			return $query->fetch();
+		}
 	}

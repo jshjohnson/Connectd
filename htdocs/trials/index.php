@@ -4,14 +4,14 @@
 
 	$general->errors();
 	$general->loggedOutProtect();
-	$votedBy = $_SESSION['user_id'];
+	$votedBy        = $_SESSION['user_id'];
 
-	$pageTitle = "Trials";
-	$section = "Trials";
+	$pageTitle      = "Trials";
+	$section        = "Trials";
 
-	$status = $_GET["status"];
+	$status         = $_GET["status"];
 
-	$trial_users 		  = $trials->getTrialUsers();
+	$trial_users 	= $trials->getTrialUsers();
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
 ?>

@@ -3,10 +3,16 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$general->loggedOutProtect();
-	$userVotes = $votes->getUserVotes($user_id);
+	$userVotes       = $votes->getUserVotes($user_id);
 
-	$pageTitle = "Welcome";
-	$section = "Welcome";
+	$pageTitle       = "Welcome";
+	$section         = "Welcome";
+
+	$trial_user 	 = $trials->getTrialUser($user_id);
+
+	
+	$vote_id         = $trial_user["user_id"]; 
+	$trialUserVotes  = $votes->getUserVotes($vote_id);
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
 ?>
@@ -24,7 +30,7 @@
 				</h4>
 				<p>Welcome to Connectd. You have successfully signed up and have therefore been added to the Connectd Trials where the community will decide whether you are of a good enough quality to be hired. We will email you to update you on your progress in the Trials and whether you have achieved a vote.</p>
 				<p>Good luck!</p>
-				<p class="message-flipped message-flipped--notification">You currently have <strong><?= $userVotes['votes']; ?></strong>/10 votes</p>
+				<p class="message-flipped message-flipped--notification">You currently have <strong><?= $trialUserVotes['CountOfvote_id']; ?></strong>/10 votes</p>
 			</div>
 		</section>
 	</div>

@@ -34,8 +34,14 @@
 		// Test if user has been verified into the community
 		public function userVotedFor($email) {
 
-			$query = $this->db->prepare("SELECT COUNT(*) FROM (
-				(SELECT 1 FROM " . DB_NAME . ".users AS a, " . DB_NAME . ".votes as v WHERE a.email = ? AND v.votes >= ?)) z
+			$query = $this->db->prepare("
+				SELECT users.user_id, users.email, COUNT(user_votes.vote_id) 
+				AS CountOfvote_id
+				FROM " . DB_NAME . ".users
+				LEFT JOIN user_votes 
+				ON users.user_id = user_votes.vote_id
+				WHERE users.email = ?
+				HAVING CountOfvote_id < ?
 			");
 
 			$query->bindValue(1, $email);
