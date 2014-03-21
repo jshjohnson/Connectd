@@ -4,6 +4,7 @@
 
 	$general->errors();
 	$general->loggedOutProtect();
+	$votes->userVotedForProtect();
 	$votedBy        = $_SESSION['user_id'];
 
 	$pageTitle      = "Trials";
