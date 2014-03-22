@@ -11,6 +11,12 @@
 		    $this->db = $database;
 		}
 
+		/**
+		 * Gets all approved freelancer users (and user data) who have less than 10 votes
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
 		public function getTrialUsers() {
 
 			$query = $this->db->prepare("
@@ -66,6 +72,12 @@
 			return $query->fetchAll();
 		}
 
+		/**
+		 * Gets an individual freelancer user with less than 10 votes 
+		 *
+		 * @param  int $user_id
+		 * @return array
+		 */ 
 		public function getTrialUser($user_id) {
 
 			$query = $this->db->prepare("
@@ -90,7 +102,6 @@
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}
-			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetch();
 		}
 	}

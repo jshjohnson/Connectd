@@ -11,6 +11,12 @@
 		    $this->db = $database;
 		}
 
+		/**
+		 * Gets employer types (e.g. Software Development etc)
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
 		public function getEmployerTypes() {
 			$query = $this->db->prepare("SHOW COLUMNS FROM " . DB_NAME . ".employer_types LIKE 'employer_type'");
 			try{
@@ -25,7 +31,12 @@
 			return $fields;
 	    }
 
-
+		/**
+		 * Gets all jobs that an employer has posted
+		 *
+		 * @param  int $employer_id
+		 * @return array
+		 */ 
 		public function getEmployerJobs($employer_id) {
 	    	$query = $this->db->prepare("SELECT * FROM " . DB_NAME . ".jobs WHERE user_id = ?");
 	    	$query->bindValue(1, $employer_id);
@@ -38,7 +49,23 @@
 			return $query->fetchAll();
 	    }
 
-	    public function registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $userType) {
+		/**
+		 *   Register an employer user
+		 *
+		 * @param  string $firstName
+		 * @param  string $lastName
+		 * @param  string $email
+		 * @param  string $password
+		 * @param  string $location
+		 * @param  string $portfolio
+		 * @param  string $employerName
+		 * @param  string $employerType
+		 * @param  string $experience
+		 * @param  string $bio
+		 * @param  string $userType
+		 * @return boolean
+		 */ 
+	    public function registerEmployer($firstName, $lastName, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $userType) {
 
 			global $bcrypt; // making the $bcrypt variable global so we can use here
 			global $mail;
@@ -46,7 +73,7 @@
 			$time 		= time();
 			$ip 		= $_SERVER['REMOTE_ADDR'];
 			$email_code = sha1($email + microtime());
-			$password   = $bcrypt->genHash($password);// generating a hash using the $bcrypt object
+			$password   = $bcrypt->genHash($password);
 
 			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".users
 				(firstname, lastname, email, email_code, password, time_joined, location, portfolio, bio, ip) 

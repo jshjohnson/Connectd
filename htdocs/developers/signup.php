@@ -9,7 +9,7 @@
 	$experiences       = $users->getExperiences();
 
 	$userType          = "Developer";
-	$jobTitles         = $general->getJobTitles($userType);
+	$jobTitles         = $freelancers->getFreelancerJobTitles($userType);
 
 	$pageTitle         = "Sign Up";
 	$pageType          = "Page";
@@ -18,14 +18,14 @@
 	include_once(ROOT_PATH . "includes/header.inc.php");
 
 	// Grab the form data
-	$firstname         = trim($_POST['firstname']);
-	$lastname          = trim($_POST['lastname']);
+	$firstName         = trim($_POST['firstname']);
+	$lastName          = trim($_POST['lastname']);
 	$email             = trim($_POST['email']);
 	$password          = trim($_POST['password']);
-	$repeatpassword    = trim($_POST['repeatpassword']);
-	$jobtitle          = trim($_POST['jobtitle']);
+	$repeatPassword    = trim($_POST['repeatpassword']);
+	$jobTitle          = trim($_POST['jobtitle']);
 	$experience        = trim($_POST['experience']);
-	$priceperhour      = trim($_POST['priceperhour']);
+	$pricePerHour      = trim($_POST['priceperhour']);
 	$bio               = trim($_POST['bio']);
 	$portfolio         = trim($_POST['portfolio']);
 	$location          = trim($_POST['location']);
@@ -44,9 +44,9 @@
 		$r2='/[a-z]/';  // Test for a lowercase character
 		$r3='/[0-9]/';  // Test for a number
 
-		if($firstname == ""){
+		if($firstName == ""){
 		    $errors[] ="Please enter your first name"; 
-		}else if($lastname == ""){
+		}else if($lastName == ""){
 		    $errors[] ="Please enter your last name"; 
 		}else if($email == ""){
 		    $errors[] ="Please enter your email"; 
@@ -68,7 +68,7 @@
 			$errors[] = "Password must be 6-25 characters long";
 		} else if($portfolio == ""){
 		    $errors[] ="You must have an active portfolio to join Connectd"; 
-		} else if($jobtitle == ""){
+		} else if($jobTitle == ""){
 		    $errors[] ="Please select your current job title"; 
 		}else if($experience == ""){
 		    $errors[] ="Please enter your experience"; 
@@ -80,20 +80,20 @@
 
 		if(empty($errors) === true){
 
-			$firstname         = $general->cleanString($db, $firstname);
-			$lastname          = $general->cleanString($db, $lastname);
+			$firstName         = $general->cleanString($db, $firstName);
+			$lastName          = $general->cleanString($db, $lastName);
 			$email             = $general->cleanString($db, $email);
 			$password          = $general->cleanString($db, $password);
-			$repeatpassword    = $general->cleanString($db, $repeatpassword);
+			$repeatPassword    = $general->cleanString($db, $repeatPassword);
 			$location          = $general->cleanString($db, $location);
-			$jobtitle          = $general->cleanString($db, $jobtitle);
-			$priceperhour      = $general->cleanString($db, $priceperhour);
+			$jobTitle          = $general->cleanString($db, $jobTitle);
+			$pricePerHour      = $general->cleanString($db, $pricePerHour);
 			$bio               = $general->cleanString($db, $bio);
 			$portfolio         = $general->cleanString($db, $portfolio);
 			$experience        = $general->cleanString($db, $experience);
 			$userType          = 'developer';
 	 
-			$freelancers->registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $userType);
+			$freelancers->registerFreelancer($firstName, $lastName, $email, $password, $location, $portfolio, $jobTitle, $pricePerHour, $experience, $bio, $userType);
 			header("Location:" . BASE_URL . "developers/signup.php?status=success");
 			exit();
 		}
@@ -121,12 +121,12 @@
 				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
 				<form method="post" action="<?= BASE_URL; ?>developers/signup.php" autocomplete="off" class="sign-up-form">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" autofocus>
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstName)) { echo htmlspecialchars($firstName); } ?>" autofocus>
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastName)) { echo htmlspecialchars($lastName); } ?>">
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
 					<input type='password' name='password' placeholder="Password" class="field-1-2"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
-					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
+					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatPassword)) { echo htmlspecialchars($repeatPassword); } ?>">
 					<hr>
 					<div class="select-container">
 						<label for="location">Where do you work from?</label>
@@ -161,7 +161,7 @@
 					</div>
 					<div class="currency-container field-1-2 float-right">
 						<span class="currency-prepend">£</span>
-						<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" class="input--currency" value="<?php if (isset($priceperhour)) { echo htmlspecialchars($priceperhour); } ?>">
+						<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" class="input--currency" value="<?php if (isset($pricePerHour)) { echo htmlspecialchars($pricePerHour); } ?>">
 					</div>
 					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">

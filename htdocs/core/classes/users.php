@@ -11,7 +11,12 @@
 		    $this->db = $database;
 		}
 	  
-		// Test if email already exists in database
+		/**
+		 * Tests if email already exists in database
+		 *
+		 * @param  string  $email The email of the user
+		 * @return boolean
+		 */ 
 		public function emailExists($email) {
 		 
 			$query = $this->db->prepare("SELECT `email`
@@ -35,7 +40,12 @@
 		 
 		}
 
-		// Test if user has confirmed their email
+		/**
+		 *  Tests whether a user has confirmed their email
+		 *
+		 * @param  string  $email The email of the user
+		 * @return boolean
+		 */ 
 		public function emailConfirmed($email) {
  
 			$query = $this->db->prepare("SELECT COUNT(*) FROM (
@@ -61,6 +71,13 @@
 			}
 		}
 
+		/**
+		 *  Logs in user
+		 *
+		 * @param  string  $email The users email address
+		 * @param  string  $password The users password
+		 * @return boolean
+		 */ 
 		public function login($email, $password) {
 
 			global $bcrypt;  // Make the bcrypt variable global, which is defined in init.php, which is included in login.php where this function is called
@@ -91,6 +108,12 @@
 			}
 		}
 
+		/**
+		 *  Gets user experience form values
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
 		 public function getExperiences() {
 	    	$query = $this->db->prepare("SHOW COLUMNS FROM " . DB_NAME . ".user_experience LIKE 'experience'");
 			try{
@@ -105,6 +128,12 @@
 			return $fields;
 	    }
 
+		/**
+		 *  Gets user location form values
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
 	    public function getLocations() {
 			$query = $this->db->prepare("SELECT town FROM " . DB_NAME . ".towns ORDER BY town ASC");
 			try{
@@ -116,8 +145,12 @@
 			return $query->fetchAll();
 	    }
 
-
-		// Get user data
+		/**
+		 *  Gets key user data of user logged in
+		 *
+		 * @param  int  $id The user logged in's ID
+		 * @return array
+		 */ 
 		public function userData($id) {
 			$query = $this->db->prepare("
 				SELECT users.firstname, users.lastname, users.email, user_types.*
@@ -137,6 +170,13 @@
 			}
 		}
 		
+		/**
+		 *  Activates user
+		 *
+		 * @param  string  $email The users email address
+		 * @param  string  $email_code Generated string created on sign up
+		 * @return array
+		 */ 
 		public function activateUser($email, $email_code) {
 		
 			$query = $this->db->prepare("SELECT COUNT(`user_id`) FROM `users` WHERE `email` = ? AND `email_code` = ? AND `confirmed` = ?");

@@ -16,11 +16,11 @@
 	include_once(ROOT_PATH . "includes/header.inc.php");
 
 	// Grab the form data
-	$firstname          = trim($_POST['firstname']);
-	$lastname           = trim($_POST['lastname']);
+	$firstName          = trim($_POST['firstname']);
+	$lastName           = trim($_POST['lastname']);
 	$email              = trim($_POST['email']);
 	$password           = trim($_POST['password']);
-	$repeatpassword     = trim($_POST['repeatpassword']);
+	$repeatPassword     = trim($_POST['repeatpassword']);
 	$employerName       = trim($_POST['employer_name']);
 	$employerType       = trim($_POST['employer_type']);
 	$location           = trim($_POST['location']);
@@ -49,9 +49,9 @@
        	$r2='/[a-z]/';  // Test for a lowercase character
 		$r3='/[0-9]/';  // Test for a number
 			
-	    if($firstname == ""){
+	    if($firstName == ""){
 	        $errors[] ="Please enter your first name"; 
-	    }else if($lastname == ""){
+	    }else if($lastName == ""){
 	        $errors[] ="Please enter your last name"; 
 	    }else if($email == ""){
 	        $errors[] ="Please enter your email"; 
@@ -86,11 +86,11 @@
 		if(empty($errors) === true) {
 
 			//clean the input now that we have a db connection
-			$firstname          = $general->cleanString($db, $firstname);
-			$lastname           = $general->cleanString($db, $lastname);
+			$firstName          = $general->cleanString($db, $firstName);
+			$lastName           = $general->cleanString($db, $lastName);
 			$email              = $general->cleanString($db, $email);
 			$password           = $general->cleanString($db, $password);
-			$repeatpassword     = $general->cleanString($db, $repeatpassword);
+			$repeatPassword     = $general->cleanString($db, $repeatPassword);
 			$employerName       = $general->cleanString($db, $employerName);
 			$location           = $general->cleanString($db, $location);
 			$employerType       = $general->cleanString($db, $employerType);
@@ -100,7 +100,7 @@
 			$userType          = 'employer';
 
 
-			$employers->registerEmployer($firstname, $lastname, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $userType);
+			$employers->registerEmployer($firstName, $lastName, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $userType);
 			header("Location:" . BASE_URL . "employers/signup.php?status=success");
 			exit();
 		}
@@ -130,12 +130,12 @@
 				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
 				<form method="post" action="<?= BASE_URL; ?>employers/signup.php" autocomplete="off" class="sign-up-form">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" autofocus>
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstName)) { echo htmlspecialchars($firstName); } ?>" autofocus>
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastName)) { echo htmlspecialchars($lastName); } ?>">
 					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
 					<input type='password' name='password' placeholder="Password" class="field-1-2"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
-					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
+					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatPassword)) { echo htmlspecialchars($repeatPassword); } ?>">
 					<hr>
 					<input type="text" name="employer_name" placeholder="Employer name" value="<?php if (isset($employerName)) { echo htmlspecialchars($employerName); } ?>">
 					<div class="url-container">

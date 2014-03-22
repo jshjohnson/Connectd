@@ -14,7 +14,12 @@
 			$this->rounds = $rounds;
 		}
 	 
-		// Salt the hashed password
+		/**
+		 * Salt the hashed password 
+		 *
+		 * @param  void
+		 * @return string
+		 */ 
 		private function genSalt() {
 	 
 			$string = str_shuffle(mt_rand());// generating a random string
@@ -23,8 +28,13 @@
 			/* Return */
 			return $salt;
 		}
-	 
-		// Generate a hashed password on sign up
+	  
+		/**
+		 * Generate a hashed password on sign up
+		 *
+		 * @param  string $password
+		 * @return string
+		 */ 
 		public function genHash($password) {
 			/* 2y selects bcrypt algorithm */
 			/* $this->rounds is the workload factor, which is kept usually from 12 to 15 */
@@ -34,7 +44,13 @@
 			return $hash;
 		}
 		
-		// Verify Password
+		/**
+		 * Verify password by matching hashes
+		 *
+		 * @param  string $password
+		 * @param  string $existingHash
+		 * @return boolean
+		 */ 
 		public function verify($password, $existingHash) {
 			/* Hash new password with old hash */
 			$hash = crypt($password, $existingHash);

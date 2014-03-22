@@ -11,6 +11,12 @@
 		    $this->db = $database;
 		}
 
+		/**
+		 * Gets all job categories (e.g. Web Design, Graphic Design etc) 
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
 		public function getJobCategories() {
 	    	$query = $this->db->prepare("SELECT job_category FROM " . DB_NAME . ".job_categories");
 			try{
@@ -21,6 +27,18 @@
 			return $query->fetchAll();
 	    }
 
+		/**
+		 * Inserts a job into the database
+		 *
+		 * @param  int $user_id
+		 * @param  string $jobName
+		 * @param  string $startDate
+		 * @param  string $deadline
+		 * @param  string $budget
+		 * @param  string $category
+		 * @param  string $description
+		 * @return void
+		 */ 
 	    public function postJob($user_id, $jobName, $startDate, $deadline, $budget, $category, $description) {
 
     		$postDate = time();

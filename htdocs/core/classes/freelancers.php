@@ -11,7 +11,23 @@
 		    $this->db = $database;
 		}
 
-		public function registerFreelancer($firstname, $lastname, $email, $password, $location, $portfolio, $jobtitle, $priceperhour, $experience, $bio, $userType){
+		/**
+		 * Register a freelancer user
+		 *
+		 * @param  string $firstName
+		 * @param  string $lastName
+		 * @param  string $email
+		 * @param  string $password
+		 * @param  string $location
+		 * @param  string $portfolio
+		 * @param  string $jobTitle
+		 * @param  int    $pricePerHour
+		 * @param  string $experience
+		 * @param  string $bio
+		 * @param  string $userType
+		 * @return boolean
+		 */ 
+		public function registerFreelancer($firstName, $lastName, $email, $password, $location, $portfolio, $jobTitle, $pricePerHour, $experience, $bio, $userType){
 
 			global $bcrypt; // making the $bcrypt variable global so we can use here
 			global $mail;
@@ -19,7 +35,7 @@
 			$time 		= time();
 			$ip 		= $_SERVER['REMOTE_ADDR'];
 			$email_code = sha1($email + microtime());
-			$password   = $bcrypt->genHash($password);// generating a hash using the $bcrypt object
+			$password   = $bcrypt->genHash($password);
 
 			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".users
 				(firstname, lastname, email, email_code, password, time_joined, location, portfolio, bio, ip) 
@@ -70,7 +86,6 @@
 				//    echo 'Mailer Error: ' . $mail->ErrorInfo;
 				//    exit;
 				// }
-
 
 				$rows = $query->rowCount();
 	 
@@ -124,4 +139,41 @@
 				die($e->getMessage());
 			}	
 		}
+
+		/**
+		 * Get freelancer job titles
+		 *
+		 * @param  string $userType The type of user
+		 * @return array
+		 */ 
+	    public function getFreelancerJobTitles($userType) {
+
+	    	if ($userType == "Developer") {
+
+		    	$query = $this->db->prepare("SHOW COLUMNS FROM " . DB_NAME . ".developer_titles LIKE 'job_title'");
+				try{
+					$query->execute();
+				}catch(PDOException $e){
+					die($e->getMessage());
+				}
+				$row = $query->fetch(PDO::FETCH_ASSOC);
+				
+				preg_match_all("/'(.*?)'/", $row['Type'], $categories);
+				$fields = $categories[1];
+				return $fields;
+
+	    	} else if ($userType == "Designer") {
+		    	$query = $this->db->prepare("SHOW COLUMNS FROM " . DB_NAME . ".designer_titles LIKE 'job_title'");
+				try{
+					$query->execute();
+				}catch(PDOException $e){
+					die($e->getMessage());
+				}
+				$row = $query->fetch(PDO::FETCH_ASSOC);
+				
+				preg_match_all("/'(.*?)'/", $row['Type'], $categories);
+				$fields = $categories[1];
+				return $fields;
+	    	}
+	    }
 	}
