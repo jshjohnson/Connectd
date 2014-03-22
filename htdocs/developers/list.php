@@ -4,12 +4,10 @@
 
 	$general->loggedOutProtect();
 
-	require_once(ROOT_PATH . "model/developers.php");
-
 	$section         = "Developers";
 	$pageTitle       = "Developers";
 
-	$developers      = get_developers_all();
+	$developers      = $developers->get_developers_all();
 	$developer_id    = $_GET["id"];
 	$developer       = $developers[$developer_id];
 
@@ -30,7 +28,7 @@
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php foreach($developers as $developer_id => $developer) {
-							echo get_developer_list_view($developer_id, $developer);
+							include('../views/developer_list_view.php');
 						} ?>
 					</div>
 				</article>

@@ -4,12 +4,10 @@
 
 	$general->loggedOutProtect();
 
-	require_once(ROOT_PATH . "model/designers.php");
-
 	$pageTitle       = "Designers";
 	$section         = "Designers";
 
-	$designers       = get_designers_all();
+	$designers       = $designers->get_designers_all();
 	$designer_id     = $_GET["id"];
 	$designer        = $designers[$designer_id];
 
@@ -30,7 +28,7 @@
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php foreach($designers as $designer_id => $designer) {
-							echo get_designer_list_view($designer_id, $designer);
+							include('../views/designer_list_view.php');
 						} ?>
 					</div>
 				</article>
