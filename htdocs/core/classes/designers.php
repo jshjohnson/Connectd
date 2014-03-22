@@ -11,6 +11,12 @@
 		    $this->db = $database;
 		}
 
+		/**
+		 * Restrict designer data to 6 most recent 
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
 		public function get_designers_recent() {
 
 			$recent = "";
@@ -22,7 +28,7 @@
 
 			foreach ($all as $designer) {
 				$position = $position + 1;
-				// if designer is one of the 4 most recent designers
+
 				if ($total_designers - $position < 6) {
 					$recent[] = $designer;
 				}
@@ -30,6 +36,12 @@
 			return $recent;
 		}
 
+		/**
+		 * Get data for all designers in db
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
 		public function get_designers_all() {
 
 			$results = $this->db->prepare("
@@ -58,6 +70,12 @@
 
 		}
 
+		/**
+		 * Get data for a single designer
+		 *
+		 * @param  int $id 
+		 * @return array
+		 */ 
 		public function get_designers_single($id) {
 
 			$results = $this->db->prepare("

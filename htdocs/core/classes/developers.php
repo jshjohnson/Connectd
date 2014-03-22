@@ -11,6 +11,12 @@
 		    $this->db = $database;
 		}
 
+		/**
+		 * Restrict developers data to 6 most recent 
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
 		public function get_developers_recent() {
 
 			$recent = "";
@@ -30,7 +36,12 @@
 			return $recent;
 		}
 
-
+		/**
+		 * Get data for all developers in db
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
 		public function get_developers_all() {
 			$results =  $this->db->prepare("
 				SELECT u.user_id, u.firstname, u.lastname, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
@@ -58,6 +69,12 @@
 
 		}
 
+		/**
+		 * Get data for a single designer
+		 *
+		 * @param  int $id 
+		 * @return array
+		 */ 
 		public function get_developers_single($id) {
 
 			$results = $this->db->prepare("

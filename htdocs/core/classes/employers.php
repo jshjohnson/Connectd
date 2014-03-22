@@ -81,8 +81,8 @@
 				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 			");
 			
-			$query->bindValue(1, $firstname);
-			$query->bindValue(2, $lastname);
+			$query->bindValue(1, $firstName);
+			$query->bindValue(2, $lastName);
 			$query->bindValue(3, $email);
 			$query->bindValue(4, $email_code);
 			$query->bindValue(5, $password);
@@ -172,25 +172,12 @@
 			}	
 		}
 
-		public function get_employer_list_view($employer_id, $employer) {
-
-			$output = "";
-
-			$output = $output . "<div class='media'>";
-			// $output = $output . "<a href='" . BASE_URL . "employer/profile.php?id=" . $employer_id . "'><img src='" . $employer['avatar'] . "' alt='' class='media__img media__img--avatar'></a>";
-			$output = $output . "<a href='" . BASE_URL . "employers/" . $employer['user_id'] . "/'><img src='" . BASE_URL . "assets/avatars/default_avatar.png' alt='' class='media__img media__img--avatar'></a>";
-			$output = $output . "<div class='media__body'>";
-			$output = $output . "<div class='float-left user-info'>";
-			$output = $output . "<a href='#'><i class='icon--star'></i></a><a href='" . BASE_URL . "employers/" . $employer['user_id'] . "/'><h4>" . $employer['employer_name'] . "</h4></a>";
-			$output = $output . "<p>" . $employer['employer_type'] . "</p>";
-			$output = $output . "</div>";
-			$output = $output . "</div>";
-			$output = $output . "</div>";
-
-			return $output;
-		}
-
-
+		/**
+		 * Restrict employers data to 6 most recent 
+		 *
+		 * @param  void
+		 * @return array
+		 */
 		public function get_employers_recent() {
 
 			$recent = "";
@@ -209,7 +196,13 @@
 			}
 			return $recent;
 		}
-
+ 
+		/**
+		 * Get data for all employers in db
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
 		public function get_employers_all() {
 			
 			$results = $this->db->prepare("
@@ -240,6 +233,12 @@
 
 		}
 
+		/**
+		 * Get data for a single employer
+		 *
+		 * @param  int $id 
+		 * @return array
+		 */ 
 		public function get_employers_single($id) {
 
 			$results = $this->db->prepare("
