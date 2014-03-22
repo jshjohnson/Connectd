@@ -70,7 +70,7 @@ namespace :deploy do
   end
 end
 
-### WordPress
+### Site
 
 namespace :site do
     desc "Setup symlinks for project"
@@ -79,7 +79,7 @@ namespace :site do
         run "ln -nfs /home/156312/domains/#{application}/shared/.htaccess-master #{current_path}/.htaccess"
     end
 
-    desc "Create files and directories for WordPress environment"
+    desc "Create files and directories for site environment"
     task :setup, :roles => :app do
         run "touch #{shared_path}/.htaccess-master"
 

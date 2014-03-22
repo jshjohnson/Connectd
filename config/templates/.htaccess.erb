@@ -10,10 +10,19 @@ RewriteRule ^employers/([0-9]+)/$ <%= database['urlpath'] %>employers/profile.ph
 
 RewriteRule ^jobs/([0-9]+)/$ <%= database['urlpath'] %>jobs/index.php?id=$1
 
+RewriteRule ^edit-profile/([0-9]+)/$ <%= database['urlpath'] %>edit-profile.php?id=$1
+RewriteRule ^account-settings/([0-9]+)/$ <%= database['urlpath'] %>account-settings.php?id=$1
+
 RewriteRule ^developers/list/ <%= database['urlpath'] %>developers/list.php
 RewriteRule ^designers/list/ <%= database['urlpath'] %>designers/list.php
 RewriteRule ^jobs/list/ <%= database['urlpath'] %>jobs/list.php
 
+RewriteRule ^login/ <%= database['urlpath'] %>login.php
+
 ErrorDocument 404 <%= database['urlpath'] %>404.php
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
 
 Options -Indexes
