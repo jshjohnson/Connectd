@@ -50,13 +50,16 @@
 	 			session_regenerate_id(true);// destroying the old session id and creating a new one
 	 			$_SESSION['user_id'] =  $login; // The user's id is now set into the user's session  in the form of $_SESSION['id'] 
 				$_SESSION['logged']="logged";
-
-				header('Location: dashboard/');
 				
 				if($votes->userVotedFor($email) === true) {
-					#Redirect the user to the dashboard
-					header('Location: dashboard/');
-					exit();
+					if ($_COOKIE['firstVisit'] != "yes") { 
+						setcookie("firstVisit", "yes", time()+315360000);  
+						header("Location: dashboard?status=firstvisit"); 
+						exit();
+					} else {
+						header('Location: dashboard/');
+						exit();
+					}	
 				} else {
 					header('Location: welcome/');
 					exit();

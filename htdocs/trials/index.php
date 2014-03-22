@@ -4,7 +4,7 @@
 
 	$general->errors();
 	$general->loggedOutProtect();
-	$votes->userVotedForProtect();
+	// $votes->userVotedForProtect();
 	$votedBy        = $_SESSION['user_id'];
 
 	$pageTitle      = "Trials";
@@ -57,7 +57,7 @@
 							<h4 class="user-sidebar__label icon--attach icon--marg"><?= $trial_user["jobtitle"]; ?></h4>
 							<h4 class="user-sidebar__label icon--location icon--marg"><?= $trial_user["location"]; ?>, UK</h4>
 							<h4 class="user-sidebar__label icon--briefcase icon--marg"><?php $url = preg_replace("(Between)", "", $trial_user["experience"] ); echo $url ?> experience</h4>
-							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $trial_user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trial_user["portfolio"] ); echo $url ?></a></h4>
+							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="http://<?= $trial_user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trial_user["portfolio"] ); echo $url ?></a></h4>
 							<div class="button-wrapper">
 							<?php if($votes->sessionUserVoted($vote_id, $votedBy) == false) : ?>
 								<a href="add-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="btn btn--green btn--small">

@@ -43,8 +43,8 @@
 				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 			");
 			
-			$query->bindValue(1, $firstname);
-			$query->bindValue(2, $lastname);
+			$query->bindValue(1, $firstName);
+			$query->bindValue(2, $lastName);
 			$query->bindValue(3, $email);
 			$query->bindValue(4, $email_code);
 			$query->bindValue(5, $password);
@@ -91,26 +91,26 @@
 	 
 				if($rows > 0){
 
-					$last_user_id =  $this->db->lastInsertId('user_id');
+					$lastUserId =  $this->db->lastInsertId('user_id');
 					
 					$query_2 = $this->db->prepare("INSERT INTO " . DB_NAME . ".freelancers (freelancer_id, jobtitle, priceperhour) VALUE (?,?,?)");
 	 
-	 				$query_2->bindValue(1, $last_user_id);
-					$query_2->bindValue(2, $jobtitle);
-					$query_2->bindValue(3, $priceperhour);						
+	 				$query_2->bindValue(1, $lastUserId);
+					$query_2->bindValue(2, $jobTitle);
+					$query_2->bindValue(3, $pricePerHour);						
 	 
 					$query_2->execute();
 
 					$query_3 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_type_id, user_type) VALUE (?,?)");
 	 
-	 				$query_3->bindValue(1, $last_user_id);
+	 				$query_3->bindValue(1, $lastUserId);
 					$query_3->bindValue(2, $userType);				
 	 
 					$query_3->execute();
 
 					$query_4 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (experience_id, experience) VALUE (?,?)");
 
-					$query_4->bindValue(1, $last_user_id);
+					$query_4->bindValue(1, $lastUserId);
 					$query_4->bindValue(2, $experience);							
 	 
 					$query_4->execute();
@@ -118,16 +118,16 @@
 					if($userType == 'designer') {
 						$query_5 = $this->db->prepare("INSERT INTO " . DB_NAME . ".designer_titles (job_title_id, job_title) VALUE (?,?)");
 
-						$query_5->bindValue(1, $last_user_id);
-						$query_5->bindValue(2, $jobtitle);				
+						$query_5->bindValue(1, $lastUserId);
+						$query_5->bindValue(2, $jobTitle);				
 		 
 						$query_5->execute();
 
 					} else if ($userType == 'developer') {
 	 					$query_5 = $this->db->prepare("INSERT INTO " . DB_NAME . ".developer_titles (job_title_id, job_title) VALUE (?,?)");
 
-		 				$query_5->bindValue(1, $last_user_id);
-						$query_5->bindValue(2, $jobtitle);				
+		 				$query_5->bindValue(1, $lastUserId);
+						$query_5->bindValue(2, $jobTitle);				
 		 
 						$query_5->execute();
 					}

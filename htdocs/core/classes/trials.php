@@ -61,7 +61,7 @@
 			");
 			$query->bindValue(1, 'employer');
 			$query->bindValue(2, 1);
-			$query->bindValue(3, 10);
+			$query->bindValue(3, 3);
 
 			try{
 				$query->execute();
@@ -95,7 +95,7 @@
 				HAVING CountOfvote_id < ?
 			");
 			$query->bindValue(1, $user_id);
-			$query->bindValue(2, 10);
+			$query->bindValue(2, 3);
 
 			try{
 				$query->execute();

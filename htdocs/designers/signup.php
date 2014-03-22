@@ -56,7 +56,7 @@
 		    $errors[] = "Email already taken. Please try again.";
 		}else if($password == ""){
 		    $errors[] ="Please enter a password";
-		}else if ($password!=$repeatpassword){
+		}else if ($password!=$repeatPassword){
 			$errors[] = "Both password fields must match";
 		} else if(preg_match_all($r1,$password, $o)<1) {
 			$errors[] = "Your password needs to contain at least one uppercase character";

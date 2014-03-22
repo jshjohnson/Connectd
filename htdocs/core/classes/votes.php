@@ -38,7 +38,7 @@
 		}
 
 		/**
-		 * Tests whether has a user has less than 10 votes (and therefore verified)
+		 * Tests whether a user has less than 10 votes (and therefore unverified)
 		 *
 		 * @param  string  $email The logged in user's email
 		 * @return boolean
@@ -59,15 +59,14 @@
 			");
 
 			$query->bindValue(1, $email);
-			$query->bindValue(2, 10);
+			$query->bindValue(2, 3);
 			$query->bindValue(3, 'employer');
 			
 			try{
-				
 				$query->execute();
-				$rows = $query->fetchColumn();
-		 
-				if($rows == 1){
+				$rows = $query->fetch();
+				
+				if($rows < 1){
 					return true;
 				}else{
 					return false;
@@ -77,7 +76,6 @@
 				die($e->getMessage());
 			}
 		}
-
 
 		/**
 		 * Redirects user based on boolean from userVotedFor()
@@ -96,7 +94,6 @@
 				exit();
 			}
 		}
-
 
 		/**
 		 * Adds a vote to the database
@@ -172,5 +169,5 @@
 			}catch(PDOException $e){
 				die($e->getMessage());
 			}
-	    }
+		}
 	}

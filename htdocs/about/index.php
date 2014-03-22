@@ -3,7 +3,8 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$pageTitle    = "About Us";
-	$section = "Page";
+	$pageType     = "Page";
+	$section      = "Blue";
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
 ?>

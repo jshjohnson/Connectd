@@ -15,7 +15,12 @@
 	$developers   = $developers->get_developers_all();
 	$employers    = $employers->get_employers_all();
 	$jobs         = $jobs->get_jobs_all();
+
+	if (isset($_GET["status"])) { 
+		$status = $_GET["status"];
+	}
 ?>
+	<?php if($status == "firstvisit") : ?>
 		<section class="call-to-action call-to-action--top">
 			<div class="container">
 				<h4 class="as-h1 call-to-action__title zero-top">
@@ -24,6 +29,7 @@
 				<a class="btn btn--red" href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>">Build your profile</a>
 			</div>
 		</section>
+	<? endif;?>
 		<section class="container footer--push">
 			<div class="grid--no-marg cf">
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">

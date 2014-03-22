@@ -61,7 +61,7 @@
 		public function get_developers_single($id) {
 
 			$results = $this->db->prepare("
-				SELECT u.user_id, u.firstname, u.lastname, u.bio, u.portfolio, u.location, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
+				SELECT u.user_id, u.firstname, u.lastname, u.email, u.bio, u.portfolio, u.location, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
 				FROM ((" . DB_NAME . ".users AS u
 				LEFT JOIN " . DB_NAME . ".freelancers AS f
 				ON u.user_id = f.freelancer_id)
