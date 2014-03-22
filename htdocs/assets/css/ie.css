@@ -1771,9 +1771,9 @@ img.media__img {
 
 /* line 27, ../scss/core/_modules.scss */
 .media-2-3--wide {
-  width: -moz-calc(80% - 5em);
-  width: -webkit-calc(80% - 5em);
-  width: calc(80% - 5em);
+  width: -moz-calc(90% - 5em);
+  width: -webkit-calc(90% - 5em);
+  width: calc(90% - 5em);
 }
 
 /* line 31, ../scss/core/_modules.scss */

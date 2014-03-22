@@ -3,12 +3,10 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$general->loggedOutProtect();
-	
-	require_once(ROOT_PATH . "model/developers.php");
 
 	if (isset($_GET["id"])) {
 		$developer_id = $_GET["id"];
-		$developer = get_developers_single($developer_id);
+		$developer = $developers->get_developers_single($developer_id);
 	}
 
 	if (empty($developer)) {
@@ -44,7 +42,7 @@
 						<h3 class="user-sidebar__title"><?= $developer['firstname'] . " " . $developer['lastname']; ?></h3>
 						<h4 class="user-sidebar__label icon--attach icon--marg"><?= $developer['jobtitle']; ?></h4>
 						<h4 class="user-sidebar__label icon--location icon--marg"><?= $developer['location']; ?></h4>
-						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $developer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
+						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="http://<?= $developer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
 						<p><?= $developer['bio']; ?></p>
 					</div>
 				</aside>

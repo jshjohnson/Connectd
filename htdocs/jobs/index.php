@@ -4,13 +4,10 @@
 
 	$general->loggedOutProtect();
 
-	include_once(ROOT_PATH . "model/jobs.php");
-
 	if (isset($_GET["id"])) {
 		$job_id    = $_GET["id"];
-		$job       = get_jobs_single($job_id);
+		$job       = $jobs->get_jobs_single($job_id);
 	}
-
 
 	if (empty($job)) {
 		header("Location: " . BASE_URL);
@@ -68,14 +65,14 @@
 								$employerName = $job['employer_name'];
 
 								if (strlen($employerName)>=23) {
-									echo "<h3 class=\"user-sidebar__title user-sidebar__title--alt\"><a href=". BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . ">" . $employerName . "</a></h3>";
+									echo "<h3 class=\"user-sidebar__title user-sidebar__title--alt\"><a href=". BASE_URL . "employers/" . $job['user_id'] . "/" . ">" . $employerName . "</a></h3>";
 								} else {
-									echo "<h3 class=\"user-sidebar__title\"><a href=". BASE_URL . $job['user_type'] . "s/" . $job['user_id'] . "/" . ">" . $employerName . "</a></h3>";
+									echo "<h3 class=\"user-sidebar__title\"><a href=". BASE_URL . "employers/" . $job['user_id'] . "/" . ">" . $employerName . "</a></h3>";
 								}
 							?>
 							<h4 class="user-sidebar__label icon--attach icon--marg"><?= $job['employer_type']; ?></h4>
 							<h4 class="user-sidebar__label icon--location icon--marg"><?= $job['location']; ?></h4>
-							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $job['portfolio']; ?>"><?= $job['portfolio']; ?></a></h4>
+							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="http://<?= $job['portfolio']; ?>"><?= $job['portfolio']; ?></a></h4>
 							<p><?= $job['bio']; ?></p>
 						</div>
 					</article>

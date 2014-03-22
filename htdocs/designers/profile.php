@@ -4,12 +4,10 @@
 	
 	$general->loggedOutProtect();
 
-	require_once(ROOT_PATH . "model/designers.php");
-
 	// Grab ID from URL, convert to interger to strip SQL injection, pass to get_designers_single function to pull
 	if (isset($_GET["id"])) {
 		$designer_id = intval($_GET["id"]);
-		$designer = get_designers_single($designer_id);
+		$designer = $designers->get_designers_single($designer_id);
 	}
 
 	// If no ID in URL, return to dashboard;
@@ -45,7 +43,7 @@
 						<a href=""><i class="icon--star"></i></a><h3 class="user-sidebar__title"><?= $designer['firstname'] . " " . $designer['lastname']; ?></h3>
 						<h4 class="user-sidebar__label icon--attach icon--marg"><?= $designer['jobtitle']; ?></h4>
 						<h4 class="user-sidebar__label icon--location icon--marg"><?= $designer['location']; ?></h4>
-						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $designer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>
+						<h4 class="user-sidebar__label icon--globe icon--marg"><a href="http://<?= $designer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>
 						<p><?= $designer['bio']; ?></p>
 					</div>
 				</aside>

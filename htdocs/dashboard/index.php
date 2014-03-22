@@ -11,16 +11,10 @@
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
 
-	require_once(ROOT_PATH . "model/designers.php");
-	require_once(ROOT_PATH . "model/developers.php");
-	require_once(ROOT_PATH . "model/employers.php");
-	require_once(ROOT_PATH . "model/jobs.php");
-
-	$designers    = get_designers_all();
-	$developers   = get_developers_all();
-	$employers    = get_employers_all();
-	$jobs         = get_jobs_all();
-
+	$designers    = $designers->get_designers_all();
+	$developers   = $developers->get_developers_all();
+	$employers    = $employers->get_employers_all();
+	$jobs         = $jobs->get_jobs_all();
 ?>
 		<section class="call-to-action call-to-action--top">
 			<div class="container">
@@ -41,7 +35,7 @@
 						<?php if (is_array($designers)) : ?>
 
 						<?php foreach($designers as $designer_id => $designer) {
-							echo get_designer_list_view($designer_id, $designer);
+							include('../views/designer_list_view.php');
 						} ?>
 
 						<?php endif; ?>
@@ -56,7 +50,7 @@
 						<?php if (is_array($developers)) : ?>
 
 						<?php foreach($developers as $developer_id => $developer) {
-							echo get_developer_list_view($developer_id, $developer);
+							include('../views/developer_list_view.php');
 						} ?>
 
 						<?php endif; ?>
@@ -71,7 +65,7 @@
 						<?php if (is_array($employers)) : ?>
 
 						<?php foreach($employers as $employer_id => $employer) {
-							echo get_employer_list_view($employer_id, $employer);
+							include('../views/employer_list_view.php');
 						} ?>
 
 						<?php endif; ?>
@@ -88,7 +82,7 @@
 						<?php if (is_array($jobs)) : ?>
 
 						<?php foreach($jobs as $job_id => $job) {
-							echo get_job_list_view($job_id, $job);
+							include('../views/job_list_view.php');
 						} ?>
 
 						<?php endif; ?>

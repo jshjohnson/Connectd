@@ -5,11 +5,9 @@
 	$general->errors();
 	$general->loggedOutProtect();
 
-	require_once(ROOT_PATH . "model/employers.php");
-
 	if (isset($_GET["id"])) {
 		$employer_id       = $_GET["id"];
-		$employer          = get_employers_single($employer_id);
+		$employer          = $employers->get_employers_single($employer_id);
 		$jobs              = $employers->getEmployerJobs($employer_id);
 	}
 
