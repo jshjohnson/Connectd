@@ -4,12 +4,10 @@
 
 	$general->loggedOutProtect();
 
-	require_once(ROOT_PATH . "model/employers.php");
-
 	$pageTitle       = "Employers";
 	$section         = "Employers";
 
-	$employers       = get_employers_all();
+	$employers       = $employers->get_employers_all();
 	$employer_id     = $_GET["id"];
 	$employer        = $employers[$employer_id];
 
@@ -30,7 +28,7 @@
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php foreach($employers as $employer_id => $employer) {
-							echo get_employer_list_view($employer_id, $employer);
+							include('../views/employer-list.view.php');
 						} ?>
 					</div>
 				</article>

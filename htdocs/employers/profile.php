@@ -24,7 +24,7 @@
 		<section class="container">
 			<div class="grid--no-marg cf">
 				<aside class="float-left grid__cell module-1-3 module--no-pad user-module--employer">
-					<?php include('../views/employer_sidebar_view.php'); ?>
+					<?php include('../views/employer-sidebar.view.php'); ?>
 				</aside>
 				<aside class="dashboard-panel grid__cell module-2-3 module--no-pad float-right">
 					<header class="header--panel header--developer cf">
@@ -33,10 +33,10 @@
 					<div class="media-wrapper media-wrapper--tall">
 					<?php if (!empty($jobs)) : ?>
 					<?php foreach($jobs as $job) { ?>
-						<?php include('../views/job_list_view.php'); ?>
+						<?php include('../views/job-list.view.php'); ?>
 					<?php }; ?>
 					<?php else : ?>
-						<?php include('../views/job-empty_list_view.php'); ?>
+						<?php include('../views/job-empty-list.view.php'); ?>
 					<?php endif;?>
 					</div>
 				</aside>

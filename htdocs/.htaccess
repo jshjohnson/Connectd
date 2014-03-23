@@ -15,6 +15,7 @@ RewriteRule ^account-settings/([0-9]+)/$ /Connectd/htdocs/account-settings.php?i
 
 RewriteRule ^developers/list/ /Connectd/htdocs/developers/list.php
 RewriteRule ^designers/list/ /Connectd/htdocs/designers/list.php
+RewriteRule ^employers/list/ /Connectd/htdocs/employers/list.php
 RewriteRule ^jobs/list/ /Connectd/htdocs/jobs/list.php
 
 RewriteRule ^login/ /Connectd/htdocs/login.php

@@ -31,7 +31,7 @@
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php foreach($jobs as $job_id => $job) {
-							include('../views/job_list_view.php');
+							include('../views/job-list.view.php');
 						} ?>
 					</div>
 				</article>
