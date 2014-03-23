@@ -4,34 +4,17 @@
 
 	$general->loggedOutProtect();
 
-	$pageTitle       = "Welcome";
-	$section         = "Welcome";
+	$trial_user = $trials->getTrialUser($user_id);
 
-	$trial_user 	 = $trials->getTrialUser($user_id);
+	$vote_id = $trial_user["user_id"]; 
+	$trialUserVotes = $votes->getUserVotes($vote_id);
 
-	$vote_id         = $trial_user["user_id"]; 
-	$trialUserVotes  = $votes->getUserVotes($vote_id);
+	$votes = $trialUserVotes['CountOfvote_id'];
 
-	$votes           = $trialUserVotes['CountOfvote_id'];
+	$pageTitle = "Welcome";
+	$section = "Welcome";
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
+	include_once(ROOT_PATH . "views/welcome.html");
+	include_once(ROOT_PATH . "includes/footer.inc.php");
 ?>
-	<div class="welcome-intro">
-		<h2 class="logo text-right"><a href="<?= BASE_URL; ?>">connectd</a></h2>
-		<?php if ($general->loggedIn() === true) : ?>
-			<h2 class="text-left"><a href="<?= BASE_URL ?>logout.php">Logout</a></h2>
-		<?php else : ?>
-		<h2 class="text-left"><a href="" class="login-trigger">Login</a></h2>
-		<?php endif; ?>
-		<section class="welcome-message">
-			<div class="container">
-				<h4 class="as-h1 welcome-message__title">
-					Hey <?= $user['firstname']; ?>!
-				</h4>
-				<p>Welcome to Connectd. You have successfully signed up and have therefore been added to the Connectd Trials where the community will decide whether you are of a good enough quality to be hired. We will email you to update you on your progress in the Trials and whether you have achieved a vote.</p>
-				<p>Good luck!</p>
-				<p class="message-flipped message-flipped--notification">You currently have <strong><?= $votes; ?>/10</strong> votes</p>
-			</div>
-		</section>
-	</div>
-<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>
