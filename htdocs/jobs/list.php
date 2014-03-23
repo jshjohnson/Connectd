@@ -4,12 +4,10 @@
 
 	$general->loggedOutProtect();
 
-	include_once(ROOT_PATH . "model/jobs.php");
-
 	$section     = "Jobs";
 	$pageTitle   = "Job search";
 
-	$jobs        = get_jobs_all();
+	$jobs        = $jobs->get_jobs_all();
 	$job_id      = $_GET["id"];
 	$job         = $jobs[$job_id];
 	
@@ -33,7 +31,7 @@
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php foreach($jobs as $job_id => $job) {
-							echo get_job_list_view($job_id, $job);
+							include('../views/job_list_view.php');
 						} ?>
 					</div>
 				</article>

@@ -24,85 +24,10 @@
 		<section class="container">
 			<div class="grid--no-marg cf">
 				<aside class="user-module grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">
-					<div class="badge badge--left color-red">
-						<span class="badge__inner">
-							<h5>£<?= $designer['priceperhour']; ?></h5>
-							<small>per hour</small>
-						</span>
-					</div>
-					<div class="user-module__header">
-						<div class="user-module__avatar">
-							<img src="http://placehold.it/400x400" alt="">
-						</div>
-						<div class="button-wrapper">
-							<a class="button--left btn btn--green cf hire-trigger" href="mailto:<?= $designer['email']; ?>?subject=I would like to hire you! -- Connectd&body=Hey <?= $designer['firstname']; ?>...">Hire <?= $designer['firstname']; ?></a>
-							<a class="button--right btn btn--blue cf hire-trigger" href="mailto:<?= $designer['email']; ?>?subject=I would like to collaborate with you! -- Connectd&body=Hey <?= $designer['firstname']; ?>..."?>Collaborate</a>
-						</div>
-					</div>
-					<div class="user-module__info">
-						<a href=""><i class="icon--star"></i></a><h3 class="user-module__title"><?= $designer['firstname'] . " " . $designer['lastname']; ?></h3>
-						<h4 class="user-module__label icon--attach icon--marg"><?= $designer['jobtitle']; ?></h4>
-						<h4 class="user-module__label icon--location icon--marg"><?= $designer['location']; ?></h4>
-						<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $designer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $designer["portfolio"] ); echo $url ?></a></h4>
-						<p><?= $designer['bio']; ?></p>
-					</div>
+					<?php include('../views/designer_sidebar_view.php'); ?>
 				</aside>
 				<article class="portfolio grid__cell module-2-3 module--no-pad float-left">
-					<nav class="portfolio__headings-bg zero-bottom">
-						<ul class="portfolio__headings portfolio__headings--alt">
-							<li class="active active--blue"><a href="">Graphic Design</a></li>
-							<li><a href="">Web Design</a></li>
-							<li><a href="">App Design</a></li>
-						</ul>
-					</nav>
-					<div class="container__inner">
-						<ul class="grid grid__designer">
-							<li class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?= BASE_URL; ?>assets/img/designer-1.png" alt="">
-							</li>
-							<li class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?= BASE_URL; ?>assets/img/designer-2.png" alt="">
-							</li>
-							<li class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?= BASE_URL; ?>assets/img/designer-3.jpg" alt="">
-							</li>
-							<li class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?= BASE_URL; ?>assets/img/designer-4.jpg" alt="">
-							</li>
-							<li class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?= BASE_URL; ?>assets/img/designer-5.jpg" alt="">
-							</li>
-							<li class="grid__cell unit-1-3--bp3 unit-1-2--bp2 unit-1-2--bp1 grid__cell--img">
-								<img src="<?= BASE_URL; ?>assets/img/designer-6.gif" alt="">
-							</li>
-						</ul>
-					</div>
-					<nav class="portfolio__headings-bg">
-						<ul class="portfolio__headings portfolio__headings--alt">
-							<li class="active active--blue">Skills</li>
-							<li class="float-right info"><a href="" class="des-skills-trigger">What are these skills?</a></li>
-						</ul>
-					</nav>
-					<ul class="container__inner skills-wrapper">
-						<li class="skills__tag">User Experience Design</li>
-						<li class="skills__tag">Interface Design</li>
-						<li class="skills__tag">Web Design</li>
-						<li class="skills__tag">Graphical Design</li>
-						<li class="skills__tag">Illustrator</li>
-						<li class="skills__tag">Photoshop</li>
-						<li class="skills__tag">InDesign</li>
-					</ul>
-					<nav class="portfolio__headings-bg">
-						<ul class="portfolio__headings portfolio__headings--alt">
-							<li class="active active--blue">Testimonial</li>
-						</ul>
-					</nav>
-					<div class="container__inner push-bottom">
-					<blockquote>
-						<p>“Josh's dedication, eye for detail, and professionalism was a great asset and incredibly appreciated. He showed creativity, ambition, and care, as evidenced both in the website he made and in instructing RASA's staff how to update and maintain the site. RASA highly commends Josh for his skills and effort."</p>
-						<b class="source">Julia de Bresser, RASA Wakefield</b>
-					</blockquote>
-					</div>
+					<?php include('../views/designer_portfolio_view.php'); ?>
 				</article>
 			</div>
 		</section>

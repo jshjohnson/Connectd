@@ -21,6 +21,10 @@
 				</div>
 				<div class='media-1-3 media__side'>
 					<p><small><?= date('F j, Y', $job['job_post_date']); ?></small></p>
+					<?php if ($section != "Employers") : ?>
 					<p><small><strong><a href="<?= BASE_URL . $job['user_type'] . 's/' . $job['user_id']; ?>/"><?= $job['employer_name']; ?></a></strong></small></p>
+					<?php else : ?>
+					<a class="btn btn--green btn--small apply-trigger" href="<?= BASE_URL . "jobs/" . $job['job_id']; ?>">Apply</a>
+					<?php endif; ?>
 				</div>
 			</div>
