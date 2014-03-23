@@ -2,17 +2,16 @@
 	session_start();
 	require 'connect/database.php';
 
-	require 'classes/users.php';
-	require 'classes/bcrypt.php';
-	require 'classes/general.php';
-	require 'classes/votes.php';
-	require 'classes/employers.php';
-	require 'classes/developers.php';
-	require 'classes/designers.php';
-	require 'classes/freelancers.php';
-	require 'classes/jobs.php';
-	require 'classes/sessions.php';
-	require 'classes/trials.php';
+	/**
+	 * Require all classes in `classes` folder
+	 *
+	 * @param  string $class
+	 * @return void
+	 */ 
+	function class_loader($class) {
+		require('classes/' . $class . '.php');
+	}
+	spl_autoload_register('class_loader');
 
 	require 'inc/phpmailer/PHPMailerAutoload.php';
 	 
