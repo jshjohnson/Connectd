@@ -5,6 +5,17 @@
 	 	
 		private $db;
 
+		protected $firstName = null;
+		protected $lastName = null;
+		protected $email = null;
+		protected $location = null;
+		protected $portfolio = null;
+		protected $jobTitle = null;
+		protected $pricePerHour = null;
+		protected $experience = null;
+		protected $bio = null;
+		protected $userType = null;
+
 		// Methods
 		
 		public function __construct($database) {
@@ -59,7 +70,7 @@
 				$query->execute();
 
 		 		// Send verification email to user
-				$general->sendEmail($email);
+				$general->sendEmail($firstname, $email, $emailCode);
 
 				$rows = $query->rowCount();
 	 
