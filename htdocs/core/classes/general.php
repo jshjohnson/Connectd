@@ -67,6 +67,24 @@
 			}
 			return $o;
 		}
+
+		/**
+		 * If a user has checked "Remember me", set a cookie
+		 *
+		 * @param  
+		 * @return boolean
+		 */ 
+		public function rememberMe($remember, $email, $year) {
+			if($remember) {
+				setcookie('remember_me', $email, $year);
+			} elseif(!$remember) {
+				if(isset($_COOKIE['remember_me'])) {
+					$past = time() - 100;
+					setcookie(remember_me, gone, $past);
+				}
+			}
+		}
+
 				
 	 	/**
 		 * Test if user is logged in
