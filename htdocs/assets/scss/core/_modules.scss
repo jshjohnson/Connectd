@@ -52,9 +52,6 @@ img.media__img {
 	&:last-child{
 		margin-bottom: 0;
 	}
-	.user-info {
-		width: 70%;
-	}
 }
 
 .media__side {
@@ -596,11 +593,11 @@ img.media__img {
 	}
 }
 
-.user-trial__label {
-	color: #7f7e7e;
-	font-size: .7em;
-	display: inline-block;
-	top: 1em;
-	right: 1em;
-	position: absolute;
+
+.user-info {
+	width: 70%;
+}
+
+.user-info__link {
+	@include underline;
 }

@@ -31,8 +31,7 @@
 			if ($login === false) {
 				$errors[] = 'Sorry, that username/password is invalid';
 			}else{
-				// username/password is correct and the login method of the $users object returns the user's id, which is stored in $login.
-	 
+				// username/password is correct and the login method of the $users object returns the user's id, which is stored in $login
 	 			session_regenerate_id(true);// destroying the old session id and creating a new one
 	 			$_SESSION['user_id'] =  $login; // The user's id is now set into the user's session  in the form of $_SESSION['id'] 
 				$_SESSION['logged']="logged";

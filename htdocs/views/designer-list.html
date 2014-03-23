@@ -3,7 +3,9 @@
 				<div class='media__body'>
 					<div class='float-left user-info'>
 						<a href='#'><i class='icon--star'></i></a>
-						<a href="<?= BASE_URL . "designers/" . $designer['user_id']; ?>/"><h4><?= $designer['firstname'] . ' ' . $designer['lastname']; ?></h4></a>
+						<a href="<?= BASE_URL . "designers/" . $designer['user_id']; ?>/" class="user-info__link">
+							<h4><?= $designer['firstname'] . ' ' . $designer['lastname']; ?></h4>
+						</a>
 						<p><?= $designer['jobtitle']; ?></p>
 					</div>
 					<div class="float-right badge--price-per-hour">
