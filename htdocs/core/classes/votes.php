@@ -31,9 +31,9 @@
 			try{
 				$query->execute();
 				return $query->fetch();
-			} catch(PDOException $e){
-		 
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 		}
 
@@ -71,9 +71,10 @@
 				}else{
 					return false;
 				}
-		 
-			} catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+				
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 		}
 
@@ -110,9 +111,10 @@
 			try{
 				$query->execute();
 				header("Location:" . BASE_URL . "trials?status=added");
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
-			}	
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
+			}
 	    }
 
 	    /**
@@ -131,9 +133,10 @@
 			try{
 				$query->execute();
 				header("Location:" . BASE_URL . "trials?status=removed");
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
-			}	
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
+			}
 	    }
 
 		/**
@@ -165,8 +168,9 @@
 					return false;
 				}
 
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 		}
 	}

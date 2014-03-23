@@ -6,9 +6,20 @@
 		'password'	=> DB_PASS,
 		'dbname' 	=> DB_NAME
 	);
-	#connecting to the database by supplying required parameters
-	$db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'], $config['username'], $config['password']);
-	 
-	#Setting the error mode of our db object, which is very important for debugging.
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	try {
+		#connecting to the database by supplying required parameters
+		$db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'], $config['username'], $config['password']);
+
+		#Setting the error mode of our db object, which is very important for debugging.
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	}catch(PDOException $e) {
+		$pageTitle = 'Error';
+
+		include(BASE_URL . 'includes/header.inc.php');
+		include(BASE_URL . 'views/error.view.html');
+		include(BASE_URL . 'includes/footer.inc.php');
+		
+		exit();
+	}
 ?>

@@ -1,8 +1,6 @@
 <?php ob_start();
 	$isHome = $pageType == "Home" || $section == "Welcome";
 	$isPage = $pageType == "Page";
-
-	$general->errors();
 ?>
 <!doctype html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->

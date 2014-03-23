@@ -22,21 +22,20 @@
 			ini_set('display_errors', 1);
 		}
 
-	 	/**
-		 * Strip data from malicious data
+		/**
+		 * Show PHP errors
 		 *
 		 * @param  void
-		 * @return string
+		 * @return void
 		 */ 
-		public function cleanString($db = null, $string){
-			$string = trim($string, " \t\0\x0B");
-			$string = utf8_decode($string);
-			$string = str_replace("#", "&#35", $string);
-			$string = str_replace("%", "&#37", $string);
-			if (get_magic_quotes_gpc()) {
-				$string = stripslashes($string);
-			}
-			return htmlentities($string);
+		public function errorView($general, $e) {
+			$pageTitle = 'Error';
+			$pageType = 'Page';
+			$section = 'Blue';
+			include('../includes/header.inc.php');
+			include('../views/error.view.html');
+			include('../includes/footer.inc.php');
+			exit();
 		}
 
 		/**
@@ -118,6 +117,39 @@
 			// Destroy the session
 			session_destroy();
 			header('Location: login.php?status=logged');
+	    }
+
+	    public function sendEmail($email, $firstname, $emailCode) {
+	    	global $mail;
+
+	    	$to = $email;
+
+			$mail->Host               = DB_EMAIL;  // specify main and backup server
+			$mail->Username           = "josh@joshuajohnson.co.uk";  // SMTP username
+			$mail->Password           = "cheeseball27"; // SMTP password
+			$mail->SMTPAuth           = true;               // enable SMTP authentication
+			$mail->SMTPSecure         = "tls"; 
+			$mail->addAddress($to);  // Add a recipient=
+            
+            $mail->From               = 'robot@connectd.io';
+			$mail->FromName           = 'Connectd.io';
+            // Set word wrap to 50 characters
+			$mail->isHTML(true); // Set email format to HTML
+
+			$mail->Subject            = 'Activate your new Connectd account';
+
+			$mail->Body               = "<p>Hey " . $firstname . "!</p>";
+			$mail->Body              .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
+			$mail->Body              .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $emailCode . "</p>";
+			$mail->Body              .= "<p>-- Connectd team</p>";
+			$mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
+			$mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
+
+			if(!$mail->send()) {
+			   echo 'Message could not be sent.';
+			   echo 'Mailer Error: ' . $mail->ErrorInfo;
+			   exit;
+			}
 	    }
 
 	}

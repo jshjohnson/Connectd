@@ -11,11 +11,10 @@
 	function class_loader($class) {
 		require('classes/' . $class . '.php');
 	}
-	spl_autoload_register('class_loader');
+	spl_autoload_register('class_loader');	
 
 	require 'inc/phpmailer/PHPMailerAutoload.php';
-	 
-	
+
 	$general 	    = new General($db);
 	$users 			= new Users($db);
 	$votes          = new Votes($db);

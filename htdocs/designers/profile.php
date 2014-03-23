@@ -24,10 +24,10 @@
 		<section class="container">
 			<div class="grid--no-marg cf">
 				<aside class="user-module grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">
-					<?php include('../views/designer-sidebar.view.php'); ?>
+					<?php include('../views/designer-sidebar.view.html'); ?>
 				</aside>
 				<article class="portfolio grid__cell module-2-3 module--no-pad float-left">
-					<?php include('../views/designer-portfolio.view.php'); ?>
+					<?php include('../views/designer-portfolio.view.html'); ?>
 				</article>
 			</div>
 		</section>

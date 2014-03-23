@@ -29,63 +29,37 @@
 		 */ 
 		public function registerFreelancer($firstName, $lastName, $email, $password, $location, $portfolio, $jobTitle, $pricePerHour, $experience, $bio, $userType){
 
-			global $bcrypt; // making the $bcrypt variable global so we can use here
-			global $mail;
+			global $bcrypt;
+			global $general;
 			
 			$time 		= time();
 			$ip 		= $_SERVER['REMOTE_ADDR'];
-			$email_code = sha1($email + microtime());
+			$emailCode = sha1($email + microtime());
 			$password   = $bcrypt->genHash($password);
 
-			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".users
+			$query 	= $this->db->prepare("
+				INSERT INTO " . DB_NAME . ".users
 				(firstname, lastname, email, email_code, password, time_joined, location, portfolio, bio, ip) 
 				VALUES 
-				(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+				(:firstname, :lastname, :email, :email_code, :password, :time_joined, :location, :portfolio, :bio, :ip)
 			");
 			
-			$query->bindValue(1, $firstName);
-			$query->bindValue(2, $lastName);
-			$query->bindValue(3, $email);
-			$query->bindValue(4, $email_code);
-			$query->bindValue(5, $password);
-			$query->bindValue(6, $time);
-			$query->bindValue(7, $location);
-			$query->bindValue(8, $portfolio);
-			$query->bindValue(9, $bio);
-			$query->bindValue(10, $ip);
+			$query->bindValue(":firstname", $firstName);
+			$query->bindValue(":lastname", $lastName);
+			$query->bindValue(":email", $email);
+			$query->bindValue(":email_code", $emailCode);
+			$query->bindValue(":password", $password);
+			$query->bindValue(":time_joined", $time);
+			$query->bindValue(":location", $location);
+			$query->bindValue(":portfolio", $portfolio);
+			$query->bindValue(":bio", $bio);
+			$query->bindValue(":ip", $ip);
 		 
 			try{
 				$query->execute();
-		 
-				// $to = $email;
 
-				// $mail->Host               = DB_EMAIL;  // specify main and backup server
-				// $mail->Username           = "josh@joshuajohnson.co.uk";  // SMTP username
-				// $mail->Password           = "cheeseball27"; // SMTP password
-				// $mail->SMTPAuth           = true;               // enable SMTP authentication
-				// $mail->SMTPSecure         = "tls"; 
-				// $mail->addAddress($to);  // Add a recipient=
-                
-    //             $mail->From               = 'robot@connectd.io';
-				// $mail->FromName           = 'Connectd.io';
-    //             // Set word wrap to 50 characters
-				// $mail->isHTML(true); // Set email format to HTML
-
-				// $mail->Subject            = 'Activate your new Connectd account';
-
-				// $mail->Body               = "<p>Hey " . $firstname . "!</p>";
-				// $mail->Body              .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
-				// $mail->Body              .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $email_code . "</p>";
-				// $mail->Body              .= "<p>-- Connectd team</p>";
-				// $mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-				// $mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
-				// $mail->AltBody            = 'This is the body in plain text for non-HTML mail clients';
-
-				// if(!$mail->send()) {
-				//    echo 'Message could not be sent.';
-				//    echo 'Mailer Error: ' . $mail->ErrorInfo;
-				//    exit;
-				// }
+		 		// Send verification email to user
+				$general->sendEmail($email);
 
 				$rows = $query->rowCount();
 	 
@@ -93,51 +67,66 @@
 
 					$lastUserId =  $this->db->lastInsertId('user_id');
 					
-					$query_2 = $this->db->prepare("INSERT INTO " . DB_NAME . ".freelancers (freelancer_id, jobtitle, priceperhour) VALUE (?,?,?)");
+					$freelancersInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".freelancers (freelancer_id, jobtitle, priceperhour) VALUE (?,?,?)");
 	 
-	 				$query_2->bindValue(1, $lastUserId);
-					$query_2->bindValue(2, $jobTitle);
-					$query_2->bindValue(3, $pricePerHour);						
-	 
-					$query_2->execute();
+	 				$freelancersInsert->bindValue(1, $lastUserId);
+					$freelancersInsert->bindValue(2, $jobTitle);
+					$freelancersInsert->bindValue(3, $pricePerHour);
 
-					$query_3 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_type_id, user_type) VALUE (?,?)");
-	 
-	 				$query_3->bindValue(1, $lastUserId);
-					$query_3->bindValue(2, $userType);				
-	 
-					$query_3->execute();
+					try{
+						$freelancersInsert->execute();
+					}catch(PDOException $e){
+						echo "Sorry, there was an error: ".$e->getMessage();
+					}							
 
-					$query_4 = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (experience_id, experience) VALUE (?,?)");
-
-					$query_4->bindValue(1, $lastUserId);
-					$query_4->bindValue(2, $experience);							
+					$userTypeInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_type_id, user_type) VALUE (?,?)");
 	 
-					$query_4->execute();
+	 				$userTypeInsert->bindValue(1, $lastUserId);
+					$userTypeInsert->bindValue(2, $userType);				
+	 
+					try{
+						$userTypeInsert->execute();
+					}catch(PDOException $e){
+						echo "Sorry, there was an error: ".$e->getMessage();
+					}	
+
+					$userExpInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (experience_id, experience) VALUE (?,?)");
+
+					$userExpInsert->bindValue(1, $lastUserId);
+					$userExpInsert->bindValue(2, $experience);							
+	
+					try{
+						$userExpInsert->execute();
+					}catch(PDOException $e){
+						echo "Sorry, there was an error: ".$e->getMessage();
+					}	
 
 					if($userType == 'designer') {
-						$query_5 = $this->db->prepare("INSERT INTO " . DB_NAME . ".designer_titles (job_title_id, job_title) VALUE (?,?)");
+						$jobTitleInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".designer_titles (job_title_id, job_title) VALUE (?,?)");
 
-						$query_5->bindValue(1, $lastUserId);
-						$query_5->bindValue(2, $jobTitle);				
-		 
-						$query_5->execute();
+						$jobTitleInsert->bindValue(1, $lastUserId);
+						$jobTitleInsert->bindValue(2, $jobTitle);					
 
 					} else if ($userType == 'developer') {
-	 					$query_5 = $this->db->prepare("INSERT INTO " . DB_NAME . ".developer_titles (job_title_id, job_title) VALUE (?,?)");
+	 					$jobTitleInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".developer_titles (job_title_id, job_title) VALUE (?,?)");
 
-		 				$query_5->bindValue(1, $lastUserId);
-						$query_5->bindValue(2, $jobTitle);				
-		 
-						$query_5->execute();
+		 				$jobTitleInsert->bindValue(1, $lastUserId);
+						$jobTitleInsert->bindValue(2, $jobTitle);
 					}
+
+					try{
+						$jobTitleInsert->execute();
+					}catch(PDOException $e){
+						echo "Sorry, there was an error: ".$e->getMessage();
+					}	
 					
 					return true;
 				}
 							
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
-			}	
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
+			}
 		}
 
 		/**

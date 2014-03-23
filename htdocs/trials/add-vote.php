@@ -4,7 +4,7 @@
 
 	$general->errors();
 	// $votes->userVotedForProtect();
-	$user_id = $general->cleanString($db, $_GET['user_id']);
+	$user_id = $_GET['user_id'];
 	$votedBy = $_SESSION['user_id'];
 
 	if($user_id != '' && is_numeric($user_id)) {

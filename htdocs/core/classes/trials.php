@@ -65,8 +65,9 @@
 
 			try{
 				$query->execute();
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
@@ -99,8 +100,9 @@
 
 			try{
 				$query->execute();
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 			return $query->fetch();
 		}

@@ -59,9 +59,9 @@
 
 			try {
 				$results->execute();
-			} catch (Exception $e) {
-				echo "Damn. All designer data could not be retrieved.";
-				exit;
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 			
 			$designers = $results->fetchAll(PDO::FETCH_ASSOC);
@@ -95,9 +95,9 @@
 
 			try {
 				$results->execute();
-			} catch (Exception $e) {
-				echo "Damn. Single designer data could not be retrieved.";
-				exit;
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 
 			$designers= $results->fetch(PDO::FETCH_ASSOC);

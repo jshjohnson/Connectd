@@ -79,20 +79,7 @@
 		}
 
 		if(empty($errors) === true){
-
-			$firstName         = $general->cleanString($db, $firstName);
-			$lastName          = $general->cleanString($db, $lastName);
-			$email             = $general->cleanString($db, $email);
-			$password          = $general->cleanString($db, $password);
-			$repeatPassword    = $general->cleanString($db, $repeatPassword);
-			$location          = $general->cleanString($db, $location);
-			$jobTitle          = $general->cleanString($db, $jobTitle);
-			$pricePerHour      = $general->cleanString($db, $pricePerHour);
-			$bio               = $general->cleanString($db, $bio);
-			$portfolio         = $general->cleanString($db, $portfolio);
-			$experience        = $general->cleanString($db, $experience);
-			$userType          = 'developer';
-	 
+			$userType = 'developer';
 			$freelancers->registerFreelancer($firstName, $lastName, $email, $password, $location, $portfolio, $jobTitle, $pricePerHour, $experience, $bio, $userType);
 			header("Location:" . BASE_URL . "developers/signup.php?status=success");
 			exit();

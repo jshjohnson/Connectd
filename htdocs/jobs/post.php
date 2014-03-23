@@ -46,15 +46,6 @@
 	    }
 
 		if(empty($errors) === true){
-
-			//clean the input now that we have a db connection
-			$jobName        = $general->cleanString($db, $jobName);
-			$startDate      = $general->cleanString($db, $startDate);
-			$deadline       = $general->cleanString($db, $deadline);
-			$budget         = $general->cleanString($db, $budget);
-			$category       = $general->cleanString($db, $category);
-			$description    = $general->cleanString($db, $description);
-
 			$jobs->postJob($user_id, $jobName, $startDate, $deadline, $budget, $category, $description);
 			header("Location:" . BASE_URL . "jobs/post.php?status=success");
 			exit();

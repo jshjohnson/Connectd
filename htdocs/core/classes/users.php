@@ -33,9 +33,9 @@
 				}else{
 					return false;
 				}
-		 
-			} catch (PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 		 
 		}
@@ -66,8 +66,9 @@
 					return false;
 				}
 		 
-			} catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 		}
 
@@ -103,8 +104,9 @@
 					return false;	
 				}
 		 
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 		}
 
@@ -118,8 +120,9 @@
 	    	$query = $this->db->prepare("SHOW COLUMNS FROM " . DB_NAME . ".user_experience LIKE 'experience'");
 			try{
 				$query->execute();
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 			$row = $query->fetch(PDO::FETCH_ASSOC);
 			
@@ -138,8 +141,9 @@
 			$query = $this->db->prepare("SELECT town FROM " . DB_NAME . ".towns ORDER BY town ASC");
 			try{
 				$query->execute();
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
@@ -164,9 +168,9 @@
 			try{
 				$query->execute();
 				return $query->fetch();
-			} catch(PDOException $e){
-		 
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 		}
 		
@@ -202,9 +206,9 @@
 				} else {
 					return false;
 				}
-	 
-			} catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 		}
 	}

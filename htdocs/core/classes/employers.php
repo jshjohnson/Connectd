@@ -21,8 +21,9 @@
 			$query = $this->db->prepare("SHOW COLUMNS FROM " . DB_NAME . ".employer_types LIKE 'employer_type'");
 			try{
 				$query->execute();
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 			$row = $query->fetch(PDO::FETCH_ASSOC);
 			
@@ -42,8 +43,9 @@
 	    	$query->bindValue(1, $employer_id);
 			try{
 				$query->execute();
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
@@ -67,7 +69,7 @@
 		 */ 
 	    public function registerEmployer($firstName, $lastName, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $userType) {
 
-			global $bcrypt; // making the $bcrypt variable global so we can use here
+			global $bcrypt; 
 			global $mail;
 			
 			$time 		= time();
@@ -167,9 +169,10 @@
 
 				}
 							
-			}catch(PDOException $e){
-				echo "Sorry, there was an error: ".$e->getMessage();
-			}	
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
+			}
 		}
 
 		/**
@@ -222,9 +225,9 @@
 
 			try {
 				$results->execute();
-			} catch (Exception $e) {
-				echo "Damn. All employer data could not be retrieved.";
-				exit;
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 			
 			$employers = $results->fetchAll(PDO::FETCH_ASSOC);
@@ -261,9 +264,9 @@
 
 			try {
 				$results->execute();
-			} catch (Exception $e) {
-				echo "Damn. Single employer data could not be retrieved.";
-				exit;
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
 
 			$employers = $results->fetch(PDO::FETCH_ASSOC);

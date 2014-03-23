@@ -84,22 +84,7 @@
 		}
 
 		if(empty($errors) === true) {
-
-			//clean the input now that we have a db connection
-			$firstName          = $general->cleanString($db, $firstName);
-			$lastName           = $general->cleanString($db, $lastName);
-			$email              = $general->cleanString($db, $email);
-			$password           = $general->cleanString($db, $password);
-			$repeatPassword     = $general->cleanString($db, $repeatPassword);
-			$employerName       = $general->cleanString($db, $employerName);
-			$location           = $general->cleanString($db, $location);
-			$employerType       = $general->cleanString($db, $employerType);
-			$portfolio          = $general->cleanString($db, $portfolio);
-			$experience         = $general->cleanString($db, $experience);
-			$bio                = $general->cleanString($db, $bio);
-			$userType          = 'employer';
-
-
+			$userType = 'employer';
 			$employers->registerEmployer($firstName, $lastName, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $userType);
 			header("Location:" . BASE_URL . "employers/signup.php?status=success");
 			exit();
