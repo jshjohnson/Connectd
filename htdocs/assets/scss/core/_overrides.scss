@@ -11,6 +11,7 @@
 .weight-normal     { font-weight:400 !important; }
 .weight-semibold   { font-weight:600 !important; }
 
+.list-inline 	{ li { display: inline; padding-left: 1em; &:first-child{ padding-left: 0;}} }
 .list-unset 	{ list-style: none !important; margin-left: 0 !important; }
 .list-numbers 	{ list-style: decimal !important; }
 .list-bullets 	{ list-style: disc !important; }

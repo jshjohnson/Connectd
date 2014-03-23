@@ -3931,49 +3931,59 @@ img.media__img {
 }
 
 /* line 14, ../scss/core/_overrides.scss */
+.list-inline li {
+  display: inline;
+  padding-left: 1em;
+}
+/* line 14, ../scss/core/_overrides.scss */
+.list-inline li:first-child {
+  padding-left: 0;
+}
+
+/* line 15, ../scss/core/_overrides.scss */
 .list-unset, .nav {
   list-style: none !important;
   margin-left: 0 !important;
 }
 
-/* line 15, ../scss/core/_overrides.scss */
+/* line 16, ../scss/core/_overrides.scss */
 .list-numbers {
   list-style: decimal !important;
 }
 
-/* line 16, ../scss/core/_overrides.scss */
+/* line 17, ../scss/core/_overrides.scss */
 .list-bullets {
   list-style: disc !important;
 }
 
-/* line 18, ../scss/core/_overrides.scss */
+/* line 19, ../scss/core/_overrides.scss */
 .block {
   display: block;
 }
 
-/* line 20, ../scss/core/_overrides.scss */
+/* line 21, ../scss/core/_overrides.scss */
 .float-right {
   float: right;
   clear: right;
 }
 
-/* line 21, ../scss/core/_overrides.scss */
+/* line 22, ../scss/core/_overrides.scss */
 .float-left {
   float: left;
   clear: left;
 }
 
-/* line 23, ../scss/core/_overrides.scss */
+/* line 24, ../scss/core/_overrides.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 27, ../scss/core/_overrides.scss */
+/* line 28, ../scss/core/_overrides.scss */
 .clear {
   clear: both;
 }
 
-/* line 31, ../scss/core/_overrides.scss */
+/* line 32, ../scss/core/_overrides.scss */
 .cover {
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -3982,44 +3992,44 @@ img.media__img {
 }
 
 /* Theme Classes */
-/* line 37, ../scss/core/_overrides.scss */
+/* line 38, ../scss/core/_overrides.scss */
 .brand-text {
   color: #2c3e50;
 }
 
-/* line 40, ../scss/core/_overrides.scss */
+/* line 41, ../scss/core/_overrides.scss */
 .brand-bg {
   background-color: #2c3e50;
 }
 
 /* Micro Clearfix - http://goo.gl/5Fvrh */
-/* line 45, ../scss/core/_overrides.scss */
+/* line 46, ../scss/core/_overrides.scss */
 .cf, .media, .nav {
   zoom: 1;
 }
-/* line 48, ../scss/core/_overrides.scss */
+/* line 49, ../scss/core/_overrides.scss */
 .cf:before, .media:before, .nav:before, .cf:after, .media:after, .nav:after {
   content: "";
   display: table;
 }
-/* line 49, ../scss/core/_overrides.scss */
+/* line 50, ../scss/core/_overrides.scss */
 .cf:after, .media:after, .nav:after {
   clear: both;
 }
 
 /* Specific text styles
 ----------------------------------*/
-/* line 54, ../scss/core/_overrides.scss */
+/* line 55, ../scss/core/_overrides.scss */
 .required {
   border: 1px solid #fc4349 !important;
 }
 
-/* line 55, ../scss/core/_overrides.scss */
+/* line 56, ../scss/core/_overrides.scss */
 .intro {
   font-size: 1.25em;
 }
 
-/* line 56, ../scss/core/_overrides.scss */
+/* line 57, ../scss/core/_overrides.scss */
 .headline {
   border-bottom: 1px solid #cccccc;
   padding-bottom: .45em;
@@ -4027,13 +4037,13 @@ img.media__img {
 
 /* Style trumps (error states etc.)
 ----------------------------------*/
-/* line 62, ../scss/core/_overrides.scss */
+/* line 63, ../scss/core/_overrides.scss */
 .is-hidden {
   display: none;
   visibility: hidden;
 }
 
-/* line 63, ../scss/core/_overrides.scss */
+/* line 64, ../scss/core/_overrides.scss */
 .is-vhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -4045,34 +4055,34 @@ img.media__img {
   width: 1px;
 }
 
-/* line 73, ../scss/core/_overrides.scss */
+/* line 74, ../scss/core/_overrides.scss */
 .warning {
   color: #900;
 }
 
-/* line 74, ../scss/core/_overrides.scss */
+/* line 75, ../scss/core/_overrides.scss */
 .info, .portfolio__headings li.portfolio__headings--label {
   color: #7f7e7e;
 }
 
-/* line 75, ../scss/core/_overrides.scss */
+/* line 76, ../scss/core/_overrides.scss */
 .alert {
   color: #009;
 }
 
-/* line 76, ../scss/core/_overrides.scss */
+/* line 77, ../scss/core/_overrides.scss */
 .help {
   color: #7f7e7e;
 }
 
-/* line 78, ../scss/core/_overrides.scss */
+/* line 79, ../scss/core/_overrides.scss */
 .message {
   color: white;
   padding: .5em 1em;
   font-size: .9em;
   position: relative;
 }
-/* line 83, ../scss/core/_overrides.scss */
+/* line 84, ../scss/core/_overrides.scss */
 .message:after {
   content: "";
   width: 0;
@@ -4083,20 +4093,20 @@ img.media__img {
   left: 1.5em;
   top: 100%;
 }
-/* line 93, ../scss/core/_overrides.scss */
+/* line 94, ../scss/core/_overrides.scss */
 .message a {
   color: white;
   font-weight: bolder;
 }
 
-/* line 99, ../scss/core/_overrides.scss */
+/* line 100, ../scss/core/_overrides.scss */
 .message-flipped {
   color: white;
   padding: .5em 1em;
   font-size: .9em;
   position: relative;
 }
-/* line 104, ../scss/core/_overrides.scss */
+/* line 105, ../scss/core/_overrides.scss */
 .message-flipped:before {
   content: "";
   width: 0;
@@ -4107,62 +4117,62 @@ img.media__img {
   left: 1.5em;
   top: -28%;
 }
-/* line 114, ../scss/core/_overrides.scss */
+/* line 115, ../scss/core/_overrides.scss */
 .message-flipped a {
   color: white;
   font-weight: bolder;
 }
 
-/* line 120, ../scss/core/_overrides.scss */
+/* line 121, ../scss/core/_overrides.scss */
 .message--success {
   background-color: #77c462;
 }
-/* line 122, ../scss/core/_overrides.scss */
+/* line 123, ../scss/core/_overrides.scss */
 .message--success:after {
   border-top: 0.75em solid #77c462;
 }
 
-/* line 127, ../scss/core/_overrides.scss */
+/* line 128, ../scss/core/_overrides.scss */
 .message--error {
   background-color: #fc4349;
 }
-/* line 129, ../scss/core/_overrides.scss */
+/* line 130, ../scss/core/_overrides.scss */
 .message--error:after {
   border-top: 0.75em solid #fc4349;
 }
 
-/* line 134, ../scss/core/_overrides.scss */
+/* line 135, ../scss/core/_overrides.scss */
 .message--hint {
   background-color: #ebe9e9;
   color: #8B8888;
   margin: .5em 0;
 }
-/* line 138, ../scss/core/_overrides.scss */
+/* line 139, ../scss/core/_overrides.scss */
 .message--hint:after {
   border-top: 0.75em solid #ebe9e9;
 }
-/* line 141, ../scss/core/_overrides.scss */
+/* line 142, ../scss/core/_overrides.scss */
 .message--hint:first-child {
   margin: 0 0 .5em;
 }
 
-/* line 146, ../scss/core/_overrides.scss */
+/* line 147, ../scss/core/_overrides.scss */
 .message-flipped--notification {
   background-color: orange;
 }
-/* line 148, ../scss/core/_overrides.scss */
+/* line 149, ../scss/core/_overrides.scss */
 .message-flipped--notification:before {
   border-bottom: 0.75em solid orange;
 }
 
-/* line 153, ../scss/core/_overrides.scss */
+/* line 154, ../scss/core/_overrides.scss */
 input:disabled {
   background-color: #ccc !important;
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
   box-shadow: 0 0.1em 0 #948f8f !important;
 }
-/* line 156, ../scss/core/_overrides.scss */
+/* line 157, ../scss/core/_overrides.scss */
 input:disabled:hover {
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
@@ -4172,7 +4182,7 @@ input:disabled:hover {
 
 /* Debuggin'
 ----------------------------------*/
-/* line 185, ../scss/core/_overrides.scss */
+/* line 186, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -4188,7 +4198,7 @@ body.debug:before {
   content: "Breakpoint 0";
 }
 @media screen and (min-width: 30em) {
-  /* line 188, ../scss/core/_overrides.scss */
+  /* line 189, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;
@@ -4205,7 +4215,7 @@ body.debug:before {
   }
 }
 @media screen and (min-width: 49em) {
-  /* line 191, ../scss/core/_overrides.scss */
+  /* line 192, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;
@@ -4222,7 +4232,7 @@ body.debug:before {
   }
 }
 @media screen and (min-width: 62em) {
-  /* line 194, ../scss/core/_overrides.scss */
+  /* line 195, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;
@@ -4239,7 +4249,7 @@ body.debug:before {
   }
 }
 @media screen and (min-width: 82em) {
-  /* line 197, ../scss/core/_overrides.scss */
+  /* line 198, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;
