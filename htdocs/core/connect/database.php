@@ -17,7 +17,7 @@
 		$pageTitle = 'Error';
 
 		include(BASE_URL . 'includes/header.inc.php');
-		include(BASE_URL . 'views/error.view.html');
+		include(BASE_URL . 'views/error.html');
 		include(BASE_URL . 'includes/footer.inc.php');
 		
 		exit();

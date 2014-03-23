@@ -41,7 +41,7 @@
 						<?php if (is_array($designers)) : ?>
 
 						<?php foreach($designers as $designer_id => $designer) {
-							include('../views/designer-list.view.html');
+							include('../views/designer-list.html');
 						} ?>
 
 						<?php endif; ?>
@@ -56,7 +56,7 @@
 						<?php if (is_array($developers)) : ?>
 
 						<?php foreach($developers as $developer_id => $developer) {
-							include('../views/developer-list.view.html');
+							include('../views/developer-list.html');
 						} ?>
 
 						<?php endif; ?>
@@ -71,7 +71,7 @@
 						<?php if (is_array($employers)) : ?>
 
 						<?php foreach($employers as $employer_id => $employer) {
-							include('../views/employer-list.view.html');
+							include('../views/employer-list.html');
 						} ?>
 
 						<?php endif; ?>
@@ -88,7 +88,7 @@
 						<?php if (is_array($jobs)) : ?>
 
 						<?php foreach($jobs as $job_id => $job) {
-							include('../views/job-list.view.html');
+							include('../views/job-list.html');
 						} ?>
 						
 						<?php endif; ?>

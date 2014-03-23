@@ -33,7 +33,7 @@
 			$pageType = 'Page';
 			$section = 'Blue';
 			include('../includes/header.inc.php');
-			include('../views/error.view.html');
+			include('../views/error.html');
 			include('../includes/footer.inc.php');
 			exit();
 		}
@@ -119,7 +119,7 @@
 			header('Location: login.php?status=logged');
 	    }
 
-	    public function sendEmail($email, $firstname, $emailCode) {
+	    public function sendEmail($firstname, $email, $emailCode) {
 	    	global $mail;
 
 	    	$to = $email;

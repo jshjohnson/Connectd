@@ -28,7 +28,7 @@
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php foreach($developers as $developer_id => $developer) {
-							include('../views/developer-list.view.html');
+							include('../views/developer-list.html');
 						} ?>
 					</div>
 				</article>

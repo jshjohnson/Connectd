@@ -80,10 +80,10 @@
 		}
 	}
 
-	$pageTitle         = "Sign Up";
-	$pageType          = "Page";
-	$section           = "Blue";
-
+	$pageTitle = "Sign Up";
+	$pageType = "Page";
+	$section = "Blue";
+	
 	include_once(ROOT_PATH . "includes/header.inc.php");
 	include_once(ROOT_PATH . "views/freelancer-signup-form.html");
 	include_once(ROOT_PATH . "includes/footer.inc.php");
