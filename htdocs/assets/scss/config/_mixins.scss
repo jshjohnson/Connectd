@@ -4,10 +4,6 @@
 
 @import "compass/css3";
 
-// ------------------------------------------------------------------------------
-// Framework Mixins
-// ------------------------------------------------------------------------------
-
 // Nav Objects
 // ----------------------------------
 
@@ -142,6 +138,11 @@
   #{$property}: -webkit-calc(#{$expression});
   #{$property}: calc(#{$expression});
 }
+
+@mixin underline($color: $link-underline-color, $weight: $link-underline-width, $offset: $link-underline-offset) {	
+  background-image: linear-gradient(bottom, transparent, transparent $offset, $color $offset, $color ($offset + $weight), transparent ($offset + $weight));
+}
+
 
 // Borders
 // ----------------------------------
