@@ -84,8 +84,7 @@
 				}
 			}
 		}
-
-				
+		
 	 	/**
 		 * Test if user is logged in
 		 *

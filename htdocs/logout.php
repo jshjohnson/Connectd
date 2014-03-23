@@ -2,5 +2,9 @@
 	require_once("config.php");  
 	require_once(ROOT_PATH . "core/init.php");
 
-	$general->doLogout();
+	if($general->loggedIn() == true) {
+		$general->doLogout();
+	}else{
+		header("Location:". BASE_URL);
+	}
 ?>

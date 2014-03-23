@@ -93,9 +93,9 @@
 			try{
 				
 				$query->execute();
-				$data 				= $query->fetch();
-				$stored_password 	= $data['password'];
-				$id 				= $data['user_id'];
+				$data = $query->fetch();
+				$stored_password = $data['password'];
+				$id = $data['user_id'];
 				
 				// hashing the supplied password and comparing it with the stored hashed password.
 				if($bcrypt->verify($password, $stored_password) === true){ // using the verify method to compare the password with the stored hashed password.

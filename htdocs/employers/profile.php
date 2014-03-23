@@ -22,6 +22,7 @@
 			include_once(ROOT_PATH . "includes/header.inc.php");
 			include_once(ROOT_PATH . "views/employer-profile.html");
 			include_once(ROOT_PATH . "includes/footer.inc.php");
+			
 		} else {
 			throw new Exception('An invalid page ID was provided to this page.');
 		}
