@@ -86,7 +86,7 @@
 				<?php endif; ?>
 				<form method="post" action="<?= BASE_URL; ?>jobs/post.php">
 					<p class="message message--hint">Psst. Make your job titles as descriptive as possible - it will avoid confusion in the Connectd community.</p>
-					<input type="text" name="job_name" placeholder="Job title" value="<?php if (isset($jobName)) { echo htmlspecialchars($jobName); } ?>">
+					<input type="text" name="job_name" placeholder="I need a..." value="<?php if (isset($jobName)) { echo htmlspecialchars($jobName); } ?>">
 					<div class="float-left field-1-2">
 						<label for="">Start date:</label>
 						<input type="date" name="start_date" placeholder="Start date" value="<?php if (isset($startDate)) { echo htmlspecialchars($startDate); } ?>">

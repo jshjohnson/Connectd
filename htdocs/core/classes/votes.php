@@ -33,7 +33,7 @@
 				return $query->fetch();
 			} catch(PDOException $e){
 		 
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}
 		}
 
@@ -73,7 +73,7 @@
 				}
 		 
 			} catch(PDOException $e){
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}
 		}
 
@@ -86,11 +86,10 @@
 		public function userVotedForProtect() {
 
 			if($this->userVotedFor($email) === true) {
-				#Redirect the user to the dashboard
-				header("Location:" . BASE_URL . "dashboard/");
+				header("Location:" . BASE_URL . "welcome/");
 				exit();
 			} else if($this->userVotedFor($email) === false) {
-				header("Location:" . BASE_URL . "welcome/");
+				header("Location:" . BASE_URL . "dashboard/");
 				exit();
 			}
 		}
@@ -112,7 +111,7 @@
 				$query->execute();
 				header("Location:" . BASE_URL . "trials?status=added");
 			}catch(PDOException $e){
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}	
 	    }
 
@@ -133,7 +132,7 @@
 				$query->execute();
 				header("Location:" . BASE_URL . "trials?status=removed");
 			}catch(PDOException $e){
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}	
 	    }
 
@@ -167,7 +166,7 @@
 				}
 
 			}catch(PDOException $e){
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}
 		}
 	}

@@ -69,6 +69,7 @@
 			border-right: .55em solid transparent;
 			border-top: .55em solid white;
 			margin-left: -.55em;
+			bottom: -25%;
 		}
 	}
 	@include respond-max($bp2) {

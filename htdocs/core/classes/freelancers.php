@@ -136,7 +136,7 @@
 				}
 							
 			}catch(PDOException $e){
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}	
 		}
 
@@ -154,7 +154,7 @@
 				try{
 					$query->execute();
 				}catch(PDOException $e){
-					die($e->getMessage());
+					echo "Sorry, there was an error: ".$e->getMessage();
 				}
 				$row = $query->fetch(PDO::FETCH_ASSOC);
 				
@@ -167,7 +167,7 @@
 				try{
 					$query->execute();
 				}catch(PDOException $e){
-					die($e->getMessage());
+					echo "Sorry, there was an error: ".$e->getMessage();
 				}
 				$row = $query->fetch(PDO::FETCH_ASSOC);
 				

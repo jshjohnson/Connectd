@@ -35,7 +35,7 @@
 		if (empty($email) === true || empty($password) === true) {
 			$errors[] = 'Sorry, but we need your username and password.';
 		} else if ($users->emailExists($email) === false) {
-			$errors[] = 'Sorry that username doesn\'t exists.';
+			$errors[] = 'Sorry that username doesn\'t exist.';
 		} else if ($users->emailConfirmed($email) === false) {
 			$errors[] = 'Uh oh! Looks like your account hasn\'t been activated yet. <a href="">Resend confirmation email</a>' ;
 		} else {
@@ -59,12 +59,11 @@
 					} else {
 						header('Location: dashboard/');
 						exit();
-					}	
+					}
 				} else {
 					header('Location: welcome/');
 					exit();
 				}
-
 			}
 		}
 	} 

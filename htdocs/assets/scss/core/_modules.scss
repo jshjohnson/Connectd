@@ -507,6 +507,12 @@ img.media__img {
 		&.portfolio__headings--label {
 			padding-right: 0;
 			@extend %info;
+			@include respond-max($bp1) {
+				text-align: center;
+				width: 100%;
+				margin: .8em 0 0;
+				box-sizing: border-box;
+			}
 		}
 		a {
 			color: #7f7e7e;

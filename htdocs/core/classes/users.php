@@ -35,7 +35,7 @@
 				}
 		 
 			} catch (PDOException $e){
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}
 		 
 		}
@@ -67,7 +67,7 @@
 				}
 		 
 			} catch(PDOException $e){
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}
 		}
 
@@ -104,7 +104,7 @@
 				}
 		 
 			}catch(PDOException $e){
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}
 		}
 
@@ -119,7 +119,7 @@
 			try{
 				$query->execute();
 			}catch(PDOException $e){
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}
 			$row = $query->fetch(PDO::FETCH_ASSOC);
 			
@@ -139,7 +139,7 @@
 			try{
 				$query->execute();
 			}catch(PDOException $e){
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
@@ -166,7 +166,7 @@
 				return $query->fetch();
 			} catch(PDOException $e){
 		 
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}
 		}
 		
@@ -204,7 +204,7 @@
 				}
 	 
 			} catch(PDOException $e){
-				die($e->getMessage());
+				echo "Sorry, there was an error: ".$e->getMessage();
 			}
 		}
 	}

@@ -3,6 +3,7 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$general->errors();
+	// $votes->userVotedForProtect();
 	$user_id = $general->cleanString($db, $_GET['user_id']);
 	$votedBy = $_SESSION['user_id'];
 

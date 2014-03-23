@@ -34,7 +34,7 @@
 		</section>
 		<?php endif;?>
 		<section class="container">
-			<div class="grid grid--center cf">
+			<div class="grid cf">
 			<?php foreach ($trial_users as $trial_user) : ?>
 				<?php $vote_id == $trial_user["firstname"]; ?>
 				<aside class="grid__cell module-1-4 push-bottom">
