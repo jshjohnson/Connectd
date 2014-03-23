@@ -13,8 +13,6 @@
 	$pageType           = "Page";
 	$section            = "Green";
 
-	include_once(ROOT_PATH . "includes/header.inc.php");
-
 	// Grab the form data
 	$firstName          = trim($_POST['firstname']);
 	$lastName           = trim($_POST['lastname']);
@@ -91,75 +89,12 @@
 		}
 
 	}
+
+	$pageTitle = "Sign Up";
+	$pageType = "Page";
+	$section = "Green";
+
+	include_once(ROOT_PATH . "includes/header.inc.php");
+	include_once(ROOT_PATH . "views/employer-signup-form.html");
+	include_once(ROOT_PATH . "includes/footer.inc.php");
 ?>
-	<section>
-		<div class="section-heading color-green">
-			<div class="container">
-				<div class="grid text-center">
-					<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
-						<blockquote class="intro-quote text-center">
-							Let's talk business...
-						</blockquote>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="footer--push color-grey">
-		<div class="grid text-center">
-			<div class="grid__cell unit-1-2--bp4 unit-2-3--bp1 content-overlay">
-				<?php if(empty($errors) === false) : ?>
-					<p class="message message--error"> <?= implode('</p><p>', $errors); ?></p>
-				<?php endif; ?>
-				<?php if ($status == "success") : ?>
-				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
-				<?php endif; ?>
-				<form method="post" action="<?= BASE_URL; ?>employers/signup.php" autocomplete="off" class="sign-up-form">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left" value="<?php if (isset($firstName)) { echo htmlspecialchars($firstName); } ?>" autofocus>
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right" value="<?php if (isset($lastName)) { echo htmlspecialchars($lastName); } ?>">
-					<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
-					<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
-					<input type='password' name='password' placeholder="Password" class="field-1-2"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
-					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatPassword)) { echo htmlspecialchars($repeatPassword); } ?>">
-					<hr>
-					<input type="text" name="employer_name" placeholder="Employer name" value="<?php if (isset($employerName)) { echo htmlspecialchars($employerName); } ?>">
-					<div class="url-container">
-						<span class="url-prepend">http://</span>
-						<input type="text" name="portfolio" placeholder="Employer website" class="input--url" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
-					</div>
-					<div class="select-container">
-						<label for="location">What is the location of your business?</label>
-						<select name="location">
-							<option value="">Location...</option>
-						<?php foreach ($towns as $town) : ?>
-							<option <?php if ($_POST['location'] == $town['town']) { ?>selected="true" <?php }; ?>value="<?= $town['town']; ?>"><?= $town['town']; ?></option>
-						<?php endforeach; ?>
-						</select>
-					</div>
-					<div class="select-container field-1-2 float-left">
-						<label for="employer_type">What industry is your business in?</label>
-						<select name="employer_type">
-							<option value="">Pick one..</option>
-							<?php foreach ($employerTypes as $employerType) : ?>
-								<option <?php if ($_POST['employer_type'] == $employerType) { ?>selected="true" <?php }; ?>value="<?= $employerType; ?>"><?= $employerType; ?></option>
-							<?php endforeach; ?>
-						</select>
-					</div>
-					<div class="select-container field-1-2 float-right">
-						<label for="experience">How long have you been in business for?</label>
-						<select name="experience">
-							<option value="">Years experience...</option>
-							<?php foreach ($experiences as $experience) : ?>
-								<option <?php if ($_POST['experience'] == $experience) { ?>selected="true" <?php }; ?>value="<?= $experience; ?>"><?= $experience; ?></option>
-							<?php endforeach; ?>
-						</select>
-					</div>
-					<textarea name="bio" cols="30" rows="8" placeholder="A little about your company..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
-					<div class="button-container">
-		            	<input class="submit" name="submit" type="submit" value='Start employing'>						
-					</div>
-		        </form>
-			</div>
-		</div>
-	</section>
-<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>
