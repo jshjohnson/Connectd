@@ -84,7 +84,7 @@
 	}
 }
 
-.text-right, .text-left {
+.homepage__text-right, .homepage__text-left {
 	margin-top: 1.4em;
 	margin-bottom: 0;
 	font-size: 1em;
@@ -97,7 +97,7 @@
 	}
 }
 
-.text-right {
+.homepage__text-right {
 	text-align: right;
 	right: 2.5em;
 	position: absolute;
@@ -108,7 +108,7 @@
 	}
 }
 
-.text-left {
+.homepage__text-left {
 	text-align: left;
 	left: 2.5em;
 	position: absolute;
@@ -116,72 +116,5 @@
 	@include respond-max($bp1) {
 		margin-top: 1em;
 		left: 1em;
-	}
-}
-
-.panel {
-	text-align: center;
-	a {
-		display: block;
-		@include transform(translateY(-.7em));
-		@include transition(all .2s ease-in-out);
-		@include respond-max($bp3) {
-			@include transform(translateY(0em));;
-		}
-		span {
-			opacity: 0;
-			@include transition(opacity .2s ease-in-out);
-			@include respond-max($bp3) {
-				opacity: 1;
-			}
-		}
-		&:hover {
-			@include transform(translateY(0));
-			span {
-				opacity: 1;
-				@include transition(opacity .2s ease-in-out);
-			}
-			@include transition(all .2s ease-in-out);
-		}
-	}
-}
-
-.panel--designer {
-	background-color: $color-brand-light;
-}
-
-.panel--developer {
-	background-color: $color-brand-dark;
-}
-
-.panel--employer {
-	background-color: $color-brand-mid;
-}
-
-.panel__title {
-	font-size: 2.8em;
-	margin-bottom: 0;
-	max-width: 6em;
-	margin-left: auto;
-	margin-right: auto;
-	color: white;
-	a {
-		color: white;
-	}
-	@include respond-max($bp4) {
-		font-size: 2.2em;
-	}
-	@include respond-max($bp3-5) {
-		font-size: 2em;
-	}
-}
-
-.panel__landing-page {
-	font-size: 6em;
-	@include respond-max($bp2) {
-		font-size: 4em;
-	}
-	@include respond-max($bp1) {
-		font-size: 2em;
 	}
 }

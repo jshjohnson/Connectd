@@ -58,3 +58,33 @@
 	padding: .6em 1.5em;
 	margin-top: 1em;
 }
+
+.button-wrapper {
+	text-align: center;
+	@include respond-max($bp2) {
+		margin-bottom: 1em;
+	}
+	@include respond-max($bp1) {
+		margin-bottom: 0;
+	}
+}
+
+.button--left, .button--right {
+	margin-left: 1em;
+	margin-right: 1em;
+	display: inline-block;
+	@include respond-max($bp4) {
+		margin: .5em 0;
+		padding: .9em 1.5em .8em;;
+		&:first-child {
+			margin-top: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	@include respond-max($bp1) {
+		margin-left: .5em;
+		margin-right: .5em;
+	}
+}

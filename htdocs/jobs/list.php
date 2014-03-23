@@ -17,7 +17,7 @@
 ?>		
 		<section class="container">
 			<div class="grid--no-marg cf">
-				<aside class="user-sidebar grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">
+				<aside class="user-module grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">
 					<header class="header--panel header--employer cf">
 						<h3 class="float-left">Search</h3>
 					</header>

@@ -16,13 +16,16 @@
 \*----------------------------------------------------------------------------------------*/
 @import "core/_modules";
 @import "core/modules/_homepage";
+@import "core/modules/_panels";
 @import "core/modules/_buttons";
+@import "core/modules/_badges";
 @import "core/modules/_skills";
-@import "core/modules/_sidebar";
+@import "core/modules/_user-module";
 @import "core/modules/_dashboard";
 @import "core/modules/_forms";
 @import "core/modules/_overlay";
 @import "core/modules/_welcome";
+@import "core/modules/_content-page";
 
 /*----------------------------------------------------------------------------------------*\
  $.OVERRIDES

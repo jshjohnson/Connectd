@@ -197,6 +197,10 @@ img.media__img {
 
 /* Colors
 ----------------------------------*/
+.color-red {
+	background-color: $color-brand-highlight;
+	color: white;
+}
 
 .color-green {
 	background-color: $color-brand-mid;
@@ -589,36 +593,6 @@ img.media__img {
 	@include respond-max($bp1) {
 		margin-top: .5em;
 	}
-}
-
-.price-per-hour {
-	margin-top: .35em;
-	h5 {
-		margin: 0;
-		text-align: center;
-		font-weight: 600;
-	}
-	span {
-		font-size: .7em;
-		display: block;
-		line-height: .9;
-	}
-}
-
-.currency-button {
-	background-color: $color-brand-mid;
-	border-radius: 10em;
-	color: white;
-	font-weight: 600;
-	font-size: .9em;
-	width: 3.5em;
-	height: 3.5em;
-}
-
-.currency {
-	line-height: 3.5em;
-	text-align: center;
-	display: block;
 }
 
 .user-trial__label {

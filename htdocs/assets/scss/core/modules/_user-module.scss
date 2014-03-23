@@ -2,9 +2,11 @@
 ----------------------------------*/
 
 .user-module__header {
+	@include box-sizing(border-box);
 	@include respond-max($bp2) {
 		float: left;
-		width: 40%;		
+		width: 40%;	
+		padding: 0em 1em;	
 	}
 	@include respond-max($bp1-5) {
 		float: none;
@@ -30,7 +32,7 @@
 	background-color: $color-background-light;
 	@include box-sizing(border-box);
 	position: relative;
-	*:last-child {
+	h4:last-child {
 		margin-bottom: 0;
 	}
 }
@@ -41,7 +43,11 @@
 	font-weight: 600;
 }
 
-.user-module__job, .user-module__geo, .user-module__web {
+.user-module__title--alt {
+	font-size: 1.1em;
+}
+
+.user-module__label {
 	font-size: .9em;
 	margin-top: 0;
 	margin-bottom: $baseline/3;
@@ -52,53 +58,21 @@
 	}
 }
 
-.badge {
-	background-color: $color-brand-highlight;
-	border-radius: 10em;
-	color: white;
-	font-weight: 600;
-	font-size: .9em;
-	width: 3.5em;
-	height: 3.5em;
-	top: -1.65em;
-	left: -1.65em;
-	position: absolute;
-	h5 {
-		margin: 0;
-		line-height: 2.5em;
-	}
-	small {
-		display: block;
-		line-height: 0;
-		font-size: .7em;
-		margin-top: -.5em;
-	}
-	@include respond-max($bp3) {
-		top: -1.1em;
-		left: -1.1em;
-	}
-	@include respond-max($bp1) {
-		left: -.6em;
-	}
-}
-
-.badge--right {
-	right: -1.65em;
-	left: auto;
-	@include respond-max($bp1) {
-		right: -1.1em;
-	}
-}
-
 .user-module--employer {
 	@include respond-max($bp2) {
 		margin-bottom: $baseline;
+		margin-top: $baseline;
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 }
 
 .user-module__info {
+	position: relative;
 	p {
 		font-size: .9em;
 		margin-bottom: 1em;
+		word-break: break-word;
 	}
 }

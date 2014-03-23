@@ -19,12 +19,12 @@
 				<a href="<?= BASE_URL; ?>about/" class="site-intro__link">Find out more</a>
 			</div>
 		</header>
-		<h2 class="logo text-right"><a href="<?= BASE_URL; ?>">connectd</a></h2>
+		<h2 class="homepage__text-right"><a href="<?= BASE_URL; ?>">connectd</a></h2>
 
 		<?php if (isset($_SESSION['logged'])) : ?>
-		<h2 class="text-left"><a href="<?= BASE_URL ?>logout.php">Logout</a></h2>
+		<h2 class="homepage__text-left"><a href="<?= BASE_URL ?>logout.php">Logout</a></h2>
 		<?php else : ?>
-		<h2 class="text-left"><a href="" class="login-trigger">Login</a></h2>
+		<h2 class="homepage__text-left"><a href="" class="login-trigger">Login</a></h2>
 		<?php endif; ?>
 		<div id="register" class="panel-wrap">
 			<section class="panel panel--designer panel-1-3">

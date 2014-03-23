@@ -6,7 +6,7 @@
 						<a href="<?= BASE_URL . "developers/" . $developer['user_id']; ?>/"><h4><?= $developer['firstname'] . ' ' . $developer['lastname']; ?></h4></a>
 						<p><?= $developer['jobtitle']; ?></p>
 					</div>
-					<div class='float-right price-per-hour'>
+					<div class='float-right badge--price-per-hour'>
 						<h5>£<?= $developer['priceperhour']; ?></h5>
 						<span>per hour</span>
 					</div>

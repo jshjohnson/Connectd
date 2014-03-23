@@ -38,7 +38,7 @@
 			<?php foreach ($trial_users as $trial_user) : ?>
 				<?php $vote_id == $trial_user["firstname"]; ?>
 				<aside class="grid__cell module-1-4 push-bottom">
-					<article class="user-sidebar module--no-pad">
+					<article class="user-module module--no-pad">
 						<?php 
 							$vote_id         = $trial_user["user_id"]; 
 							$trialUserVotes  = $votes->getUserVotes($vote_id);
@@ -46,18 +46,18 @@
 						 ?>
 						<div class="ribbon"><h5>New</h5></div>
 						<?php endif ?>
-						<div class="user-sidebar__price--small">
-							<span class="currency currency--small">
+						<div class="badge badge--small badge--left color-red">
+							<span class="badge__inner">
 								<h5><?= $trialUserVotes['CountOfvote_id']; ?></h5>
 								<small>votes</small>
 							</span>
 						</div>
-						<div class="user-sidebar__info">
-							<h3 class="user-sidebar__title user-sidebar__title--alt"><?= $trial_user["firstname"] . "\n" . $trial_user["lastname"]; ?></h3>
-							<h4 class="user-sidebar__label icon--attach icon--marg"><?= $trial_user["jobtitle"]; ?></h4>
-							<h4 class="user-sidebar__label icon--location icon--marg"><?= $trial_user["location"]; ?>, UK</h4>
-							<h4 class="user-sidebar__label icon--briefcase icon--marg"><?php $url = preg_replace("(Between)", "", $trial_user["experience"] ); echo $url ?> experience</h4>
-							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="http://<?= $trial_user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trial_user["portfolio"] ); echo $url ?></a></h4>
+						<div class="user-module__info">
+							<h3 class="user-module__title user-module__title--alt"><?= $trial_user["firstname"] . "\n" . $trial_user["lastname"]; ?></h3>
+							<h4 class="user-module__label icon--attach icon--marg"><?= $trial_user["jobtitle"]; ?></h4>
+							<h4 class="user-module__label icon--location icon--marg"><?= $trial_user["location"]; ?>, UK</h4>
+							<h4 class="user-module__label icon--briefcase icon--marg"><?php $url = preg_replace("(Between)", "", $trial_user["experience"] ); echo $url ?> experience</h4>
+							<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $trial_user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trial_user["portfolio"] ); echo $url ?></a></h4>
 							<div class="button-wrapper">
 							<?php if($votes->sessionUserVoted($vote_id, $votedBy) == false) : ?>
 								<a href="add-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="btn btn--green btn--small">

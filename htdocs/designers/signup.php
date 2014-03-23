@@ -159,9 +159,9 @@
 							<?php endforeach; ?>
 						</select>
 					</div>
-					<div class="currency-container field-1-2 float-right">
-						<span class="currency-prepend">£</span>
-						<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" class="input--currency" value="<?php if (isset($pricePerHour)) { echo htmlspecialchars($pricePerHour); } ?>">
+					<div class="badge__inner-container field-1-2 float-right">
+						<span class="badge__inner-prepend">£</span>
+						<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" class="input--badge__inner" value="<?php if (isset($pricePerHour)) { echo htmlspecialchars($pricePerHour); } ?>">
 					</div>
 					<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="button-container">

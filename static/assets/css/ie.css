@@ -1193,7 +1193,7 @@ a:hover {
 }
 
 /* line 26, ../scss/core/_layout.scss */
-.user-sidebar__info {
+.user-module__info {
   margin-left: auto;
   margin-right: auto;
   padding: 1.5em;
@@ -1657,7 +1657,7 @@ a:hover {
 }
 
 /* line 193, ../scss/core/_layout.scss */
-.button-left, .button-right {
+.button--left, .button--right{
   margin-left: 1em;
   margin-right: 1em;
   display: inline-block;
@@ -1667,11 +1667,11 @@ a:hover {
   padding: .9em 1.5em .8em;
 }
 /* line 202, ../scss/core/_layout.scss */
-.button-left:first-child, .button-right:first-child {
+.button--left:first-child, .button-right:first-child {
   margin-top: 0;
 }
 /* line 205, ../scss/core/_layout.scss */
-.button-left:last-child, .button-right:last-child {
+.button--left:last-child, .button-right:last-child {
   margin-bottom: 0;
 }
 
@@ -2238,7 +2238,7 @@ img.media__img {
 }
 
 /* line 491, ../scss/core/_modules.scss */
-.currency-button {
+.badge__inner-button {
   background-color: #77c462;
   border-radius: 10em;
   color: white;
@@ -2249,7 +2249,7 @@ img.media__img {
 }
 
 /* line 501, ../scss/core/_modules.scss */
-.currency {
+.badge__inner {
   line-height: 3.5em;
   text-align: center;
   display: block;
@@ -2594,13 +2594,13 @@ img.media__img {
 /* Sidebar
 ----------------------------------*/
 /* line 16, ../scss/core/modules/_sidebar.scss */
-.user-sidebar__avatar img {
+.user-module__avatar img {
   width: 100%;
   margin-bottom: 1.5em;
 }
 
 /* line 29, ../scss/core/modules/_sidebar.scss */
-.portfolio, .user-sidebar, .dashboard-panel {
+.portfolio, .user-module, .dashboard-panel {
   background-color: #f7f7f7;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2608,32 +2608,32 @@ img.media__img {
   position: relative;
 }
 /* line 33, ../scss/core/modules/_sidebar.scss */
-.portfolio h4:last-child, .user-sidebar h4:last-child, .dashboard-panel h4:last-child {
+.portfolio h4:last-child, .user-module h4:last-child, .dashboard-panel h4:last-child {
   margin-bottom: 0;
 }
 
 /* line 38, ../scss/core/modules/_sidebar.scss */
-.user-sidebar__title {
+.user-module__title {
   font-size: 1.35em;
   margin: 0 0 .2em;
   font-weight: 600;
 }
 
 /* line 44, ../scss/core/modules/_sidebar.scss */
-.user-sidebar__job, .user-sidebar__geo, .user-sidebar__web {
+.user-module__job, .user-module__geo, .user-module__web {
   font-size: .9em;
   margin-top: 0;
   margin-bottom: 0.66667em;
   font-weight: 500;
 }
 /* line 49, ../scss/core/modules/_sidebar.scss */
-.user-sidebar__job a, .user-sidebar__geo a, .user-sidebar__web a {
+.user-module__job a, .user-module__geo a, .user-module__web a {
   color: #2c3e50;
   text-decoration: underline;
 }
 
 /* line 55, ../scss/core/modules/_sidebar.scss */
-.user-sidebar__price {
+.badge {
   background-color: #fc4349;
   border-radius: 10em;
   color: white;
@@ -2646,12 +2646,12 @@ img.media__img {
   position: absolute;
 }
 /* line 66, ../scss/core/modules/_sidebar.scss */
-.user-sidebar__price h5 {
+.badge h5 {
   margin: 0;
   line-height: 2.5em;
 }
 /* line 70, ../scss/core/modules/_sidebar.scss */
-.user-sidebar__price small {
+.badge small {
   display: block;
   line-height: 0;
   font-size: .7em;
@@ -2659,13 +2659,13 @@ img.media__img {
 }
 
 /* line 85, ../scss/core/modules/_sidebar.scss */
-.user-sidebar__price--alt {
+.badge--right {
   right: -1.65em;
   left: auto;
 }
 
 /* line 100, ../scss/core/modules/_sidebar.scss */
-.user-sidebar__info p {
+.user-module__info p {
   font-size: .9em;
   margin-bottom: 1em;
 }

@@ -226,9 +226,9 @@ input[type=submit] {
 	}
 }
 
-.currency-container {
+.badge__inner-container {
 	position: relative;
-	.currency-prepend {
+	.badge__inner-prepend {
 		position: absolute;
 		left: .7em;
 		line-height: 3.9;
@@ -236,7 +236,7 @@ input[type=submit] {
 			line-height: 3.75;
 		}
 	}
-	.input--currency {
+	.input--badge__inner {
 		padding-left: 1.6em;
 	}
 }

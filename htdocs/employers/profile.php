@@ -23,9 +23,9 @@
 ?>	
 		<section class="container">
 			<div class="grid--no-marg cf">
-				<aside class="float-left grid__cell module-1-3 module--no-pad user-sidebar--employer">
-					<article class="user-sidebar module module--no-pad">
-						<div class="user-sidebar__info">
+				<aside class="float-left grid__cell module-1-3 module--no-pad user-module--employer">
+					<article class="user-module module module--no-pad">
+						<div class="user-module__info">
 							<?php  if(strtotime(date('F j, Y', $employer['time_joined']))>strtotime('-3 days')) : ?>
 							     <div class="ribbon"><h5>New</h5></div>
 							<?php endif ?>
@@ -33,14 +33,14 @@
 								$employerName = $employer['employer_name'];
 
 								if (strlen($employerName)>=23) {
-									echo "<h3 class=\"user-sidebar__title user-sidebar__title--alt\">" . $employerName . "</h3>";
+									echo "<h3 class=\"user-module__title user-module__title--alt\">" . $employerName . "</h3>";
 								} else {
-									echo "<h3 class=\"user-sidebar__title\">" . $employerName . "</h3>";
+									echo "<h3 class=\"user-module__title\">" . $employerName . "</h3>";
 								}
 							?>
-							<h4 class="user-sidebar__label icon--attach icon--marg"><?= $employer['employer_type']; ?></h4>
-							<h4 class="user-sidebar__label icon--location icon--marg"><?= $employer['location']; ?></h4>
-							<h4 class="user-sidebar__label icon--globe icon--marg"><a href="<?= $employer['portfolio']; ?>"><?= $employer['portfolio']; ?></a></h4>
+							<h4 class="user-module__label icon--attach icon--marg"><?= $employer['employer_type']; ?></h4>
+							<h4 class="user-module__label icon--location icon--marg"><?= $employer['location']; ?></h4>
+							<h4 class="user-module__label icon--globe icon--marg"><a href="<?= $employer['portfolio']; ?>"><?= $employer['portfolio']; ?></a></h4>
 							<p><?= $employer['bio']; ?></p>
 						</div>
 					</article>
@@ -72,8 +72,8 @@
 							?>
 						<div class="media">
 							<div class="media__desc media-2-3 media-2-3--wide">
-								<div class="media__button currency-button">
-									<span class="currency">
+								<div class="media__button badge__inner-button">
+									<span class="badge__inner">
 										<?php if ($budget>=10000) {
 												echo "£" . substr($budget, 0, 2) . "k";
 											} elseif ($budget>=1000) {

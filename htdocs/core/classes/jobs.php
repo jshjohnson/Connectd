@@ -72,8 +72,8 @@
 
 			$output = $output . "<div class='media'>";
 			$output = $output . "<div class='media__desc media-2-3'>";
-			$output = $output . "<div class='media__button currency-button'>";
-			$output = $output . "<span class='currency'>";
+			$output = $output . "<div class='media__button badge__inner-button'>";
+			$output = $output . "<span class='badge__inner'>";
 
 			if ($budget>=10000) {
 				$output = $output . "£" . substr($budget, 0, 2) . "k";

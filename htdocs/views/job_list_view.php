@@ -4,8 +4,8 @@
 		?>
 			<div class='media'>
 				<div class='media__desc media-2-3 media-2-3--wide'>
-					<div class='media__button currency-button'>
-						<span class='currency'>
+					<div class='media__button badge color-green'>
+						<span class='badge__inner'>
 						<?php 
 							if ($budget>=10000) {
 								echo "£" . substr($budget, 0, 2) . "k";
