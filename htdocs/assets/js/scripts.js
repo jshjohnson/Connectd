@@ -14,31 +14,15 @@ $(document).ready(function() {
 	    });
 	}
 
-
-	// (function() {
-	// 	var submit = $('.sign-up-form .submit'),
-	// 		required = $('.sign-up-form input[required], .sign-up-form textarea[required]');
-
-	// 	submit.attr('disabled', 'disabled').val('Form fields required');
-	//     required.keyup(function() {
-	//         var empty = false;
-	//         required.each(function() {
-	//             if ($(this).val() == '') {
-	//                 empty = true;
-	//             }
-	//         });
-
-	//         if (empty) {
-	//         	submit.attr('disabled', 'disabled').val('Form fields required');
-	//         } else {
-	//         	submit.removeAttr('disabled').val('Submit'); 
-	//         }
-	//     });
-	// })();
-
 	$(".menu-trigger").click(function(e) {
 		e.preventDefault();
 		$(".header__nav").toggleClass("block");
+	});
+
+	// Window Load
+	$(window).bind("load", function() {
+		// Fade container on load to combat FOUT
+		$(".site-wrap").animate({ opacity: 1 }, 'slow');
 	});
 
 	// Overlay function

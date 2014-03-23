@@ -1219,14 +1219,15 @@ a:hover {
 /* line 9, ../scss/core/_layout.scss */
 .site-wrap {
   height: 100%;
+  opacity: 0;
 }
 
-/* line 13, ../scss/core/_layout.scss */
+/* line 14, ../scss/core/_layout.scss */
 .home {
   height: 100%;
 }
 
-/* line 17, ../scss/core/_layout.scss */
+/* line 18, ../scss/core/_layout.scss */
 .container {
   margin: 0 auto;
   width: 90%;
@@ -1234,13 +1235,13 @@ a:hover {
   max-width: 68.5em;
 }
 
-/* line 23, ../scss/core/_layout.scss */
+/* line 24, ../scss/core/_layout.scss */
 .container__inner {
   padding-left: 5%;
   padding-right: 5%;
 }
 
-/* line 32, ../scss/core/_layout.scss */
+/* line 33, ../scss/core/_layout.scss */
 .user-module__info {
   margin-left: auto;
   margin-right: auto;
@@ -1250,7 +1251,7 @@ a:hover {
   box-sizing: border-box;
 }
 
-/* line 39, ../scss/core/_layout.scss */
+/* line 40, ../scss/core/_layout.scss */
 .footer--push {
   flex: 1;
 }
@@ -1580,7 +1581,7 @@ a:hover {
   width: 91.66667%;
 }
 
-/* line 63, ../scss/core/_layout.scss */
+/* line 64, ../scss/core/_layout.scss */
 .panel {
   display: table;
   height: 100%;
@@ -1588,22 +1589,22 @@ a:hover {
   overflow: hidden;
 }
 
-/* line 74, ../scss/core/_layout.scss */
+/* line 75, ../scss/core/_layout.scss */
 .panel-1-1 {
   width: 100%;
 }
 
-/* line 81, ../scss/core/_layout.scss */
+/* line 82, ../scss/core/_layout.scss */
 .panel-1-3 {
   width: 33.33%;
 }
 
-/* line 89, ../scss/core/_layout.scss */
+/* line 90, ../scss/core/_layout.scss */
 .panel-wrap {
   height: 100%;
 }
 
-/* line 93, ../scss/core/_layout.scss */
+/* line 94, ../scss/core/_layout.scss */
 .panel__container {
   display: table-cell;
   vertical-align: middle;
@@ -1616,88 +1617,88 @@ a:hover {
 
 /* Module layout
 ----------------------------------*/
-/* line 104, ../scss/core/_layout.scss */
+/* line 105, ../scss/core/_layout.scss */
 .module {
   margin-bottom: 2em;
   padding: 1.5em;
 }
-/* line 107, ../scss/core/_layout.scss */
+/* line 108, ../scss/core/_layout.scss */
 .module .grid__cell:last-of-type p:last-child, .module .grid__cell--no-pad:last-of-type p:last-child, .module .grid__cell:last-of-type img:last-child, .module .grid__cell--no-pad:last-of-type img:last-child {
   margin: 0;
 }
-/* line 110, ../scss/core/_layout.scss */
+/* line 111, ../scss/core/_layout.scss */
 .module > p:last-child, .module ul:last-child, .module ul li:last-of-type, .module iframe:last-child {
   margin-bottom: 0;
 }
-/* line 113, ../scss/core/_layout.scss */
+/* line 114, ../scss/core/_layout.scss */
 .module:last-child {
   margin-bottom: 0;
 }
 
-/* line 118, ../scss/core/_layout.scss */
+/* line 119, ../scss/core/_layout.scss */
 .module--half-pad {
   padding: .75em;
 }
 
-/* line 122, ../scss/core/_layout.scss */
+/* line 123, ../scss/core/_layout.scss */
 .module-sidebar {
   margin-bottom: 2em;
   padding: 1.5em;
 }
-/* line 125, ../scss/core/_layout.scss */
+/* line 126, ../scss/core/_layout.scss */
 .module-sidebar .grid__cell:last-of-type p:last-child, .module-sidebar .grid__cell--no-pad:last-of-type p:last-child, .module-sidebar .grid__cell:last-of-type img:last-child, .module-sidebar .grid__cell--no-pad:last-of-type img:last-child {
   margin: 0;
 }
-/* line 128, ../scss/core/_layout.scss */
+/* line 129, ../scss/core/_layout.scss */
 .module-sidebar > p:last-child, .module-sidebar ul:last-child, .module-sidebar ul li:last-of-type, .module-sidebar iframe:last-child {
   margin-bottom: 0;
 }
 
-/* line 135, ../scss/core/_layout.scss */
+/* line 136, ../scss/core/_layout.scss */
 .module > *:last-child,
 .module > *:last-child > *:last-child,
 .module > *:last-child > *:last-child > *:last-child {
   margin-bottom: 0;
 }
 
-/* line 139, ../scss/core/_layout.scss */
+/* line 140, ../scss/core/_layout.scss */
 .module--no-pad {
   padding: 0;
 }
 
-/* line 143, ../scss/core/_layout.scss */
+/* line 144, ../scss/core/_layout.scss */
 .module-2-3 {
   width: 63.33%;
 }
 
-/* line 150, ../scss/core/_layout.scss */
+/* line 151, ../scss/core/_layout.scss */
 .module-1-3 {
   width: 32.33%;
 }
 
-/* line 157, ../scss/core/_layout.scss */
+/* line 158, ../scss/core/_layout.scss */
 .module-1-2 {
   width: 48.5%;
 }
 
-/* line 164, ../scss/core/_layout.scss */
+/* line 165, ../scss/core/_layout.scss */
 .module-1-4 {
   width: 25%;
   width: 33.333333%;
 }
 
-/* line 177, ../scss/core/_layout.scss */
+/* line 178, ../scss/core/_layout.scss */
 .module-1-1 {
   width: 100%;
 }
 
-/* line 181, ../scss/core/_layout.scss */
+/* line 182, ../scss/core/_layout.scss */
 .module__avatar {
   padding: 6px;
   display: inline-block;
 }
 
-/* line 187, ../scss/core/_layout.scss */
+/* line 188, ../scss/core/_layout.scss */
 .ribbon {
   position: absolute;
   right: 1em;
@@ -1708,7 +1709,7 @@ a:hover {
   border-bottom: 0.6em solid #f7f7f7;
   width: 0;
 }
-/* line 196, ../scss/core/_layout.scss */
+/* line 197, ../scss/core/_layout.scss */
 .ribbon h5 {
   font-size: .6em;
   padding-right: 1em;
@@ -2403,6 +2404,34 @@ img.media__img {
   }
 }
 
+/* line 605, ../scss/core/_modules.scss */
+.text-right, .text-left {
+  margin-top: 1.4em;
+  margin-bottom: 0;
+  font-size: 1em;
+  position: fixed;
+}
+/* line 610, ../scss/core/_modules.scss */
+.text-right a, .text-left a {
+  color: white;
+}
+
+/* line 618, ../scss/core/_modules.scss */
+.text-right {
+  text-align: right;
+  right: 2.5em;
+  position: absolute;
+  top: 0;
+}
+
+/* line 629, ../scss/core/_modules.scss */
+.text-left {
+  text-align: left;
+  left: 2.5em;
+  position: absolute;
+  top: 0;
+}
+
 @-moz-keyframes dropDown {
   /* line 2, ../scss/libs/_animate.scss */
   0% {
@@ -2517,34 +2546,6 @@ img.media__img {
 /* line 82, ../scss/core/modules/_homepage.scss */
 .site-intro__link:visited {
   color: white;
-}
-
-/* line 87, ../scss/core/modules/_homepage.scss */
-.homepage__text-right, .homepage__text-left {
-  margin-top: 1.4em;
-  margin-bottom: 0;
-  font-size: 1em;
-  position: fixed;
-}
-/* line 92, ../scss/core/modules/_homepage.scss */
-.homepage__text-right a, .homepage__text-left a {
-  color: white;
-}
-
-/* line 100, ../scss/core/modules/_homepage.scss */
-.homepage__text-right {
-  text-align: right;
-  right: 2.5em;
-  position: absolute;
-  top: 0;
-}
-
-/* line 111, ../scss/core/modules/_homepage.scss */
-.homepage__text-left {
-  text-align: left;
-  left: 2.5em;
-  position: absolute;
-  top: 0;
 }
 
 @-moz-keyframes dropDown {

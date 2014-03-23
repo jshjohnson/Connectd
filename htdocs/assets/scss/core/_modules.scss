@@ -601,3 +601,38 @@ img.media__img {
 .user-info__link {
 	@include underline;
 }
+
+.text-right, .text-left {
+	margin-top: 1.4em;
+	margin-bottom: 0;
+	font-size: 1em;
+	position: fixed;
+	a {
+		color: white;
+	}
+	@include respond-max($bp1) {
+		margin-top: 1em;
+	}
+}
+
+.text-right {
+	text-align: right;
+	right: 2.5em;
+	position: absolute;
+	top: 0;
+	@include respond-max($bp1) {
+		margin-top: 1em;
+		right: 1em;
+	}
+}
+
+.text-left {
+	text-align: left;
+	left: 2.5em;
+	position: absolute;
+	top: 0;
+	@include respond-max($bp1) {
+		margin-top: 1em;
+		left: 1em;
+	}
+}
