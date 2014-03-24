@@ -29,14 +29,23 @@
 				<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true)  { ?>
 		        <p class="message message--success">Thank you, we've activated your account. You're free to log in!</p>
 		        <?php }; ?>
-				<form action="">
+				<form action="" autocomplete="off">
 					<div class="grid">
+						<fieldset>
+							<div class="grid__cell unit-1-3--bp2">
+								<label for="firstname">Avatar</label>
+							</div>
+							<div class="grid__cell unit-2-3--bp2">
+							<input type="file" name="file" id="file">
+							</div>
+						</fieldset>
+
 						<fieldset>
 							<div class="grid__cell unit-1-3--bp2">
 								<label for="firstname">First name</label>
 							</div>
 							<div class="grid__cell unit-2-3--bp2">
-								<input type="text" name="firstname" placeholder="First name" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" autofocus>
+								<input type="text" name="firstname" placeholder="First name" value="<?= $user['firstname'] ?>" autofocus>
 							</div>
 						</fieldset>
 
@@ -45,7 +54,7 @@
 								<label for="firstname">Last name</label>
 							</div>
 							<div class="grid__cell unit-2-3--bp2">
-								<input type="text" name="lastname" placeholder="Last name" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" autofocus>
+								<input type="text" name="lastname" placeholder="Last name" value="<?= $user['lastname'] ?>" autofocus>
 							</div>
 						</fieldset>
 
@@ -54,25 +63,16 @@
 								<label for="firstname">Email address</label>
 							</div>
 							<div class="grid__cell unit-2-3--bp2">
-								<input type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
+								<input type="email" name="email" placeholder="Email" value="<?= $user['email'] ?>">
 							</div>
 						</fieldset>
 
 						<fieldset>
 							<div class="grid__cell unit-1-3--bp2">
-								<label for="firstname">New password</label>
+								<label for="firstname">Bio</label>
 							</div>
 							<div class="grid__cell unit-2-3--bp2">
-								<input type='password' name='password' placeholder="Password"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
-							</div>
-						</fieldset>
-
-						<fieldset>
-							<div class="grid__cell unit-1-3--bp2">
-								<label for="firstname">Repeat password</label>
-							</div>
-							<div class="grid__cell unit-2-3--bp2">
-								<input type='password' name='repeatpassword' placeholder="Repeat Password" value="<?php if (isset($repeatpassword)) { echo htmlspecialchars($repeatpassword); } ?>">
+								<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?= $user['bio'] ?></textarea>
 							</div>
 						</fieldset>
 
