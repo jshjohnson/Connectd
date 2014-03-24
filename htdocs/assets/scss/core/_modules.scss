@@ -311,7 +311,7 @@ img.media__img {
 	background-color: #6bad55;
 }
 
-.header__section, .footer__section {
+.header-section, .footer__section {
 	line-height: 3em;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -324,11 +324,11 @@ img.media__img {
 
 }
 
-.header__section--title {
-	float: left;
+.header-section__title{
 	margin-top: 0;
 	margin-bottom: 0;
 	color: white;
+	display: inline-block;
 	.header__section--title__link {
 		color: white;
 		font-size: .6em;
@@ -336,7 +336,12 @@ img.media__img {
 	}
 }
 
-.header__section--notifications {
+.header-section__title {
+	font-size: 1em;
+	line-height: 3;
+}
+
+.header-section--notifications {
 	background-color: $color-brand-highlight;
 	padding: 0 .7em;
 	float: right;
@@ -357,12 +362,29 @@ img.media__img {
 	}
 }
 
-.header__section--username, .header__section--logo {
+.header-section--left {
+	float: left;
+}
+
+.header-section--right {
 	float: right;
 	margin-left: 1.2em;
 }
 
-.header-username {
+.header-section__avatar {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 10em;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	background-position: center center;
+	display: inline-block;
+	background-color: #eeeeee;
+	margin-right: .5em;
+}
+
+.header-section__title--username {
 	&:after {
 		@extend %icon-after;
 		content: '\e802';

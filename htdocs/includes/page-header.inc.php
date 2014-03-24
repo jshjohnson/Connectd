@@ -18,31 +18,39 @@
 		<?php } ?>
 		">
 			<div class="container">
-				<?php if (!isset($_SESSION['logged'])) : ?>
-				<h1 class="header__section header__section--title"><?= $pageTitle; ?>
-					<?php if ($pageTitle == "Sign Up") : ?>
-					<a href="" class="login-trigger header__section--title__link">: Log In</a>
-					<!-- Revisit this -->
+				<div class="header-section header-section--left">
+					<?php if (!isset($_SESSION['logged'])) : ?>
+					<h1 class="header-section header-section__title"><?= $pageTitle; ?>
+						<?php if ($pageTitle == "Sign Up") : ?>
+						<a href="" class="login-trigger header__section--title__link">: Log In</a>
+						<!-- Revisit this -->
+						<?php else : ?>
+						<a href="<?= BASE_URL; ?>/#register" class="header__section--title__link">: Register</a>
+						<?php endif;?>
+					</h1>
+					<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
+					<h2 class="header-section__logo">
+						<a href="<?= BASE_URL; ?>">connectd</a>
+					</h2>
 					<?php else : ?>
-					<a href="<?= BASE_URL; ?>/#register" class="header__section--title__link">: Register</a>
-					<?php endif;?>
-				</h1>
-				<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
-				<h2 class="header__section header__section--logo">
-					<a href="<?= BASE_URL; ?>">connectd</a>
-				</h2>
-				<?php else : ?>
-				<?php if($section == "Jobs" || $section == "Developers" || $section == "Designers" || $section == "Employers") : ?>	
-				<h1 class="header__section header__section--title"><?= $section; ?>
-				<?php else : ?>
-				<h1 class="header__section header__section--title"><?= $pageTitle; ?>
-				<?php endif; ?>
-					<a href="" class="menu-trigger header__section--title__link">: Menu</a>
-				</h1>
-				<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
-				<h2 class="header__section header__section--username">
-					<a href="<?= BASE_URL . "dashboard/" ?>" class="header-username"><?= $username; ?></a>
-				</h2>
+					<?php if($section == "Jobs" || $section == "Developers" || $section == "Designers" || $section == "Employers") : ?>	
+					<h1 class="header-section__title"><?= $section; ?>
+					<?php else : ?>
+					<h1 class="header-section__title"><?= $pageTitle; ?>
+					<?php endif; ?>
+						<a href="" class="menu-trigger header-section__title--link">: Menu</a>
+					</h1>
+					<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
+				</div>
+
+				<div class="header-section header-section--right">
+					<a href="<?= BASE_URL . "developers/" . $developer['user_id']; ?>/">
+						<div style="background-image: url('<?= BASE_URL ?>assets/avatars/default_avatar.png');" class="header-section__avatar"></div>
+					</a>
+					<h2 class="header-section__title">
+						<a href="<?= BASE_URL . "dashboard/" ?>" class="header-section__title--username"><?= $username; ?></a>
+					</h2>
+				</div>
 				<?php endif; ?>
 			</div>
 		</header>

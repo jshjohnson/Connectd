@@ -60,15 +60,6 @@
 
 						<fieldset>
 							<div class="grid__cell unit-1-3--bp2">
-								<label for="firstname">Email address</label>
-							</div>
-							<div class="grid__cell unit-2-3--bp2">
-								<input type="email" name="email" placeholder="Email" value="<?= $user['email'] ?>">
-							</div>
-						</fieldset>
-
-						<fieldset>
-							<div class="grid__cell unit-1-3--bp2">
 								<label for="firstname">Bio</label>
 							</div>
 							<div class="grid__cell unit-2-3--bp2">

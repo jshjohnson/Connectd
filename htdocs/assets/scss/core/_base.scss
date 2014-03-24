@@ -139,10 +139,9 @@ textarea {
 	padding: .5em;
 	border: 1px solid;
 	color: $color-brand-dark;
-	background-color: #FFFFFF;
 	-webkit-appearance: none;
 	border-radius: 0;
-	border: 1px solid #eee;
+	border: 0;
 	margin: $baseline/2.5 0;
 	@include respond-max($bp1) {
 		margin: $baseline/3 0;

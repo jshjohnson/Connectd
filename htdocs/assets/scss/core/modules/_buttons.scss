@@ -19,7 +19,7 @@
 		@include box-shadow(0 .1em 0 darken($color-brand-dark, 20%))
 	}
 }
-.btn--green, input[type=submit] { 
+.btn--green { 
 	background-color: $color-brand-mid; 
 	@include box-shadow(0 .18em 0 darken($color-brand-mid, 20%));
 	border: 1px solid darken($color-brand-mid, 10%);

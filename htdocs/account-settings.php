@@ -33,24 +33,6 @@
 					<div class="grid">
 						<fieldset>
 							<div class="grid__cell unit-1-3--bp2">
-								<label for="firstname">First name</label>
-							</div>
-							<div class="grid__cell unit-2-3--bp2">
-								<input type="text" name="firstname" placeholder="<?= $user['firstname']; ?>" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" autofocus>
-							</div>
-						</fieldset>
-
-						<fieldset>
-							<div class="grid__cell unit-1-3--bp2">
-								<label for="firstname">Last name</label>
-							</div>
-							<div class="grid__cell unit-2-3--bp2">
-								<input type="text" name="lastname" placeholder="<?= $user['lastname']; ?>" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>" autofocus>
-							</div>
-						</fieldset>
-
-						<fieldset>
-							<div class="grid__cell unit-1-3--bp2">
 								<label for="firstname">Email address</label>
 							</div>
 							<div class="grid__cell unit-2-3--bp2">
@@ -77,7 +59,10 @@
 						</fieldset>
 
 						<div class="button-container">
-			            	<input class="submit" name="submit" type="submit" value='Update profile'>				
+							<input class="btn--green" name="submit" type="submit" value='Update profile'>	
+						</div>
+						<div class="button-container">
+							<input class="btn--red" name="submit" type="submit" value='Delete profile'>				
 						</div>
 					</div>
 				</form>
