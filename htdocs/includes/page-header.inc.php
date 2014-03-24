@@ -18,9 +18,9 @@
 		<?php } ?>
 		">
 			<div class="container">
-				<div class="header-section header-section--left">
-					<?php if (!isset($_SESSION['logged'])) : ?>
-					<h1 class="header-section header-section__title"><?= $pageTitle; ?>
+			<?php if (!isset($_SESSION['logged'])) : ?>
+				<div class="header-section header-section--left">	
+					<h1 class="header-section__title"><?= $pageTitle; ?>
 						<?php if ($pageTitle == "Sign Up") : ?>
 						<a href="" class="login-trigger header__section--title__link">: Log In</a>
 						<!-- Revisit this -->
@@ -29,10 +29,17 @@
 						<?php endif;?>
 					</h1>
 					<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
-					<h2 class="header-section__logo">
+				</div>
+
+				<div class="header-section header-section--right">
+					<h2 class="header-section__title header-section__title--username">
 						<a href="<?= BASE_URL; ?>">connectd</a>
 					</h2>
-					<?php else : ?>
+				</div>
+
+			<?php else : ?>
+
+				<div class="header-section header-section--left">
 					<?php if($section == "Jobs" || $section == "Developers" || $section == "Designers" || $section == "Employers") : ?>	
 					<h1 class="header-section__title"><?= $section; ?>
 					<?php else : ?>
@@ -51,6 +58,7 @@
 						<a href="<?= BASE_URL . "dashboard/" ?>" class="header-section__title--username"><?= $username; ?></a>
 					</h2>
 				</div>
-				<?php endif; ?>
+
+			<?php endif; ?>
 			</div>
 		</header>
