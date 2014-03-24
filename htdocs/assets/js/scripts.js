@@ -1,5 +1,7 @@
 // Document Ready
 $(document).ready(function() {
+
+	$('.alert').slideDown().delay(1000).slideUp();
 	// HTML5 placeholder support
 	$("input, textarea").placeholder();
 

@@ -1,10 +1,10 @@
 <?php 
 	require_once("../config.php");  
 	require_once(ROOT_PATH . "core/init.php");
-
-	$pageTitle    = "Sitemap";
-	$pageType     = "Page";
-	$section      = "Blue";
+	
+	$pageTitle = "Sitemap";
+	$pageType = "Page";
+	$section = "Blue";
 
 	$general->loggedOutProtect();
 

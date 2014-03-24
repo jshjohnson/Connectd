@@ -60,6 +60,26 @@
 /* Style trumps (error states etc.)
 ----------------------------------*/
 
+.alert {
+	width: 100%;
+	position: fixed;
+	z-index: 999;
+	display: none;
+	top: 0;
+	text-align: center;
+	.alert-success__title {
+		margin: 0;
+		color: white;
+		font-size: .75em;
+		padding: .4em;
+		line-height: 2;
+	}
+}
+
+.alert-success {
+	background-color: #fc4349;
+}
+
 .is-hidden { display: none; visibility: hidden; }
 .is-vhidden {
 	border: 0;

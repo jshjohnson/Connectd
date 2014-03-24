@@ -1,17 +1,17 @@
 		<?php if ($status == "added") : ?>
-		<section class="call-to-action call-to-action--top">
+		<section class="alert alert-success">
 			<div class="container">
-				<h4 class="call-to-action__title zero-top">
+				<h5 class="alert-success__title">
 					Thanks for voting - Have a<i class="icon--star-alt"></i>on us!
-				</h4>
+				</h5>
 			</div>
 		</section>
 		<?php elseif ($status == "removed") : ?>
-		<section class="call-to-action call-to-action--top">
+		<section class="alert alert-success">
 			<div class="container">
-				<h4 class="call-to-action__title zero-top">
+				<h5 class="alert-success__title">
 					Vote removed
-				</h4>
+				</h5>
 			</div>
 		</section>
 		<?php endif;?>
@@ -20,7 +20,7 @@
 			<?php foreach ($trial_users as $trial_user) : ?>
 				<?php $vote_id == $trial_user["firstname"]; ?>
 				<aside class="grid__cell module-1-4 push-bottom">
-					<article class="user-module module--no-pad">
+					<article class="user-module user-module--trial-user module--no-pad">
 						<?php 
 							$vote_id         = $trial_user["user_id"]; 
 							$trialUserVotes  = $votes->getUserVotes($vote_id);

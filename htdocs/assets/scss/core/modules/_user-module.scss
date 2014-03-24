@@ -80,6 +80,13 @@
 	}
 }
 
+.user-module--trial-user {
+	@include respond-max($bp2) {
+		max-width: 70%;
+		margin: auto;
+	}
+}
+
 .user-module__info {
 	position: relative;
 	p {
