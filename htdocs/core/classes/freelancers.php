@@ -70,7 +70,7 @@
 				$query->execute();
 
 		 		// Send verification email to user
-				$general->sendEmail($firstname, $email, $emailCode);
+				// $general->sendEmail($firstname, $email, $emailCode);
 
 				$rows = $query->rowCount();
 	 

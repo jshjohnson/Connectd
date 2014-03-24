@@ -81,7 +81,7 @@
 }
 
 .user-module--trial-user {
-	@include respond-max($bp2) {
+	@include respond-max($bp1) {
 		max-width: 70%;
 		margin: auto;
 	}

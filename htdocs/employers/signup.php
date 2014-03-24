@@ -14,18 +14,18 @@
 	$section            = "Green";
 
 	// Grab the form data
-	$firstName          = trim($_POST['firstname']);
-	$lastName           = trim($_POST['lastname']);
-	$email              = trim($_POST['email']);
-	$password           = trim($_POST['password']);
-	$repeatPassword     = trim($_POST['repeatpassword']);
-	$employerName       = trim($_POST['employer_name']);
-	$employerType       = trim($_POST['employer_type']);
-	$location           = trim($_POST['location']);
-	$experience         = trim($_POST['experience']);
-	$portfolio          = trim($_POST['portfolio']);
-	$bio                = trim($_POST['bio']);
-	$submit             = trim($_POST['submit']);
+	$firstName      = trim($_POST['firstname']);
+	$lastName       = trim($_POST['lastname']);
+	$email          = trim($_POST['email']);
+	$password       = trim($_POST['password']);
+	$repeatPassword = trim($_POST['repeatpassword']);
+	$employerName   = trim($_POST['employer_name']);
+	$employerType   = trim($_POST['employer_type']);
+	$location       = trim($_POST['location']);
+	$experience     = trim($_POST['experience']);
+	$portfolio      = trim($_POST['portfolio']);
+	$bio = preg_replace('/\s*$^\s*/m', "\n", $_POST['bio']);
+	$submit         = trim($_POST['submit']);
 
 	$status = $_GET["status"];
 	

@@ -18,13 +18,13 @@ $(document).ready(function() {
 
 	$(".menu-trigger").click(function(e) {
 		e.preventDefault();
-		$(".header__nav").toggleClass("block");
+		$(".header__nav").slideToggle(400);
 	});
 
 	// Window Load
 	$(window).bind("load", function() {
 		// Fade container on load to combat FOUT
-		$(".site-wrap").animate({ opacity: 1 }, 'slow');
+		// $(".site-wrap").animate({ opacity: 1 }, 'slow');
 	});
 
 	// Overlay function

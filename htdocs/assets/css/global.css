@@ -1255,7 +1255,6 @@ a:hover {
 /* line 9, ../scss/core/_layout.scss */
 .site-wrap {
   height: 100%;
-  opacity: 0;
 }
 
 /* line 14, ../scss/core/_layout.scss */
@@ -3554,7 +3553,7 @@ img.media__img {
   }
 }
 
-@media screen and (max-width: 49em) {
+@media screen and (max-width: 30em) {
   /* line 83, ../scss/core/modules/_user-module.scss */
   .user-module--trial-user {
     max-width: 70%;

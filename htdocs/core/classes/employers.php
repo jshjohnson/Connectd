@@ -86,7 +86,7 @@
 			$query->bindValue(":firstname", $firstName);
 			$query->bindValue(":lastname", $lastName);
 			$query->bindValue(":email", $email);
-			$query->bindValue(":email_code", $email_code);
+			$query->bindValue(":email_code", $emailCode);
 			$query->bindValue(":password", $password);
 			$query->bindValue(":time_joined", $time);
 			$query->bindValue(":location", $location);
@@ -98,7 +98,7 @@
 				$query->execute();
 		
 		 		// Send verification email to user
-				$general->sendEmail($firstname, $email, $emailCode);
+				// $general->sendEmail($firstname, $email, $emailCode);
 
 				$rows = $query->rowCount();
 	 

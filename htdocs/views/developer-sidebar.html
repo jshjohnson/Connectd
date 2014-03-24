@@ -18,5 +18,5 @@
 						<h4 class="user-module__label icon--attach icon--marg"><?= $developer['jobtitle']; ?></h4>
 						<h4 class="user-module__label icon--location icon--marg"><?= $developer['location']; ?></h4>
 						<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $developer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
-						<p><?= $developer['bio']; ?></p>
+						<p><?= nl2br($developer['bio']); ?></p>
 					</div>

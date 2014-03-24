@@ -12,18 +12,18 @@
 	$jobTitles         = $freelancers->getFreelancerJobTitles($userType);
 
 	// Grab the form data
-	$firstName         = trim($_POST['firstname']);
-	$lastName          = trim($_POST['lastname']);
-	$email             = trim($_POST['email']);
-	$password          = trim($_POST['password']);
-	$repeatPassword    = trim($_POST['repeatpassword']);
-	$jobTitle          = trim($_POST['jobtitle']);
-	$experience        = trim($_POST['experience']);
-	$pricePerHour      = trim($_POST['priceperhour']);
-	$bio               = trim($_POST['bio']);
-	$portfolio         = trim($_POST['portfolio']);
-	$location          = trim($_POST['location']);
-	$submit            = trim($_POST['submit']);
+	$firstName = trim($_POST['firstname']);
+	$lastName = trim($_POST['lastname']);
+	$email = trim($_POST['email']);
+	$password = trim($_POST['password']);
+	$repeatPassword = trim($_POST['repeatpassword']);
+	$jobTitle = trim($_POST['jobtitle']);
+	$experience = trim($_POST['experience']);
+	$pricePerHour = trim($_POST['priceperhour']);
+	$bio = preg_replace('/\s*$^\s*/m', "\n", $_POST['bio']);
+	$portfolio = trim($_POST['portfolio']);
+	$location = trim($_POST['location']);
+	$submit = trim($_POST['submit']);
 
 	$status = $_GET["status"];
 

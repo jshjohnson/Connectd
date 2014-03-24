@@ -15,7 +15,7 @@
 							<h4 class="user-module__label icon--attach icon--marg"><?= $employer['employer_type']; ?></h4>
 							<h4 class="user-module__label icon--location icon--marg"><?= $employer['location']; ?></h4>
 							<h4 class="user-module__label icon--globe icon--marg"><a href="<?= $employer['portfolio']; ?>"><?= $employer['portfolio']; ?></a></h4>
-							<p><?= $employer['bio']; ?></p>
+							<p><?= nl2br($employer['bio']); ?></p>
 						</div>
 					</article>
 					<article class="dashboard-panel module module--no-pad">
