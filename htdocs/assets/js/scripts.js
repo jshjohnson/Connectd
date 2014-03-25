@@ -30,8 +30,8 @@ $(document).ready(function() {
 	$('#email-input').live('change', function() {
 		console.log('Change');
 		
-		$(this).prev('.message').remove()
-	    //ajax request
+		$(this).prev('.message').remove();
+
 	    $.ajax({
 	        url: ""+baseUrl+"assets/ajax/db_check.php",
 	        data: {
@@ -40,12 +40,12 @@ $(document).ready(function() {
 	        dataType: 'json',
 	        success: function(data) {
 	            if(data.result) {
-					// alert('Email already taken');
-					$('#email-input').before("<p class=\"message message--error zero-bottom\">Email already taken</p>");
+	            	// Email taken
+	            	$('<p class=\"message message--error zero-bottom\">Email already taken</p>').hide().insertBefore("#email-input").fadeIn();
 	            }
 	            else {
-	            	$('#email-input').before("<p class=\"message message--success zero-bottom\">Email available</p>");
-					// alert('Email available.');
+	            	// Email available
+	            	$('<p class=\"message message--success zero-bottom\">Email available</p>').hide().insertBefore("#email-input").fadeIn();
 	            }
 	        },
 	        error: function(data){
