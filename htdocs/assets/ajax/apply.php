@@ -5,7 +5,7 @@
 		<form action=''>
 			<textarea name='message' id='' cols='30' rows='15' placeholder='Write anything here that you think the employer would appreciate knowing about yourself. The more detailed, the better!'></textarea>
 			<div class='button-container'>
-				<input class='submit' type='submit' value='Send'>
+				<input class='btn--green' type='submit' value='Send'>
 			</div>
 		</form> 
 	</div>

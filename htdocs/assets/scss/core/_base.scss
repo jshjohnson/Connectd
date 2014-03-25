@@ -133,7 +133,7 @@ form {
 label { display: block; font-weight: bold; font-size: .75em;}
 textarea { line-height: 1.5; }
 
-input:not([type=checkbox]),
+input:not([type=checkbox]):not([type=submit]),
 textarea {
 	@include transition(all 0.30s ease-in-out);
 	padding: .5em;
@@ -252,8 +252,8 @@ input[type=submit] {
 			line-height: 3.75;
 		}
 	}
-	.input--url {
-		padding-left: 3.5em;
+	input.input--url {
+		padding: 3.5em;
 	}
 }
 
@@ -274,7 +274,7 @@ input:not([type=checkbox]):not([type="submit"]):focus, textarea:focus, select:fo
   outline: 0;
 }
 
-input:not(:focus):invalid {
+input:not(:focus):invalid, .invalid {
   @include box-shadow(0 0 5px rgba(red, 1));
   border: 1px solid rgba(red, 1);
   outline: 0;

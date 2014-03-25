@@ -6,9 +6,11 @@
 	height: 100%;
 	width: 100%;
 	z-index: 5000;
+	display: none;
 }
 
 .overlay__inner {
+	display: none;
 	@include transition(all .2s ease-in-out);
 	background-color: white;
 	margin: auto;

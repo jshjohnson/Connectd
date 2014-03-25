@@ -41,6 +41,7 @@ $(document).ready(function() {
 	        success: function(data) {
 	            if(data.result) {
 	            	// Email taken
+	            	$('#email-input').addClass("invalid");
 	            	$('<p class=\"message message--error zero-bottom\">Email already taken</p>').hide().insertBefore("#email-input").fadeIn();
 	            }
 	            else {
@@ -63,16 +64,23 @@ $(document).ready(function() {
 			e.preventDefault();
 
 		    $.get($file, function(data){
-			    $("body").append(data);
+			    $(data).appendTo("body").fadeIn();
+			    $('.overlay').children().fadeIn(100);
 				$(".overlay").css({
 					height: docHeight,
 				});
-				// $(".site-wrap").addClass("blur");
 	    		$(".overlay").add(".cancel-trigger").click(function(e) {
 				    if (e.target == this) {
-				        $(this).remove();
-				        $(".site-wrap").removeClass("blur")
+						$(this).fadeOut("normal", function() {
+							$(this).remove();
+						});
 				    }
+				});
+				$('.cancel-trigger').click(function(e){
+					e.preventDefault();
+					$('.overlay').fadeOut("normal", function() {
+						$(this).remove();
+					});
 				});
 			});
 		});

@@ -789,7 +789,7 @@ textarea {
 }
 
 /* line 137, ../scss/core/_base.scss */
-input:not([type=checkbox]),
+input:not([type=checkbox]):not([type=submit]),
 textarea {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -925,8 +925,8 @@ input[type=submit] span {
   line-height: 3.9;
 }
 /* line 255, ../scss/core/_base.scss */
-.url-container .input--url {
-  padding-left: 3.5em;
+.url-container input.input--url {
+  padding: 3.5em;
 }
 
 /* line 260, ../scss/core/_base.scss */
@@ -950,7 +950,7 @@ input:not([type=checkbox]):not([type="submit"]):focus, textarea:focus, select:fo
 }
 
 /* line 277, ../scss/core/_base.scss */
-input:not(:focus):invalid {
+input:not(:focus):invalid, .invalid {
   -webkit-box-shadow: 0 0 5px red;
   -moz-box-shadow: 0 0 5px red;
   box-shadow: 0 0 5px red;
@@ -3144,10 +3144,12 @@ img.media__img {
   height: 100%;
   width: 100%;
   z-index: 5000;
+  display: none;
 }
 
-/* line 11, ../scss/core/modules/_overlay.scss */
+/* line 12, ../scss/core/modules/_overlay.scss */
 .overlay__inner {
+  display: none;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -3160,18 +3162,18 @@ img.media__img {
   padding: 1.5em;
   margin-top: 6%;
 }
-/* line 20, ../scss/core/modules/_overlay.scss */
+/* line 22, ../scss/core/modules/_overlay.scss */
 .overlay__inner input:not([type=submit]), .overlay__inner textarea {
   background-color: #f7f7f7;
   font-size: .8em;
   padding: 1em;
   margin-top: 0;
 }
-/* line 26, ../scss/core/modules/_overlay.scss */
+/* line 28, ../scss/core/modules/_overlay.scss */
 .overlay__inner textarea {
   line-height: 1.5;
 }
-/* line 32, ../scss/core/modules/_overlay.scss */
+/* line 34, ../scss/core/modules/_overlay.scss */
 .overlay__inner .icon--cancel {
   float: right;
   margin-right: 0;
@@ -3179,12 +3181,12 @@ img.media__img {
   margin-top: -1.9em;
   color: white;
 }
-/* line 35, ../scss/core/modules/_overlay.scss */
+/* line 37, ../scss/core/modules/_overlay.scss */
 .overlay__inner .icon--cancel:before {
   margin-right: 0;
 }
 
-/* line 46, ../scss/core/modules/_overlay.scss */
+/* line 48, ../scss/core/modules/_overlay.scss */
 .overlay__innner--animate {
   top: 0;
   -webkit-transition: all 0.2s ease-in-out;
@@ -3193,26 +3195,26 @@ img.media__img {
   transition: all 0.2s ease-in-out;
 }
 
-/* line 51, ../scss/core/modules/_overlay.scss */
+/* line 53, ../scss/core/modules/_overlay.scss */
 .overlay__inner--small {
   width: 20%;
   width: 30%;
 }
 
-/* line 61, ../scss/core/modules/_overlay.scss */
+/* line 63, ../scss/core/modules/_overlay.scss */
 .overlay__inner--mid {
   width: 50%;
   width: 70%;
 }
 
-/* line 73, ../scss/core/modules/_overlay.scss */
+/* line 75, ../scss/core/modules/_overlay.scss */
 .overlay > *:last-child,
 .overlay > *:last-child > *:last-child,
 .overlay > *:last-child > *:last-child > *:last-child {
   margin-bottom: 0;
 }
 
-/* line 77, ../scss/core/modules/_overlay.scss */
+/* line 79, ../scss/core/modules/_overlay.scss */
 .overlay__title {
   margin-top: 0;
   font-weight: 600;
