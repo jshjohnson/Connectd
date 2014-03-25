@@ -27,6 +27,33 @@ $(document).ready(function() {
 		// $(".site-wrap").animate({ opacity: 1 }, 'slow');
 	});
 
+	$('#email-input').live('change', function() {
+		console.log('Change');
+		
+		$(this).prev('.message').remove()
+	    //ajax request
+	    $.ajax({
+	        url: ""+baseUrl+"assets/ajax/db_check.php",
+	        data: {
+	            'email' : $('#email-input').val()
+	        },
+	        dataType: 'json',
+	        success: function(data) {
+	            if(data.result) {
+					// alert('Email already taken');
+					$('#email-input').before("<p class=\"message message--error zero-bottom\">Email already taken</p>");
+	            }
+	            else {
+	            	$('#email-input').before("<p class=\"message message--success zero-bottom\">Email available</p>");
+					// alert('Email available.');
+	            }
+	        },
+	        error: function(data){
+	        	console.log('Error');
+	        }
+	    });
+	});
+
 	// Overlay function
 
 	function overlay($param, $file) {

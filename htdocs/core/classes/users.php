@@ -12,7 +12,7 @@
 		}
 	  
 		/**
-		 * Tests if email already exists in database
+		 * Test if email already exists in database
 		 *
 		 * @param  string  $email The email of the user
 		 * @return boolean
