@@ -70,7 +70,7 @@
 				$query->execute();
 
 		 		// Send verification email to user
-				// $general->sendEmail($firstname, $email, $emailCode);
+				$general->sendEmail($firstName, $email, $emailCode);
 
 				$rows = $query->rowCount();
 	 
@@ -116,20 +116,25 @@
 						$jobTitleInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".designer_titles (job_title_id, job_title) VALUE (?,?)");
 
 						$jobTitleInsert->bindValue(1, $lastUserId);
-						$jobTitleInsert->bindValue(2, $jobTitle);					
+						$jobTitleInsert->bindValue(2, $jobTitle);	
+
+						try{
+							$jobTitleInsert->execute();
+						}catch(PDOException $e){
+							echo "Sorry, there was an error: ".$e->getMessage();
+						}					
 
 					} else if ($userType == 'developer') {
 	 					$jobTitleInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".developer_titles (job_title_id, job_title) VALUE (?,?)");
 
 		 				$jobTitleInsert->bindValue(1, $lastUserId);
 						$jobTitleInsert->bindValue(2, $jobTitle);
+						try{
+							$jobTitleInsert->execute();
+						}catch(PDOException $e){
+							echo "Sorry, there was an error: ".$e->getMessage();
+						}	
 					}
-
-					try{
-						$jobTitleInsert->execute();
-					}catch(PDOException $e){
-						echo "Sorry, there was an error: ".$e->getMessage();
-					}	
 					
 					return true;
 				}

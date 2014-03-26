@@ -28,10 +28,10 @@ $(document).ready(function() {
 	});
 
 	$('#email-input').live('change', function() {
-		console.log('Change');
-		
-		$(this).prev('.message').remove();
-		$('#email-input').removeClass("invalid");
+
+		var $this = $(this);
+	
+		$this.removeClass("invalid").prev('.message').remove();
 
 	    $.ajax({
 	        url: ""+baseUrl+"assets/ajax/email-check.php",
@@ -59,7 +59,8 @@ $(document).ready(function() {
 	$('#password-input').live('change', function() {
 		console.log('Change');
 		
-		$(this).prev('.message').remove();
+
+		$(this).prev('.message--error').remove();
 		$('#password-input').removeClass("invalid");
 
 	    $.ajax({
@@ -69,12 +70,9 @@ $(document).ready(function() {
 	        },
 	        dataType: 'json',
 	        success: function(data) {
-	            if(data.result) {
-	            	$('<p class=\"message message--success zero-bottom\">Password valid</p>').hide().insertBefore("#password-input").fadeIn();
-	            }
-	            else {
-	            	$('#password-input').addClass("invalid");
-	            	$('<p class=\"message message--error zero-bottom\">Password invalid</p>').hide().insertBefore("#password-input").fadeIn();
+	            if(!data.result) {
+	            	$('#password-input').addClass("invalid").prev('.message').remove();
+	            	$('<p class=\"message message--error zero-bottom\">Psst. Passwords must contain at least one uppercase character and at least one number.</p>').hide().insertBefore("#password-input").fadeIn();
 	            }
 	        },
 	        error: function(data){
@@ -115,9 +113,9 @@ $(document).ready(function() {
 	}
 	//Staging
 	overlay($(".apply-trigger"), ""+baseUrl+"/assets/ajax/apply.php");
-	// overlay($(".hire-trigger"), ""+baseUrl+"/assets/ajax/hire.php");
+	overlay($(".hire-trigger"), ""+baseUrl+"/assets/ajax/hire.php");
 	overlay($(".post-job-trigger"), ""+baseUrl+"/assets/ajax/post-job.php");
-	// overlay($(".collaborate-trigger"), ""+baseUrl+"/assets/ajax/collaborate.php");
+	overlay($(".collaborate-trigger"), ""+baseUrl+"/assets/ajax/collaborate.php");
 	overlay($(".search-trigger"), ""+baseUrl+"/assets/ajax/search.php");
 	overlay($(".dev-skills-trigger"), ""+baseUrl+"/assets/ajax/dev-skills.php");
 	overlay($(".des-skills-trigger"), ""+baseUrl+"/assets/ajax/des-skills.php");
