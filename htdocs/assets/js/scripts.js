@@ -31,9 +31,10 @@ $(document).ready(function() {
 		console.log('Change');
 		
 		$(this).prev('.message').remove();
+		$('#email-input').removeClass("invalid");
 
 	    $.ajax({
-	        url: ""+baseUrl+"assets/ajax/db_check.php",
+	        url: ""+baseUrl+"assets/ajax/email-check.php",
 	        data: {
 	            'email' : $('#email-input').val()
 	        },
@@ -47,6 +48,33 @@ $(document).ready(function() {
 	            else {
 	            	// Email available
 	            	$('<p class=\"message message--success zero-bottom\">Email available</p>').hide().insertBefore("#email-input").fadeIn();
+	            }
+	        },
+	        error: function(data){
+	        	console.log('Error');
+	        }
+	    });
+	});
+
+	$('#password-input').live('change', function() {
+		console.log('Change');
+		
+		$(this).prev('.message').remove();
+		$('#password-input').removeClass("invalid");
+
+	    $.ajax({
+	        url: ""+baseUrl+"assets/ajax/password-check.php",
+	        data: {
+	            'password' : $('#password-input').val()
+	        },
+	        dataType: 'json',
+	        success: function(data) {
+	            if(data.result) {
+	            	$('<p class=\"message message--success zero-bottom\">Password valid</p>').hide().insertBefore("#password-input").fadeIn();
+	            }
+	            else {
+	            	$('#password-input').addClass("invalid");
+	            	$('<p class=\"message message--error zero-bottom\">Password invalid</p>').hide().insertBefore("#password-input").fadeIn();
 	            }
 	        },
 	        error: function(data){

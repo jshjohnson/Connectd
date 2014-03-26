@@ -139,6 +139,7 @@ textarea {
 	padding: .5em;
 	border: 1px solid;
 	color: $color-brand-dark;
+	background-color: white;
 	-webkit-appearance: none;
 	border-radius: 0;
 	margin: $baseline/2.5 0;
@@ -253,7 +254,7 @@ input[type=submit] {
 		}
 	}
 	input.input--url {
-		padding: 3.5em;
+		padding: .5em .5em .5em 3.5em;
 	}
 }
 

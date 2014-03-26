@@ -55,7 +55,7 @@
 						<div style="background-image: url('<?= BASE_URL ?>assets/avatars/default_avatar.png');" class="header-section__avatar"></div>
 					</a>
 					<h2 class="header-section__title">
-						<a href="<?= BASE_URL . "dashboard/" ?>" class="header-section__title--username"><?= $username; ?></a>
+						<a href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>" class="header-section__title--username"><?= $username; ?></a>
 					</h2>
 				</div>
 
