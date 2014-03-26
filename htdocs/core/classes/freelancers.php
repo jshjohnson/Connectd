@@ -86,9 +86,10 @@
 
 					try{
 						$freelancersInsert->execute();
-					}catch(PDOException $e){
-						echo "Sorry, there was an error: ".$e->getMessage();
-					}							
+					}catch(PDOException $e) {
+						$general = new General($db);
+						$general->errorView($general, $e);
+					}						
 
 					$userTypeInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_type_id, user_type) VALUE (?,?)");
 	 
@@ -97,9 +98,10 @@
 	 
 					try{
 						$userTypeInsert->execute();
-					}catch(PDOException $e){
-						echo "Sorry, there was an error: ".$e->getMessage();
-					}	
+					}catch(PDOException $e) {
+						$general = new General($db);
+						$general->errorView($general, $e);
+					}
 
 					$userExpInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (experience_id, experience) VALUE (?,?)");
 
@@ -108,9 +110,10 @@
 	
 					try{
 						$userExpInsert->execute();
-					}catch(PDOException $e){
-						echo "Sorry, there was an error: ".$e->getMessage();
-					}	
+					}catch(PDOException $e) {
+						$general = new General($db);
+						$general->errorView($general, $e);
+					}
 
 					if($userType == 'designer') {
 						$jobTitleInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".designer_titles (job_title_id, job_title) VALUE (?,?)");
@@ -120,8 +123,9 @@
 
 						try{
 							$jobTitleInsert->execute();
-						}catch(PDOException $e){
-							echo "Sorry, there was an error: ".$e->getMessage();
+						}catch(PDOException $e) {
+							$general = new General($db);
+							$general->errorView($general, $e);
 						}					
 
 					} else if ($userType == 'developer') {
@@ -131,9 +135,10 @@
 						$jobTitleInsert->bindValue(2, $jobTitle);
 						try{
 							$jobTitleInsert->execute();
-						}catch(PDOException $e){
-							echo "Sorry, there was an error: ".$e->getMessage();
-						}	
+						}catch(PDOException $e) {
+							$general = new General($db);
+							$general->errorView($general, $e);
+						}
 					}
 					
 					return true;
