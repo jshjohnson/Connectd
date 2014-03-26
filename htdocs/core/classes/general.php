@@ -136,37 +136,46 @@
 			header('Location: login.php?status=logged');
 	    }
 
-	    public function sendEmail($firstname, $email, $emailCode) {
+	    public function sendEmail($firstName, $email, $emailCode) {
 	    	global $mail;
 
 	    	$to = $email;
 
-			$mail->Host               = DB_EMAIL;  // specify main and backup server
-			$mail->Username           = "josh@joshuajohnson.co.uk";  // SMTP username
-			$mail->Password           = "cheeseball27"; // SMTP password
-			$mail->SMTPAuth           = true;               // enable SMTP authentication
-			$mail->SMTPSecure         = "tls"; 
-			$mail->addAddress($to);  // Add a recipient=
-            
-            $mail->From               = 'robot@connectd.io';
-			$mail->FromName           = 'Connectd.io';
-            // Set word wrap to 50 characters
-			$mail->isHTML(true); // Set email format to HTML
+	    	try {
+	    		$mail->IsSMTP(); // telling the class to use SMTP
+				$mail->Username           = "hello@connectd.io";  // SMTP username
+				$mail->Password           = "kerching27"; // SMTP password
+				$mail->SMTPAuth           = true;               // enable SMTP authentication
+				$mail->SMTPSecure         = "tls"; 
+				$mail->Host               = "smtp.gmail.com";  // sets GMAIL as the SMTP server
+				$mail->Port               = 587; 
+				$mail->addAddress($to);  // Add a recipient
+	            
+	            $mail->From               = 'hello@connectd.io';
+				$mail->FromName           = 'Connectd.io';
+				$mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
+	            // Set word wrap to 50 characters
+				$mail->isHTML(true); // Set email format to HTML
 
-			$mail->Subject            = 'Activate your new Connectd account';
+				$mail->Subject            = 'Activate your new Connectd account';
 
-			$mail->Body               = "<p>Hey " . $firstname . "!</p>";
-			$mail->Body              .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
-			$mail->Body              .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $emailCode . "</p>";
-			$mail->Body              .= "<p>-- Connectd team</p>";
-			$mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-			$mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
+				$mail->Body               = "<p>Hey " . $firstName . "!</p>";
+				$mail->Body              .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
+				$mail->Body              .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $emailCode . "</p>";
+				$mail->Body              .= "<p>-- Connectd team</p>";
+				$mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
+				$mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
 
-			if(!$mail->send()) {
-			   echo 'Message could not be sent.';
-			   echo 'Mailer Error: ' . $mail->ErrorInfo;
-			   exit;
+				$mail->Send();
+
+	    	} catch(phpmailerException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
+			}catch(Exception $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
 			}
+
 	    }
 
 	}
