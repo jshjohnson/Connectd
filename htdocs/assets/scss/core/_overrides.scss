@@ -7,6 +7,12 @@
 .zero-top 		{ margin-top: 0 !important; }
 .zero-bottom 	{ margin-bottom: 0 !important; }
 
+.input--top {
+	@include respond-min($bp2) {
+		margin-top: 0 !important;
+	}
+}
+
 .weight-light      { font-weight:300 !important; }
 .weight-normal     { font-weight:400 !important; }
 .weight-semibold   { font-weight:600 !important; }
@@ -64,7 +70,6 @@
 	width: 100%;
 	position: fixed;
 	z-index: 999;
-	display: none;
 	top: 0;
 	text-align: center;
 	.alert-success__title {

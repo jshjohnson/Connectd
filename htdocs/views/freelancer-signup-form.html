@@ -19,8 +19,8 @@
 				<p class="message message--success fadeIn">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
 				<form autocomplete="off" method="post" action="<?= BASE_URL; ?><?php if($userType == "developer") :?>developers/signup.php<?php else : ?>designers/signup.php<?php endif;?>" class="sign-up-form">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left zero-top" value="<?php if (isset($firstName)) { echo htmlspecialchars($firstName); } ?>" autofocus>
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right zero-top" value="<?php if (isset($lastName)) { echo htmlspecialchars($lastName); } ?>">
+					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left input--top" value="<?php if (isset($firstName)) { echo htmlspecialchars($firstName); } ?>" autofocus>
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right input--top" value="<?php if (isset($lastName)) { echo htmlspecialchars($lastName); } ?>">
 					<input id="email-input" type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" autocomplete="off">
 					<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
 					<input autocomplete="off" id="password-input" type='password' name='password' placeholder="Password" class="field-1-2 float-left"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">

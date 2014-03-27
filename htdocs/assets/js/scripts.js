@@ -1,6 +1,9 @@
 // Document Ready
 $(document).ready(function() {
-	$('.alert').slideDown().delay(1000).slideUp();
+	$(".alert").addClass("fadeInDownBig").delay(2000).queue(function(next){
+	    $(this).addClass("fadeOutUpBig");
+	    next();
+	});
 
 	// Target radios / checkboxes
 	$("input[type=radio]").parents('li').addClass('radio');
