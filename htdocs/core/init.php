@@ -9,7 +9,7 @@
 	 * @return void
 	 */ 
 	function class_loader($class) {
-		$filename = ROOT_PATH . "core/classes/" . $class . ".php";
+		$filename = ROOT_PATH . "core/classes/" . strtolower($class) . ".php";
 	    if (is_readable($filename)) {
 	        require($filename);
 	    }
