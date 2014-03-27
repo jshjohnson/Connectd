@@ -2,8 +2,6 @@
 $(document).ready(function() {
 
 	$('.alert').slideDown().delay(1000).slideUp();
-	// HTML5 placeholder support
-	$("input, textarea").placeholder();
 
 	// Target radios / checkboxes
 	$("input[type=radio]").parents('li').addClass('radio');
@@ -40,12 +38,12 @@ $(document).ready(function() {
 	        },
 	        dataType: 'json',
 	        success: function(data) {
-	            if(data.result) {
+	            if(data.result && $this.val() != '') {
 	            	// Email taken
 	            	$('#email-input').addClass("invalid");
 	            	$('<p class=\"message message--error zero-bottom\">Email already taken</p>').hide().insertBefore("#email-input").fadeIn();
 	            }
-	            else {
+	            else if (!data.result && $this.val() != '') {
 	            	// Email available
 	            	$('<p class=\"message message--success zero-bottom\">Email available</p>').hide().insertBefore("#email-input").fadeIn();
 	            }
@@ -57,11 +55,10 @@ $(document).ready(function() {
 	});
 
 	$('#password-input').live('change', function() {
-		console.log('Change');
 		
+		var $this = $(this);
 
-		$(this).prev('.message--error').remove();
-		$('#password-input').removeClass("invalid");
+		$this.removeClass("invalid").prev('.message--error').remove();
 
 	    $.ajax({
 	        url: ""+baseUrl+"assets/ajax/password-check.php",
@@ -70,7 +67,7 @@ $(document).ready(function() {
 	        },
 	        dataType: 'json',
 	        success: function(data) {
-	            if(!data.result) {
+	            if(!data.result && $this.val() != '') {
 	            	$('#password-input').addClass("invalid").prev('.message').remove();
 	            	$('<p class=\"message message--error zero-bottom\">Psst. Passwords must contain at least one uppercase character and at least one number.</p>').hide().insertBefore("#password-input").fadeIn();
 	            }
@@ -112,13 +109,13 @@ $(document).ready(function() {
 		});
 	}
 	//Staging
-	overlay($(".apply-trigger"), ""+baseUrl+"/assets/ajax/apply.php");
-	overlay($(".hire-trigger"), ""+baseUrl+"/assets/ajax/hire.php");
-	overlay($(".post-job-trigger"), ""+baseUrl+"/assets/ajax/post-job.php");
-	overlay($(".collaborate-trigger"), ""+baseUrl+"/assets/ajax/collaborate.php");
-	overlay($(".search-trigger"), ""+baseUrl+"/assets/ajax/search.php");
-	overlay($(".dev-skills-trigger"), ""+baseUrl+"/assets/ajax/dev-skills.php");
-	overlay($(".des-skills-trigger"), ""+baseUrl+"/assets/ajax/des-skills.php");
-	overlay($(".login-trigger"), ""+baseUrl+"/assets/ajax/login.php");
+	overlay($(".apply-trigger"), ""+baseUrl+"assets/ajax/apply.php");
+	overlay($(".hire-trigger"), ""+baseUrl+"assets/ajax/hire.php");
+	overlay($(".post-job-trigger"), ""+baseUrl+"assets/ajax/post-job.php");
+	overlay($(".collaborate-trigger"), ""+baseUrl+"assets/ajax/collaborate.php");
+	overlay($(".search-trigger"), ""+baseUrl+"assets/ajax/search.php");
+	overlay($(".dev-skills-trigger"), ""+baseUrl+"assets/ajax/dev-skills.php");
+	overlay($(".des-skills-trigger"), ""+baseUrl+"assets/ajax/des-skills.php");
+	overlay($(".login-trigger"), ""+baseUrl+"assets/ajax/login.php");
 
 });
