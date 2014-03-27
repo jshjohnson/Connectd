@@ -8,8 +8,11 @@
 	 * @param  string $class
 	 * @return void
 	 */ 
-	function class_loader($class) {
-		require('core/classes/' . $class . '.php');
+	function class_loader($className) {
+		$filename = "core/classes/" . $className . ".php";
+	    if (is_readable($filename)) {
+	        require $filename;
+	    }
 	}
 	spl_autoload_register('class_loader');	
 
