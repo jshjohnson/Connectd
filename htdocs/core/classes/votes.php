@@ -103,15 +103,37 @@
 		 * @return void
 		 */ 
 		public function addVote($user_id, $votedBy) {
+
+			global $general;
+
 			$query = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_votes (vote_id, voted_by_id) VALUES (?, ?)");
 
 			$query->bindValue(1, $user_id);
 			$query->bindValue(2, $votedBy);
 			
+			$this->db->beginTransaction();
+
 			try{
 				$query->execute();
+
+				$getUserInfo = $this->db->prepare("SELECT u.firstname, u.email, u.user_id FROM " . DB_NAME . ".users AS u WHERE u.user_id = ?");
+				$getUserInfo->bindValue(1, $user_id);
+
+				$getUserInfo->execute();
+				$row = $getUserInfo->fetch();
+
+				$firstName = $row['firstname'];
+				$email = $row['email'];
+
+				$votes = $this->getUserVotes($user_id);
+
+				$general->sendVoteEmail($firstName, $email, $votes);
+
+				$this->db->commit();
+
 				header("Location:" . BASE_URL . "trials?status=added");
 			}catch(PDOException $e) {
+				$this->db->rollback();
 				$general = new General($db);
 				$general->errorView($general, $e);
 			}

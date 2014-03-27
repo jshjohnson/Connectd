@@ -54,7 +54,7 @@
 	font-family: $font-serif;
 	margin-bottom: $baseline/2;
 	&:after {
-		@extend .fadeOutDown;
+		@extend .bounce;
 		content: "";
 		width: 0; 
 		height: 0; 

@@ -15,7 +15,7 @@
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
 			<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true)  { ?>
-	        <p class="message message--success fadeIn">Thank you, we've activated your account. You're free to log in!</p>
+	        <p class="message message--success fadeIn">Successfully activated account. Welcome to Connectd!</p>
 	        <?php } else if (isset ($_GET['email'], $_GET['email_code']) === true) {
 		            
 			    $email 		= trim($_GET['email']);
@@ -33,7 +33,7 @@
 	            }
 	        
 		        } else if ($status == "logged") : ?>
-				<p class="message message--success fadeIn">Successfully logged out - see you soon!</p>
+				<p class="message message--success">Successfully logged out - see you soon!</p>
 				<?php elseif($status == "activated") : ?>
 				<p class="message message--success fadeIn">Successfully activated account. Welcome to Connectd!</p>
 				<?php endif; ?>

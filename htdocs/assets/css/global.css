@@ -9136,7 +9136,7 @@ img.media__img {
 }
 
 /* line 65, ../scss/core/_animation.scss */
-.bounce {
+.bounce, .site-intro__sub-heading:after {
   -webkit-animation-name: bounce;
   -moz-animation-name: bounce;
   -ms-animation-name: bounce;
@@ -9850,7 +9850,7 @@ img.media__img {
 }
 
 /* line 128, ../scss/core/_animation.scss */
-.fadeOutDown, .site-intro__sub-heading:after {
+.fadeOutDown {
   -webkit-animation-name: fadeOutDown;
   -moz-animation-name: fadeOutDown;
   -ms-animation-name: fadeOutDown;
