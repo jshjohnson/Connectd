@@ -9,7 +9,7 @@
 	 * @return void
 	 */ 
 	function class_loader($class) {
-		require('classes/' . $class . '.php');
+		require('core/classes/' . $class . '.php');
 	}
 	spl_autoload_register('class_loader');	
 
