@@ -1,4 +1,5 @@
 RewriteEngine On
+RewriteRule ^(about|sitemap|terms)/?$ index.php?p=$1
 RewriteRule ^designers/$ /Connectd/htdocs/designers/signup.php
 RewriteRule ^designers/([0-9]+)/$ /Connectd/htdocs/designers/profile.php?id=$1
 
