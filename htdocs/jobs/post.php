@@ -99,7 +99,7 @@
 					</div>		
 					<textarea name="description" cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!' required="required"><?php if (isset($jobdescription)) { echo htmlspecialchars($jobdescription); } ?></textarea>
 					<div class="button-container">
-		            	<input class="submit" name="submit" type="submit" value='Submit job'>						
+		            	<input class="btn--green" name="submit" type="submit" value='Submit job'>						
 					</div>
 				</form> 
 			</div>

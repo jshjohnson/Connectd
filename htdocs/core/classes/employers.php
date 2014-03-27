@@ -100,7 +100,7 @@
 				$register->execute();
 		
 		 		// Send verification email to user
-				// $general->sendEmail($firstName, $email, $emailCode);
+				$general->sendEmail($firstName, $email, $emailCode);
 
 				$rows = $register->rowCount();
 	 

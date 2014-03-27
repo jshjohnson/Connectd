@@ -113,7 +113,8 @@ $(document).ready(function() {
 	overlay($(".hire-trigger"), ""+baseUrl+"assets/ajax/hire.php");
 	overlay($(".post-job-trigger"), ""+baseUrl+"assets/ajax/post-job.php");
 	overlay($(".collaborate-trigger"), ""+baseUrl+"assets/ajax/collaborate.php");
-	overlay($(".search-trigger"), ""+baseUrl+"assets/ajax/search.php");
+	overlay($(".search-freelancer-trigger"), ""+baseUrl+"assets/ajax/search-freelancers.php");
+	overlay($(".search-employer-trigger"), ""+baseUrl+"assets/ajax/search-employers.php");
 	overlay($(".dev-skills-trigger"), ""+baseUrl+"assets/ajax/dev-skills.php");
 	overlay($(".des-skills-trigger"), ""+baseUrl+"assets/ajax/des-skills.php");
 	overlay($(".login-trigger"), ""+baseUrl+"assets/ajax/login.php");
