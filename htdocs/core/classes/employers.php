@@ -72,35 +72,37 @@
 			global $bcrypt; 
 			global $general;
 			
-			$time 		= time();
-			$ip 		= $_SERVER['REMOTE_ADDR'];
+			$time = time();
+			$ip = $_SERVER['REMOTE_ADDR'];
 			$emailCode = sha1($email + microtime());
-			$password   = $bcrypt->genHash($password);
+			$password = $bcrypt->genHash($password);
 
-			$query 	= $this->db->prepare("INSERT INTO " . DB_NAME . ".users
+			$register = $this->db->prepare("INSERT INTO " . DB_NAME . ".users
 				(firstname, lastname, email, email_code, password, time_joined, location, portfolio, bio, ip) 
 				VALUES 
 				(:firstname, :lastname, :email, :email_code, :password, :time_joined, :location, :portfolio, :bio, :ip)
 			");
 			
-			$query->bindValue(":firstname", $firstName);
-			$query->bindValue(":lastname", $lastName);
-			$query->bindValue(":email", $email);
-			$query->bindValue(":email_code", $emailCode);
-			$query->bindValue(":password", $password);
-			$query->bindValue(":time_joined", $time);
-			$query->bindValue(":location", $location);
-			$query->bindValue(":portfolio", $portfolio);
-			$query->bindValue(":bio", $bio);
-			$query->bindValue(":ip", $ip);
+			$register->bindValue(":firstname", $firstName);
+			$register->bindValue(":lastname", $lastName);
+			$register->bindValue(":email", $email);
+			$register->bindValue(":email_code", $emailCode);
+			$register->bindValue(":password", $password);
+			$register->bindValue(":time_joined", $time);
+			$register->bindValue(":location", $location);
+			$register->bindValue(":portfolio", $portfolio);
+			$register->bindValue(":bio", $bio);
+			$register->bindValue(":ip", $ip);
 		 
+		 	$this->db->beginTransaction();
+
 			try{
-				$query->execute();
+				$register->execute();
 		
 		 		// Send verification email to user
 				$general->sendEmail($firstName, $email, $emailCode);
 
-				$rows = $query->rowCount();
+				$rows = $register->rowCount();
 	 
 				if($rows > 0 && $userType = 'employer'){
 
@@ -111,53 +113,35 @@
 	 				$employerInsert->bindValue(1, $last_user_id);
 					$employerInsert->bindValue(2, $employerName);
 
-					try{
-						$employerInsert->execute();
-					}catch(PDOException $e) {
-						$general = new General($db);
-						$general->errorView($general, $e);
-					}
+					$employerInsert->execute();
 
 					$employerTypeInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".employer_types (employer_type_id, employer_type) VALUE (?, ?)");
 
 					$employerTypeInsert->bindValue(1, $last_user_id);
 					$employerTypeInsert->bindValue(2, $employerType);						
 
-					try{
-						$employerTypeInsert->execute();
-					}catch(PDOException $e) {
-						$general = new General($db);
-						$general->errorView($general, $e);
-					}
+					$employerTypeInsert->execute();
 
 					$userExpInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (experience_id, experience) VALUE (?,?)");
 
 					$userExpInsert->bindValue(1, $last_user_id);
 					$userExpInsert->bindValue(2, $experience);							
 
-					try{
-						$userExpInsert->execute();
-					}catch(PDOException $e) {
-						$general = new General($db);
-						$general->errorView($general, $e);
-					}
+					$userExpInsert->execute();
 
 					$userTypeInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_type_id, user_type) VALUE (?,?)");
 	 
 	 				$userTypeInsert->bindValue(1, $last_user_id);
 					$userTypeInsert->bindValue(2, $userType);						
 
-					try{
-						$userTypeInsert->execute();
-					}catch(PDOException $e) {
-						$general = new General($db);
-						$general->errorView($general, $e);
-					}
-					
+					$userTypeInsert->execute();
+
+					$this->db->commit();
 					return true;
 				}
 							
 			}catch(PDOException $e) {
+				$this->db->rollback();
 				$general = new General($db);
 				$general->errorView($general, $e);
 			}
