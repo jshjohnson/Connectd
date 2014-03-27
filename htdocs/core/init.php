@@ -9,11 +9,11 @@
 	 * @return void
 	 */ 
 	function class_loader($class) {
-		require(ROOT_PATH . 'core/classes/' . $class . '.php');
+		require('classes/' . $class . '.php');
 	}
 	spl_autoload_register('class_loader');	
 
-	require'inc/phpmailer/PHPMailerAutoload.php';
+	require 'inc/phpmailer/PHPMailerAutoload.php';
 
 	$general 	    = new General($db);
 	$users 			= new Users($db);
