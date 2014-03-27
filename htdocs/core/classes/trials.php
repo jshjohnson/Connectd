@@ -12,12 +12,12 @@
 		}
 
 		/**
-		 * Gets all approved freelancer users (and user data) who have less than 10 votes
+		 * Gets all approved freelancer users (and user data) who have less than 10 votes and is not the user logged in
 		 *
-		 * @param  void
+		 * @param  int $votedBy The user logged in
 		 * @return array
 		 */ 
-		public function getTrialUsers() {
+		public function getTrialUsers($votedBy) {
 
 			$query = $this->db->prepare("
 				SELECT 
@@ -47,6 +47,7 @@
 				ON voters.user_id = user_votes.vote_id
 				WHERE user_types.user_type != ?
 				AND users.confirmed = ?
+				AND users.user_id != ?
 				GROUP BY
 				users.user_id,
 				users.firstname, 
@@ -61,16 +62,17 @@
 			");
 			$query->bindValue(1, 'employer');
 			$query->bindValue(2, 1);
-			$query->bindValue(3, 10);
+			$query->bindValue(3, $votedBy);
+			$query->bindValue(4, 10);
 
 			try{
 				$query->execute();
+				# We use fetchAll() instead of fetch() to get an array of all the selected records.
+				return $query->fetchAll();
 			}catch(PDOException $e) {
 				$general = new General($db);
 				$general->errorView($general, $e);
 			}
-			# We use fetchAll() instead of fetch() to get an array of all the selected records.
-			return $query->fetchAll();
 		}
 
 		/**
