@@ -16,13 +16,15 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<?php if (is_array($designers)) : ?>
+						<?php if (!empty($designers) && is_array($designers)) : ?>
 
 						<?php foreach($designers as $designer_id => $designer) {
 							include('../views/designer-list.html');
 						} ?>
 
-						<?php endif; ?>
+						<?php else : ?>
+							<?php include('../views/freelancer-empty-list.html'); ?>
+						<?php endif;?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
@@ -31,13 +33,15 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<?php if (is_array($developers)) : ?>
+						<?php if (!empty($developers) && is_array($developers)) : ?>
 
 						<?php foreach($developers as $developer_id => $developer) {
 							include('../views/developer-list.html');
 						} ?>
 
-						<?php endif; ?>
+						<?php else : ?>
+							<?php include('../views/freelancer-empty-list.html'); ?>
+						<?php endif;?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
@@ -46,13 +50,15 @@
 						<a href="" class="search-trigger"><h4 class="float-right icon--search"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<?php if (is_array($employers)) : ?>
+						<?php if (!empty($employers) && is_array($employers)) : ?>
 
 						<?php foreach($employers as $employer_id => $employer) {
 							include('../views/employer-list.html');
 						} ?>
 
-						<?php endif; ?>
+						<?php else : ?>
+							<?php include('../views/employer-empty-list.html'); ?>
+						<?php endif;?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
@@ -63,13 +69,15 @@
 						<?php endif; ?>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
-						<?php if (is_array($jobs)) : ?>
+						<?php if (!empty($jobs) && is_array($jobs)) : ?>
 
 						<?php foreach($jobs as $job_id => $job) {
 							include('../views/job-list.html');
 						} ?>
-						
-						<?php endif; ?>
+
+						<?php else : ?>
+							<?php include('../views/job-empty-list.html'); ?>
+						<?php endif;?>
 					</div>
 				</article>
 			</div>
