@@ -8,7 +8,7 @@
 	$towns = $users->getLocations();
 	$experiences = $users->getExperiences();
 
-	$userType = "Developer";
+	$userType = "developer";
 	$jobTitles = $freelancers->getFreelancerJobTitles($userType);
 
 	// Grab the form data

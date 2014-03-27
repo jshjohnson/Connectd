@@ -5,11 +5,11 @@
 	$general->errors();
 	$general->loggedInProtect();
 
-	$towns             = $users->getLocations();
-	$experiences       = $users->getExperiences();
+	$towns = $users->getLocations();
+	$experiences = $users->getExperiences();
 
-	$userType          = "Designer";
-	$jobTitles         = $freelancers->getFreelancerJobTitles($userType);
+	$userType = "designer";
+	$jobTitles = $freelancers->getFreelancerJobTitles($userType);
 
 	// Grab the form data
 	$firstName = trim($_POST['firstname']);
@@ -73,7 +73,6 @@
 		}
 
 		if(empty($errors) === true){
-			$userType = 'designer';
 			$freelancers->registerFreelancer($firstName, $lastName, $email, $password, $location, $portfolio, $jobTitle, $pricePerHour, $experience, $bio, $userType);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();

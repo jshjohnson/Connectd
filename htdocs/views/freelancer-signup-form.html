@@ -9,7 +9,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="footer--push <?php if($userType != "Designer") :?>color-grey<?php endif;?>">
+	<section class="footer--push <?php if($userType != "designer") :?>color-grey<?php endif;?>">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp4 unit-2-3--bp1 content-overlay">
 				<?php if(empty($errors) === false) : ?>
@@ -18,7 +18,7 @@
 				<?php if ($status == "success") : ?>
 				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
-				<form autocomplete="off" method="post" action="<?= BASE_URL; ?>developers/signup.php" class="sign-up-form">
+				<form autocomplete="off" method="post" action="<?= BASE_URL; ?><?php if($userType == "developer") :?>developers/signup.php<?php else : ?>designers/signup.php<?php endif;?>" class="sign-up-form">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left zero-top" value="<?php if (isset($firstName)) { echo htmlspecialchars($firstName); } ?>" autofocus>
 					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right zero-top" value="<?php if (isset($lastName)) { echo htmlspecialchars($lastName); } ?>">
 					<input id="email-input" type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" autocomplete="off">

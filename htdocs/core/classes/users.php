@@ -138,7 +138,7 @@
 		 * @return array
 		 */ 
 	    public function getLocations() {
-			$query = $this->db->prepare("SELECT town FROM " . DB_NAME . ".towns ORDER BY town ASC");
+			$query = $this->db->prepare("SELECT town FROM " . DB_NAME . ".locations ORDER BY town ASC");
 			try{
 				$query->execute();
 			}catch(PDOException $e) {
