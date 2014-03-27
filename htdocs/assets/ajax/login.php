@@ -12,9 +12,9 @@
 			<fieldset class="checkbox float-left">
 				<label>
 					<input type="checkbox" value="1" name="remember" 
-						<?php if(isset($_COOKIE['remember_me'])) {
-							echo 'checked="checked"';
-						}?>>
+					<?php 
+						$rememberMe = array_key_exists('remember_me', $_COOKIE);
+						if($rememberMe) { echo 'checked="checked"'; }?>>
 					Remember me
 				</label>
 	        </fieldset>

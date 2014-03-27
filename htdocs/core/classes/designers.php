@@ -1,5 +1,5 @@
 <?php
-	class Designers{
+	class Designers {
 		
 		// Properties
 	 	

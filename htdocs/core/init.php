@@ -8,10 +8,10 @@
 	 * @param  string $class
 	 * @return void
 	 */ 
-	function class_loader($className) {
-		$filename = "core/classes/" . $className . ".php";
+	function class_loader($class) {
+		$filename = ROOT_PATH . "core/classes/" . $class . ".php";
 	    if (is_readable($filename)) {
-	        require $filename;
+	        require($filename);
 	    }
 	}
 	spl_autoload_register('class_loader');	
