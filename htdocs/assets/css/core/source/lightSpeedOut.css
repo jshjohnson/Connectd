@@ -1,0 +1,69 @@
+@-webkit-keyframes lightSpeedOut {
+  /* line 2, ../../../scss/core/source/lightSpeedOut.scss */
+  0% {
+    -webkit-transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+
+  /* line 3, ../../../scss/core/source/lightSpeedOut.scss */
+  100% {
+    -webkit-transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes lightSpeedOut {
+  /* line 7, ../../../scss/core/source/lightSpeedOut.scss */
+  0% {
+    -moz-transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+
+  /* line 8, ../../../scss/core/source/lightSpeedOut.scss */
+  100% {
+    -moz-transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes lightSpeedOut {
+  /* line 12, ../../../scss/core/source/lightSpeedOut.scss */
+  0% {
+    -ms-transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+
+  /* line 13, ../../../scss/core/source/lightSpeedOut.scss */
+  100% {
+    -ms-transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+}
+
+@-o-keyframes lightSpeedOut {
+  /* line 17, ../../../scss/core/source/lightSpeedOut.scss */
+  0% {
+    -o-transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+
+  /* line 18, ../../../scss/core/source/lightSpeedOut.scss */
+  100% {
+    -o-transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lightSpeedOut {
+  /* line 22, ../../../scss/core/source/lightSpeedOut.scss */
+  0% {
+    transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+
+  /* line 23, ../../../scss/core/source/lightSpeedOut.scss */
+  100% {
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+}

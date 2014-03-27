@@ -27,7 +27,7 @@
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
 				<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true)  { ?>
-		        <p class="message message--success">Thank you, we've activated your account. You're free to log in!</p>
+		        <p class="message message--success fadeIn">Thank you, we've activated your account. You're free to log in!</p>
 		        <?php }; ?>
 				<form action=""  autocomplete="off">
 					<div class="grid">

@@ -1,6 +1,5 @@
 // Document Ready
 $(document).ready(function() {
-
 	$('.alert').slideDown().delay(1000).slideUp();
 
 	// Target radios / checkboxes
@@ -29,7 +28,7 @@ $(document).ready(function() {
 
 		var $this = $(this);
 	
-		$this.removeClass("invalid").prev('.message').remove();
+		$this.removeClass("invalid").prev('.message').addClass("fadeOut").remove();
 
 	    $.ajax({
 	        url: ""+baseUrl+"assets/ajax/email-check.php",
@@ -41,11 +40,11 @@ $(document).ready(function() {
 	            if(data.result && $this.val() != '') {
 	            	// Email taken
 	            	$('#email-input').addClass("invalid");
-	            	$('<p class=\"message message--error zero-bottom\">Email already taken</p>').hide().insertBefore("#email-input").fadeIn();
+	            	$('<p class=\"message message--error zero-bottom\">Email already taken</p>').insertBefore("#email-input").hide().fadeIn().addClass("shake");
 	            }
 	            else if (!data.result && $this.val() != '') {
 	            	// Email available
-	            	$('<p class=\"message message--success zero-bottom\">Email available</p>').hide().insertBefore("#email-input").fadeIn();
+	            	$('<p class=\"message message--success zero-bottom\">Email available</p>').insertBefore("#email-input").addClass("fadeIn");
 	            }
 	        },
 	        error: function(data){
@@ -69,7 +68,7 @@ $(document).ready(function() {
 	        success: function(data) {
 	            if(!data.result && $this.val() != '') {
 	            	$('#password-input').addClass("invalid").prev('.message').remove();
-	            	$('<p class=\"message message--error zero-bottom\">Psst. Passwords must contain at least one uppercase character and at least one number.</p>').hide().insertBefore("#password-input").fadeIn();
+	            	$('<p class=\"message message--error zero-bottom\">Psst. Passwords must contain at least one uppercase character and at least one number.</p>').insertBefore("#password-input").hide().fadeIn().addClass("shake");
 	            }
 	        },
 	        error: function(data){
@@ -87,23 +86,19 @@ $(document).ready(function() {
 			e.preventDefault();
 
 		    $.get($file, function(data){
-			    $(data).appendTo("body").fadeIn();
-			    $('.overlay').children().fadeIn(100);
+			    $(data).appendTo("body").show();
+			   	$('.overlay').children().show().addClass("fadeInDownBig");
 				$(".overlay").css({
 					height: docHeight,
 				});
 	    		$(".overlay").add(".cancel-trigger").click(function(e) {
 				    if (e.target == this) {
-						$(this).fadeOut("normal", function() {
-							$(this).remove();
-						});
+						$('.overlay').remove();
 				    }
 				});
 				$('.cancel-trigger').click(function(e){
 					e.preventDefault();
-					$('.overlay').fadeOut("normal", function() {
-						$(this).remove();
-					});
+					$('.overlay').remove();
 				});
 			});
 		});

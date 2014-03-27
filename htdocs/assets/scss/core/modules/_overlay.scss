@@ -10,7 +10,7 @@
 }
 
 .overlay__inner {
-	display: none;
+	// display: none;
 	@include transition(all .2s ease-in-out);
 	background-color: white;
 	margin: auto;

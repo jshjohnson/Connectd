@@ -1,0 +1,139 @@
+@-webkit-keyframes swing {
+  /* line 2, ../../../scss/core/source/swing.scss */
+  20%, 40%, 60%, 80%, 100% {
+    -webkit-transform-origin: top center;
+  }
+
+  /* line 3, ../../../scss/core/source/swing.scss */
+  20% {
+    -webkit-transform: rotate(15deg);
+  }
+
+  /* line 4, ../../../scss/core/source/swing.scss */
+  40% {
+    -webkit-transform: rotate(-10deg);
+  }
+
+  /* line 5, ../../../scss/core/source/swing.scss */
+  60% {
+    -webkit-transform: rotate(5deg);
+  }
+
+  /* line 6, ../../../scss/core/source/swing.scss */
+  80% {
+    -webkit-transform: rotate(-5deg);
+  }
+
+  /* line 7, ../../../scss/core/source/swing.scss */
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@-moz-keyframes swing {
+  /* line 11, ../../../scss/core/source/swing.scss */
+  20% {
+    -moz-transform: rotate(15deg);
+  }
+
+  /* line 12, ../../../scss/core/source/swing.scss */
+  40% {
+    -moz-transform: rotate(-10deg);
+  }
+
+  /* line 13, ../../../scss/core/source/swing.scss */
+  60% {
+    -moz-transform: rotate(5deg);
+  }
+
+  /* line 14, ../../../scss/core/source/swing.scss */
+  80% {
+    -moz-transform: rotate(-5deg);
+  }
+
+  /* line 15, ../../../scss/core/source/swing.scss */
+  100% {
+    -moz-transform: rotate(0deg);
+  }
+}
+
+@-ms-keyframes swing {
+  /* line 19, ../../../scss/core/source/swing.scss */
+  20% {
+    -ms-transform: rotate(15deg);
+  }
+
+  /* line 20, ../../../scss/core/source/swing.scss */
+  40% {
+    -ms-transform: rotate(-10deg);
+  }
+
+  /* line 21, ../../../scss/core/source/swing.scss */
+  60% {
+    -ms-transform: rotate(5deg);
+  }
+
+  /* line 22, ../../../scss/core/source/swing.scss */
+  80% {
+    -ms-transform: rotate(-5deg);
+  }
+
+  /* line 23, ../../../scss/core/source/swing.scss */
+  100% {
+    -ms-transform: rotate(0deg);
+  }
+}
+
+@-o-keyframes swing {
+  /* line 27, ../../../scss/core/source/swing.scss */
+  20% {
+    -o-transform: rotate(15deg);
+  }
+
+  /* line 28, ../../../scss/core/source/swing.scss */
+  40% {
+    -o-transform: rotate(-10deg);
+  }
+
+  /* line 29, ../../../scss/core/source/swing.scss */
+  60% {
+    -o-transform: rotate(5deg);
+  }
+
+  /* line 30, ../../../scss/core/source/swing.scss */
+  80% {
+    -o-transform: rotate(-5deg);
+  }
+
+  /* line 31, ../../../scss/core/source/swing.scss */
+  100% {
+    -o-transform: rotate(0deg);
+  }
+}
+
+@keyframes swing {
+  /* line 35, ../../../scss/core/source/swing.scss */
+  20% {
+    transform: rotate(15deg);
+  }
+
+  /* line 36, ../../../scss/core/source/swing.scss */
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  /* line 37, ../../../scss/core/source/swing.scss */
+  60% {
+    transform: rotate(5deg);
+  }
+
+  /* line 38, ../../../scss/core/source/swing.scss */
+  80% {
+    transform: rotate(-5deg);
+  }
+
+  /* line 39, ../../../scss/core/source/swing.scss */
+  100% {
+    transform: rotate(0deg);
+  }
+}

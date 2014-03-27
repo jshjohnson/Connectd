@@ -1,0 +1,69 @@
+@-webkit-keyframes flipOutX {
+  /* line 2, ../../../scss/core/source/flipOutX.scss */
+  0% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  /* line 3, ../../../scss/core/source/flipOutX.scss */
+  100% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes flipOutX {
+  /* line 7, ../../../scss/core/source/flipOutX.scss */
+  0% {
+    -moz-transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  /* line 8, ../../../scss/core/source/flipOutX.scss */
+  100% {
+    -moz-transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes flipOutX {
+  /* line 12, ../../../scss/core/source/flipOutX.scss */
+  0% {
+    -ms-transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  /* line 13, ../../../scss/core/source/flipOutX.scss */
+  100% {
+    -ms-transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@-o-keyframes flipOutX {
+  /* line 17, ../../../scss/core/source/flipOutX.scss */
+  0% {
+    -o-transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  /* line 18, ../../../scss/core/source/flipOutX.scss */
+  100% {
+    -o-transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flipOutX {
+  /* line 22, ../../../scss/core/source/flipOutX.scss */
+  0% {
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  /* line 23, ../../../scss/core/source/flipOutX.scss */
+  100% {
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}

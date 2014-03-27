@@ -70,10 +70,10 @@
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
 				<?php if(empty($errors) === false) : ?>
-					<p class="message message--error"> <?= implode('</p><p>', $errors); ?></p>
+					<p class="message message--error shake"> <?= implode('</p><p>', $errors); ?></p>
 				<?php endif; ?>
 				<?php if ($status == "success") : ?>
-				<p class="message message--success">Successfully posted job. <a href="<?= BASE_URL . "dashboard/";?>">Go back to dashboard</a></p>
+				<p class="message message--success fadeIn">Successfully posted job. <a href="<?= BASE_URL . "dashboard/";?>">Go back to dashboard</a></p>
 				<?php endif; ?>
 				<form method="post" action="<?= BASE_URL; ?>jobs/post.php">
 					<p class="message message--hint">Psst. Make your job titles as descriptive as possible - it will avoid confusion in the Connectd community.</p>

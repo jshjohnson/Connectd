@@ -26,10 +26,10 @@
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp4 unit-2-3--bp1 content-overlay">
 				<?php if(empty($errors) === false) : ?>
-					<p class="message message--error"><?= implode('</p><p>', $errors); ?></p>
+					<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
 				<?php endif; ?>
 				<?php if ($status == "success") : ?>
-				<p class="message message--success">Thank you for registering. Please check your emails to activate your account.</p>
+				<p class="message message--success fadeIn">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
 				<form method="post" action="<?= BASE_URL; ?>designers/signup.php" autocomplete="off" class="sign-up-form">
 					<input type="text" name="firstname" placeholder="Update first name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" autofocus>

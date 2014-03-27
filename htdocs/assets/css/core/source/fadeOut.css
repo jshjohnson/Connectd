@@ -1,0 +1,59 @@
+@-webkit-keyframes fadeOut {
+  /* line 2, ../../../scss/core/source/fadeOut.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 3, ../../../scss/core/source/fadeOut.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  /* line 7, ../../../scss/core/source/fadeOut.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 8, ../../../scss/core/source/fadeOut.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  /* line 12, ../../../scss/core/source/fadeOut.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 13, ../../../scss/core/source/fadeOut.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  /* line 17, ../../../scss/core/source/fadeOut.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 18, ../../../scss/core/source/fadeOut.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  /* line 22, ../../../scss/core/source/fadeOut.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 23, ../../../scss/core/source/fadeOut.scss */
+  100% {
+    opacity: 0;
+  }
+}

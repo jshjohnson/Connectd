@@ -1,0 +1,84 @@
+@-webkit-keyframes pulse {
+  /* line 4, ../../../scss/core/source/pulse.scss */
+  0% {
+    -webkit-transform: scale(1);
+  }
+
+  /* line 5, ../../../scss/core/source/pulse.scss */
+  50% {
+    -webkit-transform: scale(1.1);
+  }
+
+  /* line 6, ../../../scss/core/source/pulse.scss */
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@-moz-keyframes pulse {
+  /* line 10, ../../../scss/core/source/pulse.scss */
+  0% {
+    -moz-transform: scale(1);
+  }
+
+  /* line 11, ../../../scss/core/source/pulse.scss */
+  50% {
+    -moz-transform: scale(1.1);
+  }
+
+  /* line 12, ../../../scss/core/source/pulse.scss */
+  100% {
+    -moz-transform: scale(1);
+  }
+}
+
+@-ms-keyframes pulse {
+  /* line 16, ../../../scss/core/source/pulse.scss */
+  0% {
+    -ms-transform: scale(1);
+  }
+
+  /* line 17, ../../../scss/core/source/pulse.scss */
+  50% {
+    -ms-transform: scale(1.1);
+  }
+
+  /* line 18, ../../../scss/core/source/pulse.scss */
+  100% {
+    -ms-transform: scale(1);
+  }
+}
+
+@-o-keyframes pulse {
+  /* line 22, ../../../scss/core/source/pulse.scss */
+  0% {
+    -o-transform: scale(1);
+  }
+
+  /* line 23, ../../../scss/core/source/pulse.scss */
+  50% {
+    -o-transform: scale(1.1);
+  }
+
+  /* line 24, ../../../scss/core/source/pulse.scss */
+  100% {
+    -o-transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  /* line 28, ../../../scss/core/source/pulse.scss */
+  0% {
+    transform: scale(1);
+  }
+
+  /* line 29, ../../../scss/core/source/pulse.scss */
+  50% {
+    transform: scale(1.1);
+  }
+
+  /* line 30, ../../../scss/core/source/pulse.scss */
+  100% {
+    transform: scale(1);
+  }
+}

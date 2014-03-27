@@ -14,7 +14,7 @@
 	}
 }
 
-.site-intro__wrap {
+.site-intro__content {
 	position: relative;
 	top: 30%;
 	text-align: center;
@@ -54,6 +54,7 @@
 	font-family: $font-serif;
 	margin-bottom: $baseline/2;
 	&:after {
+		@extend .fadeOutDown;
 		content: "";
 		width: 0; 
 		height: 0; 
