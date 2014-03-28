@@ -37,7 +37,7 @@
 						<div class="user-module__info">
 							<h3 class="user-module__title user-module__title--alt"><?= $trial_user["firstname"] . "\n" . $trial_user["lastname"]; ?></h3>
 							<h4 class="user-module__label icon--attach icon--marg"><?= $trial_user["jobtitle"]; ?></h4>
-							<h4 class="user-module__label icon--location icon--marg"><?= $trial_user["location"]; ?>, UK</h4>
+							<h4 class="user-module__label icon--location icon--marg"><?= stripslashes($trial_user["location"]); ?>, UK</h4>
 							<h4 class="user-module__label icon--briefcase icon--marg"><?php $url = preg_replace("(Between)", "", $trial_user["experience"] ); echo $url ?> experience</h4>
 							<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $trial_user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trial_user["portfolio"] ); echo $url ?></a></h4>
 							<div class="button-wrapper">

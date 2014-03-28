@@ -20,7 +20,7 @@
 			$section    = "Employers";
 
 			include_once(ROOT_PATH . "includes/header.inc.php");
-			include_once(ROOT_PATH . "views/employer-profile.html");
+			include_once(ROOT_PATH . "views/employer/employer-profile.html");
 			include_once(ROOT_PATH . "includes/footer.inc.php");
 			
 		} else {

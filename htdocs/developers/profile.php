@@ -19,7 +19,7 @@
 			$section    = "Developers";
 
 			include_once(ROOT_PATH . "includes/header.inc.php");
-			include_once(ROOT_PATH . "views/developer-profile.html");
+			include_once(ROOT_PATH . "views/freelancer/developer/developer-profile.html");
 			include_once(ROOT_PATH . "includes/footer.inc.php");
 			
 		} else {

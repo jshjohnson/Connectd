@@ -24,8 +24,10 @@
 	$portfolio = trim($_POST['portfolio']);
 	$location = trim($_POST['location']);
 	$submit = trim($_POST['submit']);
-
-	$status = $_GET["status"];
+	
+	if (isset($_GET['status'])) {
+		$status = $_GET["status"];
+	}
 
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
@@ -84,6 +86,6 @@
 	$section = "Blue";
 	
 	include_once(ROOT_PATH . "includes/header.inc.php");
-	include_once(ROOT_PATH . "views/freelancer-signup-form.html");
+	include_once(ROOT_PATH . "views/freelancer/freelancer-signup-form.html");
 	include_once(ROOT_PATH . "includes/footer.inc.php");
 ?>

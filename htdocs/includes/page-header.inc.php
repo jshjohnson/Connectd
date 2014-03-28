@@ -20,12 +20,12 @@
 			<div class="container">
 			<?php if (!isset($_SESSION['logged'])) : ?>
 				<div class="header-section header-section--left">	
-					<h1 class="header-section__title"><?= $pageTitle; ?>
+					<h1 class="header-section__title"><?php if(isset($pageTitle)) { echo $pageTitle; } ?>
 						<?php if ($pageTitle == "Sign Up") : ?>
 						<a href="" class="login-trigger header__section--title__link">: Log In</a>
 						<!-- Revisit this -->
 						<?php else : ?>
-						<a href="<?= BASE_URL; ?>/#register" class="header__section--title__link">: Register</a>
+						<a href="<?= BASE_URL; ?>#register" class="header__section--title__link">: Register</a>
 						<?php endif;?>
 					</h1>
 					<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>

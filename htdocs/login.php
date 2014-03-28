@@ -4,7 +4,9 @@
 
 	$general->errors();
 
-	$status = $_GET["status"];
+	if (isset($_GET['status'])) {
+		$status = $_GET["status"];
+	}
 
 	if (isset($_SESSION['logged'])){
 		header('Location: dashboard/');
@@ -60,6 +62,6 @@
 	$section = "Blue";
 	
 	include_once(ROOT_PATH . "includes/header.inc.php");
-	include_once(ROOT_PATH . "views/login-form.html");
+	include_once(ROOT_PATH . "views/login/login-form.html");
 	include_once(ROOT_PATH . "includes/footer.inc.php"); 
 ?>

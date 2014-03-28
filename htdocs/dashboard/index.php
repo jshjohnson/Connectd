@@ -19,6 +19,6 @@
 	$section      = "Dashboard";
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
-	include_once(ROOT_PATH . "views/dashboard.html");
+	include_once(ROOT_PATH . "views/dashboard/dashboard.html");
 	include_once(ROOT_PATH . "includes/footer.inc.php");
 ?>

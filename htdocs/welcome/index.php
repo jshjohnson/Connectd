@@ -12,9 +12,10 @@
 	$votes = $trialUserVotes['CountOfvote_id'];
 
 	$pageTitle = "Welcome";
+	$pageType = "Welcome";
 	$section = "Welcome";
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
-	include_once(ROOT_PATH . "views/welcome.html");
+	include_once(ROOT_PATH . "views/welcome/welcome.html");
 	include_once(ROOT_PATH . "includes/footer.inc.php");
 ?>

@@ -32,37 +32,37 @@
 				<form action="" autocomplete="off">
 					<div class="grid">
 						<fieldset>
-							<div class="grid__cell unit-1-3--bp2">
+							<div class="grid__cell unit-1-4--bp2">
 								<label for="firstname">Avatar</label>
 							</div>
-							<div class="grid__cell unit-2-3--bp2">
+							<div class="grid__cell unit-3-4--bp2">
 							<input type="file" name="file" id="file">
 							</div>
 						</fieldset>
 
 						<fieldset>
-							<div class="grid__cell unit-1-3--bp2">
+							<div class="grid__cell unit-1-4--bp2">
 								<label for="firstname">First name</label>
 							</div>
-							<div class="grid__cell unit-2-3--bp2">
+							<div class="grid__cell unit-3-4--bp2">
 								<input type="text" name="firstname" placeholder="First name" value="<?= $user['firstname'] ?>" autofocus>
 							</div>
 						</fieldset>
 
 						<fieldset>
-							<div class="grid__cell unit-1-3--bp2">
+							<div class="grid__cell unit-1-4--bp2">
 								<label for="firstname">Last name</label>
 							</div>
-							<div class="grid__cell unit-2-3--bp2">
+							<div class="grid__cell unit-3-4--bp2">
 								<input type="text" name="lastname" placeholder="Last name" value="<?= $user['lastname'] ?>" autofocus>
 							</div>
 						</fieldset>
 
 						<fieldset>
-							<div class="grid__cell unit-1-3--bp2">
+							<div class="grid__cell unit-1-4--bp2">
 								<label for="firstname">Bio</label>
 							</div>
-							<div class="grid__cell unit-2-3--bp2">
+							<div class="grid__cell unit-3-4--bp2">
 								<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?= $user['bio'] ?></textarea>
 							</div>
 						</fieldset>

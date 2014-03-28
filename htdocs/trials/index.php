@@ -15,6 +15,6 @@
 	$trial_users 	= $trials->getTrialUsers($votedBy);
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
-	include_once(ROOT_PATH . "views/trials.html");
+	include_once(ROOT_PATH . "views/trial/trials.html");
 	include_once(ROOT_PATH . "includes/footer.inc.php");
 ?>

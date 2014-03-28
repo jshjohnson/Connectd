@@ -19,7 +19,7 @@
 			$section    = "Designers";
 
 			include_once(ROOT_PATH . "includes/header.inc.php");
-			include_once(ROOT_PATH . "views/designer-profile.html");
+			include_once(ROOT_PATH . "views/freelancer/designer/designer-profile.html");
 			include_once(ROOT_PATH . "includes/footer.inc.php");
 			
 		} else {
