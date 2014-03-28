@@ -1,5 +1,5 @@
 <?php 	
-	require_once("config.php");  
+	require_once("config/config.php");  
 	require_once(ROOT_PATH . "core/init.php");
 	
 	$general->errors();
@@ -27,6 +27,12 @@
 		case "sitemap":
 			$page = "page/sitemap.html";
 			$pageTitle = "Sitemap";
+			$pageType = "Page";
+			$section = "Blue";
+			break;
+		case "404":
+			$page = "error/404.html";
+			$pageTitle = "404 Error";
 			$pageType = "Page";
 			$section = "Blue";
 			break;

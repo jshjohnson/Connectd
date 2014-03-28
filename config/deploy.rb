@@ -75,7 +75,7 @@ end
 namespace :site do
     desc "Setup symlinks for project"
     task :create_symlinks, :roles => :app do
-        run "ln -nfs /home/156312/domains/#{application}/shared/config.php #{current_path}/config.php"
+        run "ln -nfs /home/156312/domains/#{application}/shared/config.php #{current_path}/config/config.php"
         run "ln -nfs /home/156312/domains/#{application}/shared/.htaccess-master #{current_path}/.htaccess"
     end
 
@@ -89,7 +89,7 @@ namespace :site do
         db_config = ERB.new(File.read('./config/templates/config.php.erb')).result(binding)
         accessfile = ERB.new(File.read('./config/templates/.htaccess.erb')).result(binding)
 
-        put db_config, "#{shared_path}/config.php"
+        put db_config, "#{shared_path}/config/config.php"
         put accessfile, "#{shared_path}/.htaccess-master"
     end
 
@@ -101,7 +101,7 @@ namespace :site do
         accessfile = ERB.new(File.read('./config/templates/.htaccess.erb')).result(binding)
 
         puts "Creating local config.php and .htaccess"
-        File.open("htdocs/config.php", 'w') {|f| f.write(db_config) }
+        File.open("htdocs/config/config.php", 'w') {|f| f.write(db_config) }
         File.open("htdocs/.htaccess", 'w') {|f| f.write(accessfile) }
 
     end

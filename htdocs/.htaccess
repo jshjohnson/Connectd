@@ -21,15 +21,10 @@ RewriteRule ^jobs/list/ /Connectd/htdocs/jobs/list.php
 
 RewriteRule ^login/ /Connectd/htdocs/login.php
 
-ErrorDocument 404 /Connectd/htdocs/404.php
+ErrorDocument 404 /Connectd/htdocs/index.php?p=404
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php
 
 Options -Indexes
-
-php_flag display_startup_errors on
-php_flag display_errors on
-php_flag html_errors on
-php_flag  log_errors on

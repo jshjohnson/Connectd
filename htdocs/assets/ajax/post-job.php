@@ -1,5 +1,5 @@
 <?php
-	require_once("../../inc/config.php"); 
+	require_once("../../inc/config/config.php"); 
 	require_once(ROOT_PATH . "core/init.php"); 
 	 
 	include_once(ROOT_PATH . "includes/post.php");

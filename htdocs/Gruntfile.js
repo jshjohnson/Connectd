@@ -26,7 +26,7 @@ module.exports = function(grunt) {
     compass: {
       prod: {
         options: {
-          config: 'config.rb'
+          config: 'config/config.rb'
         }
       }
     },
