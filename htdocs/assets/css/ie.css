@@ -643,7 +643,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* line 92, ../scss/core/_base.scss */
-h1, blockquote, pre, p, ul, ol, dl, hr {
+h1, blockquote, pre, p, ul, ol, dl {
   margin-top: 0;
 }
 
@@ -656,7 +656,7 @@ p, ul, ol, dl, form, table, blockquote, pre {
 hr {
   border-top: 1px solid #cccccc;
   border-top: 1px solid #E0E0E0;
-  margin: 1.5em 5em;
+  margin: 1.25em 5em;
 }
 
 /* line 95, ../scss/core/_base.scss */
@@ -2988,22 +2988,27 @@ img.media__img {
 /* line 71, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="5"] {
   width: 100%;
+  max-width: 100%;
 }
-/* line 74, ../scss/core/modules/_skills.scss */
+/* line 75, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="4"] {
-  width: 75%;
+  width: 100%;
+  max-width: 75%;
 }
-/* line 77, ../scss/core/modules/_skills.scss */
+/* line 79, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="3"] {
-  width: 50%;
-}
-/* line 80, ../scss/core/modules/_skills.scss */
-.skills__bar .skill__name[data-skill="2"] {
-  width: 25%;
+  width: 100%;
+  max-width: 50%;
 }
 /* line 83, ../scss/core/modules/_skills.scss */
+.skills__bar .skill__name[data-skill="2"] {
+  width: 100%;
+  max-width: 25%;
+}
+/* line 87, ../scss/core/modules/_skills.scss */
 .skills__bar .skill__name[data-skill="1"] {
-  width: 0%;
+  width: 100%;
+  max-width: 0%;
 }
 
 /* Sidebar
@@ -8580,11 +8585,11 @@ img.media__img {
   -ms-animation-name: bounceIn;
   -o-animation-name: bounceIn;
   animation-name: bounceIn;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 0.7s;
+  -moz-animation-duration: 0.7s;
+  -ms-animation-duration: 0.7s;
+  -o-animation-duration: 0.7s;
+  animation-duration: 0.7s;
   -webkit-animation-delay: 0.2s;
   -moz-animation-delay: 0.2s;
   -ms-animation-delay: 0.2s;

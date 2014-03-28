@@ -1,5 +1,5 @@
 <section class='overlay'>
-	<div class='overlay__inner'>
+	<div class='overlay__inner overlay__inner--mid'>
 		<a href="" class="cancel-trigger"><i class="icon--cancel"></i></a> 
 		<h2 class='overlay__title'>Developer skills</h2>
 		<div class="grid--no-marg cf">

@@ -90,7 +90,7 @@ $(document).ready(function() {
 
 		    $.get($file, function(data){
 			    $(data).appendTo("body").show();
-			   	$('.overlay').children().show().addClass("fadeInDownBig");
+			   	$('.overlay').children().show().addClass("bounceIn");
 				$(".overlay").css({
 					height: docHeight,
 				});

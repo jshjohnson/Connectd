@@ -89,9 +89,9 @@ body {
 
 /* -- Vertical Rhythm -- */
 h1, h2, h3, h4, h5, h6 { margin-bottom: .65em; margin-top: 1.5em; }
-h1, blockquote, pre, p, ul, ol, dl, hr { margin-top: 0; }
+h1, blockquote, pre, p, ul, ol, dl { margin-top: 0; }
 p, ul, ol, dl, form, table, blockquote, pre { margin-bottom: $baseline; }
-hr { border-top: 1px solid $color-keyline; border-top: 1px solid #E0E0E0; margin: 1.5em 5em;}
+hr { border-top: 1px solid $color-keyline; border-top: 1px solid #E0E0E0; margin: 1.25em 5em;}
 blockquote > :last-child, ul > :last-child, ol > :last-child, dl > :last-child { margin-bottom: 0; }
 
 /* -- Headings -- */

@@ -3,7 +3,10 @@
     require_once(ROOT_PATH . "core/init.php"); 
 
     // get email passed via AJAX
-    $password = $_GET['password'];
+    if (isset($_GET['password'])) {
+        $password = $_GET['password'];
+    }
+   
 
     $r1='/[A-Z]/';  // Test for an uppercase character
     $r2='/[a-z]/';  // Test for a lowercase character
