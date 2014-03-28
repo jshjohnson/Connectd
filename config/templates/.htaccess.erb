@@ -21,7 +21,7 @@ RewriteRule ^jobs/list/ <%= database['urlpath'] %>jobs/list.php
 
 RewriteRule ^login/ <%= database['urlpath'] %>login.php
 
-ErrorDocument 404 <%= database['urlpath'] %>404.php
+ErrorDocument 404 <%= database['urlpath'] %>index.php?p=404
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f

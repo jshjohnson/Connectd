@@ -219,4 +219,47 @@
 				$general->errorView($general, $e);
 			}
 	    }
+
+		public function sendMessageEmail($firstName, $email, $message, $sentBy) {
+		
+			global $mail;
+
+			$to = $email;
+
+			try {
+				$mail->IsSMTP(); // telling the class to use SMTP
+				$mail->Username           = "hello@connectd.io";  // SMTP username
+				$mail->Password           = "kerching27"; // SMTP password
+				$mail->SMTPAuth           = true;               // enable SMTP authentication
+				$mail->SMTPSecure         = "tls"; 
+				$mail->Host               = "smtp.gmail.com";  // sets GMAIL as the SMTP server
+				$mail->Port               = 587; 
+				$mail->addAddress($to);  // Add a recipient
+
+				$mail->From               = 'hello@connectd.io';
+				$mail->FromName           = 'Connectd.io';
+				$mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
+				// Set word wrap to 50 characters
+				$mail->isHTML(true); // Set email format to HTML
+
+				$mail->Subject            = 'You just got a message via Connectd!';
+
+				$mail->Body               = "<p>Hey " . $firstName . "!</p>";
+				$mail->Body              .= "<p>You have been sent a message by <b>" . $sentBy . "</b></p>";
+				$mail->Body              .= "<p>Message:</p>";
+				$mail->Body              .= "<p>" . $message . "</p>";
+				$mail->Body              .= "<p>-- Connectd team</p>";
+				$mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
+				$mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
+
+				$mail->Send();
+
+			}catch(phpmailerException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
+			}catch(Exception $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
+			}
+	    }
 	}

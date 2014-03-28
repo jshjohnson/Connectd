@@ -15,8 +15,8 @@
 		$developer = $developers->get_developers_single($developer_id);
 
 		if($developer) {
-			$pageTitle  = $developer['firstname'] . ' ' . $developer['lastname'] . ' :: ' . $developer['jobtitle'];
-			$section    = "Developers";
+			$pageTitle = $developer['firstname'] . ' ' . $developer['lastname'] . ' :: ' . $developer['jobtitle'];
+			$section = "Developers";
 
 			include_once(ROOT_PATH . "includes/header.inc.php");
 			include_once(ROOT_PATH . "views/freelancer/developer/developer-profile.html");

@@ -35,7 +35,7 @@
 
 @mixin bounceIn($duration, $delay, $function, $fill, $visibility) {
   @include animation-name(bounceIn);
-  @include duration(.7s);
+  @include duration(.5s);
   @include delay($delay);
   @include function($function);
   @include fill-mode($fill);

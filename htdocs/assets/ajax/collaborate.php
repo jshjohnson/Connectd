@@ -2,7 +2,7 @@
 	<div class='overlay__inner'> 
 		<a href="" class="cancel-trigger"><i class="icon--cancel"></i></a>
 		<h2 class='overlay__title'>The key to creativity is collaboration...</h2>
-		<form action=''>
+		<form method="post" action="<?= BASE_URL; ?>message.php" autocomplete="off">
 			<textarea name='message' id='' cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!'></textarea>
 			<div class='button-container'>
 				<input class='btn--green' type='submit' value='Send'>

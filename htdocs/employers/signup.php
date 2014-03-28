@@ -97,6 +97,6 @@
 	$section = "Green";
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
-	include_once(ROOT_PATH . "views/employer-signup-form.html");
+	include_once(ROOT_PATH . "views/employer/employer-signup-form.html");
 	include_once(ROOT_PATH . "includes/footer.inc.php");
 ?>

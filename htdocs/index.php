@@ -32,7 +32,7 @@
 			break;
 		case "404":
 			$page = "error/404.html";
-			$pageTitle = "404 Error";
+			$pageTitle = "404";
 			$pageType = "Page";
 			$section = "Blue";
 			break;

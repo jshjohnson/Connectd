@@ -22,7 +22,7 @@
 				<?php endif; ?>
 				<form autocomplete="off" method="post" action="<?= BASE_URL; ?>employers/signup.php" class="sign-up-form">
 					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left input--top" value="<?php if (isset($firstName)) { echo htmlspecialchars($firstName); } ?>" autofocus>
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right input-top" value="<?php if (isset($lastName)) { echo htmlspecialchars($lastName); } ?>">
+					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right input--top" value="<?php if (isset($lastName)) { echo htmlspecialchars($lastName); } ?>">
 					<input autocomplete="off" id="email-input" type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
 					<input autocomplete="off" type='password' name='password' placeholder="Password" class="field-1-2 float-left"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
