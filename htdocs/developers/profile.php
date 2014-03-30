@@ -13,8 +13,12 @@
 
 		$developer_id = intval($_GET["id"]);
 		$developer = $developers->get_developers_single($developer_id);
+		$status = $_GET["status"];
 
 		if($developer) {
+			$_SESSION["userFirstName"] = $developer['firstname'];
+			$_SESSION["userEmail"] = $developer['email'];
+
 			$pageTitle = $developer['firstname'] . ' ' . $developer['lastname'] . ' :: ' . $developer['jobtitle'];
 			$section = "Developers";
 

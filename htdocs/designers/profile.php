@@ -13,8 +13,12 @@
 
 		$designer_id = intval($_GET["id"]);
 		$designer = $designers->get_designers_single($designer_id);
+		$status = $_GET["status"];
 
 		if($designer) {
+			$_SESSION["userFirstName"] = $designer['firstname'];
+			$_SESSION["userEmail"] = $designer['email'];
+
 			$pageTitle  = $designer['firstname'] . ' ' . $designer['lastname'] . ' :: ' . $designer['jobtitle'];
 			$section    = "Designers";
 

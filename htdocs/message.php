@@ -5,20 +5,13 @@
 	$general->errors();
 	// $votes->userVotedForProtect();
 
-	$firstName = trim($_POST['firstname']);
-	$email = trim($_POST['email']);
-	$message = trim($_POST['message']);
-	$sentBy = $username; // Session username
+	$userFirstName = $_SESSION["userFirstName"];
+	$userEmail = $_SESSION["userEmail"];
+	$message = preg_replace('/\s*$^\s*/m', "\n", $_POST['message']);
+	$sentBy = $username;
 
-	// if (isset($_GET['email'])) {
-	// 	$email= $_GET['email'];
-	// }
-
-	// if (isset($_GET['firstname'])) {
-	// 	$firstname= $_GET['firstname'];
-	// }
-	
-	$general->sendMessageEmail($firstName, $email, $message, $sentBy);
-	header('Location: ' . $_SERVER['HTTP_REFERER']);
+	$general->sendMessageEmail($userFirstName, $userEmail, $message, $sentBy);
+	unset($userFirstName, $userEmail);
+	header('Location: ' . $_SERVER['HTTP_REFERER'] . "?status=sent");
 	
 ?>

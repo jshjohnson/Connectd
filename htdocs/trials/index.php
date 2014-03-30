@@ -5,14 +5,14 @@
 	$general->errors();
 	$general->loggedOutProtect();
 	// $votes->userVotedForProtect();
-	$votedBy        = $_SESSION['user_id'];
+	$votedBy = $_SESSION['user_id'];
 
-	$pageTitle      = "Trials";
-	$section        = "Trials";
+	$pageTitle = "Trials";
+	$section = "Trials";
 
-	$status         = $_GET["status"];
+	$status = $_GET["status"];
 
-	$trial_users 	= $trials->getTrialUsers($votedBy);
+	$trial_users = $trials->getTrialUsers($votedBy);
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
 	include_once(ROOT_PATH . "views/trial/trials.html");
