@@ -180,7 +180,7 @@
 /* Buttons
 ----------------------------------*/
 
-.button-wrapper {
+.btn-wrapper {
 	text-align: center;
 	@include respond-max($bp2) {
 		margin-bottom: 1em;
@@ -190,7 +190,7 @@
 	}
 }
 
-.button--left, .button--right{
+.btn--left, .btn--right{
 	margin-left: 1em;
 	margin-right: 1em;
 	display: inline-block;

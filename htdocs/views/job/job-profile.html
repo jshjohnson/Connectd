@@ -31,10 +31,17 @@
 						<?= $job['job_description']; ?>
 					</div>
 					<hr>
-					<div class="button-wrapper push-bottom">
-						<a class="button--left btn btn--green cf hire-trigger" href="mailto:<?= $job['email']; ?>?subject=I would like to work for you! -- Connectd">Send Proposal</a>
-						<a class="button--right btn btn--blue cf hire-trigger" href="mailto:<?= $job['email']; ?>?subject=I would like to collaborate with you! -- Connectd"?>Collaborate with user</a>
+					<?php if($userType != 'employer') : ?>
+					<div class="btn-wrapper push-bottom">
+						<a class="btn--left btn btn--green cf apply-trigger" href="">Send Proposal</a>
+						<a class="btn--right btn btn--blue cf collaborate-trigger" href=""?>Collaborate with user</a>
 					</div>
+					<?php else : ?>
+					<div class="btn-wrapper push-bottom">
+						<a class="btn--left btn btn--green cf" href="">Edit job post</a>
+						<a class="btn--right btn btn--red cf" href="">Delete job post</a>
+					</div>
+					<?php endif;?>
 				</article>
 				<aside class="grid__cell module-1-3 module--no-pad user-module--employer float-right">
 					<article class="user-module module module--no-pad">

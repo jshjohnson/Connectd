@@ -19,7 +19,7 @@
 				</label>
 	        </fieldset>
 	       	<a class="forgot float-right" href="<?= BASE_URL; ?>confirm-recover.php">Forgot password?</a>
-			<div class="button-container clear">
+			<div class="btn-container clear">
             	<input class="btn--green" name="submit" type="submit" value='Log In'>					
 			</div>
         </form>

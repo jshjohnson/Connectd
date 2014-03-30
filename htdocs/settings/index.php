@@ -35,7 +35,7 @@
 					<input type="text" name="firstname" placeholder="Update first name" class="field-1-2" value="<?php if (isset($firstname)) { echo htmlspecialchars($firstname); } ?>" autofocus>
 					<input type="text" name="lastname" placeholder="Update surname" class="field-1-2 float-right" value="<?php if (isset($lastname)) { echo htmlspecialchars($lastname); } ?>">
 					<input type="email" name="email" placeholder="Update email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
-					<div class="button-container">
+					<div class="btn-container">
 		            	<input class="submit" name="submit" type="submit" value='Update Settings'>
 					</div>
 		        </form>

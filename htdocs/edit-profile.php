@@ -67,7 +67,7 @@
 							</div>
 						</fieldset>
 
-						<div class="button-container">
+						<div class="btn-container">
 			            	<input class="btn--green" name="submit" type="submit" value='Update profile'>				
 						</div>
 					</div>

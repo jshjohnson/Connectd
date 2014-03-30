@@ -6,7 +6,7 @@
 			<input type="text" name="location" required placeholder="Location">
 			<label for="rate">Rate per hour</label>
 			<input type="range" name="rate" required placeholder="Rate" min="20" max="500">
-			<div class="button-container">
+			<div class="btn-container">
             	<input class="submit" type="submit" value="Search">						
 			</div>
 		</form> 

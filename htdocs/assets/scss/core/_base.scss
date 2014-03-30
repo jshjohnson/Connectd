@@ -174,7 +174,7 @@ input[type=submit] {
 	}
 }
 
-.button-container {
+.btn-container {
 	border-bottom: 1px solid rgba(black, 0.1);
 	position: relative;
 	margin-top: 1em;
@@ -190,7 +190,6 @@ input[type=submit] {
 	input {
 		top: 1.4em;
 		position: relative;
-		margin: auto;
 		min-width: 13em;
 		&:hover {
 			top: 1.5em;

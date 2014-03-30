@@ -57,7 +57,7 @@
 					<input type="number" name="age" required placeholder="Age" class="field-1-2 float-left">
 					<input type="number" name="experience" required placeholder="Years Experience" class="field-1-2 float-right">
 					<textarea name="about" cols="30" rows="10" placeholder="A little about you..."></textarea>
-					<div class="button-container">
+					<div class="btn-container">
 		            	<input class="submit" type="submit" value="Apply for your place">						
 					</div>
 		        </form>

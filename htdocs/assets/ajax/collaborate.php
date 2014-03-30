@@ -13,7 +13,7 @@
 			<input type="text" name="firstname" class="is-hidden" value="<?= $userFirstName; ?>">
 			<input type="email" name="email" class="is-hidden" value="<?= $userEmail; ?>">
 			<textarea name='message' id='' cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!'></textarea>
-			<div class='button-container'>
+			<div class='btn-container'>
 				<input class='btn--green' type='submit' value='Send'>
 			</div>
 		</form> 

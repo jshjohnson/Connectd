@@ -29,6 +29,17 @@
 	}
 }
 
+.btn--disabled {
+	cursor: not-allowed;
+	background-color: #ccc; 
+	@include box-shadow(0 .1em 0 darken(#ccc, 20%));
+	border: 1px solid darken(#ccc, 10%);
+	border-bottom: none;
+	&:hover {
+		top: 0;
+	}
+}
+
 .btn--action {
 	margin-top: .68em;
 	margin-right: 1em;
@@ -59,7 +70,7 @@
 	margin-top: 1em;
 }
 
-.button-wrapper {
+.btn-wrapper {
 	text-align: center;
 	@include respond-max($bp2) {
 		margin-bottom: 1em;
@@ -69,7 +80,7 @@
 	}
 }
 
-.button--left, .button--right {
+.btn--left, .btn--right {
 	margin-left: 1em;
 	margin-right: 1em;
 	display: inline-block;

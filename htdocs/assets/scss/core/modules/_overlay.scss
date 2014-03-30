@@ -1,5 +1,5 @@
 .overlay {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	background-color: rgba(black, 0.4);
@@ -18,7 +18,7 @@
 	width: 75%;
 	height: auto;
 	padding: 1.5em;
-	margin-top: 6%;
+	margin-top: 5.5%;
 	input:not([type=submit]), textarea {
 		background-color: $color-background-light;
 		font-size: .8em;

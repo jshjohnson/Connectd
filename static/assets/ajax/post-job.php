@@ -12,7 +12,7 @@
 				<input type="date" name="deadline" required placeholder="Deadline">
 			</div>
 			<textarea name='message' id='' cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!'></textarea>
-			<div class="button-container">
+			<div class="btn-container">
             	<input class="submit" type="submit" value="Submit job post">						
 			</div>
 		</form> 

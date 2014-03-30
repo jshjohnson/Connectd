@@ -1842,24 +1842,24 @@ a:hover {
 /* Buttons
 ----------------------------------*/
 /* line 183, ../scss/core/_layout.scss */
-.button-wrapper {
+.btn-wrapper {
   text-align: center;
 }
 @media screen and (max-width: 49em) {
   /* line 183, ../scss/core/_layout.scss */
-  .button-wrapper {
+  .btn-wrapper {
     margin-bottom: 1em;
   }
 }
 @media screen and (max-width: 30em) {
   /* line 183, ../scss/core/_layout.scss */
-  .button-wrapper {
+  .btn-wrapper {
     margin-bottom: 0;
   }
 }
 
 /* line 193, ../scss/core/_layout.scss */
-.button--left, .button--right{
+.btn--left, .btn--right{
   margin-left: 1em;
   margin-right: 1em;
   display: inline-block;
@@ -1868,22 +1868,22 @@ a:hover {
 }
 @media screen and (max-width: 82em) {
   /* line 193, ../scss/core/_layout.scss */
-  .button--left, .button--right{
+  .btn--left, .btn--right{
     margin: .5em 0;
     padding: .9em 1.5em .8em;
   }
   /* line 202, ../scss/core/_layout.scss */
-  .button--left:first-child, .button-right:first-child {
+  .btn--left:first-child, .button-right:first-child {
     margin-top: 0;
   }
   /* line 205, ../scss/core/_layout.scss */
-  .button--left:last-child, .button-right:last-child {
+  .btn--left:last-child, .button-right:last-child {
     margin-bottom: 0;
   }
 }
 @media screen and (max-width: 30em) {
   /* line 193, ../scss/core/_layout.scss */
-  .button--left, .button--right{
+  .btn--left, .btn--right{
     margin-left: .5em;
     margin-right: .5em;
   }
@@ -3184,7 +3184,7 @@ img.media__img {
 }
 
 /* line 39, ../scss/core/modules/_forms.scss */
-.button-container {
+.btn-container {
   border-bottom: 0.1em solid rgba(0, 0, 0, 0.1);
   position: relative;
   margin-top: 1em;
@@ -3193,21 +3193,21 @@ img.media__img {
   z-index: 0;
 }
 /* line 46, ../scss/core/modules/_forms.scss */
-.button-container button a, .button-container a:active, .button-container a:visited {
+.btn-container button a, .btn-container a:active, .btn-container a:visited {
   color: white;
   text-decoration: none;
   font-weight: 500;
   top: 0;
 }
 /* line 52, ../scss/core/modules/_forms.scss */
-.button-container input {
+.btn-container input {
   top: 1.4em;
   position: relative;
   margin: auto;
   min-width: 13em;
 }
 /* line 57, ../scss/core/modules/_forms.scss */
-.button-container input:hover {
+.btn-container input:hover {
   top: 1.5em;
 }
 

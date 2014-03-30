@@ -17,7 +17,6 @@
 .user-module__avatar {
 	img {
 		width: 100%;
-		margin-bottom: 1.5em;
 		@include respond-max($bp2) {
 			border-radius: 20em;
 			width: 8em;

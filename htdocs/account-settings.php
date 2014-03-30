@@ -58,12 +58,12 @@
 							</div>
 						</fieldset>
 
-						<div class="button-container">
-							<input class="btn--green" name="submit" type="submit" value='Update profile'>	
+						<div class="btn-container">
+							<input class="btn--left btn--green" name="submit" type="submit" value='Update profile'>
+							<input class="btn--right btn--red" name="submit" type="submit" value='Delete profile'>	
 						</div>
-						<div class="button-container">
-							<input class="btn--red" name="submit" type="submit" value='Delete profile'>				
-						</div>
+						<div class="btn-wrapper push-bottom">
+					</div>
 					</div>
 				</form>
 			</div>

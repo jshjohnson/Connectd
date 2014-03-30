@@ -57,7 +57,7 @@
 					<input type="number" name="age" required placeholder="Business type">
 					<input type="text" name="website" required placeholder="Business website">
 					<textarea name="about" cols="30" rows="10" placeholder="A little about your business..."></textarea>
-					<div class="button-container">
+					<div class="btn-container">
 		            	<input class="submit" type="submit" value="Start employing">						
 					</div>
 		        </form>

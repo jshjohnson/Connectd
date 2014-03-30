@@ -40,7 +40,7 @@
 							<h4 class="user-module__label icon--location icon--marg"><?= stripslashes($trial_user["location"]); ?>, UK</h4>
 							<h4 class="user-module__label icon--briefcase icon--marg"><?php $url = preg_replace("(Between)", "", $trial_user["experience"] ); echo $url ?> experience</h4>
 							<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $trial_user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trial_user["portfolio"] ); echo $url ?></a></h4>
-							<div class="button-wrapper">
+							<div class="btn-wrapper">
 							<?php if($votes->sessionUserVoted($vote_id, $votedBy) == false) : ?>
 								<a href="add-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="btn btn--green btn--small">
 									 <span class="icon--check">Add vote</span>
