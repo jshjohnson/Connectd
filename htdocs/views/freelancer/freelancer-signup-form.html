@@ -34,7 +34,11 @@
 						<fieldset class="select-container">
 							<label for="location">Where do you work from?</label>
 							<select name="location">
+								<?php if($ipInfo->validIP($ip)) : ?>
 								<option value="<?= $ipInfo->getCity($userIP); ?>"><?= $ipInfo->getCity($userIP); ?></option>
+								<?php else : ?>
+								<option value="">Location...</option>
+								<?php endif; ?>
 							<?php foreach ($towns as $town) : ?>
 								<option <?php if ($_POST['location'] == $town['town']) { ?>selected="true" <?php }; ?>value="<?= $town['town']; ?>"><?= $town['town']; ?></option>
 							<?php endforeach; ?>
