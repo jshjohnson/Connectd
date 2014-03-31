@@ -17,6 +17,7 @@
 	spl_autoload_register('class_loader');	
 
 	require 'inc/phpmailer/PHPMailerAutoload.php';
+	require 'inc/ipInfo.php';
 
 	$general 	    = new General($db);
 	$users 			= new Users($db);
@@ -31,7 +32,8 @@
 	$trials         = new Trials($db);
 	
 	$bcrypt         = new Bcrypt(12);
-	$mail           = new PHPMailer(); // defaults to using php "mail()"
+	$mail           = new PHPMailer();
+	$ipInfo         = new ipInfo(ae08ebea8c44bdebba68f45182b6f63126dbeed2932aa6acdcf71b408f61e6b1);
 	 
 	$errors 	    = array();
 

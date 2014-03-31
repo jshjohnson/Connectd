@@ -24,6 +24,8 @@
 	$portfolio = trim($_POST['portfolio']);
 	$location = trim($_POST['location']);
 	$submit = trim($_POST['submit']);
+
+	$userIP = $ipInfo->getIPAddress();
 	
 	if (isset($_GET['status'])) {
 		$status = $_GET["status"];
