@@ -30,6 +30,13 @@
 			$pageType = "Page";
 			$section = "Blue";
 			break;
+		case "search":
+			$page = "search/search.html";
+			$pageTitle = "Search";
+			$pageType = "Page";
+			$section = "Blue";
+			$general->loggedOutProtect();
+			break;
 		case "404":
 			$page = "error/404.html";
 			$pageTitle = "404";
@@ -41,6 +48,7 @@
 			$pageTitle = "Connectd";
 			$pageType = "Home";
 			$section = "Home";
+			$general->loggedInProtect();
 			break;
 	}
 
