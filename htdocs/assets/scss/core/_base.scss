@@ -214,6 +214,7 @@ input[type=submit] {
 		background-repeat: no-repeat;
 		background-position: right center;
 		background-size: 1.2em;
+		text-transform: capitalize;
 		@include respond-max($bp1) {
 			margin: $baseline/3 0;
 		}
