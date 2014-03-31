@@ -147,9 +147,9 @@ class ipInfo {
     * @return bool - is the IP Address valid or not?
     *
     */
-  public function validIP($ip)
+  public function validIP($userIP)
   {
-    return filter_var($ip, FILTER_VALIDATE_IP);
+    return filter_var($userIP, FILTER_VALIDATE_IP);
   }
 
   /**

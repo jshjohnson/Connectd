@@ -34,7 +34,7 @@
 						<fieldset class="select-container">
 							<label for="location">Where do you work from?</label>
 							<select name="location">
-								<option value="<?= $location['cityName']; ?>"><?= $location['cityName']; ?></option>
+								<option value="<?= $userLocation['cityName']; ?>"><?= $userLocation['cityName']; ?></option>
 							<?php foreach ($towns as $town) : ?>
 								<option <?php if ($_POST['location'] == $town['town']) { ?>selected="true" <?php }; ?>value="<?= $town['town']; ?>"><?= $town['town']; ?></option>
 							<?php endforeach; ?>

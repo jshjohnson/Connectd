@@ -29,6 +29,13 @@
 	$userLocation = json_decode($ipInfo->getCity($userIP));
 
 
+	// if($ipInfo->validIP($userIP)) {
+	// 	echo 'YOLO';
+	// } else {
+	// 	echo 'NOLO';
+	// }
+
+
 	if (isset($_GET['status'])) {
 		$status = $_GET["status"];
 	}
