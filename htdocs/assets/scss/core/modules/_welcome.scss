@@ -8,6 +8,7 @@
 	background-image: url("../img/handheld.jpg");
 	@include background-size(cover);
 	background-position: center;
+	position: relative;
 	@include respond-min($bp3) {
 		@include background-size(cover);
 		background-attachment: fixed;

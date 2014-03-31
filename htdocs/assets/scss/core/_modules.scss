@@ -267,9 +267,9 @@ img.media__img {
 				width: 10em;
 				padding: .5em 1.5em;
 				width: 10em;
-				@include transition(all, .2s);
+				@include transition(all, .5s);
 				&:hover {
-					@include transition(all, .2s);
+					@include transition(all, .5s);
 				}
 			}
 		}
@@ -307,21 +307,21 @@ img.media__img {
 .header-blue--alt {
 	background-color: #51abd0;
 	li a:hover {
-		background-color: darken(#51abd0, 5%);
+		background-color: darken(#51abd0, 3%);
 	}
 }
 
 .header-navy--alt {
 	background-color: #253546;
 	li a:hover {
-		background-color: darken(#253546, 5%);
+		background-color: darken(#253546, 3%);
 	}
 }
 
 .header-green--alt {
 	background-color: #6bad55;
 	li a:hover {
-		background-color: darken(#6bad55, 5%);
+		background-color: darken(#6bad55, 3%);
 	}
 }
 
@@ -567,6 +567,7 @@ img.media__img {
 				text-align: center;
 				width: 100%;
 				margin: .8em 0 0;
+				padding-left: 0;
 				box-sizing: border-box;
 			}
 		}
