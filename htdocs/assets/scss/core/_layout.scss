@@ -8,7 +8,12 @@
 
 .site-wrap {
 	height: 100%;
-	// opacity: 0;
+	padding-top: 5.5em;
+	@include box-sizing(border-box);
+}
+
+.site-wrap--page {
+	padding-top: 3em;
 }
 
 .home {

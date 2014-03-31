@@ -18,7 +18,7 @@ $(document).ready(function() {
 
 	$(".menu-trigger").click(function(e) {
 		e.preventDefault();
-		$(".header__nav").slideToggle(400);
+		$(".header__nav").slideToggle();
 	});
 
 	// Window Load

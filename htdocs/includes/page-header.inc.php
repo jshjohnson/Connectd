@@ -54,9 +54,10 @@
 					<a href="<?= BASE_URL . "developers/" . $developer['user_id']; ?>/">
 						<div style="background-image: url('<?= BASE_URL ?>assets/avatars/default_avatar.png');" class="header-section__avatar"></div>
 					</a>
-					<h2 class="header-section__title">
-						<a href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>" class="header-section__title--username"><?= $username; ?></a>
+					<h2 class="header-section__title header-section__title--username">
+						<a href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>"><?= $username; ?></a>
 					</h2>
+					<a href="<?= BASE_URL . "dashboard/" ?>" class="header-section__home"></a>
 				</div>
 
 			<?php endif; ?>
