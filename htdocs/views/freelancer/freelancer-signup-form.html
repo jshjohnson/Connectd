@@ -35,7 +35,7 @@
 							<label for="location">Where do you work from?</label>
 							<select name="location">
 								<?php if($ipInfo->validIP($ip)) : ?>
-								<option value="<?= $ipInfo->getCity($userIP); ?>"><?= $ipInfo->getCity($userIP); ?></option>
+								<option value="<?= $location['cityName']; ?>"><?= $location['cityName']; ?></option>
 								<?php else : ?>
 								<option value="">Location...</option>
 								<?php endif; ?>

@@ -26,6 +26,7 @@
 	$submit = trim($_POST['submit']);
 
 	$userIP = $ipInfo->getIPAddress();
+	$userLocation = json_decode($ipInfo->getCity($userIP));
 
 
 	if (isset($_GET['status'])) {

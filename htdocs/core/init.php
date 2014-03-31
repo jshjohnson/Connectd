@@ -33,7 +33,7 @@
 	
 	$bcrypt         = new Bcrypt(12);
 	$mail           = new PHPMailer();
-	$ipInfo         = new ipInfo(ae08ebea8c44bdebba68f45182b6f63126dbeed2932aa6acdcf71b408f61e6b1);
+	$ipInfo         = new ipInfo(ae08ebea8c44bdebba68f45182b6f63126dbeed2932aa6acdcf71b408f61e6b1, 'json');
 	 
 	$errors 	    = array();
 
