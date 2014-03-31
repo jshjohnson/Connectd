@@ -247,26 +247,28 @@ img.media__img {
 	display: none;
 	@include box-sizing(border-box);
 	position: absolute;
-	background-color: $color-brand-dark;
 	font-size: .7em;
 	top: 4.25em;
 	z-index: 999;
 	line-height: 2.5em;
-	opacity: .95;
 	ul {
 		color: white;
 		list-style: none;
 		margin: 0;
 		li {
-			padding: .5em 1em .5em 1.5em;
-			width: 10em;
 			margin-bottom: 0;
 			a {
+				display: block;
 				color: white;
+				line-height: 2.5;
+				width: 10em;
+				padding: .5em 1.25em;
+				width: 10em;
+				@include transition(all, .2s);
+				&:hover {
+					@include transition(all, .2s);
+				}
 			}
-			&:last-child {
-				border-bottom: transparent;
-			}	
 		}
 	}
 }
@@ -301,14 +303,23 @@ img.media__img {
 
 .header-blue--alt {
 	background-color: #51abd0;
+	li a:hover {
+		background-color: darken(#51abd0, 5%);
+	}
 }
 
 .header-navy--alt {
 	background-color: #253546;
+	li a:hover {
+		background-color: darken(#253546, 5%);
+	}
 }
 
 .header-green--alt {
 	background-color: #6bad55;
+	li a:hover {
+		background-color: darken(#6bad55, 5%);
+	}
 }
 
 .header-section, .footer__section {
