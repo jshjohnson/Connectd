@@ -21,26 +21,43 @@
 				<p class="message message--success fadeIn">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
 				<form autocomplete="off" method="post" action="<?= BASE_URL; ?>employers/signup.php" class="sign-up-form">
-					<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left input--top" value="<?php if (isset($firstName)) { echo htmlspecialchars($firstName); } ?>" autofocus>
-					<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right input--top" value="<?php if (isset($lastName)) { echo htmlspecialchars($lastName); } ?>">
-					<input autocomplete="off" id="email-input" type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
-					<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
-					<input autocomplete="off" type='password' name='password' placeholder="Password" class="field-1-2 float-left"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
-					<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatPassword)) { echo htmlspecialchars($repeatPassword); } ?>">
+					<fieldset class="cf">
+						<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left input--top" value="<?php if (isset($firstName)) { echo htmlspecialchars($firstName); } ?>" autofocus>
+						<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right input--top" value="<?php if (isset($lastName)) { echo htmlspecialchars($lastName); } ?>">
+					</fieldset>
+					<fieldset class="cf">
+						<input autocomplete="off" id="email-input" type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
+					</fieldset>
+					<fieldset class="cf">
+						<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
+						<input autocomplete="off" type='password' name='password' placeholder="Password" class="field-1-2 float-left"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
+						<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatPassword)) { echo htmlspecialchars($repeatPassword); } ?>">
+					</fieldset>
 					<hr>
-					<input type="text" name="employer_name" placeholder="Employer name" value="<?php if (isset($employerName)) { echo htmlspecialchars($employerName); } ?>">
+					<fieldset class="cf">
+						<div class="field-1-2 float-left">
+							<label for="employer_name">Employer name</label>
+							<input type="text" name="employer_name"placeholder="Employer name" value="<?php if (isset($employerName)) { echo htmlspecialchars($employerName); } ?>">
+						</div>
+						<div class="field-1-2 float-right">
+							<fieldset class="select-container">
+								<label for="location">Where do you work from?</label>
+								<select name="location">
+								<?php if(empty($userCity)) : ?>
+									<option value="">Location...</option>
+								<?php else :?>
+									<option value="<?= strtolower($userCity); ?>"><?php echo strtolower($userCity); ?>?</option>
+								<?php endif; ?>
+								<?php foreach ($towns as $town) : ?>
+									<option <?php if ($_POST['location'] == $town['town']) { ?>selected="true" <?php }; ?>value="<?= $town['town']; ?>"><?= $town['town']; ?></option>
+								<?php endforeach; ?>
+								</select>
+							</fieldset>
+						</div>
+					</fieldset>
 					<div class="url-container">
 						<span class="url-prepend">http://</span>
 						<input type="text" name="portfolio" placeholder="Employer website" class="input--url" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>">
-					</div>
-					<div class="select-container">
-						<label for="location">What is the location of your business?</label>
-						<select name="location">
-							<option value="">Location...</option>
-						<?php foreach ($towns as $town) : ?>
-							<option <?php if ($_POST['location'] == $town['town']) { ?>selected="true" <?php }; ?>value="<?= $town['town']; ?>"><?= $town['town']; ?></option>
-						<?php endforeach; ?>
-						</select>
 					</div>
 					<div class="select-container field-1-2 float-left">
 						<label for="employer_type">What industry is your business in?</label>

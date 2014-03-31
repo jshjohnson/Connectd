@@ -27,6 +27,7 @@
 
 	$userIP = $ipInfo->getIPAddress();
 	$userLocation = json_decode($ipInfo->getCity($userIP), true);
+	$userCity = $userLocation['cityName'];
 
 	if (isset($_GET['status'])) {
 		$status = $_GET["status"];
