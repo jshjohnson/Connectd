@@ -26,8 +26,7 @@
 	$submit = trim($_POST['submit']);
 
 	$userIP = $ipInfo->getIPAddress();
-	$userLocation = json_decode($ipInfo->getCity($userIP));
-
+	$userLocation = json_decode($ipInfo->getCity($userIP), true);
 
 	// if($ipInfo->validIP($userIP)) {
 	// 	echo 'YOLO';
