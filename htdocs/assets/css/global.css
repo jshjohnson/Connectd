@@ -2862,6 +2862,12 @@ img.media__img {
     background-size: 100%;
   }
 }
+@media screen and (max-width: 82em) {
+  /* line 6, ../scss/core/modules/_homepage.scss */
+  .site-intro {
+    padding: 20% 5%;
+  }
+}
 @media screen and (max-width: 62em) {
   /* line 6, ../scss/core/modules/_homepage.scss */
   .site-intro {
@@ -2871,17 +2877,17 @@ img.media__img {
 @media screen and (max-width: 30em) {
   /* line 6, ../scss/core/modules/_homepage.scss */
   .site-intro {
-    padding: 50% 5%;
+    padding: 40% 5%;
   }
 }
 
-/* line 25, ../scss/core/modules/_homepage.scss */
+/* line 28, ../scss/core/modules/_homepage.scss */
 .site-intro__content {
   position: relative;
   text-align: center;
 }
 @media screen and (max-width: 49em) {
-  /* line 25, ../scss/core/modules/_homepage.scss */
+  /* line 28, ../scss/core/modules/_homepage.scss */
   .site-intro__content {
     top: 33.33%;
     width: 80%;
@@ -2889,24 +2895,24 @@ img.media__img {
   }
 }
 
-/* line 35, ../scss/core/modules/_homepage.scss */
+/* line 38, ../scss/core/modules/_homepage.scss */
 .site-intro__logo {
   margin-bottom: 2em;
 }
 @media screen and (min-width: 49em) {
-  /* line 35, ../scss/core/modules/_homepage.scss */
+  /* line 38, ../scss/core/modules/_homepage.scss */
   .site-intro__logo {
     max-width: 55%;
   }
 }
 @media screen and (min-width: 82em) {
-  /* line 35, ../scss/core/modules/_homepage.scss */
+  /* line 38, ../scss/core/modules/_homepage.scss */
   .site-intro__logo {
     max-width: 50%;
   }
 }
 
-/* line 45, ../scss/core/modules/_homepage.scss */
+/* line 48, ../scss/core/modules/_homepage.scss */
 .site-intro__heading {
   font-size: 7em;
   color: white;
@@ -2914,13 +2920,13 @@ img.media__img {
   margin-bottom: 0;
 }
 @media screen and (max-width: 49em) {
-  /* line 45, ../scss/core/modules/_homepage.scss */
+  /* line 48, ../scss/core/modules/_homepage.scss */
   .site-intro__heading {
     font-size: 3em;
   }
 }
 
-/* line 55, ../scss/core/modules/_homepage.scss */
+/* line 58, ../scss/core/modules/_homepage.scss */
 .site-intro__sub-heading {
   font-size: 1.5em;
   font-weight: 500;
@@ -2930,7 +2936,7 @@ img.media__img {
   font-family: "Georgia", serif;
   margin-bottom: 1em;
 }
-/* line 63, ../scss/core/modules/_homepage.scss */
+/* line 66, ../scss/core/modules/_homepage.scss */
 .site-intro__sub-heading:after {
   content: "";
   width: 0;
@@ -2944,7 +2950,7 @@ img.media__img {
   margin-left: -.45em;
 }
 @media screen and (max-width: 49em) {
-  /* line 63, ../scss/core/modules/_homepage.scss */
+  /* line 66, ../scss/core/modules/_homepage.scss */
   .site-intro__sub-heading:after {
     border-left: .35em solid transparent;
     border-right: .35em solid transparent;
@@ -2954,22 +2960,22 @@ img.media__img {
   }
 }
 @media screen and (max-width: 49em) {
-  /* line 55, ../scss/core/modules/_homepage.scss */
+  /* line 58, ../scss/core/modules/_homepage.scss */
   .site-intro__sub-heading {
     font-size: 1.4em;
   }
 }
 
-/* line 88, ../scss/core/modules/_homepage.scss */
+/* line 91, ../scss/core/modules/_homepage.scss */
 .site-intro__link {
   color: white;
 }
-/* line 90, ../scss/core/modules/_homepage.scss */
+/* line 93, ../scss/core/modules/_homepage.scss */
 .site-intro__link:hover {
   background-color: white;
   color: #2c3e50;
 }
-/* line 94, ../scss/core/modules/_homepage.scss */
+/* line 97, ../scss/core/modules/_homepage.scss */
 .site-intro__link:visited {
   color: white;
 }

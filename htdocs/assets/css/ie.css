@@ -2534,21 +2534,22 @@ img.media__img {
   -moz-background-size: 100%;
   -o-background-size: 100%;
   background-size: 100%;
+  padding: 20% 5%;
 }
 
-/* line 25, ../scss/core/modules/_homepage.scss */
+/* line 28, ../scss/core/modules/_homepage.scss */
 .site-intro__content {
   position: relative;
   text-align: center;
 }
 
-/* line 35, ../scss/core/modules/_homepage.scss */
+/* line 38, ../scss/core/modules/_homepage.scss */
 .site-intro__logo {
   max-width: 55%;
   margin-bottom: 2em;
 }
 
-/* line 45, ../scss/core/modules/_homepage.scss */
+/* line 48, ../scss/core/modules/_homepage.scss */
 .site-intro__heading {
   font-size: 7em;
   color: white;
@@ -2556,7 +2557,7 @@ img.media__img {
   margin-bottom: 0;
 }
 
-/* line 55, ../scss/core/modules/_homepage.scss */
+/* line 58, ../scss/core/modules/_homepage.scss */
 .site-intro__sub-heading {
   font-size: 1.5em;
   font-weight: 500;
@@ -2566,7 +2567,7 @@ img.media__img {
   font-family: "Georgia", serif;
   margin-bottom: 1em;
 }
-/* line 63, ../scss/core/modules/_homepage.scss */
+/* line 66, ../scss/core/modules/_homepage.scss */
 .site-intro__sub-heading:after {
   content: "";
   width: 0;
@@ -2580,16 +2581,16 @@ img.media__img {
   margin-left: -.45em;
 }
 
-/* line 88, ../scss/core/modules/_homepage.scss */
+/* line 91, ../scss/core/modules/_homepage.scss */
 .site-intro__link {
   color: white;
 }
-/* line 90, ../scss/core/modules/_homepage.scss */
+/* line 93, ../scss/core/modules/_homepage.scss */
 .site-intro__link:hover {
   background-color: white;
   color: #2c3e50;
 }
-/* line 94, ../scss/core/modules/_homepage.scss */
+/* line 97, ../scss/core/modules/_homepage.scss */
 .site-intro__link:visited {
   color: white;
 }

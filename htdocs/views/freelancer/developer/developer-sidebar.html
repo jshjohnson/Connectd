@@ -23,7 +23,7 @@
 					<div class="user-module__info">
 						<h3 class="user-module__title"><?= $developer['firstname'] . " " . $developer['lastname']; ?></h3>
 						<h4 class="user-module__label icon--attach icon--marg"><?= $developer['jobtitle']; ?></h4>
-						<h4 class="user-module__label icon--location icon--marg"><?= $developer['location']; ?></h4>
+						<h4 class="user-module__label icon--location icon--marg"><?= stripslashes($developer['location']); ?></h4>
 						<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $developer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
 						<p><?= nl2br($developer['bio']); ?></p>
 					</div>
