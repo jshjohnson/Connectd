@@ -25,5 +25,6 @@
 						<h4 class="user-module__label icon--attach icon--marg"><?= $developer['jobtitle']; ?></h4>
 						<h4 class="user-module__label icon--location icon--marg"><?= stripslashes($developer['location']); ?></h4>
 						<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $developer['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $developer["portfolio"] ); echo $url ?></a></h4>
+						<h4 class="user-module__label icon--clock icon--marg"><?= "Joined on " . date('F j, Y', $developer['time_joined']); ?></h4>
 						<p><?= nl2br($developer['bio']); ?></p>
 					</div>
