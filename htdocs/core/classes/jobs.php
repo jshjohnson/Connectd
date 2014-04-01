@@ -40,7 +40,7 @@
 		 * @param  string $description
 		 * @return void
 		 */ 
-	    public function postJob($user_id, $jobName, $startDate, $deadline, $budget, $category, $description) {
+	    public function postJob($user_id, $jobFull, $startDate, $deadline, $budget, $category, $description) {
 
     		$postDate = time();
 
@@ -51,7 +51,7 @@
 				(?, ?, ?, ?, ?, ?, ?, ?)
 			");
 			$query->bindValue(1, $user_id);
-			$query->bindValue(2, $jobName);
+			$query->bindValue(2, $jobFull);
 			$query->bindValue(3, $startDate);
 			$query->bindValue(4, $deadline);
 			$query->bindValue(5, $budget);

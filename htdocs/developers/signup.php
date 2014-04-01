@@ -20,7 +20,7 @@
 	$jobTitle = trim($_POST['jobtitle']);
 	$experience = trim($_POST['experience']);
 	$pricePerHour = trim($_POST['priceperhour']);
-	$bio = preg_replace('/\s*$^\s*/m', "\n", $_POST['bio']);
+	$bio = trim($_POST['bio']);
 	$portfolio = trim($_POST['portfolio']);
 	$location = trim($_POST['location']);
 	$submit = trim($_POST['submit']);

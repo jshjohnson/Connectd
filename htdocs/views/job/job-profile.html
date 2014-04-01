@@ -28,7 +28,7 @@
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">
-						<?= $job['job_description']; ?>
+						<p><?= nl2br($job['job_description']); ?></p>
 					</div>
 					<hr>
 					<?php if($userType != 'employer') : ?>
@@ -61,7 +61,7 @@
 							<h4 class="user-module__label icon--attach icon--marg"><?= $job['employer_type']; ?></h4>
 							<h4 class="user-module__label icon--location icon--marg"><?= $job['location']; ?></h4>
 							<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $job['portfolio']; ?>"><?= $job['portfolio']; ?></a></h4>
-							<p><?= $job['bio']; ?></p>
+							<p><?= nl2br($job['bio']); ?></p>
 						</div>
 					</article>
 					<aside class="dashboard-panel module module--no-pad">

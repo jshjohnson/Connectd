@@ -32,7 +32,7 @@ th, caption { text-align: left; }
 
 /* -- Forms -- */
 form { margin: 0; }
-fieldset { border: 0; margin: 0; padding: 0; label { margin-top: 1.5em; font-weight: 500; font-size: .8em; }}
+fieldset { border: 0; margin: 0; padding: 0; label { margin-top: 1.5em; font-size: .8em; }}
 label, select { cursor: pointer; }
 legend { padding: .3em .6em; *margin-left: -7px; }
 button, input { line-height: normal; }
@@ -130,7 +130,7 @@ form {
 	}
 }
  
-label { display: block; font-weight: bold; font-size: .75em;}
+label { font-weight: bold; font-size: .75em;}
 textarea { line-height: 1.5; }
 
 input:not([type=checkbox]):not([type=submit]),
@@ -144,7 +144,7 @@ textarea {
 	border-radius: 0;
 	margin: $baseline/2.5 0;
 	@include box-shadow(0 0 5px transparent);
-	border: 1px solid transparent;
+	border: 1px solid #eee;
 	outline: 0;
 	@include respond-max($bp1) {
 		margin: $baseline/3 0;
@@ -201,13 +201,13 @@ input[type=submit] {
 	position: relative;
 	select {
 		width: 100%;
-		padding: .5em;
+		padding: .5em 1.5em .5em .5em;
 		border: 1px solid #eee;
 		color: $color-brand-dark;
 		@include appearance(none);
 		border-radius: 0;
 		text-indent: 0.01px;
- 		text-overflow: "";
+ 		text-overflow: ""; // Firefox hack
 		margin: $baseline/2.5 0;
 		background-color: #FFFFFF;
 		background-image: url('../img/select-bg.svg');
@@ -226,6 +226,12 @@ input[type=submit] {
 		background-color: #f7f7f7;
 		padding: .7em;
 	}
+}
+
+.select-container--inline {
+	display: inline-block;
+	zoom: 1;
+	vertical-align: middle;
 }
 
 .currency-container {
