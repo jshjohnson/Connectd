@@ -23,12 +23,10 @@
 
 		switch ($userType) {
 			case "designer":
-				$user = $designers->get_designers_single($id);
 				$section = "Designers";
 				$general->loggedOutProtect();
 				break;
 			case "developer":
-				$user = $developers->get_developers_single($id);		
 				$section = "Developers";
 				$general->loggedOutProtect();
 				break;
@@ -43,6 +41,7 @@
 
 		$template = "freelancer/freelancer-profile.html";
 		$pageTitle  = $user['firstname'] . ' ' . $user['lastname'] . ' :: ' . $user['jobtitle'];
+		$user = $freelancers->getFreelancersSingle($id, $userType);		
 
 		include_once(ROOT_PATH . "includes/header.inc.php");
 		include_once(ROOT_PATH . "views/" . $template);

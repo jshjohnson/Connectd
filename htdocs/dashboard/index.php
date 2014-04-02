@@ -6,10 +6,10 @@
 	$general->loggedOutProtect();
 	// $votes->userVotedForProtect();
 
-	$designers    = $designers->get_designers_all();
-	$developers   = $developers->get_developers_all();
-	$employers    = $employers->get_employers_all();
-	$jobs         = $jobs->get_jobs_all();
+	$designers    = $freelancers->getFreelancersAll($userType = "designer");
+	$developers   = $freelancers->getFreelancersAll($userType = "developer");
+	$employers    = $employers->getEmployersAll();
+	$jobs         = $jobs->getJobsAll();
 
 	if (isset($_GET["status"])) { 
 		$status = $_GET["status"];

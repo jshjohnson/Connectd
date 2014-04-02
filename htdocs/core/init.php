@@ -24,8 +24,6 @@
 	$votes          = new Votes($db);
 
 	$freelancers    = new Freelancers($db);
-	$designers		= new Designers($db);
-	$developers     = new Developers($db);
 	$employers      = new Employers($db);
 	$jobs	        = new Jobs($db);	
 	$sessions		= new Sessions($db);
