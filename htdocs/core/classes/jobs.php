@@ -73,7 +73,7 @@
 		 * @param  void
 		 * @return array
 		 */ 
-		public function get_jobs_all() {
+		public function getJobsAll() {
 			$results = $this->db->prepare("SELECT 
 				j.*, u.user_id, ut.user_type_id, ut.user_type, e.employer_name
 				FROM (((" . DB_NAME . ".jobs AS j
@@ -96,7 +96,7 @@
 			return $jobs;
 		}
 
-		public function get_jobs_single($id) {
+		public function getJobsSingle($id) {
 			$results = $this->db->prepare("SELECT
 				j.*, u.user_id, u.location, u.portfolio, u.bio, u.time_joined, e.employer_name, et.employer_type
 				FROM (((" . DB_NAME . ".jobs AS j
@@ -127,7 +127,7 @@
 		 * @param  void
 		 * @return array
 		 */ 		
-		public function get_jobs_recent() {
+		public function getJobsRecent() {
 
 			$recent = "";
 			$all = get_jobs_all();

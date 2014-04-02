@@ -153,7 +153,7 @@
 		 * @param  void
 		 * @return array
 		 */
-		public function get_employers_recent() {
+		public function getEmployersRecent() {
 
 			$recent = "";
 			$all = get_employers_all();
@@ -178,7 +178,7 @@
 		 * @param  void
 		 * @return array
 		 */ 
-		public function get_employers_all() {
+		public function getEmployersAll() {
 			
 			$results = $this->db->prepare("
 				SELECT u.user_id, u.firstname, u.lastname, e.employer_id, e.employer_name, ut.*, et.*
@@ -214,7 +214,7 @@
 		 * @param  int $id 
 		 * @return array
 		 */ 
-		public function get_employers_single($id) {
+		public function getEmployersSingle($id) {
 
 			$results = $this->db->prepare("
 				SELECT u.*, e.*, et.*
