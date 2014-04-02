@@ -1,0 +1,39 @@
+					<?php if($userType == "developer") : ?>
+					<div class="badge badge--right color-red">
+						<span class="badge__inner">
+							<h5>£<?= $user['priceperhour']; ?></h5>
+							<small>per hour</small>
+						</span>
+					</div>
+					<?php else : ?>
+					<div class="badge badge--left color-red">
+						<span class="badge__inner">
+							<h5>£<?= $user['priceperhour']; ?></h5>
+							<small>per hour</small>
+						</span>
+					</div>
+					<?php endif; ?>
+					<div class="user-module__header">
+						<div class="user-module__avatar">
+							<img src="http://placehold.it/400x400" alt="">
+						</div>
+						<?php if($user_id != $user['user_id']) : ?>
+						<div class="btn-wrapper push-top">
+							<a class="btn--left btn btn--green cf hire-trigger" href="">Hire <?= $user['firstname']; ?></a>
+							<a class="btn--right btn btn--blue cf collaborate-trigger" href="">Collaborate</a>
+						</div>
+						<?php else : ?>
+						<div class="btn-wrapper push-top">
+							<a class="btn--left btn btn--disabled cf" href="">Hire <?= $user['firstname']; ?></a>
+							<a class="btn--right btn btn--disabled cf" href="">Collaborate</a>
+						</div>
+						<?php endif;?>
+					</div>
+					<div class="user-module__info">
+						<h3 class="user-module__title"><?= $user['firstname'] . " " . $user['lastname']; ?></h3>
+						<h4 class="user-module__label icon--attach icon--marg"><?= $user['jobtitle']; ?></h4>
+						<h4 class="user-module__label icon--location icon--marg"><?= stripslashes($user['location']); ?></h4>
+						<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $user['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $user["portfolio"] ); echo $url ?></a></h4>
+						<h4 class="user-module__label icon--clock icon--marg"><?= "Joined on " . date('F j, Y', $user['time_joined']); ?></h4>
+						<p><?= nl2br($user['bio']); ?></p>
+					</div>

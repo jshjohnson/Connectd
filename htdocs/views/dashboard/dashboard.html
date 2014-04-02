@@ -7,7 +7,7 @@
 				<a class="btn btn--red" href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>">Build your profile</a>
 			</div>
 		</section>
-	<? endif;?>
+	<?php endif;?>
 		<section class="container footer--push">
 			<div class="grid--no-marg cf">
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
@@ -18,8 +18,9 @@
 					<div class="media-wrapper">
 						<?php if (!empty($designers) && is_array($designers)) : ?>
 
-						<?php foreach($designers as $designer_id => $designer) {
-							include('../views/freelancer/designer/designer-list.html');
+						<?php foreach($designers as $designer_id => $user) {
+							$userType = "designer";
+							include('../views/freelancer/freelancer-list.html');
 						} ?>
 
 						<?php else : ?>
@@ -35,8 +36,9 @@
 					<div class="media-wrapper">
 						<?php if (!empty($developers) && is_array($developers)) : ?>
 
-						<?php foreach($developers as $developer_id => $developer) {
-							include('../views/freelancer/developer/developer-list.html');
+						<?php foreach($developers as $developer_id => $user) {
+							$userType = "developer";
+							include('../views/freelancer/freelancer-list.html');
 						} ?>
 
 						<?php else : ?>
