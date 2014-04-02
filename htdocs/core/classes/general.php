@@ -32,9 +32,9 @@
 			$pageTitle = 'Error';
 			$pageType = 'Page';
 			$section = 'Blue';
-			include('../includes/header.inc.php');
-			include('../views/error.html');
-			include('../includes/footer.inc.php');
+			include(ROOT_PATH . 'includes/header.inc.php');
+			include(ROOT_PATH . 'views/error/error.html');
+			include(ROOT_PATH . 'includes/footer.inc.php');
 			exit();
 		}
 

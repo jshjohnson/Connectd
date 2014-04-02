@@ -27,7 +27,7 @@
 
 	}catch(Exception $e) {
 		$general = new General($db);
-		$general->errorView($general, $e, $path);
+		$general->errorView($general, $e);
 	}
 ?>
 
