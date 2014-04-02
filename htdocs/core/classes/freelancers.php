@@ -176,4 +176,97 @@
 				return $fields;
 	    	}
 	    }
+
+	    /**
+		 * Restrict developers data to 6 most recent 
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
+		public function getFreelancersRecent() {
+
+			$recent = "";
+			$all = get_freelancers_all();
+
+			$total_freelancers = count($all);
+			$position = 0;
+			$list_view = "";
+
+			foreach ($all as $freelancer) {
+				$position = $position + 1;
+				// if designer is one of the 4 most recent designers
+				if ($total_freelancers - $position < 6) {
+					$recent[] = $freelancer;
+				}
+			}
+			return $recent;
+		}
+
+		/**
+		 * Get data for all freelancers in db based on user type
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
+		public function getFreelancersAll($userType) {
+			$results =  $this->db->prepare("
+				SELECT u.user_id, u.firstname, u.lastname, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
+				FROM ((" . DB_NAME . ".users AS u
+				LEFT JOIN " . DB_NAME . ".freelancers AS f
+				ON u.user_id = f.freelancer_id)
+				LEFT JOIN " . DB_NAME . ".user_types AS ut
+				ON u.user_id = ut.user_type_id)
+				WHERE u.confirmed = ?
+				AND ut.user_type = ?
+			");
+			$results->bindValue(1, 1);
+			$results->bindValue(2, $userType);
+			
+			try {
+				$results->execute();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
+			}
+			
+			$freelancers = $results->fetchAll(PDO::FETCH_ASSOC);
+
+			return $freelancers;
+
+		}
+
+		/**
+		 * Get data for a single freelancer
+		 *
+		 * @param  int $id 
+		 * @return array
+		 */ 
+		public function getFreelancersSingle($id, $userType) {
+
+			$results = $this->db->prepare("
+				SELECT u.user_id, u.firstname, u.lastname, u.email, u.bio, u.portfolio, u.location, u.time_joined, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
+				FROM ((" . DB_NAME . ".users AS u
+				LEFT JOIN " . DB_NAME . ".freelancers AS f
+				ON u.user_id = f.freelancer_id)
+				LEFT JOIN " . DB_NAME . ".user_types AS ut
+				ON u.user_id = ut.user_type_id)
+				WHERE u.confirmed = ?
+				AND u.user_id = ?
+				AND ut.user_type = ?
+			");
+			$results->bindValue(1, 1);
+			$results->bindValue(2, $id);
+			$results->bindValue(3, $userType);
+
+			try {
+				$results->execute();
+			}catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
+			}
+
+			$developers = $results->fetch(PDO::FETCH_ASSOC);
+			
+			return $developers;
+		}
 	}
