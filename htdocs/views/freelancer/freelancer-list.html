@@ -1,11 +1,11 @@
 			<div class='media'>
-				<a href="<?= BASE_URL . "profile.php?id=" . $user['user_id'] . "&usertype=" . $userType ?>">
+				<a href="<?= BASE_URL . "profile.php?usertype=" . $userType . "&id=" . $user['user_id'];?>">
 					<div style="background-image: url('<?= BASE_URL ?>assets/avatars/default_avatar.png');" class="media__img media__img--avatar"></div>
 				</a>
 				<div class='media__body'>
 					<div class='float-left user-info'>
 						<a href='#'><i class='icon--star'></i></a>
-						<a href="<?= BASE_URL . "profile.php?id=" . $user['user_id'] . "&usertype=" . $userType ?>" class="user-info__link">
+						<a href="<?= BASE_URL . "profile.php?usertype=" . $userType . "&id=" . $user['user_id'];?>" class="user-info__link">
 							<h4><?= $user['firstname'] . ' ' . $user['lastname']; ?></h4>
 						</a>
 						<p><?= $user['jobtitle']; ?></p>

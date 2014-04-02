@@ -54,7 +54,8 @@
 					<div class="media-wrapper">
 						<?php if (!empty($employers) && is_array($employers)) : ?>
 
-						<?php foreach($employers as $employer_id => $employer) {
+						<?php foreach($employers as $employer_id => $user) {
+							$userType = "employer";
 							include('../views/employer/employer-list.html');
 						} ?>
 

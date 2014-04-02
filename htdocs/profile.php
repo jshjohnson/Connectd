@@ -30,6 +30,11 @@
 				$section = "Developers";
 				$general->loggedOutProtect();
 				break;
+			case "employer":
+				$section = "Employers";
+				$jobs = $employers->getEmployerJobs($id);
+				$general->loggedOutProtect();
+				break;
 			default:
 				$template = "index/index.html";
 				$pageTitle = "Connectd";
@@ -39,9 +44,15 @@
 				break;
 		}
 
-		$template = "freelancer/freelancer-profile.html";
-		$pageTitle  = $user['firstname'] . ' ' . $user['lastname'] . ' :: ' . $user['jobtitle'];
-		$user = $freelancers->getFreelancersSingle($id, $userType);		
+		if($userType == "developer" || $userType == "designer") {
+			$user = $freelancers->getFreelancersSingle($id, $userType);		
+			$pageTitle  = $user['firstname'] . ' ' . $user['lastname'] . ' :: ' . $user['jobtitle'];
+			$template = "freelancer/freelancer-profile.html";
+		} else if ($userType == "employer") {
+			$user = $employers->getEmployersSingle($id);		
+			$pageTitle  = $employer['employer_name'] . ' :: ' . $employer['employer_type'];
+			$template = "employer/employer-profile.html";
+		}
 
 		include_once(ROOT_PATH . "includes/header.inc.php");
 		include_once(ROOT_PATH . "views/" . $template);
