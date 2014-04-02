@@ -183,10 +183,10 @@
 		 * @param  void
 		 * @return array
 		 */ 
-		public function getFreelancersRecent() {
+		public function getFreelancersRecent($userType) {
 
 			$recent = "";
-			$all = get_freelancers_all();
+			$all = $this->getFreelancersAll($userType);
 
 			$total_freelancers = count($all);
 			$position = 0;

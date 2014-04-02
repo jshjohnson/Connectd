@@ -6,9 +6,9 @@
 	$general->loggedOutProtect();
 	// $votes->userVotedForProtect();
 
-	$designers    = $freelancers->getFreelancersAll($userType = "designer");
-	$developers   = $freelancers->getFreelancersAll($userType = "developer");
-	$employers    = $employers->getEmployersAll();
+	$designers    = $freelancers->getFreelancersRecent($userType = "designer");
+	$developers   = $freelancers->getFreelancersRecent($userType = "developer");
+	$employers    = $employers->getEmployersRecent();
 	$jobs         = $jobs->getJobsAll();
 
 	if (isset($_GET["status"])) { 

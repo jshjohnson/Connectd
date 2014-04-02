@@ -39,8 +39,8 @@
 		 * @return array
 		 */ 
 		public function getEmployerJobs($employer_id) {
-	    	$query = $this->db->prepare("SELECT * FROM " . DB_NAME . ".jobs WHERE user_id = ?");
-	    	$query->bindValue(1, $employer_id);
+	    	$query = $this->db->prepare("SELECT * FROM " . DB_NAME . ".jobs WHERE user_id = :user_id");
+	    	$query->bindValue(":user_id", $employer_id);
 			try{
 				$query->execute();
 			}catch(PDOException $e) {
@@ -108,31 +108,31 @@
 
 					$last_user_id =  $this->db->lastInsertId('user_id');
 					
-					$employerInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".employers (employer_id, employer_name) VALUE (?,?)");
+					$employerInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".employers (employer_id, employer_name) VALUE (:employer_id, :employer_name)");
 	 
-	 				$employerInsert->bindValue(1, $last_user_id);
-					$employerInsert->bindValue(2, $employerName);
+	 				$employerInsert->bindValue(":employer_id", $last_user_id);
+					$employerInsert->bindValue(":employer_name", $employerName);
 
 					$employerInsert->execute();
 
-					$employerTypeInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".employer_types (employer_type_id, employer_type) VALUE (?, ?)");
+					$employerTypeInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".employer_types (employer_type_id, employer_type) VALUE (:employer_id, :employer_type)");
 
-					$employerTypeInsert->bindValue(1, $last_user_id);
-					$employerTypeInsert->bindValue(2, $employerType);						
+					$employerTypeInsert->bindValue(":employer_id", $last_user_id);
+					$employerTypeInsert->bindValue(":employer_type", $employerType);						
 
 					$employerTypeInsert->execute();
 
-					$userExpInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (experience_id, experience) VALUE (?,?)");
+					$userExpInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (experience_id, experience) VALUE (:employer_id, :experience)");
 
-					$userExpInsert->bindValue(1, $last_user_id);
-					$userExpInsert->bindValue(2, $experience);							
+					$userExpInsert->bindValue(":employer_id", $last_user_id);
+					$userExpInsert->bindValue(":experience", $experience);							
 
 					$userExpInsert->execute();
 
-					$userTypeInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_type_id, user_type) VALUE (?,?)");
+					$userTypeInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_type_id, user_type) VALUE (:employer_id, :user_type)");
 	 
-	 				$userTypeInsert->bindValue(1, $last_user_id);
-					$userTypeInsert->bindValue(2, $userType);						
+	 				$userTypeInsert->bindValue(":employer_id", $last_user_id);
+					$userTypeInsert->bindValue(":user_type", $userType);						
 
 					$userTypeInsert->execute();
 
@@ -156,7 +156,7 @@
 		public function getEmployersRecent() {
 
 			$recent = "";
-			$all = get_employers_all();
+			$all = $this->getEmployersAll();
 
 			$total_employers = count($all);
 			$position = 0;
@@ -189,11 +189,11 @@
 				ON u.user_id = et.employer_type_id)
 				LEFT JOIN " . DB_NAME . ".user_types AS ut
 				ON u.user_id = ut.user_type_id)
-				WHERE u.confirmed = ?
-				AND ut.user_type = ?
+				WHERE u.confirmed = :confirmed
+				AND ut.user_type = :user_type
 			");
-			$results->bindValue(1, 1);
-			$results->bindValue(2, 'employer');
+			$results->bindValue(":confirmed", 1);
+			$results->bindValue(":user_type", 'employer');
 
 			try {
 				$results->execute();
@@ -225,14 +225,14 @@
 				ON u.user_id = et.employer_type_id)
 				LEFT JOIN " . DB_NAME . ".user_types AS ut
 				ON u.user_id = ut.user_type_id)
-				WHERE u.confirmed = ?
-				AND u.user_id = ?
-				AND ut.user_type = ?
+				WHERE u.confirmed = :confirmed
+				AND u.user_id = :user_id
+				AND ut.user_type = :user_type
 			");
 
-			$results->bindValue(1, 1);
-			$results->bindValue(2, $id);
-			$results->bindValue(3, 'employer');
+			$results->bindValue(":confirmed", 1);
+			$results->bindValue(":user_id", $id);
+			$results->bindValue("user_type", 'employer');
 
 			try {
 				$results->execute();
