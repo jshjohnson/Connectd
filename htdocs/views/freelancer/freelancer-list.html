@@ -1,6 +1,6 @@
 			<div class='media'>
 				<a href="<?= BASE_URL . "profile.php?usertype=" . $userType . "&id=" . $user['user_id'];?>">
-					<div style="background-image: url('<?= BASE_URL ?>assets/avatars/default_avatar.png');" class="media__img media__img--avatar"></div>
+					<div style="background-image: url('<?= BASE_URL . $user['image_location']; ?>');" class="media__img media__img--avatar"></div>
 				</a>
 				<div class='media__body'>
 					<div class='float-left user-info'>

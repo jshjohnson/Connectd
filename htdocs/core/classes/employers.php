@@ -181,7 +181,7 @@
 		public function getEmployersAll() {
 			
 			$results = $this->db->prepare("
-				SELECT u.user_id, u.firstname, u.lastname, e.employer_id, e.employer_name, ut.*, et.*
+				SELECT u.user_id, u.firstname, u.lastname, u.image_location, e.employer_id, e.employer_name, ut.*, et.*
 				FROM (((" . DB_NAME . ".users AS u
 				LEFT JOIN " . DB_NAME . ".employers AS e
 				ON u.user_id = e.employer_id)
