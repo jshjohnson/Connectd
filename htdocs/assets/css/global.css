@@ -3676,7 +3676,7 @@ img.media__img {
 @media screen and (max-width: 30em) {
   /* line 82, ../scss/core/modules/_user-module.scss */
   .user-module--trial-user {
-    max-width: 70%;
+    max-width: 85%;
     margin: auto;
   }
 }
