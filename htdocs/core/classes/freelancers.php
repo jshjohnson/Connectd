@@ -244,7 +244,7 @@
 		public function getFreelancersSingle($id, $userType) {
 
 			$results = $this->db->prepare("
-				SELECT u.user_id, u.firstname, u.lastname, u.email, u.bio, u.portfolio, u.location, u.time_joined, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
+				SELECT u.user_id, u.firstname, u.lastname, u.email, u.bio, u.portfolio, u.location, u.time_joined, u.image_location, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
 				FROM ((" . DB_NAME . ".users AS u
 				LEFT JOIN " . DB_NAME . ".freelancers AS f
 				ON u.user_id = f.freelancer_id)

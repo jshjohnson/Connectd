@@ -157,7 +157,7 @@
 		 */ 
 		public function userData($id) {
 			$query = $this->db->prepare("
-				SELECT users.user_id, users.firstname, users.lastname, users.email, users.password, users.bio, user_types.*
+				SELECT users.user_id, users.firstname, users.lastname, users.email, users.password, users.bio, users.image_location, user_types.*
 				FROM " . DB_NAME . ".users 
 				JOIN " . DB_NAME . ".user_types 
 				ON users.user_id = user_types.user_type_id
@@ -335,23 +335,21 @@
 			}
 		}
 
-		public function updateUser($firstName, $lastName, $bio, $imageLocation, $id){
+		public function updateUser($firstName, $lastName, $bio, $imageLocation, $user_id){
  
 			$query = $this->db->prepare("UPDATE `users` SET
 									`firstname`= ?,
 									`lastname` = ?,
-									`gender` = ?,
 									`bio` = ?,
 									`image_location`= ?	
-									WHERE `id` 		= ? 
+									WHERE `user_id` 		= ? 
 									");
 		 
 			$query->bindValue(1, $firstName);
 			$query->bindValue(2, $lastName);
-			$query->bindValue(3, $gender);
-			$query->bindValue(4, $bio);
-			$query->bindValue(5, $imageLocation);
-			$query->bindValue(6, $id);
+			$query->bindValue(3, $bio);
+			$query->bindValue(4, $imageLocation);
+			$query->bindValue(5, $user_id);
 			
 			try{
 				$query->execute();

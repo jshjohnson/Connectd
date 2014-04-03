@@ -26,52 +26,105 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
-				<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true)  { ?>
-		        <p class="message message--success fadeIn">Thank you, we've activated your account. You're free to log in!</p>
-		        <?php }; ?>
-				<form action="" autocomplete="off">
-					<div class="grid">
-						<fieldset>
-							<div class="grid__cell unit-1-4--bp2">
-								<label for="firstname">Avatar</label>
-							</div>
-							<div class="grid__cell unit-3-4--bp2">
-							<input type="file" name="file" id="file">
-							</div>
-						</fieldset>
+		<?php
+		    if (isset($_GET['success']) && empty($_GET['success'])) {
+		        echo '<p class="message message--success fadeIn">Your details have been updated!</p>';	        
+		    } else {
+ 
+	            if(empty($_POST) === false) {		
+				
+					if (isset($_POST['firstname']) && !empty ($_POST['firstname'])){ // We only allow names with alphabets
+						if (ctype_alpha($_POST['firstname']) === false) {
+							$errors[] = 'Please enter your first fame with only letters!';
+						}	
+					} else {
+						$errors[] = 'Please enter your first name';
+					}
 
-						<fieldset>
-							<div class="grid__cell unit-1-4--bp2">
-								<label for="firstname">First name</label>
-							</div>
-							<div class="grid__cell unit-3-4--bp2">
-								<input type="text" name="firstname" placeholder="First name" value="<?= $user['firstname'] ?>" autofocus>
-							</div>
-						</fieldset>
+					if (isset($_POST['lastname']) && !empty ($_POST['lastname'])){
+						if (ctype_alpha($_POST['lastname']) === false) {
+						$errors[] = 'Please enter your last name with only letters!';
+						}	
+					} else {
+						$errors[] = 'Please enter your last name';
+					}
 
-						<fieldset>
-							<div class="grid__cell unit-1-4--bp2">
-								<label for="firstname">Last name</label>
-							</div>
-							<div class="grid__cell unit-3-4--bp2">
-								<input type="text" name="lastname" placeholder="Last name" value="<?= $user['lastname'] ?>" autofocus>
-							</div>
-						</fieldset>
-
-						<fieldset>
-							<div class="grid__cell unit-1-4--bp2">
-								<label for="firstname">Bio</label>
-							</div>
-							<div class="grid__cell unit-3-4--bp2">
-								<textarea name="bio" cols="30" rows="8" placeholder="A little about you..."><?= $user['bio'] ?></textarea>
-							</div>
-						</fieldset>
-
-						<div class="btn-container">
-			            	<input class="btn--green" name="submit" type="submit" value='Update profile'>				
-						</div>
+					if (empty($_POST['bio'])){
+						$errors[] = 'Please enter a bio';
+					}
+					
+					if (isset($_FILES['myfile']) && !empty($_FILES['myfile']['name'])) {// check if the user has uploaded a new file
+						
+						$name 			= $_FILES['myfile']['name']; // getting the name of the file
+						$tmp_name 		= $_FILES['myfile']['tmp_name']; // getting the temporary file name.
+						$allowed_ext 	= array('jpg', 'jpeg', 'png', 'gif' );// specifying the allowed extentions
+						$a 				= explode('.', $name);
+						$file_ext 		= strtolower(end($a)); unset($a);// getting the allowed extensions
+						$file_size 		= $_FILES['myfile']['size'];
+						$path 			= "assets/avatars";// the folder in which we store the profile pictures or avatars of the user.
+						
+						if (in_array($file_ext, $allowed_ext) === false) {
+							$errors[] = 'Image file type not allowed';	
+						}
+						
+						if ($file_size > 2097152) {
+							$errors[] = 'File size must be under 2mb';
+						}
+						
+					} else {
+						$newpath = $user['image_location']; // if user did not upload a file, then use the one stored in the database
+					}
+	 
+					if(empty($errors) === true) {
+						
+						if (isset($_FILES['myfile']) && !empty($_FILES['myfile']['name'])) {
+					
+							$newpath = $general->fileNewPath($path, $name);
+	 
+							move_uploaded_file($tmp_name, $newpath);
+	 
+						}
+								
+						$firstName 	= htmlentities(trim($_POST['firstname']));
+						$lastName 		= htmlentities(trim($_POST['lastname']));	
+						$bio 			= htmlentities(trim($_POST['bio']));
+						$imageLocation	= htmlentities(trim($newpath));
+						
+						$users->updateUser($firstName, $lastName, $bio, $imageLocation, $user_id);
+						header('Location: edit-profile.php?success');
+						exit();
+					
+					} else if (empty($errors) === false) {
+						echo '<p class="message message--error shake">' . implode('</p><p>', $errors) . '</p>';	
+					}	
+	            }
+	        }
+    		?>
+            <form action="" method="post" enctype="multipart/form-data">
+                <fieldset>                  
+    				<?php
+                    if(!empty ($user['image_location'])) {
+                        $image = $user['image_location'];
+                        echo "<img src='$image'>";
+                    }
+                    ?>
+                    <label for="myfile" class="float-left">Change Profile Picture</label>
+                    <input type="file" name="myfile" class="float-right field-1-2">
+				</fieldset> 
+            	<div class="field-1-2 float-left">
+                    <label>First name:</label>
+                    <input type="text" name="firstname" value="<?php if (isset($_POST['firstname']) ){echo htmlentities(strip_tags($_POST['firstname']));} else { echo $user['firstname']; }?>">
+				</div>
+				<div class="field-1-2 float-right">
+                    <label>Last name: </label>
+                    <input type="text" name="lastname" value="<?php if (isset($_POST['lastname']) ){echo htmlentities(strip_tags($_POST['lastname']));} else { echo $user['lastname']; }?>">
+				</div>
+                    <label>Bio:</label>
+                    <textarea name="bio"><?php if (isset($_POST['bio']) ){echo htmlentities(strip_tags($_POST['bio']));} else { echo $user['bio']; }?></textarea>
+					<div class="btn-container">
+		            	<input class="btn--green" name="submit" type="submit" value="Update profile">						
 					</div>
-				</form>
+            </form>
 			</div>
 		</div>
 	</section>
