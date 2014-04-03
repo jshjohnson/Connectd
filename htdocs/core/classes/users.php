@@ -211,4 +211,127 @@
 				$general->errorView($general, $e);
 			}
 		}
+
+		public function fetchInfo($what, $field, $value){
+		 
+			$allowed = array('user_id', 'email', 'firstname', 'lastname', 'bio'); // I have only added few, but you can add more. However do not add 'password' even though the parameters will only be given by you and not the user, in our system.
+			if (!in_array($what, $allowed, true) || !in_array($field, $allowed, true)) {
+			    throw new InvalidArgumentException;
+			}else{
+			
+				$query = $this->db->prepare("SELECT $what FROM `users` WHERE $field = ?");
+		 
+				$query->bindValue(1, $value);
+		 
+				try{
+		 
+					$query->execute();
+					
+				}catch(PDOException $e) {
+					$general = new General($db);
+					$general->errorView($general, $e);
+				}
+		 
+				return $query->fetchColumn();
+			}
+		}
+		 
+		 
+		public function confirmRecover($email){
+
+			global $general;
+		 
+			$firstName= $this->fetchInfo('firstname', 'email', $email);// We want the 'username' WHERE 'email' = user's email ($email)
+		 
+			$unique = uniqid('',true); // generate a unique string
+			$random = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'),0, 10); // generate a more random string
+			
+			$generated_string = $unique . $random; // a random and unique string
+		 
+			$query = $this->db->prepare("UPDATE `users` SET `generated_string` = ? WHERE `email` = ?");
+		 
+			$query->bindValue(1, $generated_string);
+			$query->bindValue(2, $email);
+		 
+			try{
+				
+				$query->execute();
+
+				$general->sendRecoverPasswordEmail($email, $firstName, $generated_string);
+		 				
+			} catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
+			}
+		}
+
+		public function recover($email, $generated_string) {
+
+			global $general;
+		 
+			if($generated_string == 0){
+				return false;
+			}else{
+		 
+				$query = $this->db->prepare("SELECT COUNT(`user_id`) FROM `users` WHERE `email` = ? AND `generated_string` = ?");
+		 
+				$query->bindValue(1, $email);
+				$query->bindValue(2, $generated_string);
+		 
+				try{
+		 
+					$query->execute();
+					$rows = $query->fetchColumn();
+		 
+					if($rows == 1){ // if we find email/generated_string combo
+						
+						global $bcrypt;
+		 
+						$firstName = $this->fetchInfo('firstname', 'email', $email); // getting username for the use in the email.
+						$user_id  = $this->fetchInfo('user_id', 'email', $email);// We want to keep things standard and use the user's id for most of the operations. Therefore, we use id instead of email.
+				
+						$charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+						$generated_password = substr(str_shuffle($charset),0, 10);
+		 
+						$this->changePassword($user_id, $generated_password); // change the password.
+		 
+						$query = $this->db->prepare("UPDATE `users` SET `generated_string` = 0 WHERE `user_id` = ?");// set generated_string back to 0
+		 
+						$query->bindValue(1, $user_id);
+		 
+						$query->execute();
+
+		 				$general->sendNewPasswordEmail($email, $firstName, $generated_password);
+
+					}else{
+						return false;
+					}
+		 
+				} catch(PDOException $e) {
+					$general = new General($db);
+					$general->errorView($general, $e);
+				}
+			}
+		}
+		 
+		public function changePassword($user_id, $password) {
+		 
+			global $bcrypt;
+		 
+			/* Two create a Hash you do */
+			$password_hash = $bcrypt->genHash($password);
+		 
+			$query = $this->db->prepare("UPDATE `users` SET `password` = ? WHERE `user_id` = ?");
+		 
+			$query->bindValue(1, $password_hash);
+			$query->bindValue(2, $user_id);				
+		 
+			try{
+				$query->execute();
+				return true;
+			} catch(PDOException $e) {
+				$general = new General($db);
+				$general->errorView($general, $e);
+			}
+		}
 	}

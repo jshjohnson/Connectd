@@ -12,7 +12,7 @@
 		}
 
 		$job_id = intval($_GET["id"]);
-		$job = $jobs->get_jobs_single($job_id);
+		$job = $jobs->getJobsSingle($job_id);
 
 		if($job) {
 			$pageTitle  = $job['job_name'] . ' :: ' . $job['employer_name'];
