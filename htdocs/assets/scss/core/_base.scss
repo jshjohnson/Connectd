@@ -45,6 +45,7 @@ input[type=file] { width: auto; border: 0; padding: 0; }
 	position: relative;
 	padding: 0 0 0 1.55em;
 	width: 50%;
+	line-height: 1.1;
 	display: inline-block;
 	margin: 0 0 1em;
 	@include box-sizing(border-box);
@@ -55,10 +56,25 @@ input[type=file] { width: auto; border: 0; padding: 0; }
 		margin-top: 0;
 	}
 	
-	input {
+	input[type="checkbox"] {
+		width: 1.5em;
+		height: 1.5em;
+		border: 1px solid #eee;
+		border-radius: 0;
+		background-color: transparent;
+		@include appearance(none);
 		position: absolute;
 		left: 0;
-		top: .4em;
+		font-size: .8em;
+		margin: 0;
+		padding: 0;
+		cursor: pointer;
+		&:checked {
+			background-image: url("../img/tick.svg");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 1em;
+		}
 	}	
 }
 form ul, form ol { list-style: none; margin-left: 0; margin-bottom: 1em; }

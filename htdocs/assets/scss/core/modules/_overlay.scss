@@ -22,6 +22,8 @@
 	input:not([type=submit]), textarea {
 		background-color: $color-background-light;
 		font-size: .8em;
+	}
+	input:not([type=submit]):not([type=checkbox]), textarea {
 		padding: 1em;
 		margin-top: 0;
 	}

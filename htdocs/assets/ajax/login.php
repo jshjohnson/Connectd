@@ -10,13 +10,8 @@
 			<input type="email" name="email" placeholder="Email" value="<?= $_COOKIE['remember_me']; ?>" autofocus>
 			<input type='password' name='password' placeholder="Password">
 			<fieldset class="checkbox float-left">
-				<label>
-					<input type="checkbox" value="1" name="remember" 
-					<?php 
-						$rememberMe = array_key_exists('remember_me', $_COOKIE);
-						if($rememberMe) { echo 'checked="checked"'; }?>>
-					Remember me
-				</label>
+				<label>Remember me</label>
+				<input type="checkbox" value="1" name="remember" <?php $rememberMe = array_key_exists('remember_me', $_COOKIE); if($rememberMe) { echo 'checked="checked"'; }?>>					
 	        </fieldset>
 	       	<a class="forgot float-right" href="<?= BASE_URL; ?>confirm-recover.php">Forgot password?</a>
 			<div class="btn-container clear">
