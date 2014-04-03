@@ -99,7 +99,7 @@ img.media__img {
 	width: 3em;
 	height: 3em;
 	border-radius: 10em;
-	background-size: 100%;
+	@include background-size(cover);
 	background-repeat: no-repeat;
 	vertical-align: middle;
 	background-position: center center;
@@ -399,7 +399,7 @@ img.media__img {
 	width: 1.5em;
 	height: 1.5em;
 	border-radius: 10em;
-	background-size: 100%;
+	@include background-size(cover);
 	background-repeat: no-repeat;
 	vertical-align: middle;
 	background-position: center center;

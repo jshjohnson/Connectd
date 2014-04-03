@@ -1871,7 +1871,10 @@ img.media__img {
   width: 3em;
   height: 3em;
   border-radius: 10em;
-  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
   vertical-align: middle;
   background-position: center center;
@@ -2248,7 +2251,10 @@ img.media__img {
   width: 1.5em;
   height: 1.5em;
   border-radius: 10em;
-  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
   vertical-align: middle;
   background-position: center center;
@@ -3416,8 +3422,12 @@ img.media__img {
   -o-background-size: cover;
   background-size: cover;
 }
+/* line 37, ../scss/core/modules/_content-page.scss */
+.content-overlay input[type=checkbox] {
+  background: white;
+}
 
-/* line 41, ../scss/core/modules/_content-page.scss */
+/* line 44, ../scss/core/modules/_content-page.scss */
 .content-overlay > *:last-child,
 .content-overlay > *:last-child > *:last-child,
 .content-overlay > *:last-child > *:last-child > *:last-child {
