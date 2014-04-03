@@ -135,6 +135,7 @@
 			header('Location: login.php?status=logged');
 	    }
 
+
 		public function sendConfirmationEmail($firstName, $email, $emailCode) {
 		
 			global $mail;
@@ -142,20 +143,20 @@
 			$to = $email;
 
 			try {
-				$mail->IsSMTP(); // telling the class to use SMTP
-				$mail->Username           = "hello@connectd.io";  // SMTP username
-				$mail->Password           = "kerching27"; // SMTP password
-				$mail->SMTPAuth           = true;               // enable SMTP authentication
+				$mail->IsSMTP(); 
+				$mail->Username           = "hello@connectd.io";
+				$mail->Password           = "kerching27"; 
+				$mail->SMTPAuth           = true;            
 				$mail->SMTPSecure         = "tls"; 
-				$mail->Host               = "smtp.gmail.com";  // sets GMAIL as the SMTP server
+				$mail->Host               = "smtp.gmail.com";  
 				$mail->Port               = 587; 
-				$mail->addAddress($to);  // Add a recipient
+				$mail->addAddress($to);  
 
 				$mail->From               = 'hello@connectd.io';
 				$mail->FromName           = 'Connectd.io';
 				$mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
-				// Set word wrap to 50 characters
-				$mail->isHTML(true); // Set email format to HTML
+				
+				$mail->isHTML(true); 
 
 				$mail->Subject            = 'Activate your new Connectd account';
 
@@ -185,20 +186,20 @@
 			$to = $email;
 
 			try {
-				$mail->IsSMTP(); // telling the class to use SMTP
-				$mail->Username           = "hello@connectd.io";  // SMTP username
-				$mail->Password           = "kerching27"; // SMTP password
-				$mail->SMTPAuth           = true;               // enable SMTP authentication
+				$mail->IsSMTP(); 
+				$mail->Username           = "hello@connectd.io";
+				$mail->Password           = "kerching27";
+				$mail->SMTPAuth           = true; 
 				$mail->SMTPSecure         = "tls"; 
-				$mail->Host               = "smtp.gmail.com";  // sets GMAIL as the SMTP server
+				$mail->Host               = "smtp.gmail.com";
 				$mail->Port               = 587; 
-				$mail->addAddress($to);  // Add a recipient
+				$mail->addAddress($to);
 
 				$mail->From               = 'hello@connectd.io';
 				$mail->FromName           = 'Connectd.io';
-				$mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
-				// Set word wrap to 50 characters
-				$mail->isHTML(true); // Set email format to HTML
+				$mail->AddReplyTo('hello@connectd.io', 'Contact Connectd.io');
+		
+				$mail->isHTML(true); 
 
 				$mail->Subject            = 'You just got a vote on Connectd Trials!';
 
@@ -227,20 +228,20 @@
 			$to = $email;
 
 			try {
-				$mail->IsSMTP(); // telling the class to use SMTP
-				$mail->Username           = "hello@connectd.io";  // SMTP username
-				$mail->Password           = "kerching27"; // SMTP password
-				$mail->SMTPAuth           = true;               // enable SMTP authentication
+				$mail->IsSMTP(); 
+				$mail->Username           = "hello@connectd.io"; 
+				$mail->Password           = "kerching27"; 
+				$mail->SMTPAuth           = true;            
 				$mail->SMTPSecure         = "tls"; 
-				$mail->Host               = "smtp.gmail.com";  // sets GMAIL as the SMTP server
+				$mail->Host               = "smtp.gmail.com";  
 				$mail->Port               = 587; 
-				$mail->addAddress($to);  // Add a recipient
+				$mail->addAddress($to);  
 
 				$mail->From               = 'hello@connectd.io';
 				$mail->FromName           = 'Connectd.io';
 				$mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
-				// Set word wrap to 50 characters
-				$mail->isHTML(true); // Set email format to HTML
+				
+				$mail->isHTML(true); 
 
 				$mail->Subject            = 'You just got a message via Connectd!';
 
@@ -270,20 +271,20 @@
 			$to = $email;
 
 			try {
-				$mail->IsSMTP(); // telling the class to use SMTP
-				$mail->Username           = "hello@connectd.io";  // SMTP username
-				$mail->Password           = "kerching27"; // SMTP password
-				$mail->SMTPAuth           = true;               // enable SMTP authentication
+				$mail->IsSMTP(); 
+				$mail->Username           = "hello@connectd.io"; 
+				$mail->Password           = "kerching27"; 
+				$mail->SMTPAuth           = true;            
 				$mail->SMTPSecure         = "tls"; 
-				$mail->Host               = "smtp.gmail.com";  // sets GMAIL as the SMTP server
+				$mail->Host               = "smtp.gmail.com";  
 				$mail->Port               = 587; 
-				$mail->addAddress($to);  // Add a recipient
+				$mail->addAddress($to);  
 
 				$mail->From               = 'hello@connectd.io';
 				$mail->FromName           = 'Connectd.io';
 				$mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
-				// Set word wrap to 50 characters
-				$mail->isHTML(true); // Set email format to HTML
+				
+				$mail->isHTML(true); 
 
 				$mail->Subject            = 'Recover password -  Connectd.io';
 
@@ -313,20 +314,20 @@
 			$to = $email;
 
 			try {
-				$mail->IsSMTP(); // telling the class to use SMTP
-				$mail->Username           = "hello@connectd.io";  // SMTP username
-				$mail->Password           = "kerching27"; // SMTP password
-				$mail->SMTPAuth           = true;               // enable SMTP authentication
+				$mail->IsSMTP(); 
+				$mail->Username           = "hello@connectd.io"; 
+				$mail->Password           = "kerching27"; 
+				$mail->SMTPAuth           = true;            
 				$mail->SMTPSecure         = "tls"; 
-				$mail->Host               = "smtp.gmail.com";  // sets GMAIL as the SMTP server
+				$mail->Host               = "smtp.gmail.com";  
 				$mail->Port               = 587; 
-				$mail->addAddress($to);  // Add a recipient
+				$mail->addAddress($to);  
 
 				$mail->From               = 'hello@connectd.io';
 				$mail->FromName           = 'Connectd.io';
 				$mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
-				// Set word wrap to 50 characters
-				$mail->isHTML(true); // Set email format to HTML
+				
+				$mail->isHTML(true); 
 
 				$mail->Subject            = 'Recover password -  Connectd.io';
 
