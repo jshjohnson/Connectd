@@ -2,7 +2,7 @@
 		<section class="call-to-action call-to-action--top">
 			<div class="container">
 				<h4 class="as-h1 call-to-action__title zero-top">
-					Welcome <?= $user[0]; ?>!
+					Welcome <?= $user['firstname']; ?>!
 				</h4>
 				<a class="btn btn--red" href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>">Build your profile</a>
 			</div>
@@ -55,7 +55,6 @@
 						<?php if (!empty($employers) && is_array($employers)) : ?>
 
 						<?php foreach($employers as $employer_id => $user) {
-							$userType = "employer";
 							include('../views/employer/employer-list.html');
 						} ?>
 

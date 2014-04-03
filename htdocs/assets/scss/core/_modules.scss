@@ -491,15 +491,6 @@ img.media__img {
 	max-width: 18.5em;
 }
 
-.section--mission {
-	background-image: url('../img/bg.jpg');
-	@include background-size(cover);
-	background-attachment: fixed;
-	background-position: top center;
-	@include respond-max($bp2) {
-		background-attachment: scroll;
-	}
-}
 
 .iphone-img {
 	margin-top: -10em;

@@ -2581,71 +2581,54 @@ img.media__img {
   max-width: 18.5em;
 }
 
-/* line 494, ../scss/core/_modules.scss */
-.section--mission {
-  background-image: url("../img/bg.jpg");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: top center;
-}
-@media screen and (max-width: 49em) {
-  /* line 494, ../scss/core/_modules.scss */
-  .section--mission {
-    background-attachment: scroll;
-  }
-}
-
-/* line 504, ../scss/core/_modules.scss */
+/* line 495, ../scss/core/_modules.scss */
 .iphone-img {
   margin-top: -10em;
   margin-bottom: -3.5em;
 }
 @media screen and (max-width: 74em) {
-  /* line 504, ../scss/core/_modules.scss */
+  /* line 495, ../scss/core/_modules.scss */
   .iphone-img {
     margin-top: 1em;
   }
 }
 @media screen and (max-width: 62em) {
-  /* line 504, ../scss/core/_modules.scss */
+  /* line 495, ../scss/core/_modules.scss */
   .iphone-img {
     margin-top: -6em;
   }
 }
 @media screen and (max-width: 49em) {
-  /* line 504, ../scss/core/_modules.scss */
+  /* line 495, ../scss/core/_modules.scss */
   .iphone-img {
     margin-top: 0;
   }
 }
 
-/* line 518, ../scss/core/_modules.scss */
+/* line 509, ../scss/core/_modules.scss */
 .blur {
   -webkit-filter: blur(2px);
   filter: blur(2px);
 }
 
-/* line 523, ../scss/core/_modules.scss */
+/* line 514, ../scss/core/_modules.scss */
 .forgot {
   font-size: .8em;
 }
 
-/* line 527, ../scss/core/_modules.scss */
+/* line 518, ../scss/core/_modules.scss */
 .intro-quote {
   font-family: "Georgia", serif;
   font-size: 2em;
   margin: .5em 0;
 }
-/* line 531, ../scss/core/_modules.scss */
+/* line 522, ../scss/core/_modules.scss */
 .intro-quote .source {
   font-family: "Georgia", serif;
   font-size: .6em;
 }
 @media screen and (max-width: 35em) {
-  /* line 527, ../scss/core/_modules.scss */
+  /* line 518, ../scss/core/_modules.scss */
   .intro-quote {
     margin: 0;
     font-size: 1.5em;
@@ -2654,7 +2637,7 @@ img.media__img {
 
 /* Portfolio
 ----------------------------------*/
-/* line 541, ../scss/core/_modules.scss */
+/* line 532, ../scss/core/_modules.scss */
 .portfolio__headings-bg {
   background-color: #f0eded;
   font-size: .8em;
@@ -2666,12 +2649,12 @@ img.media__img {
   margin-top: 0;
 }
 
-/* line 553, ../scss/core/_modules.scss */
+/* line 544, ../scss/core/_modules.scss */
 .portfolio__headings {
   margin: 0;
   position: relative;
 }
-/* line 556, ../scss/core/_modules.scss */
+/* line 547, ../scss/core/_modules.scss */
 .portfolio__headings li {
   display: inline-block;
   *display: inline;
@@ -2680,12 +2663,12 @@ img.media__img {
   position: relative;
   padding: .5em 1.4em .4em;
 }
-/* line 563, ../scss/core/_modules.scss */
+/* line 554, ../scss/core/_modules.scss */
 .portfolio__headings li.portfolio__headings--label {
   padding-right: 0;
 }
 @media screen and (max-width: 30em) {
-  /* line 563, ../scss/core/_modules.scss */
+  /* line 554, ../scss/core/_modules.scss */
   .portfolio__headings li.portfolio__headings--label {
     text-align: center;
     width: 100%;
@@ -2694,19 +2677,19 @@ img.media__img {
     box-sizing: border-box;
   }
 }
-/* line 574, ../scss/core/_modules.scss */
+/* line 565, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 577, ../scss/core/_modules.scss */
+/* line 568, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   color: white;
 }
-/* line 579, ../scss/core/_modules.scss */
+/* line 570, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 582, ../scss/core/_modules.scss */
+/* line 573, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -2720,47 +2703,47 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 600, ../scss/core/_modules.scss */
+/* line 591, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   color: white;
 }
 
-/* line 606, ../scss/core/_modules.scss */
+/* line 597, ../scss/core/_modules.scss */
 .active--blue {
   background-color: #6dbcdb;
 }
-/* line 608, ../scss/core/_modules.scss */
+/* line 599, ../scss/core/_modules.scss */
 .active--blue:after {
   border-top: 0.75em solid #6dbcdb;
 }
 
-/* line 612, ../scss/core/_modules.scss */
+/* line 603, ../scss/core/_modules.scss */
 .active--green {
   background-color: #77c462;
 }
-/* line 614, ../scss/core/_modules.scss */
+/* line 605, ../scss/core/_modules.scss */
 .active--green:after {
   border-top: 0.75em solid #77c462;
 }
 
-/* line 618, ../scss/core/_modules.scss */
+/* line 609, ../scss/core/_modules.scss */
 .active--navy {
   background-color: #2c3e50;
 }
-/* line 620, ../scss/core/_modules.scss */
+/* line 611, ../scss/core/_modules.scss */
 .active--navy:after {
   border-top: 0.75em solid #2c3e50;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 628, ../scss/core/_modules.scss */
+/* line 619, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
   margin-bottom: 2.5em;
   flex: 1;
 }
-/* line 632, ../scss/core/_modules.scss */
+/* line 623, ../scss/core/_modules.scss */
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
@@ -2768,57 +2751,57 @@ img.media__img {
   font-style: italic;
   font-weight: 400;
 }
-/* line 639, ../scss/core/_modules.scss */
+/* line 630, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 644, ../scss/core/_modules.scss */
+/* line 635, ../scss/core/_modules.scss */
 .call-to-action--top {
   margin-bottom: 2.5em;
 }
 @media screen and (max-width: 30em) {
-  /* line 644, ../scss/core/_modules.scss */
+  /* line 635, ../scss/core/_modules.scss */
   .call-to-action--top {
     margin-top: .5em;
   }
 }
 
-/* line 652, ../scss/core/_modules.scss */
+/* line 643, ../scss/core/_modules.scss */
 .user-info {
   width: 70%;
 }
 
-/* line 656, ../scss/core/_modules.scss */
+/* line 647, ../scss/core/_modules.scss */
 .user-info__link {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 3px, rgba(0, 0, 0, 0) 3px);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  /* line 656, ../scss/core/_modules.scss */
+  /* line 647, ../scss/core/_modules.scss */
   .user-info__link {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);
   }
 }
 
-/* line 660, ../scss/core/_modules.scss */
+/* line 651, ../scss/core/_modules.scss */
 .text-right, .text-left {
   margin-top: 1.4em;
   margin-bottom: 0;
   font-size: 1em;
   position: fixed;
 }
-/* line 665, ../scss/core/_modules.scss */
+/* line 656, ../scss/core/_modules.scss */
 .text-right a, .text-left a {
   color: white;
 }
 @media screen and (max-width: 30em) {
-  /* line 660, ../scss/core/_modules.scss */
+  /* line 651, ../scss/core/_modules.scss */
   .text-right, .text-left {
     margin-top: 1em;
   }
 }
 
-/* line 673, ../scss/core/_modules.scss */
+/* line 664, ../scss/core/_modules.scss */
 .text-right {
   text-align: right;
   right: 2.5em;
@@ -2826,14 +2809,14 @@ img.media__img {
   top: 0;
 }
 @media screen and (max-width: 30em) {
-  /* line 673, ../scss/core/_modules.scss */
+  /* line 664, ../scss/core/_modules.scss */
   .text-right {
     margin-top: 1em;
     right: 1em;
   }
 }
 
-/* line 684, ../scss/core/_modules.scss */
+/* line 675, ../scss/core/_modules.scss */
 .text-left {
   text-align: left;
   left: 2.5em;
@@ -2841,7 +2824,7 @@ img.media__img {
   top: 0;
 }
 @media screen and (max-width: 30em) {
-  /* line 684, ../scss/core/_modules.scss */
+  /* line 675, ../scss/core/_modules.scss */
   .text-left {
     margin-top: 1em;
     left: 1em;
@@ -11166,107 +11149,112 @@ img.media__img {
 /* Helper classes
 ----------------------------------*/
 /* line 4, ../scss/core/_overrides.scss */
+.push {
+  margin: 2em;
+}
+
+/* line 5, ../scss/core/_overrides.scss */
 .push-top {
   margin-top: 2em;
 }
 
-/* line 5, ../scss/core/_overrides.scss */
+/* line 6, ../scss/core/_overrides.scss */
 .push-bottom {
   margin-bottom: 2em;
 }
 
-/* line 7, ../scss/core/_overrides.scss */
+/* line 8, ../scss/core/_overrides.scss */
 .zero-top {
   margin-top: 0 !important;
 }
 
-/* line 8, ../scss/core/_overrides.scss */
+/* line 9, ../scss/core/_overrides.scss */
 .zero-bottom {
   margin-bottom: 0 !important;
 }
 
 @media screen and (min-width: 49em) {
-  /* line 10, ../scss/core/_overrides.scss */
+  /* line 11, ../scss/core/_overrides.scss */
   .input--top {
     margin-top: 0 !important;
   }
 }
 
-/* line 16, ../scss/core/_overrides.scss */
+/* line 17, ../scss/core/_overrides.scss */
 .weight-light {
   font-weight: 300 !important;
 }
 
-/* line 17, ../scss/core/_overrides.scss */
+/* line 18, ../scss/core/_overrides.scss */
 .weight-normal {
   font-weight: 400 !important;
 }
 
-/* line 18, ../scss/core/_overrides.scss */
+/* line 19, ../scss/core/_overrides.scss */
 .weight-semibold {
   font-weight: 600 !important;
 }
 
-/* line 20, ../scss/core/_overrides.scss */
+/* line 21, ../scss/core/_overrides.scss */
 .list-inline li {
   display: inline;
   padding-left: 1em;
 }
-/* line 20, ../scss/core/_overrides.scss */
+/* line 21, ../scss/core/_overrides.scss */
 .list-inline li:first-child {
   padding-left: 0;
 }
 
-/* line 21, ../scss/core/_overrides.scss */
+/* line 22, ../scss/core/_overrides.scss */
 .list-unset, .nav {
   list-style: none !important;
   margin-left: 0 !important;
 }
 
-/* line 22, ../scss/core/_overrides.scss */
+/* line 23, ../scss/core/_overrides.scss */
 .list-numbers {
   list-style: decimal !important;
 }
 
-/* line 23, ../scss/core/_overrides.scss */
+/* line 24, ../scss/core/_overrides.scss */
 .list-bullets {
   list-style: disc !important;
 }
 
-/* line 25, ../scss/core/_overrides.scss */
+/* line 26, ../scss/core/_overrides.scss */
 .block {
   display: block;
 }
 
-/* line 26, ../scss/core/_overrides.scss */
+/* line 27, ../scss/core/_overrides.scss */
 .inline-block {
   display: inline-block;
   zoom: 1;
 }
 
-/* line 28, ../scss/core/_overrides.scss */
+/* line 29, ../scss/core/_overrides.scss */
 .float-right {
   float: right;
   clear: right;
 }
 
-/* line 29, ../scss/core/_overrides.scss */
+/* line 30, ../scss/core/_overrides.scss */
 .float-left {
   float: left;
   clear: left;
 }
 
-/* line 31, ../scss/core/_overrides.scss */
+/* line 32, ../scss/core/_overrides.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 35, ../scss/core/_overrides.scss */
+/* line 36, ../scss/core/_overrides.scss */
 .clear {
   clear: both;
 }
 
-/* line 39, ../scss/core/_overrides.scss */
+/* line 40, ../scss/core/_overrides.scss */
 .cover {
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -11275,44 +11263,44 @@ img.media__img {
 }
 
 /* Theme Classes */
-/* line 45, ../scss/core/_overrides.scss */
+/* line 46, ../scss/core/_overrides.scss */
 .brand-text {
   color: #2c3e50;
 }
 
-/* line 48, ../scss/core/_overrides.scss */
+/* line 49, ../scss/core/_overrides.scss */
 .brand-bg {
   background-color: #2c3e50;
 }
 
 /* Micro Clearfix - http://goo.gl/5Fvrh */
-/* line 53, ../scss/core/_overrides.scss */
+/* line 54, ../scss/core/_overrides.scss */
 .cf, .media, .nav {
   zoom: 1;
 }
-/* line 56, ../scss/core/_overrides.scss */
+/* line 57, ../scss/core/_overrides.scss */
 .cf:before, .media:before, .nav:before, .cf:after, .media:after, .nav:after {
   content: "";
   display: table;
 }
-/* line 57, ../scss/core/_overrides.scss */
+/* line 58, ../scss/core/_overrides.scss */
 .cf:after, .media:after, .nav:after {
   clear: both;
 }
 
 /* Specific text styles
 ----------------------------------*/
-/* line 62, ../scss/core/_overrides.scss */
+/* line 63, ../scss/core/_overrides.scss */
 .required {
   border: 1px solid #fc4349 !important;
 }
 
-/* line 63, ../scss/core/_overrides.scss */
+/* line 64, ../scss/core/_overrides.scss */
 .intro {
   font-size: 1.25em;
 }
 
-/* line 64, ../scss/core/_overrides.scss */
+/* line 65, ../scss/core/_overrides.scss */
 .headline {
   border-bottom: 1px solid #cccccc;
   padding-bottom: .45em;
@@ -11320,7 +11308,7 @@ img.media__img {
 
 /* Style trumps (error states etc.)
 ----------------------------------*/
-/* line 70, ../scss/core/_overrides.scss */
+/* line 71, ../scss/core/_overrides.scss */
 .alert {
   width: 100%;
   position: fixed;
@@ -11328,7 +11316,7 @@ img.media__img {
   top: 0;
   text-align: center;
 }
-/* line 76, ../scss/core/_overrides.scss */
+/* line 77, ../scss/core/_overrides.scss */
 .alert .alert-success__title {
   margin: 0;
   color: white;
@@ -11337,18 +11325,18 @@ img.media__img {
   line-height: 2;
 }
 
-/* line 85, ../scss/core/_overrides.scss */
+/* line 86, ../scss/core/_overrides.scss */
 .alert-success {
   background-color: #fc4349;
 }
 
-/* line 89, ../scss/core/_overrides.scss */
+/* line 90, ../scss/core/_overrides.scss */
 .is-hidden {
   display: none;
   visibility: hidden;
 }
 
-/* line 90, ../scss/core/_overrides.scss */
+/* line 91, ../scss/core/_overrides.scss */
 .is-vhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -11360,27 +11348,27 @@ img.media__img {
   width: 1px;
 }
 
-/* line 100, ../scss/core/_overrides.scss */
+/* line 101, ../scss/core/_overrides.scss */
 .warning {
   color: #900;
 }
 
-/* line 101, ../scss/core/_overrides.scss */
+/* line 102, ../scss/core/_overrides.scss */
 .info, .portfolio__headings li.portfolio__headings--label {
   color: #7f7e7e;
 }
 
-/* line 102, ../scss/core/_overrides.scss */
+/* line 103, ../scss/core/_overrides.scss */
 .alert {
   color: #009;
 }
 
-/* line 103, ../scss/core/_overrides.scss */
+/* line 104, ../scss/core/_overrides.scss */
 .help {
   color: #7f7e7e;
 }
 
-/* line 105, ../scss/core/_overrides.scss */
+/* line 106, ../scss/core/_overrides.scss */
 .message {
   color: white;
   padding: .5em 1em;
@@ -11389,7 +11377,7 @@ img.media__img {
   position: relative;
   clear: both;
 }
-/* line 112, ../scss/core/_overrides.scss */
+/* line 113, ../scss/core/_overrides.scss */
 .message:after {
   content: "";
   width: 0;
@@ -11400,20 +11388,20 @@ img.media__img {
   left: 1.5em;
   top: 100%;
 }
-/* line 122, ../scss/core/_overrides.scss */
+/* line 123, ../scss/core/_overrides.scss */
 .message a {
   color: white;
   font-weight: bolder;
 }
 
-/* line 128, ../scss/core/_overrides.scss */
+/* line 129, ../scss/core/_overrides.scss */
 .message-flipped {
   color: white;
   padding: .5em 1em;
   font-size: .9em;
   position: relative;
 }
-/* line 133, ../scss/core/_overrides.scss */
+/* line 134, ../scss/core/_overrides.scss */
 .message-flipped:before {
   content: "";
   width: 0;
@@ -11424,62 +11412,62 @@ img.media__img {
   left: 1.5em;
   top: -28%;
 }
-/* line 143, ../scss/core/_overrides.scss */
+/* line 144, ../scss/core/_overrides.scss */
 .message-flipped a {
   color: white;
   font-weight: bolder;
 }
 
-/* line 149, ../scss/core/_overrides.scss */
+/* line 150, ../scss/core/_overrides.scss */
 .message--success {
   background-color: #77c462;
 }
-/* line 151, ../scss/core/_overrides.scss */
+/* line 152, ../scss/core/_overrides.scss */
 .message--success:after {
   border-top: 0.75em solid #77c462;
 }
 
-/* line 156, ../scss/core/_overrides.scss */
+/* line 157, ../scss/core/_overrides.scss */
 .message--error {
   background-color: #fc4349;
 }
-/* line 158, ../scss/core/_overrides.scss */
+/* line 159, ../scss/core/_overrides.scss */
 .message--error:after {
   border-top: 0.75em solid #fc4349;
 }
 
-/* line 163, ../scss/core/_overrides.scss */
+/* line 164, ../scss/core/_overrides.scss */
 .message--hint {
   background-color: #ebe9e9;
   color: #8B8888;
   margin: .5em 0;
 }
-/* line 167, ../scss/core/_overrides.scss */
+/* line 168, ../scss/core/_overrides.scss */
 .message--hint:after {
   border-top: 0.75em solid #ebe9e9;
 }
-/* line 170, ../scss/core/_overrides.scss */
+/* line 171, ../scss/core/_overrides.scss */
 .message--hint:first-child {
   margin: 0 0 .5em;
 }
 
-/* line 175, ../scss/core/_overrides.scss */
+/* line 176, ../scss/core/_overrides.scss */
 .message-flipped--notification {
   background-color: orange;
 }
-/* line 177, ../scss/core/_overrides.scss */
+/* line 178, ../scss/core/_overrides.scss */
 .message-flipped--notification:before {
   border-bottom: 0.75em solid orange;
 }
 
-/* line 182, ../scss/core/_overrides.scss */
+/* line 183, ../scss/core/_overrides.scss */
 input:disabled {
   background-color: #ccc !important;
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
   box-shadow: 0 0.1em 0 #948f8f !important;
 }
-/* line 185, ../scss/core/_overrides.scss */
+/* line 186, ../scss/core/_overrides.scss */
 input:disabled:hover {
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
@@ -11489,7 +11477,7 @@ input:disabled:hover {
 
 /* Debuggin'
 ----------------------------------*/
-/* line 214, ../scss/core/_overrides.scss */
+/* line 215, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -11505,7 +11493,7 @@ body.debug:before {
   content: "Breakpoint 0";
 }
 @media screen and (min-width: 30em) {
-  /* line 217, ../scss/core/_overrides.scss */
+  /* line 218, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;
@@ -11522,7 +11510,7 @@ body.debug:before {
   }
 }
 @media screen and (min-width: 49em) {
-  /* line 220, ../scss/core/_overrides.scss */
+  /* line 221, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;
@@ -11539,7 +11527,7 @@ body.debug:before {
   }
 }
 @media screen and (min-width: 62em) {
-  /* line 223, ../scss/core/_overrides.scss */
+  /* line 224, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;
@@ -11556,7 +11544,7 @@ body.debug:before {
   }
 }
 @media screen and (min-width: 82em) {
-  /* line 226, ../scss/core/_overrides.scss */
+  /* line 227, ../scss/core/_overrides.scss */
   body.debug:before {
     display: inline-block;
     color: #FFF;

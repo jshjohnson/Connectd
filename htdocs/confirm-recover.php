@@ -4,7 +4,7 @@
 
 	$general->errors();
 
-	$pageTitle = "Edit Profile";
+	$pageTitle = "Recover password";
 	$pageType = "Page";
 	$section = "Blue";
 	include_once(ROOT_PATH . "includes/header.inc.php");
@@ -16,7 +16,7 @@
 				<div class="grid text-center">
 					<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
 						<blockquote class="intro-quote text-center">
-							Account Settings
+							Recover Password
 						</blockquote>
 					</div>
 				</div>
@@ -26,40 +26,31 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
-	<?php
-		if (isset($_GET['success']) === true && empty($_GET['success']) === true) {
-			?>	
-			<h3>Thanks, please check your email to confirm your request for a new password.</h3>
-			<?php
-		} else {
-			
-			if (isset($_POST['email']) === true && empty($_POST['email']) === false) {
-				if ($users->emailExists($_POST['email']) === true){
-					$users->confirmRecover($_POST['email']);
- 
-					header('Location:confirm-recover.php?success');
-					exit();
-					
+			<?php if (isset($_GET['success']) === true && empty($_GET['success']) === true) { ?>
+				<p class="message message--success fadeIn">Thanks, please check your email to confirm your request for a new password.</p>
+			<?php 
 				} else {
-					echo 'Sorry, that email doesn\'t exist.';
+			
+					if (isset($_POST['email']) === true && empty($_POST['email']) === false) {
+						if ($users->emailExists($_POST['email']) === true){
+							$users->confirmRecover($_POST['email']);
+		 
+							header('Location:confirm-recover.php?success');
+							exit();
+							
+						} else {
+							echo 'Sorry, that email doesn\'t exist.';
+						}
+					}
 				}
-			}
 			?>
-		    <h2>Recover Username / Password</h2>
-		    <p>Enter your email below so we can confirm your request.</p>
-		    <hr />
- 
-			<form action="" method="post">
-				<ul>
-					<li>
-						<input type="text" required name="email">
-					</li>
-					<li><input type="submit" value="Recover"></li>
-				</ul>
-			</form>
-			<?php	
-		}
-	?>
+				<form method="post" action="" autocomplete="off">
+					<p class="message message--hint">Enter your email below so we can confirm your request.</p>
+					<input type="email" name="email" placeholder="Email">
+					<div class="btn-container clear">
+		            	<input class="btn--green" name="submit" type="submit" value="Recover">					
+					</div>
+		        </form>
 			</div>
 		</div>
 	</section>

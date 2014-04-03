@@ -59,34 +59,15 @@
 			            }
 			        ?>
 						<form method="post" action="" autocomplete="off">
-							<div class="grid">
-								<fieldset>
-									<div class="grid__cell unit-1-3--bp2">
-										<label for="firstname">Current password</label>
-									</div>
-									<div class="grid__cell unit-2-3--bp2">
-										<input type='password' name='current_password' placeholder="• • • • • • • •" value="">
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="grid__cell unit-1-3--bp2">
-										<label for="firstname">New password</label>
-									</div>
-									<div class="grid__cell unit-2-3--bp2">
-										<input type='password' name='new_password' placeholder="• • • • • • • •" value="">
-									</div>
-								</fieldset>
-								<fieldset>
-									<div class="grid__cell unit-1-3--bp2">
-										<label for="firstname">Repeat password</label>
-									</div>
-									<div class="grid__cell unit-2-3--bp2">
-										<input type='password' name='repeat_new_password' placeholder="• • • • • • • •" value="">
-									</div>
-								</fieldset>
-								<div class="btn-container">
-									<input class="btn--left btn--green" name="submit" type="submit" value="Change password">
-								</div>
+							<label for="current_password">Current password</label>
+							<input type='password' name='current_password' placeholder="• • • • • • • •" value="">
+							<hr>
+							<label for="new_password">New password</label>
+							<input type='password' name='new_password' placeholder="• • • • • • • •" value="">
+							<label for="repeat_new_passsword">Repeat password</label>
+							<input type='password' name='repeat_new_password' placeholder="• • • • • • • •" value="">
+							<div class="btn-container">
+								<input class="btn--left btn--green" name="submit" type="submit" value="Change password">
 							</div>
 						</form>
 			    	<?php } ?> 
