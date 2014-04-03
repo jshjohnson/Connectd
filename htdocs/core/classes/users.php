@@ -157,7 +157,7 @@
 		 */ 
 		public function userData($id) {
 			$query = $this->db->prepare("
-				SELECT users.firstname, users.lastname, users.email, users.bio, user_types.*
+				SELECT users.user_id, users.firstname, users.lastname, users.email, users.password, users.bio, user_types.*
 				FROM " . DB_NAME . ".users 
 				JOIN " . DB_NAME . ".user_types 
 				ON users.user_id = user_types.user_type_id
@@ -241,7 +241,7 @@
 
 			global $general;
 		 
-			$firstName= $this->fetchInfo('firstname', 'email', $email);// We want the 'username' WHERE 'email' = user's email ($email)
+			$firstName = $this->fetchInfo('firstname', 'email', $email); // We want the 'username' WHERE 'email' = user's email ($email)
 		 
 			$unique = uniqid('',true); // generate a unique string
 			$random = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'),0, 10); // generate a more random string
@@ -319,11 +319,11 @@
 			global $bcrypt;
 		 
 			/* Two create a Hash you do */
-			$password_hash = $bcrypt->genHash($password);
+			$passwordHash = $bcrypt->genHash($password);
 		 
 			$query = $this->db->prepare("UPDATE `users` SET `password` = ? WHERE `user_id` = ?");
 		 
-			$query->bindValue(1, $password_hash);
+			$query->bindValue(1, $passwordHash);
 			$query->bindValue(2, $user_id);				
 		 
 			try{

@@ -263,7 +263,7 @@
 			}
 	    }
 
-		public function sendRecoverPasswordEmail($email, $username, $generated_string) {
+		public function sendRecoverPasswordEmail($email, $firstName, $generated_string) {
 		
 			global $mail;
 
