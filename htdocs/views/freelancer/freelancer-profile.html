@@ -8,6 +8,19 @@
 		</section>
 		<?php endif; ?>
 		<section class="container">
+			<?php if($id == $user_id) : ?>
+			<section class="call-to-action call-to-action--top">
+				<div class="container">
+					<h4 class="call-to-action__title zero-top">
+						This is your profile. There are many like it but this is yours.
+					</h4>
+					<div class="btn-wrapper push-top">
+						<a class="btn btn--green btn--left" href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>">Share profile</a>
+						<a class="btn btn--red btn--right" href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>">Edit profile</a>
+					</div>
+				</div>
+			</section>
+			<? endif; ?>
 			<div class="grid--no-marg cf">
 			<?php if($userType == "designer") : ?>
 
