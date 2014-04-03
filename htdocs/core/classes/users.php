@@ -334,4 +334,29 @@
 				$general->errorView($general, $e);
 			}
 		}
+
+		public function updateUser($firstName, $lastName, $bio, $imageLocation, $id){
+ 
+			$query = $this->db->prepare("UPDATE `users` SET
+									`firstname`= ?,
+									`lastname` = ?,
+									`gender` = ?,
+									`bio` = ?,
+									`image_location`= ?	
+									WHERE `id` 		= ? 
+									");
+		 
+			$query->bindValue(1, $firstName);
+			$query->bindValue(2, $lastName);
+			$query->bindValue(3, $gender);
+			$query->bindValue(4, $bio);
+			$query->bindValue(5, $imageLocation);
+			$query->bindValue(6, $id);
+			
+			try{
+				$query->execute();
+			}catch(PDOException $e){
+				die($e->getMessage());
+			}	
+		}
 	}
