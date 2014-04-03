@@ -52,7 +52,7 @@
 
 				<div class="header-section header-section--right">
 					<a href="<?= BASE_URL . "developers/" . $developer['user_id']; ?>/">
-						<div style="background-image: url('<?= BASE_URL ?>assets/avatars/default_avatar.png');" class="header-section__avatar"></div>
+						<div style="background-image: url('<?= BASE_URL . $user['image_location']; ?>');" class="header-section__avatar"></div>
 					</a>
 					<h2 class="header-section__title header-section__title--username">
 						<a href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>"><?= $username; ?></a>

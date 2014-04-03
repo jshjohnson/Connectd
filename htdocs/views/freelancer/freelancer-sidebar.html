@@ -15,7 +15,7 @@
 					<?php endif; ?>
 					<div class="user-module__header">
 						<div class="user-module__avatar">
-							<img src="http://placehold.it/400x400" alt="">
+							<img src="<?= BASE_URL . $user['image_location']; ?>" alt="">
 						</div>
 						<?php if($user_id != $user['user_id']) : ?>
 						<div class="btn-wrapper push-top">
