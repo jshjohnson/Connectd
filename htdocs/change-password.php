@@ -58,7 +58,7 @@
 			                echo '<p class="message message--error shake">' . implode('</p><p>', $errors) . '</p>';
 			            }
 			        ?>
-						<form method="post" action="" autocomplete="off">
+						<form action="<?= BASE_URL . "change-password.php"; ?>" method="post" autocomplete="off">
 							<label for="current_password">Current password</label>
 							<input type='password' name='current_password' placeholder="• • • • • • • •" value="">
 							<hr>

@@ -51,7 +51,7 @@
 		           	}else if (isset($_GET['success']) === false) { ?>
 						<p class="message message--hint message--form">Enter your email below so we can confirm your request.</p>
 				<?php }; ?>
-				<form method="post" action="" autocomplete="off">
+				<form action="<?= BASE_URL . "confirm-recover.php"; ?>" method="post" autocomplete="off">
 					<input type="email" name="email" placeholder="Email" class="zero-top">
 					<div class="btn-container clear">
 		            	<input class="btn--green" name="submit" type="submit" value="Recover">					

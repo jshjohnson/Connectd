@@ -100,7 +100,7 @@
 	            }
 	        }
     		?>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="<?= BASE_URL . "edit-profile.php"; ?>" method="post" enctype="multipart/form-data">
 	            <div class="cf">
 	           		<fieldset class="field-1-2 float-right">                
 						<img src="<?= $avatar ?>" alt="Avatar" class="form__img">
