@@ -39,14 +39,20 @@
 							exit();
 							
 						} else {
-							echo 'Sorry, that email doesn\'t exist.';
+							$errors[] = 'Sorry, that email doesn\'t exist.';
 						}
 					}
 				}
 			?>
+				<?php 
+					if (empty ($errors) === false) { ?>          
+						<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
+		        <?php  
+		           	}else if (isset($_GET['success']) === false) { ?>
+						<p class="message message--hint message--form">Enter your email below so we can confirm your request.</p>
+				<?php }; ?>
 				<form method="post" action="" autocomplete="off">
-					<p class="message message--hint">Enter your email below so we can confirm your request.</p>
-					<input type="email" name="email" placeholder="Email">
+					<input type="email" name="email" placeholder="Email" class="zero-top">
 					<div class="btn-container clear">
 		            	<input class="btn--green" name="submit" type="submit" value="Recover">					
 					</div>
