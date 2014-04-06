@@ -28,7 +28,7 @@
 		 * @param  void
 		 * @return void
 		 */ 
-		public function errorView($general, $e) {
+		public function errorView($users, $general, $e) {
 			$pageTitle = 'Error';
 			$pageType = 'Page';
 			$section = 'Blue';
@@ -149,11 +149,13 @@
 				$mail->Send();
 
 			}catch(phpmailerException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}catch(Exception $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 	    }
 
@@ -192,11 +194,13 @@
 				$mail->Send();
 
 			}catch(phpmailerException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}catch(Exception $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 	    }
 
@@ -235,11 +239,13 @@
 				$mail->Send();
 
 			}catch(phpmailerException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}catch(Exception $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 	    }
 
@@ -278,11 +284,13 @@
 				$mail->Send();
 
 			}catch(phpmailerException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}catch(Exception $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 	    }
 
@@ -320,11 +328,54 @@
 				$mail->Send();
 
 			}catch(phpmailerException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}catch(Exception $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 	    }
+
+		// public function sendEmail($to, $subject, $message, $mail) {
+
+		// 	$to = $email;
+
+		// 	try {
+		// 		$mail->IsSMTP(); 
+		// 		$mail->Username           = "hello@connectd.io"; 
+		// 		$mail->Password           = "kerching27"; 
+		// 		$mail->SMTPAuth           = true;            
+		// 		$mail->SMTPSecure         = "tls"; 
+		// 		$mail->Host               = "smtp.gmail.com";  
+		// 		$mail->Port               = 587; 
+		// 		$mail->addAddress($to);  
+
+		// 		$mail->From               = 'hello@connectd.io';
+		// 		$mail->FromName           = 'Connectd.io';
+		// 		$mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
+				
+		// 		$mail->isHTML(true); 
+
+		// 		$mail->MsgHTML($message);
+
+		// 		$mail->Subject = $subject;
+
+		// 		$mail->Send();
+
+		// 	}catch(phpmailerException $e) {
+		// 		$general = new General($db);
+		// 		$general->errorView($general, $e);
+		// 	}catch(Exception $e) {
+		// 		$general = new General($db);
+		// 		$general->errorView($general, $e);
+		// 	}
+	 //    }
+
+	 //    public function sendConfirmationEmail($arg1, $arg2, $arg3) {
+	 //    	$message = file_get_contents('email_templates/register.html');
+	 //    	$this->sendEmail($subject, $message);
+	 //    }
+
 	}

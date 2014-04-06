@@ -22,8 +22,9 @@
 			try{
 				$query->execute();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 			return $query->fetchAll();
 	    }
@@ -62,8 +63,9 @@
 	    	try {
 				$query->execute();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 	    }
  
@@ -87,8 +89,9 @@
 			try {
 				$results->execute();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 			
 			$jobs = $results->fetchAll(PDO::FETCH_ASSOC);
@@ -112,8 +115,9 @@
 			try {
 				$results->execute();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 
 			$jobs = $results->fetch(PDO::FETCH_ASSOC);

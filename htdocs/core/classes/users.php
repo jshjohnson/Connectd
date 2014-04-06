@@ -34,8 +34,9 @@
 					return false;
 				}
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		 
 		}
@@ -67,8 +68,9 @@
 				}
 		 
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		}
 
@@ -105,8 +107,9 @@
 				}
 		 
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		}
 
@@ -172,8 +175,9 @@
 			try{
 				$query->execute();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 			$row = $query->fetch(PDO::FETCH_ASSOC);
 			
@@ -193,8 +197,9 @@
 			try{
 				$query->execute();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
@@ -220,8 +225,9 @@
 				$query->execute();
 				return $query->fetch();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		}
 		
@@ -258,8 +264,9 @@
 					return false;
 				}
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		}
 
@@ -279,8 +286,9 @@
 					$query->execute();
 					
 				}catch(PDOException $e) {
+					$users = new Users($db);
 					$general = new General($db);
-					$general->errorView($general, $e);
+					$general->errorView($users, $general, $e);
 				}
 		 
 				return $query->fetchColumn();
@@ -311,8 +319,9 @@
 				$general->sendRecoverPasswordEmail($email, $firstName, $generated_string);
 		 				
 			} catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		}
 
@@ -359,8 +368,9 @@
 					}
 		 
 				} catch(PDOException $e) {
+					$users = new Users($db);
 					$general = new General($db);
-					$general->errorView($general, $e);
+					$general->errorView($users, $general, $e);
 				}
 			}
 		}
@@ -380,9 +390,10 @@
 			try{
 				$query->execute();
 				return true;
-			} catch(PDOException $e) {
+			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		}
 
@@ -404,8 +415,10 @@
 			
 			try{
 				$query->execute();
-			}catch(PDOException $e){
-				die($e->getMessage());
-			}	
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$general = new General($db);
+				$general->errorView($users, $general, $e);
+			}
 		}
 	}

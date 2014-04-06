@@ -70,8 +70,9 @@
 				# We use fetchAll() instead of fetch() to get an array of all the selected records.
 				return $query->fetchAll();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		}
 
@@ -103,8 +104,9 @@
 			try{
 				$query->execute();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 			return $query->fetch();
 		}

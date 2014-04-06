@@ -22,8 +22,9 @@
 			try{
 				$query->execute();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 			$row = $query->fetch(PDO::FETCH_ASSOC);
 			
@@ -44,8 +45,9 @@
 			try{
 				$query->execute();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
@@ -142,8 +144,9 @@
 							
 			}catch(PDOException $e) {
 				$this->db->rollback();
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		}
 
@@ -198,8 +201,9 @@
 			try {
 				$results->execute();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 			
 			$employers = $results->fetchAll(PDO::FETCH_ASSOC);
@@ -237,8 +241,9 @@
 			try {
 				$results->execute();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 
 			$employers = $results->fetch(PDO::FETCH_ASSOC);
