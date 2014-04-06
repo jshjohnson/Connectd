@@ -62,11 +62,17 @@
 							<label for="current_password">Current password</label>
 							<input type='password' name='current_password' placeholder="• • • • • • • •" value="">
 							<hr>
-							<label for="new_password">New password</label>
-							<input type='password' name='new_password' placeholder="• • • • • • • •" value="">
-							<label for="repeat_new_passsword">Repeat password</label>
-							<input type='password' name='repeat_new_password' placeholder="• • • • • • • •" value="">
-							<div class="btn-container">
+							<fieldset class="cf">
+								<div class="field-1-2 float-left">
+									<label for="new_password">New password</label>
+									<input type='password' name='new_password' placeholder="• • • • • • • •" value="">	
+								</div>		
+								<div class="field-1-2 float-right">
+									<label for="repeat_new_passsword">Repeat password</label>
+									<input type='password' name='repeat_new_password' placeholder="• • • • • • • •" value="">
+								</div>						
+							</fieldset>
+							<div class="btn-container clear">
 								<input class="btn--left btn--green" name="submit" type="submit" value="Change password">
 							</div>
 						</form>
