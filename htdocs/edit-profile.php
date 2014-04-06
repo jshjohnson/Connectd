@@ -57,7 +57,7 @@
 						
 						$name 			= $_FILES['myfile']['name']; // getting the name of the file
 						$tmp_name 		= $_FILES['myfile']['tmp_name']; // getting the temporary file name.
-						$allowed_ext 	= array('jpg', 'jpeg', 'png', 'gif' );// specifying the allowed extentions
+						$allowed_ext 	= array('jpg', 'jpeg', 'png', 'gif', 'svg');// specifying the allowed extentions
 						$a 				= explode('.', $name);
 						$file_ext 		= strtolower(end($a)); unset($a);// getting the allowed extensions
 						$file_size 		= $_FILES['myfile']['size'];
@@ -108,8 +108,8 @@
                         echo "<img src='$image'>";
                     }
                     ?>
-                    <label for="myfile" class="float-left">Change Profile Picture</label>
-                    <input type="file" name="myfile" class="float-right field-1-2">
+                    <label for="myfile" class="float-left">Change profile picture</label>
+                    <input type="file" name="myfile" class="float-right">
 				</fieldset> 
             	<div class="field-1-2 float-left">
                     <label>First name:</label>

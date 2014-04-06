@@ -46,6 +46,9 @@
 				<aside class="grid__cell module-1-3 module--no-pad user-module--employer float-right">
 					<article class="user-module module module--no-pad">
 						<div class="user-module__info">
+							<div class="user-module__logo">
+								<img src="<?= BASE_URL . $user['image_location']; ?>" alt="">
+							</div>
 							<?php  if(strtotime(date('F j, Y', $job['time_joined']))>strtotime('-3 days')) : ?>
 							     <div class="ribbon"><h5>New</h5></div>
 							<?php endif ?>

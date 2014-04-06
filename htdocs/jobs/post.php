@@ -3,7 +3,7 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$general->errors();
-	$general->loggedOutProtect();
+	$users->loggedOutProtect();
 
 	$jobCategories = $jobs->getJobCategories();
 	$developerJobTitles = $freelancers->getFreelancerJobTitles("developer");

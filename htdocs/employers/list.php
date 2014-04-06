@@ -2,12 +2,12 @@
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php"); 
 
-	$general->loggedOutProtect();
+	$users->loggedOutProtect();
 
 	$pageTitle       = "Employers";
 	$section         = "Employers";
 
-	$employers       = $employers->get_employers_all();
+	$employers       = $employers->getEmployersAll();
 	$employer_id     = $_GET["id"];
 	$employer        = $employers[$employer_id];
 

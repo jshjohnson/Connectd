@@ -3,7 +3,7 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$general->errors();
-	$general->loggedOutProtect();
+	$users->loggedOutProtect();
 	// $votes->userVotedForProtect();
 	$votedBy = $_SESSION['user_id'];
 

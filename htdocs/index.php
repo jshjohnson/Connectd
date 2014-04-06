@@ -3,7 +3,7 @@
 	require_once(ROOT_PATH . "core/init.php");
 	
 	$general->errors();
-	// $general->loggedOutProtect();
+	// $users->loggedOutProtect();
 
 	if (isset($_GET['p'])) {
 		$p = $_GET['p'];
@@ -35,7 +35,7 @@
 			$pageTitle = "Search";
 			$pageType = "Page";
 			$section = "Blue";
-			$general->loggedOutProtect();
+			$users->loggedOutProtect();
 			break;
 		case "404":
 			$page = "error/404.html";
@@ -48,7 +48,7 @@
 			$pageTitle = "Connectd";
 			$pageType = "Home";
 			$section = "Home";
-			$general->loggedInProtect();
+			$users->loggedInProtect();
 			break;
 	}
 

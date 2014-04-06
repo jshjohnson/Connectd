@@ -85,56 +85,7 @@
 			}
 		}
 		
-	 	/**
-		 * Test if user is logged in
-		 *
-		 * @param  void
-		 * @return boolean
-		 */ 
-		public function loggedIn() {
-			return(isset($_SESSION['user_id'])) ? true : false;
-		}
-	 
-	 	/**
-		 * If used is logged in, redirect them appropriately
-		 *
-		 * @param  void
-		 * @return void
-		 */ 
-		public function loggedInProtect() {
-			if ($this->loggedIn() === true) {
-				header("Location:" . BASE_URL . "dashboard/");
-				exit();		
-			}
-		}
-		
-	 	/**
-		 * Check if user is logged out, if so direct them to the homepage
-		 *
-		 * @param  void
-		 * @return boolean
-		 */ 
-		public function loggedOutProtect() {
-			if ($this->loggedIn() === false) {
-				header("Location:" . BASE_URL);
-				exit();
-			}	
-		}
-		
-	 	/**
-		 * Performs user log out
-		 *
-		 * @param  void
-		 * @return void
-		 */ 
-	    public function doLogout() {
-			// Unset all of the session variables.
-			$_SESSION = array();
-			// Destroy the session
-			session_destroy();
-			header('Location: login.php?status=logged');
-	    }
-
+	
 	 	/**
 		 * Checks if there is any file in the directory with the same name as the file that you want to put there. 
 		 * If there is a duplicate, a number will be appended to the fule

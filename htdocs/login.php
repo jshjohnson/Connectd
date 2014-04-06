@@ -30,7 +30,7 @@
 
 		if(empty($errors) === true) {
 	 
-			$login = $users->login($email, $password);
+			$login = $users->doLogin($email, $password);
 
 			if ($login === false) {
 				$errors[] = 'Sorry, that username/password is invalid';

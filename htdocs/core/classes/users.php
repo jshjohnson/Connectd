@@ -79,7 +79,7 @@
 		 * @param  string  $password The users password
 		 * @return boolean
 		 */ 
-		public function login($email, $password) {
+		public function doLogin($email, $password) {
 
 			global $bcrypt;  // Make the bcrypt variable global, which is defined in init.php, which is included in login.php where this function is called
  
@@ -109,6 +109,57 @@
 				$general->errorView($general, $e);
 			}
 		}
+
+	 	/**
+		 * Performs user log out
+		 *
+		 * @param  void
+		 * @return void
+		 */ 
+	    public function doLogout() {
+			// Unset all of the session variables.
+			$_SESSION = array();
+			// Destroy the session
+			session_destroy();
+			header('Location: login.php?status=logged');
+	    }
+
+	 	/**
+		 * Test if user is logged in
+		 *
+		 * @param  void
+		 * @return boolean
+		 */ 
+		public function loggedIn() {
+			return(isset($_SESSION['user_id'])) ? true : false;
+		}
+	 
+	 	/**
+		 * If used is logged in, redirect them appropriately
+		 *
+		 * @param  void
+		 * @return void
+		 */ 
+		public function loggedInProtect() {
+			if ($this->loggedIn() === true) {
+				header("Location:" . BASE_URL . "dashboard/");
+				exit();		
+			}
+		}
+		
+	 	/**
+		 * Check if user is logged out, if so direct them to the homepage
+		 *
+		 * @param  void
+		 * @return boolean
+		 */ 
+		public function loggedOutProtect() {
+			if ($this->loggedIn() === false) {
+				header("Location:" . BASE_URL);
+				exit();
+			}	
+		}
+
 
 		/**
 		 *  Gets user experience form values

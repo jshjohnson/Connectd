@@ -2,12 +2,12 @@
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php"); 
 
-	$general->loggedOutProtect();
+	$users->loggedOutProtect();
 
 	$section         = "Developers";
 	$pageTitle       = "Developers";
 
-	$developers      = $developers->get_developers_all();
+	$developers      = $freelancers->getFreelancersAll($userType = "developer");
 	$developer_id    = $_GET["id"];
 	$developer       = $developers[$developer_id];
 

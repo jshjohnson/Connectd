@@ -2,7 +2,7 @@
 	require_once("config.php"); 
 	require_once(ROOT_PATH . "core/init.php"); 
 	
-	$general->loggedOutProtect();
+	$users->loggedOutProtect();
 	$general->errors();
 
 	try {
@@ -24,23 +24,23 @@
 		switch ($userType) {
 			case "designer":
 				$section = "Designers";
-				$general->loggedOutProtect();
+				$users->loggedOutProtect();
 				break;
 			case "developer":
 				$section = "Developers";
-				$general->loggedOutProtect();
+				$users->loggedOutProtect();
 				break;
 			case "employer":
 				$section = "Employers";
 				$jobs = $employers->getEmployerJobs($id);
-				$general->loggedOutProtect();
+				$users->loggedOutProtect();
 				break;
 			default:
 				$template = "index/index.html";
 				$pageTitle = "Connectd";
 				$pageType = "Home";
 				$section = "Home";
-				$general->loggedInProtect();
+				$users->loggedInProtect();
 				break;
 		}
 

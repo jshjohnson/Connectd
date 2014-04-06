@@ -3,7 +3,7 @@
 	require_once(ROOT_PATH . "core/init.php");
 
 	$general->errors();
-	$general->loggedInProtect();
+	$users->loggedInProtect();
 
 	$towns              = $users->getLocations();
 	$employerTypes      = $employers->getEmployerTypes();

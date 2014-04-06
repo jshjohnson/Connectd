@@ -2,12 +2,12 @@
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php"); 
 
-	$general->loggedOutProtect();
+	$users->loggedOutProtect();
 
 	$section     = "Jobs";
 	$pageTitle   = "Job search";
 
-	$jobs        = $jobs->get_jobs_all();
+	$jobs        = $jobs->getJobsAll();
 	$job_id      = $_GET["id"];
 	$job         = $jobs[$job_id];
 	
@@ -25,7 +25,7 @@
 				<article class="dashboard-panel grid__cell module-2-3 module--no-pad float-left">
 					<header class="header--panel header--employer cf">
 						<h3 class="float-left">Jobs</h3>
-						<?php if($userType == 'employer') : ?>
+						<?php if($sessionUserType == 'employer') : ?>
 						<a href="<?= BASE_URL; ?>jobs/post.php" class="float-right btn btn--action">Post Job</a>
 						<?php endif; ?>
 					</header>
