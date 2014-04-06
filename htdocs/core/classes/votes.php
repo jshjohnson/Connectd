@@ -32,8 +32,9 @@
 				$query->execute();
 				return $query->fetch();
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		}
 
@@ -73,8 +74,9 @@
 				}
 				
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		}
 
@@ -131,11 +133,24 @@
 
 				$this->db->commit();
 
-				header("Location:" . BASE_URL . "trials?status=added");
+				header("Location:" . BASE_URL . "trials/?status=added");
+
 			}catch(PDOException $e) {
-				$this->db->rollback();
-				$general = new General($db);
-				$general->errorView($general, $e);
+				if ($e->errorInfo[1] == 1062) {
+					try {
+						throw new Exception("You cannot vote for a user twice.");
+					}catch(Exception $e) {
+						$this->db->rollback();
+						$users = new Users($db);
+						$general = new General($db);
+						$general->errorView($users, $general, $e);
+					}		
+				}else {
+					$this->db->rollback();
+					$users = new Users($db);
+					$general = new General($db);
+					$general->errorView($users, $general, $e);	
+				}
 			}
 	    }
 
@@ -154,10 +169,11 @@
 			
 			try{
 				$query->execute();
-				header("Location:" . BASE_URL . "trials?status=removed");
+				header("Location:" . BASE_URL . "trials/?status=removed");
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 	    }
 
@@ -191,8 +207,9 @@
 				}
 
 			}catch(PDOException $e) {
+				$users = new Users($db);
 				$general = new General($db);
-				$general->errorView($general, $e);
+				$general->errorView($users, $general, $e);
 			}
 		}
 	}
