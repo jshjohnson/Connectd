@@ -2,7 +2,7 @@
 /*----------------------------------------------------------------------------------------*\
   $.General Defaults
 \*----------------------------------------------------------------------------------------*/
-html { overflow-y: scroll; -webkit-font-smoothing: antialiased; }
+html { overflow-y: scroll; -webkit-font-smoothing: antialiased;}
 
 /* -- Selections -- */
 ::-moz-selection { background: rgba(102,102,102,.5); color: #FFF; text-shadow: none; }
@@ -82,7 +82,7 @@ form li:last-child, fieldset:last-child { margin-bottom: 0; }
 form br { display: none; }
 textarea { resize: vertical; } 
 // expandingText jQuery plugin
-textarea, .expandingText { min-height: 8em; }
+textarea, .expandingText { min-height: 10em; }
 
 /*----------------------------------------------------------------------------------------*\
  $.Project Defaults
@@ -100,6 +100,7 @@ body {
 	color: $color-text;
 	overflow-x: hidden;
 	background-color: $color-background;
+	@include box-sizing(border-box);
 }
 
 /* -- Vertical Rhythm -- */

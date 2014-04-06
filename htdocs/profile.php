@@ -51,6 +51,7 @@
 		} else if ($userType == "employer") {
 			$user = $employers->getEmployersSingle($id);		
 			$pageTitle  = $employer['employer_name'] . ' :: ' . $employer['employer_type'];
+			$employerName = $user['employer_name'];
 			$template = "employer/employer-profile.html";
 		}
 

@@ -64,6 +64,41 @@
 .intro { font-size: 1.25em; }
 .headline { border-bottom: 1px solid $color-keyline; padding-bottom: .45em; }
 
+.text-right, .text-left {
+	margin-top: 1.4em;
+	margin-bottom: 0;
+	font-size: 1em;
+	position: fixed;
+	a {
+		color: white;
+	}
+	@include respond-max($bp1) {
+		margin-top: 1em;
+	}
+}
+
+.text-right {
+	text-align: right;
+	right: 2.5em;
+	position: absolute;
+	top: 0;
+	@include respond-max($bp1) {
+		margin-top: 1em;
+		right: 1em;
+	}
+}
+
+.text-left {
+	text-align: left;
+	left: 2.5em;
+	position: absolute;
+	top: 0;
+	@include respond-max($bp1) {
+		margin-top: 1em;
+		left: 1em;
+	}
+}
+
 
 /* Style trumps (error states etc.)
 ----------------------------------*/
@@ -110,9 +145,9 @@
 	margin-bottom: 1.5em;
 	position: relative;
 	clear: both;
-	&:first-child {
-		margin-bottom: 0;
-	}
+	// &:first-child {
+	// 	margin-bottom: 0;
+	// }
 	&:after {
 		content: "";
 		width: 0;
