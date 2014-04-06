@@ -8,12 +8,12 @@
 				<nav class="header__nav header-navy--alt">
 				<?php endif; ?>
 					<ul>
-					<?php if ($general->loggedIn() === true) : ?>
+					<?php if ($users->loggedIn() === true) : ?>
 						<li><a href="<?= BASE_URL; ?>dashboard/">Dashboard</a></li>
 						<li><a href="<?= BASE_URL; ?>trials/">Trials</a></li>
-						<li><a href="<?= BASE_URL; ?>search/">Search</a></li>
-						<li><a href="<?= BASE_URL . "profile.php?usertype=" . $userType . "&id=" . $user['user_id'];?>">View Profile</a></li>
-						<li><a href="<?= BASE_URL . "edit-profile/" . $user_id . "/" ?>">Edit Profile</a></li>
+						<li><a href="<?= BASE_URL; ?>search">Search</a></li>
+						<li><a href="<?= BASE_URL . "profile.php?usertype=" . $sessionUserType . "&id=" . $user['user_id'];?>">View Profile</a></li>
+						<li><a href="<?= BASE_URL . "edit-profile"?>">Edit Profile</a></li>
 						<li><a href="<?= BASE_URL . "change-password"; ?>">Change Password</a></li>
 						<li><a href="<?= BASE_URL; ?>logout.php">Log out</a></li>
 					<?php else : ?>

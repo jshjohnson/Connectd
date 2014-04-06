@@ -34,12 +34,14 @@
 	$ipInfo         = new ipInfo(ae08ebea8c44bdebba68f45182b6f63126dbeed2932aa6acdcf71b408f61e6b1, 'json');
 	 
 	$errors 	    = array();
+	
 	error_reporting(0);
 	
-	if ($general->loggedIn() === true)  { // check if the user is logged in
+	if ($users->loggedIn() === true)  { // check if the user is logged in
 		$user_id = $_SESSION['user_id']; // getting user's id from the session.
 		$user = $users->userData($user_id); // getting all the data about the logged in user.
 		$username = $user['firstname'] . " " . $user['lastname'];
-		$userType = $user['user_type'];
+		$sessionUserType = $user['user_type'];
+		$avatar = $user['image_location'];
 	}
 	
