@@ -38,7 +38,6 @@ legend { padding: .3em .6em; *margin-left: -7px; }
 button, input { line-height: normal; }
 input, input[type=search], select, textarea { width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 button, html input[type=button], input[type=reset], input[type=submit] { width: auto; }
-input[type=file] { width: auto; border: 0; padding: 0; }
 .btn {font-weight: 600;}
 // helper class added via jQuery
 .checkbox {

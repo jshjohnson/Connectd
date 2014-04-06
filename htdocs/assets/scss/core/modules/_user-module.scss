@@ -27,6 +27,14 @@
 	}
 }
 
+.user-module__logo {
+	img {
+		width: auto;
+		max-width: 10em;
+		margin-bottom: $baseline/2;
+	}
+}
+
 .portfolio, .user-module, .dashboard-panel {
 	background-color: $color-background-light;
 	@include box-sizing(border-box);

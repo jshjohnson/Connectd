@@ -105,6 +105,10 @@ img.media__img {
 	background-position: center center;
 }
 
+.media__img--avatar-full {
+	@include background-size(100%);
+}
+
 
 /* Flag Object - http://csswizardry.com/2013/05/the-flag-object/
 ----------------------------------*/
@@ -240,6 +244,7 @@ img.media__img {
 	top: 0;
 	width: 100%;
 	z-index: 5;
+	opacity: .95;
 	background-color: $color-brand-dark;
 	@include respond-max($bp1) {
 		margin-bottom: 1.5em;

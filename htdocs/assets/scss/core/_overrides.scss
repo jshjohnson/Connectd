@@ -110,6 +110,9 @@
 	margin-bottom: 1.5em;
 	position: relative;
 	clear: both;
+	&:first-child {
+		margin-bottom: 0;
+	}
 	&:after {
 		content: "";
 		width: 0;
@@ -164,10 +167,13 @@
 .message--hint {
 	background-color: $color-background-mid;
 	color: #8B8888;
-	margin: .5em 0;
 	&:after {
 		border-top: 0.75em solid $color-background-mid;
 	}
+}
+
+.message--form {
+	margin: .5em 0;
 	&:first-child {
 		margin: 0 0 .5em;
 	}
