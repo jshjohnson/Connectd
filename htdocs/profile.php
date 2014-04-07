@@ -51,9 +51,9 @@
 			$_SESSION["userEmail"] = $user['email'];
 			$template = "freelancer/freelancer-profile.html";
 		} else if ($userType == "employer") {
-			$user = $employers->getEmployersSingle($id);		
-			$pageTitle  = $employer['employer_name'] . ' :: ' . $employer['employer_type'];
-			$employerName = $user['employer_name'];
+			$user = $employers->getEmployersSingle($id);
+			$employerName = $user['employer_name'];	
+			$pageTitle  = $employerName . ' :: ' . $user['employer_type'];
 			$template = "employer/employer-profile.html";
 		}
 
