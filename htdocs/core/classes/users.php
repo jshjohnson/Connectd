@@ -304,18 +304,18 @@
 			$unique = uniqid('',true); // generate a unique string
 			$random = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'),0, 10); // generate a more random string
 			
-			$generated_string = $unique . $random; // a random and unique string
+			$generatedString = $unique . $random; // a random and unique string
 		 
 			$query = $this->db->prepare("UPDATE `users` SET `generated_string` = ? WHERE `email` = ?");
 		 
-			$query->bindValue(1, $generated_string);
+			$query->bindValue(1, $generatedString);
 			$query->bindValue(2, $email);
 		 
 			try{
 				
 				$query->execute();
 
-				$general->sendRecoverPasswordEmail($email, $firstName, $generated_string);
+				$general->sendRecoverPasswordEmail($email, $firstName, $generatedString);
 		 				
 			} catch(PDOException $e) {
 				$users = new Users($db);
@@ -324,18 +324,18 @@
 			}
 		}
 
-		public function recover($email, $generated_string) {
+		public function recover($email, $generatedString) {
 
 			$general = new General();
 		 
-			if($generated_string == 0){
+			if($generatedString == 0){
 				return false;
 			}else{
 		 
 				$query = $this->db->prepare("SELECT COUNT(`user_id`) FROM `users` WHERE `email` = ? AND `generated_string` = ?");
 		 
 				$query->bindValue(1, $email);
-				$query->bindValue(2, $generated_string);
+				$query->bindValue(2, $generatedString);
 		 
 				try{
 		 
@@ -350,9 +350,9 @@
 						$user_id  = $this->fetchInfo('user_id', 'email', $email);// We want to keep things standard and use the user's id for most of the operations. Therefore, we use id instead of email.
 				
 						$charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-						$generated_password = substr(str_shuffle($charset),0, 10);
+						$generatedPassword = substr(str_shuffle($charset),0, 10);
 		 
-						$this->changePassword($user_id, $generated_password); // change the password.
+						$this->changePassword($user_id, $generatedPassword); // change the password.
 		 
 						$query = $this->db->prepare("UPDATE `users` SET `generated_string` = 0 WHERE `user_id` = ?");// set generated_string back to 0
 		 
@@ -360,7 +360,7 @@
 		 
 						$query->execute();
 
-		 				$general->sendNewPasswordEmail($email, $firstName, $generated_password);
+		 				$general->sendNewPasswordEmail($email, $firstName, $generatedPassword);
 
 					}else{
 						return false;
@@ -376,10 +376,7 @@
 		 
 		public function changePassword($user_id, $password) {
 		 
-			$bcrypt = new Bycrypt(12);
-		 
-			/* Two create a Hash you do */
-			$passwordHash = $bcrypt->genHash($password);
+			$passwordHash = $this->bcrypt->genHash($password);
 		 
 			$query = $this->db->prepare("UPDATE `users` SET `password` = ? WHERE `user_id` = ?");
 		 
