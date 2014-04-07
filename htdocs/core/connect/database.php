@@ -15,7 +15,7 @@
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}catch(PDOException $e) {
 		$users = new Users($db);
-		$general = new General($db);
+		$general = new General();
 		$general->errorView($users, $general, $e);
 		exit();
 	}

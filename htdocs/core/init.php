@@ -19,7 +19,7 @@
 	require 'inc/phpmailer/PHPMailerAutoload.php';
 	require 'inc/ipInfo.php';
 
-	$general 	    = new General($db);
+	$general 	    = new General();
 	$users 			= new Users($db);
 	$votes          = new Votes($db);
 	$freelancers    = new Freelancers($db);

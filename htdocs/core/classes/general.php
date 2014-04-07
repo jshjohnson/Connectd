@@ -1,14 +1,9 @@
 <?php 
 	class General {
-
-		// Properties
 		
-		private $db;
-
 		// Methods
 
-		public function __construct($database) {
-		    $this->db = $database;
+		public function __construct() {
 		    $this->mail = new PHPMailer();
 		}
 	 
@@ -149,11 +144,11 @@
 
 			}catch(phpmailerException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}catch(Exception $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 	    }
@@ -192,11 +187,11 @@
 
 			}catch(phpmailerException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}catch(Exception $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 	    }
@@ -235,11 +230,11 @@
 
 			}catch(phpmailerException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}catch(Exception $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 	    }
@@ -278,11 +273,11 @@
 
 			}catch(phpmailerException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}catch(Exception $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 	    }
@@ -320,11 +315,11 @@
 
 			}catch(phpmailerException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}catch(Exception $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 	    }
@@ -356,10 +351,10 @@
 		// 		$this->mail->Send();
 
 		// 	}catch(phpmailerException $e) {
-		// 		$general = new General($db);
+		// 		$general = new General();
 		// 		$general->errorView($general, $e);
 		// 	}catch(Exception $e) {
-		// 		$general = new General($db);
+		// 		$general = new General();
 		// 		$general->errorView($general, $e);
 		// 	}
 	 //    }

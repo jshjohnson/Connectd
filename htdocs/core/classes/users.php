@@ -36,7 +36,7 @@
 				}
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 		 
@@ -70,7 +70,7 @@
 		 
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 		}
@@ -107,7 +107,7 @@
 		 
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 		}
@@ -175,7 +175,7 @@
 				$query->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 			$row = $query->fetch(PDO::FETCH_ASSOC);
@@ -197,7 +197,7 @@
 				$query->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
@@ -225,7 +225,7 @@
 				return $query->fetch();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 		}
@@ -264,7 +264,7 @@
 				}
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 		}
@@ -286,7 +286,7 @@
 					
 				}catch(PDOException $e) {
 					$users = new Users($db);
-					$general = new General($db);
+					$general = new General();
 					$general->errorView($users, $general, $e);
 				}
 		 
@@ -319,7 +319,7 @@
 		 				
 			} catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 		}
@@ -368,7 +368,7 @@
 		 
 				} catch(PDOException $e) {
 					$users = new Users($db);
-					$general = new General($db);
+					$general = new General();
 					$general->errorView($users, $general, $e);
 				}
 			}
@@ -391,7 +391,7 @@
 				return true;
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 		}
@@ -416,7 +416,7 @@
 				$query->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 		}

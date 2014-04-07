@@ -34,7 +34,7 @@
 				return $query->fetch();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 		}
@@ -76,7 +76,7 @@
 				
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 		}
@@ -141,13 +141,13 @@
 					}catch(Exception $e) {
 						$this->db->rollback();
 						$users = new Users($db);
-						$general = new General($db);
+						$general = new General();
 						$general->errorView($users, $general, $e);
 					}		
 				}else {
 					$this->db->rollback();
 					$users = new Users($db);
-					$general = new General($db);
+					$general = new General();
 					$general->errorView($users, $general, $e);	
 				}
 			}
@@ -171,7 +171,7 @@
 				header("Location:" . BASE_URL . "trials/?status=removed");
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 	    }
@@ -207,7 +207,7 @@
 
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General($db);
+				$general = new General();
 				$general->errorView($users, $general, $e);
 			}
 		}
