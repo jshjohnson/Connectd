@@ -1,13 +1,13 @@
 			<div class='media'>
-				<a href="<?= BASE_URL . "profile.php?usertype=employer&id=" . $user['user_id'];?>">
-					<div style="background-image: url('<?= BASE_URL . $user['image_location']; ?>');" class="media__img media__img--avatar media__img--avatar-full"></div>
+				<a href="<?= BASE_URL . "profile.php?usertype=employer&id=" . $employer['user_id'];?>">
+					<div style="background-image: url('<?= BASE_URL . $employer['image_location']; ?>');" class="media__img media__img--avatar media__img--avatar-full"></div>
 				</a>
 				<div class='media__body'>
 					<div class='float-left user-info'>
-						<a href="<?= BASE_URL . "profile.php?usertype=employer&id=" . $user['user_id'];?>" class="user-info__link">
-							<h4><?= $user['employer_name']; ?></h4>
+						<a href="<?= BASE_URL . "profile.php?usertype=employer&id=" . $employer['user_id'];?>" class="user-info__link">
+							<h4><?= $employer['employer_name']; ?></h4>
 						</a>
-						<p><?= $user['employer_type']; ?></p>
+						<p><?= $employer['employer_type']; ?></p>
 					</div>
 				</div>
 			</div>
