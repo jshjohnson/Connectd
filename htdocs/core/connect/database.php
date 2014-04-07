@@ -14,12 +14,9 @@
 		#Setting the error mode of our db object, which is very important for debugging.
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}catch(PDOException $e) {
-		$pageTitle = 'Error';
-
-		include(BASE_URL . 'includes/header.inc.php');
-		include(BASE_URL . 'views/error.html');
-		include(BASE_URL . 'includes/footer.inc.php');
-		
+		$users = new Users($db);
+		$general = new General($db);
+		$general->errorView($users, $general, $e);
 		exit();
 	}
 ?>
