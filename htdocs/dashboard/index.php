@@ -8,7 +8,7 @@
 
 	$designers    = $freelancers->getFreelancersRecent($userType = "designer");
 	$developers   = $freelancers->getFreelancersRecent($userType = "developer");
-	$employers    = $employers->getEmployersRecent();
+	$employers    = $employers->getEmployersRecent($userType = "employer");
 	$jobs         = $jobs->getJobsAll();
 
 	if (isset($_GET["status"])) { 
