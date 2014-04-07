@@ -47,6 +47,8 @@
 		if($userType == "developer" || $userType == "designer") {
 			$user = $freelancers->getFreelancersSingle($id, $userType);		
 			$pageTitle  = $user['firstname'] . ' ' . $user['lastname'] . ' :: ' . $user['jobtitle'];
+			$_SESSION["userFirstName"] = $user['firstname'];
+			$_SESSION["userEmail"] = $user['email'];
 			$template = "freelancer/freelancer-profile.html";
 		} else if ($userType == "employer") {
 			$user = $employers->getEmployersSingle($id);		
