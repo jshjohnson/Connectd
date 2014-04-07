@@ -144,10 +144,10 @@
 		 * @param  void
 		 * @return array
 		 */
-		public function getEmployersRecent() {
+		public function getEmployersRecent($userType) {
 
 			$recent = "";
-			$all = $this->getEmployersAll();
+			$all = $this->getEmployersAll($userType);
 
 			$total_employers = count($all);
 			$position = 0;
@@ -169,7 +169,7 @@
 		 * @param  void
 		 * @return array
 		 */ 
-		public function getEmployersAll() {
+		public function getEmployersAll($userType) {
 			
 			$results = $this->db->prepare("
 				SELECT u.user_id, u.firstname, u.lastname, u.image_location, e.employer_id, e.employer_name, ut.*, et.*
@@ -184,7 +184,7 @@
 				AND ut.user_type = :user_type
 			");
 			$results->bindValue(":confirmed", 1);
-			$results->bindValue(":user_type", 'employer');
+			$results->bindValue(":user_type", $userType);
 
 			try {
 				$results->execute();
