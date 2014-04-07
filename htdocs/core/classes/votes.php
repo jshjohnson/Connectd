@@ -9,6 +9,7 @@
 
 		public function __construct($database) {
 		    $this->db = $database;
+		    $this->general = new General;
 		}
 
 		/**
@@ -106,8 +107,6 @@
 		 */ 
 		public function addVote($user_id, $votedBy) {
 
-			global $general;
-
 			$query = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_votes (vote_id, voted_by_id) VALUES (?, ?)");
 
 			$query->bindValue(1, $user_id);
@@ -129,7 +128,7 @@
 
 				$votes = $this->getUserVotes($user_id);
 
-				$general->sendVoteEmail($firstName, $email, $votes);
+				$this->general->sendVoteEmail($firstName, $email, $votes);
 
 				$this->db->commit();
 

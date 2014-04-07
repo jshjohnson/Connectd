@@ -9,6 +9,7 @@
 
 		public function __construct($database) {
 		    $this->db = $database;
+		    $this->bcrypt = new Bcrypt(12);
 		}
 
 		/**
@@ -56,28 +57,15 @@
 		/**
 		 *   Register an employer user
 		 *
-		 * @param  string $firstName
-		 * @param  string $lastName
-		 * @param  string $email
-		 * @param  string $password
-		 * @param  string $location
-		 * @param  string $portfolio
-		 * @param  string $employerName
-		 * @param  string $employerType
-		 * @param  string $experience
-		 * @param  string $bio
-		 * @param  string $userType
+		 * @param  array $firstName, $lastName, $email, $password, $location, portfolio, $employerName, $employerType, $experience, $bio, $userType
 		 * @return boolean
 		 */ 
-	    public function registerEmployer($firstName, $lastName, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $userType) {
-
-			global $bcrypt; 
-			global $general;
+	    public function registerEmployer(array $data) {
 			
 			$time = time();
 			$ip = $_SERVER['REMOTE_ADDR'];
 			$emailCode = sha1($email + microtime());
-			$password = $bcrypt->genHash($password);
+			$password = $this->bcrypt->genHash($data['password']);
 
 			$register = $this->db->prepare("INSERT INTO " . DB_NAME . ".users
 				(firstname, lastname, email, email_code, password, time_joined, location, portfolio, bio, ip) 
@@ -85,15 +73,15 @@
 				(:firstname, :lastname, :email, :email_code, :password, :time_joined, :location, :portfolio, :bio, :ip)
 			");
 			
-			$register->bindValue(":firstname", $firstName);
-			$register->bindValue(":lastname", $lastName);
-			$register->bindValue(":email", $email);
+			$register->bindValue(":firstname", $data['firstName']);
+			$register->bindValue(":lastname", $data['lastName']);
+			$register->bindValue(":email", $data['email']);
 			$register->bindValue(":email_code", $emailCode);
 			$register->bindValue(":password", $password);
 			$register->bindValue(":time_joined", $time);
-			$register->bindValue(":location", $location);
-			$register->bindValue(":portfolio", $portfolio);
-			$register->bindValue(":bio", $bio);
+			$register->bindValue(":location", $data['location']);
+			$register->bindValue(":portfolio", $data['portfolio']);
+			$register->bindValue(":bio", $data['bio']);
 			$register->bindValue(":ip", $ip);
 		 
 		 	$this->db->beginTransaction();
@@ -113,28 +101,28 @@
 					$employerInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".employers (employer_id, employer_name) VALUE (:employer_id, :employer_name)");
 	 
 	 				$employerInsert->bindValue(":employer_id", $last_user_id);
-					$employerInsert->bindValue(":employer_name", $employerName);
+					$employerInsert->bindValue(":employer_name", $data['employerName']);
 
 					$employerInsert->execute();
 
 					$employerTypeInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".employer_types (employer_type_id, employer_type) VALUE (:employer_id, :employer_type)");
 
 					$employerTypeInsert->bindValue(":employer_id", $last_user_id);
-					$employerTypeInsert->bindValue(":employer_type", $employerType);						
+					$employerTypeInsert->bindValue(":employer_type", $data['employerType']);						
 
 					$employerTypeInsert->execute();
 
 					$userExpInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_experience (experience_id, experience) VALUE (:employer_id, :experience)");
 
 					$userExpInsert->bindValue(":employer_id", $last_user_id);
-					$userExpInsert->bindValue(":experience", $experience);							
+					$userExpInsert->bindValue(":experience", $data['experience']);							
 
 					$userExpInsert->execute();
 
 					$userTypeInsert = $this->db->prepare("INSERT INTO " . DB_NAME . ".user_types (user_type_id, user_type) VALUE (:employer_id, :user_type)");
 	 
 	 				$userTypeInsert->bindValue(":employer_id", $last_user_id);
-					$userTypeInsert->bindValue(":user_type", $userType);						
+					$userTypeInsert->bindValue(":user_type", $data['userType']);						
 
 					$userTypeInsert->execute();
 

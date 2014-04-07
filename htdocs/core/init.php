@@ -22,20 +22,19 @@
 	$general 	    = new General($db);
 	$users 			= new Users($db);
 	$votes          = new Votes($db);
-
 	$freelancers    = new Freelancers($db);
 	$employers      = new Employers($db);
 	$jobs	        = new Jobs($db);	
 	$sessions		= new Sessions($db);
 	$trials         = new Trials($db);
-	
+
 	$bcrypt         = new Bcrypt(12);
 	$mail           = new PHPMailer();
 	$ipInfo         = new ipInfo(ae08ebea8c44bdebba68f45182b6f63126dbeed2932aa6acdcf71b408f61e6b1, 'json');
 	 
 	$errors 	    = array();
 	
-	error_reporting(0);
+	// error_reporting(0);
 	
 	if ($users->loggedIn() === true)  { // check if the user is logged in
 		$user_id = $_SESSION['user_id']; // getting user's id from the session.

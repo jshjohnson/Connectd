@@ -18,6 +18,7 @@
 		 * @return array
 		 */ 
 		public function getJobCategories() {
+			
 	    	$query = $this->db->prepare("SELECT job_category FROM " . DB_NAME . ".job_categories");
 			try{
 				$query->execute();
@@ -100,6 +101,7 @@
 		}
 
 		public function getJobsSingle($id) {
+
 			$results = $this->db->prepare("SELECT
 				j.*, u.user_id, u.location, u.portfolio, u.bio, u.time_joined, e.employer_name, et.employer_type
 				FROM (((" . DB_NAME . ".jobs AS j
