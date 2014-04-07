@@ -5,8 +5,6 @@ Options +FollowSymlinks -Multiviews
 
 ErrorDocument 404 /Connectd/htdocs/index.php?p=404
 
-RewriteRule ^([a-z]+)$ /Connectd/htdocs/index.php?p=$1
-
 RewriteRule ^designers/$ /Connectd/htdocs/designers/signup.php
 RewriteRule ^designers/([0-9]+)/$ /Connectd/htdocs/designers/profile.php?id=$1
 
