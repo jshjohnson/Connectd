@@ -7,10 +7,12 @@
 	width: 100%;
 	z-index: 5000;
 	display: none;
+	@include respond-max($bp4) {
+		position: absolute;
+	}
 }
 
 .overlay__inner {
-	// display: none;
 	@include transition(all .2s ease-in-out);
 	background-color: white;
 	margin: auto;
