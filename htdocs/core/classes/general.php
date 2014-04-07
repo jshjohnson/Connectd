@@ -81,7 +81,6 @@
 			}
 		}
 		
-	
 	 	/**
 		 * Checks if there is any file in the directory with the same name as the file that you want to put there. 
 		 * If there is a duplicate, a number will be appended to the fule
@@ -111,257 +110,113 @@
 			return $newpath;
 		}
 
+		public function sendEmail($email, $subject, $body) {
+
+			try {
+				$this->mail->IsSMTP(); 
+				$this->mail->Username           = "hello@connectd.io"; 
+				$this->mail->Password           = "kerching27"; 
+				$this->mail->SMTPAuth           = true;            
+				$this->mail->SMTPSecure         = "tls"; 
+				$this->mail->Host               = "smtp.gmail.com";  
+				$this->mail->Port               = 587; 
+				$this->mail->addAddress($email);  
+
+				$this->mail->From               = 'hello@connectd.io';
+				$this->mail->FromName           = 'Connectd.io';
+				$this->mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
+				
+				$this->mail->isHTML(true); 
+
+				$this->mail->MsgHTML($body);
+
+				$this->mail->Subject = $subject;
+
+				$this->mail->Send();
+
+			}catch(phpmailerException $e) {
+				$users = new Users($db);
+				$general = new General();
+				$general->errorView($users, $general, $e);
+			}catch(Exception $e) {
+				$users = new Users($db);
+				$general = new General();
+				$general->errorView($users, $general, $e);
+			}
+	    }
+
+	    public function sendVoteEmail($firstName, $email, $votes) {
+	    	try {
+		    	$subject = "You just got a vote on Connectd Trials!";
+		    	$body = file_get_contents(BASE_URL . 'assets/email-templates/vote-added.php');
+		    	$body = str_replace('{{name}}', $firstName, $body);
+		    	$body = str_replace('{{votes}}', $votes['CountOfvote_id'], $body);
+		    	$this->sendEmail($email, $subject, $body);
+	    	}catch(Exception $e){
+				$users = new Users($db);
+				$general = new General();
+				$general->errorView($users, $general, $e);
+	    	}
+	    }
+
+		public function sendRecoverPasswordEmail($firstName, $email, $generatedString) {
+			try {
+		    	$subject = "Reset password -  Connectd.io";
+		    	$body = file_get_contents(BASE_URL . 'assets/email-templates/reset-password.php');
+		    	$body = str_replace('{{name}}', $firstName, $body);
+		    	$body = str_replace('{{email}}', $email, $body);
+		    	$body = str_replace('{{string}}', $generatedString, $body);
+		    	$this->sendEmail($email, $subject, $body);
+	    	}catch(Exception $e){
+				$users = new Users($db);
+				$general = new General();
+				$general->errorView($users, $general, $e);
+	    	}	
+	    }
+
+
+	    public function sendNewPasswordEmail($firstName, $email, $generatedPassword) {
+			try {
+		    	$subject = "Your new password -  Connectd.io";
+		    	$body = file_get_contents(BASE_URL . 'assets/email-templates/new-password.php');
+		    	$body = str_replace('{{name}}', $firstName, $body);
+		    	$body = str_replace('{{newpassword}}', $generatedPassword, $body);
+		    	$this->sendEmail($email, $subject, $body);
+	    	}catch(Exception $e){
+				$users = new Users($db);
+				$general = new General();
+				$general->errorView($users, $general, $e);
+	    	}
+
+	    }
+
 		public function sendConfirmationEmail($firstName, $email, $emailCode) {
-		
-			$to = $email;
-
 			try {
-				$this->mail->IsSMTP(); 
-				$this->mail->Username           = "hello@connectd.io";
-				$this->mail->Password           = "kerching27"; 
-				$this->mail->SMTPAuth           = true;            
-				$this->mail->SMTPSecure         = "tls"; 
-				$this->mail->Host               = "smtp.gmail.com";  
-				$this->mail->Port               = 587; 
-				$this->mail->addAddress($to);  
-
-				$this->mail->From               = 'hello@connectd.io';
-				$this->mail->FromName           = 'Connectd.io';
-				$this->mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
-				
-				$this->mail->isHTML(true); 
-
-				$this->mail->Subject            = 'Activate your new Connectd account';
-
-				$this->mail->Body               = "<p>Hey " . $firstName . "!</p>";
-				$this->mail->Body              .= "<p>Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>";
-				$this->mail->Body              .= "<p>" . BASE_URL . "login.php?email=" . $email . "&email_code=" . $emailCode . "</p>";
-				$this->mail->Body              .= "<p>-- Connectd team</p>";
-				$this->mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-				$this->mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
-
-				$this->mail->Send();
-
-			}catch(phpmailerException $e) {
+		    	$subject = "Activate your new Connectd account -  Connectd.io";
+		    	$body = file_get_contents(BASE_URL . 'assets/email-templates/confirmation.php');
+		    	$body = str_replace('{{name}}', $firstName, $body);
+		    	$body = str_replace('{{email}}', $email, $body);
+		    	$body = str_replace('{{code}}', $emailCode, $body);
+		    	$this->sendEmail($email, $subject, $body);
+	    	}catch(Exception $e){
 				$users = new Users($db);
 				$general = new General();
 				$general->errorView($users, $general, $e);
-			}catch(Exception $e) {
-				$users = new Users($db);
-				$general = new General();
-				$general->errorView($users, $general, $e);
-			}
+	    	}
 	    }
 
-
-		public function sendVoteEmail($firstName, $email, $votes) {
-
-			$to = $email;
-
+	    public function sendMessageEmail($firstName, $email, $message, $sentBy) {
 			try {
-				$this->mail->IsSMTP(); 
-				$this->mail->Username           = "hello@connectd.io";
-				$this->mail->Password           = "kerching27";
-				$this->mail->SMTPAuth           = true; 
-				$this->mail->SMTPSecure         = "tls"; 
-				$this->mail->Host               = "smtp.gmail.com";
-				$this->mail->Port               = 587; 
-				$this->mail->addAddress($to);
-
-				$this->mail->From               = 'hello@connectd.io';
-				$this->mail->FromName           = 'Connectd.io';
-				$this->mail->AddReplyTo('hello@connectd.io', 'Contact Connectd.io');
-		
-				$this->mail->isHTML(true); 
-
-				$this->mail->Subject            = 'You just got a vote on Connectd Trials!';
-
-				$this->mail->Body               = "<p>Hey " . $firstName . "!</p>";
-				$this->mail->Body              .= "<p>Congratulations - Someone has voted for you on Connectd Trials. </p>";
-				$this->mail->Body              .= "<p>You now have <strong>" . $votes['CountOfvote_id'] . "/10</strong> votes</p>";
-				$this->mail->Body              .= "<p>-- Connectd team</p>";
-				$this->mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-				$this->mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
-
-				$this->mail->Send();
-
-			}catch(phpmailerException $e) {
+		    	$subject = "You just got a message - Connectd.io";
+		    	$body = file_get_contents(BASE_URL . 'assets/email-templates/message.php');
+		    	$body = str_replace('{{name}}', $firstName, $body);
+		    	$body = str_replace('{{sentBy}}', $sentBy, $body);
+		    	$body = str_replace('{{message}}', $message, $body);
+		    	$this->sendEmail($email, $subject, $body);
+	    	}catch(Exception $e){
 				$users = new Users($db);
 				$general = new General();
 				$general->errorView($users, $general, $e);
-			}catch(Exception $e) {
-				$users = new Users($db);
-				$general = new General();
-				$general->errorView($users, $general, $e);
-			}
+	    	}
 	    }
-
-		public function sendMessageEmail($firstName, $email, $message, $sentBy) {
-		
-			$to = $email;
-
-			try {
-				$this->mail->IsSMTP(); 
-				$this->mail->Username           = "hello@connectd.io"; 
-				$this->mail->Password           = "kerching27"; 
-				$this->mail->SMTPAuth           = true;            
-				$this->mail->SMTPSecure         = "tls"; 
-				$this->mail->Host               = "smtp.gmail.com";  
-				$this->mail->Port               = 587; 
-				$this->mail->addAddress($to);  
-
-				$this->mail->From               = 'hello@connectd.io';
-				$this->mail->FromName           = 'Connectd.io';
-				$this->mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
-				
-				$this->mail->isHTML(true); 
-
-				$this->mail->Subject            = 'You just got a message via Connectd!';
-
-				$this->mail->Body               = "<p>Hey " . $firstName . "!</p>";
-				$this->mail->Body              .= "<p>You have been sent a message by <b>" . $sentBy . "</b></p>";
-				$this->mail->Body              .= "<p>Message:</p>";
-				$this->mail->Body              .= "<p>" . $message . "</p>";
-				$this->mail->Body              .= "<p>-- Connectd team</p>";
-				$this->mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-				$this->mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
-
-				$this->mail->Send();
-
-			}catch(phpmailerException $e) {
-				$users = new Users($db);
-				$general = new General();
-				$general->errorView($users, $general, $e);
-			}catch(Exception $e) {
-				$users = new Users($db);
-				$general = new General();
-				$general->errorView($users, $general, $e);
-			}
-	    }
-
-		public function sendRecoverPasswordEmail($email, $firstName, $generated_string) {
-
-			$to = $email;
-
-			try {
-				$this->mail->IsSMTP(); 
-				$this->mail->Username           = "hello@connectd.io"; 
-				$this->mail->Password           = "kerching27"; 
-				$this->mail->SMTPAuth           = true;            
-				$this->mail->SMTPSecure         = "tls"; 
-				$this->mail->Host               = "smtp.gmail.com";  
-				$this->mail->Port               = 587; 
-				$this->mail->addAddress($to);  
-
-				$this->mail->From               = 'hello@connectd.io';
-				$this->mail->FromName           = 'Connectd.io';
-				$this->mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
-				
-				$this->mail->isHTML(true); 
-
-				$this->mail->Subject            = 'Recover password -  Connectd.io';
-
-				$this->mail->Body               = "<p>Hey " . $firstName . "!</p>";
-				$this->mail->Body              .= "<p>Please click the link below to reset your password:</p>";
-				$this->mail->Body              .= "<p>" . BASE_URL . "recover.php?email=" . $email . "&generated_string=" . $generated_string . "</p>";
-				$this->mail->Body              .= "<p>We will generate a new password for you and send it back to your email.</p>";
-				$this->mail->Body              .= "<p>-- Connectd team</p>";
-				$this->mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-				$this->mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
-
-				$this->mail->Send();
-
-			}catch(phpmailerException $e) {
-				$users = new Users($db);
-				$general = new General();
-				$general->errorView($users, $general, $e);
-			}catch(Exception $e) {
-				$users = new Users($db);
-				$general = new General();
-				$general->errorView($users, $general, $e);
-			}
-	    }
-
-		public function sendNewPasswordEmail($email, $firstName, $generated_password) {
-	
-			$to = $email;
-
-			try {
-				$this->mail->IsSMTP(); 
-				$this->mail->Username           = "hello@connectd.io"; 
-				$this->mail->Password           = "kerching27"; 
-				$this->mail->SMTPAuth           = true;            
-				$this->mail->SMTPSecure         = "tls"; 
-				$this->mail->Host               = "smtp.gmail.com";  
-				$this->mail->Port               = 587; 
-				$this->mail->addAddress($to);  
-
-				$this->mail->From               = 'hello@connectd.io';
-				$this->mail->FromName           = 'Connectd.io';
-				$this->mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
-				
-				$this->mail->isHTML(true); 
-
-				$this->mail->Subject            = 'Recover password -  Connectd.io';
-
-				$this->mail->Body               = "<p>Hey " . $firstName . "!</p>";
-				$this->mail->Body              .= "<p>Your your new password is: <b>" . $generated_password . "</b></p>";
-				$this->mail->Body              .= "<p>Please change your password once you have logged in using this password.</p>";
-				$this->mail->Body              .= "<p>-- Connectd team</p>";
-				$this->mail->Body              .= "<p><a href='http://connectd.io'>www.connectd.io</a></p>";
-				$this->mail->Body              .= "<img width='180' src='" . BASE_URL . "assets/img/logo-email.jpg' alt='Connectd.io logo'><br>";
-
-				$this->mail->Send();
-
-			}catch(phpmailerException $e) {
-				$users = new Users($db);
-				$general = new General();
-				$general->errorView($users, $general, $e);
-			}catch(Exception $e) {
-				$users = new Users($db);
-				$general = new General();
-				$general->errorView($users, $general, $e);
-			}
-	    }
-
-		// public function sendEmail($to, $subject, $message, $mail) {
-
-		// 	$to = $email;
-
-		// 	try {
-		// 		$this->mail->IsSMTP(); 
-		// 		$this->mail->Username           = "hello@connectd.io"; 
-		// 		$this->mail->Password           = "kerching27"; 
-		// 		$this->mail->SMTPAuth           = true;            
-		// 		$this->mail->SMTPSecure         = "tls"; 
-		// 		$this->mail->Host               = "smtp.gmail.com";  
-		// 		$this->mail->Port               = 587; 
-		// 		$this->mail->addAddress($to);  
-
-		// 		$this->mail->From               = 'hello@connectd.io';
-		// 		$this->mail->FromName           = 'Connectd.io';
-		// 		$this->mail->AddReplyTo( 'hello@connectd.io', 'Contact Connectd.io' );
-				
-		// 		$this->mail->isHTML(true); 
-
-		// 		$this->mail->MsgHTML($message);
-
-		// 		$this->mail->Subject = $subject;
-
-		// 		$this->mail->Send();
-
-		// 	}catch(phpmailerException $e) {
-		// 		$general = new General();
-		// 		$general->errorView($general, $e);
-		// 	}catch(Exception $e) {
-		// 		$general = new General();
-		// 		$general->errorView($general, $e);
-		// 	}
-	 //    }
-
-	 //    public function sendConfirmationEmail($arg1, $arg2, $arg3) {
-	 //    	$message = file_get_contents('email_templates/register.html');
-	 //    	$this->sendEmail($subject, $message);
-	 //    }
-
 	}
