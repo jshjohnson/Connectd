@@ -79,7 +79,20 @@
 		}
 
 		if(empty($errors) === true){
-			$freelancers->registerFreelancer($firstName, $lastName, $email, $password, $location, $portfolio, $jobTitle, $pricePerHour, $experience, $bio, $userType);
+			$data = array(
+				"firstName" => $firstName, 
+				"lastName" => $lastName, 
+				"email" => $email, 
+				"password" => $password, 
+				"location" => $location, 
+				"portfolio" => $portfolio, 
+				"jobTitle" => $jobTitle, 
+				"pricePerHour" => $pricePerHour, 
+				"experience" => $experience, 
+				"bio" => $bio, 
+				"userType" => $userType
+			);			
+			$freelancers->registerFreelancer($data);
 			header("Location:" . BASE_URL . "developers/signup.php?status=success");
 			exit();
 		}

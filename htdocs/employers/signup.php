@@ -89,7 +89,20 @@
 
 		if(empty($errors) === true) {
 			$userType = 'employer';
-			$employers->registerEmployer($firstName, $lastName, $email, $password, $location, $portfolio, $employerName, $employerType, $experience, $bio, $userType);
+			$data = array(
+				"firstName" => $firstName, 
+				"lastName" => $lastName, 
+				"email" => $email, 
+				"password" => $password, 
+				"location" => $location, 
+				"portfolio" => $portfolio, 
+				"employerName" => $employerName, 
+				"employerType" => $employerType, 
+				"experience" => $experience, 
+				"bio" => $bio, 
+				"userType" => $userType
+			);
+			$employers->registerEmployer($data);
 			header("Location:" . BASE_URL . "employers/signup.php?status=success");
 			exit();
 		}

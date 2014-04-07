@@ -28,7 +28,6 @@
 	$userIP = $ipInfo->getIPAddress();
 	$userLocation = json_decode($ipInfo->getCity($userIP), true);
 	$userCity = $userLocation['cityName'];
-
 	
 	if (isset($_GET['status'])) {
 		$status = $_GET["status"];
@@ -80,7 +79,20 @@
 		}
 
 		if(empty($errors) === true){
-			$freelancers->registerFreelancer($firstName, $lastName, $email, $password, $location, $portfolio, $jobTitle, $pricePerHour, $experience, $bio, $userType);
+			$data = array(
+				"firstName" => $firstName, 
+				"lastName" => $lastName, 
+				"email" => $email, 
+				"password" => $password, 
+				"location" => $location, 
+				"portfolio" => $portfolio, 
+				"jobTitle" => $jobTitle, 
+				"pricePerHour" => $pricePerHour, 
+				"experience" => $experience, 
+				"bio" => $bio, 
+				"userType" => $userType
+			);
+			$freelancers->registerFreelancer($data);
 			header("Location:" . BASE_URL . "designers/signup.php?status=success");
 			exit();
 		}
