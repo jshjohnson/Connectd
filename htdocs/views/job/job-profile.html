@@ -47,7 +47,7 @@
 					<article class="user-module module module--no-pad">
 						<div class="user-module__info">
 							<div class="user-module__logo">
-								<img src="<?= BASE_URL . $user['image_location']; ?>" alt="">
+								<a href="<?= BASE_URL . "profile.php?usertype=employer&id=" . $user['user_id']; ?>"><img src="<?= BASE_URL . $user['image_location']; ?>" alt="<?= $employerName; ?> logo"></a>
 							</div>
 							<?php  if(strtotime(date('F j, Y', $job['time_joined']))>strtotime('-3 days')) : ?>
 							     <div class="ribbon"><h5>New</h5></div>
@@ -55,11 +55,11 @@
 							<?php 
 								$employerName = $job['employer_name'];
 
-								if (strlen($employerName)>=23) {
-									echo "<h3 class=\"user-module__title user-module__title--alt\"><a href=". BASE_URL . "employers/" . $job['user_id'] . "/" . ">" . $employerName . "</a></h3>";
-								} else {
-									echo "<h3 class=\"user-module__title\"><a href=". BASE_URL . "employers/" . $job['user_id'] . "/" . ">" . $employerName . "</a></h3>";
-								}
+								if (strlen($employerName)>=23) { ?>
+									<h3 class="user-module__title user-module__title--alt"><a href="<?= BASE_URL . "profile.php?usertype=employer&id=" . $user['user_id']; ?>"><?= $employerName; ?></a></h3>
+								<?php } else { ?>
+									<h3 class="user-module__title"><a href="<?= BASE_URL . "profile.php?usertype=employer&id=" . $user['user_id']; ?>"><?= $employerName; ?></a></h3>
+								<?php } ?>
 							?>
 							<h4 class="user-module__label icon--attach icon--marg"><?= $job['employer_type']; ?></h4>
 							<h4 class="user-module__label icon--location icon--marg"><?= $job['location']; ?></h4>
