@@ -25,7 +25,7 @@
 						<input id="email-input" type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" autocomplete="off">
 					</fieldset>
 					<fieldset class="cf">
-						<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
+						<p class="message message--hint zero-bottom">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
 						<input autocomplete="off" id="password-input" type='password' name='password' placeholder="Password" class="field-1-2 float-left"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
 						<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatPassword)) { echo htmlspecialchars($repeatPassword); } ?>">
 					</fieldset>

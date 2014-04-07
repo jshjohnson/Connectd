@@ -12,6 +12,6 @@
 
 	$general->sendMessageEmail($userFirstName, $userEmail, $message, $sentBy);
 	unset($userFirstName, $userEmail);
-	header('Location: ' . $_SERVER['HTTP_REFERER'] . "?status=sent");
+	header('Location: ' . $_SERVER['HTTP_REFERER'] . "&status=sent");
 	
 ?>
