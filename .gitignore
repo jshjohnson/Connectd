@@ -7,7 +7,6 @@ database.yml
 inc/db_connect.php
 inc/functions.php
 htdocs/config.php
-htdocs/assets/avatars/*
 
 
 # OS generated files #

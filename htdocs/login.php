@@ -18,7 +18,7 @@
 		$remember = trim($_POST['remember']);
 		$year = time() + 31536000;
 
-		$general->rememberMe($remember, $email, $year);
+		$forms->rememberMe($remember, $email, $year);
  
 		if (empty($email) === true || empty($password) === true) {
 			$errors[] = 'Sorry, but we need your username and password.';

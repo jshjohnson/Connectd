@@ -19,16 +19,16 @@
 	require 'inc/phpmailer/PHPMailerAutoload.php';
 	require 'inc/ipInfo.php';
 
-	$general = new General();
-	$emails = new Emails();
-	$debug = new Errors();
 	$users = new Users($db);
-	$votes = new Votes($db);
 	$freelancers = new Freelancers($db);
 	$employers = new Employers($db);
 	$jobs = new Jobs($db);	
+	$votes = new Votes($db);
 	$sessions = new Sessions($db);
 	$trials = new Trials($db);
+	$emails = new Emails();
+	$debug = new Errors();
+	$forms = new Forms();
 
 	$bcrypt = new Bcrypt(12);
 	$mail = new PHPMailer();

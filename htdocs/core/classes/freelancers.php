@@ -93,8 +93,8 @@
 			}catch(PDOException $e) {
 				$this->db->rollback();
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 			}
 		}
 
@@ -114,8 +114,8 @@
 					$row = $query->fetch(PDO::FETCH_ASSOC);
 				}catch(PDOException $e) {
 					$users = new Users($db);
-					$general = new General();
-					$errors->errorView($users, $general, $e);
+					
+					$debug->errorView($users, $e);
 				}
 
 				preg_match_all("/'(.*?)'/", $row['Type'], $categories);
@@ -129,8 +129,8 @@
 					$row = $query->fetch(PDO::FETCH_ASSOC);
 				}catch(PDOException $e) {
 					$users = new Users($db);
-					$general = new General();
-					$errors->errorView($users, $general, $e);
+					
+					$debug->errorView($users, $e);
 				}
 				
 				preg_match_all("/'(.*?)'/", $row['Type'], $categories);
@@ -188,8 +188,8 @@
 				$results->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 			}
 			
 			$freelancers = $results->fetchAll(PDO::FETCH_ASSOC);
@@ -225,8 +225,8 @@
 				$results->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 			}
 
 			$developers = $results->fetch(PDO::FETCH_ASSOC);

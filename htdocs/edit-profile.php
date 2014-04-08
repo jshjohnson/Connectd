@@ -79,7 +79,7 @@
 						
 						if (isset($_FILES['myfile']) && !empty($_FILES['myfile']['name'])) {
 					
-							$newpath = $general->fileNewPath($path, $name);
+							$newpath = $forms->fileNewPath($path, $name);
 	 
 							move_uploaded_file($tmp_name, $newpath);
 	 

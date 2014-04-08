@@ -18,7 +18,7 @@
 		 * @param  void
 		 * @return void
 		 */ 
-		public function errorView($users, $general, $e) {
+		public function errorView($users, $e) {
 			$pageTitle = 'Error';
 			$pageType = 'Page';
 			$section = 'Blue';

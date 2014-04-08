@@ -38,7 +38,7 @@
 		header('Location: dashboard/');
 	}else if (isset($_POST['submit'])) {
 
-		$general->hijackPrevention();
+		$forms->hijackPrevention();
 	 		        
 		$r1='/[A-Z]/';  // Test for an uppercase character
 		$r2='/[a-z]/';  // Test for a lowercase character

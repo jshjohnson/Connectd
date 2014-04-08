@@ -30,13 +30,13 @@
 				$this->mail->Send();
 
 			}catch(phpmailerException $e) {
-				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+					$users = new Users($db);
+					$debug = new Errors();
+					$debug->errorView($users, $e);	
 			}catch(Exception $e) {
-				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+					$users = new Users($db);
+					$debug = new Errors();
+					$debug->errorView($users, $e);	
 			}
 	    }
 
@@ -49,8 +49,8 @@
 		    	$this->sendEmail($email, $subject, $body);
 	    	}catch(Exception $e){
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 	    	}
 	    }
 
@@ -64,9 +64,9 @@
 		    	$this->sendEmail($email, $subject, $body);
 	    	}catch(Exception $e){
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
-	    	}	
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+	    	}
 	    }
 
 
@@ -78,9 +78,9 @@
 		    	$body = str_replace('{{newpassword}}', $generatedPassword, $body);
 		    	$this->sendEmail($email, $subject, $body);
 	    	}catch(Exception $e){
-				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+					$users = new Users($db);
+					$debug = new Errors();
+					$debug->errorView($users, $e);	
 	    	}
 
 	    }
@@ -94,9 +94,9 @@
 		    	$body = str_replace('{{code}}', $emailCode, $body);
 		    	$this->sendEmail($email, $subject, $body);
 	    	}catch(Exception $e){
-				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+					$users = new Users($db);
+					$debug = new Errors();
+					$debug->errorView($users, $e);	
 	    	}
 	    }
 
@@ -109,9 +109,9 @@
 		    	$body = str_replace('{{message}}', $message, $body);
 		    	$this->sendEmail($email, $subject, $body);
 	    	}catch(Exception $e){
-				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+					$users = new Users($db);
+					$debug = new Errors();
+					$debug->errorView($users, $e);	
 	    	}
 	    }
 	}

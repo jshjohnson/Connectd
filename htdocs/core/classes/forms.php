@@ -1,5 +1,5 @@
 <?php 
-	class General {
+	class Forms {
 		
 		// Methods
 		
@@ -15,22 +15,6 @@
 	                $errors[] = "Hmmmm. Are you a robot? Try again.";
 	            }
 	        }
-		}
-
-	 	/**
-		 *  Present time in terms of years, days, weeks, minutes or seconds ago
-		 *
-		 * @param  int $i The time a user signed up (`time_joined`)
-		 * @return string
-		 */ 
-		public function timeAgo($i){
-			$m = time()-$i; $o='just now';
-			$t = array('year'=>31556926,'month'=>2629744,'week'=>604800,
-			'day'=>86400,'hour'=>3600,'minute'=>60,'second'=>1);
-			foreach($t as $u=>$s){
-				if($s<=$m){$v=floor($m/$s); $o="$v $u".($v==1?'':'s').' ago'; break;}
-			}
-			return $o;
 		}
 
 		/**

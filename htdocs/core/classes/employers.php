@@ -25,8 +25,8 @@
 				$query->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 			}
 			$row = $query->fetch(PDO::FETCH_ASSOC);
 			
@@ -48,8 +48,8 @@
 				$query->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 			}
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
@@ -134,8 +134,8 @@
 			}catch(PDOException $e) {
 				$this->db->rollback();
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 			}
 		}
 
@@ -191,8 +191,8 @@
 				$results->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 			}
 			
 			$employers = $results->fetchAll(PDO::FETCH_ASSOC);
@@ -231,8 +231,8 @@
 				$results->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 			}
 
 			$employers = $results->fetch(PDO::FETCH_ASSOC);

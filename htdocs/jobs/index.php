@@ -27,8 +27,8 @@
 
 	}catch(Exception $e) {
 		$users = new Users($db);
-		$general = new General();
-		$errors->errorView($users, $general, $e);
+		$debug = new Errors();
+		$debug->errorView($users, $e);
 	}
 ?>
 

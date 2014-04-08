@@ -71,8 +71,8 @@
 				return $query->fetchAll();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 			}
 		}
 
@@ -105,8 +105,8 @@
 				$query->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
-				$general = new General();
-				$errors->errorView($users, $general, $e);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 			}
 			return $query->fetch();
 		}

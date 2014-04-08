@@ -40,7 +40,7 @@
 		header('Location: dashboard/');
 	}else if (isset($_POST['submit'])) {
 
-		$general->hijackPrevention();
+		$forms->hijackPrevention();
 
 		// Form hijack prevention
 		foreach( $_POST as $value ){
