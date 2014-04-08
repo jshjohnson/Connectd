@@ -10,6 +10,7 @@
 		public function __construct($database) {
 		    $this->db = $database;
 		    $this->bcrypt = new Bcrypt(12);
+		    $this->emails = new Emails();
 		}
 
 		/**
@@ -25,7 +26,7 @@
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$general = new General();
-				$general->errorView($users, $general, $e);
+				$errors->errorView($users, $general, $e);
 			}
 			$row = $query->fetch(PDO::FETCH_ASSOC);
 			
@@ -48,7 +49,7 @@
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$general = new General();
-				$general->errorView($users, $general, $e);
+				$errors->errorView($users, $general, $e);
 			}
 			# We use fetchAll() instead of fetch() to get an array of all the selected records.
 			return $query->fetchAll();
@@ -90,7 +91,7 @@
 				$register->execute();
 		
 		 		// Send verification email to user
-				// $general->sendConfirmationEmail($firstName, $email, $emailCode);
+				$this->emails->sendConfirmationEmail($firstName, $email, $emailCode);
 
 				$rows = $register->rowCount();
 	 
@@ -134,7 +135,7 @@
 				$this->db->rollback();
 				$users = new Users($db);
 				$general = new General();
-				$general->errorView($users, $general, $e);
+				$errors->errorView($users, $general, $e);
 			}
 		}
 
@@ -191,7 +192,7 @@
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$general = new General();
-				$general->errorView($users, $general, $e);
+				$errors->errorView($users, $general, $e);
 			}
 			
 			$employers = $results->fetchAll(PDO::FETCH_ASSOC);
@@ -231,7 +232,7 @@
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$general = new General();
-				$general->errorView($users, $general, $e);
+				$errors->errorView($users, $general, $e);
 			}
 
 			$employers = $results->fetch(PDO::FETCH_ASSOC);

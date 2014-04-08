@@ -2,7 +2,7 @@
 	require_once("config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
-	$general->errors();
+	$debug->showErrors();
 	// $votes->userVotedForProtect();
 
 	$userFirstName = $_SESSION["userFirstName"];
@@ -10,7 +10,7 @@
 	$message = preg_replace('/\s*$^\s*/m', "\n", $_POST['message']);
 	$sentBy = $username;
 
-	$general->sendMessageEmail($userFirstName, $userEmail, $message, $sentBy);
+	$emails->sendMessageEmail($userFirstName, $userEmail, $message, $sentBy);
 	unset($userFirstName, $userEmail);
 	header('Location: ' . $_SERVER['HTTP_REFERER'] . "&status=sent");
 	

@@ -2,7 +2,7 @@
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
-	$general->errors();
+	$debug->showErrors();
 	$users->loggedOutProtect();
 	// $votes->userVotedForProtect();
 	$votedBy = $_SESSION['user_id'];

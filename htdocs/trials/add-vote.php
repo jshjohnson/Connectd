@@ -2,7 +2,7 @@
 	require_once("../config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
-	$general->errors();
+	$debug->showErrors();
 	// $votes->userVotedForProtect();
 	if (isset($_GET['user_id'])) {
 		$user_id = $_GET['user_id'];

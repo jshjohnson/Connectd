@@ -16,7 +16,7 @@
 	}catch(PDOException $e) {
 		$users = new Users($db);
 		$general = new General();
-		$general->errorView($users, $general, $e);
+		$errors->errorView($users, $general, $e);
 		exit();
 	}
 ?>

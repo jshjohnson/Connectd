@@ -9,7 +9,7 @@
 
 		public function __construct($database) {
 		    $this->db = $database;
-		    $this->general = new General;
+		    $this->emails = new Emails();
 		}
 
 		/**
@@ -35,7 +35,7 @@
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$general = new General();
-				$general->errorView($users, $general, $e);
+				$errors->errorView($users, $general, $e);
 			}
 		}
 
@@ -77,7 +77,7 @@
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$general = new General();
-				$general->errorView($users, $general, $e);
+				$errors->errorView($users, $general, $e);
 			}
 		}
 
@@ -128,7 +128,7 @@
 
 				$votes = $this->getUserVotes($user_id);
 
-				$this->general->sendVoteEmail($firstName, $email, $votes);
+				$this->emails->sendVoteEmail($firstName, $email, $votes);
 
 				$this->db->commit();
 
@@ -142,13 +142,13 @@
 						$this->db->rollback();
 						$users = new Users($db);
 						$general = new General();
-						$general->errorView($users, $general, $e);
+						$errors->errorView($users, $general, $e);
 					}		
 				}else {
 					$this->db->rollback();
 					$users = new Users($db);
 					$general = new General();
-					$general->errorView($users, $general, $e);	
+					$errors->errorView($users, $general, $e);	
 				}
 			}
 	    }
@@ -172,7 +172,7 @@
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$general = new General();
-				$general->errorView($users, $general, $e);
+				$errors->errorView($users, $general, $e);
 			}
 	    }
 
@@ -208,7 +208,7 @@
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$general = new General();
-				$general->errorView($users, $general, $e);
+				$errors->errorView($users, $general, $e);
 			}
 		}
 	}

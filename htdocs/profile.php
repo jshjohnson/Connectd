@@ -3,7 +3,7 @@
 	require_once(ROOT_PATH . "core/init.php"); 
 	
 	$users->loggedOutProtect();
-	$general->errors();
+	$debug->showErrors();
 
 	try {
 		// If id isn't in the URL OR the id is is not an integer and not greater than or equal to 1, throw error
@@ -64,6 +64,6 @@
 	}catch(Exception $e) {
 		$users = new Users($db);
 		$general = new General();
-		$general->errorView($users, $general, $e);
+		$errors->errorView($users, $general, $e);
 	}
 ?>

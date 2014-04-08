@@ -3,7 +3,7 @@
 	require_once(ROOT_PATH . "core/init.php"); 
 
 	$users->loggedOutProtect();
-	$general->errors();
+	$debug->showErrors();
 
 	try {
 
@@ -56,6 +56,6 @@
 	}catch(Exception $e) {
 		$users = new Users($db);
 		$general = new General();
-		$general->errorView($users, $general, $e);
+		$errors->errorView($users, $general, $e);
 	}
 ?>		

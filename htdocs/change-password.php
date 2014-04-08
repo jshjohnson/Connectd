@@ -2,7 +2,7 @@
 	require_once("config.php"); 
 	require_once(ROOT_PATH . "core/init.php");
 
-	$general->errors();
+	$debug->showErrors();
 
 	$pageTitle = "Change Password";
 	$pageType = "Page";
