@@ -26,8 +26,8 @@
 	$votes = new Votes($db);
 	$sessions = new Sessions($db);
 	$trials = new Trials($db);
-	$emails = new Emails();
 	$debug = new Errors();
+	$emails = new Emails();
 	$forms = new Forms();
 
 	$bcrypt = new Bcrypt(12);

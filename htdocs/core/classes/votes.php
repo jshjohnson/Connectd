@@ -142,7 +142,7 @@
 						$this->db->rollback();
 						$users = new Users($db);
 						$debug = new Errors();
-						$debug->errorView($users, $e);
+						$debug->errorView($users, $e);	
 					}		
 				}else {
 					$this->db->rollback();

@@ -115,7 +115,7 @@
 				}catch(PDOException $e) {
 					$users = new Users($db);
 					
-					$debug->errorView($users, $e);
+					$debug->errorView($users, $e);	
 				}
 
 				preg_match_all("/'(.*?)'/", $row['Type'], $categories);
@@ -130,7 +130,7 @@
 				}catch(PDOException $e) {
 					$users = new Users($db);
 					
-					$debug->errorView($users, $e);
+					$debug->errorView($users, $e);	
 				}
 				
 				preg_match_all("/'(.*?)'/", $row['Type'], $categories);

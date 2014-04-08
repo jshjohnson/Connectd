@@ -288,7 +288,7 @@
 				}catch(PDOException $e) {
 					$users = new Users($db);
 					
-					$debug->errorView($users, $e);
+					$debug->errorView($users, $e);	
 				}
 		 
 				return $query->fetchColumn();
