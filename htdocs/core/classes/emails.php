@@ -46,6 +46,7 @@
 		    	$body = file_get_contents('../assets/email-templates/vote-added.php');
 		    	$body = str_replace('{{name}}', $firstName, $body);
 		    	$body = str_replace('{{votes}}', $votes['CountOfvote_id'], $body);
+		    	$body = str_replace('{{url}}', BASE_URL, $body);
 		    	$this->sendEmail($email, $subject, $body);
 	    	}catch(Exception $e){
 				$users = new Users($db);
@@ -61,6 +62,7 @@
 		    	$body = str_replace('{{name}}', $firstName, $body);
 		    	$body = str_replace('{{email}}', $email, $body);
 		    	$body = str_replace('{{string}}', $generatedString, $body);
+		    	$body = str_replace('{{url}}', BASE_URL, $body);
 		    	$this->sendEmail($email, $subject, $body);
 	    	}catch(Exception $e){
 				$users = new Users($db);
@@ -76,6 +78,7 @@
 		    	$body = file_get_contents('../assets/email-templates/new-password.php');
 		    	$body = str_replace('{{name}}', $firstName, $body);
 		    	$body = str_replace('{{newpassword}}', $generatedPassword, $body);
+		    	$body = str_replace('{{url}}', BASE_URL, $body);
 		    	$this->sendEmail($email, $subject, $body);
 	    	}catch(Exception $e){
 					$users = new Users($db);
@@ -92,6 +95,7 @@
 		    	$body = str_replace('{{name}}', $firstName, $body);
 		    	$body = str_replace('{{email}}', $email, $body);
 		    	$body = str_replace('{{code}}', $emailCode, $body);
+		    	$body = str_replace('{{url}}', BASE_URL, $body);
 		    	$this->sendEmail($email, $subject, $body);
 	    	}catch(Exception $e){
 					$users = new Users($db);
@@ -107,6 +111,7 @@
 		    	$body = str_replace('{{name}}', $firstName, $body);
 		    	$body = str_replace('{{sentBy}}', $sentBy, $body);
 		    	$body = str_replace('{{message}}', $message, $body);
+		    	$body = str_replace('{{url}}', BASE_URL, $body);
 		    	$this->sendEmail($email, $subject, $body);
 	    	}catch(Exception $e){
 					$users = new Users($db);

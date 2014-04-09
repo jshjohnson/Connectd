@@ -65,7 +65,7 @@
 			
 			$time = time();
 			$ip = $_SERVER['REMOTE_ADDR'];
-			$emailCode = sha1($email + microtime());
+			$emailCode = sha1($data['email'] + microtime());
 			$password = $this->bcrypt->genHash($data['password']);
 
 			$register = $this->db->prepare("INSERT INTO " . DB_NAME . ".users
