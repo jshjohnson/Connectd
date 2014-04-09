@@ -96,6 +96,10 @@
 
 .user-module__info {
 	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1.5em;
+	@include box-sizing(border-box);
 	p {
 		font-size: .9em;
 		margin-bottom: 1em;

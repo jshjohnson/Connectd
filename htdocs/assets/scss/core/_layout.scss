@@ -1,5 +1,6 @@
-/* Container / Inner
+/* Site wrapping
 ----------------------------------*/
+
 .site {
 	display: flex;
 	height: 100%;
@@ -25,6 +26,9 @@
 	height: 100%;
 }
 
+/* Container / Inner
+----------------------------------*/
+
 .container {
 	margin: 0 auto;
 	width: 90%;
@@ -38,17 +42,6 @@
 	}
 	padding-left: 5%;
 	padding-right: 5%;
-}
-
-.user-module__info {
-	margin-left: auto;
-	margin-right: auto;
-	padding: 1.5em;
-	@include box-sizing(border-box);
-}
-
-.footer--push {
-	flex: 1;
 }
 
 /* Grids (Griddle - http://goo.gl/P1JKB)
@@ -70,6 +63,9 @@
 @include respond-min($bp4) {
 	@include griddle-build(2 3 4 5 6 12, "--bp4");
 }
+
+/* Panels
+----------------------------------*/
 
 .panel {
 	display: table; 
@@ -194,6 +190,8 @@
 	display: inline-block;
 }
 
+/* Misc
+----------------------------------*/
 
 .ribbon {
 	position: absolute;
@@ -212,4 +210,8 @@
 		@include transform(rotate(-90deg));
 		text-transform: uppercase;
 	}
+}
+
+.footer--push {
+	flex: 1;
 }
