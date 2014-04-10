@@ -82,9 +82,10 @@
 				<?php endif; ?>
 				<?php if ($status == "success") : ?>
 				<p class="message message--success fadeIn">Successfully posted job. <a href="<?= BASE_URL . "dashboard/";?>">Go back to dashboard</a></p>
-				<?php endif; ?>
+				<?php else : ?>
+				<p class="message message--hint zero-bottom">Psst. Make your job titles as descriptive as possible - it will avoid confusion in the Connectd community.</p>
+				<?php endif;?>
 				<form method="post" action="<?= BASE_URL; ?>jobs/post.php">
-				<p class="message message--hint">Psst. Make your job titles as descriptive as possible - it will avoid confusion in the Connectd community.</p>
 					<fieldset class="cf text-center">
 						<label for="">I need a</label>
 						<div class="select-container select-container--inline">
