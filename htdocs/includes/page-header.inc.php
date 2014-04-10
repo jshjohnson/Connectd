@@ -51,11 +51,11 @@
 				</div>
 
 				<div class="header-section header-section--right">
-					<a href="<?= BASE_URL . "profile.php?usertype=" . $sessionUserType . "&id=" . $user['user_id'] ?>">
-						<div style="background-image: url('<?= BASE_URL . $avatar; ?>');" class="header-section__avatar"></div>
+					<a href="<?= BASE_URL . "profile.php?usertype=" . $sessionUserType . "&id=" . $sessionUser['user_id'] ?>">
+						<div style="background-image: url('<?= BASE_URL . $sessionAvatar; ?>');" class="header-section__avatar"></div>
 					</a>
 					<h2 class="header-section__title header-section__title--username">
-						<a <a href="<?= BASE_URL . "profile.php?usertype=" . $sessionUserType . "&id=" . $user['user_id'] ?>"><?= $username; ?></a>
+						<a <a href="<?= BASE_URL . "profile.php?usertype=" . $sessionUserType . "&id=" . $sessionUser['user_id'] ?>"><?= $sessionUsername; ?></a>
 					</h2>
 					<a href="<?= BASE_URL . "dashboard/" ?>" class="header-section__home"></a>
 				</div>

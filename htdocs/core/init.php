@@ -40,9 +40,9 @@
 	
 	if ($users->loggedIn() === true)  { // check if the user is logged in
 		$user_id = $_SESSION['user_id']; // getting user's id from the session.
-		$user = $users->userData($user_id); // getting all the data about the logged in user.
-		$username = $user['firstname'] . " " . $user['lastname'];
-		$sessionUserType = $user['user_type'];
-		$avatar = $user['image_location'];
+		$sessionUser = $users->userData($user_id); // getting all the data about the logged in user.
+		$sessionUsername = $sessionUser['firstname'] . " " . $sessionUser['lastname'];
+		$sessionUserType = $sessionUser['user_type'];
+		$sessionAvatar = $sessionUser['image_location'];
 	}
 	
