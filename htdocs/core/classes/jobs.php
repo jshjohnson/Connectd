@@ -119,7 +119,7 @@
 		public function getJobsSingle($id) {
 
 			$results = $this->db->prepare("SELECT
-				j.*, u.user_id, u.location, u.portfolio, u.bio, u.time_joined, e.employer_name, et.employer_type
+				j.*, u.user_id, u.location, u.portfolio, u.bio, u.time_joined, u.image_location, e.employer_name, et.employer_type
 				FROM (((" . DB_NAME . ".jobs AS j
 				INNER JOIN " . DB_NAME . ".users AS u 
 				ON j.user_id = u.user_id)

@@ -17,7 +17,7 @@
 						?>
 						</span>
 					</div>
-					<p class='media__body'><a href="<?= BASE_URL . "jobs/" . $job['job_id']; ?>/" class="user-info__link"><?= $job['job_name']; ?></a></p>
+					<p class='media__body'><a href="<?= BASE_URL . "jobs/index.php?id=" . $job['job_id']; ?>" class="user-info__link"><?= $job['job_name']; ?></a></p>
 				</div>
 				<div class='media-1-3 media__side'>
 					<p><small><?= date('F j, Y', $job['job_post_date']); ?></small></p>
