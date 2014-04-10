@@ -38,7 +38,7 @@
 			 
 			                $errors[] = 'All fields are required';
 			 
-			            }else if($bcrypt->verify($currentPassword, $user['password']) === true) {
+			            }else if($bcrypt->verify($currentPassword, $sessionUser['password']) === true) {
 			 
 			                if (trim($newPassword) != trim($repeatNewPassword)) {
 			                    $errors[] = 'Your new passwords do not match';
@@ -54,7 +54,7 @@
 			        }
 
 		            if (empty($_POST) === false && empty($errors) === true) {
-		                $users->changePassword($user['user_id'], $newPassword);
+		                $users->changePassword($sessionUser['user_id'], $newPassword);
 		                header('Location: change-password.php?success');
 		            } else if (empty ($errors) === false) {               
 		                echo '<p class="message message--error shake">' . implode('</p><p>', $errors) . '</p>';

@@ -103,7 +103,7 @@
             <form action="<?= BASE_URL . "edit-profile.php"; ?>" method="post" enctype="multipart/form-data">
 	            <div class="cf">
 	           		<fieldset class="field-1-2 float-right">                
-						<img src="<?= $avatar ?>" alt="Avatar" class="form__img">
+						<img src="<?= $sessionAvatar ?>" alt="Avatar" class="form__img">
 					</fieldset>
 	                <fieldset class="field-1-2 float-left">
 	               	 <label for="myfile">Change profile picture</label>
@@ -114,16 +114,16 @@
                 <div class="cf">
 	            	<fieldset class="field-1-2 float-left">
 	                    <label>First name:</label>
-	                    <input type="text" name="firstname" value="<?php if (isset($_POST['firstname']) ){echo htmlentities(strip_tags($_POST['firstname']));} else { echo $user['firstname']; }?>">
+	                    <input type="text" name="firstname" value="<?php if (isset($_POST['firstname']) ){echo htmlentities(strip_tags($_POST['firstname']));} else { echo $sessionUser['firstname']; }?>">
 					</fieldset>
 					<fieldset class="field-1-2 float-right">
 	                    <label>Last name:</label>
-	                    <input type="text" name="lastname" value="<?php if (isset($_POST['lastname']) ){echo htmlentities(strip_tags($_POST['lastname']));} else { echo $user['lastname']; }?>">
+	                    <input type="text" name="lastname" value="<?php if (isset($_POST['lastname']) ){echo htmlentities(strip_tags($_POST['lastname']));} else { echo $sessionUser['lastname']; }?>">
 					</fieldset>
 				</div>
 				<fieldset class="cf">
                     <label>Bio:</label>
-                    <textarea name="bio"><?php if (isset($_POST['bio']) ){echo htmlentities(strip_tags($_POST['bio']));} else { echo $user['bio']; }?></textarea>
+                    <textarea name="bio"><?php if (isset($_POST['bio']) ){echo htmlentities(strip_tags($_POST['bio']));} else { echo $sessionUser['bio']; }?></textarea>
 					<div class="btn-container">
 		            	<input class="btn--green" name="submit" type="submit" value="Update profile">						
 					</div>
