@@ -146,7 +146,7 @@ namespace :db do
     end
 
     desc "Syncs remote database to local database"
-    task :sync_to_local do
+    task :pull do
         backup_name
         dump
         puts "Downloading remote backup..."
@@ -161,7 +161,7 @@ namespace :db do
     end
 
     desc "Syncs local database to remote database"
-    task :sync_to_remote do
+    task :push do
         backup_name
         puts "Dumping local database..."
         database = YAML::load_file('config/database.yml')['local']
@@ -205,7 +205,7 @@ task :confirm do
   end
 end
  
-before 'db:sync_to_remote', :confirm
+before 'db:push', :confirm
 before 'production', :confirm
 
 
