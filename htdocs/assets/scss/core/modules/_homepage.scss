@@ -10,15 +10,13 @@
 	@include background-size(cover);
 	background-position: center;
 	padding: 15% 5%;
+	overflow: hidden;
 	@include box-sizing(border-box);
 	@include respond-min($bp3) {
 		@include background-size(100%);
 	}
 	@include respond-max($bp4) {
 		padding: 20% 5%;
-	}
-	@include respond-max($bp3) {
-		padding: 30% 5%;
 	}
 	@include respond-max($bp1) {
 		padding: 40% 5%;
@@ -64,7 +62,10 @@
 	font-family: $font-serif;
 	margin-bottom: $baseline/2;
 	&:after {
-		@extend .bounce;
+		animation: bounce 1s .5s infinite;
+		-webkit-animation: bounce 1s .5s infinite;
+		-moz-animation: bounce 1s .5s infinite;
+		-o-animation: bounce 1s .5s infinite;
 		content: "";
 		width: 0; 
 		height: 0; 

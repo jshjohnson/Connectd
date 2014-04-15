@@ -2570,6 +2570,7 @@ img.media__img {
   background-size: cover;
   background-position: center;
   padding: 15% 5%;
+  overflow: hidden;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2580,19 +2581,19 @@ img.media__img {
   padding: 20% 5%;
 }
 
-/* line 28, ../scss/core/modules/_homepage.scss */
+/* line 26, ../scss/core/modules/_homepage.scss */
 .site-intro__content {
   position: relative;
   text-align: center;
 }
 
-/* line 38, ../scss/core/modules/_homepage.scss */
+/* line 36, ../scss/core/modules/_homepage.scss */
 .site-intro__logo {
   max-width: 55%;
   margin-bottom: 2em;
 }
 
-/* line 48, ../scss/core/modules/_homepage.scss */
+/* line 46, ../scss/core/modules/_homepage.scss */
 .site-intro__heading {
   font-size: 7em;
   color: white;
@@ -2600,7 +2601,7 @@ img.media__img {
   margin-bottom: 0;
 }
 
-/* line 58, ../scss/core/modules/_homepage.scss */
+/* line 56, ../scss/core/modules/_homepage.scss */
 .site-intro__sub-heading {
   font-size: 1.5em;
   font-weight: 500;
@@ -2610,8 +2611,12 @@ img.media__img {
   font-family: "Georgia", serif;
   margin-bottom: 1em;
 }
-/* line 66, ../scss/core/modules/_homepage.scss */
+/* line 64, ../scss/core/modules/_homepage.scss */
 .site-intro__sub-heading:after {
+  animation: bounce 1s .5s infinite;
+  -webkit-animation: bounce 1s .5s infinite;
+  -moz-animation: bounce 1s .5s infinite;
+  -o-animation: bounce 1s .5s infinite;
   content: "";
   width: 0;
   height: 0;
@@ -2624,16 +2629,16 @@ img.media__img {
   margin-left: -.45em;
 }
 
-/* line 91, ../scss/core/modules/_homepage.scss */
+/* line 92, ../scss/core/modules/_homepage.scss */
 .site-intro__link {
   color: white;
 }
-/* line 93, ../scss/core/modules/_homepage.scss */
+/* line 94, ../scss/core/modules/_homepage.scss */
 .site-intro__link:hover {
   background-color: white;
   color: #2c3e50;
 }
-/* line 97, ../scss/core/modules/_homepage.scss */
+/* line 98, ../scss/core/modules/_homepage.scss */
 .site-intro__link:visited {
   color: white;
 }
@@ -8641,7 +8646,7 @@ img.media__img {
 }
 
 /* line 65, ../scss/core/_animation.scss */
-.bounce, .site-intro__sub-heading:after {
+.bounce {
   -webkit-animation-name: bounce;
   -moz-animation-name: bounce;
   -ms-animation-name: bounce;
