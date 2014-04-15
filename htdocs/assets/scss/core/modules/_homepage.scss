@@ -31,6 +31,9 @@
 		width: 80%;
 		margin: auto;
 	}
+	@include respond-max($bp1) {
+		width: 90%;
+	}
 }
 
 .site-intro__logo {

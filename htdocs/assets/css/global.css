@@ -3151,25 +3151,31 @@ img.media__img {
     margin: auto;
   }
 }
+@media screen and (max-width: 30em) {
+  /* line 26, ../scss/core/modules/_homepage.scss */
+  .site-intro__content {
+    width: 90%;
+  }
+}
 
-/* line 36, ../scss/core/modules/_homepage.scss */
+/* line 39, ../scss/core/modules/_homepage.scss */
 .site-intro__logo {
   margin-bottom: 2em;
 }
 @media screen and (min-width: 49em) {
-  /* line 36, ../scss/core/modules/_homepage.scss */
+  /* line 39, ../scss/core/modules/_homepage.scss */
   .site-intro__logo {
     max-width: 55%;
   }
 }
 @media screen and (min-width: 82em) {
-  /* line 36, ../scss/core/modules/_homepage.scss */
+  /* line 39, ../scss/core/modules/_homepage.scss */
   .site-intro__logo {
     max-width: 50%;
   }
 }
 
-/* line 46, ../scss/core/modules/_homepage.scss */
+/* line 49, ../scss/core/modules/_homepage.scss */
 .site-intro__heading {
   font-size: 7em;
   color: white;
@@ -3177,13 +3183,13 @@ img.media__img {
   margin-bottom: 0;
 }
 @media screen and (max-width: 49em) {
-  /* line 46, ../scss/core/modules/_homepage.scss */
+  /* line 49, ../scss/core/modules/_homepage.scss */
   .site-intro__heading {
     font-size: 3em;
   }
 }
 
-/* line 56, ../scss/core/modules/_homepage.scss */
+/* line 59, ../scss/core/modules/_homepage.scss */
 .site-intro__sub-heading {
   font-size: 1.5em;
   font-weight: 500;
@@ -3193,7 +3199,7 @@ img.media__img {
   font-family: "Georgia", serif;
   margin-bottom: 1em;
 }
-/* line 64, ../scss/core/modules/_homepage.scss */
+/* line 67, ../scss/core/modules/_homepage.scss */
 .site-intro__sub-heading:after {
   animation: bounce 1s .5s infinite;
   -webkit-animation: bounce 1s .5s infinite;
@@ -3211,7 +3217,7 @@ img.media__img {
   margin-left: -.45em;
 }
 @media screen and (max-width: 49em) {
-  /* line 64, ../scss/core/modules/_homepage.scss */
+  /* line 67, ../scss/core/modules/_homepage.scss */
   .site-intro__sub-heading:after {
     border-left: .35em solid transparent;
     border-right: .35em solid transparent;
@@ -3221,22 +3227,22 @@ img.media__img {
   }
 }
 @media screen and (max-width: 49em) {
-  /* line 56, ../scss/core/modules/_homepage.scss */
+  /* line 59, ../scss/core/modules/_homepage.scss */
   .site-intro__sub-heading {
     font-size: 1.2em;
   }
 }
 
-/* line 92, ../scss/core/modules/_homepage.scss */
+/* line 95, ../scss/core/modules/_homepage.scss */
 .site-intro__link {
   color: white;
 }
-/* line 94, ../scss/core/modules/_homepage.scss */
+/* line 97, ../scss/core/modules/_homepage.scss */
 .site-intro__link:hover {
   background-color: white;
   color: #2c3e50;
 }
-/* line 98, ../scss/core/modules/_homepage.scss */
+/* line 101, ../scss/core/modules/_homepage.scss */
 .site-intro__link:visited {
   color: white;
 }
