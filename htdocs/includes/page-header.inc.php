@@ -28,7 +28,6 @@
 						<a href="<?= BASE_URL; ?>#register" class="header__section--title__link">: Register</a>
 						<?php endif;?>
 					</h1>
-					<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
 				</div>
 
 				<div class="header-section header-section--right">
@@ -38,7 +37,7 @@
 				</div>
 
 			<?php else : ?>
-
+				<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
 				<div class="header-section header-section--left">
 					<?php if($section == "Jobs" || $section == "Developers" || $section == "Designers" || $section == "Employers") : ?>	
 					<h1 class="header-section__title"><?= $section; ?>
@@ -61,6 +60,5 @@
 
 			<?php endif; ?>
 
-				<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
 			</div>
 		</header>

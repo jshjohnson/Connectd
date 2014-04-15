@@ -1,4 +1,4 @@
-				<a href="#nav" class="nav-toggle nav-toggle--open icon--menu" id="nav-open-btn">Open</a>
+				<a href="#nav" class="nav-toggle nav-toggle--open icon--menu" id="nav-open-btn"></a>
 				<?php if ($section == "Developers" || $section == "Navy") : ?>
 				<nav id="nav" role="navigation" class="header__nav header-navy--alt">
 				<?php elseif ($section == "Designers" || $section == "Blue") : ?>
@@ -8,7 +8,7 @@
 				<?php else : ?>
 				<nav id="nav" role="navigation" class="header__nav header-navy--alt">
 				<?php endif; ?>
-					<a href="#nav" class="nav-toggle nav-toggle--close icon--close" id="nav-close-btn">Close</a>
+					<a href="#nav" class="nav-toggle nav-toggle--close icon--cancel" id="nav-close-btn"></a>
 					<ul>
 					<?php if ($users->loggedIn() === true) : ?>
 						<li><a href="<?= BASE_URL; ?>dashboard/">Dashboard</a></li>
