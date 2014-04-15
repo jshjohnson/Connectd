@@ -1,12 +1,14 @@
+				<a href="#nav" class="nav-toggle nav-toggle--open icon--menu" id="nav-open-btn">Open</a>
 				<?php if ($section == "Developers" || $section == "Navy") : ?>
-				<nav class="header__nav header-navy--alt">
+				<nav id="nav" role="navigation" class="header__nav header-navy--alt">
 				<?php elseif ($section == "Designers" || $section == "Blue") : ?>
-				<nav class="header__nav header-blue--alt">
+				<nav id="nav" role="navigation" class="header__nav header-blue--alt">
 				<?php elseif ($section == "Employers" || $section == "Jobs" || $section == "Green") : ?>
-				<nav class="header__nav header-green--alt">
+				<nav id="nav" role="navigation" class="header__nav header-green--alt">
 				<?php else : ?>
-				<nav class="header__nav header-navy--alt">
+				<nav id="nav" role="navigation" class="header__nav header-navy--alt">
 				<?php endif; ?>
+					<a href="#nav" class="nav-toggle nav-toggle--close icon--close" id="nav-close-btn">Close</a>
 					<ul>
 					<?php if ($users->loggedIn() === true) : ?>
 						<li><a href="<?= BASE_URL; ?>dashboard/">Dashboard</a></li>

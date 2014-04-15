@@ -45,9 +45,8 @@
 					<?php else : ?>
 					<h1 class="header-section__title"><?= $pageTitle; ?>
 					<?php endif; ?>
-						<a href="" class="menu-trigger header-section__title--link">: Menu</a>
+						<!-- <a href="" class="menu-trigger header-section__title--link">: Menu</a> -->
 					</h1>
-					<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
 				</div>
 
 				<div class="header-section header-section--right">
@@ -61,5 +60,7 @@
 				</div>
 
 			<?php endif; ?>
+
+				<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
 			</div>
 		</header>

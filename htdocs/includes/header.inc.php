@@ -22,7 +22,7 @@
 	<!--[if gt IE 8]><!-->
 	    <link rel="stylesheet" href="<?= BASE_URL; ?>assets/css/global.css">
 	<!--<![endif]-->
-	<script src="<?= BASE_URL; ?>assets/js/libs/modernizr-2.5.3.min.js"></script>
+	<script src="<?= BASE_URL; ?>assets/js/libs/modernizr-2.6.2.min.js"></script>
 	<script type="text/javascript" src="//use.typekit.net/dxr1afv.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<script>var baseUrl = '<?= BASE_URL; ?>';</script>
@@ -39,7 +39,8 @@
 
 </script>
 	<?php if(!$isHome) : ?>
-	<div class="site site-wrap <?php if($pageType == "Page") : ?>site-wrap--page<?php endif;?>">
+	<div class="outer">
+		<div id="inner-wrap" class="site site-wrap <?php if($pageType == "Page") : ?>site-wrap--page<?php endif;?>">
 		<?php include_once(ROOT_PATH . "includes/page-header.inc.php"); ?>
 	<?php else :?>
 	<div class="site site-wrap--home">

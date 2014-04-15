@@ -193,6 +193,35 @@ img.media__img {
 	background-color: #F5F5F5; 
 }
 
+.nav-toggle {
+	color: white;
+	text-align: center;
+	margin-bottom: 0;
+	display: block;
+	@include respond-min($bp2){
+		display:none;
+	}
+	&:visited, &:hover {
+		color: white;
+	}
+	&:active {
+		top: 0;
+	}
+}
+
+.nav-toggle--close {
+	text-align: center; 
+	padding: 1.5em 1em 1.5em 0;
+}
+
+.nav-toggle--open {
+	font-size: 1.5em;
+	float: left;
+	padding: 0 .5em;
+	margin: 0;
+}
+
+
 /* Primary Nav
 ----------------------------------*/
 .nav--primary {
@@ -252,11 +281,11 @@ img.media__img {
 }
 
 .header__nav {
-	display: none;
+	// display: none;
 	@include box-sizing(border-box);
 	position: absolute;
-	font-size: .7em;
-	top: 4.25em;
+	// font-size: .7em;
+	top: 3em;
 	z-index: 999;
 	line-height: 2.5em;
 	ul {
@@ -265,16 +294,20 @@ img.media__img {
 		margin: 0;
 		li {
 			margin-bottom: 0;
+			overflow-x: hidden;
+			font-size: .9em;
 			a {
 				display: block;
 				color: white;
 				line-height: 2.5;
 				width: 10em;
 				padding: .5em 1.5em;
-				width: 10em;
 				@include transition(all, .5s);
 				&:hover {
 					@include transition(all, .5s);
+				}
+				@include respond-max($bp2) {
+					width: 100%;
 				}
 			}
 		}

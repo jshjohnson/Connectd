@@ -49,7 +49,7 @@
 						<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
 		        <?php  
 		           	}else if (isset($_GET['success']) === false) { ?>
-						<p class="message message--hint message--form">Enter your email below so we can confirm your request.</p>
+						<p class="message message--hint">Enter your email below so we can confirm your request.</p>
 				<?php }; ?>
 				<form action="<?= BASE_URL . "confirm-recover.php"; ?>" method="post" autocomplete="off">
 					<input type="email" name="email" placeholder="Email" class="zero-top">

@@ -14,12 +14,12 @@ $(document).ready(function() {
 	    $('img[src$=".svg"]').each(function(){
 	        $(this).attr('src', $(this).attr('src').replace('.svg', '.png'));
 	    });
-	}
+	};
 
-	$(".menu-trigger").click(function(e) {
-		e.preventDefault();
-		$(".header__nav").slideToggle();
-	});
+	// $(".menu-trigger").click(function(e) {
+	// 	e.preventDefault();
+	// 	$(".header__nav").slideToggle();
+	// });
 
 	// Window Load
 	$(window).bind("load", function() {
@@ -105,7 +105,7 @@ $(document).ready(function() {
 				});
 			});
 		});
-	}
+	};
 	//Staging
 	overlay($(".apply-trigger"), ""+baseUrl+"assets/ajax/apply.php");
 	overlay($(".hire-trigger"), ""+baseUrl+"assets/ajax/hire.php");

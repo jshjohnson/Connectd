@@ -1,0 +1,158 @@
+.outer{
+	  position: relative;
+	  width: 100%;
+	  height:100%;
+}
+
+#inner-wrap{
+	height:100%;
+	min-height: 28em;
+}
+
+
+@include respond-max($bp2) {
+	#nav {
+		position: absolute;
+		@include box-sizing(border-box);
+		top: 0;
+		display:none;
+
+		&:not(:target){
+			z-index: 1;
+			height: 0;
+		}
+	}
+
+	.js-ready{
+		#nav {
+			display:inline;
+			height: 100%;
+			width: $ofc-width-small;
+			left: -$ofc-width-small;
+
+		}
+
+		#inner-wrap {
+			position: relative;
+			left: 0;
+		}
+
+
+	}
+
+	.js-nav{
+
+		#inner-wrap {
+			left: $ofc-width-small;
+		}
+	}
+
+	.csstransforms3d.csstransitions.js-ready {
+		#nav {
+			width:$ofc-width-small;
+			left: 0;
+			@include translate3d(-100%, 0, 0);
+			@include backface-visibility(hidden);
+		}
+
+		#inner-wrap {
+			left: 0 !important;
+			@include translate3d(0, 0, 0);
+			@include backface-visibility(hidden);
+			@include transition(transform 500ms ease);
+
+		}
+	}
+
+
+	.csstransforms3d.csstransitions.js-nav{
+		#nav {
+			@include translate3d(-100%, 0, 0);
+		}
+		#inner-wrap {
+			@include transform(translate3d($ofc-width-small, 0, 0));
+		}
+
+	}
+
+}
+
+@include respond-max($bp2) {
+
+
+	.js-ready{
+		#nav {
+
+			width: $ofc-width-small;
+			min-height: 46em;
+			left: -$ofc-width-small;
+
+		}
+
+	}
+
+	.js-nav{
+
+		#inner-wrap {
+			left: $ofc-width-small;
+		}
+
+	}
+
+	.csstransforms3d.csstransitions.js-ready {
+		#nav {
+			width:$ofc-width-small;
+		}
+	}
+
+
+	.csstransforms3d.csstransitions.js-nav{
+
+		#inner-wrap {
+			@include transform(translate3d($ofc-width-small, 0, 0));
+		}
+
+	}
+
+}
+
+
+@include respond-max($bp1) {
+
+
+	.js-ready{
+		#nav {
+
+			width: $ofc-width-large;
+			min-height: 46em;
+			left: -$ofc-width-large;
+
+		}
+
+	}
+
+	.js-nav{
+
+		#inner-wrap {
+			left: $ofc-width-large;
+		}
+
+	}
+
+	.csstransforms3d.csstransitions.js-ready {
+		#nav {
+			width:$ofc-width-large;
+		}
+	}
+
+
+	.csstransforms3d.csstransitions.js-nav{
+
+		#inner-wrap {
+			@include transform(translate3d($ofc-width-large, 0, 0));
+		}
+
+	}
+
+}
+
