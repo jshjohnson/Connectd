@@ -23,15 +23,15 @@
 
 		switch ($userType) {
 			case "designer":
-				$section = "Designers";
+				$section = "Designer";
 				$users->loggedOutProtect();
 				break;
 			case "developer":
-				$section = "Developers";
+				$section = "Developer";
 				$users->loggedOutProtect();
 				break;
 			case "employer":
-				$section = "Employers";
+				$section = "Employer";
 				$jobs = $employers->getEmployerJobs($id);
 				$users->loggedOutProtect();
 				break;
