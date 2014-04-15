@@ -3223,7 +3223,7 @@ img.media__img {
 @media screen and (max-width: 49em) {
   /* line 56, ../scss/core/modules/_homepage.scss */
   .site-intro__sub-heading {
-    font-size: 1.4em;
+    font-size: 1.2em;
   }
 }
 

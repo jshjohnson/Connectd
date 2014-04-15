@@ -16,11 +16,6 @@ $(document).ready(function() {
 	    });
 	};
 
-	// $(".menu-trigger").click(function(e) {
-	// 	e.preventDefault();
-	// 	$(".header__nav").slideToggle();
-	// });
-
 	// Window Load
 	$(window).bind("load", function() {
 		// Fade container on load to combat FOUT
