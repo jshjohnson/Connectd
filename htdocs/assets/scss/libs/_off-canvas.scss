@@ -6,12 +6,12 @@
 
 #inner-wrap{
 	height:100%;
-	min-height: 28em;
+	min-height: 100vh;
 }
 
 
 #nav {
-	position: absolute;
+	position: fixed;
 	@include box-sizing(border-box);
 	top: 0;
 	display:none;
@@ -35,8 +35,6 @@
 		position: relative;
 		left: 0;
 	}
-
-
 }
 
 .js-nav{

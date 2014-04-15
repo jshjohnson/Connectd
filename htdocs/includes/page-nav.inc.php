@@ -1,4 +1,4 @@
-				<a href="#nav" class="nav-toggle nav-toggle--open icon--menu" id="nav-open-btn"></a>
+				<a href="#nav" class="nav-toggle nav-toggle--open nav-toggle--divide icon--menu" id="nav-open-btn"></a>
 				<?php if ($section == "Developers" || $section == "Navy") : ?>
 				<nav id="nav" role="navigation" class="header__nav header-navy--alt">
 				<?php elseif ($section == "Designers" || $section == "Blue") : ?>

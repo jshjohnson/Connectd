@@ -205,9 +205,21 @@ img.media__img {
 	}
 }
 
+.nav-toggle--divide {
+	padding: 0 .5em;
+	margin: 0 1em 0 0;
+	border-right: 1px solid rgba(white,.2);
+	padding-right: 1em;
+	float: left;
+	font-size: .8em;
+	font-weight: 600;
+	cursor: pointer;
+}
+
 .nav-toggle--close {
 	line-height: 3;
 	padding-left: 1.5em;
+	background-color: rgba(white,.1);
 	&:after {
 		content: "Close";
 		font-size: .8em;
@@ -217,11 +229,6 @@ img.media__img {
 
 .nav-toggle--open {
 	font-size: 1em;
-	float: left;
-	padding: 0 .5em;
-	margin: 0 1em 0 0;
-	border-right: 1px solid rgba(white,.2);
-	padding-right: 1em;
 	&:after {
 		content: "Menu";
 		font-size: .8em;
@@ -351,21 +358,21 @@ img.media__img {
 .header-blue--alt {
 	background-color: #51abd0;
 	li a:hover {
-		background-color: darken(#51abd0, 3%);
+		background-color: darken(#51abd0, 5%);
 	}
 }
 
 .header-navy--alt {
 	background-color: #253546;
 	li a:hover {
-		background-color: darken(#253546, 3%);
+		background-color: darken(#253546, 5%);
 	}
 }
 
 .header-green--alt {
 	background-color: #6bad55;
 	li a:hover {
-		background-color: darken(#6bad55, 3%);
+		background-color: darken(#6bad55, 5%);
 	}
 }
 
