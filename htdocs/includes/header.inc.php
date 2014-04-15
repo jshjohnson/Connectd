@@ -13,7 +13,7 @@
 	<meta charset="utf-8">
 	<title><?= $pageTitle; ?> <?php if(!$isHome) : ?>:: Connectd<?php endif; ?></title>
 	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1 minimal-ui">
 	<!--[if lte IE 8]>
 	    <link rel="stylesheet" href="<?= BASE_URL; ?>assets/css/ie.css" media="screen">
 	    
