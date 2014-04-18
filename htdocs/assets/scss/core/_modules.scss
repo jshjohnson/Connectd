@@ -261,7 +261,7 @@ img.media__img {
 }
 
 .color-navy {
-	background-color: $color-brand-dark;
+	background-color: $color-background;
 	color: white;
 }
 
@@ -327,16 +327,20 @@ img.media__img {
 	}
 }
 
-.header--designer {
+.header--blue {
 	background-color: $color-brand-light;
 }
 
-.header--developer {
+.header--navy {
 	background-color: $color-brand-dark;
 }
 
-.header--employer {
+.header--green {
 	background-color: $color-brand-mid;
+}
+
+.header--red {
+	background-color: $color-brand-highlight;
 }
 
 .header--panel {
@@ -477,13 +481,12 @@ img.media__img {
 ----------------------------------*/
 
 .footer {
-	background-color: $color-background-light;
-	color: $color-brand-dark;
+	color: white;
 	position: relative;
 	bottom: 0;
 	max-height: 3.5em;
 	a {
-		color: $color-brand-dark;
+		color: white;
 	}
 	@include respond-max($bp1) {
 		max-height: none;
