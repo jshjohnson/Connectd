@@ -1,13 +1,14 @@
+<?php 
+	if ($section == "Designers" || $section == "Blue") {
+		$navColor = "blue";
+	} else if ($section == "Employers" || $section == "Jobs" || $section == "Green") {
+		$navColor = "green";
+	} else {
+		$navColor = "navy";
+	}
+?>
 				<a href="#nav" class="nav-toggle nav-toggle--open nav-toggle--divide icon--menu" id="nav-open-btn"></a>
-				<?php if ($section == "Developers" || $section == "Navy") : ?>
-				<nav id="nav" role="navigation" class="header__nav header-navy--alt">
-				<?php elseif ($section == "Designers" || $section == "Blue") : ?>
-				<nav id="nav" role="navigation" class="header__nav header-blue--alt">
-				<?php elseif ($section == "Employers" || $section == "Jobs" || $section == "Green") : ?>
-				<nav id="nav" role="navigation" class="header__nav header-green--alt">
-				<?php else : ?>
-				<nav id="nav" role="navigation" class="header__nav header-navy--alt">
-				<?php endif; ?>
+				<nav id="nav" role="navigation" class="header__nav header-<?= $navColor; ?>--alt">
 					<a href="#nav" class="nav-toggle nav-toggle--close icon--cancel" id="nav-close-btn"></a>
 					<ul>
 					<?php if ($users->loggedIn() === true) : ?>

@@ -1,22 +1,23 @@
-	<header class="header cf 
-		<?php if($section == "Designer") { ?>
-			header--designer 
-		<?php } else if($section == "Employer" || $section == "Job") { ?> 
-			header--employer 
-		<?php } ?>
+<?php
 
-		<?php if($pageType == "Page") { ?>
-			zero-bottom
-		<?php } ?>
-		
-		<?php if($pageType == "Page" && $section == "Blue") { ?>
-			header-blue--alt
-		<?php } else if($pageType == "Page" && $section == "Navy") { ?>
-			header-navy--alt
-		<?php } else if($pageType == "Page" && $section == "Green") { ?>
-			header-green--alt
-		<?php } ?>
-		">
+	$headerClasses = array();
+	
+	if($section == "Designer") {
+		$headerClasses[] = "header--blue";
+	}else if($section == "Employer" || $section == "Job") {
+		$headerClasses[] = "header--green";
+	}else if($pageType == "Page" && $section == "Blue") {
+		$headerClasses[] = "header-blue--alt";
+	} else if($pageType == "Page" && $section == "Green") {
+		$headerClasses[] = "header-green--alt";
+	} else {
+		$headerClasses[] = "header-navy--alt";
+	}
+
+	$headerClassesAll = implode(" ", $headerClasses);
+?>
+
+	<header class="header cf <?= $headerClassesAll; ?> <?php if($pageType == "Page") { ?>zero-bottom<?php } ?>">
 			<div class="container">
 			<?php if (!isset($_SESSION['logged'])) : ?>
 				<?php if ($pageTitle == "Sign Up") : ?>
