@@ -7,13 +7,20 @@
 				<a class="btn btn--red" href="<?= BASE_URL . $userType . "s/" . $user_id . "/" ?>">Build your profile</a>
 			</div>
 		</section>
-	<?php endif;?>
+	<?php endif; ?>
+		<section class="call-to-action call-to-action--search">
+			<div class="container call-to-action__container">
+				<form action="">
+					<input type="search" name="search" placeholder="Search for freelancers" value=""  results="5" class="call-to-action__search">
+				</form>
+			</div>
+		</section>
 		<section class="container footer--push">
 			<div class="grid--no-marg cf">
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
 					<header class="header--panel header--red cf">
 						<h3 class="float-left"><a href="<?= BASE_URL; ?>list.php?usertype=designer">Starred Freelancers</a></h3>
-						<a href=""><h4 class="float-right icon--cog"></h4></a>
+						<a href=""><h4 class="float-right icon--star"></h4></a>
 					</header>
 					<div class="media-wrapper">
 						<?php if (!empty($designers) && is_array($designers)) : ?>
@@ -63,7 +70,7 @@
 						<?php endif;?>
 					</div>
 				</article>
-				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
+				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
 					<header class="header--panel header--navy cf">
 						<h3 class="float-left"><a href="<?= BASE_URL; ?>list.php?usertype=developer">New Developers</a></h3>
 						<h4 class="float-right icon--users"></h4>
