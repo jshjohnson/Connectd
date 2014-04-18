@@ -55,6 +55,20 @@
 	    	}
 	    }
 
+	    public function sendTrialEndedEmail($firstName, $email) {
+	    	try {
+		    	$subject = "Congratulations - You have been granted access to the Connectd Community.";
+		    	$body = file_get_contents('../assets/email-templates/trial-ended.php');
+		    	$body = str_replace('{{name}}', $firstName, $body);
+		    	$body = str_replace('{{url}}', BASE_URL, $body);
+		    	$this->sendEmail($email, $subject, $body);
+	    	}catch(Exception $e){
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+	    	}
+	    }
+
 		public function sendRecoverPasswordEmail($firstName, $email, $generatedString) {
 			try {
 		    	$subject = "Reset password -  Connectd.io";

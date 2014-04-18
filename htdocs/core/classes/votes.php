@@ -128,7 +128,13 @@
 
 				$votes = $this->getUserVotes($user_id);
 
-				$this->emails->sendVoteEmail($firstName, $email, $votes);
+				$voteCount = $votes['CountOfvote_id'];
+
+				if($voteCount == 3) {
+					$this->emails->sendTrialEndedEmail($firstName, $email);
+				} else {
+					$this->emails->sendVoteEmail($firstName, $email, $votes);
+				}
 
 				$this->db->commit();
 
