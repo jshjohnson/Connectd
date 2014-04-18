@@ -292,7 +292,6 @@ img.media__img {
 	background-color: $color-brand-dark;
 	@include respond-max($bp1) {
 		margin-bottom: 1.5em;
-		position: absolute;
 	}
 }
 
