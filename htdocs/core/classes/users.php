@@ -253,7 +253,7 @@
 	 
 				if($rows == 1){
 					
-					$query_2 = $this->db->prepare("UPDATE `users` SET `confirmed` = ? WHERE `email` = ?");
+					$query_2 = $this->db->prepare("UPDATE " . DB_NAME . ".users SET `confirmed` = ? WHERE `email` = ?");
 	 
 					$query_2->bindValue(1, 1);
 					$query_2->bindValue(2, $email);							
@@ -277,7 +277,7 @@
 			    throw new InvalidArgumentException;
 			}else{
 			
-				$query = $this->db->prepare("SELECT $what FROM `users` WHERE $field = ?");
+				$query = $this->db->prepare("SELECT $what FROM " . DB_NAME . ".users WHERE $field = ?");
 		 
 				$query->bindValue(1, $value);
 		 
@@ -305,7 +305,7 @@
 			
 			$generatedString = $unique . $random; // a random and unique string
 		 
-			$query = $this->db->prepare("UPDATE `users` SET `generated_string` = ? WHERE `email` = ?");
+			$query = $this->db->prepare("UPDATE " . DB_NAME . ".users SET `generated_string` = ? WHERE `email` = ?");
 		 
 			$query->bindValue(1, $generatedString);
 			$query->bindValue(2, $email);
@@ -374,7 +374,7 @@
 		 
 			$passwordHash = $this->bcrypt->genHash($password);
 		 
-			$query = $this->db->prepare("UPDATE `users` SET `password` = ? WHERE `user_id` = ?");
+			$query = $this->db->prepare("UPDATE " . DB_NAME . ".users SET `password` = ? WHERE `user_id` = ?");
 		 
 			$query->bindValue(1, $passwordHash);
 			$query->bindValue(2, $user_id);				
