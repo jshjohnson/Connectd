@@ -178,11 +178,13 @@
 				ON u.user_id = f.freelancer_id)
 				LEFT JOIN " . DB_NAME . ".user_types AS ut
 				ON u.user_id = ut.user_type_id)
-				WHERE u.confirmed = ?
-				AND ut.user_type = ?
+				WHERE u.confirmed = :confirmed
+				AND u.granted_access = :granted_access
+				AND ut.user_type = :user_type
 			");
-			$results->bindValue(1, 1);
-			$results->bindValue(2, $userType);
+			$results->bindValue(":confirmed", 1);
+			$results->bindValue(":granted_access", 1);
+			$results->bindValue(":user_type", $userType);
 			
 			try {
 				$results->execute();

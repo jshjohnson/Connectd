@@ -132,6 +132,18 @@
 
 				if($voteCount == 3) {
 					$this->emails->sendTrialEndedEmail($firstName, $email);
+					$grantAccess = $this->db->prepare("UPDATE " . DB_NAME . ".users SET users.granted_access = :granted_access WHERE users.email = :email");
+					$grantAccess->bindValue(":granted_access", 1);
+					$grantAccess->bindValue(":email", $email);
+					
+					try {
+						$grantAccess->execute();
+					}catch(PDOException $e) {
+						$users = new Users($db);
+						$debug = new Errors();
+						$debug->errorView($users, $e);	
+					}
+					
 				} else {
 					$this->emails->sendVoteEmail($firstName, $email, $votes);
 				}

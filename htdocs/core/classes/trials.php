@@ -27,6 +27,7 @@
 				users.firstname, 
 				users.lastname, 
 				users.location, 
+				users.granted_access,
 				user_experience.experience,
 				users.portfolio,
 				Count(user_votes.vote_id) 
@@ -45,9 +46,10 @@
 				LEFT JOIN user_types
 				ON users.user_id = user_types.user_type_id) 
 				ON voters.user_id = user_votes.vote_id
-				WHERE user_types.user_type != ?
-				AND users.confirmed = ?
-				AND users.user_id != ?
+				WHERE user_types.user_type != :user_type
+				AND users.confirmed = :confirmed
+				AND users.user_id != :voted_by
+				AND users.granted_access != :granted_access
 				GROUP BY
 				users.user_id,
 				users.firstname, 
@@ -58,12 +60,13 @@
 				user_votes.vote_id,
 				freelancers.jobtitle, 
 				freelancers.priceperhour
-				HAVING CountOfvote_id < ?
+				HAVING CountOfvote_id < :votes
 			");
-			$query->bindValue(1, 'employer');
-			$query->bindValue(2, 1);
-			$query->bindValue(3, $votedBy);
-			$query->bindValue(4, 10);
+			$query->bindValue(":user_type", 'employer');
+			$query->bindValue(":confirmed", 1);
+			$query->bindValue(":voted_by", $votedBy);
+			$query->bindValue(":granted_access", 1);
+			$query->bindValue(":votes", 10);
 
 			try{
 				$query->execute();
