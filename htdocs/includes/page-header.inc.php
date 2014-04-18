@@ -30,7 +30,7 @@
 				</div>
 
 				<div class="header-section header-section--right">
-					<h2 class="header-section__title header-section__title--username">
+					<h2 class="header-section__title">
 						<a href="<?= BASE_URL; ?>">connectd</a>
 					</h2>
 				</div>
