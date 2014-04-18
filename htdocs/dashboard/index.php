@@ -19,6 +19,12 @@
 	$section      = "Dashboard";
 
 	include_once(ROOT_PATH . "includes/header.inc.php");
-	include_once(ROOT_PATH . "views/dashboard/dashboard.html");
+
+	if($sessionUserType == 'employer') {
+		include_once(ROOT_PATH . "views/dashboard/employer-dashboard.html");
+	} else {
+		include_once(ROOT_PATH . "views/dashboard/freelancer-dashboard.html");
+	}
+
 	include_once(ROOT_PATH . "includes/footer.inc.php");
 ?>
