@@ -4,7 +4,7 @@
 
 	$users->loggedOutProtect();
 
-	$trial_user = $trials->getTrialUser($user_id);
+	$trial_user = $trials->getTrialUser($sessionUserID);
 
 	$vote_id = $trial_user["user_id"]; 
 	$trialUserVotes = $votes->getUserVotes($vote_id);

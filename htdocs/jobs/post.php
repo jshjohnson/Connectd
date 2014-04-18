@@ -53,7 +53,7 @@
 	    }
 
 		if(empty($errors) === true){
-			$jobs->postJob($user_id, $jobFull, $startDate, $deadline, $budget, $category, $description);
+			$jobs->postJob($sessionUserID, $jobFull, $startDate, $deadline, $budget, $category, $description);
 			header("Location:" . BASE_URL . "jobs/post.php?status=success");
 			exit();
 		}
