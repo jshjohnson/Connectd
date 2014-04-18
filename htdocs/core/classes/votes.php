@@ -48,21 +48,23 @@
 		public function userVotedFor($email) {
 
 			$query = $this->db->prepare("
-				SELECT u.user_id, u.email, ut.user_type, COUNT(uv.vote_id) 
+				SELECT u.user_id, u.email, u.granted_access, ut.user_type, COUNT(uv.vote_id) 
 				AS CountOfvote_id
 				FROM " . DB_NAME . ".users AS u
 				LEFT JOIN user_votes  AS uv
 				ON u.user_id = uv.vote_id
 				LEFT JOIN user_types AS ut
 				ON u.user_id = ut.user_type_id
-				WHERE u.email = ?
-				HAVING CountOfvote_id < ?
-				AND ut.user_type != ?
+				WHERE u.email = :email
+				AND u.granted_access != :granted_access
+				HAVING CountOfvote_id < :count
+				AND ut.user_type != :user_type
 			");
 
-			$query->bindValue(1, $email);
-			$query->bindValue(2, 3);
-			$query->bindValue(3, 'employer');
+			$query->bindValue(":email", $email);
+			$query->bindValue(":granted_access", 1);
+			$query->bindValue(":count", 3);
+			$query->bindValue(":user_type", "employer");
 			
 			try{
 				$query->execute();
