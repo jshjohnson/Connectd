@@ -1,5 +1,10 @@
 	<?php if(!$isHome) : ?>
-			<footer class="footer cf">
+		<?php
+			if($pageTitle == "Sign Up" && $section == "Navy" || "Green") {
+				$footerClass = "footer--grey";
+			}
+		?>
+			<footer class="footer <?= $footerClass; ?> cf">
 				<div class="container">
 					<div class="grid">
 						<ul class="grid__cell unit-1-2--bp1 footer__links">
