@@ -185,6 +185,9 @@ input[type=submit] {
 		position: relative;
 		top: .1em;
 	}
+	&:focus {
+		outline: 0;
+	}
 	@include respond-max($bp4) {
 		min-width: 0;
 	}
