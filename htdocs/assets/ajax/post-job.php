@@ -1,6 +1,6 @@
 <?php
-	require_once("../../config.php"); 
-	require_once(ROOT_PATH . "core/init.php"); 
+	require("../../config.php"); 
+	require(ROOT_PATH . "core/init.php"); 
 	 
 	include_once(ROOT_PATH . "includes/post.php");
 ?>

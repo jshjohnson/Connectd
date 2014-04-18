@@ -1,6 +1,6 @@
 <?php
-    require_once("../../config.php");
-    require_once(ROOT_PATH . "core/init.php"); 
+    require("../../config.php");
+    require(ROOT_PATH . "core/init.php"); 
 
     // get email passed via AJAX
     if (isset($_GET['password'])) {

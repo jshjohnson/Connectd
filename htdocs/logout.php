@@ -1,6 +1,6 @@
 <?php 
 	require_once("config.php");  
-	require_once(ROOT_PATH . "core/init.php");
+	require(ROOT_PATH . "core/init.php");
 
 	if($users->loggedIn() == true) {
 		$users->doLogout();
