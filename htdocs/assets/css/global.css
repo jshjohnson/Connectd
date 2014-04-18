@@ -11626,7 +11626,7 @@ img.media__img {
   /* line 80, ../scss/core/_overrides.scss */
   .text-right {
     margin-top: 1em;
-    right: 1em;
+    right: 1.5em;
   }
 }
 
@@ -11641,7 +11641,7 @@ img.media__img {
   /* line 91, ../scss/core/_overrides.scss */
   .text-left {
     margin-top: 1em;
-    left: 1em;
+    left: 1.5em;
   }
 }
 

@@ -1,7 +1,7 @@
 /* Helper classes
 ----------------------------------*/
 
-.push { margin: $baseline; }
+.push           { margin: $baseline; }
 .push-top 		{ margin-top: $baseline; }
 .push-bottom 	{ margin-bottom: $baseline; }
 
@@ -84,7 +84,7 @@
 	top: 0;
 	@include respond-max($bp1) {
 		margin-top: 1em;
-		right: 1em;
+		right: 1.5em;
 	}
 }
 
@@ -95,7 +95,7 @@
 	top: 0;
 	@include respond-max($bp1) {
 		margin-top: 1em;
-		left: 1em;
+		left: 1.5em;
 	}
 }
 
