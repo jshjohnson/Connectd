@@ -13,7 +13,7 @@
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
 					<header class="header--panel header--green cf">
 						<h3 class="float-left"><a href="<?= BASE_URL; ?>jobs/list.php">Recently added jobs</a></h3>
-						<a href="" class="search-employer-trigger"><h4 class="float-right icon--share"></h4></a>
+						<h4 class="float-right icon--share"></h4>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 						<?php if (!empty($jobs) && is_array($jobs)) : ?>
@@ -30,7 +30,7 @@
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
 					<header class="header--panel header--green cf">
 						<h3 class="float-left"><a href="<?= BASE_URL; ?>jobs/list.php">Search</a></h3>
-						<a href="" class="search-employer-trigger"><h4 class="float-right icon--search"></h4></a>
+						<h4 class="float-right icon--search"></h4>
 					</header>
 					<div class="container push-top">
 						<form method="post" action="<?= BASE_URL; ?>search.php" autocomplete="off">
