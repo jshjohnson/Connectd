@@ -20,12 +20,12 @@
 						<?php if($user_id != $user['user_id']) : ?>
 						<div class="btn-wrapper push-top">
 							<a class="btn--left btn btn--green cf hire-trigger" href="">Hire <?= $user['firstname']; ?></a>
-							<a class="btn--right btn btn--blue cf collaborate-trigger" href="">Collaborate</a>
+							<a class="btn--right btn btn--blue cf collaborate-trigger" href=""><i class="icon--star"></i>Star <?= $user['firstname']; ?></a>
 						</div>
 						<?php else : ?>
 						<div class="btn-wrapper push-top">
 							<a class="btn--left btn btn--disabled cf" href="">Hire <?= $user['firstname']; ?></a>
-							<a class="btn--right btn btn--disabled cf" href="">Collaborate</a>
+							<a class="btn--right btn btn--disabled cf" href=""><i class="icon--star"></i>Star <?= $user['firstname']; ?></a>
 						</div>
 						<?php endif;?>
 					</div>
