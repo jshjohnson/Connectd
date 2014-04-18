@@ -34,9 +34,21 @@
 					</header>
 					<div class="container push-top">
 						<form method="post" action="<?= BASE_URL; ?>search.php" autocomplete="off">
-							<input type="search" name="search" placeholder="Search" value="<?php if(isset($_COOKIE['remember_me'])) { echo $_COOKIE['remember_me']; } else if(isset($_POST['email'])) echo htmlentities($_POST['email']); ?>" class="zero-top">
+							<input type="search" name="search" placeholder="Search" value=""  results="5" class="zero-top">
+							<div class="select-container">
+								<label for="job_title">Search by job title</label>
+								<select name="job_title">
+									<option value="All">All</option>
+									<?php foreach ($designerJobTitles as $jobTitle) : ?>
+										<option <?php if ($_POST['job_title'] == $jobTitle) { ?>selected="true" <?php }; ?>value="<?= $jobTitle; ?>"><?= $jobTitle; ?></option>
+									<?php endforeach; ?>
+									<?php foreach ($developerJobTitles as $jobTitle) : ?>
+										<option <?php if ($_POST['job_title'] == $jobTitle) { ?>selected="true" <?php }; ?>value="<?= $jobTitle; ?>"><?= $jobTitle; ?></option>
+									<?php endforeach; ?>
+								</select>
+							</div>
 							<div class="btn-container clear">
-				            	<input class="btn--green" name="filter" type="submit" value='Filter'>					
+				            	<input class="btn--green" name="filter" type="submit" value='Search jobs'>					
 							</div>
 				        </form>
 					</div>
@@ -56,6 +68,15 @@
 						<?php else : ?>
 							<?php include('../views/employer/employer-empty-list.html'); ?>
 						<?php endif;?>
+					</div>
+				</article>
+				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-right">
+					<header class="header--panel header--navy cf">
+						<h3 class="float-left"><a href="<?= BASE_URL; ?>list.php?usertype=employer">Starred Freelancers</a></h3>
+						<a href="" class="search-employer-trigger"><h4 class="float-right icon--cog"></h4></a>
+					</header>
+					<div class="media-wrapper">
+						<?php include('../views/freelancer/freelancer-empty-list.html'); ?>
 					</div>
 				</article>
 			</div>

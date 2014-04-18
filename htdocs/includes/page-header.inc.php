@@ -1,7 +1,7 @@
 	<header class="header cf 
 		<?php if($section == "Designer") { ?>
 			header--designer 
-		<?php } else if($section == "Employer" || $section == "Jobs") { ?> 
+		<?php } else if($section == "Employer" || $section == "Job") { ?> 
 			header--employer 
 		<?php } ?>
 
@@ -38,7 +38,7 @@
 			<?php else : ?>
 				<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
 				<div class="header-section header-section--left">
-					<?php if($section == "Jobs" || $section == "Developer" || $section == "Designer" || $section == "Employer") : ?>	
+					<?php if($section == "Job" || $section == "Developer" || $section == "Designer" || $section == "Employer") : ?>	
 					<h1 class="header-section__title"><?= $section; ?>
 					<?php else : ?>
 					<h1 class="header-section__title"><?= $pageTitle; ?>

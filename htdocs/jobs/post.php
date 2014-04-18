@@ -37,8 +37,7 @@
                 $message = "Hmmmm. Are you a robot? Try again.";
             }
         }
-			
-	    
+        
 	    if($jobTitle == ""){
 	        $errors[] = "Please enter a freelancer type"; 
 	    }else if($jobName == ""){

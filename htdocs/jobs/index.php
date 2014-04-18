@@ -16,7 +16,7 @@
 
 		if($job) {
 			$pageTitle  = $job['job_name'] . ' :: ' . $job['employer_name'];
-			$section    = "Employers";
+			$section    = "Job";
 
 			include_once(ROOT_PATH . "includes/header.inc.php");
 			include_once(ROOT_PATH . "views/job/job-profile.html");

@@ -36,6 +36,7 @@ fieldset { border: 0; margin: 0; padding: 0; label { margin-top: 1.5em; font-siz
 label, select { cursor: pointer; }
 legend { padding: .3em .6em; *margin-left: -7px; }
 button, input { line-height: normal; }
+input[type=search] { text-indent: .5em; }
 input, input[type=search], select, textarea { width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 button, html input[type=button], input[type=reset], input[type=submit] { width: auto; }
 .btn {font-weight: 600;}
