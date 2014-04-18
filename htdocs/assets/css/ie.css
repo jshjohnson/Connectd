@@ -2288,7 +2288,7 @@ img.media__img {
   background-color: #2c3e50;
 }
 
-/* line 298, ../scss/core/_modules.scss */
+/* line 299, ../scss/core/_modules.scss */
 .header__nav {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2298,19 +2298,19 @@ img.media__img {
   z-index: 999;
   line-height: 2.5em;
 }
-/* line 304, ../scss/core/_modules.scss */
+/* line 305, ../scss/core/_modules.scss */
 .header__nav ul {
   color: white;
   list-style: none;
   margin: 0;
 }
-/* line 308, ../scss/core/_modules.scss */
+/* line 309, ../scss/core/_modules.scss */
 .header__nav ul li {
   margin-bottom: 0;
   overflow-x: hidden;
   font-size: .75em;
 }
-/* line 315, ../scss/core/_modules.scss */
+/* line 316, ../scss/core/_modules.scss */
 .header__nav ul li a {
   display: block;
   color: white;
@@ -2322,7 +2322,7 @@ img.media__img {
   -o-transition: all, 0.5s;
   transition: all, 0.5s;
 }
-/* line 322, ../scss/core/_modules.scss */
+/* line 323, ../scss/core/_modules.scss */
 .header__nav ul li a:hover {
   -webkit-transition: all, 0.5s;
   -moz-transition: all, 0.5s;
@@ -2330,71 +2330,71 @@ img.media__img {
   transition: all, 0.5s;
 }
 
-/* line 330, ../scss/core/_modules.scss */
+/* line 331, ../scss/core/_modules.scss */
 .header--blue {
   background-color: #6dbcdb;
 }
 
-/* line 334, ../scss/core/_modules.scss */
+/* line 335, ../scss/core/_modules.scss */
 .header--navy {
   background-color: #2c3e50;
 }
 
-/* line 338, ../scss/core/_modules.scss */
+/* line 339, ../scss/core/_modules.scss */
 .header--green {
   background-color: #77c462;
 }
 
-/* line 342, ../scss/core/_modules.scss */
+/* line 343, ../scss/core/_modules.scss */
 .header--red {
   background-color: #fc4349;
 }
 
-/* line 347, ../scss/core/_modules.scss */
+/* line 348, ../scss/core/_modules.scss */
 .header--panel h1, .header--panel h2, .header--panel h3, .header--panel h4 {
   margin: 0;
   color: white;
   font-size: .95em;
   padding: .7em 1em;
 }
-/* line 352, ../scss/core/_modules.scss */
+/* line 353, ../scss/core/_modules.scss */
 .header--panel h1 a, .header--panel h2 a, .header--panel h3 a, .header--panel h4 a {
   color: white;
 }
 
-/* line 358, ../scss/core/_modules.scss */
+/* line 359, ../scss/core/_modules.scss */
 .header--alt {
   background-color: #fc4349;
 }
 
-/* line 362, ../scss/core/_modules.scss */
+/* line 363, ../scss/core/_modules.scss */
 .header-blue--alt {
   background-color: #51abd0;
 }
-/* line 364, ../scss/core/_modules.scss */
+/* line 365, ../scss/core/_modules.scss */
 .header-blue--alt li a:hover {
   background-color: #3da1cb;
 }
 
-/* line 369, ../scss/core/_modules.scss */
+/* line 370, ../scss/core/_modules.scss */
 .header-navy--alt {
   background-color: #253546;
 }
-/* line 371, ../scss/core/_modules.scss */
+/* line 372, ../scss/core/_modules.scss */
 .header-navy--alt li a:hover {
   background-color: #1c2835;
 }
 
-/* line 376, ../scss/core/_modules.scss */
+/* line 377, ../scss/core/_modules.scss */
 .header-green--alt {
   background-color: #6bad55;
 }
-/* line 378, ../scss/core/_modules.scss */
+/* line 379, ../scss/core/_modules.scss */
 .header-green--alt li a:hover {
   background-color: #609d4c;
 }
 
-/* line 383, ../scss/core/_modules.scss */
+/* line 384, ../scss/core/_modules.scss */
 .header-section, .footer__section {
   line-height: 3em;
   margin-top: 0;
@@ -2403,37 +2403,37 @@ img.media__img {
   font-size: 1em;
   position: relative;
 }
-/* line 390, ../scss/core/_modules.scss */
+/* line 391, ../scss/core/_modules.scss */
 .header-section a, .footer__section a {
   color: white;
 }
 
-/* line 396, ../scss/core/_modules.scss */
+/* line 397, ../scss/core/_modules.scss */
 .header-section__title {
   margin-top: 0;
   margin-bottom: 0;
   color: white;
   display: inline-block;
 }
-/* line 401, ../scss/core/_modules.scss */
+/* line 402, ../scss/core/_modules.scss */
 .header-section__title .header__section--title__link {
   color: white;
   font-size: .6em;
   vertical-align: middle;
 }
 
-/* line 408, ../scss/core/_modules.scss */
+/* line 409, ../scss/core/_modules.scss */
 .header-section__title {
   font-size: 1em;
   line-height: 3;
 }
 
-/* line 413, ../scss/core/_modules.scss */
+/* line 414, ../scss/core/_modules.scss */
 .header-section__title--link {
   font-size: .75em;
 }
 
-/* line 417, ../scss/core/_modules.scss */
+/* line 418, ../scss/core/_modules.scss */
 .header-section--notifications {
   background-color: #fc4349;
   padding: 0 .7em;
@@ -2447,7 +2447,7 @@ img.media__img {
   -o-border-radius: 0.2em;
   border-radius: 0.2em;
 }
-/* line 425, ../scss/core/_modules.scss */
+/* line 426, ../scss/core/_modules.scss */
 .header-section--notifications:after {
   content: "";
   width: 0;
@@ -2460,18 +2460,18 @@ img.media__img {
   top: .5em;
 }
 
-/* line 444, ../scss/core/_modules.scss */
+/* line 445, ../scss/core/_modules.scss */
 .header-section--left {
   float: left;
 }
 
-/* line 448, ../scss/core/_modules.scss */
+/* line 449, ../scss/core/_modules.scss */
 .header-section--right {
   float: right;
   margin-left: 1.2em;
 }
 
-/* line 453, ../scss/core/_modules.scss */
+/* line 454, ../scss/core/_modules.scss */
 .header-section__avatar {
   width: 1.5em;
   height: 1.5em;
@@ -2488,7 +2488,7 @@ img.media__img {
   margin-right: .5em;
 }
 
-/* line 470, ../scss/core/_modules.scss */
+/* line 471, ../scss/core/_modules.scss */
 .header-section__home:after {
   content: '\e80d';
   margin-left: .8em;
@@ -2498,23 +2498,23 @@ img.media__img {
 
 /* Footer
 ----------------------------------*/
-/* line 483, ../scss/core/_modules.scss */
+/* line 484, ../scss/core/_modules.scss */
 .footer {
   color: white;
   position: relative;
   bottom: 0;
   max-height: 3.5em;
 }
-/* line 488, ../scss/core/_modules.scss */
+/* line 489, ../scss/core/_modules.scss */
 .footer a {
   color: white;
 }
 
-/* line 496, ../scss/core/_modules.scss */
+/* line 497, ../scss/core/_modules.scss */
 .footer__links {
   width: auto;
 }
-/* line 498, ../scss/core/_modules.scss */
+/* line 499, ../scss/core/_modules.scss */
 .footer__links li {
   display: inline-block;
   *display: inline;
@@ -2522,17 +2522,17 @@ img.media__img {
   font-size: .75em;
   margin: 0;
 }
-/* line 504, ../scss/core/_modules.scss */
+/* line 505, ../scss/core/_modules.scss */
 .footer__links li:after {
   padding: 0 .25em 0 .5em;
   content: '•';
 }
-/* line 509, ../scss/core/_modules.scss */
+/* line 510, ../scss/core/_modules.scss */
 .footer__links li:last-child:after {
   content: none;
 }
 
-/* line 516, ../scss/core/_modules.scss */
+/* line 517, ../scss/core/_modules.scss */
 .footer__section--logo {
   float: right;
   text-align: right;
@@ -2542,50 +2542,50 @@ img.media__img {
 
 /* Misc
 ----------------------------------*/
-/* line 528, ../scss/core/_modules.scss */
+/* line 529, ../scss/core/_modules.scss */
 .section {
   padding: 3.5em 0;
 }
 
-/* line 536, ../scss/core/_modules.scss */
+/* line 537, ../scss/core/_modules.scss */
 .section__content h1, .section__content h2, .section__content h3, .section__content h4 {
   margin-top: 0;
 }
-/* line 539, ../scss/core/_modules.scss */
+/* line 540, ../scss/core/_modules.scss */
 .section__content *:last-child {
   margin-bottom: 0;
 }
 
-/* line 544, ../scss/core/_modules.scss */
+/* line 545, ../scss/core/_modules.scss */
 .section__img {
   max-width: 18.5em;
 }
 
-/* line 549, ../scss/core/_modules.scss */
+/* line 550, ../scss/core/_modules.scss */
 .iphone-img {
   margin-top: -10em;
   margin-bottom: -3.5em;
   margin-top: 1em;
 }
 
-/* line 563, ../scss/core/_modules.scss */
+/* line 564, ../scss/core/_modules.scss */
 .blur {
   -webkit-filter: blur(2px);
   filter: blur(2px);
 }
 
-/* line 568, ../scss/core/_modules.scss */
+/* line 569, ../scss/core/_modules.scss */
 .forgot {
   font-size: .8em;
 }
 
-/* line 572, ../scss/core/_modules.scss */
+/* line 573, ../scss/core/_modules.scss */
 .intro-quote {
   font-family: "Georgia", serif;
   font-size: 2em;
   margin: .5em 0;
 }
-/* line 576, ../scss/core/_modules.scss */
+/* line 577, ../scss/core/_modules.scss */
 .intro-quote .source {
   font-family: "Georgia", serif;
   font-size: .6em;
@@ -2593,7 +2593,7 @@ img.media__img {
 
 /* Portfolio
 ----------------------------------*/
-/* line 586, ../scss/core/_modules.scss */
+/* line 587, ../scss/core/_modules.scss */
 .portfolio__headings-bg {
   background-color: #f0eded;
   font-size: .8em;
@@ -2605,12 +2605,12 @@ img.media__img {
   margin-top: 0;
 }
 
-/* line 598, ../scss/core/_modules.scss */
+/* line 599, ../scss/core/_modules.scss */
 .portfolio__headings {
   margin: 0;
   position: relative;
 }
-/* line 601, ../scss/core/_modules.scss */
+/* line 602, ../scss/core/_modules.scss */
 .portfolio__headings li {
   display: inline-block;
   *display: inline;
@@ -2619,23 +2619,23 @@ img.media__img {
   position: relative;
   padding: .5em 1.4em .4em;
 }
-/* line 608, ../scss/core/_modules.scss */
+/* line 609, ../scss/core/_modules.scss */
 .portfolio__headings li.portfolio__headings--label {
   padding-right: 0;
 }
-/* line 619, ../scss/core/_modules.scss */
+/* line 620, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 622, ../scss/core/_modules.scss */
+/* line 623, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   color: white;
 }
-/* line 624, ../scss/core/_modules.scss */
+/* line 625, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 627, ../scss/core/_modules.scss */
+/* line 628, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -2649,47 +2649,47 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 645, ../scss/core/_modules.scss */
+/* line 646, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   color: white;
 }
 
-/* line 651, ../scss/core/_modules.scss */
+/* line 652, ../scss/core/_modules.scss */
 .active--blue {
   background-color: #6dbcdb;
 }
-/* line 653, ../scss/core/_modules.scss */
+/* line 654, ../scss/core/_modules.scss */
 .active--blue:after {
   border-top: 0.75em solid #6dbcdb;
 }
 
-/* line 657, ../scss/core/_modules.scss */
+/* line 658, ../scss/core/_modules.scss */
 .active--green {
   background-color: #77c462;
 }
-/* line 659, ../scss/core/_modules.scss */
+/* line 660, ../scss/core/_modules.scss */
 .active--green:after {
   border-top: 0.75em solid #77c462;
 }
 
-/* line 663, ../scss/core/_modules.scss */
+/* line 664, ../scss/core/_modules.scss */
 .active--navy {
   background-color: #2c3e50;
 }
-/* line 665, ../scss/core/_modules.scss */
+/* line 666, ../scss/core/_modules.scss */
 .active--navy:after {
   border-top: 0.75em solid #2c3e50;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 673, ../scss/core/_modules.scss */
+/* line 674, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
   margin-bottom: 2.5em;
   flex: 1;
 }
-/* line 677, ../scss/core/_modules.scss */
+/* line 678, ../scss/core/_modules.scss */
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
@@ -2697,33 +2697,33 @@ img.media__img {
   font-style: italic;
   font-weight: 400;
 }
-/* line 684, ../scss/core/_modules.scss */
+/* line 685, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 689, ../scss/core/_modules.scss */
+/* line 690, ../scss/core/_modules.scss */
 .call-to-action--top {
   margin-bottom: 2.5em;
 }
 
-/* line 697, ../scss/core/_modules.scss */
+/* line 698, ../scss/core/_modules.scss */
 .user-info {
   width: 70%;
 }
 
-/* line 701, ../scss/core/_modules.scss */
+/* line 702, ../scss/core/_modules.scss */
 .user-info__link {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 3px, rgba(0, 0, 0, 0) 3px);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  /* line 701, ../scss/core/_modules.scss */
+  /* line 702, ../scss/core/_modules.scss */
   .user-info__link {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);
   }
 }
 
-/* line 705, ../scss/core/_modules.scss */
+/* line 706, ../scss/core/_modules.scss */
 .img--avatar-form {
   max-width: 30%;
   float: right;
