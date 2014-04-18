@@ -46,13 +46,13 @@
 
 		if($userType == "developer" || $userType == "designer") {
 			$user = $freelancers->getFreelancersSingle($id, $userType);		
-			$pageTitle  = $user['firstname'] . ' ' . $user['lastname'] . ' :: ' . $user['jobtitle'];
+			$pageTitle  = ucwords($user['firstname']) . ' ' . ucwords($user['lastname']) . ' :: ' . $user['jobtitle'];
 			$_SESSION["userFirstName"] = $user['firstname'];
 			$_SESSION["userEmail"] = $user['email'];
 			$template = "freelancer/freelancer-profile.html";
 		} else if ($userType == "employer") {
 			$user = $employers->getEmployersSingle($id);
-			$employerName = $user['employer_name'];	
+			$employerName = ucwords($user['employer_name']);	
 			$pageTitle  = $employerName . ' :: ' . $user['employer_type'];
 			$template = "employer/employer-profile.html";
 		}

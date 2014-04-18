@@ -40,15 +40,7 @@
 						<a href="" class="search-employer-trigger"><h4 class="float-right icon--star"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<?php if (!empty($employers) && is_array($employers)) : ?>
-
-						<?php foreach($employers as $employer_id => $employer) {
-							include(ROOT_PATH .'/views/employer/employer-list.html');
-						} ?>
-
-						<?php else : ?>
-							<?php include('../views/employer/employer-empty-list.html'); ?>
-						<?php endif;?>
+						<?php include('../views/employer/employer-empty-list.html'); ?>
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">

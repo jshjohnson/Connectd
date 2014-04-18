@@ -436,6 +436,7 @@ img.media__img {
 }
 
 .header-section__title--username {
+	text-transform: capitalize;
 	@include respond-max($bp1) {
 		display: none;
 	}
@@ -492,6 +493,14 @@ img.media__img {
 		max-height: none;
 	}
 } 
+
+.footer--grey {
+	background-color: #DDDDDD;
+	color: $color-brand-dark;
+	a {
+		color: $color-brand-dark;
+	}
+}
 
 .footer__links { 
 	width: auto;

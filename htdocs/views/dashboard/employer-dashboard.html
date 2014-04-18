@@ -1,4 +1,4 @@
--	<?php if($status == "firstvisit") : ?>
+	<?php if($status == "firstvisit") : ?>
 		<section class="call-to-action call-to-action--top">
 			<div class="container">
 				<h4 class="as-h1 call-to-action__title zero-top">
@@ -10,7 +10,7 @@
 	<?php endif; ?>
 		<section class="call-to-action call-to-action--search">
 			<div class="container call-to-action__container">
-				<form action="">
+				<form action="<?= BASE_URL; ?>search/" class="zero-bottom">
 					<input type="search" name="search" placeholder="Search for freelancers" value=""  results="5" class="call-to-action__search">
 				</form>
 			</div>
