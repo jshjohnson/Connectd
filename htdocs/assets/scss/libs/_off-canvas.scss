@@ -4,14 +4,17 @@
 	  height:100%;
 }
 
+.js-nav {
+	overflow: hidden;
+}
+
 #inner-wrap{
 	height:100%;
 	min-height: 100vh;
 }
 
-
 #nav {
-	position: fixed;
+	position: absolute;
 	@include box-sizing(border-box);
 	top: 0;
 	display:none;
