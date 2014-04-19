@@ -310,12 +310,9 @@
 			$query->bindValue(1, $generatedString);
 			$query->bindValue(2, $email);
 		 
-			try{
-				
+			try{	
 				$query->execute();
-
 				$this->emails->sendRecoverPasswordEmail($email, $firstName, $generatedString);
-		 				
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$debug = new Errors();

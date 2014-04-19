@@ -80,8 +80,8 @@
 
 		if(empty($errors) === true){
 			$data = array(
-				"firstName" => $firstName, 
-				"lastName" => $lastName, 
+				"firstName" => ucwords($firstName), 
+				"lastName" => ucwords($lastName), 
 				"email" => $email, 
 				"password" => $password, 
 				"location" => $location, 

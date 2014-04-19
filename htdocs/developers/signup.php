@@ -80,8 +80,8 @@
 
 		if(empty($errors) === true){
 			$data = array(
-				"firstName" => $firstName, 
-				"lastName" => $lastName, 
+				"firstName" => ucwords($firstName), 
+				"lastName" => ucwords($lastName), 
 				"email" => $email, 
 				"password" => $password, 
 				"location" => $location, 
@@ -98,9 +98,9 @@
 		}
 	}
 
-	$pageTitle         = "Sign Up";
-	$pageType          = "Page";
-	$section           = "Navy";
+	$pageTitle = "Sign Up";
+	$pageType = "Page";
+	$section = "Navy";
 
 	include(ROOT_PATH . "includes/header.inc.php");
 	include(ROOT_PATH . "views/freelancer/freelancer-signup-form.html");
