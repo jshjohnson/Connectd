@@ -1374,31 +1374,36 @@ a:hover {
 .outer {
   position: relative;
   width: 100%;
+  height: 100%;
 }
 
-/* line 6, ../scss/libs/_off-canvas.scss */
+/* line 7, ../scss/libs/_off-canvas.scss */
 .js-nav {
   overflow: hidden;
 }
-/* line 8, ../scss/libs/_off-canvas.scss */
+/* line 9, ../scss/libs/_off-canvas.scss */
 .js-nav body {
   overflow: hidden;
 }
 @media screen and (max-width: 30em) {
-  /* line 6, ../scss/libs/_off-canvas.scss */
+  /* line 7, ../scss/libs/_off-canvas.scss */
   .js-nav {
     height: 100% !important;
     min-height: 100% !important;
   }
 }
+/* line 16, ../scss/libs/_off-canvas.scss */
+.js-nav #nav {
+  min-height: 46em;
+}
 
-/* line 17, ../scss/libs/_off-canvas.scss */
+/* line 21, ../scss/libs/_off-canvas.scss */
 #inner-wrap {
   min-height: 100vh;
   height: 100%;
 }
 
-/* line 22, ../scss/libs/_off-canvas.scss */
+/* line 26, ../scss/libs/_off-canvas.scss */
 #nav {
   position: absolute;
   -webkit-box-sizing: border-box;
@@ -1407,30 +1412,30 @@ a:hover {
   top: 0;
   display: none;
 }
-/* line 28, ../scss/libs/_off-canvas.scss */
+/* line 32, ../scss/libs/_off-canvas.scss */
 #nav:not(:target) {
   z-index: 1;
   height: 0;
 }
 
-/* line 35, ../scss/libs/_off-canvas.scss */
+/* line 39, ../scss/libs/_off-canvas.scss */
 .js-ready #nav {
   display: inline;
   height: 100%;
   width: 20%;
   left: -20%;
 }
-/* line 43, ../scss/libs/_off-canvas.scss */
+/* line 47, ../scss/libs/_off-canvas.scss */
 .js-ready #inner-wrap {
   position: relative;
   left: 0;
 }
 
-/* line 51, ../scss/libs/_off-canvas.scss */
+/* line 54, ../scss/libs/_off-canvas.scss */
 .js-nav #inner-wrap {
   left: 20%;
 }
-/* line 53, ../scss/libs/_off-canvas.scss */
+/* line 56, ../scss/libs/_off-canvas.scss */
 .js-nav #inner-wrap:before {
   content: " ";
   width: 100%;
@@ -1442,7 +1447,7 @@ a:hover {
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* line 67, ../scss/libs/_off-canvas.scss */
+/* line 70, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-ready #nav {
   width: 20%;
   left: 0;
@@ -1457,7 +1462,7 @@ a:hover {
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-/* line 74, ../scss/libs/_off-canvas.scss */
+/* line 77, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-ready #inner-wrap {
   left: 0 !important;
   -webkit-transform: translate3d(0, 0, 0);
@@ -1476,7 +1481,7 @@ a:hover {
   transition: transform 500ms ease;
 }
 
-/* line 85, ../scss/libs/_off-canvas.scss */
+/* line 88, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-nav #nav {
   -webkit-transform: translate3d(-100%, 0, 0);
   -moz-transform: translate3d(-100%, 0, 0);
@@ -1484,7 +1489,7 @@ a:hover {
   -o-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
 }
-/* line 88, ../scss/libs/_off-canvas.scss */
+/* line 91, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-nav #inner-wrap {
   -webkit-transform: translate3d(20%, 0, 0);
   -moz-transform: translate3d(20%, 0, 0);
@@ -1493,10 +1498,9 @@ a:hover {
   transform: translate3d(20%, 0, 0);
 }
 
-/* line 96, ../scss/libs/_off-canvas.scss */
+/* line 99, ../scss/libs/_off-canvas.scss */
 .js-ready #nav {
   width: 20%;
-  min-height: 46em;
   left: -20%;
 }
 
@@ -1505,12 +1509,12 @@ a:hover {
   left: 20%;
 }
 
-/* line 115, ../scss/libs/_off-canvas.scss */
+/* line 114, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-ready #nav {
   width: 20%;
 }
 
-/* line 123, ../scss/libs/_off-canvas.scss */
+/* line 121, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-nav #inner-wrap {
   -webkit-transform: translate3d(20%, 0, 0);
   -moz-transform: translate3d(20%, 0, 0);
@@ -1520,24 +1524,24 @@ a:hover {
 }
 
 @media screen and (max-width: 49em) {
-  /* line 135, ../scss/libs/_off-canvas.scss */
+  /* line 130, ../scss/libs/_off-canvas.scss */
   .js-ready #nav {
     width: 70%;
     min-height: 46em;
     left: -70%;
   }
 
-  /* line 147, ../scss/libs/_off-canvas.scss */
+  /* line 141, ../scss/libs/_off-canvas.scss */
   .js-nav #inner-wrap {
     left: 70%;
   }
 
-  /* line 154, ../scss/libs/_off-canvas.scss */
+  /* line 147, ../scss/libs/_off-canvas.scss */
   .csstransforms3d.csstransitions.js-ready #nav {
     width: 70%;
   }
 
-  /* line 162, ../scss/libs/_off-canvas.scss */
+  /* line 152, ../scss/libs/_off-canvas.scss */
   .csstransforms3d.csstransitions.js-nav #inner-wrap {
     -webkit-transform: translate3d(70%, 0, 0);
     -moz-transform: translate3d(70%, 0, 0);
@@ -2837,12 +2841,12 @@ img.media__img {
 }
 
 /* line 499, ../scss/core/_modules.scss */
-.footer--grey {
-  background-color: #DDDDDD;
+.footer--alt {
+  background-color: white;
   color: #2c3e50;
 }
 /* line 502, ../scss/core/_modules.scss */
-.footer--grey a {
+.footer--alt a {
   color: #2c3e50;
 }
 

@@ -1,7 +1,7 @@
 	<?php if(!$isHome) : ?>
 		<?php
-			if($pageTitle == "Sign Up" && $section == "Navy" || "Green") {
-				$footerClass = "footer--grey";
+			if($pageTitle == "Sign Up" && $section != "Blue") {
+				$footerClass = "footer--alt";
 			}
 		?>
 			<footer class="footer <?= $footerClass; ?> cf">
