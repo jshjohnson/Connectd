@@ -10,9 +10,7 @@
 
 	$designers    = $freelancers->getFreelancersRecent($userType = "designer");
 	$developers   = $freelancers->getFreelancersRecent($userType = "developer");
-	$starredFreelancers = $stars->getStarredFreelancers($starredBy);
 	$employers    = $employers->getEmployersRecent($userType = "employer");
-	$jobs         = $jobs->getJobsAll();
 
 	if (isset($_GET["status"])) { 
 		$status = $_GET["status"];
@@ -24,8 +22,11 @@
 	include(ROOT_PATH . "includes/header.inc.php");
 
 	if($sessionUserType == 'employer') {
+		$starredFreelancers = $stars->getStarredFreelancers($starredBy);
+		$jobs = $jobs->getEmployerJobs($sessionUserID);
 		include(ROOT_PATH . "views/dashboard/employer-dashboard.html");
 	} else {
+		$jobs = $jobs->getJobsAll();
 		$developerJobTitles = $freelancers->getFreelancerJobTitles("developer");
 		$designerJobTitles = $freelancers->getFreelancerJobTitles("designer");
 		include(ROOT_PATH . "views/dashboard/freelancer-dashboard.html");

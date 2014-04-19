@@ -116,6 +116,34 @@
 			return $jobs;
 		}
 
+		public function getEmployerJobs($sessionUserID) {
+			$query = $this->db->prepare("SELECT 
+				j.*, u.user_id, ut.user_type_id, ut.user_type, e.employer_name
+				FROM (((" . DB_NAME . ".jobs AS j
+				LEFT JOIN " . DB_NAME . ".users AS u
+				ON j.user_id = u.user_id)
+				LEFT JOIN " . DB_NAME . ".user_types AS ut
+				ON j.user_id = ut.user_type_id)
+				LEFT JOIN " . DB_NAME . ".employers AS e 
+				ON j.user_id = e.employer_id)
+				WHERE j.user_id = ?
+			");
+
+			$query->bindValue(1, $sessionUserID);
+
+			try {
+				$query->execute();
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+			
+			$jobs = $query->fetchAll(PDO::FETCH_ASSOC);
+
+			return $jobs;
+		}
+
 		public function getJobsSingle($id) {
 
 			$results = $this->db->prepare("SELECT
