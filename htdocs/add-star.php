@@ -9,6 +9,6 @@
 	$starredBy = $sessionUserID;
 
 	if($user_id != '' && is_numeric($user_id)) {
-		$votes->addStar($user_id, $starredBy);
+		$stars->addStar($user_id, $starredBy);
 	}
-?
+?>

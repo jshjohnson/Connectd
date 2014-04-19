@@ -69,21 +69,10 @@
 				header('Location: ' . $_SERVER['HTTP_REFERER'] . "&status=sent");
 
 			}catch(PDOException $e) {
-				if ($e->errorInfo[1] == 1062) {
-					try {
-						throw new Exception("You cannot star for a user twice.");
-					}catch(Exception $e) {
-						$this->db->rollback();
-						$users = new Users($db);
-						$debug = new Errors();
-						$debug->errorView($users, $e);	
-					}		
-				}else {
-					$this->db->rollback();
-					$users = new Users($db);
-					$debug = new Errors();
-					$debug->errorView($users, $e);	
-				}
+				$this->db->rollback();
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
 			}
 	    }
 
@@ -139,6 +128,48 @@
 					return false;
 				}
 
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+		}
+
+		public function getStarredFreelancers($starredBy) {
+			$query = $this->db->prepare("
+				SELECT 
+				user_types.user_type,
+				users.user_id, users.confirmed, users.firstname, users.lastname, users.location, users.image_location, 
+				freelancers.jobtitle, freelancers.priceperhour, user_stars.star_id, user_stars.starred_by_id
+				FROM users AS starredUsers
+				RIGHT JOIN 
+				(((users LEFT JOIN user_stars 
+				ON users.user_id = user_stars.star_id) 
+				LEFT JOIN freelancers 
+				ON users.user_id = freelancers.freelancer_id) 
+				LEFT JOIN user_types
+				ON users.user_id = user_types.user_type_id) 
+				ON users.user_id = user_stars.star_id
+				WHERE user_types.user_type != :user_type
+				AND users.confirmed = :confirmed
+				AND user_stars.starred_by_id = :starred_by
+				AND users.user_id != :starred_by
+				GROUP BY
+				users.user_id,
+				users.firstname, 
+				users.lastname, 
+				user_stars.star_id,
+				freelancers.jobtitle, 
+				freelancers.priceperhour
+			");
+			$query->bindValue(":user_type", 'employer');
+			$query->bindValue(":confirmed", 1);
+			$query->bindValue(":starred_by", $starredBy);
+
+			try{
+				$query->execute();
+				# We use fetchAll() instead of fetch() to get an array of all the selected records.
+				return $query->fetchAll();
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$debug = new Errors();

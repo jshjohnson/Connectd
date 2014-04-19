@@ -1,0 +1,20 @@
+			<div class='media'>
+				<a href="<?= BASE_URL; ?>profile.php?usertype=<?= $userType; ?>&id=<?= $starredFreelancer['user_id'];?>">
+					<div style="background-image: url('<?= BASE_URL . $starredFreelancer['image_location']; ?>');" class="media__img media__img--avatar"></div>
+				</a>
+				<div class='media__body'>
+					<div class='float-left user-info'>
+						<i class="user-info__star icon--star"></i>
+						<a href="<?= BASE_URL; ?>profile.php?usertype=<?= $userType; ?>&id=<?= $starredFreelancer['user_id'];?>" class="user-info__link">
+							<h4><?= $starredFreelancer['firstname'] . ' ' . $starredFreelancer['lastname']; ?></h4>
+						</a>
+						<p><?= $starredFreelancer['jobtitle']; ?></p>
+					</div>
+					<div class="float-right badge--price-per-hour">
+						<div class="badge__inner">
+							<h5>£<?= $starredFreelancer['priceperhour']; ?></h5>
+							<span>per hour</span>
+						</div>
+					</div>
+				</div>
+			</div>

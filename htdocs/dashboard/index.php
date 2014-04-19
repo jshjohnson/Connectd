@@ -6,8 +6,11 @@
 	$users->loggedOutProtect();
 	// $votes->userVotedForProtect();
 
+	$starredBy = $_SESSION['user_id'];
+
 	$designers    = $freelancers->getFreelancersRecent($userType = "designer");
 	$developers   = $freelancers->getFreelancersRecent($userType = "developer");
+	$starredFreelancers = $stars->getStarredFreelancers($starredBy);
 	$employers    = $employers->getEmployersRecent($userType = "employer");
 	$jobs         = $jobs->getJobsAll();
 
