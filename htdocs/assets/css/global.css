@@ -1395,15 +1395,16 @@ a:hover {
 /* line 16, ../scss/libs/_off-canvas.scss */
 .js-nav #nav {
   min-height: 46em;
+  min-height: 100vh;
 }
 
-/* line 21, ../scss/libs/_off-canvas.scss */
+/* line 22, ../scss/libs/_off-canvas.scss */
 #inner-wrap {
   min-height: 100vh;
   height: 100%;
 }
 
-/* line 26, ../scss/libs/_off-canvas.scss */
+/* line 27, ../scss/libs/_off-canvas.scss */
 #nav {
   position: absolute;
   -webkit-box-sizing: border-box;
@@ -1412,30 +1413,30 @@ a:hover {
   top: 0;
   display: none;
 }
-/* line 32, ../scss/libs/_off-canvas.scss */
+/* line 33, ../scss/libs/_off-canvas.scss */
 #nav:not(:target) {
   z-index: 1;
   height: 0;
 }
 
-/* line 39, ../scss/libs/_off-canvas.scss */
+/* line 40, ../scss/libs/_off-canvas.scss */
 .js-ready #nav {
   display: inline;
   height: 100%;
   width: 20%;
   left: -20%;
 }
-/* line 47, ../scss/libs/_off-canvas.scss */
+/* line 48, ../scss/libs/_off-canvas.scss */
 .js-ready #inner-wrap {
   position: relative;
   left: 0;
 }
 
-/* line 54, ../scss/libs/_off-canvas.scss */
+/* line 55, ../scss/libs/_off-canvas.scss */
 .js-nav #inner-wrap {
   left: 20%;
 }
-/* line 56, ../scss/libs/_off-canvas.scss */
+/* line 57, ../scss/libs/_off-canvas.scss */
 .js-nav #inner-wrap:before {
   content: " ";
   width: 100%;
@@ -1447,7 +1448,7 @@ a:hover {
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* line 70, ../scss/libs/_off-canvas.scss */
+/* line 71, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-ready #nav {
   width: 20%;
   left: 0;
@@ -1462,7 +1463,7 @@ a:hover {
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-/* line 77, ../scss/libs/_off-canvas.scss */
+/* line 78, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-ready #inner-wrap {
   left: 0 !important;
   -webkit-transform: translate3d(0, 0, 0);
@@ -1481,7 +1482,7 @@ a:hover {
   transition: transform 500ms ease;
 }
 
-/* line 88, ../scss/libs/_off-canvas.scss */
+/* line 89, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-nav #nav {
   -webkit-transform: translate3d(-100%, 0, 0);
   -moz-transform: translate3d(-100%, 0, 0);
@@ -1489,7 +1490,7 @@ a:hover {
   -o-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
 }
-/* line 91, ../scss/libs/_off-canvas.scss */
+/* line 92, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-nav #inner-wrap {
   -webkit-transform: translate3d(20%, 0, 0);
   -moz-transform: translate3d(20%, 0, 0);
@@ -1498,23 +1499,23 @@ a:hover {
   transform: translate3d(20%, 0, 0);
 }
 
-/* line 99, ../scss/libs/_off-canvas.scss */
+/* line 100, ../scss/libs/_off-canvas.scss */
 .js-ready #nav {
   width: 20%;
   left: -20%;
 }
 
-/* line 108, ../scss/libs/_off-canvas.scss */
+/* line 109, ../scss/libs/_off-canvas.scss */
 .js-nav #inner-wrap {
   left: 20%;
 }
 
-/* line 114, ../scss/libs/_off-canvas.scss */
+/* line 115, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-ready #nav {
   width: 20%;
 }
 
-/* line 121, ../scss/libs/_off-canvas.scss */
+/* line 122, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-nav #inner-wrap {
   -webkit-transform: translate3d(20%, 0, 0);
   -moz-transform: translate3d(20%, 0, 0);
@@ -1524,24 +1525,23 @@ a:hover {
 }
 
 @media screen and (max-width: 49em) {
-  /* line 130, ../scss/libs/_off-canvas.scss */
+  /* line 131, ../scss/libs/_off-canvas.scss */
   .js-ready #nav {
     width: 70%;
-    min-height: 46em;
     left: -70%;
   }
 
-  /* line 141, ../scss/libs/_off-canvas.scss */
+  /* line 139, ../scss/libs/_off-canvas.scss */
   .js-nav #inner-wrap {
     left: 70%;
   }
 
-  /* line 147, ../scss/libs/_off-canvas.scss */
+  /* line 145, ../scss/libs/_off-canvas.scss */
   .csstransforms3d.csstransitions.js-ready #nav {
     width: 70%;
   }
 
-  /* line 152, ../scss/libs/_off-canvas.scss */
+  /* line 150, ../scss/libs/_off-canvas.scss */
   .csstransforms3d.csstransitions.js-nav #inner-wrap {
     -webkit-transform: translate3d(70%, 0, 0);
     -moz-transform: translate3d(70%, 0, 0);
