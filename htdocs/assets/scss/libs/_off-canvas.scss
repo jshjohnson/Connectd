@@ -6,15 +6,21 @@
 
 .js-nav {
 	overflow: hidden;
+	@include respond-max($bp1) {
+		height: 100% !important;
+		min-height: 100% !important;		
+	} 
 }
 
 #inner-wrap{
-	height:100%;
-	min-height: 100vh;
+	@include respond-min($bp1) {
+		min-height: 100vh;
+		height:100%;
+	}
 }
 
 #nav {
-	position: absolute;
+	position: fixed;
 	@include box-sizing(border-box);
 	top: 0;
 	display:none;

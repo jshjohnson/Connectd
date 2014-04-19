@@ -284,7 +284,7 @@ img.media__img {
 }
 
 .header {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	width: 100%;
 	z-index: 5;
@@ -319,6 +319,7 @@ img.media__img {
 				width: 100%;
 				padding: .5em 1.5em;
 				@include transition(all, .5s);
+				@include box-sizing(border-box);
 				&:hover {
 					@include transition(all, .5s);
 				}
