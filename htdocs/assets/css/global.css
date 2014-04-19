@@ -1392,20 +1392,16 @@ a:hover {
     min-height: 100% !important;
   }
 }
-/* line 16, ../scss/libs/_off-canvas.scss */
-.js-nav #nav {
-  min-height: 46em;
-  min-height: 100vh;
-}
 
-/* line 22, ../scss/libs/_off-canvas.scss */
+/* line 18, ../scss/libs/_off-canvas.scss */
 #inner-wrap {
   min-height: 100vh;
   height: 100%;
 }
 
-/* line 27, ../scss/libs/_off-canvas.scss */
+/* line 23, ../scss/libs/_off-canvas.scss */
 #nav {
+  min-height: 100vh;
   position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1413,30 +1409,30 @@ a:hover {
   top: 0;
   display: none;
 }
-/* line 33, ../scss/libs/_off-canvas.scss */
+/* line 30, ../scss/libs/_off-canvas.scss */
 #nav:not(:target) {
   z-index: 1;
   height: 0;
 }
 
-/* line 40, ../scss/libs/_off-canvas.scss */
+/* line 37, ../scss/libs/_off-canvas.scss */
 .js-ready #nav {
   display: inline;
   height: 100%;
   width: 20%;
   left: -20%;
 }
-/* line 48, ../scss/libs/_off-canvas.scss */
+/* line 45, ../scss/libs/_off-canvas.scss */
 .js-ready #inner-wrap {
   position: relative;
   left: 0;
 }
 
-/* line 55, ../scss/libs/_off-canvas.scss */
+/* line 52, ../scss/libs/_off-canvas.scss */
 .js-nav #inner-wrap {
   left: 20%;
 }
-/* line 57, ../scss/libs/_off-canvas.scss */
+/* line 54, ../scss/libs/_off-canvas.scss */
 .js-nav #inner-wrap:before {
   content: " ";
   width: 100%;
@@ -1448,7 +1444,7 @@ a:hover {
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* line 71, ../scss/libs/_off-canvas.scss */
+/* line 68, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-ready #nav {
   width: 20%;
   left: 0;
@@ -1463,7 +1459,7 @@ a:hover {
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-/* line 78, ../scss/libs/_off-canvas.scss */
+/* line 75, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-ready #inner-wrap {
   left: 0 !important;
   -webkit-transform: translate3d(0, 0, 0);
@@ -1482,7 +1478,7 @@ a:hover {
   transition: transform 500ms ease;
 }
 
-/* line 89, ../scss/libs/_off-canvas.scss */
+/* line 86, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-nav #nav {
   -webkit-transform: translate3d(-100%, 0, 0);
   -moz-transform: translate3d(-100%, 0, 0);
@@ -1490,7 +1486,7 @@ a:hover {
   -o-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
 }
-/* line 92, ../scss/libs/_off-canvas.scss */
+/* line 89, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-nav #inner-wrap {
   -webkit-transform: translate3d(20%, 0, 0);
   -moz-transform: translate3d(20%, 0, 0);
@@ -1499,23 +1495,23 @@ a:hover {
   transform: translate3d(20%, 0, 0);
 }
 
-/* line 100, ../scss/libs/_off-canvas.scss */
+/* line 97, ../scss/libs/_off-canvas.scss */
 .js-ready #nav {
   width: 20%;
   left: -20%;
 }
 
-/* line 109, ../scss/libs/_off-canvas.scss */
+/* line 106, ../scss/libs/_off-canvas.scss */
 .js-nav #inner-wrap {
   left: 20%;
 }
 
-/* line 115, ../scss/libs/_off-canvas.scss */
+/* line 112, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-ready #nav {
   width: 20%;
 }
 
-/* line 122, ../scss/libs/_off-canvas.scss */
+/* line 119, ../scss/libs/_off-canvas.scss */
 .csstransforms3d.csstransitions.js-nav #inner-wrap {
   -webkit-transform: translate3d(20%, 0, 0);
   -moz-transform: translate3d(20%, 0, 0);
@@ -1525,23 +1521,23 @@ a:hover {
 }
 
 @media screen and (max-width: 49em) {
-  /* line 131, ../scss/libs/_off-canvas.scss */
+  /* line 128, ../scss/libs/_off-canvas.scss */
   .js-ready #nav {
     width: 70%;
     left: -70%;
   }
 
-  /* line 139, ../scss/libs/_off-canvas.scss */
+  /* line 136, ../scss/libs/_off-canvas.scss */
   .js-nav #inner-wrap {
     left: 70%;
   }
 
-  /* line 145, ../scss/libs/_off-canvas.scss */
+  /* line 142, ../scss/libs/_off-canvas.scss */
   .csstransforms3d.csstransitions.js-ready #nav {
     width: 70%;
   }
 
-  /* line 150, ../scss/libs/_off-canvas.scss */
+  /* line 147, ../scss/libs/_off-canvas.scss */
   .csstransforms3d.csstransitions.js-nav #inner-wrap {
     -webkit-transform: translate3d(70%, 0, 0);
     -moz-transform: translate3d(70%, 0, 0);
@@ -3130,17 +3126,22 @@ input[type=search].call-to-action__search:focus {
 }
 
 /* line 732, ../scss/core/_modules.scss */
+.user-info__star {
+  color: #ecdb58;
+}
+
+/* line 736, ../scss/core/_modules.scss */
 .user-info__link {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 3px, rgba(0, 0, 0, 0) 3px);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  /* line 732, ../scss/core/_modules.scss */
+  /* line 736, ../scss/core/_modules.scss */
   .user-info__link {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);
   }
 }
 
-/* line 736, ../scss/core/_modules.scss */
+/* line 740, ../scss/core/_modules.scss */
 .img--avatar-form {
   max-width: 30%;
   float: right;

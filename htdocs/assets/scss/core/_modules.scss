@@ -729,6 +729,10 @@ input[type=search].call-to-action__search {
 	width: 70%;
 }
 
+.user-info__star {
+	color: #ecdb58;
+}
+
 .user-info__link {
 	@include underline;
 }
