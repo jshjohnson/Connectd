@@ -49,9 +49,9 @@
 			$password = $this->bcrypt->genHash($data['password']);
 
 			$register = $this->db->prepare("INSERT INTO " . DB_NAME . ".users
-				(firstname, lastname, email, email_code, password, time_joined, location, portfolio, bio, ip) 
+				(firstname, lastname, email, email_code, password, time_joined, location, portfolio, bio, granted_access, ip) 
 				VALUES 
-				(:firstname, :lastname, :email, :email_code, :password, :time_joined, :location, :portfolio, :bio, :ip)
+				(:firstname, :lastname, :email, :email_code, :password, :time_joined, :location, :portfolio, :bio, :granted_access, :ip)
 			");
 			
 			$register->bindValue(":firstname", $data['firstName']);
@@ -63,6 +63,7 @@
 			$register->bindValue(":location", $data['location']);
 			$register->bindValue(":portfolio", $data['portfolio']);
 			$register->bindValue(":bio", $data['bio']);
+			$register->bindValue(":granted_access", 1);
 			$register->bindValue(":ip", $ip);
 		 
 		 	$this->db->beginTransaction();
