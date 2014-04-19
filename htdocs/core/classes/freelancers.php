@@ -218,10 +218,12 @@
 				WHERE u.confirmed = ?
 				AND u.user_id = ?
 				AND ut.user_type = ?
+				AND u.granted_access = ?
 			");
 			$results->bindValue(1, 1);
 			$results->bindValue(2, $id);
 			$results->bindValue(3, $userType);
+			$results->bindValue(4, 1);
 
 			try {
 				$results->execute();

@@ -36,26 +36,6 @@
 	    }
 
 		/**
-		 * Gets all jobs that an employer has posted
-		 *
-		 * @param  int $employer_id
-		 * @return array
-		 */ 
-		public function getEmployerJobs($employer_id) {
-	    	$query = $this->db->prepare("SELECT * FROM " . DB_NAME . ".jobs WHERE user_id = :user_id");
-	    	$query->bindValue(":user_id", $employer_id);
-			try{
-				$query->execute();
-			}catch(PDOException $e) {
-				$users = new Users($db);
-				$debug = new Errors();
-				$debug->errorView($users, $e);	
-			}
-			# We use fetchAll() instead of fetch() to get an array of all the selected records.
-			return $query->fetchAll();
-	    }
-
-		/**
 		 *   Register an employer user
 		 *
 		 * @param  array $firstName, $lastName, $email, $password, $location, portfolio, $employerName, $employerType, $experience, $bio, $userType

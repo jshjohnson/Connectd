@@ -218,7 +218,33 @@
 				JOIN " . DB_NAME . ".user_types 
 				ON users.user_id = user_types.user_type_id
 				WHERE users.user_id= ?
-				");
+			");
+			$query->bindValue(1, $id);
+
+			try{
+				$query->execute();
+				return $query->fetch();
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+		}
+
+		/**
+		 *  Gets key user data of user logged in
+		 *
+		 * @param  int  $id The user logged in's ID
+		 * @return array
+		 */ 
+		public function userType($id) {
+			$query = $this->db->prepare("
+				SELECT users.user_id, user_types.*
+				FROM " . DB_NAME . ".users 
+				JOIN " . DB_NAME . ".user_types 
+				ON users.user_id = user_types.user_type_id
+				WHERE users.user_id= ?
+			");
 			$query->bindValue(1, $id);
 
 			try{
@@ -272,7 +298,7 @@
 
 		public function fetchInfo($what, $field, $value){
 		 
-			$allowed = array('user_id', 'email', 'firstname', 'lastname', 'bio'); // I have only added few, but you can add more. However do not add 'password' even though the parameters will only be given by you and not the user, in our system.
+			$allowed = array('user_id', 'email', 'firstname', 'lastname', 'bio', 'granted_access');
 			if (!in_array($what, $allowed, true) || !in_array($field, $allowed, true)) {
 			    throw new InvalidArgumentException;
 			}else{
@@ -282,12 +308,10 @@
 				$query->bindValue(1, $value);
 		 
 				try{
-		 
 					$query->execute();
-					
 				}catch(PDOException $e) {
 					$users = new Users($db);
-					
+					$debug = new Errors();
 					$debug->errorView($users, $e);	
 				}
 		 
