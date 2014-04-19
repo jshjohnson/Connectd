@@ -20,6 +20,7 @@
 
 		$id = intval($_GET["id"]);
 		$status = $_GET["status"];
+		$starredBy = $_SESSION['user_id'];
 
 		switch ($userType) {
 			case "designer":

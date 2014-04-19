@@ -66,7 +66,7 @@
 
 				$this->db->commit();
 
-				header('Location: ' . $_SERVER['HTTP_REFERER'] . "&status=sent");
+				header('Location: ' . $_SERVER['HTTP_REFERER'] . "&status=starred");
 
 			}catch(PDOException $e) {
 				$this->db->rollback();
@@ -91,7 +91,7 @@
 			
 			try{
 				$query->execute();
-				header("Location:" . BASE_URL . "trials/?status=removed");
+				header('Location: ' . $_SERVER['HTTP_REFERER'] . "&status=starremoved");
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$debug = new Errors();
@@ -106,15 +106,15 @@
 		 * @param  integer  $starredBy The user logged in voting
 		 * @return boolean
 		 */ 
-	    public function sessionUserStarred($star_id, $starredBy) {
+	    public function sessionUserStarred($user_id, $starredBy) {
 	    	$query = $this->db->prepare("
-	    		SELECT uv.star_id, uv.starred_by_id 
-	    		FROM " . DB_NAME . ".user_stars AS uv
-	    		WHERE uv.star_id = ?
-	    		AND uv.starred_by_id = ?
+	    		SELECT us.star_id, us.starred_by_id 
+	    		FROM " . DB_NAME . ".user_stars AS us
+	    		WHERE us.star_id = ?
+	    		AND us.starred_by_id = ?
 	    	");
 
-	    	$query->bindValue(1, $star_id);
+	    	$query->bindValue(1, $user_id);
 	    	$query->bindValue(2, $starredBy);
 
 			try{

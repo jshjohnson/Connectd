@@ -1,3 +1,20 @@
+		<?php if ($status == "starred") : ?>
+		<section class="alert alert-success">
+			<div class="container">
+				<h5 class="alert-success__title">
+					<i class="icon--star"></i>User starred!
+				</h5>
+			</div>
+		</section>
+		<?php elseif ($status == "starremoved") : ?>
+		<section class="alert alert-success">
+			<div class="container">
+				<h5 class="alert-success__title">
+					Star removed
+				</h5>
+			</div>
+		</section>
+		<?php endif;?>
 		<?php if ($status == "sent") : ?>
 		<section class="alert alert-success">
 			<div class="container">
