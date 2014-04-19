@@ -1399,7 +1399,7 @@ a:hover {
 
 /* line 22, ../scss/libs/_off-canvas.scss */
 #nav {
-  position: fixed;
+  position: absolute;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;

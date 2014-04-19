@@ -20,7 +20,7 @@
 }
 
 #nav {
-	position: fixed;
+	position: absolute;
 	@include box-sizing(border-box);
 	top: 0;
 	display:none;
