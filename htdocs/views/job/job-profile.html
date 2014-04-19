@@ -19,7 +19,12 @@
 						<ul class="list-unset list-inline">
 							<li>Budget: <strong>£<?= $job['job_budget']; ?></strong></li>
 							<li>Start date: <strong><?= $job['job_start_date']; ?></strong></li>
-							<li>Deadline: <strong><?= $job['job_deadline']; ?></strong></li>
+							<?php
+								$deadline = $job['job_deadline'];
+								if (!empty($deadline)) :
+							?>
+							<li>Deadline: <strong><?= $deadline; ?></strong></li>
+							<?php endif; ?>
 						</ul> 	
 					</div>
 					<nav class="portfolio__headings-bg">
