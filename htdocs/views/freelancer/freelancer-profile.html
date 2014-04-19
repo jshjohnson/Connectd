@@ -25,7 +25,7 @@
 		</section>
 		<?php endif; ?>
 		<section class="container">
-			<?php if($id == $user_id) : ?>
+			<?php if($id == $sessionUserID) : ?>
 			<section class="call-to-action call-to-action--top">
 				<div class="container">
 					<h4 class="call-to-action__title zero-top">
@@ -37,7 +37,7 @@
 					</div>
 				</div>
 			</section>
-			<? endif; ?>
+			<?php endif; ?>
 			<div class="grid--no-marg cf">
 			<?php if($userType == "designer") : ?>
 

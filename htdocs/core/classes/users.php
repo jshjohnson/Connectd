@@ -163,6 +163,14 @@
 			}	
 		}
 
+		public function grantedAccessProtect($id) {
+			$access = $this->fetchInfo("granted_access", "user_id", $id);
+
+			if($access == 0) {
+				header("Location:" . BASE_URL . "/welcome");
+				exit();
+			}
+		}
 
 		/**
 		 *  Gets user experience form values
