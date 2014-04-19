@@ -15,12 +15,12 @@
 		$job = $jobs->getJobsSingle($job_id);
 
 		if($job) {
-			$pageTitle  = $job['job_name'] . ' :: ' . $job['employer_name'];
+			$pageTitle  = ucwords($job['job_name']) . ' :: ' . ucwords($job['employer_name']);
 			$section    = "Job";
 
-			include_once(ROOT_PATH . "includes/header.inc.php");
-			include_once(ROOT_PATH . "views/job/job-profile.html");
-			include_once(ROOT_PATH . "includes/footer.inc.php");
+			include(ROOT_PATH . "includes/header.inc.php");
+			include(ROOT_PATH . "views/job/job-profile.html");
+			include(ROOT_PATH . "includes/footer.inc.php");
 		} else {
 			throw new Exception('An invalid page ID was provided to this page.');
 		}

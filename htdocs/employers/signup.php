@@ -113,7 +113,7 @@
 	$pageType = "Page";
 	$section = "Green";
 
-	include_once(ROOT_PATH . "includes/header.inc.php");
-	include_once(ROOT_PATH . "views/employer/employer-signup-form.html");
-	include_once(ROOT_PATH . "includes/footer.inc.php");
+	include(ROOT_PATH . "includes/header.inc.php");
+	include(ROOT_PATH . "views/employer/employer-signup-form.html");
+	include(ROOT_PATH . "includes/footer.inc.php");
 ?>

@@ -18,15 +18,15 @@
 	$pageTitle    = "Dashboard";
 	$section      = "Dashboard";
 
-	include_once(ROOT_PATH . "includes/header.inc.php");
+	include(ROOT_PATH . "includes/header.inc.php");
 
 	if($sessionUserType == 'employer') {
-		include_once(ROOT_PATH . "views/dashboard/employer-dashboard.html");
+		include(ROOT_PATH . "views/dashboard/employer-dashboard.html");
 	} else {
 		$developerJobTitles = $freelancers->getFreelancerJobTitles("developer");
 		$designerJobTitles = $freelancers->getFreelancerJobTitles("designer");
-		include_once(ROOT_PATH . "views/dashboard/freelancer-dashboard.html");
+		include(ROOT_PATH . "views/dashboard/freelancer-dashboard.html");
 	}
 
-	include_once(ROOT_PATH . "includes/footer.inc.php");
+	include(ROOT_PATH . "includes/footer.inc.php");
 ?>

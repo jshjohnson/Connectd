@@ -49,9 +49,9 @@
 			$employer_id = $_GET["id"];
 		}
 
-		include_once(ROOT_PATH . "includes/header.inc.php");
-		include_once(ROOT_PATH . "views/page/list.html");
-		include_once(ROOT_PATH . "includes/footer.inc.php");
+		include(ROOT_PATH . "includes/header.inc.php");
+		include(ROOT_PATH . "views/page/list.html");
+		include(ROOT_PATH . "includes/footer.inc.php");
 
 	}catch(Exception $e) {
 		$users = new Users($db);

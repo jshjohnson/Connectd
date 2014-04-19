@@ -57,9 +57,9 @@
 			$template = "employer/employer-profile.html";
 		}
 
-		include_once(ROOT_PATH . "includes/header.inc.php");
-		include_once(ROOT_PATH . "views/" . $template);
-		include_once(ROOT_PATH . "includes/footer.inc.php");
+		include(ROOT_PATH . "includes/header.inc.php");
+		include(ROOT_PATH . "views/" . $template);
+		include(ROOT_PATH . "includes/footer.inc.php");
 
 	}catch(Exception $e) {
 		$users = new Users($db);

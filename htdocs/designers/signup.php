@@ -102,7 +102,7 @@
 	$pageType = "Page";
 	$section = "Blue";
 	
-	include_once(ROOT_PATH . "includes/header.inc.php");
-	include_once(ROOT_PATH . "views/freelancer/freelancer-signup-form.html");
-	include_once(ROOT_PATH . "includes/footer.inc.php");
+	include(ROOT_PATH . "includes/header.inc.php");
+	include(ROOT_PATH . "views/freelancer/freelancer-signup-form.html");
+	include(ROOT_PATH . "includes/footer.inc.php");
 ?>

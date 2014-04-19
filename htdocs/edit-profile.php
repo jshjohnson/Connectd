@@ -7,7 +7,7 @@
 	$pageTitle = "Edit Profile";
 	$pageType = "Page";
 	$section = "Blue";
-	include_once(ROOT_PATH . "includes/header.inc.php");
+	include(ROOT_PATH . "includes/header.inc.php");
 
 ?>
 	<section>
@@ -132,4 +132,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>
+<?php include(ROOT_PATH . "includes/footer.inc.php"); ?>

@@ -52,7 +52,7 @@
 			break;
 	}
 
-	include_once(ROOT_PATH . "includes/header.inc.php");
-	include_once(ROOT_PATH . "views/" . $page);
-	include_once(ROOT_PATH . "includes/footer.inc.php");
+	include(ROOT_PATH . "includes/header.inc.php");
+	include(ROOT_PATH . "views/" . $page);
+	include(ROOT_PATH . "includes/footer.inc.php");
 ?>  

@@ -14,7 +14,7 @@
 	$pageType      = "Page";
 	$section       = "Green";
 
-	include_once(ROOT_PATH . "includes/header.inc.php");
+	include(ROOT_PATH . "includes/header.inc.php");
 	
 	// Grab the form data
 	$jobTitle       = trim($_POST['job_title']);
@@ -128,4 +128,4 @@
 			</div>
 		</div>
 	</section>
-<?php include_once(ROOT_PATH . "includes/footer.inc.php"); ?>
+<?php include(ROOT_PATH . "includes/footer.inc.php"); ?>
