@@ -197,6 +197,44 @@
 			$freelancers = $results->fetchAll(PDO::FETCH_ASSOC);
 
 			return $freelancers;
+		}
+
+		/**
+		 * Get data for all freelancers in db
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
+		public function getFreelancersAllTypes($user_id) {
+			$results =  $this->db->prepare("
+				SELECT u.user_id, u.firstname, u.lastname, u.image_location, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
+				FROM ((" . DB_NAME . ".users AS u
+				LEFT JOIN " . DB_NAME . ".freelancers AS f
+				ON u.user_id = f.freelancer_id)
+				LEFT JOIN " . DB_NAME . ".user_types AS ut
+				ON u.user_id = ut.user_type_id)
+				WHERE u.confirmed = :confirmed
+				AND u.granted_access = :granted_access
+				AND u.user_id != :user_id
+				AND ut.user_type != :user_type
+			");
+			$results->bindValue(":confirmed", 1);
+			$results->bindValue(":granted_access", 1);
+			$results->bindValue(":user_id", $user_id);
+			$results->bindValue(":user_type", "employer");
+			
+			
+			try {
+				$results->execute();
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+			
+			$freelancers = $results->fetchAll(PDO::FETCH_ASSOC);
+
+			return $freelancers;
 
 		}
 
