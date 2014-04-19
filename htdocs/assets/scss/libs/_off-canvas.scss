@@ -1,11 +1,14 @@
 .outer{
 	  position: relative;
 	  width: 100%;
-	  height:100%;
+	  // height:100%;
 }
 
 .js-nav {
 	overflow: hidden;
+	body {
+		overflow: hidden;
+	}
 	@include respond-max($bp1) {
 		height: 100% !important;
 		min-height: 100% !important;		
@@ -13,10 +16,8 @@
 }
 
 #inner-wrap{
-	@include respond-min($bp1) {
-		min-height: 100vh;
-		height:100%;
-	}
+	min-height: 100vh;
+	height:100%;
 }
 
 #nav {
