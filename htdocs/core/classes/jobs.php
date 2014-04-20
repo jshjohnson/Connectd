@@ -42,29 +42,30 @@
 		 * @param  string $description
 		 * @return void
 		 */ 
-	    public function postJob($user_id, $jobFull, $startDate, $deadline, $budget, $category, $description) {
+	    public function postJob($user_id, $jobFull, $jobLocation, $startDate, $deadline, $budget, $category, $description) {
 
     		$postDate = time();
 
 			$query = $this->db->prepare("
 				INSERT INTO " . DB_NAME . ".jobs
-				(user_id, job_name, job_start_date, job_deadline, job_budget, job_category, job_description, job_post_date) 
+				(user_id, job_name, job_location, job_start_date, job_deadline, job_budget, job_category, job_description, job_post_date) 
 				VALUES 
-				(?, ?, ?, ?, ?, ?, ?, ?)
+				(:user_id, :name, :location, :start_date, :deadline, :budget, :category, :description, :date)
 			");
-			$query->bindValue(1, $user_id);
-			$query->bindValue(2, $jobFull);
-			$query->bindValue(3, $startDate);
-			$query->bindValue(4, $deadline);
-			$query->bindValue(5, $budget);
-			$query->bindValue(6, $category);
-			$query->bindValue(7, $description);
-			$query->bindValue(8, $postDate);
+
+			$query->bindValue(":user_id", $user_id);
+			$query->bindValue(":name", $jobFull);
+			$query->bindValue(":location", $jobLocation);
+			$query->bindValue(":start_date", $startDate);
+			$query->bindValue(":deadline", $deadline);
+			$query->bindValue(":budget", $budget);
+			$query->bindValue(":category", $category);
+			$query->bindValue(":description", $description);
+			$query->bindValue(":date", $postDate);
 
 	    	try {
 				$query->execute();
 			}catch(PDOException $e) {
-				$users = new Users($db);
 				$debug = new Errors();
 				$debug->errorView($users, $e);	
 			}

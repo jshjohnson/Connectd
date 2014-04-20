@@ -18,8 +18,9 @@
 	
 	// Grab the form data
 	$jobTitle       = trim($_POST['job_title']);
+	$jobLocation    = trim($_POST['job_location']);
 	$jobName        = trim($_POST['job_name']);
-	$jobFull        = "I need a " . $jobTitle . " to work on " . $jobName;
+	$jobFull        = "I need a " . $jobLocation . $jobTitle . " to work on " . $jobName;
 	$startDate      = trim($_POST['start_date']);
 	$deadline       = trim($_POST['deadline']);
 	$budget         = trim($_POST['budget']);
@@ -87,6 +88,12 @@
 				<form method="post" action="<?= BASE_URL; ?>jobs/post.php">
 					<fieldset class="cf text-center">
 						<label for="">I need a</label>
+						<div class="select-container select-container--inline">
+							<select name="job_location">
+								<option value="remote">Remote</option>
+								<option value="onsite">Onsite</option>
+							</select>
+						</div>
 						<div class="select-container select-container--inline">
 							<select name="job_title">
 								<?php foreach ($designerJobTitles as $jobTitle) : ?>
