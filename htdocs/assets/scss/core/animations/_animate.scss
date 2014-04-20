@@ -57,6 +57,10 @@ $visibility: hidden;
 @import "rotateOutUpLeft";
 @import "rotateOutUpRight";
 @import "shake";
+@import "slideInDown";
+@import "slideInLeft";
+@import "slideInRight";
+@import "slideOutUp";
 @import "swing";
 @import "tada";
 @import "wiggle";
@@ -217,6 +221,12 @@ $visibility: hidden;
 }
 .shake {
 	@include shake($duration, $delay, $function, $fill, $visibility);
+}
+.slideInDown {
+  	@include slideInDown($duration, $delay, $function, $fill, $visibility);
+}
+.slideOutUp {
+	@include slideOutUp($duration, $delay, $function, $fill, $visibility);
 }
 .swing {
 	@include swing($duration, $delay, $function, $fill, $visibility);

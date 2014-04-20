@@ -106,7 +106,8 @@
 .alert {
 	width: 100%;
 	position: fixed;
-	z-index: 999;
+	z-index: 4;
+	margin-top: 3em;
 	top: 0;
 	text-align: center;
 	.alert-success__title {

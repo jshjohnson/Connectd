@@ -1,0 +1,36 @@
+@-webkit-keyframes slideInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+    -ms-transform: translateY(-2000px);
+    transform: translateY(-2000px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@mixin slideInDown($duration, $delay, $function, $fill, $visibility) {
+  @include animation-name(slideInDown);
+  @include duration(1s);
+  @include delay(0s);
+  @include function($function);
+  @include fill-mode($fill);
+  @include visibility($visibility);
+}
