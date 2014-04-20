@@ -16,8 +16,9 @@
 		public function getFreelancersSearch($searchTerm, $sessionUserID) {
 			$results = array();
 			$all = $this->freelancers->getFreelancersAllTypes($sessionUserID);
+
 			foreach($all as $freelancer) {
-				$haystack = $freelancer['firstname'] . $freelancer['lastname'] . $freelancer['jobtitle'];
+				$haystack = $freelancer['firstname'] . $freelancer['lastname'] . $freelancer['jobtitle'] . $freelancer['user_type'];
 				if(stripos($haystack, $searchTerm) !== false) {
 					$results[] = $freelancer; 
 				}	
