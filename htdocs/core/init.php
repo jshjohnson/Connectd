@@ -30,7 +30,7 @@
 	$search = new Search($db);
 	$debug = new Errors();
 	$emails = new Emails();
-	$forms = new Forms();
+	$forms = new Forms($db);
 
 	$bcrypt = new Bcrypt(12);
 	$mail = new PHPMailer();
