@@ -703,20 +703,16 @@ img.media__img {
 	}
 }
 
-.call-to-action__container {
+input[type=search].call-to-action__search {
 	@include respond-min($bp2) {
 		max-width: 60%;
-		margin: auto;
 	}
-}
-
-input[type=search].call-to-action__search {
+	margin: 0 auto;
 	background-color: $color-brand-dark;
 	border: 1px solid lighten($color-background, 5%);
 	border-radius: .5em;
 	padding: .75em;
 	color: white;
-	margin: 0;
 	&:focus {
 		@include box-shadow(0 0 5px lighten($color-brand-dark, 20%));
 		border: 1px solid lighten($color-background, 20%);
