@@ -27,6 +27,7 @@
 	$stars = new Stars($db);
 	$sessions = new Sessions($db);
 	$trials = new Trials($db);
+	$search = new Search($db);
 	$debug = new Errors();
 	$emails = new Emails();
 	$forms = new Forms();

@@ -206,7 +206,7 @@
 		 * @return array
 		 */ 
 		public function getFreelancersAllTypes($user_id) {
-			$results =  $this->db->prepare("
+			$results = $this->db->prepare("
 				SELECT u.user_id, u.firstname, u.lastname, u.image_location, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
 				FROM ((" . DB_NAME . ".users AS u
 				LEFT JOIN " . DB_NAME . ".freelancers AS f
@@ -235,7 +235,10 @@
 			$freelancers = $results->fetchAll(PDO::FETCH_ASSOC);
 
 			return $freelancers;
+		}
 
+		public function getFreelancersAllTypesCount($user_id) {
+			return count(getFreelancersAllTypes($user_id));
 		}
 
 		/**
