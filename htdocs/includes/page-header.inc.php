@@ -13,7 +13,7 @@
 	} else {
 		$headerClasses[] = "header-navy--alt";
 	}
-
+	
 	$headerClassesAll = implode(" ", $headerClasses);
 ?>
 
