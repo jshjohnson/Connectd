@@ -22,9 +22,9 @@
 			$pageTitle = 'Error';
 			$pageType = 'Page';
 			$section = 'Blue';
-			include(ROOT_PATH . 'includes/header.inc.php');
+			include_once(ROOT_PATH . 'includes/header.inc.php');
 			include(ROOT_PATH . 'views/error/error.html');
-			include(ROOT_PATH . 'includes/footer.inc.php');
+			include_once(ROOT_PATH . 'includes/footer.inc.php');
 			exit();
 		}
 		
