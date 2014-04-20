@@ -10,17 +10,17 @@
 	$designerJobTitles = $freelancers->getFreelancerJobTitles("designer");
 
 
-	$pageTitle     = "Post a job";
-	$pageType      = "Page";
-	$section       = "Green";
+	$pageTitle = "Post a job";
+	$pageType = "Page";
+	$section = "Green";
 
-	include(ROOT_PATH . "includes/header.inc.php");
+	include_once(ROOT_PATH . "includes/header.inc.php");
 	
 	// Grab the form data
 	$jobTitle       = trim($_POST['job_title']);
 	$jobLocation    = trim($_POST['job_location']);
 	$jobName        = trim($_POST['job_name']);
-	$jobFull        = "I need a " . $jobLocation . $jobTitle . " to work on " . $jobName;
+	$jobFull        = "I need a " . $jobTitle . " to work on " . $jobName;
 	$startDate      = trim($_POST['start_date']);
 	$deadline       = trim($_POST['deadline']);
 	$budget         = trim($_POST['budget']);
@@ -41,6 +41,8 @@
         
 	    if($jobTitle == ""){
 	        $errors[] = "Please enter a freelancer type"; 
+	    }else if($jobLocation == ""){
+	        $errors[] = "Please select whether you need an onsite or remote freelancer"; 
 	    }else if($jobName == ""){
 	        $errors[] = "Please enter a job title"; 
 	    }else if($startDate == ""){
@@ -54,7 +56,7 @@
 	    }
 
 		if(empty($errors) === true){
-			$jobs->postJob($sessionUserID, $jobFull, $startDate, $deadline, $budget, $category, $description);
+			$jobs->postJob($sessionUserID, $jobFull, $jobLocation, $startDate, $deadline, $budget, $category, $description);
 			header("Location:" . BASE_URL . "jobs/post.php?status=success");
 			exit();
 		}
