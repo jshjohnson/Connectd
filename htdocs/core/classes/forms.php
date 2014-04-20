@@ -113,6 +113,43 @@
 			return $errors;
 		}
 
+		public function validateEmployer($firstName, $lastName, $email, $password, $repeatPassword, $employerName, $employerType, $experience, $bio) {
+			if($firstName == ""){
+		        $errors[] ="Please enter your first name"; 
+		    }else if($lastName == ""){
+		        $errors[] ="Please enter your last name"; 
+		    }else if($email == ""){
+		        $errors[] ="Please enter your email"; 
+		    }else if (!$this->mail->ValidateAddress($email)){
+	   			 $errors[]  = "You must specify a valid email address.";
+			}else if ($this->users->emailExists($email) === true) {
+			    $errors[] = "Email already taken. Please try again.";
+			}else if($password == ""){
+		        $errors[] ="Please enter a password"; 
+		    }else if ($password!=$repeatPassword){ 
+				$errors[]  = "Both password fields must match";
+			}else if(preg_match_all($r1,$password, $o)<1) {
+				$errors[]  = "Your password needs to contain at least one uppercase character";
+			}else if(preg_match_all($r2,$password, $o)<1) {
+				$errors[]  = "Your password needs to contain at least one lowercase character";
+			}else if(preg_match_all($r3,$password, $o)<1) {
+				$errors[]  = "Your password needs to contain at least one number";
+			}else if (strlen($password)>25||strlen($password)<6) {
+				$errors[]  = "Password must be 6-25 characters long";
+			}else if($employerName == ""){
+		        $errors[]  = "Please enter your business name"; 
+		    }else if($employerType == ""){
+		        $errors[]  = "Please enter your business type"; 
+		    }else if($experience == ""){
+			    $errors[] ="Please enter your experience";
+			}else if($bio == ""){
+		        $errors[]  = "Please write about your business"; 
+		    }else if(strlen($bio)<25) {
+				$errors[]  = "Freelancers require a bit more information about your business!";
+			}
+			return $errors;
+		}
+
 		public function validateJob($jobTitle, $jobLocation, $jobName, $startDate, $budget, $category, $description){
 	    	if($jobTitle == ""){
 		        $errors[] = "Please enter a freelancer type"; 
