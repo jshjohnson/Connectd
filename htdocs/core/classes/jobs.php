@@ -181,7 +181,7 @@
 		public function getJobsRecent() {
 
 			$recent = "";
-			$all = get_jobs_all();
+			$all = $this->getJobsAll();
 
 			$total_jobs = count($all);
 			$position = 0;
@@ -190,7 +190,7 @@
 			foreach ($all as $job) {
 				$position = $position + 1;
 				// if designer is one of the 4 most recent jobs
-				if ($total_jobs - $position < 6) {
+				if ($total_jobs - $position < 10) {
 					$recent[] = $job;
 				}
 			}

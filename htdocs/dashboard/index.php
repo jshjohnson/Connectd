@@ -27,10 +27,8 @@
 		$jobs = $jobs->getEmployerJobs($sessionUserID);
 		include(ROOT_PATH . "views/dashboard/employer-dashboard.html");
 	} else {
-		$jobs = $jobs->getJobsAll();
+		$jobs = $jobs->getJobsRecent();
 		$allFreelancers = $freelancers->getFreelancersAllTypes($sessionUserID);
-		$developerJobTitles = $freelancers->getFreelancerJobTitles("developer");
-		$designerJobTitles = $freelancers->getFreelancerJobTitles("designer");
 		include(ROOT_PATH . "views/dashboard/freelancer-dashboard.html");
 	}
 
