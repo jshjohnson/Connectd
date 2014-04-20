@@ -8,7 +8,7 @@
 	$towns = $users->getLocations();
 	$experiences = $users->getExperiences();
 
-	$userType = "designer";
+	$userType = $_GET['usertype'];
 	$jobTitles = $freelancers->getFreelancerJobTitles($userType);
 
 	// Grab the form data
@@ -28,7 +28,7 @@
 	$userIP = $ipInfo->getIPAddress();
 	$userLocation = json_decode($ipInfo->getCity($userIP), true);
 	$userCity = $userLocation['cityName'];
-	
+
 	if (isset($_GET['status'])) {
 		$status = $_GET["status"];
 	}
@@ -55,17 +55,22 @@
 				"experience" => $experience, 
 				"bio" => $bio, 
 				"userType" => $userType
-			);
+			);			
 			$freelancers->registerFreelancer($data);
-			header("Location:" . BASE_URL . "designers/signup.php?status=success");
+			header("Location:" . BASE_URL . "developers/signup.php?status=success");
 			exit();
 		}
 	}
 
 	$pageTitle = "Sign Up";
 	$pageType = "Page";
-	$section = "Blue";
-	
+	if($userType == "designer") {
+		$section = "Blue";
+	} else {
+		$section = "Navy";
+	}
+
+
 	include(ROOT_PATH . "includes/header.inc.php");
 	include(ROOT_PATH . "views/freelancer/freelancer-signup-form.html");
 	include(ROOT_PATH . "includes/footer.inc.php");

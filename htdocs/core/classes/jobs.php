@@ -173,7 +173,7 @@
 		}
 
 		/**
-		 * Restrict jobs data to 6 most recent 
+		 * Restrict jobs data to 10 most recent 
 		 *
 		 * @param  void
 		 * @return array
