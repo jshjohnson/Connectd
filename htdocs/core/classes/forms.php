@@ -62,4 +62,23 @@
 
 			return $newpath;
 		}
+
+		public function validateJob($jobTitle, $jobLocation, $jobName, $startDate, $budget, $category, $description){
+	    	if($jobTitle == ""){
+		        $errors[] = "Please enter a freelancer type"; 
+		    }else if($jobLocation == ""){
+		        $errors[] = "Please select whether you need an onsite or remote freelancer"; 
+		    }else if($jobName == ""){
+		        $errors[] = "Please enter a job title"; 
+		    }else if($startDate == ""){
+		        $errors[] = "Please enter a job deadline"; 
+		    }else if($budget == ""){
+		        $errors[] = "Please enter a minimum budget"; 
+		    }else if($category == ""){
+		        $errors[] = "Please enter a job category"; 
+		    }else if($description == ""){
+		        $errors[] = "Please enter a job description"; 
+		    }
+		    return $errors;
+	    }
 	}
