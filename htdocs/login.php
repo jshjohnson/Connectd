@@ -48,11 +48,11 @@
 						header("Location: dashboard?status=firstvisit"); 
 						exit();
 					} else {
-						header('Location: dashboard/');
+						header('Location: ' . BASE_URL . 'dashboard/');
 						exit();
 					}
 				} else {
-					header('Location: welcome/');
+					header('Location:' . BASE_URL . 'welcome/');
 					exit();
 				}
 			}

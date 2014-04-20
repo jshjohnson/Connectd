@@ -31,6 +31,7 @@
 	$debug = new Errors();
 	$emails = new Emails();
 	$forms = new Forms($db);
+	$urls = new URLs();
 
 	$bcrypt = new Bcrypt(12);
 	$mail = new PHPMailer();

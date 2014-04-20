@@ -15,8 +15,8 @@
 						<li><a href="<?= BASE_URL; ?>dashboard/">Dashboard</a></li>
 						<li><a href="<?= BASE_URL; ?>trials/">Trials</a></li>
 						<li><a href="<?= BASE_URL; ?>search">Search</a></li>
-						<li><a href="<?= BASE_URL . "profile.php?usertype=" . $sessionUserType . "&id=" . $sessionUser['user_id'];?>">View Profile</a></li>
-						<li><a href="<?= BASE_URL . "edit-profile"?>">Edit Profile</a></li>
+						<li><a href="<?= BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/"?>">View Profile</a></li>
+						<li><a href="<?= BASE_URL . "edit-profile/"?>">Edit Profile</a></li>
 						<li><a href="<?= BASE_URL . "change-password"; ?>">Change Password</a></li>
 						<li><a href="<?= BASE_URL; ?>logout.php">Log out</a></li>
 					<?php else : ?>

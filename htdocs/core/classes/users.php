@@ -124,7 +124,7 @@
 			$_SESSION = array();
 			// Destroy the session
 			session_destroy();
-			header('Location: login.php?status=logged');
+			header('Location: ' . BASE_URL . 'login/logged-out/');
 	    }
 
 	 	/**
@@ -167,7 +167,7 @@
 			$access = $this->fetchInfo("granted_access", "user_id", $id);
 
 			if($access == 0) {
-				header("Location:" . BASE_URL . "/welcome");
+				header("Location:" . BASE_URL . "welcome");
 				exit();
 			}
 		}

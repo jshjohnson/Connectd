@@ -1,10 +1,10 @@
 			<div class='media'>
-				<a href="<?= BASE_URL; ?>profile.php?usertype=<?= $userType; ?>&id=<?= $freelancer['user_id'];?>">
+				<a href="<?= BASE_URL . $userType . "/profile/" . $freelancer['user_id'] . "/";?>">
 					<div style="background-image: url('<?= BASE_URL . $freelancer['image_location']; ?>');" class="media__img media__img--avatar"></div>
 				</a>
 				<div class='media__body'>
 					<div class='float-left user-info'>
-						<a href="<?= BASE_URL; ?>profile.php?usertype=<?= $userType; ?>&id=<?= $freelancer['user_id'];?>" class="user-info__link">
+						<a href="<?= BASE_URL . $userType . "/profile/" . $freelancer['user_id'] . "/";?>" class="user-info__link">
 							<h4><?= $freelancer['firstname'] . ' ' . $freelancer['lastname']; ?></h4>
 						</a>
 						<p><?= $freelancer['jobtitle']; ?></p>

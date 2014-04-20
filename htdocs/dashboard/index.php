@@ -4,7 +4,7 @@
 
 	$debug->showErrors();
 	$users->loggedOutProtect();
-	// $users->grantedAccessProtect($sessionUserID);
+	$users->grantedAccessProtect($sessionUserID);
 
 	$starredBy = $_SESSION['user_id'];
 

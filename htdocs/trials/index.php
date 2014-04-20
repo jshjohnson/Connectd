@@ -4,7 +4,7 @@
 
 	$debug->showErrors();
 	$users->loggedOutProtect();
-	// $votes->userVotedForProtect();
+	$users->grantedAccessProtect($sessionUserID);
 	
 	$votedBy = $_SESSION['user_id'];
 

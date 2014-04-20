@@ -103,7 +103,7 @@
             <form action="<?= BASE_URL . "edit-profile.php"; ?>" method="post" enctype="multipart/form-data">
 	            <div class="cf">
 	           		<fieldset class="field-1-2 float-right">                
-						<img src="<?= $sessionAvatar ?>" alt="Avatar" class="form__img">
+						<img src="<?= BASE_URL . $sessionAvatar; ?>" alt="Avatar" class="form__img">
 					</fieldset>
 	                <fieldset class="field-1-2 float-left">
 	               	 <label for="myfile">Change profile picture</label>
