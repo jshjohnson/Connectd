@@ -57,7 +57,7 @@
 				"userType" => $userType
 			);			
 			$freelancers->registerFreelancer($data);
-			header("Location:" . BASE_URL . "developers/signup.php?status=success");
+			header("Location:" . BASE_URL . $userType . "/sign-up/?status=success");
 			exit();
 		}
 	}
