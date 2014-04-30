@@ -8,8 +8,6 @@
 	$pageTitle = "Search";
 	$section = "Navy";
 
-	include(ROOT_PATH . "includes/header.inc.php");
-
 	$searchTerm = "";
 
 	if(isset($_GET['search'])) {
@@ -19,10 +17,12 @@
 				$allFreelancers = $search->getFreelancersSearch($searchTerm, $sessionUserID);
 			} else {
 				$allJobs = $search->getJobsSearch($searchTerm);
+				// $allEmployers = $search->getEmployersSearch($searchTerm);
 			}
 		}
 	}
-	
+
+	include(ROOT_PATH . "includes/header.inc.php");
 	include(ROOT_PATH . "views/search/search.html");
 	include(ROOT_PATH . "includes/footer.inc.php");
-?>		
+?>	
