@@ -8,9 +8,9 @@
 				<div class="container">
 					<div class="grid">
 						<ul class="grid__cell unit-1-2--bp1 footer__links">
-							<li><a href="<?= BASE_URL; ?>index.php?p=about">About</a></li>
-							<li><a href="<?= BASE_URL; ?>index.php?p=sitemap">Sitemap</a></li>
-							<li><a href="<?= BASE_URL; ?>index.php?p=terms">Terms</a></li>
+							<li><a href="<?= BASE_URL; ?>about/">About</a></li>
+							<li><a href="<?= BASE_URL; ?>sitemap/">Sitemap</a></li>
+							<li><a href="<?= BASE_URL; ?>terms-and-conditions/">Terms</a></li>
 						</ul>
 						<h2 class="grid__cell unit-1-2--bp1 footer__section footer__section--logo">
 							<a href="index.php">connectd <small><i>beta</i></small></a>
