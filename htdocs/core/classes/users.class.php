@@ -314,6 +314,32 @@
 			}
 		}
 
+		/**
+		 *  Delete user
+		 *
+		 * @param  string  $userID The ID of the user
+		 * @return array
+		 */ 
+		public function deleteUser($userID) {
+		
+			$query = $this->db->prepare("
+				DELETE FROM " . DB_NAME . ".users
+				WHERE user_id = :user_id
+			");
+	 
+			$query->bindValue(":user_id", $userID);
+	 
+			try{
+				$query->execute();
+				$this->doLogout();
+				header('Location: ' . BASE_URL);
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+		}
+
 		public function fetchInfo($what, $field, $value){
 		 
 			$allowed = array('user_id', 'email', 'firstname', 'lastname', 'bio', 'granted_access');
@@ -402,7 +428,7 @@
 							UPDATE `users` 
 							SET `generated_string` = 0 
 							WHERE `user_id` = ?
-						");// set generated_string back to 0
+						"); // set generated_string back to 0
 		 
 						$query->bindValue(1, $user_id);
 		 
