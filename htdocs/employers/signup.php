@@ -5,13 +5,13 @@
 	$debug->showErrors();
 	$users->loggedInProtect();
 
-	$towns              = $users->getLocations();
-	$employerTypes      = $employers->getEmployerTypes();
-	$experiences        = $users->getExperiences();
+	$towns = $users->getLocations();
+	$employerTypes = $employers->getEmployerTypes();
+	$experiences = $users->getExperiences();
 
-	$pageTitle          = "Sign Up";
-	$pageType           = "Page";
-	$section            = "Green";
+	$pageTitle = "Sign Up";
+	$pageType = "Page";
+	$section = "Green";
 
 	// Grab the form data
 	$firstName = trim($_POST['firstname']);
@@ -60,15 +60,11 @@
 				"userType" => $userType
 			);
 			$employers->registerEmployer($data);
-			header("Location:" . BASE_URL . "employers/signup.php?status=success");
+			header("Location:" . BASE_URL . "login/success/");
 			exit();
 		}
 
 	}
-
-	$pageTitle = "Sign Up";
-	$pageType = "Page";
-	$section = "Green";
 
 	include(ROOT_PATH . "includes/header.inc.php");
 	include(ROOT_PATH . "views/employer/employer-signup-form.html");
