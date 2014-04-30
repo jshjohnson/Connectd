@@ -66,7 +66,7 @@
 
 				$this->db->commit();
 
-				header('Location: ' . $_SERVER['HTTP_REFERER'] . "&status=starred");
+				header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 			}catch(PDOException $e) {
 				$this->db->rollback();
@@ -91,7 +91,7 @@
 			
 			try{
 				$query->execute();
-				header('Location: ' . $_SERVER['HTTP_REFERER'] . "&status=starremoved");
+				header('Location: ' . $_SERVER['HTTP_REFERER']);
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$debug = new Errors();

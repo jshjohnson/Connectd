@@ -134,7 +134,7 @@
 
 				$this->db->commit();
 
-				header("Location:" . BASE_URL . "trials/?status=added");
+				header("Location:" . BASE_URL . "trials/vote-added/");
 
 			}catch(PDOException $e) {
 				if ($e->errorInfo[1] == 1062) {
@@ -170,7 +170,7 @@
 			
 			try{
 				$query->execute();
-				header("Location:" . BASE_URL . "trials/?status=removed");
+				header("Location:" . BASE_URL . "trials/vote-removed/");
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$debug = new Errors();

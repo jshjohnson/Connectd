@@ -114,6 +114,11 @@
 		}
 
 		public function validateEmployer($firstName, $lastName, $email, $password, $repeatPassword, $employerName, $employerType, $experience, $bio) {
+			
+			$r1='/[A-Z]/';  // Test for an uppercase character
+			$r2='/[a-z]/';  // Test for a lowercase character
+			$r3='/[0-9]/';  // Test for a number
+
 			if($firstName == ""){
 		        $errors[] ="Please enter your first name"; 
 		    }else if($lastName == ""){

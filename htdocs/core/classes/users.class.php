@@ -167,7 +167,7 @@
 			$access = $this->fetchInfo("granted_access", "user_id", $id);
 
 			if($access == 0) {
-				header("Location:" . BASE_URL . "welcome");
+				header("Location:" . BASE_URL . "welcome/");
 				exit();
 			}
 		}
@@ -221,7 +221,7 @@
 		 */ 
 		public function userData($id) {
 			$query = $this->db->prepare("
-				SELECT users.user_id, users.firstname, users.lastname, users.email, users.password, users.bio, users.image_location, user_types.*
+				SELECT users.user_id, users.firstname, users.lastname, users.email, users.password, users.bio, users.image_location, users.portfolio, user_types.*
 				FROM " . DB_NAME . ".users 
 				JOIN " . DB_NAME . ".user_types 
 				ON users.user_id = user_types.user_type_id
