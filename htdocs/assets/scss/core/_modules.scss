@@ -732,8 +732,25 @@ input[type=search].call-to-action__search {
 	@include underline;
 }
 
-.img--avatar-form {
-	max-width: 30%;
-	float: right;
-	border: .5em solid #eee;
+.polaroid {
+	background-color: white;
+	padding: 1em 1em 0;
+	text-align: center;
+	width: 15em;
+	margin: auto;
+	margin-bottom: $baseline;
+	@include box-shadow(0px 1px 1px #ccc);
+	.polaroid__label {
+		padding: 1em 0;
+		font-size: .8em;
+	}
+	input[type=file].polaroid__file {
+		border: 0;
+		width: 70%;
+		margin: 0;
+		&:focus {
+			outline: 0;
+			@include box-shadow(none);
+		}
+	}
 }

@@ -3151,10 +3151,34 @@ input[type=search].call-to-action__search:focus {
 }
 
 /* line 735, ../scss/core/_modules.scss */
-.img--avatar-form {
-  max-width: 30%;
-  float: right;
-  border: .5em solid #eee;
+.polaroid {
+  background-color: white;
+  padding: 1em 1em 0;
+  text-align: center;
+  width: 15em;
+  margin: auto;
+  margin-bottom: 2em;
+  -webkit-box-shadow: 0px 1px 1px #cccccc;
+  -moz-box-shadow: 0px 1px 1px #cccccc;
+  box-shadow: 0px 1px 1px #cccccc;
+}
+/* line 743, ../scss/core/_modules.scss */
+.polaroid .polaroid__label {
+  padding: 1em 0;
+  font-size: .8em;
+}
+/* line 747, ../scss/core/_modules.scss */
+.polaroid input[type=file].polaroid__file {
+  border: 0;
+  width: 70%;
+  margin: 0;
+}
+/* line 751, ../scss/core/_modules.scss */
+.polaroid input[type=file].polaroid__file:focus {
+  outline: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 @-moz-keyframes dropDown {
