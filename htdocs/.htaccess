@@ -1,9 +1,22 @@
+RewriteEngine on
+Options +FollowSymlinks -Multiviews
+
 # 404
 ErrorDocument 404 /Connectd/htdocs/index.php?p=404
+
+# Dashboard
+RewriteRule ^dashboard/$ /Connectd/htdocs/dashboard/index.php
 
 # Login
 RewriteRule ^login/$ /Connectd/htdocs/login.php
 RewriteRule ^login/logged-out/$ /Connectd/htdocs/login.php?status=logged
+RewriteRule ^login/activated/$ /Connectd/htdocs/login.php?status=activated
+RewriteRule ^login/success/$ /Connectd/htdocs/login.php?status=success
+
+# Trials
+RewriteRule ^trials/$ /Connectd/htdocs/trials/index.php
+RewriteRule ^trials/vote-removed/$ /Connectd/htdocs/trials/index.php?status=removed
+RewriteRule ^trials/vote-added/$ /Connectd/htdocs/trials/index.php?status=added
 
 # Sign Up pages
 RewriteRule ^designer/sign-up/$ /Connectd/htdocs/freelancers/signup.php?usertype=designer
@@ -13,18 +26,24 @@ RewriteRule ^employers/sign-up/$ /Connectd/htdocs/employers/signup.php
 # Profile pages
 RewriteRule ^developer/profile/([0-9]+)/$ /Connectd/htdocs/profile.php?usertype=developer&id=$1
 RewriteRule ^designer/profile/([0-9]+)/$ /Connectd/htdocs/profile.php?usertype=designer&id=$1
+
+RewriteRule ^developer/profile/([0-9]+)/(.*)/$ /Connectd/htdocs/profile.php?usertype=developer&id=$1&
+RewriteRule ^designer/profile/([0-9]+)/(.*)/$ /Connectd/htdocs/profile.php?usertype=designer&id=$1&status=$2
+
 RewriteRule ^employer/profile/([0-9]+)/$ /Connectd/htdocs/profile.php?usertype=employer&id=$1
 
 # Job pages
 RewriteRule ^job/([0-9]+)/(.*)/$ /Connectd/htdocs/jobs/index.php?id=$1&name=$2
 RewriteRule ^job/post/$ /Connectd/htdocs/jobs/post.php
 
+# Account pages
 RewriteRule ^edit-profile/$ /Connectd/htdocs/edit-profile.php
 RewriteRule ^account-settings/([0-9]+)/$ /Connectd/htdocs/account-settings.php?id=$1
 
-RewriteRule ^(.*)/list/ /Connectd/htdocs/list.php?usertype=$1
+# User list pages
+RewriteRule ^(.*)/list/$ /Connectd/htdocs/list.php?usertype=$1
 
-
-
-Options +FollowSymlinks -Multiviews
-RewriteEngine on
+# Pages
+RewriteRule ^about/$ /Connectd/htdocs/index.php?p=about
+RewriteRule ^sitemap/$ /Connectd/htdocs/index.php?p=sitemap
+RewriteRule ^terms-and-conditions/$ /Connectd/htdocs/index.php?p=terms

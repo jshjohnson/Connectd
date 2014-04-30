@@ -1,41 +1,49 @@
-RewriteEngine On
-
-Options -Indexes
+RewriteEngine on
 Options +FollowSymlinks -Multiviews
 
+# 404
 ErrorDocument 404 <%= database['urlpath'] %>index.php?p=404
 
-RewriteRule ^designers/$ <%= database['urlpath'] %>designers/signup.php
-RewriteRule ^designers/([0-9]+)/$ <%= database['urlpath'] %>designers/profile.php?id=$1
+# Dashboard
+RewriteRule ^dashboard/$ <%= database['urlpath'] %>dashboard/index.php
 
-RewriteRule ^designers$ <%= database['urlpath'] %>designers/signup.php
-RewriteRule ^designers/([0-9]+)$ <%= database['urlpath'] %>designers/profile.php?id=$1
+# Login
+RewriteRule ^login/$ <%= database['urlpath'] %>login.php
+RewriteRule ^login/logged-out/$ <%= database['urlpath'] %>login.php?status=logged
+RewriteRule ^login/activated/$ <%= database['urlpath'] %>login.php?status=activated
+RewriteRule ^login/success/$ <%= database['urlpath'] %>login.php?status=success
 
-RewriteRule ^developers/$ <%= database['urlpath'] %>developers/signup.php
-RewriteRule ^developers/([0-9]+)/$ <%= database['urlpath'] %>developers/profile.php?id=$1
+# Trials
+RewriteRule ^trials/$ <%= database['urlpath'] %>trials/index.php
+RewriteRule ^trials/vote-removed/$ <%= database['urlpath'] %>trials/index.php?status=removed
+RewriteRule ^trials/vote-added/$ <%= database['urlpath'] %>trials/index.php?status=added
 
-RewriteRule ^developers$ <%= database['urlpath'] %>developers/signup.php
-RewriteRule ^developers/([0-9]+)$ <%= database['urlpath'] %>developers/profile.php?id=$1
+# Sign Up pages
+RewriteRule ^designer/sign-up/$ <%= database['urlpath'] %>freelancers/signup.php?usertype=designer
+RewriteRule ^developer/sign-up/$ <%= database['urlpath'] %>freelancers/signup.php?usertype=developer
+RewriteRule ^employers/sign-up/$ <%= database['urlpath'] %>employers/signup.php
 
-RewriteRule ^employers/$ <%= database['urlpath'] %>employers/signup.php
-RewriteRule ^employers/([0-9]+)/$ <%= database['urlpath'] %>employers/profile.php?id=$1
+# Profile pages
+RewriteRule ^developer/profile/([0-9]+)/$ <%= database['urlpath'] %>profile.php?usertype=developer&id=$1
+RewriteRule ^designer/profile/([0-9]+)/$ <%= database['urlpath'] %>profile.php?usertype=designer&id=$1
 
-RewriteRule ^employers$ <%= database['urlpath'] %>employers/signup.php
-RewriteRule ^employers/([0-9]+)$ <%= database['urlpath'] %>employers/profile.php?id=$1
+RewriteRule ^developer/profile/([0-9]+)/(.*)/$ <%= database['urlpath'] %>profile.php?usertype=developer&id=$1&
+RewriteRule ^designer/profile/([0-9]+)/(.*)/$ <%= database['urlpath'] %>profile.php?usertype=designer&id=$1&status=$2
 
-RewriteRule ^jobs/([0-9]+)/$ <%= database['urlpath'] %>jobs/index.php?id=$1
+RewriteRule ^employer/profile/([0-9]+)/$ <%= database['urlpath'] %>profile.php?usertype=employer&id=$1
 
-RewriteRule ^edit-profile/([0-9]+)/$ <%= database['urlpath'] %>edit-profile.php?id=$1
+# Job pages
+RewriteRule ^job/([0-9]+)/(.*)/$ <%= database['urlpath'] %>jobs/index.php?id=$1&name=$2
+RewriteRule ^job/post/$ <%= database['urlpath'] %>jobs/post.php
+
+# Account pages
+RewriteRule ^edit-profile/$ <%= database['urlpath'] %>edit-profile.php
 RewriteRule ^account-settings/([0-9]+)/$ <%= database['urlpath'] %>account-settings.php?id=$1
 
-RewriteRule ^developers/list/ <%= database['urlpath'] %>developers/list.php
-RewriteRule ^designers/list/ <%= database['urlpath'] %>designers/list.php
-RewriteRule ^employers/list/ <%= database['urlpath'] %>employers/list.php
-RewriteRule ^jobs/list/ <%= database['urlpath'] %>jobs/list.php
+# User list pages
+RewriteRule ^(.*)/list/$ <%= database['urlpath'] %>list.php?usertype=$1
 
-RewriteRule ^login/ <%= database['urlpath'] %>login.php
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.*)$ $1.php
-
+# Pages
+RewriteRule ^about/$ <%= database['urlpath'] %>index.php?p=about
+RewriteRule ^sitemap/$ <%= database['urlpath'] %>index.php?p=sitemap
+RewriteRule ^terms-and-conditions/$ <%= database['urlpath'] %>index.php?p=terms
