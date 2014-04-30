@@ -9,7 +9,7 @@
 	 * @return void
 	 */ 
 	function class_loader($class) {
-		$filename = ROOT_PATH . "core/classes/" . strtolower($class) . ".php";
+		$filename = ROOT_PATH . "core/classes/" . strtolower($class) . ".class.php";
 	    if (is_readable($filename)) {
 	        require($filename);
 	    }
@@ -45,6 +45,7 @@
 		$sessionUserID = $_SESSION['user_id']; // getting user's id from the session.
 		$sessionUser = $users->userData($sessionUserID); // getting all the data about the logged in user.
 		$sessionUsername = $sessionUser['firstname'] . " " . $sessionUser['lastname'];
+		$sessionEmail = $sessionUser['email'];
 		$sessionUserType = $sessionUser['user_type'];
 		$sessionAvatar = $sessionUser['image_location'];
 	}
