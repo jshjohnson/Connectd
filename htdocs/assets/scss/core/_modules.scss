@@ -754,3 +754,21 @@ input[type=search].call-to-action__search {
 		}
 	}
 }
+
+.polaroid--overflow {
+	@include respond-min($bp2) {
+		position: absolute;
+		padding: .5em .5em 0;
+		right: -2.5em;
+		top: -2em;
+		@include transform(rotate(5deg));
+		width: 10em;
+		.polaroid__img {
+			max-height: 7em;
+			overflow: hidden;
+		}
+		input[type=file].polaroid__file {
+			width: 100%;
+		}	
+	}
+}

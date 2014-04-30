@@ -22,8 +22,10 @@
 			<?php endif; ?>
             <form action="<?= BASE_URL . "edit-profile/"; ?>" method="post" enctype="multipart/form-data">
 	            <div class="cf">
-	           		<fieldset class="polaroid">                
-						<img src="<?= BASE_URL . $sessionAvatar; ?>" alt="Avatar">
+	           		<fieldset class="polaroid polaroid--overflow">
+	           			<div class="polaroid__img">             
+							<img src="<?= BASE_URL . $sessionAvatar; ?>" alt="Avatar">
+						</div>   
 						<div class="polaroid__label">
 							<input type="file" name="avatar" title="Upload an avatar" class="polaroid__file">
 						</div>

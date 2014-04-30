@@ -3181,6 +3181,31 @@ input[type=search].call-to-action__search:focus {
   box-shadow: none;
 }
 
+@media screen and (min-width: 49em) {
+  /* line 758, ../scss/core/_modules.scss */
+  .polaroid--overflow {
+    position: absolute;
+    padding: .5em .5em 0;
+    right: -2.5em;
+    top: -2em;
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    transform: rotate(5deg);
+    width: 10em;
+  }
+  /* line 766, ../scss/core/_modules.scss */
+  .polaroid--overflow .polaroid__img {
+    max-height: 7em;
+    overflow: hidden;
+  }
+  /* line 770, ../scss/core/_modules.scss */
+  .polaroid--overflow input[type=file].polaroid__file {
+    width: 100%;
+  }
+}
+
 @-moz-keyframes dropDown {
   /* line 2, ../scss/libs/_animate.scss */
   0% {
