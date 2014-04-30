@@ -1,0 +1,64 @@
+	<section>
+		<div class="section-heading color-blue">
+			<div class="container">
+				<div class="grid text-center">
+					<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
+						<blockquote class="intro-quote text-center">
+							Edit Profile
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="footer--push color-navy">
+		<div class="grid text-center">
+			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
+			<?php if (isset($_GET['success']) && empty($_GET['success'])) {
+		        echo '<p class="message message--success fadeIn">Your details have been updated!</p>';	        
+		    } ?>
+    		<?php if(empty($errors) === false) : ?>
+				<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
+			<?php endif; ?>
+            <form action="<?= BASE_URL . "edit-profile.php"; ?>" method="post" enctype="multipart/form-data">
+	            <div class="cf">
+	           		<fieldset class="polaroid">                
+						<img src="<?= BASE_URL . $sessionAvatar; ?>" alt="Avatar" class="form__img">
+						<div class="polaroid__label">
+							<input type="file" name="avatar" title="Upload an avatar" class="polaroid__file">
+						</div>
+					</fieldset>
+                </div>
+                <hr>
+                <div class="cf">
+	            	<fieldset class="field-1-2 float-left">
+	                    <label>First name:</label>
+	                    <input type="text" name="firstname" value="<?php if (isset($_POST['firstname']) ){echo htmlentities(strip_tags($_POST['firstname']));} else { echo $sessionUser['firstname']; }?>">
+					</fieldset>
+					<fieldset class="field-1-2 float-right">
+	                    <label>Last name:</label>
+	                    <input type="text" name="lastname" value="<?php if (isset($_POST['lastname']) ){echo htmlentities(strip_tags($_POST['lastname']));} else { echo $sessionUser['lastname']; }?>">
+					</fieldset>
+				</div>
+				<fieldset class="field-1-2 float-left">
+					<label>Email:</label>
+					<input id="email-input" type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); }else{ echo $sessionEmail; } ?>" autocomplete="off">
+				</fieldset>
+				<fieldset class="field-1-2 float-right">
+					<label>URL:</label>
+					<div class="url-container">
+						<span class="url-prepend">http://</span>
+						<input type="text" name="portfolio" placeholder="Portfolio URL" class="input--url" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } else { echo $sessionUser['portfolio']; } ?>" >
+					</div>
+				</fieldset>
+				<fieldset class="cf">
+                    <label>Bio:</label>
+                    <textarea name="bio"><?php if (isset($_POST['bio']) ){echo htmlentities(strip_tags($_POST['bio']));} else { echo $sessionUser['bio']; }?></textarea>
+					<div class="btn-container">
+		            	<input class="btn--green" name="submit" type="submit" value="Update profile">						
+					</div>
+				</fieldset>
+            </form>
+			</div>
+		</div>
+	</section>

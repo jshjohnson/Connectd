@@ -1,21 +1,4 @@
-		<?php if ($status == "starred") : ?>
-		<section class="alert alert-success">
-			<div class="container">
-				<h5 class="alert-success__title">
-					<i class="icon--star"></i>User starred!
-				</h5>
-			</div>
-		</section>
-		<?php elseif ($status == "starremoved") : ?>
-		<section class="alert alert-success">
-			<div class="container">
-				<h5 class="alert-success__title">
-					Star removed
-				</h5>
-			</div>
-		</section>
-		<?php endif;?>
-		<?php if ($status == "sent") : ?>
+		<?php if ($status == "message-sent") : ?>
 		<section class="alert alert-success">
 			<div class="container">
 				<h5 class="alert-success__title">
@@ -25,7 +8,7 @@
 		</section>
 		<?php endif; ?>
 		<section class="container">
-			<?php if($id == $sessionUserID) : ?>
+			<?php if($pageID == $sessionUserID) : ?>
 			<section class="call-to-action call-to-action--top">
 				<div class="container">
 					<h4 class="call-to-action__title zero-top">

@@ -17,9 +17,6 @@
 				<?php if(empty($errors) === false) : ?>
 					<p class="message message--error shake"> <?= implode('</p><p>', $errors); ?></p>
 				<?php endif; ?>
-				<?php if ($status == "success") : ?>
-				<p class="message message--success fadeIn">Thank you for registering. Please check your emails to activate your account.</p>
-				<?php endif; ?>
 				<form autocomplete="off" method="post" action="<?= BASE_URL; ?>employers/signup.php" class="sign-up-form">
 					<fieldset class="cf">
 						<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left input--top" value="<?php if (isset($firstName)) { echo htmlspecialchars($firstName); } ?>" autofocus>
@@ -29,7 +26,7 @@
 						<input autocomplete="off" id="email-input" type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
 					</fieldset>
 					<fieldset class="cf">
-						<p class="message message--hint">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
+						<p class="message message--hint zero-bottom">Psst. Passwords must contain at least one uppercase character and at least one number.</p>
 						<input autocomplete="off" type='password' name='password' placeholder="Password" class="field-1-2 float-left"  value="<?php if (isset($password)) { echo htmlspecialchars($password); } ?>">
 						<input type='password' name='repeatpassword' placeholder="Repeat Password" class="field-1-2 float-right"  value="<?php if (isset($repeatPassword)) { echo htmlspecialchars($repeatPassword); } ?>">
 					</fieldset>

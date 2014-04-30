@@ -36,10 +36,9 @@
 						<p><?= nl2br($job['job_description']); ?></p>
 					</div>
 					<hr>
-					<?php if($userType != 'employer') : ?>
+					<?php if($sessionUserType != 'employer') : ?>
 					<div class="btn-wrapper push-bottom">
 						<a class="btn--left btn btn--green cf apply-trigger" href="">Send Proposal</a>
-						<a class="btn--right btn btn--blue cf collaborate-trigger" href=""?>Collaborate with user</a>
 					</div>
 					<?php else : ?>
 					<div class="btn-wrapper push-bottom">

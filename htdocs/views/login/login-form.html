@@ -14,10 +14,8 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
-			<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true)  { ?>
-	        <p class="message message--success fadeIn">Successfully activated account. Welcome to Connectd!</p>
-	        <?php } else if (isset ($_GET['email'], $_GET['email_code']) === true) {
-		            
+			<?php if (isset ($_GET['email'], $_GET['email_code']) === true) {
+		          
 			    $email 		= trim($_GET['email']);
 			    $email_code	= trim($_GET['email_code']);
 
@@ -28,7 +26,7 @@
 				}
 	            
 			    if(!empty($errors) === false){
-	                header('Location: login.php?status=activated');
+	                header('Location: ' . BASE_URL . 'login/activated/');
 	                exit();
 	            }
 	        
@@ -36,6 +34,8 @@
 				<p class="message message--success">Successfully logged out - see you soon!</p>
 				<?php elseif($status == "activated") : ?>
 				<p class="message message--success fadeIn">Successfully activated account. Welcome to Connectd!</p>
+				<?php elseif ($status == "success") : ?>
+				<p class="message message--success fadeIn">Thank you for registering. Please check your emails to activate your account.</p>
 				<?php endif; ?>
 				<?php 
 					# if there are errors, they would be displayed here.
@@ -53,7 +53,7 @@
 									echo 'checked="checked"';
 								}?>>
 			        </fieldset>
-			       	<a class="forgot float-right" href="confirm-recover.php">Forgot password?</a>
+			       	<a class="forgot float-right" href="<?= BASE_URL; ?>confirm-recover.php">Forgot password?</a>
 					<div class="btn-container clear">
 		            	<input class="btn--green" name="submit" type="submit" value='Sign In'>					
 					</div>
