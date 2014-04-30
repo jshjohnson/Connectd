@@ -274,7 +274,13 @@
 		 */ 
 		public function activateUser($email, $email_code) {
 		
-			$query = $this->db->prepare("SELECT COUNT(`user_id`) FROM `users` WHERE `email` = ? AND `email_code` = ? AND `confirmed` = ?");
+			$query = $this->db->prepare("
+				SELECT COUNT(`user_id`) 
+				FROM `users` 
+				WHERE `email` = ? 
+				AND `email_code` = ? 
+				AND `confirmed` = ?
+			");
 	 
 			$query->bindValue(1, $email);
 			$query->bindValue(2, $email_code);
@@ -287,7 +293,11 @@
 	 
 				if($rows == 1){
 					
-					$query_2 = $this->db->prepare("UPDATE " . DB_NAME . ".users SET `confirmed` = ? WHERE `email` = ?");
+					$query_2 = $this->db->prepare("
+						UPDATE " . DB_NAME . ".users 
+						SET `confirmed` = ? 
+						WHERE `email` = ?
+					");
 	 
 					$query_2->bindValue(1, 1);
 					$query_2->bindValue(2, $email);							
@@ -311,7 +321,11 @@
 			    throw new InvalidArgumentException;
 			}else{
 			
-				$query = $this->db->prepare("SELECT $what FROM " . DB_NAME . ".users WHERE $field = ?");
+				$query = $this->db->prepare("
+					SELECT $what 
+					FROM " . DB_NAME . ".users 
+					WHERE $field = ?
+				");
 		 
 				$query->bindValue(1, $value);
 		 
@@ -337,7 +351,11 @@
 			
 			$generatedString = $unique . $random; // a random and unique string
 		 
-			$query = $this->db->prepare("UPDATE " . DB_NAME . ".users SET `generated_string` = ? WHERE `email` = ?");
+			$query = $this->db->prepare("
+				UPDATE " . DB_NAME . ".users 
+				SET `generated_string` = ? 
+				WHERE `email` = ?
+			");
 		 
 			$query->bindValue(1, $generatedString);
 			$query->bindValue(2, $email);
@@ -380,7 +398,11 @@
 		 
 						$this->changePassword($user_id, $generatedPassword); // change the password.
 		 
-						$query = $this->db->prepare("UPDATE `users` SET `generated_string` = 0 WHERE `user_id` = ?");// set generated_string back to 0
+						$query = $this->db->prepare("
+							UPDATE `users` 
+							SET `generated_string` = 0 
+							WHERE `user_id` = ?
+						");// set generated_string back to 0
 		 
 						$query->bindValue(1, $user_id);
 		 
@@ -403,7 +425,11 @@
 		 
 			$passwordHash = $this->bcrypt->genHash($password);
 		 
-			$query = $this->db->prepare("UPDATE " . DB_NAME . ".users SET `password` = ? WHERE `user_id` = ?");
+			$query = $this->db->prepare("
+				UPDATE " . DB_NAME . ".users 
+				SET `password` = ? 
+				WHERE `user_id` = ?
+			");
 		 
 			$query->bindValue(1, $passwordHash);
 			$query->bindValue(2, $user_id);				
@@ -418,21 +444,25 @@
 			}
 		}
 
-		public function updateUser($firstName, $lastName, $bio, $imageLocation, $user_id){
+		public function updateUser($firstName, $lastName, $portfolio, $email, $bio, $imageLocation, $sessionUserID){
  
 			$query = $this->db->prepare("
-				UPDATE `users` SET
-				`firstname`= ?,
-				`lastname` = ?,
-				`bio` = ?,
-				`image_location`= ?	
-				WHERE `user_id` = ? 
+				UPDATE " . DB_NAME . ".users
+				SET	`firstname`= :firstname,
+					`lastname` = :lastname,
+					`email` = :email,
+					`portfolio` = :portfolio,
+					`bio` = :bio,
+					`image_location` = :image_location
+				WHERE `user_id` = :user_id
 			");
-			$query->bindValue(1, $firstName);
-			$query->bindValue(2, $lastName);
-			$query->bindValue(3, $bio);
-			$query->bindValue(4, $imageLocation);
-			$query->bindValue(5, $user_id);
+			$query->bindValue(":firstname", $firstName);
+			$query->bindValue(":lastname", $lastName);
+			$query->bindValue(":email", $email);
+			$query->bindValue(":portfolio", $portfolio);
+			$query->bindValue(":bio", $bio);
+			$query->bindValue(":image_location", $imageLocation);
+			$query->bindValue(":user_id", $sessionUserID);
 			
 			try{
 				$query->execute();
