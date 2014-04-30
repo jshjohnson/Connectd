@@ -38,7 +38,7 @@
 
 		if(empty($errors) === true){
 			$jobs->postJob($sessionUserID, $jobFull, $jobLocation, $startDate, $deadline, $budget, $category, $description);
-			header("Location:" . BASE_URL . "jobs/post.php?status=success");
+			header("Location:" . BASE_URL . "dashboard/");
 			exit();
 		}
 	}
