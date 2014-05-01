@@ -38,7 +38,7 @@
 			</div>			
 			<textarea name="jobdescription" cols='30' rows='15' placeholder='Write anything here that you think the freelancer will need to know about your project. The more detailed, the better!'></textarea>
 			<div class="btn-container">
-            	<input class="btn--green" type="submit" value="Submit job">						
+            	<input class="btn btn--green" type="submit" value="Submit job">						
 			</div>
 		</form> 
 	</div>

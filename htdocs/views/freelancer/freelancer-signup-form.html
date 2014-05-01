@@ -19,6 +19,8 @@
 					<fieldset class="cf">
 						<input type="text" name="firstname" placeholder="First name" class="field-1-2 float-left input--top" value="<?php if (isset($firstName)) { echo htmlspecialchars($firstName); } ?>" autofocus>
 						<input type="text" name="lastname" placeholder="Surname" class="field-1-2 float-right input--top" value="<?php if (isset($lastName)) { echo htmlspecialchars($lastName); } ?>">
+					</fieldset>
+					<fieldset class="cf">
 						<input id="email-input" type="email" name="email" placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>" autocomplete="off">
 					</fieldset>
 					<fieldset class="cf">
@@ -54,7 +56,7 @@
 						</fieldset>
 					</div>
 					<fieldset class="cf">
-						<p class="message message--hint">Psst. Prospective users need an online portfolio to prove themselves in the Connectd community.</p>
+						<p class="message message--hint zero-bottom">Psst. Prospective users need an online portfolio to prove themselves in the Connectd community.</p>
 						<div class="url-container">
 							<span class="url-prepend">http://</span>
 							<input type="text" name="portfolio" placeholder="Portfolio URL" class="input--url" value="<?php if (isset($portfolio)) { echo htmlspecialchars($portfolio); } ?>" >
@@ -76,7 +78,7 @@
 					</fieldset>
 					<textarea name="bio" cols="30" rows="5" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="btn-container">
-		            	<input id="submit" class="btn--green" name="submit" type="submit" value='Apply for your place'>				
+		            	<input id="submit" class="btn btn--green" name="submit" type="submit" value='Apply for your place'>				
 					</div>
 		        </form>
 			</div>

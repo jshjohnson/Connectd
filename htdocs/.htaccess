@@ -42,6 +42,7 @@ RewriteRule ^job/post/$ /Connectd/htdocs/jobs/post.php
 # Account pages
 RewriteRule ^settings/edit-profile/$ /Connectd/htdocs/settings/edit-profile.php
 RewriteRule ^settings/change-password/$ /Connectd/htdocs/settings/change-password.php
+RewriteRule ^settings/recover-password/$ /Connectd/htdocs/settings/confirm-recover.php
 
 # User list pages
 RewriteRule ^(.*)/list/$ /Connectd/htdocs/list.php?usertype=$1
