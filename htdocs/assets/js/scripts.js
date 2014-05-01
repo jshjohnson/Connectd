@@ -38,11 +38,14 @@ $(document).ready(function() {
 	            if(data.result && $this.val() != '') {
 	            	// Email taken
 	            	$('#email-input').addClass("invalid");
-	            	$('<p class=\"message message--error zero-bottom\">Email already taken</p>').insertBefore("#email-input").hide().fadeIn().addClass("shake");
+	            	$('<p class=\"message message--tooltip message--error\">Email already taken</p>').insertBefore("#email-input").hide().fadeIn().addClass("shake");
 	            }
 	            else if (!data.result && $this.val() != '') {
 	            	// Email available
-	            	$('<p class=\"message message--success zero-bottom\">Email available</p>').insertBefore("#email-input").addClass("fadeIn");
+	            	$('<p class=\"message message--tooltip message--success\">Email available</p>').insertBefore("#email-input").addClass("fadeIn").delay(4000).queue(function(next){
+					    $(this).addClass("fadeOut");
+					    next();
+					});
 	            }
 	        },
 	        error: function(data){
@@ -66,7 +69,7 @@ $(document).ready(function() {
 	        success: function(data) {
 	            if(!data.result && $this.val() != '') {
 	            	$('#password-input').addClass("invalid").prev('.message').remove();
-	            	$('<p class=\"message message--error zero-bottom\">Psst. Passwords must contain at least one uppercase character and at least one number.</p>').insertBefore("#password-input").hide().fadeIn().addClass("shake");
+	            	$('<p class=\"message message--tooltip message--error\">Psst. Passwords must contain at least one uppercase character and at least one number.</p>').insertBefore("#password-input").hide().fadeIn().addClass("shake");
 	            }
 	        },
 	        error: function(data){
