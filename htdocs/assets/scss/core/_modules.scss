@@ -701,7 +701,6 @@ img.media__img {
 }
 
 .call-to-action--top {
-	margin-bottom: 4em;
 	@include respond-max($bp1) {
 		margin-top: .5em;
 	}
@@ -765,11 +764,13 @@ input[type=search].call-to-action__search {
 		padding: .5em .5em 0;
 		right: -3.5em;
 		top: -3em;
+		z-index: 1;
 		@include transform(rotate(6deg));
 		width: 10em;
 		.polaroid__img {
-			max-height: 9em;
-			overflow: hidden;
+			height: 7em;
+			background-size: cover;
+			background-position: center center;
 		}
 	}
 	input[type=file].polaroid__file {

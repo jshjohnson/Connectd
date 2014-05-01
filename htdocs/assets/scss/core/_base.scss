@@ -39,7 +39,7 @@ button, input { line-height: normal; }
 input[type=search] { text-indent: .5em; }
 input, input[type=search], select, textarea { width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 button, html input[type=button], input[type=reset], input[type=submit] { width: auto; }
-.btn {font-weight: 600; text-transform: capitalize;}
+.btn {text-transform: capitalize;}
 // helper class added via jQuery
 .checkbox {
 	position: relative;
@@ -209,7 +209,7 @@ input[type=submit] {
 		font-weight: 500;
 		top: 0;
 	}
-	input {
+	.btn {
 		top: 1.4em;
 		position: relative;
 		min-width: 13em;

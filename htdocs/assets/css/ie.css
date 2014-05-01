@@ -555,7 +555,6 @@ button, html input[type=button], input[type=reset], input[type=submit] {
 
 /* line 42, ../scss/core/_base.scss */
 .btn, .btn:visited {
-  font-weight: 600;
   text-transform: capitalize;
 }
 
@@ -890,13 +889,13 @@ input[type=submit] span {
   top: 0;
 }
 /* line 212, ../scss/core/_base.scss */
-.btn-container input {
+.btn-container .btn {
   top: 1.4em;
   position: relative;
   min-width: 13em;
 }
 /* line 216, ../scss/core/_base.scss */
-.btn-container input:hover {
+.btn-container .btn:hover {
   top: 1.5em;
 }
 
@@ -2748,12 +2747,7 @@ img.media__img {
   min-width: 14em;
 }
 
-/* line 703, ../scss/core/_modules.scss */
-.call-to-action--top {
-  margin-bottom: 4em;
-}
-
-/* line 710, ../scss/core/_modules.scss */
+/* line 709, ../scss/core/_modules.scss */
 input[type=search].call-to-action__search {
   max-width: 60%;
   margin: 0 auto;
@@ -2763,7 +2757,7 @@ input[type=search].call-to-action__search {
   padding: .75em;
   color: white;
 }
-/* line 720, ../scss/core/_modules.scss */
+/* line 719, ../scss/core/_modules.scss */
 input[type=search].call-to-action__search:focus {
   -webkit-box-shadow: 0 0 5px #507192;
   -moz-box-shadow: 0 0 5px #507192;
@@ -2772,28 +2766,28 @@ input[type=search].call-to-action__search:focus {
   outline: 0;
 }
 
-/* line 727, ../scss/core/_modules.scss */
+/* line 726, ../scss/core/_modules.scss */
 .user-info {
   width: 70%;
 }
 
-/* line 731, ../scss/core/_modules.scss */
+/* line 730, ../scss/core/_modules.scss */
 .user-info__star {
   color: #ecdb58;
 }
 
-/* line 735, ../scss/core/_modules.scss */
+/* line 734, ../scss/core/_modules.scss */
 .user-info__link {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 3px, rgba(0, 0, 0, 0) 3px);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  /* line 735, ../scss/core/_modules.scss */
+  /* line 734, ../scss/core/_modules.scss */
   .user-info__link {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);
   }
 }
 
-/* line 739, ../scss/core/_modules.scss */
+/* line 738, ../scss/core/_modules.scss */
 .polaroid {
   background-color: white;
   padding: 1em 1em 0;
@@ -2805,18 +2799,18 @@ input[type=search].call-to-action__search:focus {
   -moz-box-shadow: 0px 1px 1px rgba(34, 34, 34, 0.2);
   box-shadow: 0px 1px 1px rgba(34, 34, 34, 0.2);
 }
-/* line 747, ../scss/core/_modules.scss */
+/* line 746, ../scss/core/_modules.scss */
 .polaroid .polaroid__label {
   padding: 1em 0;
   font-size: .8em;
 }
-/* line 751, ../scss/core/_modules.scss */
+/* line 750, ../scss/core/_modules.scss */
 .polaroid input[type=file].polaroid__file {
   border: 0;
   width: 70%;
   margin: 0;
 }
-/* line 755, ../scss/core/_modules.scss */
+/* line 754, ../scss/core/_modules.scss */
 .polaroid input[type=file].polaroid__file:focus {
   outline: 0;
   -webkit-box-shadow: none;
@@ -2824,12 +2818,13 @@ input[type=search].call-to-action__search:focus {
   box-shadow: none;
 }
 
-/* line 762, ../scss/core/_modules.scss */
+/* line 761, ../scss/core/_modules.scss */
 .polaroid--overflow {
   position: absolute;
   padding: .5em .5em 0;
   right: -3.5em;
   top: -3em;
+  z-index: 1;
   -webkit-transform: rotate(6deg);
   -moz-transform: rotate(6deg);
   -ms-transform: rotate(6deg);
@@ -2839,10 +2834,11 @@ input[type=search].call-to-action__search:focus {
 }
 /* line 770, ../scss/core/_modules.scss */
 .polaroid--overflow .polaroid__img {
-  max-height: 9em;
-  overflow: hidden;
+  height: 7em;
+  background-size: cover;
+  background-position: center center;
 }
-/* line 775, ../scss/core/_modules.scss */
+/* line 776, ../scss/core/_modules.scss */
 .polaroid--overflow input[type=file].polaroid__file {
   width: 100%;
 }
@@ -11290,17 +11286,15 @@ input[type=search].call-to-action__search:focus {
 
 /* line 142, ../scss/core/_overrides.scss */
 .message {
-  position: absolute;
-  top: 0;
-  margin-top: -2.5em;
   border-radius: .5em;
   color: white;
+  position: relative;
   padding: .5em 1em;
   font-size: .75em;
   margin-bottom: 1.5em;
   clear: both;
 }
-/* line 152, ../scss/core/_overrides.scss */
+/* line 150, ../scss/core/_overrides.scss */
 .message:after {
   content: "";
   width: 0;
@@ -11311,20 +11305,28 @@ input[type=search].call-to-action__search:focus {
   left: 1.5em;
   top: 100%;
 }
-/* line 162, ../scss/core/_overrides.scss */
+/* line 160, ../scss/core/_overrides.scss */
 .message a {
   color: white;
   font-weight: bolder;
 }
 
-/* line 168, ../scss/core/_overrides.scss */
+/* line 166, ../scss/core/_overrides.scss */
+.message--tooltip {
+  position: absolute;
+  top: 0;
+  margin-top: -2.5em;
+  margin-bottom: 0;
+}
+
+/* line 173, ../scss/core/_overrides.scss */
 .message-flipped {
   color: white;
   padding: .5em 1em;
   font-size: .9em;
   position: relative;
 }
-/* line 173, ../scss/core/_overrides.scss */
+/* line 178, ../scss/core/_overrides.scss */
 .message-flipped:before {
   content: "";
   width: 0;
@@ -11335,68 +11337,67 @@ input[type=search].call-to-action__search:focus {
   left: 1.5em;
   top: -28%;
 }
-/* line 183, ../scss/core/_overrides.scss */
+/* line 188, ../scss/core/_overrides.scss */
 .message-flipped a {
   color: white;
   font-weight: bolder;
 }
 
-/* line 189, ../scss/core/_overrides.scss */
+/* line 194, ../scss/core/_overrides.scss */
 .message--success {
   background-color: #77c462;
 }
-/* line 191, ../scss/core/_overrides.scss */
+/* line 196, ../scss/core/_overrides.scss */
 .message--success:after {
   border-top: 0.75em solid #77c462;
 }
 
-/* line 196, ../scss/core/_overrides.scss */
+/* line 201, ../scss/core/_overrides.scss */
 .message--error {
   background-color: #fc4349;
 }
-/* line 198, ../scss/core/_overrides.scss */
+/* line 203, ../scss/core/_overrides.scss */
 .message--error:after {
   border-top: 0.75em solid #fc4349;
 }
 
-/* line 203, ../scss/core/_overrides.scss */
+/* line 208, ../scss/core/_overrides.scss */
 .message--hint {
-  position: relative;
-  margin: 0;
   background-color: #ebe9e9;
   color: #8B8888;
+  margin-bottom: 0;
 }
-/* line 208, ../scss/core/_overrides.scss */
+/* line 212, ../scss/core/_overrides.scss */
 .message--hint:after {
   border-top: 0.75em solid #ebe9e9;
 }
 
-/* line 213, ../scss/core/_overrides.scss */
+/* line 217, ../scss/core/_overrides.scss */
 .message--form {
   margin: .5em 0;
 }
-/* line 215, ../scss/core/_overrides.scss */
+/* line 219, ../scss/core/_overrides.scss */
 .message--form:first-child {
   margin: 0 0 .5em;
 }
 
-/* line 220, ../scss/core/_overrides.scss */
+/* line 224, ../scss/core/_overrides.scss */
 .message-flipped--notification {
   background-color: orange;
 }
-/* line 222, ../scss/core/_overrides.scss */
+/* line 226, ../scss/core/_overrides.scss */
 .message-flipped--notification:before {
   border-bottom: 0.75em solid orange;
 }
 
-/* line 227, ../scss/core/_overrides.scss */
+/* line 231, ../scss/core/_overrides.scss */
 input:disabled {
   background-color: #ccc !important;
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
   box-shadow: 0 0.1em 0 #948f8f !important;
 }
-/* line 230, ../scss/core/_overrides.scss */
+/* line 234, ../scss/core/_overrides.scss */
 input:disabled:hover {
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
@@ -11406,7 +11407,7 @@ input:disabled:hover {
 
 /* Debuggin'
 ----------------------------------*/
-/* line 259, ../scss/core/_overrides.scss */
+/* line 263, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -11421,7 +11422,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 0";
 }
-/* line 262, ../scss/core/_overrides.scss */
+/* line 266, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -11436,7 +11437,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 1";
 }
-/* line 265, ../scss/core/_overrides.scss */
+/* line 269, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -11451,7 +11452,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 2";
 }
-/* line 268, ../scss/core/_overrides.scss */
+/* line 272, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
