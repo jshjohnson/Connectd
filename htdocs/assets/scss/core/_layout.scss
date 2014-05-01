@@ -6,6 +6,11 @@
 	height: 100%;
 	min-height: 100vh;
 	flex-direction: column; 
+	@include respond-max($bp3) {
+		height: 500px;
+		min-height: 0;
+		display: block;
+	}
 }
 
 .site-wrap {

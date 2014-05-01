@@ -5,45 +5,34 @@
 
 .site-intro {
 	min-height: 100%;
-	min-height: 100vh;
 	background-image: url("../img/bg.jpg");
 	@include background-size(cover);
 	background-position: center;
-	padding: 15% 5%;
+	position: relative;
 	overflow: hidden;
 	@include box-sizing(border-box);
 	@include respond-min($bp3) {
+		min-height: 100vh;
 		@include background-size(100%);
-	}
-	@include respond-max($bp4) {
-		padding: 20% 5%;
-	}
-	@include respond-max($bp1) {
-		padding: 40% 5%;
 	}
 }
 
 .site-intro__content {
-	position: relative;
 	text-align: center;
-	@include respond-max($bp2) {
-		top: 33.33%;
-		width: 80%;
-		margin: auto;
-	}
-	@include respond-max($bp1) {
-		width: 90%;
-	}
+	position: absolute;
+	top: 27%;
+	width: 100%;
+	padding: 0 2em;
+	@include box-sizing(border-box);
 }
 
 .site-intro__logo {
-	@include respond-min($bp2) {
-		max-width: 55%;
-	}
-	@include respond-min($bp4) {
-		max-width: 50%;
-	}
+	width: 39em;
+	@include box-sizing(border-box);
 	margin-bottom: $baseline;
+	@include respond-min($bp1) {
+		padding: 0 4em;
+	}
 }
 
 .site-intro__heading {
