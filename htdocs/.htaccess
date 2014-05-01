@@ -13,6 +13,9 @@ RewriteRule ^login/logged-out/$ /Connectd/htdocs/login.php?status=logged
 RewriteRule ^login/activated/$ /Connectd/htdocs/login.php?status=activated
 RewriteRule ^login/success/$ /Connectd/htdocs/login.php?status=success
 
+# Logout
+RewriteRule ^logout/$ /Connectd/htdocs/logout.php
+
 # Trials
 RewriteRule ^trials/$ /Connectd/htdocs/trials/index.php
 RewriteRule ^trials/vote-removed/$ /Connectd/htdocs/trials/index.php?status=removed
@@ -37,8 +40,8 @@ RewriteRule ^job/([0-9]+)/(.*)/$ /Connectd/htdocs/jobs/index.php?id=$1&name=$2
 RewriteRule ^job/post/$ /Connectd/htdocs/jobs/post.php
 
 # Account pages
-RewriteRule ^edit-profile/$ /Connectd/htdocs/edit-profile.php
-RewriteRule ^account-settings/([0-9]+)/$ /Connectd/htdocs/account-settings.php?id=$1
+RewriteRule ^settings/edit-profile/$ /Connectd/htdocs/settings/edit-profile.php
+RewriteRule ^settings/change-password/$ /Connectd/htdocs/settings/change-password.php
 
 # User list pages
 RewriteRule ^(.*)/list/$ /Connectd/htdocs/list.php?usertype=$1

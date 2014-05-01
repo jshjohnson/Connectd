@@ -591,6 +591,10 @@ img.media__img {
 	}
 }
 
+.subtle-link, .subtle-link:visited {
+	color: darken($color-background-light, 50%);
+}
+
 /* Portfolio
 ----------------------------------*/
 
@@ -739,7 +743,7 @@ input[type=search].call-to-action__search {
 	width: 15em;
 	margin: auto;
 	margin-bottom: $baseline;
-	@include box-shadow(0px 1px 1px #ccc);
+	@include box-shadow(0px 1px 1px rgba(#222, .2));
 	.polaroid__label {
 		padding: 1em 0;
 		font-size: .8em;
@@ -759,16 +763,16 @@ input[type=search].call-to-action__search {
 	@include respond-min($bp2) {
 		position: absolute;
 		padding: .5em .5em 0;
-		right: -2.5em;
-		top: -2em;
-		@include transform(rotate(5deg));
+		right: -3.5em;
+		top: -3em;
+		@include transform(rotate(6deg));
 		width: 10em;
 		.polaroid__img {
-			max-height: 7em;
+			max-height: 9em;
 			overflow: hidden;
 		}
-		input[type=file].polaroid__file {
-			width: 100%;
-		}	
 	}
+	input[type=file].polaroid__file {
+		width: 100%;
+	}	
 }

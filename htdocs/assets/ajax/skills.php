@@ -1,6 +1,6 @@
-<section class='overlay'>
-	<div class='overlay__inner'> 
-		<h2 class='overlay__title'>Skills</h2>
+<section class="overlay">
+	<div class="overlay__inner"> 
+		<h2 class="overlay__title"> Skills</h2>
 		<div class="grid--no-marg cf">
 			<table class="skills grid__cell--no-pad module-1-2 float-left">
 				<tbody>

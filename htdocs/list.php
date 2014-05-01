@@ -16,29 +16,29 @@
 
 		$status = $_GET["status"];
 
-	switch ($userType) {
-		case "designer":
-			$section = "Designers";
-			$users->loggedOutProtect();
-			$pageTitle = "Designer list";
-			break;
-		case "developer":
-			$section = "Developers";
-			$users->loggedOutProtect();
-			$pageTitle = "Developer list";
-			break;
-		case "employer":
-			$section = "Employers";
-			$users->loggedOutProtect();
-			$pageTitle = "Employer list";
-			break;
-		default:
-			$template = "index/index.html";
-			$pageTitle = "Connectd";
-			$pageType = "Home";
-			$section = "Home";
-			$users->loggedInProtect();
-			break;
+		switch ($userType) {
+			case "designer":
+				$section = "Designer";
+				$users->loggedOutProtect();
+				$pageTitle = "Designer list";
+				break;
+			case "developer":
+				$section = "Developer";
+				$users->loggedOutProtect();
+				$pageTitle = "Developer list";
+				break;
+			case "employer":
+				$section = "Employer";
+				$users->loggedOutProtect();
+				$pageTitle = "Employer list";
+				break;
+			default:
+				$template = "index/index.html";
+				$pageTitle = "Connectd";
+				$pageType = "Home";
+				$section = "Home";
+				$users->loggedInProtect();
+				break;
 		}
 
 		if($userType == "developer" || $userType == "designer") {

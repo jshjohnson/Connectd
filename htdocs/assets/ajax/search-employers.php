@@ -1,7 +1,7 @@
-<section class='overlay'>
+<section class="overlay">
 	<div class='overlay__inner overlay__inner--mid'> 
 		<a href="" class="cancel-trigger"><i class="icon--cancel"></i></a>
-		<h2 class='overlay__title'>Find an employer</h2>
+		<h2 class="overlay__title"> Find an employer</h2>
 		<form action=''>
 			<input type="text" name="firstname" placeholder="Job title">
 			<input type="text" name="location" placeholder="Location">

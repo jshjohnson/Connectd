@@ -2632,9 +2632,14 @@ img.media__img {
   font-size: .6em;
 }
 
+/* line 594, ../scss/core/_modules.scss */
+.subtle-link, .subtle-link:visited {
+  color: #777777;
+}
+
 /* Portfolio
 ----------------------------------*/
-/* line 597, ../scss/core/_modules.scss */
+/* line 601, ../scss/core/_modules.scss */
 .portfolio__headings-bg {
   background-color: #f0eded;
   font-size: .8em;
@@ -2646,12 +2651,12 @@ img.media__img {
   margin-top: 0;
 }
 
-/* line 609, ../scss/core/_modules.scss */
+/* line 613, ../scss/core/_modules.scss */
 .portfolio__headings {
   margin: 0;
   position: relative;
 }
-/* line 612, ../scss/core/_modules.scss */
+/* line 616, ../scss/core/_modules.scss */
 .portfolio__headings li {
   display: inline-block;
   *display: inline;
@@ -2660,23 +2665,23 @@ img.media__img {
   position: relative;
   padding: .5em 1.4em .4em;
 }
-/* line 619, ../scss/core/_modules.scss */
+/* line 623, ../scss/core/_modules.scss */
 .portfolio__headings li.portfolio__headings--label {
   padding-right: 0;
 }
-/* line 630, ../scss/core/_modules.scss */
+/* line 634, ../scss/core/_modules.scss */
 .portfolio__headings li a {
   color: #7f7e7e;
 }
-/* line 633, ../scss/core/_modules.scss */
+/* line 637, ../scss/core/_modules.scss */
 .portfolio__headings li.active {
   color: white;
 }
-/* line 635, ../scss/core/_modules.scss */
+/* line 639, ../scss/core/_modules.scss */
 .portfolio__headings li.active a {
   color: white;
 }
-/* line 638, ../scss/core/_modules.scss */
+/* line 642, ../scss/core/_modules.scss */
 .portfolio__headings li.active:after {
   content: "";
   width: 0;
@@ -2690,46 +2695,46 @@ img.media__img {
   margin-left: -.75em;
 }
 
-/* line 656, ../scss/core/_modules.scss */
+/* line 660, ../scss/core/_modules.scss */
 .portfolio__headings--alt li.active {
   color: white;
 }
 
-/* line 662, ../scss/core/_modules.scss */
+/* line 666, ../scss/core/_modules.scss */
 .active--blue {
   background-color: #6dbcdb;
 }
-/* line 664, ../scss/core/_modules.scss */
+/* line 668, ../scss/core/_modules.scss */
 .active--blue:after {
   border-top: 0.75em solid #6dbcdb;
 }
 
-/* line 668, ../scss/core/_modules.scss */
+/* line 672, ../scss/core/_modules.scss */
 .active--green {
   background-color: #77c462;
 }
-/* line 670, ../scss/core/_modules.scss */
+/* line 674, ../scss/core/_modules.scss */
 .active--green:after {
   border-top: 0.75em solid #77c462;
 }
 
-/* line 674, ../scss/core/_modules.scss */
+/* line 678, ../scss/core/_modules.scss */
 .active--navy {
   background-color: #2c3e50;
 }
-/* line 676, ../scss/core/_modules.scss */
+/* line 680, ../scss/core/_modules.scss */
 .active--navy:after {
   border-top: 0.75em solid #2c3e50;
 }
 
 /* Call to action
 ----------------------------------*/
-/* line 684, ../scss/core/_modules.scss */
+/* line 688, ../scss/core/_modules.scss */
 .call-to-action {
   text-align: center;
   margin-bottom: 2.5em;
 }
-/* line 687, ../scss/core/_modules.scss */
+/* line 691, ../scss/core/_modules.scss */
 .call-to-action .call-to-action__title {
   color: white;
   font-weight: 600;
@@ -2737,17 +2742,17 @@ img.media__img {
   font-style: italic;
   font-weight: 400;
 }
-/* line 694, ../scss/core/_modules.scss */
+/* line 698, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 699, ../scss/core/_modules.scss */
+/* line 703, ../scss/core/_modules.scss */
 .call-to-action--top {
   margin-bottom: 4em;
 }
 
-/* line 706, ../scss/core/_modules.scss */
+/* line 710, ../scss/core/_modules.scss */
 input[type=search].call-to-action__search {
   max-width: 60%;
   margin: 0 auto;
@@ -2757,7 +2762,7 @@ input[type=search].call-to-action__search {
   padding: .75em;
   color: white;
 }
-/* line 716, ../scss/core/_modules.scss */
+/* line 720, ../scss/core/_modules.scss */
 input[type=search].call-to-action__search:focus {
   -webkit-box-shadow: 0 0 5px #507192;
   -moz-box-shadow: 0 0 5px #507192;
@@ -2766,28 +2771,28 @@ input[type=search].call-to-action__search:focus {
   outline: 0;
 }
 
-/* line 723, ../scss/core/_modules.scss */
+/* line 727, ../scss/core/_modules.scss */
 .user-info {
   width: 70%;
 }
 
-/* line 727, ../scss/core/_modules.scss */
+/* line 731, ../scss/core/_modules.scss */
 .user-info__star {
   color: #ecdb58;
 }
 
-/* line 731, ../scss/core/_modules.scss */
+/* line 735, ../scss/core/_modules.scss */
 .user-info__link {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 3px, rgba(0, 0, 0, 0) 3px);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  /* line 731, ../scss/core/_modules.scss */
+  /* line 735, ../scss/core/_modules.scss */
   .user-info__link {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);
   }
 }
 
-/* line 735, ../scss/core/_modules.scss */
+/* line 739, ../scss/core/_modules.scss */
 .polaroid {
   background-color: white;
   padding: 1em 1em 0;
@@ -2795,22 +2800,22 @@ input[type=search].call-to-action__search:focus {
   width: 15em;
   margin: auto;
   margin-bottom: 2em;
-  -webkit-box-shadow: 0px 1px 1px #cccccc;
-  -moz-box-shadow: 0px 1px 1px #cccccc;
-  box-shadow: 0px 1px 1px #cccccc;
+  -webkit-box-shadow: 0px 1px 1px rgba(34, 34, 34, 0.2);
+  -moz-box-shadow: 0px 1px 1px rgba(34, 34, 34, 0.2);
+  box-shadow: 0px 1px 1px rgba(34, 34, 34, 0.2);
 }
-/* line 743, ../scss/core/_modules.scss */
+/* line 747, ../scss/core/_modules.scss */
 .polaroid .polaroid__label {
   padding: 1em 0;
   font-size: .8em;
 }
-/* line 747, ../scss/core/_modules.scss */
+/* line 751, ../scss/core/_modules.scss */
 .polaroid input[type=file].polaroid__file {
   border: 0;
   width: 70%;
   margin: 0;
 }
-/* line 751, ../scss/core/_modules.scss */
+/* line 755, ../scss/core/_modules.scss */
 .polaroid input[type=file].polaroid__file:focus {
   outline: 0;
   -webkit-box-shadow: none;
@@ -2818,25 +2823,25 @@ input[type=search].call-to-action__search:focus {
   box-shadow: none;
 }
 
-/* line 758, ../scss/core/_modules.scss */
+/* line 762, ../scss/core/_modules.scss */
 .polaroid--overflow {
   position: absolute;
   padding: .5em .5em 0;
-  right: -2.5em;
-  top: -2em;
-  -webkit-transform: rotate(5deg);
-  -moz-transform: rotate(5deg);
-  -ms-transform: rotate(5deg);
-  -o-transform: rotate(5deg);
-  transform: rotate(5deg);
+  right: -3.5em;
+  top: -3em;
+  -webkit-transform: rotate(6deg);
+  -moz-transform: rotate(6deg);
+  -ms-transform: rotate(6deg);
+  -o-transform: rotate(6deg);
+  transform: rotate(6deg);
   width: 10em;
 }
-/* line 766, ../scss/core/_modules.scss */
+/* line 770, ../scss/core/_modules.scss */
 .polaroid--overflow .polaroid__img {
-  max-height: 7em;
+  max-height: 9em;
   overflow: hidden;
 }
-/* line 770, ../scss/core/_modules.scss */
+/* line 775, ../scss/core/_modules.scss */
 .polaroid--overflow input[type=file].polaroid__file {
   width: 100%;
 }
@@ -3648,6 +3653,12 @@ input[type=search].call-to-action__search:focus {
 .overlay__title {
   margin-top: 0;
   font-weight: 600;
+}
+
+/* line 88, ../scss/core/modules/_overlay.scss */
+.overlay__caption {
+  font-size: .75em;
+  margin-bottom: 1em;
 }
 
 @-moz-keyframes dropDown {

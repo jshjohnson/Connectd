@@ -1,7 +1,7 @@
-<section class='overlay'>
+<section class="overlay">
 	<div class='overlay__inner overlay__inner--mid'> 
 		<a href="" class="cancel-trigger"><i class="icon--cancel"></i></a>
-		<h2 class='overlay__title'>Designer skills</h2>
+		<h2 class="overlay__title"> Designer skills</h2>
 		<div class="grid--no-marg cf">
 			<table class="skills grid__cell--no-pad module-1-2 float-left">
 				<tbody>
