@@ -1,9 +1,7 @@
 <?php
 	require_once("config.php"); 
 	require(ROOT_PATH . "core/init.php");
-
-	$debug->showErrors();
-
+	
 	if (isset($_GET['status'])) {
 		$status = $_GET["status"];
 	}

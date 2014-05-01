@@ -2,13 +2,10 @@
 	require_once("config.php"); 
 	require(ROOT_PATH . "core/init.php");
 
-	$debug->showErrors();
-
 	$pageTitle = "Recover password";
 	$pageType = "Page";
 	$section = "Blue";
 	include(ROOT_PATH . "includes/header.inc.php");
-
 ?>
 	<section>
 		<div class="section-heading color-blue">

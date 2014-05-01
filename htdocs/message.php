@@ -1,8 +1,7 @@
 <?php 
 	require_once("config.php"); 
 	require(ROOT_PATH . "core/init.php");
-
-	$debug->showErrors();
+	
 	// $votes->userVotedForProtect();
 
 	$userFirstName = $_SESSION["userFirstName"];

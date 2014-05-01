@@ -1,11 +1,11 @@
 <?php 	
 	require("../config.php");
 	require(ROOT_PATH . "core/init.php");
-	
-	$debug->showErrors();
+
 	$users->loggedOutProtect();
 
 	$pageTitle = "Search";
+	$pageType = "Custom";
 	$section = "Navy";
 
 	$searchTerm = "";

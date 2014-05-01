@@ -2,8 +2,6 @@
 	require_once("../config.php"); 
 	require(ROOT_PATH . "core/init.php");
 
-	$debug->showErrors();
-
 	$pageTitle = "Change Password";
 	$pageType = "Page";
 	$section = "Blue";

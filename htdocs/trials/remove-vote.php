@@ -1,8 +1,7 @@
 <?php 
 	require("../config.php"); 
 	require(ROOT_PATH . "core/init.php");
-
-	$debug->showErrors();
+	
 	// $votes->userVotedForProtect();
 	$user_id = $_GET['user_id'];
 	$votedBy = $_SESSION['user_id'];

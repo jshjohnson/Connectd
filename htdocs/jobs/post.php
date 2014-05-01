@@ -2,13 +2,11 @@
 	require("../config.php");  
 	require(ROOT_PATH . "core/init.php");
 
-	$debug->showErrors();
 	$users->loggedOutProtect();
 
 	$jobCategories = $jobs->getJobCategories();
 	$developerJobTitles = $freelancers->getFreelancerJobTitles("developer");
 	$designerJobTitles = $freelancers->getFreelancerJobTitles("designer");
-
 
 	$pageTitle = "Post a job";
 	$pageType = "Page";

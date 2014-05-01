@@ -2,7 +2,6 @@
 	require("../config.php"); 
 	require(ROOT_PATH . "core/init.php");
 
-	$debug->showErrors();
 	$users->loggedOutProtect();
 	$users->grantedAccessProtect($sessionUserID);
 
@@ -18,8 +17,9 @@
 		$status = $_GET["status"];
 	}
 
-	$pageTitle    = "Dashboard";
-	$section      = "Dashboard";
+	$pageTitle = "Dashboard";
+	$pageType = "Custom";
+	$section = "Navy";
 
 	include(ROOT_PATH . "includes/header.inc.php");
 

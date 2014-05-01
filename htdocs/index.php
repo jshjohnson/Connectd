@@ -2,7 +2,6 @@
 	require_once("config.php");
 	require(ROOT_PATH . "core/init.php");
 	
-	$debug->showErrors();
 	// $users->loggedOutProtect();
 
 	if (isset($_GET['p'])) {

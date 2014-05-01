@@ -3,7 +3,6 @@
 	require(ROOT_PATH . "core/init.php"); 
 	
 	$users->loggedOutProtect();
-	$debug->showErrors();
 
 	try {
 		if (isset($_GET["id"])) {

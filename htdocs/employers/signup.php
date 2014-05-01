@@ -1,8 +1,7 @@
 <?php
 	require("../config.php");
 	require(ROOT_PATH . "core/init.php");
-
-	$debug->showErrors();
+	
 	$users->loggedInProtect();
 
 	$towns = $users->getLocations();

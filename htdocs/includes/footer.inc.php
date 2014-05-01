@@ -1,6 +1,6 @@
 	<?php if(!$isHome) : ?>
 		<?php
-			if($pageTitle == "Sign Up" || "Post a Job" && $section != "Blue") {
+			if($pageType == "Page") {
 				$footerClass = "footer--alt";
 			}
 		?>

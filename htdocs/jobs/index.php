@@ -3,8 +3,7 @@
 	require(ROOT_PATH . "core/init.php"); 
 	
 	$users->loggedOutProtect();
-	$debug->showErrors();
-
+	
 	try {
 		// If id isn't in the URL OR the id is is not an integer and not greater than or equal to 1, throw error
 		if (!isset($_GET["id"]) || !filter_var($_GET['id'], FILTER_VALIDATE_INT, array('min_range' => 1))) {
