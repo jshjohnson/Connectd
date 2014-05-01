@@ -13,25 +13,24 @@
 	</section>
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
-			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
-			<?php if (isset($_GET['success']) && empty($_GET['success'])) {
-		        echo '<p class="message message--success fadeIn">Your details have been updated!</p>';	        
-		    } ?>
-    		<?php if(empty($errors) === false) : ?>
+			<div class="grid__cell unit-1-2--bp4 unit-2-3--bp1 content-overlay">
+			<?php if (isset($_GET['success']) && empty($_GET['success'])) : ?>
+		        <p class="message message--success fadeIn">Your details have been updated!</p>	        
+		   	<?php elseif(empty($errors) === false) : ?>
 				<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
+			<?php else : ?>
+				<p class="message message--hint">Psst. All the information below is private to non-members.</p>
 			<?php endif; ?>
-            <form action="<?= BASE_URL . "edit-profile/"; ?>" method="post" enctype="multipart/form-data">
-	            <div class="cf">
-	           		<fieldset class="polaroid polaroid--overflow">
-	           			<div class="polaroid__img">             
-							<img src="<?= BASE_URL . $sessionAvatar; ?>" alt="Avatar">
-						</div>   
-						<div class="polaroid__label">
-							<input type="file" name="avatar" title="Upload an avatar" class="polaroid__file">
-						</div>
-					</fieldset>
-                </div>
-                <hr>
+
+            <form action="<?= BASE_URL . "settings/edit-profile/"; ?>" method="post" enctype="multipart/form-data">
+           		<fieldset class="polaroid polaroid--overflow">
+           			<div class="polaroid__img">             
+						<img src="<?= BASE_URL . $sessionAvatar; ?>" alt="Avatar">
+					</div>   
+					<div class="polaroid__label">
+						<input type="file" name="avatar" title="Upload an avatar" class="polaroid__file">
+					</div>
+				</fieldset>
                 <div class="cf">
 	            	<fieldset class="field-1-2 float-left">
 	                    <label>First name:</label>
@@ -61,6 +60,7 @@
 					</div>
 				</fieldset>
             </form>
+            <a href="" id="delete-trigger" class="subtle-link"><small>Delete account</small></a>
 			</div>
 		</div>
 	</section>
