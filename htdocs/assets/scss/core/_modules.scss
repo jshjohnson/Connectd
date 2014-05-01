@@ -747,6 +747,11 @@ input[type=search].call-to-action__search {
 		padding: 1em 0;
 		font-size: .8em;
 	}
+	.polaroid__img {
+		height: 12em;
+		background-size: cover;
+		background-position: center center;
+	}
 	input[type=file].polaroid__file {
 		border: 0;
 		width: 70%;
@@ -769,11 +774,9 @@ input[type=search].call-to-action__search {
 		width: 10em;
 		.polaroid__img {
 			height: 7em;
-			background-size: cover;
-			background-position: center center;
 		}
 	}
 	input[type=file].polaroid__file {
 		width: 100%;
-	}	
+	}
 }

@@ -2805,12 +2805,18 @@ input[type=search].call-to-action__search:focus {
   font-size: .8em;
 }
 /* line 750, ../scss/core/_modules.scss */
+.polaroid .polaroid__img {
+  height: 12em;
+  background-size: cover;
+  background-position: center center;
+}
+/* line 755, ../scss/core/_modules.scss */
 .polaroid input[type=file].polaroid__file {
   border: 0;
   width: 70%;
   margin: 0;
 }
-/* line 754, ../scss/core/_modules.scss */
+/* line 759, ../scss/core/_modules.scss */
 .polaroid input[type=file].polaroid__file:focus {
   outline: 0;
   -webkit-box-shadow: none;
@@ -2818,7 +2824,7 @@ input[type=search].call-to-action__search:focus {
   box-shadow: none;
 }
 
-/* line 761, ../scss/core/_modules.scss */
+/* line 766, ../scss/core/_modules.scss */
 .polaroid--overflow {
   position: absolute;
   padding: .5em .5em 0;
@@ -2832,13 +2838,11 @@ input[type=search].call-to-action__search:focus {
   transform: rotate(6deg);
   width: 10em;
 }
-/* line 770, ../scss/core/_modules.scss */
+/* line 775, ../scss/core/_modules.scss */
 .polaroid--overflow .polaroid__img {
   height: 7em;
-  background-size: cover;
-  background-position: center center;
 }
-/* line 776, ../scss/core/_modules.scss */
+/* line 779, ../scss/core/_modules.scss */
 .polaroid--overflow input[type=file].polaroid__file {
   width: 100%;
 }
@@ -11365,39 +11369,38 @@ input[type=search].call-to-action__search:focus {
 .message--hint {
   background-color: #ebe9e9;
   color: #8B8888;
-  margin-bottom: 0;
 }
-/* line 212, ../scss/core/_overrides.scss */
+/* line 211, ../scss/core/_overrides.scss */
 .message--hint:after {
   border-top: 0.75em solid #ebe9e9;
 }
 
-/* line 217, ../scss/core/_overrides.scss */
+/* line 216, ../scss/core/_overrides.scss */
 .message--form {
   margin: .5em 0;
 }
-/* line 219, ../scss/core/_overrides.scss */
+/* line 218, ../scss/core/_overrides.scss */
 .message--form:first-child {
   margin: 0 0 .5em;
 }
 
-/* line 224, ../scss/core/_overrides.scss */
+/* line 223, ../scss/core/_overrides.scss */
 .message-flipped--notification {
   background-color: orange;
 }
-/* line 226, ../scss/core/_overrides.scss */
+/* line 225, ../scss/core/_overrides.scss */
 .message-flipped--notification:before {
   border-bottom: 0.75em solid orange;
 }
 
-/* line 231, ../scss/core/_overrides.scss */
+/* line 230, ../scss/core/_overrides.scss */
 input:disabled {
   background-color: #ccc !important;
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
   box-shadow: 0 0.1em 0 #948f8f !important;
 }
-/* line 234, ../scss/core/_overrides.scss */
+/* line 233, ../scss/core/_overrides.scss */
 input:disabled:hover {
   -webkit-box-shadow: 0 0.1em 0 #948f8f !important;
   -moz-box-shadow: 0 0.1em 0 #948f8f !important;
@@ -11407,7 +11410,7 @@ input:disabled:hover {
 
 /* Debuggin'
 ----------------------------------*/
-/* line 263, ../scss/core/_overrides.scss */
+/* line 262, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -11422,7 +11425,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 0";
 }
-/* line 266, ../scss/core/_overrides.scss */
+/* line 265, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -11437,7 +11440,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 1";
 }
-/* line 269, ../scss/core/_overrides.scss */
+/* line 268, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
@@ -11452,7 +11455,7 @@ body.debug:before {
   font-size: .8em;
   content: "Breakpoint 2";
 }
-/* line 272, ../scss/core/_overrides.scss */
+/* line 271, ../scss/core/_overrides.scss */
 body.debug:before {
   display: inline-block;
   color: #FFF;
