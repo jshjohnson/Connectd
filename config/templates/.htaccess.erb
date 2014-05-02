@@ -13,6 +13,9 @@ RewriteRule ^login/logged-out/$ <%= database['urlpath'] %>login.php?status=logge
 RewriteRule ^login/activated/$ <%= database['urlpath'] %>login.php?status=activated
 RewriteRule ^login/success/$ <%= database['urlpath'] %>login.php?status=success
 
+# Logout
+RewriteRule ^logout/$ <%= database['urlpath'] %>logout.php
+
 # Trials
 RewriteRule ^trials/$ <%= database['urlpath'] %>trials/index.php
 RewriteRule ^trials/vote-removed/$ <%= database['urlpath'] %>trials/index.php?status=removed
@@ -37,8 +40,9 @@ RewriteRule ^job/([0-9]+)/(.*)/$ <%= database['urlpath'] %>jobs/index.php?id=$1&
 RewriteRule ^job/post/$ <%= database['urlpath'] %>jobs/post.php
 
 # Account pages
-RewriteRule ^edit-profile/$ <%= database['urlpath'] %>edit-profile.php
-RewriteRule ^account-settings/([0-9]+)/$ <%= database['urlpath'] %>account-settings.php?id=$1
+RewriteRule ^settings/edit-profile/$ <%= database['urlpath'] %>settings/edit-profile.php
+RewriteRule ^settings/change-password/$ <%= database['urlpath'] %>settings/change-password.php
+RewriteRule ^settings/recover-password/$ <%= database['urlpath'] %>settings/confirm-recover.php
 
 # User list pages
 RewriteRule ^(.*)/list/$ <%= database['urlpath'] %>list.php?usertype=$1
