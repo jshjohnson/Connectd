@@ -76,6 +76,7 @@
 							<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" class="input--currency" value="<?php if (isset($pricePerHour)) { echo htmlspecialchars($pricePerHour); } ?>">
 						</div>
 					</fieldset>
+					<p class="message message--hint zero-bottom">Psst. A good bio needs to be at least 25 characters.</p>
 					<textarea name="bio" cols="30" rows="5" placeholder="A little about you..."><?php if (isset($bio)) { echo htmlspecialchars($bio); } ?></textarea>
 					<div class="btn-container">
 		            	<input id="submit" class="btn btn--green" name="submit" type="submit" value='Apply for your place'>				
