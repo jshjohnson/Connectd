@@ -120,7 +120,7 @@
 	    public function sendMessageEmail($firstName, $email, $message, $sentBy) {
 			try {
 		    	$subject = "You just got a message - Connectd.io";
-		    	$body = file_get_contents('../assets/email-templates/message.html');
+		    	$body = file_get_contents('assets/email-templates/message.html');
 		    	$body = str_replace('{{name}}', $firstName, $body);
 		    	$body = str_replace('{{sentBy}}', $sentBy, $body);
 		    	$body = str_replace('{{message}}', $message, $body);
