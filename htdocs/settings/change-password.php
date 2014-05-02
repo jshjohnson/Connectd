@@ -33,7 +33,7 @@
 
     if (empty($_POST) === false && empty($errors) === true) {
         $users->changePassword($sessionUserID, $newPassword);
-        header('Location: change-password.php?success');
+        header('Location: ' . BASE_URL . 'settings/change-password/?success');
     } 
 
     include(ROOT_PATH . "includes/header.inc.php");
