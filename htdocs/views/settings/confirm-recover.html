@@ -14,35 +14,17 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
-			<?php if (isset($_GET['success']) === true && empty($_GET['success']) === true) { ?>
-				<p class="message message--success fadeIn">Thanks, please check your email to confirm your request for a new password.</p>
-			<?php 
-				} else {
-			
-					if (isset($_POST['email']) === true && empty($_POST['email']) === false) {
-						if ($users->emailExists($_POST['email']) === true){
-							$users->confirmRecover($_POST['email']);
-		 
-							header('Location:' . BASE_URL . 'settings/recover-password/?success');
-							exit();
-							
-						} else {
-							$errors[] = 'Sorry, that email doesn\'t exist.';
-						}
-					}
-				}
-			?>
-				<?php 
-					if (empty ($errors) === false) { ?>          
-						<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
-		        <?php  
-		           	}else if (isset($_GET['success']) === false) { ?>
-						<p class="message message--hint">Enter your email below so we can confirm your request.</p>
-				<?php }; ?>
+			<?php if (empty ($errors) === false) : ?>          
+				<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
+			<?php elseif (isset($_GET['success']) === true && empty($_GET['success']) === true) : ?>
+				<p class="message message--success fadeIn">Thanks, please check your email to confirm your request for a new password.</p>		
+			<?php elseif (isset($_GET['success']) === false) : ?>
+				<p class="message message--hint">Enter your email below so we can confirm your request.</p>
+			<?php endif; ?>
 				<form action="<?= BASE_URL . "settings/recover-password/"; ?>" method="post" autocomplete="off">
 					<input type="email" name="email" placeholder="Email" class="zero-top">
 					<div class="btn-container clear">
-		            	<input class="btn btn--green" name="submit" type="submit" value="Recover">					
+		            	<input class="btn btn--green" name="submit" type="submit" value="Recover Password">					
 					</div>
 		        </form>
 			</div>
