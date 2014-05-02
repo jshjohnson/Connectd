@@ -144,7 +144,7 @@ img.media__img {
 			padding: .25em .5em;
 			line-height: 1.5;
 			display: inline-block; 
-			a {
+			a, a:visited, a:hover {
 				color: white;
 			}
 			@include respond-max($bp2) {
@@ -743,6 +743,7 @@ img.media__img {
 		font-family: $font-serif;
 		font-style: italic;
 		font-weight: 400;
+		margin-top: 0;
 	}
 	button {
 		min-width: 14em;

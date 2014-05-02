@@ -2117,7 +2117,7 @@ img.media__img {
   display: inline-block;
 }
 /* line 147, ../scss/core/_modules.scss */
-.media__label ul li a {
+.media__label ul li a, .media__label ul li a:visited, .media__label ul li a:hover {
   color: white;
 }
 
@@ -2790,13 +2790,14 @@ img.media__img {
   font-family: "Georgia", serif;
   font-style: italic;
   font-weight: 400;
+  margin-top: 0;
 }
-/* line 747, ../scss/core/_modules.scss */
+/* line 748, ../scss/core/_modules.scss */
 .call-to-action button {
   min-width: 14em;
 }
 
-/* line 758, ../scss/core/_modules.scss */
+/* line 759, ../scss/core/_modules.scss */
 .call-to-action__btn {
   background-color: #2c3e50;
   border: 1px solid #273646;
@@ -2806,12 +2807,12 @@ img.media__img {
   color: white;
   font-weight: 400;
 }
-/* line 766, ../scss/core/_modules.scss */
+/* line 767, ../scss/core/_modules.scss */
 .call-to-action__btn:visited {
   color: white;
 }
 
-/* line 771, ../scss/core/_modules.scss */
+/* line 772, ../scss/core/_modules.scss */
 input[type=search].call-to-action__search {
   max-width: 60%;
   margin: 0 auto;
@@ -2821,7 +2822,7 @@ input[type=search].call-to-action__search {
   padding: .75em;
   color: white;
 }
-/* line 781, ../scss/core/_modules.scss */
+/* line 782, ../scss/core/_modules.scss */
 input[type=search].call-to-action__search:focus {
   -webkit-box-shadow: 0 0 5px #507192;
   -moz-box-shadow: 0 0 5px #507192;
@@ -2830,28 +2831,28 @@ input[type=search].call-to-action__search:focus {
   outline: 0;
 }
 
-/* line 788, ../scss/core/_modules.scss */
+/* line 789, ../scss/core/_modules.scss */
 .user-info {
   width: 70%;
 }
 
-/* line 792, ../scss/core/_modules.scss */
+/* line 793, ../scss/core/_modules.scss */
 .user-info__star {
   color: #ecdb58;
 }
 
-/* line 796, ../scss/core/_modules.scss */
+/* line 797, ../scss/core/_modules.scss */
 .user-info__link {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 3px, rgba(0, 0, 0, 0) 3px);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  /* line 796, ../scss/core/_modules.scss */
+  /* line 797, ../scss/core/_modules.scss */
   .user-info__link {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);
   }
 }
 
-/* line 800, ../scss/core/_modules.scss */
+/* line 801, ../scss/core/_modules.scss */
 .polaroid {
   background-color: white;
   padding: 1em 1em 0;
@@ -2863,24 +2864,24 @@ input[type=search].call-to-action__search:focus {
   -moz-box-shadow: 0px 1px 1px rgba(34, 34, 34, 0.2);
   box-shadow: 0px 1px 1px rgba(34, 34, 34, 0.2);
 }
-/* line 808, ../scss/core/_modules.scss */
+/* line 809, ../scss/core/_modules.scss */
 .polaroid .polaroid__label {
   padding: 1em 0;
   font-size: .8em;
 }
-/* line 812, ../scss/core/_modules.scss */
+/* line 813, ../scss/core/_modules.scss */
 .polaroid .polaroid__img {
   height: 12em;
   background-size: cover;
   background-position: center center;
 }
-/* line 817, ../scss/core/_modules.scss */
+/* line 818, ../scss/core/_modules.scss */
 .polaroid input[type=file].polaroid__file {
   border: 0;
   width: 70%;
   margin: 0;
 }
-/* line 821, ../scss/core/_modules.scss */
+/* line 822, ../scss/core/_modules.scss */
 .polaroid input[type=file].polaroid__file:focus {
   outline: 0;
   -webkit-box-shadow: none;
@@ -2888,7 +2889,7 @@ input[type=search].call-to-action__search:focus {
   box-shadow: none;
 }
 
-/* line 828, ../scss/core/_modules.scss */
+/* line 829, ../scss/core/_modules.scss */
 .polaroid--overflow {
   position: absolute;
   padding: .5em .5em 0;
@@ -2902,11 +2903,11 @@ input[type=search].call-to-action__search:focus {
   transform: rotate(6deg);
   width: 10em;
 }
-/* line 837, ../scss/core/_modules.scss */
+/* line 838, ../scss/core/_modules.scss */
 .polaroid--overflow .polaroid__img {
   height: 7em;
 }
-/* line 841, ../scss/core/_modules.scss */
+/* line 842, ../scss/core/_modules.scss */
 .polaroid--overflow input[type=file].polaroid__file {
   width: 100%;
 }
