@@ -14,36 +14,16 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
-			<?php if (isset ($_GET['email'], $_GET['email_code']) === true) {
-		          
-			    $email 		= trim($_GET['email']);
-			    $email_code	= trim($_GET['email_code']);
-
-				if ($users->emailExists($email) === false) {
-					$errors[] = 'Sorry, we couldn\'t find that email address.';
-				} else if ($users->activateUser($email, $email_code) === false) {
-					$errors[] = 'Sorry, we couldn\'t activate your account.';
-				}
-	            
-			    if(!empty($errors) === false){
-	                header('Location: ' . BASE_URL . 'login/activated/');
-	                exit();
-	            }
-	        
-		        } else if ($status == "logged") : ?>
+			<?php if($status == "logged") : ?>
 				<p class="message message--success">Successfully logged out - see you soon!</p>
-				<?php elseif($status == "activated") : ?>
+			<?php elseif($status == "activated") : ?>
 				<p class="message message--success fadeIn">Successfully activated account. Welcome to Connectd!</p>
-				<?php elseif ($status == "success") : ?>
+			<?php elseif ($status == "success") : ?>
 				<p class="message message--success fadeIn">Thank you for registering. Please check your emails to activate your account.</p>
-				<?php endif; ?>
-				<?php 
-					# if there are errors, they would be displayed here.
-					if(empty($errors) === false){
-						echo '<p class="message message--error shake">' . implode('</p><p>', $errors) . '</p>';
-					}
-				?>
-				<form method="post" action="<?= BASE_URL; ?>login.php" autocomplete="off">
+			<?php elseif(empty($errors) === false) : ?>
+				<p class="message message--error shake"><?php echo implode('</p><p>', $errors); ?></p>
+			<?php endif; ?>
+				<form method="post" action="<?= BASE_URL; ?>login/" autocomplete="off">
 					<input type="email" name="email" placeholder="Email" value="<?php if(isset($_COOKIE['remember_me'])) { echo $_COOKIE['remember_me']; } else if(isset($_POST['email'])) echo htmlentities($_POST['email']); ?>" class="field-1-2 zero-top">
 					<input type='password' name='password' placeholder="Password" class="field-1-2 float-right zero-top">
 					<fieldset class="checkbox float-left">
