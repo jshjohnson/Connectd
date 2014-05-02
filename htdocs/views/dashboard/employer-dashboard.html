@@ -26,11 +26,11 @@
 						<?php if (!empty($starredFreelancers) && is_array($starredFreelancers)) : ?>
 
 						<?php foreach ($starredFreelancers as $starredFreelancer) {
-							include(ROOT_PATH. 'views/freelancer/starred-list.html');
+							include(ROOT_PATH. 'views/user/starred-list.html');
 						} ?>
 
 						<?php else : ?>
-							<?php include('../views/freelancer/star-empty-list.html'); ?>
+							<?php include('../views/user/star-empty-list.html'); ?>
 						<?php endif;?>
 					</div>
 				</article>
