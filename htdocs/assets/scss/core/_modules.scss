@@ -110,6 +110,46 @@ img.media__img {
 	@include background-size(100%);
 }
 
+.media-block {
+	margin: 1.5em 0;
+	overflow: auto;
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.media-block__content {
+	background-color: white;
+}
+
+.media__label {
+	width: 100%;
+	display: block;
+	background: #77c462;
+	color: white;
+	padding-left: 1em;
+	line-height: 1.5;
+	padding: .2em 1em;
+	box-sizing: border-box;
+	vertical-align: top;
+	position: relative;
+	font-size: 95%;
+	*>* {
+		margin-bottom: 0;
+	}
+	ul {
+		margin: 0;
+		li { 
+			margin: 0;
+			padding: 0 .5em 0 0;
+			display: inline-block; 
+			a {
+				color: white;
+			}
+		}
+	}
+}
+
 
 /* Flag Object - http://csswizardry.com/2013/05/the-flag-object/
 ----------------------------------*/
@@ -706,6 +746,18 @@ img.media__img {
 	}
 }
 
+.call-to-action__btn {
+	background-color: $color-brand-dark;
+	padding: .5em 2em;
+	border-radius: .5em;
+	font-size: .8em;
+	color: white; 
+	font-weight: 400;
+	&:visited {
+		color: white;
+	}
+}
+
 input[type=search].call-to-action__search {
 	@include respond-min($bp2) {
 		max-width: 60%;
@@ -732,7 +784,7 @@ input[type=search].call-to-action__search {
 }
 
 .user-info__link {
-	@include underline;
+
 }
 
 .polaroid {

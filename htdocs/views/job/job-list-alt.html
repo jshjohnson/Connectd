@@ -1,0 +1,43 @@
+		<?php
+			$budget = $job['job_budget'];
+			$output = "";
+		?>
+		<div class="media-block">
+			<div class='media__label'>		
+				<?php if ($section != "Employers") : ?>
+				<ul class="list--inline">
+					<li>
+						<p><small><?= date('F j, Y', $job['job_post_date']); ?></small></p>
+					</li>
+					<li>
+						<p><small><strong><a href="<?= BASE_URL . "employer/profile/" . $job['user_id'] . "/"; ?>" class="user-info__link"><?= $job['employer_name']; ?></a></strong> just posted a new job</small>
+						</p>
+					</li>
+				</ul>
+				<?php else : ?>
+				<a class="btn btn--green btn--small apply-trigger" href="<?= BASE_URL . "job/" . $job['job_id']; ?>">Apply</a>
+				<?php endif; ?>
+			</div>
+			<div class='media media-block__content'>
+				<div class='media__desc'>
+					<div class='media__button badge color-green'>
+						<span class='badge__inner'>
+						<?php 
+							if ($budget>=10000) {
+								echo "£" . substr($budget, 0, 2) . "k";
+							} elseif ($budget>=1000) {
+								echo "£" . substr($budget, 0, 1) . "k";
+							} else {
+								echo "£" . $budget;
+							}
+						?>
+						</span>
+					</div>
+					<?php 
+						$jobName = strtolower(str_replace(array('  ', ' '), '-', preg_replace('/[^a-zA-Z0-9 s]/', '', trim($job['job_name'])))); 
+						$jobNameUrl = $urls->truncate($jobName, 50);
+					?>
+					<p class='media__body'><a href="<?= BASE_URL . "job/" . $job['job_id'] . "/" . $jobNameUrl . "/"; ?>" class="user-info__link"><?= $job['job_name']; ?></a></p>
+				</div>
+			</div>
+		</div>
