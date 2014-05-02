@@ -1,5 +1,5 @@
 <?php
-	require_once("../config.php"); 
+	require("../config.php"); 
 	require(ROOT_PATH . "core/init.php");
 
 	$pageTitle = "Change Password";

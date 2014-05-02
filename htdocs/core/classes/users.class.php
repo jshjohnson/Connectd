@@ -21,10 +21,11 @@
 		 */ 
 		public function emailExists($email) {
 		 
-			$query = $this->db->prepare("SELECT `email`
-						FROM " . DB_NAME . ".users
-						WHERE `email` = ? 
-					");
+			$query = $this->db->prepare("
+				SELECT `email`
+				FROM " . DB_NAME . ".users
+				WHERE `email` = ? 
+			");
 			$query->bindParam(1, $email);
 
 			try{
@@ -370,7 +371,7 @@
 		 
 		public function confirmRecover($email){
 		 
-			$firstName = $this->fetchInfo('firstname', 'email', $email); // We want the 'username' WHERE 'email' = user's email ($email)
+			$firstName = $this->fetchInfo('firstname', 'email', $email); // We want the 'firstname' WHERE 'email' = user's email ($email)
 		 
 			$unique = uniqid('',true); // generate a unique string
 			$random = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'),0, 10); // generate a more random string
@@ -388,7 +389,7 @@
 		 
 			try{	
 				$query->execute();
-				$this->emails->sendRecoverPasswordEmail($email, $firstName, $generatedString);
+				$this->emails->sendRecoverPasswordEmail($firstName, $email, $generatedString);
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$debug = new Errors();
@@ -413,16 +414,14 @@
 					$rows = $query->fetchColumn();
 		 
 					if($rows == 1){ // if we find email/generated_string combo
-						
-						global $bcrypt;
 		 
 						$firstName = $this->fetchInfo('firstname', 'email', $email); // getting username for the use in the email.
-						$user_id  = $this->fetchInfo('user_id', 'email', $email);// We want to keep things standard and use the user's id for most of the operations. Therefore, we use id instead of email.
-				
+						$userID  = $this->fetchInfo('user_id', 'email', $email);// We want to keep things standard and use the user's id for most of the operations. Therefore, we use id instead of email.
+
 						$charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 						$generatedPassword = substr(str_shuffle($charset),0, 10);
-		 
-						$this->changePassword($user_id, $generatedPassword); // change the password.
+
+						$this->changePassword($userID, $generatedPassword); // change the password.
 		 
 						$query = $this->db->prepare("
 							UPDATE `users` 
@@ -430,11 +429,16 @@
 							WHERE `user_id` = ?
 						"); // set generated_string back to 0
 		 
-						$query->bindValue(1, $user_id);
-		 
-						$query->execute();
-
-		 				$this->emails->sendNewPasswordEmail($email, $firstName, $generatedPassword);
+						$query->bindValue(1, $userID);
+		 				
+	 					try{	
+							$query->execute();
+							$this->emails->sendNewPasswordEmail($firstName, $email, $generatedPassword);
+						}catch(PDOException $e) {
+							$users = new Users($db);
+							$debug = new Errors();
+							$debug->errorView($users, $e);	
+						}
 
 					}else{
 						return false;
@@ -447,7 +451,7 @@
 			}
 		}
 		 
-		public function changePassword($user_id, $password) {
+		public function changePassword($userID, $password) {
 		 
 			$passwordHash = $this->bcrypt->genHash($password);
 		 
@@ -458,7 +462,7 @@
 			");
 		 
 			$query->bindValue(1, $passwordHash);
-			$query->bindValue(2, $user_id);				
+			$query->bindValue(2, $userID);				
 		 
 			try{
 				$query->execute();
