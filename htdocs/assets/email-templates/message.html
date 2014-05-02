@@ -187,16 +187,18 @@
                                                             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                                                 <tr>
                                                                     <td valign="top" class="textContent">
-                                                                        <h2>Welcome to Connectd!</h2>
-                                                                        <p>Hey {{name}}!</p>
-                                                                        <p class="zero-bottom">Thank you for registering with Connectd. Please visit the link below so we can activate your account:</p>
-                                                                        <p>-- Connectd team</p>
-                                                                        <p><a href='http://connectd.io'>www.connectd.io</a></p>
+                                                                    	<h2>New Message</h2>
+																		<p>Hey {{name}}! </p>
+																		<p>You have been sent a message by <b>{{sentBy}}</b></p>
+																		<p>Message:</p>
+																		<p>{{message}}</p>
+																		<p>-- Connectd team</p>
+																		<p class="zero-bottom"><a href='http://connectd.io'>www.connectd.io</a></p>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td align="top" valign="middle" class="buttonContent">
-                                                                        <a href="{{url}}login.php?email={{email}}&email_code={{code}}" target="_blank"><img width='200' src="http://localhost:8888/Connectd/htdocs/assets/img/activate-account.jpg" alt=""></a>
+                                                                        <a href="{{url}}login/" target="_blank"><img width='200' src="{{url}}assets/img/login.jpg" alt=""></a>
                                                                     </td>
                                                                 </tr>
                                                             </table>
