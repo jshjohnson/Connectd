@@ -147,7 +147,15 @@ img.media__img {
 			a {
 				color: white;
 			}
+			@include respond-max($bp2) {
+				&:last-child {
+					display: none;
+				}
+			}
 		}
+	}
+	@include respond-max($bp2) {
+		font-size: .9em;
 	}
 }
 
