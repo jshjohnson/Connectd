@@ -4,7 +4,7 @@
 				<div class="grid text-center">
 					<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
 						<blockquote class="intro-quote text-center">
-							Edit Profile
+							<?= $pageTitle; ?>
 						</blockquote>
 					</div>
 				</div>
@@ -14,7 +14,7 @@
 	<section class="footer--push color-navy">
 		<div class="grid text-center">
 			<div class="grid__cell unit-1-2--bp4 unit-2-3--bp1 content-overlay">
-            <form action="<?= BASE_URL . "settings/edit-profile/"; ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= BASE_URL . "settings/account-settings/"; ?>" method="post" enctype="multipart/form-data">
 			<?php if (isset($_GET['success']) && empty($_GET['success'])) : ?>
 		        <p class="message message--success fadeIn">Your details have been updated!</p>	        
 		   	<?php elseif(empty($errors) === false) : ?>
