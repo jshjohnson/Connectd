@@ -133,7 +133,7 @@ img.media__img {
 	box-sizing: border-box;
 	vertical-align: top;
 	position: relative;
-	font-size: 95%;
+	font-size: .7em;
 	*>* {
 		margin-bottom: 0;
 	}
@@ -141,7 +141,8 @@ img.media__img {
 		margin: 0;
 		li { 
 			margin: 0;
-			padding: 0 .5em 0 0;
+			padding: .25em .5em;
+			line-height: 1.5;
 			display: inline-block; 
 			a {
 				color: white;
@@ -748,7 +749,8 @@ img.media__img {
 
 .call-to-action__btn {
 	background-color: $color-brand-dark;
-	padding: .5em 2em;
+	border: 1px solid darken($color-brand-dark, 3%); 
+	padding: .7em 2em;
 	border-radius: .5em;
 	font-size: .8em;
 	color: white; 
@@ -784,7 +786,7 @@ input[type=search].call-to-action__search {
 }
 
 .user-info__link {
-
+ 	@include underline;
 }
 
 .polaroid {
