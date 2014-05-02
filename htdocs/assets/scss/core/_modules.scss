@@ -769,6 +769,17 @@ img.media__img {
 	}
 }
 
+.call-to-action__content {
+	font-family: $font-sans;
+	font-style: normal;
+	background: $color-brand-dark;
+	color: white;
+	padding: 1em;
+	border: 1px solid darken($color-brand-dark, 3%);
+	font-size: .9em;
+	margin-bottom: 0;
+}
+
 input[type=search].call-to-action__search {
 	@include respond-min($bp2) {
 		max-width: 60%;

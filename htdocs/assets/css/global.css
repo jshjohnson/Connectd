@@ -3192,6 +3192,18 @@ img.media__img {
 }
 
 /* line 772, ../scss/core/_modules.scss */
+.call-to-action__content {
+  font-family: "proxima-nova", "Proxima Nova", sans-serif;
+  font-style: normal;
+  background: #2c3e50;
+  color: white;
+  padding: 1em;
+  border: 1px solid #273646;
+  font-size: .9em;
+  margin-bottom: 0;
+}
+
+/* line 783, ../scss/core/_modules.scss */
 input[type=search].call-to-action__search {
   margin: 0 auto;
   background-color: #2c3e50;
@@ -3201,12 +3213,12 @@ input[type=search].call-to-action__search {
   color: white;
 }
 @media screen and (min-width: 49em) {
-  /* line 772, ../scss/core/_modules.scss */
+  /* line 783, ../scss/core/_modules.scss */
   input[type=search].call-to-action__search {
     max-width: 60%;
   }
 }
-/* line 782, ../scss/core/_modules.scss */
+/* line 793, ../scss/core/_modules.scss */
 input[type=search].call-to-action__search:focus {
   -webkit-box-shadow: 0 0 5px #507192;
   -moz-box-shadow: 0 0 5px #507192;
@@ -3215,28 +3227,28 @@ input[type=search].call-to-action__search:focus {
   outline: 0;
 }
 
-/* line 789, ../scss/core/_modules.scss */
+/* line 800, ../scss/core/_modules.scss */
 .user-info {
   width: 70%;
 }
 
-/* line 793, ../scss/core/_modules.scss */
+/* line 804, ../scss/core/_modules.scss */
 .user-info__star {
   color: #ecdb58;
 }
 
-/* line 797, ../scss/core/_modules.scss */
+/* line 808, ../scss/core/_modules.scss */
 .user-info__link {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 3px, rgba(0, 0, 0, 0) 3px);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  /* line 797, ../scss/core/_modules.scss */
+  /* line 808, ../scss/core/_modules.scss */
   .user-info__link {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);
   }
 }
 
-/* line 801, ../scss/core/_modules.scss */
+/* line 812, ../scss/core/_modules.scss */
 .polaroid {
   background-color: white;
   padding: 1em 1em 0;
@@ -3248,24 +3260,24 @@ input[type=search].call-to-action__search:focus {
   -moz-box-shadow: 0px 1px 1px rgba(34, 34, 34, 0.2);
   box-shadow: 0px 1px 1px rgba(34, 34, 34, 0.2);
 }
-/* line 809, ../scss/core/_modules.scss */
+/* line 820, ../scss/core/_modules.scss */
 .polaroid .polaroid__label {
   padding: 1em 0;
   font-size: .8em;
 }
-/* line 813, ../scss/core/_modules.scss */
+/* line 824, ../scss/core/_modules.scss */
 .polaroid .polaroid__img {
   height: 12em;
   background-size: cover;
   background-position: center center;
 }
-/* line 818, ../scss/core/_modules.scss */
+/* line 829, ../scss/core/_modules.scss */
 .polaroid input[type=file].polaroid__file {
   border: 0;
   width: 70%;
   margin: 0;
 }
-/* line 822, ../scss/core/_modules.scss */
+/* line 833, ../scss/core/_modules.scss */
 .polaroid input[type=file].polaroid__file:focus {
   outline: 0;
   -webkit-box-shadow: none;
@@ -3274,7 +3286,7 @@ input[type=search].call-to-action__search:focus {
 }
 
 @media screen and (min-width: 49em) {
-  /* line 829, ../scss/core/_modules.scss */
+  /* line 840, ../scss/core/_modules.scss */
   .polaroid--overflow {
     position: absolute;
     padding: .5em .5em 0;
@@ -3288,12 +3300,12 @@ input[type=search].call-to-action__search:focus {
     transform: rotate(6deg);
     width: 10em;
   }
-  /* line 838, ../scss/core/_modules.scss */
+  /* line 849, ../scss/core/_modules.scss */
   .polaroid--overflow .polaroid__img {
     height: 7em;
   }
 }
-/* line 842, ../scss/core/_modules.scss */
+/* line 853, ../scss/core/_modules.scss */
 .polaroid--overflow input[type=file].polaroid__file {
   width: 100%;
 }
