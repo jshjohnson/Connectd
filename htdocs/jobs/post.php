@@ -12,23 +12,24 @@
 	$pageType = "Page";
 	$section = "Green";
 
-	include_once(ROOT_PATH . "includes/header.inc.php");
-	
-	// Grab the form data
-	$jobTitle       = trim($_POST['job_title']);
-	$jobLocation    = trim($_POST['job_location']);
-	$jobName        = trim($_POST['job_name']);
-	$jobFull        = "I need a " . $jobTitle . " to work on " . $jobName;
-	$startDate      = trim($_POST['start_date']);
-	$deadline       = trim($_POST['deadline']);
-	$budget         = trim($_POST['budget']);
-	$category       = trim($_POST['category']);
-	$description    = trim($_POST['description']);
-	$submit         = trim($_POST['submit']);
-
-	$status         = trim($_GET['status']);
+	if(isset($_GET['status'])) {
+		$status = trim($_GET['status']);
+	} 
 
 	if (isset($_POST['submit'])){
+
+		$employerName = $users->fetchInfo("employer_name", "employer_id", $sessionUserID, "employers");
+
+		// Grab the form data
+		$jobTitle = trim($_POST['job_title']);
+		$jobLocation = trim($_POST['job_location']);
+		$jobName = trim($_POST['job_name']);
+		$jobFull = $employerName . "need a " . $jobTitle . " to work on " . $jobName;
+		$startDate = trim($_POST['start_date']);
+		$deadline = trim($_POST['deadline']);
+		$budget = trim($_POST['budget']);
+		$category = trim($_POST['category']);
+		$description = trim($_POST['description']);
 
 		$forms->hijackPrevention();
 
@@ -40,6 +41,8 @@
 			exit();
 		}
 	}
+
+	include(ROOT_PATH . "includes/header.inc.php");
 	include(ROOT_PATH . "views/job/job-post.html");
 	include(ROOT_PATH . "includes/footer.inc.php");
 ?>

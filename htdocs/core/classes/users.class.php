@@ -341,16 +341,16 @@
 			}
 		}
 
-		public function fetchInfo($what, $field, $value){
+		public function fetchInfo($what, $field, $value, $table = "users"){
 		 
-			$allowed = array('user_id', 'email', 'firstname', 'lastname', 'bio', 'granted_access');
+			$allowed = array('user_id', 'email', 'firstname', 'lastname', 'bio', 'granted_access', 'employer_name', 'employer_id');
 			if (!in_array($what, $allowed, true) || !in_array($field, $allowed, true)) {
 			    throw new InvalidArgumentException;
 			}else{
 			
 				$query = $this->db->prepare("
 					SELECT $what 
-					FROM " . DB_NAME . ".users 
+					FROM " . DB_NAME . ".$table
 					WHERE $field = ?
 				");
 		 
