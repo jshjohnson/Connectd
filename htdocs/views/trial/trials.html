@@ -15,16 +15,31 @@
 			</div>
 		</section>
 		<?php endif;?>
+
+		<section class="call-to-action">
+			<div class="container">
+				<div class="grid grid--center">
+					<div class="grid__cell unit-2-3--bp2 text-center">
+						<h4 class="as-h2 call-to-action__title">
+							Welcome to the Connectd Trials.
+						</h4>
+						<p class="call-to-action__title">Below is a list of users who have recently signed up to use Connectd and need your vote to gain access. To ensure we only have the highest of quality of freelancers and votes are not wasted, please review users' portfolios before voting.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<section class="container">
-			<div class="grid cf">
-			<?php foreach ($trial_users as $trial_user) : ?>
-				<?php $vote_id == $trial_user["firstname"]; ?>
+		<?php if(!empty($trialUsers) && is_array($trialUsers)) : ?>
+			<div class="grid grid--center cf">
+			<?php foreach ($trialUsers as $trialUser) : ?>
+				<?php $vote_id == $trialUser["firstname"]; ?>
 				<aside class="grid__cell module-1-4 push-bottom">
 					<article class="user-module user-module--trial-user module--no-pad">
 						<?php 
-							$vote_id         = $trial_user["user_id"]; 
+							$vote_id         = $trialUser["user_id"]; 
 							$trialUserVotes  = $votes->getUserVotes($vote_id);
-						 	if(strtotime(date('F j, Y', $trial_user['time_joined']))>strtotime('-3 days')) : 
+						 	if(strtotime(date('F j, Y', $trialUser['time_joined']))>strtotime('-3 days')) : 
 						 ?>
 						<div class="ribbon"><h5>New</h5></div>
 						<?php endif ?>
@@ -35,18 +50,18 @@
 							</span>
 						</div>
 						<div class="user-module__info">
-							<h3 class="user-module__title user-module__title--alt"><?= $trial_user["firstname"] . "\n" . $trial_user["lastname"]; ?></h3>
-							<h4 class="user-module__label icon--attach icon--marg"><?= $trial_user["jobtitle"]; ?></h4>
-							<h4 class="user-module__label icon--location icon--marg"><?= stripslashes($trial_user["location"]); ?>, UK</h4>
-							<h4 class="user-module__label icon--briefcase icon--marg"><?php $url = preg_replace("(Between)", "", $trial_user["experience"] ); echo $url ?> experience</h4>
-							<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $trial_user["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trial_user["portfolio"] ); echo $url ?></a></h4>
+							<h3 class="user-module__title user-module__title--alt"><?= $trialUser["firstname"] . "\n" . $trialUser["lastname"]; ?></h3>
+							<h4 class="user-module__label icon--attach icon--marg"><?= $trialUser["jobtitle"]; ?></h4>
+							<h4 class="user-module__label icon--location icon--marg"><?= stripslashes($trialUser["location"]); ?>, UK</h4>
+							<h4 class="user-module__label icon--briefcase icon--marg"><?php $url = preg_replace("(Between)", "", $trialUser["experience"] ); echo $url ?> experience</h4>
+							<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $trialUser["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trialUser["portfolio"] ); echo $url ?></a></h4>
 							<div class="btn-wrapper">
 							<?php if($votes->sessionUserVoted($vote_id, $votedBy) == false) : ?>
-								<a href="add-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="btn btn--green btn--small">
+								<a href="add-vote.php?user_id=<?= $trialUser["user_id"]; ?>" class="btn btn--green btn--small">
 									 <span class="icon--check">Add vote</span>
 								</a>
 							<?php else : ?>
-								<a href="remove-vote.php?user_id=<?= $trial_user["user_id"]; ?>" class="btn btn--red btn--small">
+								<a href="remove-vote.php?user_id=<?= $trialUser["user_id"]; ?>" class="btn btn--red btn--small">
 									 <span class="icon--cancel">Remove vote</span>
 								</a>
 							<?php endif;?>
@@ -56,12 +71,5 @@
 				</aside>
 			<?php endforeach; ?>
 			</div>
-		</section>
-		<section class="call-to-action footer--push">
-			<div class="container">
-				<h4 class="as-h1 call-to-action__title">
-					Looking for freelance work?
-				</h4>
-				<a class="btn btn--green" href="<?= BASE_URL; ?>jobs/list/">See our jobs list</a>
-			</div>
+		<?php endif; ?>
 		</section>

@@ -13,7 +13,7 @@
 
 	$status = $_GET["status"];
 
-	$trial_users = $trials->getTrialUsers($votedBy);
+	$trialUsers = $trials->getTrialUsers($votedBy);
 
 	include(ROOT_PATH . "includes/header.inc.php");
 	include(ROOT_PATH . "views/trial/trials.html");
