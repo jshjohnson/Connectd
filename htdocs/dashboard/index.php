@@ -2,6 +2,8 @@
 	require("../config.php"); 
 	require(ROOT_PATH . "core/init.php");
 
+	$debug->showErrors();
+
 	$users->loggedOutProtect();
 	$users->grantedAccessProtect($sessionUserID);
 
@@ -9,7 +11,6 @@
 
 	$designers = $freelancers->getFreelancersRecent($userType = "designer");
 	$developers = $freelancers->getFreelancersRecent($userType = "developer");
-	$employers = $employers->getEmployersRecent($userType = "employer");
 
 	$starredFreelancers = $stars->getStarredFreelancers($starredBy);
 
@@ -27,8 +28,9 @@
 		$jobs = $jobs->getEmployerJobs($sessionUserID);
 		include(ROOT_PATH . "views/dashboard/employer-dashboard.html");
 	} else {
-		$jobs = $jobs->getJobsRecent();
+		$allJobs = $jobs->getJobsRecent();
 		$allFreelancers = $freelancers->getFreelancersAllTypes($sessionUserID);
+		$recentEmployers = $employers->getEmployersRecent();
 		include(ROOT_PATH . "views/dashboard/freelancer-dashboard.html");
 	}
 

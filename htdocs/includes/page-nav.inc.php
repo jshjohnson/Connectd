@@ -1,7 +1,7 @@
 <?php 
 	if ($section == "Designers" || $section == "Blue") {
 		$navColor = "blue";
-	} else if ($section == "Employers" || $section == "Jobs" || $section == "Green") {
+	} else if ($section == "Employers" || $section == "Job" || $section == "Green") {
 		$navColor = "green";
 	} else {
 		$navColor = "navy";
@@ -17,6 +17,7 @@
 						<li><a href="<?= BASE_URL; ?>search/">Search</a></li>
 						<li><a href="<?= BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/"?>">View Profile</a></li>
 						<li><a href="<?= BASE_URL . "settings/edit-profile/"?>">Edit Profile</a></li>
+						<li><a href="<?= BASE_URL . "settings/account-settings/"?>">Account Settings</a></li>
 						<li><a href="<?= BASE_URL . "settings/change-password/"; ?>">Change Password</a></li>
 						<li><a href="<?= BASE_URL; ?>logout/">Log out</a></li>
 					<?php else : ?>

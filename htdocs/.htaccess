@@ -40,12 +40,13 @@ RewriteRule ^job/([0-9]+)/(.*)/$ /Connectd/htdocs/jobs/index.php?id=$1&name=$2
 RewriteRule ^job/post/$ /Connectd/htdocs/jobs/post.php
 
 # Account pages
+RewriteRule ^settings/account-settings/$ /Connectd/htdocs/settings/account-settings.php
 RewriteRule ^settings/edit-profile/$ /Connectd/htdocs/settings/edit-profile.php
 RewriteRule ^settings/change-password/$ /Connectd/htdocs/settings/change-password.php
 RewriteRule ^settings/recover-password/$ /Connectd/htdocs/settings/confirm-recover.php
 
 # User list pages
-RewriteRule ^(.*)/list/$ /Connectd/htdocs/list.php?usertype=$1
+RewriteRule ^(.*)/list/$ /Connectd/htdocs/list.php?type=$1
 
 # Pages
 RewriteRule ^about/$ /Connectd/htdocs/index.php?p=about

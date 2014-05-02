@@ -25,7 +25,6 @@
 						<?php if($pageID != $sessionUserID) : ?>
 						<div class="btn-wrapper push-top">
 							<a class="btn--left btn btn--green cf hire-trigger" href="">Hire <?= $user['firstname']; ?></a>
-
 							<?php if($stars->sessionUserStarred($user['user_id'], $starredBy) == false) : ?>
 
 							<a class="btn--right btn btn--blue cf" href="<?= BASE_URL; ?>add-star.php?user_id=<?= $user["user_id"]; ?>" title="Give user a star"><i class="icon--star"></i>Star <?= $user['firstname']; ?></a>
@@ -35,7 +34,6 @@
 							<a class="btn--right btn btn--red cf" href="<?= BASE_URL; ?>remove-star.php?user_id=<?= $user["user_id"]; ?>" title="Remove star from user"><i class="icon--star"></i>Unstar <?= $user['firstname']; ?></a>
 
 							<?php endif; ?>
-
 						</div>
 						<?php else : ?>
 						<div class="btn-wrapper push-top">
