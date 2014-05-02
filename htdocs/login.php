@@ -13,7 +13,7 @@
 		if ($users->emailExists($email) === false) {
 			$errors[] = 'Sorry, we couldn\'t find that email address.';
 		} else if ($users->activateUser($email, $email_code) === false) {
-			$errors[] = 'Sorry, we couldn\'t activate your account.';
+			$errors[] = 'Sorry, we couldn\'t activate your account. This may be because your account has already been activated.';
 		}
         
 	    if(!empty($errors) === false){
