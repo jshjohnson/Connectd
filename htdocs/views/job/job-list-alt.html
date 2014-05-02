@@ -8,7 +8,7 @@
 				<ul class="list--inline">
 					<li><strong><a href="<?= BASE_URL . "employer/profile/" . $job['user_id'] . "/"; ?>"><?= $job['employer_name']; ?></a></strong> posted a new job <?php echo $jobs->timeAgo($job['job_post_date']); ?>
 					</li>
-					<li class="float-right">
+					<li class="float-right media__label--right">
 						<?=  $job['job_category']; ?>
 					</li>
 				</ul>

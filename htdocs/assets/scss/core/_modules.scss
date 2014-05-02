@@ -129,12 +129,15 @@ img.media__img {
 	color: white;
 	padding-left: 1em;
 	line-height: 1.5;
-	padding: .2em 1em;
+	padding: .2em 1em .2em;
 	box-sizing: border-box;
 	vertical-align: top;
 	position: relative;
 	font-size: .7em;
-	*>* {
+	@include respond-max($bp3) {
+		font-size: .9em;
+	}
+	* > * {
 		margin-bottom: 0;
 	}
 	ul {
@@ -147,17 +150,21 @@ img.media__img {
 			a, a:visited, a:hover {
 				color: white;
 			}
-			@include respond-max($bp2) {
-				&:last-child {
+			&:last-child {
+				@include respond-max($bp4) {
 					display: none;
 				}
+				@include respond-max($bp2) {
+					display: inline-block;
+				}
+				@include respond-max($bp1) {
+					display: none;
+				}		
 			}
 		}
 	}
-	@include respond-max($bp2) {
-		font-size: .9em;
-	}
 }
+
 
 
 /* Flag Object - http://csswizardry.com/2013/05/the-flag-object/
