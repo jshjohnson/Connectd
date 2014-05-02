@@ -35,7 +35,7 @@
 			$forms->rememberMe($remember, $email, $year);
 		}
  
-		$errors = $forms->validateLogin($email, $password);
+		$errors = $forms->validateLogin($email, $password, $errors);
 
 		if(empty($errors) === true) {
 	 

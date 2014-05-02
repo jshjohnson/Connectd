@@ -32,7 +32,7 @@
 
 		$forms->hijackPrevention();
 
-       	$errors = $forms->validateJob($jobTitle, $jobLocation, $jobName, $startDate, $budget, $category, $description);
+       	$errors = $forms->validateJob($jobTitle, $jobLocation, $jobName, $startDate, $budget, $category, $description, $errors);
 
 		if(empty($errors) === true){
 			$jobs->postJob($sessionUserID, $jobFull, $jobLocation, $startDate, $deadline, $budget, $category, $description);

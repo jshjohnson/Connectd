@@ -38,7 +38,7 @@
 
 		$forms->hijackPrevention();
 	 		        
-		$errors = $forms->validateFreelancer($firstName, $lastName, $email, $password, $repeatPassword, $portfolio, $jobTitle, $experience, $bio);
+		$errors = $forms->validateFreelancer($firstName, $lastName, $email, $password, $repeatPassword, $portfolio, $jobTitle, $experience, $bio, $errors);
 
 		if(empty($errors) === true){
 			$data = array(

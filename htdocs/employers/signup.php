@@ -40,7 +40,7 @@
 
 		$forms->hijackPrevention();
 
-		$errors = $forms->validateEmployer($firstName, $lastName, $email, $password, $repeatPassword, $employerName, $employerType, $experience, $bio);
+		$errors = $forms->validateEmployer($firstName, $lastName, $email, $password, $repeatPassword, $employerName, $employerType, $experience, $bio, $errors);
 
 		if(empty($errors) === true) {
 			$userType = 'employer';
