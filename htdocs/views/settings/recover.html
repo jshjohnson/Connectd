@@ -1,0 +1,25 @@
+	<section>
+		<div class="section-heading color-blue">
+			<div class="container">
+				<div class="grid text-center">
+					<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
+						<blockquote class="intro-quote text-center">
+							Recover Password
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="footer--push color-navy">
+		<div class="grid text-center">
+			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
+    		<?php if (isset($_GET['success']) === true && empty ($_GET['success']) === true) : ?>
+            	<p class="message message--success fadeIn">Thank you, we've sent you a randomly generated password in your email.</p>
+        	<?php elseif(empty($errors) === false) : ?>
+				<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
+				<a href="<?= BASE_URL; ?>settings/recover-password/">Go back</a>
+			<?php endif; ?>
+			</div>
+		</div>
+	</section>
