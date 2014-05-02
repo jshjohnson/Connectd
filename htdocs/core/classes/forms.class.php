@@ -37,7 +37,7 @@
 			} elseif(!$remember) {
 				if(isset($_COOKIE['remember_me'])) {
 					$past = time() - 100;
-					setcookie(remember_me, gone, $past);
+					setcookie('remember_me', 'gone', $past);
 				}
 			}
 		}
@@ -71,7 +71,7 @@
 			return $newpath;
 		}
 
-		public function validateFreelancer($firstName, $lastName, $email, $password, $repeatPassword, $portfolio, $jobTitle, $experience, $bio) {
+		public function validateFreelancer($firstName, $lastName, $email, $password, $repeatPassword, $portfolio, $jobTitle, $experience, $bio, $errors) {
 
 			$r1='/[A-Z]/';  // Test for an uppercase character
 			$r2='/[a-z]/';  // Test for a lowercase character
@@ -113,7 +113,7 @@
 			return $errors;
 		}
 
-		public function validateEmployer($firstName, $lastName, $email, $password, $repeatPassword, $employerName, $employerType, $experience, $bio) {
+		public function validateEmployer($firstName, $lastName, $email, $password, $repeatPassword, $employerName, $employerType, $experience, $bio, $errors) {
 			
 			$r1='/[A-Z]/';  // Test for an uppercase character
 			$r2='/[a-z]/';  // Test for a lowercase character
@@ -155,7 +155,7 @@
 			return $errors;
 		}
 
-		public function validateJob($jobTitle, $jobLocation, $jobName, $startDate, $budget, $category, $description){
+		public function validateJob($jobTitle, $jobLocation, $jobName, $startDate, $budget, $category, $description, $errors){
 	    	if($jobTitle == ""){
 		        $errors[] = "Please enter a freelancer type"; 
 		    }else if($jobLocation == ""){
@@ -172,5 +172,16 @@
 		        $errors[] = "Please enter a job description"; 
 		    }
 		    return $errors;
+	    }
+
+	    public function validateLogin($email, $password, $errors) {
+	    	if (empty($email) === true || empty($password) === true) {
+				$errors[] = 'Sorry, but we need your username and password.';
+			} else if ($this->users->emailExists($email) === false) {
+				$errors[] = 'Sorry that username doesn\'t exist.';
+			} else if ($this->users->emailConfirmed($email) === false) {
+				$errors[] = 'Uh oh! Looks like your account hasn\'t been activated yet. <a href="">Resend confirmation email</a>' ;
+			}
+			return $errors;
 	    }
 	}
