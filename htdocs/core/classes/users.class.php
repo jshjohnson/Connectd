@@ -304,7 +304,7 @@
 	 
 					$query_2->bindValue(1, 1);
 					$query_2->bindValue(2, 1);
-					$query_2->bindValue(2, $email);							
+					$query_2->bindValue(3, $email);							
 	 
 					$query_2->execute();
 					return true;
