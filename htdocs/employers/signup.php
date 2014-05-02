@@ -12,20 +12,6 @@
 	$pageType = "Page";
 	$section = "Green";
 
-	// Grab the form data
-	$firstName = trim($_POST['firstname']);
-	$lastName = trim($_POST['lastname']);
-	$email = trim($_POST['email']);
-	$password = trim($_POST['password']);
-	$repeatPassword = trim($_POST['repeatpassword']);
-	$employerName = trim($_POST['employer_name']);
-	$employerType = trim($_POST['employer_type']);
-	$location = trim($_POST['location']);
-	$experience = trim($_POST['experience']);
-	$portfolio = trim($_POST['portfolio']);
-	$bio = trim($_POST['bio']);
-	$submit = trim($_POST['submit']);
-
 	$userIP = $ipInfo->getIPAddress();
 	$userLocation = json_decode($ipInfo->getCity($userIP), true);
 	$userCity = $userLocation['cityName'];
@@ -38,6 +24,19 @@
 	if (isset($_SESSION['logged'])){
 		header('Location: dashboard/');
 	}else if (isset($_POST['submit'])) {
+
+		// Grab the form data
+		$firstName = trim($_POST['firstname']);
+		$lastName = trim($_POST['lastname']);
+		$email = trim($_POST['email']);
+		$password = trim($_POST['password']);
+		$repeatPassword = trim($_POST['repeatpassword']);
+		$employerName = trim($_POST['employer_name']);
+		$employerType = trim($_POST['employer_type']);
+		$location = trim($_POST['location']);
+		$experience = trim($_POST['experience']);
+		$portfolio = trim($_POST['portfolio']);
+		$bio = trim($_POST['bio']);
 
 		$forms->hijackPrevention();
 
