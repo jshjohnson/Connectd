@@ -126,7 +126,7 @@
 		 * @param  void
 		 * @return array
 		 */
-		public function getEmployersRecent($userType) {
+		public function getEmployersRecent($userType = 'employer') {
 
 			$recent = "";
 			$all = $this->getEmployersAll($userType);
@@ -151,7 +151,7 @@
 		 * @param  void
 		 * @return array
 		 */ 
-		public function getEmployersAll($userType) {
+		public function getEmployersAll($userType = 'employer') {
 			
 			$results = $this->db->prepare("
 				SELECT u.user_id, u.firstname, u.lastname, u.image_location, e.employer_id, e.employer_name, ut.*, et.*
