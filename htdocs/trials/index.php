@@ -8,6 +8,7 @@
 	$votedBy = $_SESSION['user_id'];
 
 	$pageTitle = "Trials";
+	$pageType = "Custom";
 	$section = "Trials";
 
 	$status = $_GET["status"];

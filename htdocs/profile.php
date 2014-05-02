@@ -35,13 +35,19 @@
 		switch ($userType) {
 			case "designer":
 				$section = "Designer";
+				$pageType = "Custom";
+				$section = "Designer";
 				$users->loggedOutProtect();
 				break;
 			case "developer":
 				$section = "Developer";
+				$pageType = "Custom";
+				$section = "Developer";
 				$users->loggedOutProtect();
 				break;
 			case "employer":
+				$section = "Employer";
+				$pageType = "Custom";
 				$section = "Employer";
 				$jobs = $jobs->getEmployerJobs($pageID);
 				$users->loggedOutProtect();

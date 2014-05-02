@@ -6,11 +6,11 @@
 	$pageType = "Page";
 	$section = "Blue";
 
-	$currentPassword = $_POST['current_password'];
-	$newPassword = $_POST['new_password'];
-	$repeatNewPassword = $_POST['repeat_new_password'];
-
 	if(empty($_POST) === false) {
+
+		$currentPassword = $_POST['current_password'];
+		$newPassword = $_POST['new_password'];
+		$repeatNewPassword = $_POST['repeat_new_password'];
 	   
 	    if(empty($currentPassword) || empty($newPassword) || empty($repeatNewPassword)){
 
