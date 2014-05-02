@@ -103,6 +103,7 @@
 				ON j.user_id = ut.user_type_id)
 				LEFT JOIN " . DB_NAME . ".employers AS e 
 				ON j.user_id = e.employer_id)
+				ORDER BY j.job_post_date DESC
 			");
 			try {
 				$results->execute();
@@ -128,6 +129,7 @@
 				LEFT JOIN " . DB_NAME . ".employers AS e 
 				ON j.user_id = e.employer_id)
 				WHERE j.user_id = ?
+				ORDER BY j.job_post_date DESC
 			");
 
 			$query->bindValue(1, $sessionUserID);

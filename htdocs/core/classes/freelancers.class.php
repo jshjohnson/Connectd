@@ -172,7 +172,7 @@
 		 */ 
 		public function getFreelancersAll($userType) {
 			$results =  $this->db->prepare("
-				SELECT u.user_id, u.firstname, u.lastname, u.image_location, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
+				SELECT u.user_id, u.firstname, u.lastname, u.image_location, u.time_joined, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
 				FROM ((" . DB_NAME . ".users AS u
 				LEFT JOIN " . DB_NAME . ".freelancers AS f
 				ON u.user_id = f.freelancer_id)
@@ -181,6 +181,7 @@
 				WHERE u.confirmed = :confirmed
 				AND u.granted_access = :granted_access
 				AND ut.user_type = :user_type
+				ORDER BY u.time_joined DESC
 			");
 			$results->bindValue(":confirmed", 1);
 			$results->bindValue(":granted_access", 1);
@@ -207,7 +208,7 @@
 		 */ 
 		public function getFreelancersAllTypes($user_id) {
 			$results = $this->db->prepare("
-				SELECT u.user_id, u.firstname, u.lastname, u.image_location, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
+				SELECT u.user_id, u.firstname, u.lastname, u.image_location, u.time_joined, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
 				FROM ((" . DB_NAME . ".users AS u
 				LEFT JOIN " . DB_NAME . ".freelancers AS f
 				ON u.user_id = f.freelancer_id)
@@ -217,6 +218,7 @@
 				AND u.granted_access = :granted_access
 				AND u.user_id != :user_id
 				AND ut.user_type != :user_type
+				ORDER BY u.time_joined DESC
 			");
 			$results->bindValue(":confirmed", 1);
 			$results->bindValue(":granted_access", 1);
