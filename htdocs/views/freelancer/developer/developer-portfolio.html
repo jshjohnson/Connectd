@@ -8,27 +8,7 @@
 						<ul class="grid--no-marg">
 							<li class="grid__cell--no-pad skills--developer">
 								<div class="skills__bar">
-									<div class="skill__name" data-skill="5">HTML5</div>
-								</div>
-							</li>
-							<li class="grid__cell--no-pad skills--developer">
-								<div class="skills__bar">
-									<div class="skill__name" data-skill="3">CSS3</div>
-								</div>
-							</li>
-							<li class="grid__cell--no-pad skills--developer">
-								<div class="skills__bar">
-									<div class="skill__name" data-skill="3">WordPress</div>
-								</div>
-							</li>
-							<li class="grid__cell--no-pad skills--developer">
-								<div class="skills__bar">
-									<div class="skill__name" data-skill="4">jQuery</div>
-								</div>
-							</li>
-							<li class="grid__cell--no-pad skills--developer">
-								<div class="skills__bar">
-									<div class="skill__name" data-skill="2">Git</div>
+									<div class="skill__name" data-skill="<?= $user['skill_rating']; ?>"><?= $user['skill']; ?></div>
 								</div>
 							</li>
 						</ul>
@@ -62,7 +42,7 @@
 					</nav>
 					<div class="container__inner push-bottom">
 						<blockquote>
-							<p><?= $user['testimonial']; ?></p>
+							<p>"<?= $user['testimonial']; ?>"</p>
 							<b class="source"><?= $user['testimonial_source']; ?></b>
 						</blockquote>
 					</div>

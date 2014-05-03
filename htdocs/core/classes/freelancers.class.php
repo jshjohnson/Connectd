@@ -256,24 +256,28 @@
 					u.user_id, u.firstname, u.lastname, u.email, u.bio, u.portfolio, u.location, u.time_joined, u.image_location, 
 					f.freelancer_id, f.jobtitle, f.priceperhour, 
 					ut.*,
-					ft.testimonial, ft.testimonial_source
-				FROM (((" . DB_NAME . ".users AS u
+					ft.testimonial, ft.testimonial_source,
+					fs.skill, fs.skill_rating
+				FROM ((((" . DB_NAME . ".users AS u
 					LEFT JOIN " . DB_NAME . ".freelancers AS f
 				ON u.user_id = f.freelancer_id)
 					LEFT JOIN " . DB_NAME . ".user_types AS ut
 				ON u.user_id = ut.user_type_id)
 					LEFT JOIN " . DB_NAME . ".freelancer_testimonials AS ft
 				ON u.user_id = ft.testimonial_id)
+					LEFT JOIN " . DB_NAME . ".freelancer_skills AS fs
+				ON u.user_id = fs.skill_id)
 				WHERE 
-					u.confirmed = ?
-				AND u.user_id = ?
-				AND ut.user_type = ?
-				AND u.granted_access = ?
+					u.confirmed = :confirmed
+				AND u.user_id = :userID
+				AND ut.user_type = :userType
+				AND u.granted_access = :grantedAccess
 			");
-			$results->bindValue(1, 1);
-			$results->bindValue(2, $id);
-			$results->bindValue(3, $userType);
-			$results->bindValue(4, 1);
+
+			$results->bindValue(":confirmed", 1);
+			$results->bindValue(":userID", $id);
+			$results->bindValue(":userType", $userType);
+			$results->bindValue(":grantedAccess", 1);
 
 			try {
 				$results->execute();
@@ -283,8 +287,7 @@
 				$debug->errorView($users, $e);	
 			}
 
-			$developers = $results->fetch(PDO::FETCH_ASSOC);
-			
-			return $developers;
+			$freelancer = $results->fetch(PDO::FETCH_ASSOC);
+			return $freelancer;
 		}
 	}

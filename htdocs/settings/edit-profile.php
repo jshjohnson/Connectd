@@ -36,7 +36,6 @@
 			$template = "settings/edit-profile.html";
 		}
 
-
 		if(empty($_POST) === false) {
 
 			$skills = explode(',', $_POST['skills']);
@@ -54,43 +53,12 @@
 				$errors[] = "You must specify at least 3 skills";
 			}
 
-			// if(isset($_FILES['portfolio-piece']) && !empty($_FILES['portfolio-piece']['name'])) {
-			// 	// Number of uploaded files
-			// 	$num_files = count($_FILES['portfolio-piece']['name']);
-
-			// 	/** loop through the array of files ***/
-			// 	for($x =0; $x< $num_files;$x++){
-
-			// 		$image = $_FILES['portfolio-piece']['name'][$x];
-			// 		$tmp_name = $_FILES['portfolio-piece']['tmp_name'][$x];
-			// 		$allowed_ext = array('jpg', 'jpeg', 'png', 'gif', 'svg');
-			// 		$a = explode('.', $image);
-			// 		$file_ext = strtolower(end($a)); unset($a);
-			// 		$file_size = $_FILES['portfolio-piece']['size'][$x];
-			// 		$path = "assets/portfolio-pieces";
-
-			// 		if (in_array($file_ext, $allowed_ext) === false) {
-			// 			$errors[] = 'Image file type not allowed';	
-			// 		}	
-			// 		if ($file_size > 2097152) {
-			// 			$errors[] = 'File size must be under 2mb';
-			// 		}
-   
-			// 		if(!is_uploaded_file($_FILES['portfolio-piece']['tmp_name'][$x])){
-			// 		    $errors[] = $image.' No file uploaded';
-			// 		}
-			// 	}
-			// }
-
 
 			if(empty($errors) === true) {
-
-				// if (isset($_FILES['portfolio-piece']) && !empty($_FILES['portfolio-piece']['name'])) {
-				// 	$newpath = $forms->fileNewPath($path, $image);
-				// 	move_uploaded_file($tmp_name, $newpath);
-				// }
-
-				// $imageLocation = htmlentities(trim($newpath));
+				// $users->updatePortfolio($portfolio, $sessionUserID);
+				foreach($skills as $skill) {
+					$users->updateSkills($skill, $sessionUserID); 
+				} 
 
 				$users->updateTestimonial($testimonial, $testimonialSource, $sessionUserID); 
 				header('Location: ' . BASE_URL . 'settings/edit-profile/?success');

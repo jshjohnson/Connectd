@@ -548,4 +548,29 @@
 				$debug->errorView($users, $e);	
 			}
 		}
+
+		public function updateSkills($skill, $sessionUserID) {
+
+			$testimonialQuery = $this->db->prepare("
+				INSERT INTO " . DB_NAME . ".freelancer_skills
+					(skill_id, skill)
+				VALUES 
+					(:userID, :skill)
+				ON DUPLICATE KEY 
+				UPDATE
+					`skill` = :skill
+			");
+
+			$testimonialQuery->bindValue(":userID", $sessionUserID);
+			$testimonialQuery->bindValue(":skill", $skill);
+			$testimonialQuery->bindValue(":skillRating", $skillRating);
+
+			try{
+				$testimonialQuery->execute();
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+		}
 	}
