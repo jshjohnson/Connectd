@@ -48,12 +48,18 @@
 				</div>
 
 				<div class="header-section header-section--right">
+				<?php if($sessionUserType != "employer") : ?>
 					<a href="<?= BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/"?>">
 						<div style="background-image: url('<?= BASE_URL . $sessionAvatar; ?>');" class="header-section__avatar"></div>
 					</a>
 					<h2 class="header-section__title header-section__title--username">
 						<a href="<?= BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/"?>"><?= $sessionUsername; ?></a>
 					</h2>
+				<?php else : ?>
+					<h2 class="header-section__title header-section__title--username">
+						<a href="<?= BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/"?>"><?= $sessionUsername. " <small>(" . $sessionEmployerName .")</small>"; ?></a>
+					</h2>
+				<?php endif; ?>
 					<a href="<?= BASE_URL . "dashboard/" ?>" class="header-section__home"></a>
 				</div>
 

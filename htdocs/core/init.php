@@ -48,5 +48,10 @@
 		$sessionEmail = $sessionUser['email'];
 		$sessionUserType = $sessionUser['user_type'];
 		$sessionAvatar = $sessionUser['image_location'];
+
+		if($sessionUserType == "employer") {
+			$sessionEmployerData = $employers->getEmployersSingle($sessionUserID);
+			$sessionEmployerName = ucwords($sessionEmployerData['employer_name']);	
+		}
 	}
 	
