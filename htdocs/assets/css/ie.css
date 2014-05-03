@@ -2881,7 +2881,7 @@ input[type=search].call-to-action__search:focus {
 
 /* line 821, ../scss/core/_modules.scss */
 .user-info__label {
-  font-size: .8em;
+  font-size: .85em;
 }
 
 /* line 825, ../scss/core/_modules.scss */
@@ -3580,29 +3580,31 @@ input[type=search].call-to-action__search:focus {
 /* line 62, ../scss/core/modules/_user-module.scss */
 .user-module__title--alt {
   font-size: 1.1em;
+  text-align: center;
+  margin-bottom: .5em;
 }
 
-/* line 66, ../scss/core/modules/_user-module.scss */
+/* line 68, ../scss/core/modules/_user-module.scss */
 .user-module__label {
   font-size: .9em;
   margin-top: 0;
   margin-bottom: 0.66667em;
   font-weight: 500;
 }
-/* line 71, ../scss/core/modules/_user-module.scss */
+/* line 73, ../scss/core/modules/_user-module.scss */
 .user-module__label a {
   color: #2c3e50;
   text-shadow: -1px -1px 0 #f7f7f7, 1px -1px 0 #f7f7f7, -1px 1px 0 #f7f7f7, 1px 1px 0 #f7f7f7;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 3px, rgba(0, 0, 0, 0) 3px);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  /* line 71, ../scss/core/modules/_user-module.scss */
+  /* line 73, ../scss/core/modules/_user-module.scss */
   .user-module__label a {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);
   }
 }
 
-/* line 98, ../scss/core/modules/_user-module.scss */
+/* line 100, ../scss/core/modules/_user-module.scss */
 .user-module__info {
   position: relative;
   margin-left: auto;
@@ -3612,7 +3614,7 @@ input[type=search].call-to-action__search:focus {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 104, ../scss/core/modules/_user-module.scss */
+/* line 106, ../scss/core/modules/_user-module.scss */
 .user-module__info p {
   font-size: .9em;
   margin-bottom: 1em;
