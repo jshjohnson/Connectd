@@ -25,21 +25,13 @@
 				<?php endif;?>
 			</article>
 		<?php else : ?>
-			<article class="dashboard-panel grid__cell module-2-3 module--no-pad">
-				<header class="header--panel header--green cf">
-					<h3 class="float-left"><a href="<?= BASE_URL; ?>list.php?usertype=designer">Job search</a></h3>
-					<h4 class="float-right icon--search"></h4>
-				</header>
-				<?php if (!empty($allJobs) && is_array($allJobs)) : ?>
-
-				<?php foreach ($allJobs as $job) {
-					include(ROOT_PATH . 'views/job/job-list.html');
-				} ?>
-
-				<?php else : ?>
-					<?php include(ROOT_PATH . 'views/job/job-empty-list.html'); ?>
-				<?php endif;?>
-			</article>
+			<div class="grid--no-marg grid--center cf">
+				<article class="grid__cell module-1-2 module--no-pad">
+					<?php foreach($allJobs as $jobID => $job) {
+						include(ROOT_PATH. 'views/job/job-list-alt.html');
+					} ?>
+				</article>
+			</div>
 		<?php endif; ?>
 		</div>
 	</section>
