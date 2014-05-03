@@ -48,7 +48,7 @@
 				</div>
 
 				<div class="header-section header-section--right">
-				<?php if($sessionUserType != "employer") : ?>
+				<?php if(isset($sessionUserType) && $sessionUserType != "employer") : ?>
 					<a href="<?= BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/"?>">
 						<div style="background-image: url('<?= BASE_URL . $sessionAvatar; ?>');" class="header-section__avatar"></div>
 					</a>
