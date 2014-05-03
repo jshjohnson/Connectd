@@ -818,6 +818,10 @@ input[type=search].call-to-action__search {
  	@include underline;
 }
 
+.user-info__label {
+	font-size: .8em;
+}
+
 .polaroid {
 	background-color: white;
 	padding: 1em 1em 0;

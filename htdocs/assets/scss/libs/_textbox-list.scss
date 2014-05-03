@@ -1,14 +1,26 @@
 .textboxlist {cursor: text; }
 .textboxlist-bits { zoom: 1; overflow: hidden; margin: 0 0 1.5em; padding: .5em; border: 1px solid #eee; *padding-bottom: 3px; background: white; }
-.textboxlist-bit { @extend .skills__tag; list-style-type: none; float: left; cursor: default; margin-bottom: 0;}
+.textboxlist-bit { 
+	@extend .skills__tag; 
+	list-style-type: none; 
+	float: left; 
+	cursor: default; 
+	margin-bottom: 0;
+	@include respond-max($bp1) {
+		margin-bottom: .5em;
+	}
+}
 .textboxlist-bit-editable { font-size: 1em; background: white; border: 1px solid #fff; padding: 0; &:after{content: none;}}
-.textboxlist-bit-editable-input { min-width: 5em; padding: 0px !important; line-height: 1.7; margin: 0 !important; border: 0 !important; box-shadow: none !important; *padding-bottom: 0; }
+.textboxlist-bit-editable-input { 
+	min-width: 5em; 
+	padding: 0px !important; 
+	line-height: 1.7; 
+	margin: 0 !important; 
+	border: 0 !important; 
+	@include box-shadow(none !important); 
+	*padding-bottom: 0; 
+}
 .textboxlist-bit-editable-input:focus { outline: 0; }
-.textboxlist-bit-box-deletable { padding-right: 15px; }
-.textboxlist-bit-box-deletebutton { position: absolute; right: 4px; top: 6px; display: block; width: 7px; height: 7px; font-size: 1px; background: url('close.gif'); }
-.textboxlist-bit-box-deletebutton:hover { border: none; background-position: 7px; text-decoration: none; }
-.textboxlist-bit-box-focus { border-color: #598BEC; background: #598BEC; color: #fff; }
-.textboxlist-bit-box-focus .textboxlist-bit-box-deletebutton { background-position: bottom; }
 
 .textboxlist-autocomplete { position: absolute; }
 .textboxlist-autocomplete-placeholder, .textboxlist-autocomplete-results { opacity: 0.9; filter: alpha(opacity=90); background: #eee; -webkit-box-shadow: 0 3px 3px #ccc; -moz-box-shadow: 0 3px 3px #ccc; box-shadow: 0 3px 3px #ccc; border: 1px solid #999; border-top: none; display: none; }
