@@ -14,6 +14,8 @@
 
 	$starredFreelancers = $stars->getStarredFreelancers($starredBy);
 
+	$allFreelancers = $freelancers->getFreelancersAllTypes($sessionUserID);
+
 	if (isset($_GET["status"])) { 
 		$status = $_GET["status"];
 	}
@@ -26,10 +28,10 @@
 
 	if($sessionUserType == 'employer') {
 		$jobs = $jobs->getEmployerJobs($sessionUserID);
+		
 		include(ROOT_PATH . "views/dashboard/employer-dashboard.html");
 	} else {
 		$allJobs = $jobs->getJobsRecent();
-		$allFreelancers = $freelancers->getFreelancersAllTypes($sessionUserID);
 		$recentEmployers = $employers->getEmployersRecent();
 		include(ROOT_PATH . "views/dashboard/freelancer-dashboard.html");
 	}

@@ -33,8 +33,8 @@
 					</div>
 				</article>
 				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
-					<header class="header--panel header--blue cf">
-						<h3 class="float-left"><a href="<?= BASE_URL; ?>designer/list/">New Employers</a></h3>
+					<header class="header--panel header--green cf">
+						<h3 class="float-left"><a href="<?= BASE_URL; ?>employer/list/">New Employers</a></h3>
 						<h4 class="float-right icon--users"></h4>
 					</header>
 					<div class="media-wrapper">
@@ -46,6 +46,23 @@
 
 						<?php else : ?>
 							<?php include('../views/employer/employer-empty-list.html'); ?>
+						<?php endif;?>
+					</div>
+				</article>
+				<article class="dashboard-panel grid__cell module-1-2 module--no-pad float-left">
+					<header class="header--panel header--blue cf">
+						<h3 class="float-left"><a href="<?= BASE_URL; ?>designer/list/">New Freelancers</a></h3>
+						<h4 class="float-right icon--users"></h4>
+					</header>
+					<div class="media-wrapper">
+						<?php if (!empty($allFreelancers) && is_array($allFreelancers)) : ?>
+
+							<?php foreach ($allFreelancers as $freelancer) {
+								include('../views/freelancer/freelancer-list.html');
+							} ?>
+
+						<?php else : ?>
+							<?php include('../views/freelancer/freelancer-empty-list.html'); ?>
 						<?php endif;?>
 					</div>
 				</article>
