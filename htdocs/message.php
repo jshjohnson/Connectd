@@ -7,7 +7,7 @@
 	$userFirstName = $_SESSION["userFirstName"];
 	$userEmail = $_SESSION["userEmail"];
 	$message = preg_replace('/\s*$^\s*/m', "\n", $_POST['message']);
-	$sentBy = $username;
+	$sentBy = $sessionUsername;
 
 	$emails->sendMessageEmail($userFirstName, $userEmail, $message, $sentBy);
 	unset($userFirstName, $userEmail);
