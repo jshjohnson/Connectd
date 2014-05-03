@@ -1,8 +1,8 @@
 // Document Ready
-$(document).ready(function() {
+(function($) {
 	$(".alert").addClass("fadeInDownBig").delay(2000).queue(function(next){
 	    $(this).addClass("fadeOutUpBig");
-	    next();
+		next();
 	});
 
 	// Target radios / checkboxes
@@ -15,12 +15,6 @@ $(document).ready(function() {
 	        $(this).attr('src', $(this).attr('src').replace('.svg', '.png'));
 	    });
 	};
-
-	// Window Load
-	$(window).bind("load", function() {
-		// Fade container on load to combat FOUT
-		// $(".site-wrap").animate({ opacity: 1 }, 'slow');
-	});
 
 	$('#email-input').live('change', function() {
 
@@ -113,5 +107,16 @@ $(document).ready(function() {
 	overlay($(".des-skills-trigger"), ""+baseUrl+"assets/ajax/des-skills.php");
 	overlay($(".login-trigger"), ""+baseUrl+"assets/ajax/login.php");
 	overlay($("#delete-trigger"), ""+baseUrl+"assets/ajax/delete-user.php");
+})(jQuery);
 
+window.addEvent('load', function(){
+	// With custom adding keys 
+	var t2 = new TextboxList('form_tags_input_2', {
+		unique: true,
+		maxLength: 6,
+		bitsOptions:{
+			editable:{addKeys: 188}
+		}
+	});
+	t2.add('HTML5').add('CSS3');
 });
