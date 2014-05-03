@@ -46,11 +46,11 @@
 		}
 
 		if($type == "developer" || $type == "designer") {
-			$freelancers = $freelancers->getFreelancersAll($userType);	
+			$freelancers = $freelancers->getFreelancersAll($type);	
 			$freelancer_id = $_GET["id"];	
 			$template = "list-user.html";
 		} else if ($type == "employer") {
-			$employers = $employers->getEmployersAll($userType);
+			$employers = $employers->getEmployersAll($type);
 			$employer_id = $_GET["id"];
 			$template = "list-user.html";
 		} else if ($type == "jobs") {
