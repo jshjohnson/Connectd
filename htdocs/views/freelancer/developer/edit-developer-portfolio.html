@@ -1,0 +1,42 @@
+
+			<form action="<?= BASE_URL . "settings/account-settings/"; ?>" method="post" enctype="multipart/form-data">
+			<?php if (isset($_GET['success']) && empty($_GET['success'])) : ?>
+		        <p class="message message--success fadeIn">Your details have been updated!</p>	        
+		   	<?php elseif(empty($errors) === false) : ?>
+				<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
+			<?php endif; ?>		
+				<fieldset class="cf clear">
+					<nav class="portfolio__headings-bg">
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--navy">Your Skills</li>
+						</ul>
+					</nav>		
+					<div class="container__inner">
+						<p class="message message--hint">Type the tag (one or more words) and press comma (,). Use left/right arrows, backspace, delete to navigate</p>
+						<div class="form_tags"><input type="text" name="test2" value="" id="form_tags_input_2"></div>
+					</div>
+				</fieldset>
+           		<fieldset class="cf clear">
+           			<nav class="portfolio__headings-bg">
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--navy"><a href="">Your portfolio pieces</a></li>
+						</ul>
+					</nav>			
+					<div class="container__inner">
+						<input name="upload[]" type="file" multiple="multiple" title="Upload portfolio pieces">
+					</div>
+				</fieldset>
+				<fieldset class="cf clear">
+					<nav class="portfolio__headings-bg">
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--navy">Your testimonial</li>
+						</ul>
+					</nav>
+					<div class="container__inner">
+						<textarea name="bio"><?php if (isset($bio) ){echo htmlentities(strip_tags($bio));} else { echo $sessionUser['bio']; }?></textarea>
+                    </div>
+					<div class="btn-container">
+		            	<input class="btn btn--green" name="submit" type="submit" value="Update profile">						
+					</div>
+				</fieldset>
+            </form>

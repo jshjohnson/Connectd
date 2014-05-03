@@ -70,10 +70,7 @@ img.media__img {
 .media__img, .media__button {
 	float: left;
 	margin-bottom: 0;
-	margin-right: $media-img-gutter;
-	@include respond-max($bp1) {
-		margin-right: $media-img-gutter/2;
-	}
+	margin-right: $media-img-gutter/2;
 }
 
 .media--flipped{
