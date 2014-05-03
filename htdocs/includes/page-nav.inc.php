@@ -17,9 +17,9 @@
 						<li><a href="<?= BASE_URL; ?>search/">Search</a></li>
 						<li><a href="<?= BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/"?>">View Profile</a></li>
 						<?php if($sessionUserType != "employer") : ?>
-						<li><a href="<?= BASE_URL . "settings/edit-profile/"?>">Edit Profile</a></li>
+						<li><a href="<?= BASE_URL . "settings/edit-profile/"; ?>">Edit Profile</a></li>
 						<?php endif; ?>
-						<li><a href="<?= BASE_URL . "settings/account-settings/"?>">Account Settings</a></li>
+						<li><a href="<?= BASE_URL . "settings/account-settings/"; ?>">Account Settings</a></li>
 						<li><a href="<?= BASE_URL . "settings/change-password/"; ?>">Change Password</a></li>
 						<li><a href="<?= BASE_URL; ?>logout/">Log out</a></li>
 					<?php else : ?>

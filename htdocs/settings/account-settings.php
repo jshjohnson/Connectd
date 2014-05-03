@@ -85,7 +85,6 @@
 			$users->updateUser($firstName, $lastName, $portfolio, $email, $bio, $imageLocation, $sessionUserID);
 			header('Location: ' . BASE_URL . 'settings/account-settings/?success');
 			exit();
-		
 		}	
     }
 

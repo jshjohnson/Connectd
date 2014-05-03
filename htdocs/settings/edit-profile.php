@@ -12,12 +12,12 @@
 
 		switch ($userType) {
 			case "designer":
-				$pageType = "Custom";
+				$pageType = "profile";
 				$section = "Designer";
 				$users->loggedOutProtect();
 				break;
 			case "developer":
-				$pageType = "Custom";
+				$pageType = "profile";
 				$section = "Developer";
 				$users->loggedOutProtect();
 				break;
