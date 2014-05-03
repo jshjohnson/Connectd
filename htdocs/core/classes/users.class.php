@@ -202,7 +202,10 @@
 		 * @return array
 		 */ 
 	    public function getLocations() {
-			$query = $this->db->prepare("SELECT town FROM " . DB_NAME . ".locations ORDER BY town ASC");
+			$query = $this->db->prepare("
+				SELECT `town` 
+				FROM " . DB_NAME . ".locations 
+				ORDER BY `town` ASC");
 			try{
 				$query->execute();
 			}catch(PDOException $e) {
@@ -225,8 +228,10 @@
 				SELECT users.user_id, users.firstname, users.lastname, users.email, users.password, users.bio, users.image_location, users.portfolio, user_types.*
 				FROM " . DB_NAME . ".users 
 				JOIN " . DB_NAME . ".user_types 
-				ON users.user_id = user_types.user_type_id
-				WHERE users.user_id= ?
+				ON 
+					users.user_id = user_types.user_type_id
+				WHERE 
+					users.user_id= ?
 			");
 			$query->bindValue(1, $id);
 
@@ -251,8 +256,10 @@
 				SELECT users.user_id, user_types.*
 				FROM " . DB_NAME . ".users 
 				JOIN " . DB_NAME . ".user_types 
-				ON users.user_id = user_types.user_type_id
-				WHERE users.user_id= ?
+				ON 
+					users.user_id = user_types.user_type_id
+				WHERE 
+					users.user_id= ?
 			");
 			$query->bindValue(1, $id);
 
@@ -278,7 +285,8 @@
 			$query = $this->db->prepare("
 				SELECT COUNT(`user_id`) 
 				FROM `users` 
-				WHERE `email` = ? 
+				WHERE 
+					`email` = ? 
 				AND `email_code` = ? 
 				AND `confirmed` = ?
 			");
@@ -299,7 +307,8 @@
 						SET 
 							`confirmed` = ?,
 							`granted_access` = ?
-						WHERE `email` = ?
+						WHERE 
+							`email` = ?
 					");
 	 
 					$query_2->bindValue(1, 1);
@@ -354,7 +363,8 @@
 				$query = $this->db->prepare("
 					SELECT $what 
 					FROM " . DB_NAME . ".$table
-					WHERE $field = ?
+					WHERE 
+						$field = ?
 				");
 		 
 				$query->bindValue(1, $value);
@@ -383,8 +393,10 @@
 		 
 			$query = $this->db->prepare("
 				UPDATE " . DB_NAME . ".users 
-				SET `generated_string` = ? 
-				WHERE `email` = ?
+				SET 
+					`generated_string` = ? 
+				WHERE 
+					`email` = ?
 			");
 		 
 			$query->bindValue(1, $generatedString);
@@ -428,8 +440,10 @@
 		 
 						$query = $this->db->prepare("
 							UPDATE `users` 
-							SET `generated_string` = 0 
-							WHERE `user_id` = ?
+							SET 
+								`generated_string` = 0 
+							WHERE 
+								`user_id` = ?
 						"); // set generated_string back to 0
 		 
 						$query->bindValue(1, $userID);
@@ -460,8 +474,10 @@
 		 
 			$query = $this->db->prepare("
 				UPDATE " . DB_NAME . ".users 
-				SET `password` = ? 
-				WHERE `user_id` = ?
+				SET 
+					`password` = ? 
+				WHERE 
+					`user_id` = ?
 			");
 		 
 			$query->bindValue(1, $passwordHash);
@@ -477,7 +493,7 @@
 			}
 		}
 
-		public function updateUser($firstName, $lastName, $portfolio, $email, $bio, $imageLocation, $sessionUserID){
+		public function updateUser($firstName, $lastName, $portfolio, $email, $bio, $imageLocation, $sessionUserID) {
  
 			$query = $this->db->prepare("
 				UPDATE " . DB_NAME . ".users
@@ -487,7 +503,8 @@
 					`portfolio` = :portfolio,
 					`bio` = :bio,
 					`image_location` = :image_location
-				WHERE `user_id` = :user_id
+				WHERE 
+					`user_id` = :user_id
 			");
 			$query->bindValue(":firstname", $firstName);
 			$query->bindValue(":lastname", $lastName);
@@ -499,6 +516,32 @@
 			
 			try{
 				$query->execute();
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+		}
+
+		public function updateTestimonial($testimonial, $testimonialSource, $sessionUserID) {
+
+			$testimonialQuery = $this->db->prepare("
+				INSERT INTO " . DB_NAME . ".freelancer_testimonals
+					(testimonial_id, testimonial, testimonial_source)
+				VALUES 
+					(:userID, :testimonial, :testimonialSource)
+				ON DUPLICATE KEY 
+				UPDATE
+					`testimonial` = :testimonial,
+					`testimonial_source` = :testimonialSource 
+			");
+
+			$testimonialQuery->bindValue(":userID", $sessionUserID);
+			$testimonialQuery->bindValue(":testimonial", $testimonial);
+			$testimonialQuery->bindValue(":testimonialSource", $testimonialSource);
+
+			try{
+				$testimonialQuery->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$debug = new Errors();
