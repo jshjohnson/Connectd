@@ -1,8 +1,6 @@
 					<nav class="portfolio__headings-bg zero-bottom">
 						<ul class="portfolio__headings portfolio__headings--alt">
-							<li class="active active--blue"><a href="">Graphic Design</a></li>
-							<li><a href="">Web Design</a></li>
-							<li><a href="">App Design</a></li>
+							<li class="active active--blue">Portfolio</li>
 						</ul>
 					</nav>
 					<div class="container__inner">
@@ -42,14 +40,16 @@
 						<li class="skills__tag">Photoshop</li>
 						<li class="skills__tag">InDesign</li>
 					</ul>
+				<?php if(!empty($user['testimonial'])) : ?>
 					<nav class="portfolio__headings-bg">
-						<ul class="portfolio__headings portfolio__headings--alt">
-							<li class="active active--blue">Testimonial</li>
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--navy">Testimonial</li>
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">
-					<blockquote>
-						<p>“Josh's dedication, eye for detail, and professionalism was a great asset and incredibly appreciated. He showed creativity, ambition, and care, as evidenced both in the website he made and in instructing RASA's staff how to update and maintain the site. RASA highly commends Josh for his skills and effort."</p>
-						<b class="source">Julia de Bresser, RASA Wakefield</b>
-					</blockquote>
+						<blockquote>
+							<p><?= $user['testimonial']; ?></p>
+							<b class="source"><?= $user['testimonial_source']; ?></b>
+						</blockquote>
 					</div>
+				<?php endif; ?>

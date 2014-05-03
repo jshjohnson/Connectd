@@ -526,7 +526,7 @@
 		public function updateTestimonial($testimonial, $testimonialSource, $sessionUserID) {
 
 			$testimonialQuery = $this->db->prepare("
-				INSERT INTO " . DB_NAME . ".freelancer_testimonals
+				INSERT INTO " . DB_NAME . ".freelancer_testimonials
 					(testimonial_id, testimonial, testimonial_source)
 				VALUES 
 					(:userID, :testimonial, :testimonialSource)

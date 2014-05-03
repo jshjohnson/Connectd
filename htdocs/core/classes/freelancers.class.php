@@ -252,13 +252,20 @@
 		public function getFreelancersSingle($id, $userType) {
 
 			$results = $this->db->prepare("
-				SELECT u.user_id, u.firstname, u.lastname, u.email, u.bio, u.portfolio, u.location, u.time_joined, u.image_location, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
-				FROM ((" . DB_NAME . ".users AS u
-				LEFT JOIN " . DB_NAME . ".freelancers AS f
+				SELECT 
+					u.user_id, u.firstname, u.lastname, u.email, u.bio, u.portfolio, u.location, u.time_joined, u.image_location, 
+					f.freelancer_id, f.jobtitle, f.priceperhour, 
+					ut.*,
+					ft.testimonial, ft.testimonial_source
+				FROM (((" . DB_NAME . ".users AS u
+					LEFT JOIN " . DB_NAME . ".freelancers AS f
 				ON u.user_id = f.freelancer_id)
-				LEFT JOIN " . DB_NAME . ".user_types AS ut
+					LEFT JOIN " . DB_NAME . ".user_types AS ut
 				ON u.user_id = ut.user_type_id)
-				WHERE u.confirmed = ?
+					LEFT JOIN " . DB_NAME . ".freelancer_testimonials AS ft
+				ON u.user_id = ft.testimonial_id)
+				WHERE 
+					u.confirmed = ?
 				AND u.user_id = ?
 				AND ut.user_type = ?
 				AND u.granted_access = ?
