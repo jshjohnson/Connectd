@@ -48,12 +48,6 @@
 				$errors[] = "You must specify the source of your testimonial";
 			}
 
-			// // If less than 3 skills are set
-			// if(is_array($skills) && !empty($skills) && count($skills) < 3) {
-			// 	$errors[] = "You must specify at least 3 skills";
-			// }
-
-
 			if(empty($errors) === true) {
 
 				$users->removeSkills($sessionUserID);
@@ -63,7 +57,7 @@
 				} 
 
 				$users->updateTestimonial($testimonial, $testimonialSource, $sessionUserID); 
-				header('Location: ' . BASE_URL . 'settings/edit-profile/?success');
+				header('Location: ' . BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/?updated");
 				exit();
 			}
 		}
