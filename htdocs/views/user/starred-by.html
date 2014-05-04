@@ -1,0 +1,10 @@
+				<aside class="dashboard-panel module module--no-pad">
+					<header class="header--panel header--green cf">
+						<h3 class="float-left">Recently starred by:</h3>
+					</header>
+					<div class="module--half-pad">
+					<?php foreach($starredAvatars as $starred) : ?>
+						<a href="<?= BASE_URL . $starred['user_type'] . "/profile/" . $starred['starred_by_id'] . "/"; ?>"><img src="<?= BASE_URL . $starred['image_location']; ?>" alt="" class="module__avatar img--avatar"></a>
+					<?php endforeach; ?>
+					</div>
+				</aside>
