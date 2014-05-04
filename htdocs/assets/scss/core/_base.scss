@@ -175,6 +175,7 @@ input[type=submit] {
 	display: inline-block;
 	padding: .9em 1.5em .8em;
 	font-size: .8em;
+	line-height: 1.25;
 	text-align: center;
 	@include border-radius;
 	color: #FFF;
@@ -375,7 +376,7 @@ a:hover {
 .icon--star:before { content: '\e80f'; } /* '' */
 .icon--star-alt:before { content: '\e80f'; color: #EFF123; padding: .5em; margin: 0;} /* '' */
 .icon--users:before { content: '\e812'; } /* '' */
-.icon--cancel:before { content: '\e810'; } /* '' */
+.icon--cancel:before { content: '\e810'; top: 0;} /* '' */
 .icon--lightbulb:before { content: '\e811'; } /* '' */
 .icon--lock:before { content: '\e814'; } /* '' */
 .icon--share:before { content: '\e816'; } /* '' */
