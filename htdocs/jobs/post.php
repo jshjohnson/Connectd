@@ -23,11 +23,8 @@
 		// Grab the form data
 		$jobTitle = trim($_POST['job_title']);
 		$jobLocation = trim($_POST['job_location']);
-
-		$name = trim($_POST['job_name']);
-		$jobName = strtolower(str_replace(array('  ', ' '), '-', preg_replace('/[^a-zA-Z0-9 s]/', '', trim($name)))); 
-
-		$jobFull = $employerName . "need a " . $jobTitle . " to work on " . $jobName;
+		$jobName = stripslashes(trim($_POST['job_name']));
+		$jobFull = $employerName . " need a " . $jobTitle . " to work on " . $jobName;
 		$startDate = trim($_POST['start_date']);
 		$deadline = trim($_POST['deadline']);
 		$budget = trim($_POST['budget']);
