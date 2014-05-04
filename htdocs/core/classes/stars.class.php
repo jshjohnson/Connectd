@@ -23,15 +23,15 @@
 		public function getUserStars($id) {
 			$query = $this->db->prepare("
 				SELECT users.user_id, users.image_location, user_stars.starred_by_id, user_types.user_type
-				FROM " . DB_NAME . ".user_stars
-				LEFT JOIN " . DB_NAME . ".users
+				FROM " . DB_NAME . ".users
+				LEFT JOIN " . DB_NAME . ".user_stars
 				ON 
-					users.user_id = user_stars.star_id
+					user_stars.starred_by_id = users.user_id 
 				LEFT JOIN " . DB_NAME . ".user_types
 				ON 
 					user_types.user_type_id = user_stars.starred_by_id
 				WHERE 
-					user_stars.star_id = :id
+					user_stars.star_id = :id	
 			");
 			$query->bindValue(":id", $id);
 
