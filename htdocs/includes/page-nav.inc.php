@@ -14,7 +14,6 @@
 					<?php if ($users->loggedIn() === true) : ?>
 						<li><a href="<?= BASE_URL; ?>dashboard/">Dashboard</a></li>
 						<li><a href="<?= BASE_URL; ?>trials/">Trials</a></li>
-						<li><a href="<?= BASE_URL; ?>search/">Search</a></li>
 						<li><a href="<?= BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/"?>">View Profile</a></li>
 						<?php if($sessionUserType != "employer") : ?>
 						<li><a href="<?= BASE_URL . "settings/edit-profile/"; ?>">Edit Profile</a></li>
