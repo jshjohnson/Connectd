@@ -740,7 +740,7 @@ img.media__img {
 
 .call-to-action {
 	text-align: center;
-	margin-bottom: 2.5em;
+	margin-bottom: 1.5em;
 	.call-to-action__title {
 		color: white;
 		font-weight: 600;
@@ -755,6 +755,7 @@ img.media__img {
 }
 
 .call-to-action--top {
+	margin-bottom: 2.5em;
 	@include respond-max($bp1) {
 		margin-top: .5em;
 	}
