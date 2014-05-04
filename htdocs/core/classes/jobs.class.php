@@ -198,4 +198,30 @@
 			}
 			return $recent;
 		}
+
+		/**
+		 *  Delete job
+		 *
+		 * @param  string  $jobID The ID of the job
+		 * @return array
+		 */ 
+		public function deleteJob($jobID) {
+		
+			$query = $this->db->prepare("
+				DELETE FROM " . DB_NAME . ".jobs
+				WHERE job_id = :jobID
+			");
+	 
+			$query->bindValue(":jobID", $jobID);
+	 
+			try{
+				$query->execute();
+				header('Location: ' . BASE_URL . 'dashboard/');
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+		}
+
 	}
