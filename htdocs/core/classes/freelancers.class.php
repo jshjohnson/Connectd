@@ -253,7 +253,7 @@
 
 			$results = $this->db->prepare("
 				SELECT 
-					u.firstname, u.lastname, u.email, u.bio, u.portfolio, u.location, u.time_joined, u.image_location, 
+					u.user_id, u.firstname, u.lastname, u.email, u.bio, u.portfolio, u.location, u.time_joined, u.image_location, 
 					f.jobtitle, f.priceperhour, 
 					ut.user_type,
 					ft.testimonial, ft.testimonial_source
