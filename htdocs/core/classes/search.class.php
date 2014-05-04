@@ -30,7 +30,7 @@
 			$results = array();
 			$all = $this->jobs->getJobsAll();
 			foreach($all as $job) {
-				$haystack = $job['job_name'] . $job['employer_name'] . $job['job_location'];
+				$haystack = $job['job_name'] . $job['employer_name'] . $job['job_location'] . $job['job_budget'];
 				if(stripos($haystack, $searchTerm) !== false) {
 					$results[] = $job; 
 				}	
