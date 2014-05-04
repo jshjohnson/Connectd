@@ -35,7 +35,11 @@
 
 							<?php endif; ?>
 						</div>
-						<?php endif;?>
+						<?php else : ?>
+						<div class="btn-wrapper push-top">
+							<a href="<?= BASE_URL;?>settings/account-settings/" class="btn btn--green">Account settings</a>
+						</div>
+						<?php endif; ?>
 					</div>
 					<div class="user-module__info">
 						<h3 class="user-module__title"><?= $user['firstname'] . " " . $user['lastname']; ?></h3>

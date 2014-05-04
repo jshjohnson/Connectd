@@ -39,8 +39,9 @@
 
 		if(empty($_POST) === false) {
 
+			$jobTitle = trim($_POST['jobtitle']);
+			$pricePerHour = trim($_POST['priceperhour']);
 			$skills = explode(',', $_POST['skills']);
-
 			$testimonial = trim($_POST['testimonial']);
 			$testimonialSource = trim($_POST['testimonial-source']);
 
@@ -56,7 +57,11 @@
 				foreach($skills as $skill) {
 					$users->updateSkills($skill, $sessionUserID); 
 				}
+
 				$users->updateTestimonial($testimonial, $testimonialSource, $sessionUserID); 
+
+				// $freelancers->updateFreelancer($jobTitle, $pricePerHour);
+				
 				header('Location: ' . BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/?updated");
 				exit();
 			}
