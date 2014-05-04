@@ -39,9 +39,10 @@
 
 		if(empty($_POST) === false) {
 
+
 			$jobTitle = trim($_POST['jobtitle']);
 			$pricePerHour = trim($_POST['priceperhour']);
-			$skills = explode(',', $_POST['skills']);
+			$skills = explode(',', trim($_POST['skills']));
 			$testimonial = trim($_POST['testimonial']);
 			$testimonialSource = trim($_POST['testimonial-source']);
 
@@ -50,17 +51,25 @@
 				$errors[] = "You must specify the source of your testimonial";
 			}
 
-			if(empty($errors) === true) {
+			if(empty($skills)) {
+				$errors[] = "You must specify at least one skill";
+			}
 
-				$users->removeSkills($sessionUserID);
-				
-				foreach($skills as $skill) {
-					$users->updateSkills($skill, $sessionUserID); 
+
+
+			if(empty($errors) === true) {
+			
+				if(!empty($skills[0])) {
+					$users->removeSkills($sessionUserID);
+					foreach($skills as $skill) {
+
+						$users->updateSkills($skill, $skillRating, $sessionUserID); 
+					}		
 				}
 
 				$users->updateTestimonial($testimonial, $testimonialSource, $sessionUserID); 
 
-				// $freelancers->updateFreelancer($jobTitle, $pricePerHour);
+				$freelancers->updateFreelancer($jobTitle, $pricePerHour, $sessionUserID);
 				
 				header('Location: ' . BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/?updated");
 				exit();

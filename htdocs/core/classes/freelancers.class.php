@@ -309,4 +309,27 @@
 				$debug->errorView($users, $e);	
 			}	
 		}
+
+		public function updateFreelancer($jobTitle, $pricePerHour, $sessionUserID) {
+			$query = $this->db->prepare("
+				UPDATE " . DB_NAME . ".freelancers
+				SET 
+					`jobtitle` = :jobTitle,
+					`priceperhour` = :pricePerHour
+				WHERE 
+					`freelancer_id` = :userID
+			");
+
+			$query->bindValue(":jobTitle", $jobTitle);
+			$query->bindValue(":pricePerHour", $pricePerHour);
+			$query->bindValue(":userID", $sessionUserID);
+
+			try {
+				$query->execute();
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}	
+		}
 	}

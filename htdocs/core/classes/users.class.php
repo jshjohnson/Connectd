@@ -568,21 +568,18 @@
 	
 		}
 
-		public function updateSkills($skill, $sessionUserID) {
+		public function updateSkills($skill, $skillRating = NULL, $sessionUserID) {
 
 			$insertQuery = $this->db->prepare("
 				INSERT INTO " . DB_NAME . ".freelancer_skills
-					(skill_id, skill)
+					(skill_id, skill, skill_rating)
 				VALUES 
-					(:userID, :skill)
-				ON DUPLICATE KEY 
-				UPDATE
-					`skill` = :skill
+					(:userID, :skill, :skillRating)
 			");
 
-			$insertQuery->bindValue(":userID", $sessionUserID);
 			$insertQuery->bindValue(":skill", $skill);
 			$insertQuery->bindValue(":skillRating", $skillRating);
+			$insertQuery->bindValue(":userID", $sessionUserID);
 
 			try{
 				$insertQuery->execute();
