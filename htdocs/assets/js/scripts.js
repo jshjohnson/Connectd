@@ -107,6 +107,11 @@
 	overlay($(".des-skills-trigger"), ""+baseUrl+"assets/ajax/des-skills.php");
 	overlay($(".login-trigger"), ""+baseUrl+"assets/ajax/login.php");
 	overlay($("#delete-trigger"), ""+baseUrl+"assets/ajax/delete-user.php");
+
+	$.ajax({url: ""+baseUrl+"assets/ajax/skill-check.php", dataType: 'json', success: function(r){
+		skills = r;
+	}});	
+
 })(jQuery);
 
 window.addEvent('load', function(){
@@ -118,5 +123,5 @@ window.addEvent('load', function(){
 			editable:{addKeys: 188}
 		}
 	});
-	t2.add('HTML5').add('CSS3');
+	t2.setValues(skills);
 });
