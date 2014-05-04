@@ -12,26 +12,33 @@
 		    $this->emails = new Emails();
 		}
 
+
 		/**
-		 * Gets the number of stars of a particular user
+		 * Gets the avatar of starred_by_id where starred_by_id has voted for user_id
 		 *
 		 * @param  integer  $id The user to test
 		 * @return array
 		 */ 
+
 		public function getUserStars($id) {
- 
 			$query = $this->db->prepare("
-				SELECT COUNT(uv.star_id) AS CountOfstar_id, u.user_id
-				FROM " . DB_NAME . ".user_stars uv
-				JOIN " . DB_NAME . ".users u ON uv.star_id = u.user_id
-				WHERE u.user_id = ? 
-				AND u.user_id = uv.star_id 
-				");
-			$query->bindValue(1, $id);
+				SELECT users.user_id, users.image_location, user_stars.starred_by_id, user_types.user_type
+				FROM " . DB_NAME . ".user_stars
+				LEFT JOIN " . DB_NAME . ".users
+				ON 
+					users.user_id = user_stars.star_id
+				LEFT JOIN " . DB_NAME . ".user_types
+				ON 
+					user_types.user_type_id = user_stars.starred_by_id
+				WHERE 
+					user_stars.star_id = :id
+			");
+			$query->bindValue(":id", $id);
 
 			try{
 				$query->execute();
-				return $query->fetch();
+				# We use fetchAll() instead of fetch() to get an array of all the selected records.
+				return $query->fetchAll();
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$debug = new Errors();
@@ -145,12 +152,13 @@
 				RIGHT JOIN 
 				(((users LEFT JOIN user_stars 
 				ON users.user_id = user_stars.star_id) 
-				LEFT JOIN freelancers 
+					LEFT JOIN freelancers 
 				ON users.user_id = freelancers.freelancer_id) 
-				LEFT JOIN user_types
+					LEFT JOIN user_types
 				ON users.user_id = user_types.user_type_id) 
 				ON users.user_id = user_stars.star_id
-				WHERE user_types.user_type != :user_type
+				WHERE 
+					user_types.user_type != :user_type
 				AND users.confirmed = :confirmed
 				AND user_stars.starred_by_id = :starred_by
 				AND users.user_id != :starred_by
