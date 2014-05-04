@@ -1,4 +1,4 @@
-				<?php if(!empty($user['skill'])) :?>
+				<?php if(is_array($skills) && !empty($skills)) :?>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
 							<li class="active active--navy">Skills</li>
@@ -7,11 +7,13 @@
 					</nav>
 					<div class="container__inner">
 						<ul class="grid--no-marg">
+						<?php foreach($skills as $skill) : ?>
 							<li class="grid__cell--no-pad skills--developer">
 								<div class="skills__bar">
-									<div class="skill__name" data-skill="<?= $user['skill_rating']; ?>"><?= $user['skill']; ?></div>
-								</div>
+									<div class="skill__name" data-skill="<?= $skills['skill_rating']; ?>"><?= $skill['skill']; ?></div>
+								</div>			
 							</li>
+						<?php endforeach; ?>
 						</ul>
 					</div>
 				<?php endif; ?>

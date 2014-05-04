@@ -62,7 +62,8 @@
 		}
 
 		if($userType == "developer" || $userType == "designer") {
-			$user = $freelancers->getFreelancersSingle($pageID, $userType);		
+			$user = $freelancers->getFreelancersSingle($pageID, $userType);
+			$skills = $freelancers->getFreelancerSkills($pageID);
 			$pageTitle  = ucwords($user['firstname']) . ' ' . ucwords($user['lastname']) . ' :: ' . $user['jobtitle'];
 			$_SESSION["userFirstName"] = $user['firstname'];
 			$_SESSION["userEmail"] = $user['email'];
