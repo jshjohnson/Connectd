@@ -1,20 +1,20 @@
 .textboxlist {cursor: text; }
-.textboxlist-bits { zoom: 1; overflow: hidden; margin: 0 0 1.5em; padding: .5em; border: 1px solid #eee; *padding-bottom: 3px; background: white; }
+.textboxlist-bits { zoom: 1; overflow: hidden; margin: 0 0 1.5em; padding: 0 .5em; border: 1px solid #eee; *padding-bottom: 3px; background: white; }
 .textboxlist-bit { 
-	@extend .skills__tag; 
+	@extend .skills__tag;
+	margin-top: .5em;
+	margin-bottom: .5em;
 	list-style-type: none; 
 	float: left; 
 	cursor: default; 
-	margin-bottom: 0;
 	@include respond-max($bp1) {
 		margin-bottom: .5em;
 	}
 }
-.textboxlist-bit-editable { font-size: 1em; background: white; border: 1px solid #fff; padding: 0; &:after{content: none;}}
+.textboxlist-bit-editable { margin-top: .5em; margin-bottom: .3em !important; font-size: 1em; background: white; border: 1px solid #fff; padding: 0; &:after{content: none;}}
 .textboxlist-bit-editable-input { 
-	min-width: 5em; 
 	padding: 0px !important; 
-	line-height: 1.7; 
+	line-height: 1; 
 	margin: 0 !important; 
 	border: 0 !important; 
 	@include box-shadow(none !important); 
