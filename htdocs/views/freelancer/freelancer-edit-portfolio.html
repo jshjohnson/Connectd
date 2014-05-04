@@ -1,9 +1,5 @@
 			<form action="<?= BASE_URL . "settings/edit-profile/"; ?>" method="post" enctype="multipart/form-data">
-			<?php if (isset($_GET['success']) && empty($_GET['success'])) : ?>
-				<div class="container__inner push-top">
-					<p class="message message--success fadeIn">Your details have been updated!</p>
-		        </div>        
-		   	<?php elseif(empty($errors) === false) : ?>
+			<?php if(empty($errors) === false) : ?>
 		   		<div class="container__inner push-top">
 					<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
 				</div>
@@ -11,7 +7,7 @@
 				<fieldset class="cf clear">
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
-							<li class="active active--navy">Your Skills</li>
+							<li class="active active--<?= $color; ?>">Your Skills</li>
 						</ul>
 					</nav>		
 					<div class="container__inner">
@@ -22,21 +18,28 @@
            		<fieldset class="cf clear">
            			<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
-							<li class="active active--navy"><a href="">Your portfolio pieces</a></li>
+							<li class="active active--<?= $color; ?>"><a href="">Your portfolio pieces</a></li>
 						</ul>
 					</nav>			
 					<div class="container__inner">
+						<input name="portfolio-piece[]" type="file" multiple="multiple" title="Upload portfolio pieces">
+						<input name="portfolio-piece[]" type="file" multiple="multiple" title="Upload portfolio pieces">
+						<input name="portfolio-piece[]" type="file" multiple="multiple" title="Upload portfolio pieces">
+						<input name="portfolio-piece[]" type="file" multiple="multiple" title="Upload portfolio pieces">
+						<input name="portfolio-piece[]" type="file" multiple="multiple" title="Upload portfolio pieces">
 						<input name="portfolio-piece[]" type="file" multiple="multiple" title="Upload portfolio pieces">
 					</div>
 				</fieldset>
 				<fieldset class="cf clear">
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
-							<li class="active active--navy">Your testimonial</li>
+							<li class="active active--<?= $color; ?>">Your testimonial</li>
 						</ul>
 					</nav>
 					<div class="container__inner">
+						<label for="testimonial">Testimonial:</label>
 						<textarea name="testimonial" placeholder="Testimonial"><?php if (isset($testimonial) ){echo htmlentities(strip_tags($testimonial));}else{ echo $user['testimonial'];} ?></textarea>
+						<label for="testimonial-source">Testimonial source:</label>
 						<input type="text" name="testimonial-source" value="<?php if (isset($testimonialSource) ){echo htmlentities(strip_tags($testimonialSource));}else{ echo $user['testimonial_source'];} ?>" placeholder="Source">
                     </div>
 					<div class="btn-container">

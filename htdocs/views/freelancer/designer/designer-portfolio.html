@@ -25,30 +25,27 @@
 							</li>
 						</ul>
 					</div>
+				<?php if(is_array($skills) && !empty($skills)) :?>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
 							<li class="active active--blue">Skills</li>
-							<li class="float-right info"><a href="" class="des-skills-trigger">What are these skills?</a></li>
 						</ul>
 					</nav>
 					<ul class="container__inner skills-wrapper">
-						<li class="skills__tag">User Experience Design</li>
-						<li class="skills__tag">Interface Design</li>
-						<li class="skills__tag">Web Design</li>
-						<li class="skills__tag">Graphical Design</li>
-						<li class="skills__tag">Illustrator</li>
-						<li class="skills__tag">Photoshop</li>
-						<li class="skills__tag">InDesign</li>
+						<?php foreach($skills as $skill) : ?>
+						<li class="skills__tag"><?= $skill['skill']; ?></li>
+						<?php endforeach; ?>
 					</ul>
+				<?php endif;?>
 				<?php if(!empty($user['testimonial'])) : ?>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
-							<li class="active active--navy">Testimonial</li>
+							<li class="active active--blue">Testimonial</li>
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">
 						<blockquote>
-							<p><?= $user['testimonial']; ?></p>
+							<p>"<?= $user['testimonial']; ?>"</p>
 							<b class="source"><?= $user['testimonial_source']; ?></b>
 						</blockquote>
 					</div>
