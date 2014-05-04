@@ -154,17 +154,32 @@
 		public function getEmployersAll($userType = 'employer') {
 			
 			$results = $this->db->prepare("
-				SELECT u.user_id, u.firstname, u.lastname, u.image_location, u.time_joined, e.employer_id, e.employer_name, ut.*, et.*
-				FROM (((" . DB_NAME . ".users AS u
-				LEFT JOIN " . DB_NAME . ".employers AS e
+				SELECT 
+					u.user_id, u.firstname, u.lastname, u.image_location, u.time_joined, 
+					e.employer_id, e.employer_name, 
+					ut.*, 
+					et.*,
+					COUNT(DISTINCT jobs.job_id) AS job_count
+				FROM ((((" . DB_NAME . ".users AS u
+					LEFT JOIN " . DB_NAME . ".employers AS e
 				ON u.user_id = e.employer_id)
-				LEFT JOIN " . DB_NAME . ".employer_types as et
+					LEFT JOIN " . DB_NAME . ".employer_types as et
 				ON u.user_id = et.employer_type_id)
-				LEFT JOIN " . DB_NAME . ".user_types AS ut
+					LEFT JOIN " . DB_NAME . ".jobs
+				ON u.user_id = jobs.user_id)
+					LEFT JOIN " . DB_NAME . ".user_types AS ut
 				ON u.user_id = ut.user_type_id)
-				WHERE u.confirmed = :confirmed
+				WHERE 
+					u.confirmed = :confirmed
 				AND ut.user_type = :user_type
-				ORDER BY u.time_joined DESC
+				GROUP BY
+					u.user_id,
+					u.firstname, 
+					u.lastname, 
+					e.employer_name,
+					et.employer_type
+				ORDER BY 
+					u.time_joined DESC
 			");
 			$results->bindValue(":confirmed", 1);
 			$results->bindValue(":user_type", $userType);
