@@ -549,9 +549,28 @@
 			}
 		}
 
+		public function removeSkills($sessionUserID) {
+			$deleteQuery = $this->db->prepare("
+				DELETE FROM " . DB_NAME . ".freelancer_skills
+				WHERE 
+					skill_id = :userID
+			");
+
+			$deleteQuery->bindValue(":userID", $sessionUserID);
+
+			try{
+				$deleteQuery->execute();
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+	
+		}
+
 		public function updateSkills($skill, $sessionUserID) {
 
-			$testimonialQuery = $this->db->prepare("
+			$insertQuery = $this->db->prepare("
 				INSERT INTO " . DB_NAME . ".freelancer_skills
 					(skill_id, skill)
 				VALUES 
@@ -561,12 +580,12 @@
 					`skill` = :skill
 			");
 
-			$testimonialQuery->bindValue(":userID", $sessionUserID);
-			$testimonialQuery->bindValue(":skill", $skill);
-			$testimonialQuery->bindValue(":skillRating", $skillRating);
+			$insertQuery->bindValue(":userID", $sessionUserID);
+			$insertQuery->bindValue(":skill", $skill);
+			$insertQuery->bindValue(":skillRating", $skillRating);
 
 			try{
-				$testimonialQuery->execute();
+				$insertQuery->execute();
 			}catch(PDOException $e) {
 				$users = new Users($db);
 				$debug = new Errors();

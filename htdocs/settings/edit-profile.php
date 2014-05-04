@@ -48,14 +48,16 @@
 				$errors[] = "You must specify the source of your testimonial";
 			}
 
-			// If less than 3 skills are set
-			if(is_array($skills) && !empty($skills) && count($skills) < 3) {
-				$errors[] = "You must specify at least 3 skills";
-			}
+			// // If less than 3 skills are set
+			// if(is_array($skills) && !empty($skills) && count($skills) < 3) {
+			// 	$errors[] = "You must specify at least 3 skills";
+			// }
 
 
 			if(empty($errors) === true) {
-				// $users->updatePortfolio($portfolio, $sessionUserID);
+
+				$users->removeSkills($sessionUserID);
+				
 				foreach($skills as $skill) {
 					$users->updateSkills($skill, $sessionUserID); 
 				} 

@@ -256,17 +256,14 @@
 					u.firstname, u.lastname, u.email, u.bio, u.portfolio, u.location, u.time_joined, u.image_location, 
 					f.jobtitle, f.priceperhour, 
 					ut.user_type,
-					ft.testimonial, ft.testimonial_source,
-					fs.skill, fs.skill_rating
-				FROM ((((" . DB_NAME . ".users AS u
+					ft.testimonial, ft.testimonial_source
+				FROM (((" . DB_NAME . ".users AS u
 					LEFT JOIN " . DB_NAME . ".freelancers AS f
 				ON u.user_id = f.freelancer_id)
 					LEFT JOIN " . DB_NAME . ".user_types AS ut
 				ON u.user_id = ut.user_type_id AND ut.user_type = :userType)
 					LEFT JOIN " . DB_NAME . ".freelancer_testimonials AS ft
 				ON u.user_id = ft.testimonial_id)
-					RIGHT JOIN " . DB_NAME . ".freelancer_skills AS fs
-				ON u.user_id = fs.skill_id)
 				WHERE 
 					u.confirmed = :confirmed
 				AND u.user_id = :userID
