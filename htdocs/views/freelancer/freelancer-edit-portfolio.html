@@ -3,7 +3,34 @@
 		   		<div class="container__inner push-top">
 					<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
 				</div>
-			<?php endif; ?>		
+			<?php endif; ?>	
+				<fieldset class="cf clear">
+					<nav class="portfolio__headings-bg">
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--<?= $color; ?>">Price Per Hour</li>
+						</ul>
+					</nav>
+					<div class="container__inner">
+						<div class="field-1-2 float-left">
+							<label for="priceperhour">What do you charge per hour?</label>
+							<div class="currency-container">
+								<span class="currency-prepend">£</span>
+								<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" class="input--currency" value="<?php if (isset($pricePerHour)) { echo htmlspecialchars($pricePerHour); } else{ echo $user['priceperhour']; } ?>">
+							</div>
+						</div>
+						<div class="field-1-2 float-right">
+							<fieldset class="select-container">
+								<label for="jobtitle">What best describes what you do?</label>
+								<select name="jobtitle">
+									<option value="">Pick one..</option>
+									<?php foreach ($jobTitles as $jobTitle) : ?>
+										<option <?php if ($_POST['jobtitle'] == $jobTitle) { ?>selected="true" <?php }; ?>value="<?= $jobTitle; ?>"><?= $jobTitle; ?></option>
+									<?php endforeach; ?>
+								</select>
+							</fieldset>
+						</div>
+					</div>
+				</fieldset>	
 				<fieldset class="cf clear">
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
@@ -38,7 +65,7 @@
 					</nav>
 					<div class="container__inner">
 						<label for="testimonial">Testimonial:</label>
-						<textarea name="testimonial" placeholder="Testimonial"><?php if (isset($testimonial) ){echo htmlentities(strip_tags($testimonial));}else{ echo $user['testimonial'];} ?></textarea>
+						<textarea name="testimonial" placeholder="Testimonial"><?php if(isset($testimonial) ){echo htmlentities(strip_tags($testimonial));}else{ echo $user['testimonial'];} ?></textarea>
 						<label for="testimonial-source">Testimonial source:</label>
 						<input type="text" name="testimonial-source" value="<?php if (isset($testimonialSource) ){echo htmlentities(strip_tags($testimonialSource));}else{ echo $user['testimonial_source'];} ?>" placeholder="Source">
                     </div>

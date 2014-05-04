@@ -32,6 +32,7 @@
 
 		if($userType == "developer" || $userType == "designer") {
 			$user = $freelancers->getFreelancersSingle($pageID, $userType);
+			$jobTitles = $freelancers->getFreelancerJobTitles($userType);
 			$pageTitle  = ucwords($user['firstname']) . ' ' . ucwords($user['lastname']) . ' :: ' . $user['jobtitle'];
 			$template = "settings/edit-profile.html";
 		}
@@ -54,8 +55,7 @@
 				
 				foreach($skills as $skill) {
 					$users->updateSkills($skill, $sessionUserID); 
-				} 
-
+				}
 				$users->updateTestimonial($testimonial, $testimonialSource, $sessionUserID); 
 				header('Location: ' . BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/?updated");
 				exit();
