@@ -48,28 +48,7 @@
 					<?php endif;?>
 				</article>
 				<aside class="grid__cell module-1-3 module--no-pad user-module--employer float-right">
-					<article class="user-module module module--no-pad">
-						<div class="user-module__info">
-							<div class="user-module__logo">
-								<a href="<?= BASE_URL . "profile.php?usertype=employer&id=" . $job['user_id']; ?>"><img src="<?= BASE_URL . $job['image_location']; ?>" alt="<?= $employerName; ?> logo"></a>
-							</div>
-							<?php  if(strtotime(date('F j, Y', $job['time_joined']))>strtotime('-3 days')) : ?>
-							     <div class="ribbon"><h5>New</h5></div>
-							<?php endif ?>
-							<?php 
-								$employerName = $job['employer_name'];
-
-								if (strlen($employerName)>=23) { ?>
-									<h3 class="user-module__title user-module__title--alt"><a href="<?= BASE_URL . "profile.php?usertype=employer&id=" . $job['user_id']; ?>"><?= $employerName; ?></a></h3>
-								<?php } else { ?>
-									<h3 class="user-module__title"><a href="<?= BASE_URL . "profile.php?usertype=employer&id=" . $job['user_id']; ?>"><?= $employerName; ?></a></h3>
-								<?php } ?>
-							<h4 class="user-module__label icon--attach icon--marg"><?= $job['employer_type']; ?></h4>
-							<h4 class="user-module__label icon--location icon--marg"><?= $job['location']; ?></h4>
-							<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $job['portfolio']; ?>"><?= $job['portfolio']; ?></a></h4>
-							<p><?= nl2br($job['bio']); ?></p>
-						</div>
-					</article>
+					<?php include(ROOT_PATH . 'views/employer/employer-sidebar.html'); ?>
 				</aside>
 			</div>
 		</section>

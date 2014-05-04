@@ -12,6 +12,9 @@
 
 		$job_id = intval($_GET["id"]);
 		$job = $jobs->getJobsSingle($job_id);
+		$userID = $job['user_id'];
+		$user = $employers->getEmployersSingle($userID);
+		$employerName = $user['employer_name'];
 
 		if($job) {
 			$pageTitle  = ucwords($job['job_name']) . ' :: ' . ucwords($job['employer_name']);
