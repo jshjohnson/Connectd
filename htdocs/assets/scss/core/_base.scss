@@ -173,9 +173,8 @@ textarea {
 .btn,
 input[type=submit] {
 	display: inline-block;
-	padding: .9em 1.5em .8em;
+	padding: .6em 1.5em .5em;
 	font-size: .8em;
-	line-height: 1.25;
 	text-align: center;
 	@include border-radius;
 	color: #FFF;
