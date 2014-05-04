@@ -173,7 +173,7 @@ textarea {
 .btn,
 input[type=submit] {
 	display: inline-block;
-	padding: .6em 1.5em .5em;
+	padding: .7em 1.5em .6em;
 	font-size: .8em;
 	text-align: center;
 	@include border-radius;
@@ -375,7 +375,7 @@ a:hover {
 .icon--star:before { content: '\e80f'; } /* '' */
 .icon--star-alt:before { content: '\e80f'; color: #EFF123; padding: .5em; margin: 0;} /* '' */
 .icon--users:before { content: '\e812'; } /* '' */
-.icon--cancel:before { content: '\e810'; top: 0;} /* '' */
+.icon--cancel:before { content: '\e810';} /* '' */
 .icon--lightbulb:before { content: '\e811'; } /* '' */
 .icon--lock:before { content: '\e814'; } /* '' */
 .icon--share:before { content: '\e816'; } /* '' */

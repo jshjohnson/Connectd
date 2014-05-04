@@ -850,7 +850,7 @@ textarea {
 .btn, .btn:visited,
 input[type=submit] {
   display: inline-block;
-  padding: .6em 1.5em .5em;
+  padding: .7em 1.5em .6em;
   font-size: .8em;
   text-align: center;
   -webkit-border-radius: 5px;
@@ -1263,7 +1263,6 @@ a:hover {
 /* line 378, ../scss/core/_base.scss */
 .icon--cancel:before {
   content: '\e810';
-  top: 0;
 }
 
 /* '' */
