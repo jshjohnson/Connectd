@@ -1,0 +1,26 @@
+	<section>
+		<div class="section-heading color-blue">
+			<div class="container">
+				<div class="grid text-center">
+					<div class="grid__cell unit-1-1--bp2 unit-3-4--bp1">
+						<blockquote class="intro-quote text-center">
+							Resend activation email
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="footer--push color-navy">
+		<div class="grid text-center">
+			<div class="grid__cell unit-1-2--bp3 unit-2-3--bp1 content-overlay">
+				<form action="<?= BASE_URL; ?>settings/resend/" method="post" autocomplete="off">
+					<label for="current_password">Email address:</label>
+					<input type='email' name='email' placeholder="Email" value="<?php if (isset($email)) { echo htmlspecialchars($email); } ?>">
+					<div class="btn-container clear">
+						<input class="btn btn--green" name="submit" type="submit" value="Resend activation email">
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>

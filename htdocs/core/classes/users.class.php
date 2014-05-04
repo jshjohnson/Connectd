@@ -355,7 +355,7 @@
 
 		public function fetchInfo($what, $field, $value, $table = "users"){
 		 
-			$allowed = array('user_id', 'email', 'firstname', 'lastname', 'bio', 'granted_access', 'employer_name', 'employer_id');
+			$allowed = array('user_id', 'email', 'firstname', 'lastname', 'bio', 'granted_access', 'employer_name', 'employer_id', 'email_code');
 			if (!in_array($what, $allowed, true) || !in_array($field, $allowed, true)) {
 			    throw new InvalidArgumentException;
 			}else{

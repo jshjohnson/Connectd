@@ -180,7 +180,7 @@
 			} else if ($this->users->emailExists($email) === false) {
 				$errors[] = 'Sorry that username doesn\'t exist.';
 			} else if ($this->users->emailConfirmed($email) === false) {
-				$errors[] = 'Uh oh! Looks like your account hasn\'t been activated yet. <a href="">Resend confirmation email</a>' ;
+				$errors[] = 'Uh oh! Looks like your account hasn\'t been activated yet. <a href="' . BASE_URL .'settings/resend/">Resend confirmation email</a>' ;
 			}
 			return $errors;
 	    }

@@ -20,6 +20,8 @@
 				<p class="message message--success fadeIn">Successfully activated account. Welcome to Connectd!</p>
 			<?php elseif ($status == "success") : ?>
 				<p class="message message--success fadeIn">Thank you for registering. Please check your emails to activate your account.</p>
+			<?php elseif ($status == "resent") : ?>
+				<p class="message message--success fadeIn">We have resent your activation code to your email. <a href="<?= BASE_URL; ?>settings/resend/">Send again?</a></p>
 			<?php elseif(empty($errors) === false) : ?>
 				<p class="message message--error shake"><?php echo implode('</p><p>', $errors); ?></p>
 			<?php endif; ?>
