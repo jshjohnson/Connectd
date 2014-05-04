@@ -1,11 +1,11 @@
+		<section class="call-to-action call-to-action--search">
+			<div class="container call-to-action__container">
+				<form action="<?= BASE_URL; ?>search/index.php" class="zero-bottom">
+					<input type="search" name="search" placeholder="Search for employers/jobs" value=""  results="5" class="call-to-action__search">
+				</form>
+			</div>
+		</section>
 		<section class="container">
-			<section class="call-to-action call-to-action--search">
-				<div class="container">
-					<form action="<?= BASE_URL; ?>search/index.php" class="zero-bottom">
-						<input type="search" name="search" placeholder="Search for employers/jobs" value=""  results="5" class="call-to-action__search">
-					</form>
-				</div>
-			</section>
 			<div class="grid--no-marg grid--center cf">
 				<article class="grid__cell module-2-3 module--no-pad">
 					<?php foreach($allJobs as $jobID => $job) {
