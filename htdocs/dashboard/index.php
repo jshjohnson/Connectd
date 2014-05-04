@@ -7,6 +7,10 @@
 	$users->loggedOutProtect();
 	$users->grantedAccessProtect($sessionUserID);
 
+	$pageTitle = "Dashboard";
+	$pageType = "Custom";
+	$section = "Navy";
+
 	$starredBy = $_SESSION['user_id'];
 
 	$designers = $freelancers->getFreelancersRecent($userType = "designer");
@@ -20,21 +24,18 @@
 		$status = $_GET["status"];
 	}
 
-	$pageTitle = "Dashboard";
-	$pageType = "Custom";
-	$section = "Navy";
-
-	include(ROOT_PATH . "includes/header.inc.php");
-
 	if($sessionUserType == 'employer') {
 		$jobs = $jobs->getEmployerJobs($sessionUserID);
-		
-		include(ROOT_PATH . "views/dashboard/employer-dashboard.html");
+
+		$template = "employer-dashboard.html";
 	} else {
 		$allJobs = $jobs->getJobsRecent();
 		$recentEmployers = $employers->getEmployersRecent();
-		include(ROOT_PATH . "views/dashboard/freelancer-dashboard.html");
+		$starredEmployers = $stars->getStarredEmployers($starredBy);
+		$template = "freelancer-dashboard.html";
 	}
 
+	include(ROOT_PATH . "includes/header.inc.php");
+	include(ROOT_PATH . "views/dashboard/" . $template);
 	include(ROOT_PATH . "includes/footer.inc.php");
 ?>

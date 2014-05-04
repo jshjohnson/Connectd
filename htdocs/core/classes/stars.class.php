@@ -141,7 +141,7 @@
 				user_types.user_type,
 				users.user_id, users.confirmed, users.firstname, users.lastname, users.location, users.image_location, 
 				freelancers.jobtitle, freelancers.priceperhour, user_stars.star_id, user_stars.starred_by_id
-				FROM users AS starredUsers
+				FROM " . DB_NAME . ".users AS starredUsers
 				RIGHT JOIN 
 				(((users LEFT JOIN user_stars 
 				ON users.user_id = user_stars.star_id) 
@@ -161,6 +161,53 @@
 				user_stars.star_id,
 				freelancers.jobtitle, 
 				freelancers.priceperhour
+			");
+			$query->bindValue(":user_type", 'employer');
+			$query->bindValue(":confirmed", 1);
+			$query->bindValue(":starred_by", $starredBy);
+
+			try{
+				$query->execute();
+				# We use fetchAll() instead of fetch() to get an array of all the selected records.
+				return $query->fetchAll();
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+		}
+
+		public function getStarredEmployers($starredBy) {
+			$query = $this->db->prepare("
+				SELECT 
+				user_types.user_type,
+				users.user_id, users.confirmed, users.firstname, users.lastname, users.location, users.image_location, 
+				employers.employer_name, employer_types.employer_type, COUNT(DISTINCT jobs.job_id) AS job_count, user_stars.star_id, user_stars.starred_by_id
+				FROM " . DB_NAME . ".users AS starredUsers
+				RIGHT JOIN 
+				(((((users LEFT JOIN " . DB_NAME . ".user_stars 
+					ON users.user_id = user_stars.star_id) 
+						LEFT JOIN " . DB_NAME . ".employers 
+					ON users.user_id = employers.employer_id)
+						LEFT JOIN " . DB_NAME . ".employer_types
+					ON users.user_id = employer_types.employer_type_id)
+						LEFT JOIN " . DB_NAME . ".jobs
+					ON users.user_id = jobs.user_id)
+						LEFT JOIN " . DB_NAME . ".user_types
+					ON users.user_id = user_types.user_type_id) 
+				ON users.user_id = user_stars.star_id
+				WHERE
+					user_types.user_type = :user_type
+				AND users.confirmed = :confirmed
+				AND user_stars.starred_by_id = :starred_by
+				AND users.user_id != :starred_by
+				GROUP BY
+					users.user_id,
+					users.firstname, 
+					users.lastname, 
+					user_stars.star_id,
+					employers.employer_name,
+					employer_types.employer_type
 			");
 			$query->bindValue(":user_type", 'employer');
 			$query->bindValue(":confirmed", 1);
