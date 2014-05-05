@@ -22,7 +22,7 @@
 							<h4 class="user-module__label icon--location icon--marg"><?= $user['location']; ?></h4>
 							<h4 class="user-module__label icon--globe icon--marg"><a href="<?= $user['portfolio']; ?>"><?= $user['portfolio']; ?></a></h4>
 							<p><?= nl2br($user['bio']); ?></p>
-						<?php if($pageID != $sessionUserID) : ?>
+						<?php if($userID != $sessionUserID) : ?>
 							<div class="btn-wrapper push-top">
 								<a class="btn--left btn btn--green cf hire-trigger" href="">Send message</a>
 							<?php if($stars->sessionUserStarred($user['user_id'], $starredBy) == false) : ?>
@@ -31,6 +31,10 @@
 								<a class="btn--right btn btn--red cf" href="<?= BASE_URL; ?>remove-star.php?user_id=<?= $user["user_id"]; ?>" title="Remove star from user"><i class="icon--star"></i>Unstar</a>
 							<?php endif; ?>
 							</div>
-						<?php endif;?>	
+						<?php else : ?>
+						<div class="btn-wrapper user-module__buttons">
+							<a href="<?= BASE_URL;?>settings/account-settings/" class="btn btn--green icon--cog">Account settings</a>
+						</div>
+						<?php endif; ?>
 						</div>
 					</aside>
