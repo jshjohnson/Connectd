@@ -3283,7 +3283,7 @@ input[type=search].call-to-action__search:focus {
 }
 
 /* line 43, ../scss/core/modules/_buttons.scss */
-.btn--action {
+.btn.btn--action {
   margin-top: .68em;
   margin-right: 1em;
   font-size: .7em;
@@ -3307,7 +3307,7 @@ input[type=search].call-to-action__search:focus {
   transition: all 0.2s ease-in-out;
 }
 /* line 56, ../scss/core/modules/_buttons.scss */
-.btn--action:hover {
+.btn.btn--action:hover {
   top: 0;
   -webkit-box-shadow: inset 0 0 0.1em #214119;
   -moz-box-shadow: inset 0 0 0.1em #214119;
@@ -3318,7 +3318,7 @@ input[type=search].call-to-action__search:focus {
   transition: all 0.2s ease-in-out;
 }
 /* line 61, ../scss/core/modules/_buttons.scss */
-.btn--action:visited, .btn--action:hover {
+.btn--action.btn:visited, .btn.btn--action:hover {
   color: white;
 }
 
