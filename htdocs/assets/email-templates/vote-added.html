@@ -3,32 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.5"/>
-        <title>Modular Template Patterns</title>
-
-        <!--
-        	This email is an experimental proof-of-concept based on the
-            idea that the most common design patterns seen in email can
-            be placed in modular blocks and moved around to create
-            different designs.
-
-			The same principle is used to build the email templates in
-            MailChimp's Drag-and-Drop email editor.
-
-			This email is optimized for mobile email clients, and even
-            works relatively well in the Android Gmail App, which does
-            not support Media Queries, but does have limited mobile-
-            friendly functionality.
-
-			While this coding method is very flexible, it can be more
-            brittle than traditionally-coded emails, particularly in
-            Microsoft Outlook 2007-2010. Outlook-specific conditional
-            CSS is included to counteract the inconsistencies that
-            crop up.
-            
-            For more information on HTML email design and development,
-            visit http://templates.mailchimp.com
-        -->
-
+        <title>{{subject}}</title>
         <style type="text/css">
 			/*////// RESET STYLES //////*/
 			body, #bodyTable, #bodyCell{height:100% !important; margin:0; padding:0; width:100% !important;}
