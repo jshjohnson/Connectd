@@ -39,7 +39,7 @@ button, input { line-height: normal; }
 input[type=search] { text-indent: .5em; }
 input, input[type=search], select, textarea { width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 button, html input[type=button], input[type=reset], input[type=submit] { width: auto; }
-.btn {text-transform: capitalize;}
+a.btn {font-weight: 600;}
 // helper class added via jQuery
 .checkbox {
 	position: relative;
@@ -172,12 +172,17 @@ textarea {
 
 .btn,
 input[type=submit] {
+	text-transform: capitalize;
+	line-height: 1.5;
 	display: inline-block;
 	padding: .7em 1.5em .6em;
 	font-size: .8em;
 	text-align: center;
 	@include border-radius;
 	color: #FFF;
+	@include respond-max($bp2) {
+		line-height: 1.8;
+	}
 	&:hover, &:visited {
 		color: white;
 	}
