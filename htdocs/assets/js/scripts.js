@@ -77,25 +77,26 @@
 	function overlay($param, $file) {
 		var docHeight = $(document).height();
 		
-		$param.on('click', function(e) {
+		$param.each(function() {
+			$(this).on('click', function(e) {
 			e.preventDefault();
-
-		    $.get($file, function(data){
-			    $(data).appendTo("body").show();
-			   	$('.overlay').children().show().addClass("bounceIn");
-				$(".overlay").css({
-					height: docHeight,
-				});
-	    		$(".overlay").add(".cancel-trigger").click(function(e) {
-				    if (e.target == this) {
+			    $.get($file, function(data){
+				    $(data).appendTo("body").show();
+				   	$('.overlay').children().show().addClass("bounceIn");
+					$(".overlay").css({
+						height: docHeight,
+					});
+		    		$(".overlay").add(".cancel-trigger").click(function(e) {
+					    if (e.target == this) {
+							$('.overlay').remove();
+					    }
+					});
+					$('.cancel-trigger').click(function(e){
+						e.preventDefault();
 						$('.overlay').remove();
-				    }
+					});
 				});
-				$('.cancel-trigger').click(function(e){
-					e.preventDefault();
-					$('.overlay').remove();
-				});
-			});
+		   });
 		});
 	};
 	//Staging
@@ -106,8 +107,8 @@
 	overlay($(".dev-skills-trigger"), ""+baseUrl+"assets/ajax/dev-skills.php");
 	overlay($(".des-skills-trigger"), ""+baseUrl+"assets/ajax/des-skills.php");
 	overlay($(".login-trigger"), ""+baseUrl+"assets/ajax/login.php");
-	overlay($("#delete-trigger"), ""+baseUrl+"assets/ajax/delete-user.php");
-	overlay($("#delete-job-trigger"), ""+baseUrl+"assets/ajax/delete-job.php");
+	overlay($(".delete-trigger"), ""+baseUrl+"assets/ajax/delete-user.php");
+	overlay($(".delete-job-trigger"), ""+baseUrl+"assets/ajax/delete-job.php");
 
 	$.ajax({url: ""+baseUrl+"assets/ajax/skill-check.php", dataType: 'json', success: function(r){
 		skills = r;
