@@ -12,7 +12,7 @@
 					<div class="float-right badge--price-per-hour">
 						<div class="badge__inner">
 							<h5><?= $employer['job_count']; ?></h5>
-							<span>jobs</span>
+							<span>job<?php if($employer['job_count'] > 1):?>s<?php endif;?></span>
 						</div>
 					</div>
 				</div>
