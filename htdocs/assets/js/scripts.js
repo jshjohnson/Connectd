@@ -107,6 +107,7 @@
 	overlay($(".des-skills-trigger"), ""+baseUrl+"assets/ajax/des-skills.php");
 	overlay($(".login-trigger"), ""+baseUrl+"assets/ajax/login.php");
 	overlay($("#delete-trigger"), ""+baseUrl+"assets/ajax/delete-user.php");
+	overlay($("#delete-job-trigger"), ""+baseUrl+"assets/ajax/delete-job.php");
 
 	$.ajax({url: ""+baseUrl+"assets/ajax/skill-check.php", dataType: 'json', success: function(r){
 		skills = r;

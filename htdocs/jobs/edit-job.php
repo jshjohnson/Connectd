@@ -11,8 +11,8 @@
 		if (isset($_GET['job_id'])) {
 			$jobID = $_GET['job_id'];
 			$job = $jobs->getJobsSingle($jobID);
-			$userID = $job['user_id'];
-			$user = $employers->getEmployersSingle($userID);
+			$pageID = $job['user_id'];
+			$user = $employers->getEmployersSingle($pageID);
 			$employerName = $user['employer_name'];
 			$developerJobTitles = $freelancers->getFreelancerJobTitles("developer");
 			$designerJobTitles = $freelancers->getFreelancerJobTitles("designer");

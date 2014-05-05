@@ -25,8 +25,8 @@
 				</div>
 				<div class='media-1-3 media__side'>
 					<p><small><?= date('F j, Y', $job['job_post_date']); ?></small></p>
-					<?php if ($section != "Employers") : ?>
-					<p><small><strong><a href="<?= BASE_URL . "employer/profile/" . $job['user_id'] . "/"; ?>" class="user-info__link"><?= $job['employer_name']; ?></a></strong></small></p>
+					<?php if ($job['user_id'] == $sessionUserID) : ?>
+					<p><small><strong><a id="delete-job-trigger" href="#" class="user-info__link">Delete job</a></strong></small></p>
 					<?php else : ?>
 					<a class="btn btn--green btn--small apply-trigger" href="<?= BASE_URL . "job/" . $job['job_id']; ?>">Apply</a>
 					<?php endif; ?>

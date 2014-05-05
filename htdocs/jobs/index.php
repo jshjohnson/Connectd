@@ -10,8 +10,9 @@
 			throw new Exception('An invalid page ID was provided to this page.');
 		}
 
-		$job_id = intval($_GET["id"]);
-		$job = $jobs->getJobsSingle($job_id);
+		$jobID = intval($_GET["id"]);
+		$_SESSION["job_id"] = $jobID;
+		$job = $jobs->getJobsSingle($jobID);
 		$userID = $job['user_id'];
 		$user = $employers->getEmployersSingle($userID);
 		$employerName = $user['employer_name'];

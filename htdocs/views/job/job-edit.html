@@ -99,7 +99,7 @@
 					<?php else : ?>
 					<div class="btn-wrapper push-bottom">
 						<a class="btn--left btn btn--green cf" href="<?= BASE_URL; ?>jobs/edit-job.php?job_id=<?= $job['job_id']; ?>">Edit job post</a>
-						<a class="btn--right btn btn--red cf" href="<?= BASE_URL; ?>jobs/delete-job.php?job_id=<?= $job['job_id']; ?>">Delete job post</a>
+						<a id="delete-job-trigger" class="btn--right btn btn--red cf" href="#">Delete job post</a>
 					</div>
 					<?php endif;?>
 				</article>
