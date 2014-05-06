@@ -53,7 +53,7 @@
 		if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) {	
 			$name 			= $_FILES['avatar']['name'];
 			$tmp_name 		= $_FILES['avatar']['tmp_name'];
-			$allowed_ext 	= array('jpg', 'jpeg', 'png', 'gif', 'svg');
+			$allowed_ext 	= array('jpg', 'jpeg', 'png', 'gif');
 			$a 				= explode('.', $name);
 			$file_ext 		= strtolower(end($a)); unset($a);
 			$file_size 		= $_FILES['avatar']['size'];

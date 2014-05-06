@@ -7,7 +7,7 @@
 	try {
 
 		$userType = $sessionUserType;
-		$pageID = $sessionUserID;
+		$userID = $sessionUserID;
 		$pageTitle = "Edit Profile";
 
 		switch ($userType) {
@@ -31,7 +31,7 @@
 		}
 
 		if($userType == "developer" || $userType == "designer") {
-			$user = $freelancers->getFreelancersSingle($pageID, $userType);
+			$user = $freelancers->getFreelancersSingle($userID, $userType);
 			$jobTitles = $freelancers->getFreelancerJobTitles($userType);
 			$pageTitle  = ucwords($user['firstname']) . ' ' . ucwords($user['lastname']) . ' :: ' . $user['jobtitle'];
 			$template = "settings/edit-profile.html";
@@ -43,6 +43,7 @@
 			$jobTitle = trim($_POST['jobtitle']);
 			$pricePerHour = trim($_POST['priceperhour']);
 			$skills = explode(',', trim($_POST['skills']));
+			$portfolioPieces = $_FILES['portfolio-piece'];
 			$testimonial = trim($_POST['testimonial']);
 			$testimonialSource = trim($_POST['testimonial-source']);
 
@@ -55,14 +56,40 @@
 				$errors[] = "You must specify at least one skill";
 			}
 
+			if (isset($_FILES['portfolio-pieces']) && !empty($_FILES['portfolio-pieces']['name'])) {
 
+				foreach ($_FILES['portfolio-pieces']['name'] as $key => $name) {
+
+					$tmp_name = $_FILES['portfolio-pieces']['tmp_name'][$key];
+					$allowed_ext = array('jpg', 'jpeg', 'png', 'gif');
+					$a = explode('.', $name);
+					$file_ext = strtolower(end($a)); unset($a);
+					$file_size = $_FILES['portfolio-pieces']['size'][$key];
+					$fileType = $_FILES['portfolio-pieces']['type'][$key];
+					$path = "assets/portfolio-pieces";
+
+					if (in_array($file_ext, $allowed_ext) === false) {
+						$errors[] = 'Image file type not allowed';	
+					}	
+					if ($file_size > 2097152) {
+						$errors[] = 'File size must be under 2mb';
+					}
+
+					if(empty($errors) === true) {
+						$newpath = $forms->fileNewPath($path, $name);
+						move_uploaded_file($tmp_name, $newpath);
+
+						$fileLocation = htmlentities(trim($newpath));
+						$freelancers->updatePortfolioPiece($fileLocation, $fileType, $sessionUserID);
+					}
+				}
+			}
 
 			if(empty($errors) === true) {
 			
 				if(!empty($skills[0])) {
 					$users->removeSkills($sessionUserID);
 					foreach($skills as $skill) {
-
 						$users->updateSkills($skill, $skillRating, $sessionUserID); 
 					}		
 				}
