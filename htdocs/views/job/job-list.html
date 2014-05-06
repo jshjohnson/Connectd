@@ -28,7 +28,7 @@
 					<?php if ($job['user_id'] == $sessionUserID) : ?>
 					<p><small><strong><a href="#" class="delete-job-trigger user-info__link">Delete job</a></strong></small></p>
 					<?php else : ?>
-					<a class="btn btn--green btn--small apply-trigger" href="<?= BASE_URL . "job/" . $job['job_id']; ?>">Apply</a>
+					<a class="btn btn--green btn--small" href="<?= BASE_URL . "job/" . $job['job_id'] . "/" . $jobNameUrl . "/"; ?>">Apply</a>
 					<?php endif; ?>
 				</div>
 			</div>
