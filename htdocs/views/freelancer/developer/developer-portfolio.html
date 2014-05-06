@@ -17,6 +17,7 @@
 						</ul>
 					</div>
 				<?php endif; ?>
+				<?php if(is_array($portfolioPieces) && !empty($portfolioPieces)) :?>
 					<nav class="portfolio__headings-bg zero-bottom">
 						<ul class="portfolio__headings portfolio__headings">
 							<li class="active active--navy">Portfolio</li>
@@ -24,20 +25,14 @@
 					</nav>
 					<div class="container__inner">
 						<ul class="grid grid__developer">
+						<?php foreach($portfolioPieces as $portfolioPiece) : ?>
 							<li class="grid__cell grid__cell--img">
-								<img src="<?= BASE_URL; ?>assets/img/developer-1.jpg" alt="">
+								<img src="<?= BASE_URL . $portfolioPiece['portfolio_location']; ?>" alt="">
 							</li>
-							<li class="grid__cell grid__cell--img">
-								<img src="<?= BASE_URL; ?>assets/img/developer-2.jpg" alt="">
-							</li>
-							<li class="grid__cell grid__cell--img">
-								<img src="<?= BASE_URL; ?>assets/img/developer-3.png" alt="">
-							</li>
-							<li class="grid__cell grid__cell--img">
-								<img src="<?= BASE_URL; ?>assets/img/developer-4.jpg" alt="">
-							</li>
+						<?php endforeach; ?>
 						</ul>
 					</div>
+				<?php endif; ?>
 				<?php if(!empty($user['testimonial'])) : ?>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
