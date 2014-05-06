@@ -80,6 +80,8 @@
 			$template = "employer/employer-profile.html";
 		}
 
+		$userAvatar = $user['image_location'];
+
 		include(ROOT_PATH . "includes/header.inc.php");
 		include(ROOT_PATH . "views/" . $template);
 		include(ROOT_PATH . "includes/footer.inc.php");
