@@ -71,7 +71,7 @@
 					if(!empty($_POST['dev-skill'][$key]) && empty($_POST['dev-skill-rating'][$key])) {
 						$errors[] = "You must specify a skill rating with your skill";
 					}
-					if(empty($errors) === true) {
+					if(empty($errors) === true && $value != "") {
 						$freelancers->updateSkills($_POST['dev-skill'][$key], $_POST['dev-skill-rating'][$key], $sessionUserID);
 					}
 				}			
