@@ -44,31 +44,31 @@
 		
 	 	/**
 		 * Checks if there is any file in the directory with the same name as the file that you want to put there. 
-		 * If there is a duplicate, a number will be appended to the fule
+		 * If there is a duplicate, a number will be appended to the file
 		 *
 		 * @param string $path
 		 * @param string $filename
 		 * @return void
 		 */ 
-		public function fileNewPath($path, $filename){
-			if ($pos = strrpos($filename, '.')) {
-				$name = substr($filename, 0, $pos);
-				$ext = substr($filename, $pos);
+		public function fileNewPath($path, $fileName){
+			if ($pos = strrpos($fileName, '.')) {
+				$name = substr($fileName, 0, $pos);
+				$ext = substr($fileName, $pos);
 			} else {
-				$name = $filename;
+				$name = $fileName;
 			}
 
-			$newpath = $path.'/'.$filename;
-			$newname = $filename;
+			$newPath = $path.'/'.$fileName;
+			$newName = $fileName;
 			$counter = 0;
 
-			while (file_exists($newpath)) {
-				$newname = $name .'_'. $counter . $ext;
-				$newpath = $path.'/'.$newname;
+			while (file_exists(ROOT_PATH . $newPath)) {
+				$newName = $name .'_'. $counter . $ext;
+				$newPath = $path.'/'.$newName;
 				$counter++;
 			}
 
-			return $newpath;
+			return $newPath;
 		}
 
 		public function validateFreelancer($firstName, $lastName, $email, $password, $repeatPassword, $portfolio, $jobTitle, $experience, $bio, $errors) {
