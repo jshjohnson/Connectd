@@ -33,6 +33,7 @@
 
 		if($userType == "developer" || $userType == "designer") {
 			$user = $freelancers->getFreelancersSingle($userID, $userType);
+			$skills = $freelancers->getFreelancerSkills($userID);
 			$userAvatar = $user['image_location'];
 			$jobTitles = $freelancers->getFreelancerJobTitles($userType);
 			$pageTitle  = ucwords($user['firstname']) . ' ' . ucwords($user['lastname']) . ' :: ' . $user['jobtitle'];
@@ -41,10 +42,10 @@
 
 		if(empty($_POST) === false) {
 
-
 			$jobTitle = trim($_POST['jobtitle']);
 			$pricePerHour = trim($_POST['priceperhour']);
-			$skills = explode(',', trim($_POST['skills']));
+			$designerSkills = explode(',', trim($_POST['des-skills']));
+			$developerSkills = $_POST['dev-skill'];
 			$deletePortfolio = trim($_POST['delete-portfolio']);
 			$portfolioPieces = $_FILES['portfolio-piece'];
 			$testimonial = trim($_POST['testimonial']);
@@ -55,12 +56,25 @@
 				$errors[] = "You must specify the source of your testimonial";
 			}
 
-			if(empty($skills)) {
-				$errors[] = "You must specify at least one skill";
+			if($userType == "designer") {
+				if(empty($designerSkills)) {
+					$errors[] = "You must specify at least one skill";
+				}
 			}
 
 			if($deletePortfolio == "delete") {
 				$freelancers->removePortfolioPiece($sessionUserID);
+			}
+
+			if(isset($developerSkills)) {
+				foreach($developerSkills as $key => $value) {
+					if(!empty($_POST['dev-skill'][$key]) && empty($_POST['dev-skill-rating'][$key])) {
+						$errors[] = "You must specify a skill rating with your skill";
+					}
+					if(empty($errors) === true) {
+						$freelancers->updateSkills($_POST['dev-skill'][$key], $_POST['dev-skill-rating'][$key], $sessionUserID);
+					}
+				}			
 			}
 
 			if ($_FILES['portfolio-pieces']["size"][0] > 0) {
@@ -99,20 +113,19 @@
 			}
 
 			if(empty($errors) === true) {
-			
-				if(!empty($skills[0])) {
+
+				if(!empty($designerSkills[0])) {
 					$freelancers->removeSkills($sessionUserID);
-					foreach($skills as $skill) {
+					foreach($designerSkills as $skill) {
 						$freelancers->updateSkills($skill, $skillRating, $sessionUserID); 
 					}		
 				}
-
+			
 				$freelancers->updateTestimonial($testimonial, $testimonialSource, $sessionUserID); 
-
 				$freelancers->updateFreelancer($jobTitle, $pricePerHour, $sessionUserID);
 				
-				header('Location: ' . BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/?updated");
-				exit();
+				// header('Location: ' . BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/?updated");
+				// exit();
 			}
 		}
 
