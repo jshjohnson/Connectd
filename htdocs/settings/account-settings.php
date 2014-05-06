@@ -2,6 +2,9 @@
 	require("../config.php"); 
 	require(ROOT_PATH . "core/init.php");
 
+	$users->loggedOutProtect();
+	$users->grantedAccessProtect($sessionUserID);
+
 	$pageTitle = "Account Settings";
 	$pageType = "Page";
 	$section = "Blue";

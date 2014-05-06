@@ -2,6 +2,9 @@
 	require("config.php"); 
 	require(ROOT_PATH . "core/init.php");
 
+	$users->loggedOutProtect();
+	$users->grantedAccessProtect($sessionUserID);
+	
 	if (isset($_GET['user_id'])) {
 		$user_id = $_GET['user_id'];
 	}

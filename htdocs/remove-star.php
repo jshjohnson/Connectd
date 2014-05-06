@@ -2,7 +2,9 @@
 	require("config.php"); 
 	require(ROOT_PATH . "core/init.php");
 	
-	// $votes->userVotedForProtect();
+	$users->loggedOutProtect();;
+	$users->grantedAccessProtect($sessionUserID);
+
 	$user_id = $_GET['user_id'];
 	$starredBy = $_SESSION['user_id'];
 
