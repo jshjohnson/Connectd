@@ -22,7 +22,7 @@
 							<img src="<?= BASE_URL . $userAvatar; ?>" alt="" style="visibility:hidden;">
 						</div>
 						<?php endif; ?>
-						<?php if($pageID != $sessionUserID) : ?>
+						<?php if($userID != $sessionUserID) : ?>
 						<div class="btn-wrapper user-module__buttons">
 							<a class="btn--left btn btn--green cf hire-trigger" href="">Hire <?= $user['firstname']; ?></a>
 							<?php if($stars->sessionUserStarred($user['user_id'], $starredBy) == false) : ?>
