@@ -1,16 +1,13 @@
 					<aside class="cf user-module module module--no-pad">
 						<div class="user-module__info">
 							<div class="user-module__logo">
-							<?php 
-								$userAvatar = $user['image_location'];
-								if($userAvatar != "assets/avatars/default_avatar.png") :
-							?>
+						<?php if($userAvatar != "assets/avatars/default_avatar.png") : ?>
 								<img src="<?= BASE_URL . $user['image_location']; ?>" alt="<?= $employerName; ?> logo">
-							<?php endif;?>
+						<?php endif;?>
 							</div>
-							<?php  if(strtotime(date('F j, Y', $user['time_joined']))>strtotime('-3 days')) : ?>
+						<?php  if(strtotime(date('F j, Y', $user['time_joined']))>strtotime('-3 days')) : ?>
 							     <div class="ribbon"><h5>New</h5></div>
-							<?php endif ?>
+						<?php endif ?>
 							<?php 
 								if (strlen($employerName)>=23) {
 									echo "<h3 class=\"user-module__title user-module__title--alt\">" . $employerName . "</h3>";

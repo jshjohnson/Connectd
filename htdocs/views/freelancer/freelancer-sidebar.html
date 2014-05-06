@@ -1,4 +1,4 @@
-					<?php if($userType == "developer") : ?>
+				<?php if($userType == "developer") : ?>
 					<div class="badge badge--right color-red bounceIn">
 						<span class="badge__inner">
 							<h5>£<?= $user['priceperhour']; ?></h5>
@@ -12,16 +12,13 @@
 							<small>per hour</small>
 						</span>
 					</div>
-					<?php endif; ?>
+				<?php endif; ?>
 					<div class="user-module__header">
-						<?php 
-							$userAvatar = $user['image_location'];
-							if($userAvatar != "assets/avatars/default_avatar.png") :
-						?>
+					<?php if($userAvatar != "assets/avatars/default_avatar.png") : ?>
 						<div class="user-module__avatar" style="background-image: url('<?= BASE_URL . $userAvatar; ?>');">
 							<img src="<?= BASE_URL . $userAvatar; ?>" alt="" style="visibility:hidden;">
 						</div>
-						<?php endif; ?>
+					<?php endif; ?>
 						<?php if($userID != $sessionUserID) : ?>
 						<div class="btn-wrapper user-module__buttons">
 							<a class="btn--left btn btn--green cf hire-trigger" href="">Hire <?= $user['firstname']; ?></a>
