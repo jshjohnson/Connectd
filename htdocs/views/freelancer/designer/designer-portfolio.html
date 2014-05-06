@@ -1,4 +1,4 @@
-			<?php if($portfolioPieces > 0 && !empty($skills) && !empty($testimonial)) : ?>
+			<?php if($portfolioPieces > 0 && $designerSkills > 0 && !empty($testimonial)) : ?>
 				<?php if(is_array($portfolioPieces) && !empty($portfolioPieces)) : ?>
 					<nav class="portfolio__headings-bg zero-bottom">
 						<ul class="portfolio__headings portfolio__headings--alt">
@@ -15,14 +15,14 @@
 						</ul>
 					</div>
 				<?php endif; ?>
-				<?php if(is_array($skills) && !empty($skills)) :?>
+				<?php if(is_array($designerSkills) && !empty($designerSkills)) :?>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings--alt">
 							<li class="active active--blue">Skills</li>
 						</ul>
 					</nav>
 					<ul class="container__inner skills-wrapper">
-						<?php foreach($skills as $skill) : ?>
+						<?php foreach($designerSkills as $skill) : ?>
 						<li class="skills__tag"><?= $skill['skill']; ?></li>
 						<?php endforeach; ?>
 					</ul>
