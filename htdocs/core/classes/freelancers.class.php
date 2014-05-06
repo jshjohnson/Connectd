@@ -424,6 +424,10 @@
 					(skill_id, skill, skill_rating)
 				VALUES 
 					(:userID, :skill, :skillRating)
+				ON DUPLICATE KEY 
+				UPDATE
+					`skill` = :skill,
+					`skill_rating` = :skillRating
 			");
 
 			$insertQuery->bindValue(":skill", $skill);
