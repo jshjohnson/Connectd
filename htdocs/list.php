@@ -36,6 +36,11 @@
 				$users->loggedOutProtect();
 				$pageTitle = "Job list";
 				break;
+			case "freelancer":
+				$section = "Freelancer";
+				$users->loggedOutProtect();
+				$pageTitle = "Freelancer list";
+				break;
 			default:
 				$template = "index/index.html";
 				$pageTitle = "Connectd";
@@ -45,7 +50,11 @@
 				break;
 		}
 
-		if($type == "developer" || $type == "designer") {
+		if($type == "freelancer") {
+			$freelancers = $freelancers->getFreelancersAllTypes($sessionUserID);	
+			$freelancer_id = $_GET["id"];	
+			$template = "list-user.html";
+		}else if($type == "developer" || $type == "designer") {
 			$freelancers = $freelancers->getFreelancersAll($type);	
 			$freelancer_id = $_GET["id"];	
 			$template = "list-user.html";
