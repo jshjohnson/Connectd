@@ -1,0 +1,153 @@
+			<form action="<?= BASE_URL . "settings/edit-profile/"; ?>" method="post" enctype="multipart/form-data">
+			<?php if(empty($errors) === false) : ?>
+		   		<div class="container__inner push-top">
+					<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
+				</div>
+			<?php endif; ?>	
+				<fieldset class="cf clear">
+					<nav class="portfolio__headings-bg">
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--navy">Price Per Hour</li>
+						</ul>
+					</nav>
+					<div class="container__inner">
+						<div class="field-1-2 float-left">
+							<label for="priceperhour">What do you charge per hour?</label>
+							<div class="currency-container">
+								<span class="currency-prepend">£</span>
+								<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" class="input--currency" value="<?php if (isset($pricePerHour)) { echo htmlspecialchars($pricePerHour); } else{ echo $user['priceperhour']; } ?>">
+							</div>
+						</div>
+						<div class="field-1-2 float-right">
+							<fieldset class="select-container">
+								<label for="jobtitle">What best describes what you do?</label>
+								<select name="jobtitle">
+									<option value="">Pick one..</option>
+									<option value="<?= $user['jobtitle']; ?>"<?= $user['jobtitle'] ? ' selected="selected"' : '';?>><?= $user['jobtitle']; ?></option>
+									<?php foreach ($jobTitles as $jobTitle) : ?>
+										<option <?php if ($_POST['jobtitle'] == $jobTitle) { ?>selected="true" <?php }; ?>value="<?= $jobTitle; ?>"><?= $jobTitle; ?></option>
+									<?php endforeach; ?>
+								</select>
+							</fieldset>
+						</div>
+					</div>
+				</fieldset>	
+				<fieldset class="cf clear">
+					<nav class="portfolio__headings-bg">
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--navy">Your Skills</li>
+						</ul>
+					</nav>		
+					<div class="container__inner">
+						<p class="message message--hint zero-bottom">Please input up to 6 skills below as well as a skill rating from 1-5 (1 being a beginner, 5 being a pro)</p>
+						<fieldset>
+							<input type="text" name="skill-1" value="" class="field-1-2 float-left" placeholder="Skill"> 
+							<div class="select-container field-1-2 float-right">
+								<select name="skill-rating-1">
+									<option value="">Skill rating</option>
+									<option value="1">1 (Beginner)</option>
+									<option value="2">2 (Amateur)</option>
+									<option value="3">3 (Intermediate)</option>
+									<option value="4">4 (Pro)</option>
+									<option value="5">5 (Expert)</option>
+								</select>
+							</div>
+						</fieldset>						
+						<fieldset class="cf">
+							<input type="text" name="skill-2" value="" class="field-1-2 float-left" placeholder="Skill">
+							<div class="select-container field-1-2 float-right">
+								<select name="skill-rating-2">
+									<option value="">Skill rating</option>
+									<option value="1">1 (Beginner)</option>
+									<option value="2">2 (Amateur)</option>
+									<option value="3">3 (Intermediate)</option>
+									<option value="4">4 (Pro)</option>
+									<option value="5">5 (Expert)</option>
+								</select>
+							</div>
+						</fieldset>
+						<fieldset class="cf">
+							<input type="text" name="skill-3" value="" class="field-1-2 float-left" placeholder="Skill">
+							<div class="select-container field-1-2 float-right">
+								<select name="skill-rating-3">
+									<option value="0">Skill rating</option>
+									<option value="1">1 (Beginner)</option>
+									<option value="2">2 (Amateur)</option>
+									<option value="3">3 (Intermediate)</option>
+									<option value="4">4 (Pro)</option>
+									<option value="5">5 (Expert)</option>
+								</select>
+							</div>
+						</fieldset>						
+						<fieldset class="cf">
+							<input type="text" name="skill-4" value="" class="field-1-2 float-left" placeholder="Skill">
+							<div class="select-container field-1-2 float-right">
+								<select name="skill-rating-4">
+									<option value="0">Skill rating</option>
+									<option value="1">1 (Beginner)</option>
+									<option value="2">2 (Amateur)</option>
+									<option value="3">3 (Intermediate)</option>
+									<option value="4">4 (Pro)</option>
+									<option value="5">5 (Expert)</option>
+								</select>
+							</div>
+						</fieldset>
+						<fieldset class="cf">
+							<input type="text" name="skill-5" value="" class="field-1-2 float-left" placeholder="Skill">
+							<div class="select-container field-1-2 float-right">
+								<select name="skill-rating-5">
+									<option value="0">Skill rating</option>
+									<option value="1">1 (Beginner)</option>
+									<option value="2">2 (Amateur)</option>
+									<option value="3">3 (Intermediate)</option>
+									<option value="4">4 (Pro)</option>
+									<option value="5">5 (Expert)</option>
+								</select>
+							</div>
+						</fieldset>						
+						<fieldset class="cf">
+							<input type="text" name="skill-6" value="" class="field-1-2 float-left" placeholder="Skill">
+							<div class="select-container field-1-2 float-right">
+								<select name="skill-rating-6">
+									<option value="0">Skill rating</option>
+									<option value="1">1 (Beginner)</option>
+									<option value="2">2 (Amateur)</option>
+									<option value="3">3 (Intermediate)</option>
+									<option value="4">4 (Pro)</option>
+									<option value="5">5 (Expert)</option>
+								</select>
+							</div>
+						</fieldset>
+					</div>
+				</fieldset>
+           		<fieldset class="cf clear">
+           			<nav class="portfolio__headings-bg">
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--navy"><a href="">Your portfolio pieces</a></li>
+						</ul>
+					</nav>			
+					<div class="container__inner">
+						<input name="portfolio-pieces[]" type="file" multiple="multiple" title="Upload portfolio pieces">
+						<div class="checkbox">
+							<label for="delete-portfolio">Delete current portfolio</label>
+							<input type="checkbox" name="delete-portfolio" value="delete">
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="cf clear">
+					<nav class="portfolio__headings-bg">
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--navy">Your testimonial</li>
+						</ul>
+					</nav>
+					<div class="container__inner">
+						<label for="testimonial">Testimonial:</label>
+						<textarea name="testimonial" placeholder="Testimonial"><?php if(isset($testimonial) ){echo htmlentities(strip_tags($testimonial));}else{ echo $user['testimonial'];} ?></textarea>
+						<label for="testimonial-source">Testimonial source:</label>
+						<input type="text" name="testimonial-source" value="<?php if (isset($testimonialSource) && $testimonialSource != ""){echo htmlentities(strip_tags($testimonialSource));}else{ echo $user['testimonial_source'];} ?>" placeholder="Source">
+                    </div>
+					<div class="btn-container">
+		            	<input class="btn btn--green" name="submit" type="submit" value="Update profile">						
+					</div>
+				</fieldset>
+            </form>
