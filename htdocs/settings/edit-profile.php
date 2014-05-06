@@ -45,6 +45,7 @@
 			$jobTitle = trim($_POST['jobtitle']);
 			$pricePerHour = trim($_POST['priceperhour']);
 			$skills = explode(',', trim($_POST['skills']));
+			$deletePortfolio = trim($_POST['delete-portfolio']);
 			$portfolioPieces = $_FILES['portfolio-piece'];
 			$testimonial = trim($_POST['testimonial']);
 			$testimonialSource = trim($_POST['testimonial-source']);
@@ -58,8 +59,11 @@
 				$errors[] = "You must specify at least one skill";
 			}
 
+			if($deletePortfolio == "delete") {
+				$freelancers->removePortfolioPiece($sessionUserID);
+			}
 
-			if (!empty($_FILES['portfolio-pieces']["size"][0])) {
+			if ($_FILES['portfolio-pieces']["size"][0] > 0) {
 
 				$freelancers->removePortfolioPiece($sessionUserID);
 
