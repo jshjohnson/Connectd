@@ -65,6 +65,9 @@
 			$user = $freelancers->getFreelancersSingle($userID, $userType);
 			$skills = $freelancers->getFreelancerSkills($userID);
 			$portfolioPieces = $freelancers->getFreelancerPortfolio($userID);
+			$testimonial = $user['testimonial'];
+			$testimonialSource = $user['testimonial_source'];
+
 			$pageTitle  = ucwords($user['firstname']) . ' ' . ucwords($user['lastname']) . ' :: ' . $user['jobtitle'];
 			$_SESSION["userFirstName"] = $user['firstname'];
 			$_SESSION["userEmail"] = $user['email'];

@@ -1,4 +1,5 @@
-				<?php if(is_array($portfolioPieces) && !empty($portfolioPieces)) :?>
+			<?php if(!empty($portfolioPieces) && !empty($skills) && !empty($testimonial)) : ?>
+				<?php if(is_array($portfolioPieces) && !empty($portfolioPieces)) : ?>
 					<nav class="portfolio__headings-bg zero-bottom">
 						<ul class="portfolio__headings portfolio__headings--alt">
 							<li class="active active--blue">Portfolio</li>
@@ -34,8 +35,21 @@
 					</nav>
 					<div class="container__inner push-bottom">
 						<blockquote>
-							<p>"<?= $user['testimonial']; ?>"</p>
-							<b class="source"><?= $user['testimonial_source']; ?></b>
+							<p>"<?= $testimonial ?>"</p>
+							<b class="source"><?= $testimonialSource; ?></b>
 						</blockquote>
 					</div>
 				<?php endif; ?>
+			<?php else : ?>
+					<nav class="portfolio__headings-bg">
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--blue">Uh oh!</li>
+						</ul>
+					</nav>
+					<div class="container__inner push-bottom">
+						<p>
+							It looks like <?= $user['firstname']; ?> has not completed their profile yet. Check back soon!<br>
+							<strong>-- Connectd Team</strong>
+						</p>
+					</div>
+			<?php endif; ?>
