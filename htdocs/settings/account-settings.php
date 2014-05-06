@@ -52,35 +52,35 @@
 
 		if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) {	
 			$name 			= $_FILES['avatar']['name'];
-			$tmp_name 		= $_FILES['avatar']['tmp_name'];
-			$allowed_ext 	= array('jpg', 'jpeg', 'png', 'gif');
+			$tmpName 		= $_FILES['avatar']['tmp_name'];
+			$allowedExt 	= array('jpg', 'jpeg', 'png', 'gif', 'svg');
 			$a 				= explode('.', $name);
-			$file_ext 		= strtolower(end($a)); unset($a);
-			$file_size 		= $_FILES['avatar']['size'];
+			$fileExt 		= strtolower(end($a)); unset($a);
+			$fileSize 		= $_FILES['avatar']['size'];
 			$path 			= "assets/avatars";
 			
-			if (in_array($file_ext, $allowed_ext) === false) {
+			if (in_array($fileExt, $allowedExt) === false) {
 				$errors[] = 'Image file type not allowed';	
 			}	
-			if ($file_size > 2097152) {
+			if ($fileSize > 2097152) {
 				$errors[] = 'File size must be under 2mb';
 			}
 			
 		} else {
-			$newpath = $sessionAvatar;
+			$newPath = $sessionAvatar;
 		}
 
 		if(empty($errors) === true) {
 			
 			if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) {
-				$newpath = $forms->fileNewPath($path, $name);
-				move_uploaded_file($tmp_name, ROOT_PATH . $newpath);
+				$newPath = $forms->fileNewPath($path, $name);
+				move_uploaded_file($tmpName, ROOT_PATH . $newPath);
 			}
 					
 			$firstName 	= htmlentities(trim($_POST['firstname']));
 			$lastName = htmlentities(trim($_POST['lastname']));	
 			$bio = htmlentities(trim($_POST['bio']));
-			$imageLocation = htmlentities(trim($newpath));
+			$imageLocation = htmlentities(trim($newPath));
 			
 			$users->updateUser($firstName, $lastName, $portfolio, $email, $bio, $imageLocation, $sessionUserID);
 			header('Location: ' . BASE_URL . 'settings/account-settings/?success');

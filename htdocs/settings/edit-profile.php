@@ -60,24 +60,24 @@
 
 				foreach ($_FILES['portfolio-pieces']['name'] as $key => $name) {
 
-					$tmp_name = $_FILES['portfolio-pieces']['tmp_name'][$key];
-					$allowed_ext = array('jpg', 'jpeg', 'png', 'gif');
-					$a = explode('.', $name);
-					$file_ext = strtolower(end($a)); unset($a);
-					$file_size = $_FILES['portfolio-pieces']['size'][$key];
-					$fileType = $_FILES['portfolio-pieces']['type'][$key];
-					$path = "assets/portfolio-pieces";
+					$tmpName       = $_FILES['portfolio-pieces']['tmp_name'][$key];
+					$allowed_ext   = array('jpg', 'jpeg', 'png', 'gif', 'svg');
+					$a             = explode('.', $name);
+					$fileExt       = strtolower(end($a)); unset($a);
+					$fileSize      = $_FILES['portfolio-pieces']['size'][$key];
+					$fileType      = $_FILES['portfolio-pieces']['type'][$key];
+					$path          = "assets/portfolio-pieces";
 
-					if (in_array($file_ext, $allowed_ext) === false) {
+					if (in_array($fileExt, $allowedExt) === false) {
 						$errors[] = 'Image file type not allowed';	
 					}	
-					if ($file_size > 2097152) {
+					if ($fileSize > 2097152) {
 						$errors[] = 'File size must be under 2mb';
 					}
 
 					if(empty($errors) === true) {
 						$newpath = $forms->fileNewPath($path, $name);
-						move_uploaded_file($tmp_name, $newpath);
+						move_uploaded_file($tmpName, ROOT_PATH . $newpath);
 
 						$fileLocation = htmlentities(trim($newpath));
 						$freelancers->updatePortfolioPiece($fileLocation, $fileType, $sessionUserID);
