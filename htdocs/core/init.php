@@ -25,7 +25,6 @@
 	$jobs = new Jobs($db);	
 	$votes = new Votes($db);
 	$stars = new Stars($db);
-	$sessions = new Sessions($db);
 	$trials = new Trials($db);
 	$search = new Search($db);
 	$debug = new Errors();
