@@ -74,7 +74,7 @@
 			
 			if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) {
 				$newpath = $forms->fileNewPath($path, $name);
-				move_uploaded_file($tmp_name, $newpath);
+				move_uploaded_file($tmp_name, ROOT_PATH . $newpath);
 			}
 					
 			$firstName 	= htmlentities(trim($_POST['firstname']));
