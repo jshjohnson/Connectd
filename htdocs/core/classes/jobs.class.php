@@ -103,7 +103,7 @@
 				ON j.user_id = ut.user_type_id)
 				LEFT JOIN " . DB_NAME . ".employers AS e 
 				ON j.user_id = e.employer_id)
-				ORDER BY j.job_post_date DESC
+				GROUP by j.job_id
 			");
 			try {
 				$results->execute();
