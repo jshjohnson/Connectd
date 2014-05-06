@@ -33,6 +33,7 @@
 
 		if($userType == "developer" || $userType == "designer") {
 			$user = $freelancers->getFreelancersSingle($userID, $userType);
+			$userAvatar = $user['image_location'];
 			$jobTitles = $freelancers->getFreelancerJobTitles($userType);
 			$pageTitle  = ucwords($user['firstname']) . ' ' . ucwords($user['lastname']) . ' :: ' . $user['jobtitle'];
 			$template = "settings/edit-profile.html";
@@ -57,7 +58,14 @@
 				$errors[] = "You must specify at least one skill";
 			}
 
-			if (isset($_FILES['portfolio-pieces']) && !empty($_FILES['portfolio-pieces']['name'])) {
+
+			if (!empty($_FILES['portfolio-pieces']["size"][0])) {
+
+				$freelancers->removePortfolioPiece($sessionUserID);
+
+				// if($_FILES['portfolio-pieces']['size'] > 6) {
+				// 	$errors[] = "You can only upload up to 6 portfolio pieces.";
+				// }
 
 				foreach ($_FILES['portfolio-pieces']['name'] as $key => $name) {
 
@@ -89,13 +97,13 @@
 			if(empty($errors) === true) {
 			
 				if(!empty($skills[0])) {
-					$users->removeSkills($sessionUserID);
+					$freelancers->removeSkills($sessionUserID);
 					foreach($skills as $skill) {
-						$users->updateSkills($skill, $skillRating, $sessionUserID); 
+						$freelancers->updateSkills($skill, $skillRating, $sessionUserID); 
 					}		
 				}
 
-				$users->updateTestimonial($testimonial, $testimonialSource, $sessionUserID); 
+				$freelancers->updateTestimonial($testimonial, $testimonialSource, $sessionUserID); 
 
 				$freelancers->updateFreelancer($jobTitle, $pricePerHour, $sessionUserID);
 				
