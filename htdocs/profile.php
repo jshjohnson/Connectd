@@ -38,12 +38,14 @@
 				$pageType = "Custom";
 				$section = "Designer";
 				$users->loggedOutProtect();
+				$designerSkills = $freelancers->getFreelancerSkills($userID);
 				break;
 			case "developer":
 				$section = "Developer";
 				$pageType = "Custom";
 				$section = "Developer";
 				$users->loggedOutProtect();
+				$developerSkills = $freelancers->getFreelancerSkills($userID);
 				break;
 			case "employer":
 				$section = "Employer";
@@ -63,7 +65,6 @@
 
 		if($userType == "developer" || $userType == "designer") {
 			$user = $freelancers->getFreelancersSingle($userID, $userType);
-			$skills = $freelancers->getFreelancerSkills($userID);
 			$portfolioPieces = $freelancers->getFreelancerPortfolio($userID);
 			$testimonial = $user['testimonial'];
 			$testimonialSource = $user['testimonial_source'];
