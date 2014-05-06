@@ -1,8 +1,8 @@
+			<?php if($portfolioPieces > 0 && !empty($skills) && !empty($testimonial)) : ?>
 				<?php if(is_array($skills) && !empty($skills)) :?>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
 							<li class="active active--navy">Skills</li>
-							<!-- <li class="float-right help"><a href="" class="dev-skills-trigger">What are these skills?</a></li> -->
 						</ul>
 					</nav>
 					<div class="container__inner">
@@ -46,3 +46,28 @@
 						</blockquote>
 					</div>
 				<?php endif; ?>
+			<?php elseif($userID ==  $sessionUserID) : ?>
+					<nav class="portfolio__headings-bg">
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--blue">Uh oh!</li>
+						</ul>
+					</nav>
+					<div class="container__inner push-bottom">
+						<p>
+							You are yet to complete your profile! Complete it now via: <br>
+							<strong>-- Connectd Team</strong>
+						</p>
+					</div>
+			<?php else : ?>
+					<nav class="portfolio__headings-bg">
+						<ul class="portfolio__headings portfolio__headings">
+							<li class="active active--blue">Uh oh!</li>
+						</ul>
+					</nav>
+					<div class="container__inner push-bottom">
+						<p>
+							It looks like <?= $user['firstname']; ?> has not completed their profile yet. Check back soon!<br>
+							<strong>-- Connectd Team</strong>
+						</p>
+					</div>
+			<?php endif; ?>
