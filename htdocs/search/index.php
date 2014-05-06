@@ -15,10 +15,17 @@
 		if($searchTerm != "") {
 			if($sessionUserType == "employer") {
 				$allFreelancers = $search->getFreelancersSearch($searchTerm, $sessionUserID);
+				$allResults = count($allFreelancers);
 			} else {
 				$allJobs = $search->getJobsSearch($searchTerm);
+				$allResults = count($allJobs);
 				// $allEmployers = $search->getEmployersSearch($searchTerm);
 			}
+		}
+		if($allResults <= 1) {
+			$resultCount = $allResults . " result";
+		} else {
+			$resultCount = $allResults . " results";
 		}
 	}
 

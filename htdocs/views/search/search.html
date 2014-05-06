@@ -6,6 +6,11 @@
 		</div>
 	</section>
 	<section class="container footer--push">
+		<section class="call-to-action call-to-action--search">
+			<div class="container call-to-action__container">
+				<h2 class="zero-top call-to-action__title"><?= $resultCount; ?></h2>
+			</div>
+		</section>
 		<div class="grid--no-marg text-center cf">
 		<?php if($sessionUserType == "employer") : ?>
 			<article class="dashboard-panel grid__cell module-2-3 module--no-pad">
@@ -28,7 +33,11 @@
 			<div class="grid--no-marg grid--center cf">
 				<article class="grid__cell module-2-3 module--no-pad">
 				<?php if (!empty($allJobs) && is_array($allJobs)) : ?>
-
+					<section class="call-to-action call-to-action--search">
+						<div class="container call-to-action__container">
+							<h2 class="zero-top call-to-action__title"><?= $resultCount; ?></h2>
+						</div>
+					</section>
 					<?php foreach($allJobs as $jobID => $job) {
 						include(ROOT_PATH. 'views/job/job-list-alt.html');
 					} ?>
@@ -36,7 +45,7 @@
 				<?php else : ?>
 					<section class="call-to-action call-to-action--search">
 						<div class="container call-to-action__container">
-							<h2>No search results</h2>
+							<h2 class="zero-top call-to-action__title">No search results</h2>
 						</div>
 					</section>
 				<?php endif;?>
