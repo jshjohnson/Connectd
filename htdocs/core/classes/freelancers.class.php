@@ -310,6 +310,29 @@
 			}	
 		}
 
+		public function getFreelancerPortfolio($id) {
+			$results = $this->db->prepare("
+				SELECT 
+					fp.portfolio_location
+				FROM " . DB_NAME . ".freelancer_portfolios as fp
+				WHERE
+					fp.user_id = :userID
+			");
+
+			$results->bindValue(":userID", $id);
+
+			try {
+				$results->execute();
+				$portfolioPieces = $results->fetchAll(PDO::FETCH_ASSOC);
+
+				return $portfolioPieces;
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}	
+		}
+
 		public function updateFreelancer($jobTitle, $pricePerHour, $sessionUserID) {
 			$query = $this->db->prepare("
 				UPDATE " . DB_NAME . ".freelancers
@@ -331,5 +354,29 @@
 				$debug = new Errors();
 				$debug->errorView($users, $e);	
 			}	
+		}
+
+		public function updatePortfolioPiece($fileLocation, $fileType, $sessionUserID) {
+			$query = $this->db->prepare("
+				INSERT INTO " . DB_NAME . ".freelancer_portfolios 
+				(user_id,portfolio_location,portfolio_type) 
+				VALUES 
+				(:sessionUserID,:fileLocation,:fileType)
+				ON DUPLICATE KEY UPDATE
+					`portfolio_location` = :fileLocation,
+					`portfolio_type` = :fileType
+			");
+
+			$query->bindValue(":fileLocation", $fileLocation);
+			$query->bindValue(":fileType", $fileType);
+			$query->bindValue(":sessionUserID", $sessionUserID);
+
+			try {
+				$query->execute();
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}		
 		}
 	}
