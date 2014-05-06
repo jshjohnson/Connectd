@@ -1,18 +1,18 @@
+		<section class="call-to-action call-to-action--search">
+			<div class="container call-to-action__container">
+				<form action="<?= BASE_URL; ?>search/index.php" class="zero-bottom">
+					<input type="search" name="search" placeholder="Search for user" value=""  results="5" class="call-to-action__search">
+				</form>
+			</div>
+		</section>
 		<section class="container">
-			<div class="grid--no-marg cf">
-				<aside class="user-module grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">
-					<header class="header--panel <?php if($type == "designer") { ?>header--blue<?php } else if($type == "developer") { ?> header--navy<?php } else { ?> header--green<?php }; ?> cf">
-						<h3 class="float-left">Search</h3>
-					</header>
-					<div class="media-wrapper media-wrapper--tall">
-					</div>
-				</aside>
-				<article class="dashboard-panel grid__cell module-2-3 module--no-pad float-left">
+			<div class="grid--no-marg grid--center cf">
+				<article class="dashboard-panel grid__cell module-2-3 module--no-pad">
 					<header class="header--panel <?php if($type == "designer") { ?>header--blue<?php } else if($type == "developer") { ?> header--navy<?php } else { ?> header--green<?php }; ?> cf">
 						<h3><?= $pageTitle; ?></h3>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
-					<?php if ($type == "designer" || $type == "developer") : ?>
+					<?php if ($type == "designer" || $type == "developer" || $type == "freelancer") : ?>
 						<?php foreach($freelancers as $freelancer_id => $freelancer) {
 							include(ROOT_PATH . '/views/freelancer/freelancer-list.html');
 						} ?>
