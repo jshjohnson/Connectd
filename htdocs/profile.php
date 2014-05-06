@@ -49,7 +49,7 @@
 				$section = "Employer";
 				$pageType = "Custom";
 				$section = "Employer";
-				$jobs = $jobs->getEmployerJobs($userID);
+				$allJobs = $jobs->getEmployerJobs($userID);
 				$users->loggedOutProtect();
 				break;
 			default:

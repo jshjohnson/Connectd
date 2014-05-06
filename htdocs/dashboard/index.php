@@ -25,8 +25,7 @@
 	}
 
 	if($sessionUserType == 'employer') {
-		$jobs = $jobs->getEmployerJobs($sessionUserID);
-
+		$allJobs = $jobs->getEmployerJobs($sessionUserID);
 		$template = "employer-dashboard.html";
 	} else {
 		$recentJobs = $jobs->getJobsRecent();
