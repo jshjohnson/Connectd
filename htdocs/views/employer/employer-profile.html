@@ -24,12 +24,12 @@
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 					<?php if (!empty($allJobs) && is_array($allJobs)) : ?>
-					<?php foreach($allJobs as $job) { ?>
-						<?php include(ROOT_PATH . 'views/job/job-list.html'); ?>
-					<?php }; ?>
-					<?php else : ?>
-						<?php include(ROOT_PATH . 'views/job/job-empty-list.html'); ?>
-					<?php endif;?>
+						<?php foreach($allJobs as $job) { ?>
+							<?php include(ROOT_PATH . 'views/job/job-list.html'); ?>
+						<?php }; ?>
+						<?php else : ?>
+							<?php include(ROOT_PATH . 'views/job/job-empty-list.html'); ?>
+						<?php endif;?>
 					</div>
 				</aside>
 			</div>

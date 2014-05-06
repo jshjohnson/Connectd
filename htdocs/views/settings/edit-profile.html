@@ -18,10 +18,7 @@
 					<?php include(ROOT_PATH .'views/freelancer/freelancer-sidebar.html'); ?>
 				</aside>
 				<article class="portfolio grid__cell unit-2-3--bp2 module-2-3 module--no-pad float-left">
-				<?php 
-					$color = "blue";
-					include(ROOT_PATH . 'views/freelancer/freelancer-edit-portfolio.html');
-				?>
+				<?php include(ROOT_PATH . 'views/freelancer/designer/designer-edit-portfolio.html'); ?>
 				</article>
 
 			<?php elseif($userType == "developer") : ?>
@@ -30,10 +27,7 @@
 					<?php include(ROOT_PATH . 'views/freelancer/freelancer-sidebar.html'); ?>
 				</aside>
 				<article class="portfolio grid__cell unit-2-3--bp2 module-2-3 module--no-pad float-right">
-				<?php 
-					$color = "navy";
-					include(ROOT_PATH . 'views/freelancer/freelancer-edit-portfolio.html');
-				?>
+				<?php include(ROOT_PATH . 'views/freelancer/developer/developer-edit-portfolio.html'); ?>
 				</article>
 
 			<?php endif; ?>
