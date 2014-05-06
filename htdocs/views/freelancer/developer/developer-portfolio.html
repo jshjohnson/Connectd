@@ -1,5 +1,5 @@
-			<?php if($portfolioPieces > 0 && !empty($skills) && !empty($testimonial)) : ?>
-				<?php if(is_array($skills) && !empty($skills)) :?>
+			<?php if($portfolioPieces > 0 && $developerSkills > 0 && !empty($testimonial)) : ?>
+				<?php if(is_array($developerSkills) && !empty($developerSkills)) :?>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
 							<li class="active active--navy">Skills</li>
@@ -7,7 +7,7 @@
 					</nav>
 					<div class="container__inner">
 						<ul class="grid--no-marg">
-						<?php foreach($skills as $skill) : ?>
+						<?php foreach($developerSkills as $skill) : ?>
 							<li class="grid__cell--no-pad skills--developer">
 								<div class="skills__bar">
 									<div class="skill__name" data-skill="<?= $skills['skill_rating']; ?>"><?= $skill['skill']; ?></div>

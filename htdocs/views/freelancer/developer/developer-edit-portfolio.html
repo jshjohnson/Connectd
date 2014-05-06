@@ -41,9 +41,9 @@
 					<div class="container__inner">
 						<p class="message message--hint zero-bottom">Please input up to 6 skills below as well as a skill rating from 1-5 (1 being a beginner, 5 being a pro)</p>
 						<fieldset>
-							<input type="text" name="skill-1" value="" class="field-1-2 float-left" placeholder="Skill"> 
+							<input type="text" name="dev-skill[]" class="field-1-2 float-left" placeholder="Skill" value="<?php if (isset($developerSkills[0])) { echo htmlspecialchars($developerSkills[0]); } else { echo $skills[0]['skill']; }; ?>"> 
 							<div class="select-container field-1-2 float-right">
-								<select name="skill-rating-1">
+								<select name="dev-skill-rating[]">
 									<option value="">Skill rating</option>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
@@ -54,9 +54,9 @@
 							</div>
 						</fieldset>						
 						<fieldset class="cf">
-							<input type="text" name="skill-2" value="" class="field-1-2 float-left" placeholder="Skill">
+							<input type="text" name="dev-skill[]" class="field-1-2 float-left" placeholder="Skill" value="<?php if (isset($developerSkills[1])) { echo htmlspecialchars($developerSkills[1]); } else { echo $skills[1]['skill']; }; ?>">
 							<div class="select-container field-1-2 float-right">
-								<select name="skill-rating-2">
+								<select name="dev-skill-rating[]">
 									<option value="">Skill rating</option>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
@@ -67,9 +67,9 @@
 							</div>
 						</fieldset>
 						<fieldset class="cf">
-							<input type="text" name="skill-3" value="" class="field-1-2 float-left" placeholder="Skill">
+							<input type="text" name="dev-skill[]" class="field-1-2 float-left" placeholder="Skill" value="<?php if (isset($developerSkills[2])) { echo htmlspecialchars($developerSkills[2]); } else { echo $skills[2]['skill']; }; ?>">
 							<div class="select-container field-1-2 float-right">
-								<select name="skill-rating-3">
+								<select name="dev-skill-rating[]">
 									<option value="0">Skill rating</option>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
@@ -80,9 +80,9 @@
 							</div>
 						</fieldset>						
 						<fieldset class="cf">
-							<input type="text" name="skill-4" value="" class="field-1-2 float-left" placeholder="Skill">
+							<input type="text" name="dev-skill[]" class="field-1-2 float-left" placeholder="Skill" value="<?php if (isset($developerSkills[3])) { echo htmlspecialchars($developerSkills[3]); } else { echo $skills[3]['skill']; }; ?>">
 							<div class="select-container field-1-2 float-right">
-								<select name="skill-rating-4">
+								<select name="dev-skill-rating[]">
 									<option value="0">Skill rating</option>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
@@ -93,9 +93,9 @@
 							</div>
 						</fieldset>
 						<fieldset class="cf">
-							<input type="text" name="skill-5" value="" class="field-1-2 float-left" placeholder="Skill">
+							<input type="text" name="dev-skill[]" class="field-1-2 float-left" placeholder="Skill" value="<?php if (isset($developerSkills[4])) { echo htmlspecialchars($developerSkills[4]); } else { echo $skills[4]['skill']; }; ?>">
 							<div class="select-container field-1-2 float-right">
-								<select name="skill-rating-5">
+								<select name="dev-skill-rating[]">
 									<option value="0">Skill rating</option>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
@@ -106,9 +106,9 @@
 							</div>
 						</fieldset>						
 						<fieldset class="cf">
-							<input type="text" name="skill-6" value="" class="field-1-2 float-left" placeholder="Skill">
+							<input type="text" name="dev-skill[]" class="field-1-2 float-left" placeholder="Skill" value="<?php if (isset($developerSkills[5])) { echo htmlspecialchars($developerSkills[5]); } else { echo $skills[5]['skill']; };?>">
 							<div class="select-container field-1-2 float-right">
-								<select name="skill-rating-6">
+								<select name="dev-skill-rating[]">
 									<option value="0">Skill rating</option>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
