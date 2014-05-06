@@ -4023,7 +4023,7 @@ input[type=search].call-to-action__search:focus {
 .skills__bar .skill__name {
   background-color: #6dbcdb;
   padding: .6em .6em .6em 1.2em;
-  color: white;
+  color: #236f8c;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
