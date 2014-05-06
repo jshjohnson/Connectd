@@ -118,6 +118,7 @@
 			return $jobs;
 		}
 
+
 		public function getEmployerJobs($sessionUserID) {
 			$query = $this->db->prepare("SELECT 
 				j.*, u.user_id, ut.user_type_id, ut.user_type, e.employer_name
@@ -145,6 +146,31 @@
 			$jobs = $query->fetchAll(PDO::FETCH_ASSOC);
 
 			return $jobs;
+		}
+
+		/**
+		 * Restrict jobs data to 10 most recent 
+		 *
+		 * @param  void
+		 * @return array
+		 */ 		
+		public function getEmployerJobsRecent($sessionUserID) {
+
+			$recent = "";
+			$all = $this->getEmployerJobs($sessionUserID);
+
+			$total_jobs = count($all);
+			$position = 0;
+			$list_view = "";
+
+			foreach ($all as $job) {
+				$position = $position + 1;
+				// if designer is one of the 4 most recent jobs
+				if ($total_jobs - $position < 10) {
+					$recent[] = $job;
+				}
+			}
+			return $recent;
 		}
 
 		public function getJobsSingle($id) {
