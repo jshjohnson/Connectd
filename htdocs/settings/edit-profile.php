@@ -114,7 +114,7 @@
 
 			if(empty($errors) === true) {
 
-				if(!empty($designerSkills[0])) {
+				if($userType == "designer" && !empty($designerSkills[0])) {
 					$freelancers->removeSkills($sessionUserID);
 					foreach($designerSkills as $skill) {
 						$freelancers->updateSkills($skill, $skillRating, $sessionUserID); 
@@ -124,8 +124,8 @@
 				$freelancers->updateTestimonial($testimonial, $testimonialSource, $sessionUserID); 
 				$freelancers->updateFreelancer($jobTitle, $pricePerHour, $sessionUserID);
 				
-				// header('Location: ' . BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/?updated");
-				// exit();
+				header('Location: ' . BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/?updated");
+				exit();
 			}
 		}
 
