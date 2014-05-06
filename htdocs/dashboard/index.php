@@ -29,7 +29,7 @@
 
 		$template = "employer-dashboard.html";
 	} else {
-		$allJobs = $jobs->getJobsRecent();
+		$recentJobs = $jobs->getJobsRecent();
 		$recentEmployers = $employers->getEmployersRecent();
 		$starredEmployers = $stars->getStarredEmployers($starredBy);
 		$template = "freelancer-dashboard.html";
