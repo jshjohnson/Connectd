@@ -250,4 +250,16 @@
 			}
 		}
 
+		public function getBudget($budget) {
+			if ($budget>=10000) {
+				echo "£" . substr($budget, 0, 2) . "k";
+			} elseif ($budget>=1000) {
+				echo "£" . substr($budget, 0, 1) . "k";
+			} else {
+				echo "£" . $budget;
+			}
+
+			return $budget;
+		}
+
 	}

@@ -1,20 +1,8 @@
-		<?php
-			$budget = $job['job_budget'];
-			$output = "";
-		?>
 			<div class='media'>
 				<div class='media__desc media-2-3 media-2-3--wide'>
 					<div class='media__button badge color-green'>
 						<span class='badge__inner'>
-						<?php 
-							if ($budget>=10000) {
-								echo "£" . substr($budget, 0, 2) . "k";
-							} elseif ($budget>=1000) {
-								echo "£" . substr($budget, 0, 1) . "k";
-							} else {
-								echo "£" . $budget;
-							}
-						?>
+						<?php $jobs->getBudget($job['job_budget']); ?>
 						</span>
 					</div>
 					<?php 
