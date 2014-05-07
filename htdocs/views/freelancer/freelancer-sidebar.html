@@ -22,9 +22,9 @@
 						<?php if($userID != $sessionUserID) : ?>
 						<div class="btn-wrapper user-module__buttons">
 						<?php if($sessionUserType != "employer") : ?>
-							<a class="btn--left btn btn--green cf hire-trigger" href="">Message <?= $user['firstname']; ?></a>
+							<a class="btn--left btn btn--green cf hire-trigger" href="">Message</a>
 						<?php else: ?>
-							<a class="btn--left btn btn--green cf hire-trigger" href="">Hire <?= $user['firstname']; ?></a>
+							<a class="btn--left btn btn--green cf hire-trigger" href="">Hire</a>
 						<?php endif;?>
 							<?php if($stars->sessionUserStarred($user['user_id'], $starredBy) == false) : ?>
 
