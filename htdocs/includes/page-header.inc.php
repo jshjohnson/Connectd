@@ -50,7 +50,7 @@
 				<div class="header-section header-section--right">
 				<?php if(isset($sessionUserType) && $sessionUserType != "employer") : ?>
 					<a href="<?= BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/"?>">
-						<div style="background-image: url('<?= BASE_URL . $sessionAvatar; ?>');" class="header-section__avatar"></div>
+						<div style="background-image: url('<?= BASE_URL . $sessionAvatarPath . 'thumbnail-' . $sessionAvatarFile; ?>');" class="header-section__avatar"></div>
 					</a>
 					<h2 class="header-section__title header-section__title--username">
 						<a href="<?= BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/"?>"><?= $sessionUsername; ?></a>
