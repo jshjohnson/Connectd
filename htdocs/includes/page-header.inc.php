@@ -22,12 +22,15 @@
 			<?php if (!isset($_SESSION['logged'])) : ?>
 				<?php if ($pageTitle == "Sign Up") : ?>
 				<a class="nav-toggle nav-toggle--divide login-trigger icon--lock">Log in</a>
-				<!-- Revisit this -->
 				<?php else : ?>
 				<a href="<?= BASE_URL; ?>#register" class="nav-toggle nav-toggle--divide icon--users">Register</a>
 				<?php endif;?>
 				<div class="header-section header-section--left">	
-					<h1 class="header-section__title"><?php if(isset($pageTitle)) { echo $pageTitle; } ?></h1>
+				<?php if($section == "Job" || $section == "Developer" || $section == "Designer" || $section == "Employer") : ?>	
+					<h1 class="header-section__title"><?= $section; ?>
+				<?php else : ?>
+					<h1 class="header-section__title"><?= $pageTitle; ?>
+				<?php endif; ?>
 				</div>
 
 				<div class="header-section header-section--right">
