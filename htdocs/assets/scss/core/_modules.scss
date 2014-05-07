@@ -376,6 +376,7 @@ img.media__img {
 				@include box-sizing(border-box);
 				&:hover {
 					@include transition(all, .5s);
+					padding-left: 2.25em;
 				}
 			}
 		}
