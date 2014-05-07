@@ -68,6 +68,7 @@
 			}
 
 			if(isset($developerSkills)) {
+				$freelancers->removeSkills($sessionUserID);
 				foreach($developerSkills as $key => $value) {
 					if(!empty($_POST['dev-skill'][$key]) && empty($_POST['dev-skill-rating'][$key])) {
 						$errors[] = "You must specify a skill rating with your skill";
