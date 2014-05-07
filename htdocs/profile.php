@@ -2,8 +2,6 @@
 	require_once("config.php"); 
 	require(ROOT_PATH . "core/init.php"); 
 	
-	$users->loggedOutProtect();
-
 	try {
 		if (isset($_GET["id"])) {
 			$userID = intval($_GET["id"]);
@@ -37,14 +35,12 @@
 				$section = "Designer";
 				$pageType = "Custom";
 				$section = "Designer";
-				$users->loggedOutProtect();
 				$designerSkills = $freelancers->getFreelancerSkills($userID);
 				break;
 			case "developer":
 				$section = "Developer";
 				$pageType = "Custom";
 				$section = "Developer";
-				$users->loggedOutProtect();
 				$developerSkills = $freelancers->getFreelancerSkills($userID);
 				break;
 			case "employer":
@@ -52,7 +48,6 @@
 				$pageType = "Custom";
 				$section = "Employer";
 				$allJobs = $jobs->getEmployerJobs($userID);
-				$users->loggedOutProtect();
 				break;
 			default:
 				$template = "index/index.html";
