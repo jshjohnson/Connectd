@@ -21,7 +21,11 @@
 					<?php endif; ?>
 						<?php if($userID != $sessionUserID) : ?>
 						<div class="btn-wrapper user-module__buttons">
+						<?php if($sessionUserType != "employer") : ?>
+							<a class="btn--left btn btn--green cf hire-trigger" href="">Message <?= $user['firstname']; ?></a>
+						<?php else: ?>
 							<a class="btn--left btn btn--green cf hire-trigger" href="">Hire <?= $user['firstname']; ?></a>
+						<?php endif;?>
 							<?php if($stars->sessionUserStarred($user['user_id'], $starredBy) == false) : ?>
 
 							<a class="btn--right btn btn--blue cf" href="<?= BASE_URL; ?>add-star.php?user_id=<?= $user["user_id"]; ?>" title="Give user a star"><i class="icon--star"></i>Star <?= $user['firstname']; ?></a>
