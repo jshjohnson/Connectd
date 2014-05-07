@@ -20,11 +20,8 @@
 	<header class="header cf <?= $headerClassesAll; ?> <?php if($pageType == "Page") { ?>zero-bottom<?php } ?>">
 			<div class="container">
 			<?php if (!isset($_SESSION['logged'])) : ?>
-				<?php if ($pageTitle == "Sign Up") : ?>
-				<a class="nav-toggle nav-toggle--divide login-trigger icon--lock">Log in</a>
-				<?php else : ?>
 				<a href="<?= BASE_URL; ?>#register" class="nav-toggle nav-toggle--divide icon--users">Register</a>
-				<?php endif;?>
+				<a href="#" class="nav-toggle nav-toggle--divide icon--lock login-trigger">Login</a>
 				<div class="header-section header-section--left">	
 				<?php if($section == "Job" || $section == "Developer" || $section == "Designer" || $section == "Employer") : ?>	
 					<h1 class="header-section__title"><?= $section; ?>
