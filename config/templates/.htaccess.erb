@@ -1,6 +1,12 @@
 RewriteEngine on
 Options +FollowSymlinks -Multiviews
 
+#Gzip
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript text/javascript
+</ifmodule>
+#End Gzip
+
 # 404
 ErrorDocument 404 <%= database['urlpath'] %>index.php?p=404
 
