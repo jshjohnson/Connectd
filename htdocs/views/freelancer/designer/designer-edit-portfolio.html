@@ -51,6 +51,9 @@
 					</nav>			
 					<div class="container__inner">
 						<input name="portfolio-pieces[]" type="file" multiple="multiple" title="Upload portfolio pieces">
+					<?php if(is_array($portfolioPieces) && !empty($portfolioPieces)) :?>
+						<small class='subtle-link float-right'>(<?= count($portfolioPieces); ?>/6 portfolio pieces uploaded)</small>
+					<?php endif; ?>
 						<div class="checkbox">
 							<label for="delete-portfolio">Delete current portfolio</label>
 							<input type="checkbox" name="delete-portfolio" value="delete">
