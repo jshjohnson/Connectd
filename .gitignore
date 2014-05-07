@@ -29,4 +29,5 @@ ai-cache/*
 .DS_Store
 config.php
 .sass-cache
-htdocs/assets/avatars/*
+htdocs/assets/avatars
+htdocs/assets/portfolio-pieces
