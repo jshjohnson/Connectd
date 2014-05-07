@@ -79,6 +79,11 @@ a.btn {font-weight: 600;}
 		}
 	}	
 }
+.checkbox--full {
+	@include respond-max($bp1) {
+		width: 100%;
+	}
+}
 form ul, form ol { list-style: none; margin-left: 0; margin-bottom: 1em; }
 form li { margin-bottom: .5em; }
 form li:last-child, fieldset:last-child { margin-bottom: 0; }
