@@ -34,6 +34,7 @@
 		if($userType == "developer" || $userType == "designer") {
 			$user = $freelancers->getFreelancersSingle($userID, $userType);
 			$skills = $freelancers->getFreelancerSkills($userID);
+			$portfolioPieces = $freelancers->getFreelancerPortfolio($userID);
 			$userAvatar = $user['image_location'];
 			$jobTitles = $freelancers->getFreelancerJobTitles($userType);
 			$pageTitle  = ucwords($user['firstname']) . ' ' . ucwords($user['lastname']) . ' :: ' . $user['jobtitle'];
@@ -79,11 +80,11 @@
 
 			if ($_FILES['portfolio-pieces']["size"][0] > 0) {
 
-				$freelancers->removePortfolioPiece($sessionUserID);
+				// $freelancers->removePortfolioPiece($sessionUserID);
 
-				// if($_FILES['portfolio-pieces']['size'] > 6) {
-				// 	$errors[] = "You can only upload up to 6 portfolio pieces.";
-				// }
+				if(count($_FILES['portfolio-pieces']['name']) > 6) {
+					$errors[] = "You can only upload up to 6 portfolio pieces.";
+				}
 
 				foreach ($_FILES['portfolio-pieces']['name'] as $key => $name) {
 
