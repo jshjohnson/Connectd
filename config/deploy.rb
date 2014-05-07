@@ -77,8 +77,8 @@ namespace :site do
     task :create_symlinks, :roles => :app do
         run "ln -nfs /home/156312/domains/#{application}/shared/config.php #{current_path}/config.php"
         run "ln -nfs /home/156312/domains/#{application}/shared/.htaccess-master #{current_path}/.htaccess"
-        run "ln -nfs /home/156312/domains/#{application}/shared/avatars #{release_path}/assets/avatars"
-        run "ln -nfs /home/156312/domains/#{application}/shared/portfolio-pieces #{release_path}/assets/portfolio-pieces"
+        run "ln -nfs /home/156312/domains/#{application}/shared/avatars #{current_path}/assets/"
+        run "ln -nfs /home/156312/domains/#{application}/shared/portfolio-pieces #{current_path}/assets/"
     end
 
     desc "Create files and directories for site environment"
