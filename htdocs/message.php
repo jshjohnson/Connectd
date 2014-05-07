@@ -8,9 +8,10 @@
 	$userFirstName = $_SESSION["userFirstName"];
 	$userEmail = $_SESSION["userEmail"];
 	$message = preg_replace('/\s*$^\s*/m', "\n", $_POST['message']);
-	$sentBy = $sessionUsername;
+	$sentByName = $sessionUsername;
+	$sentByEmail = $sessionEmail;
 
-	$emails->sendMessageEmail($userFirstName, $userEmail, $message, $sentBy);
+	$emails->sendMessageEmail($userFirstName, $userEmail, $message, $sentByName, $sentByEmail);
 	unset($userFirstName, $userEmail);
 	header('Location: ' . $_SERVER['HTTP_REFERER'] . "sent/");
 	

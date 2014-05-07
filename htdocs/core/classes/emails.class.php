@@ -115,13 +115,14 @@
 	    	}
 	    }
 
-	    public function sendMessageEmail($firstName, $email, $message, $sentBy) {
+	    public function sendMessageEmail($firstName, $email, $message, $sentByName, $sentByEmail) {
 			try {
-		    	$subject = "You just got a message - Connectd.io";
+		    	$subject = $sentBy . "just sent you a new message - Connectd.io";
 		    	$body = file_get_contents(ROOT_PATH . 'assets/email-templates/message.html');
 		    	$body = str_replace('{{subject}}', $subject, $body);
 		    	$body = str_replace('{{name}}', $firstName, $body);
-		    	$body = str_replace('{{sentBy}}', $sentBy, $body);
+		    	$body = str_replace('{{sentByName}}', $sentByName, $body);
+		    	$body = str_replace('{{sentByEmail}}', $sentByEmail, $body);
 		    	$body = str_replace('{{message}}', $message, $body);
 		    	$body = str_replace('{{url}}', BASE_URL, $body);
 		    	$this->sendEmail($email, $subject, $body);
