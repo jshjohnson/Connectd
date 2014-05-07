@@ -35,27 +35,10 @@ $visibility: hidden;
 @import "fadeOutUp";
 @import "fadeOutUpBig";
 @import "flash";
-@import "flip";
-@import "flipInX";
-@import "flipInY";
-@import "flipOutX";
-@import "flipOutY";
 @import "hinge";
 @import "lightSpeedIn";
 @import "lightSpeedOut";
 @import "pulse";
-@import "rollIn";
-@import "rollOut";
-@import "rotateIn";
-@import "rotateInDownLeft";
-@import "rotateInDownRight";
-@import "rotateInUpLeft";
-@import "rotateInUpRight";
-@import "rotateOut";
-@import "rotateOutDownLeft";
-@import "rotateOutDownRight";
-@import "rotateOutUpLeft";
-@import "rotateOutUpRight";
 @import "shake";
 @import "slideInDown";
 @import "slideInLeft";
@@ -156,21 +139,6 @@ $visibility: hidden;
 .flash {
 	@include flash($duration, $delay, $function, $fill, $visibility);
 }
-.flip {
-	@include flip($duration, $delay, $function, $fill, $visibility);
-}
-.flipInX {
-	@include flipInX($duration, $delay, $function, $fill, $visibility);
-}
-.flipInY {
-	@include flipInY($duration, $delay, $function, $fill, $visibility);
-}
-.flipOutX {
-	@include flipOutX($duration, $delay, $function, $fill, $visibility);
-}
-.flipOutY {
-	@include flipOutY($duration, $delay, $function, $fill, $visibility);
-}
 .hinge {
 	@include hinge($duration, $delay, $function, $fill, $visibility);
 }
@@ -182,42 +150,6 @@ $visibility: hidden;
 }
 .pulse {
 	@include pulse($duration, $delay, $function, $fill, $visibility);
-}
-.rollIn {
-	@include rollIn($duration, $delay, $function, $fill, $visibility);
-}
-.rollOut {
-	@include rollOut($duration, $delay, $function, $fill, $visibility);
-}
-.rotateIn {
-	@include rotateIn($duration, $delay, $function, $fill, $visibility);
-}
-.rotateInDownLeft {
-	@include rotateInDownLeft($duration, $delay, $function, $fill, $visibility);
-}
-.rotateInDownRight {
-	@include rotateInDownRight($duration, $delay, $function, $fill, $visibility);
-}
-.rotateInUpLeft {
-	@include rotateInUpLeft($duration, $delay, $function, $fill, $visibility);
-}
-.rotateInUpRight {
-	@include rotateInUpRight($duration, $delay, $function, $fill, $visibility);
-}
-.rotateOut {
-	@include rotateOut($duration, $delay, $function, $fill, $visibility);
-}
-.rotateOutDownLeft {
-	@include rotateOutDownLeft($duration, $delay, $function, $fill, $visibility);
-}
-.rotateOutDownRight {
-	@include rotateOutDownRight($duration, $delay, $function, $fill, $visibility);
-}
-.rotateOutUpLeft {
-	@include rotateOutUpLeft($duration, $delay, $function, $fill, $visibility);
-}
-.rotateOutUpRight {
-	@include rotateOutUpRight($duration, $delay, $function, $fill, $visibility);
 }
 .shake {
 	@include shake($duration, $delay, $function, $fill, $visibility);
