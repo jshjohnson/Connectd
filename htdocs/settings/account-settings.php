@@ -77,7 +77,15 @@
 			
 			if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) {
 				$newPath = $forms->fileNewPath($path, $name);
+
 				move_uploaded_file($tmpName, ROOT_PATH . $newPath);
+
+				$thumbnailName = 'thumbnail-' . $_FILES['avatar']['name'];
+				$thumbnailPath = $forms->fileNewPath($path, $thumbnailName);
+
+				$resize = new Resize(ROOT_PATH . $newPath);
+				$resize->resizeImage(150, 150, 'auto');
+				$resize->saveImage(ROOT_PATH . $thumbnailPath, 100);
 			}
 					
 			$firstName 	= htmlentities(trim($_POST['firstname']));
