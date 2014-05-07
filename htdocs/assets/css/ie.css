@@ -3550,31 +3550,37 @@ input[type=search].call-to-action__search:focus {
 }
 
 /* line 38, ../scss/core/modules/_user-module.scss */
+.user-module__info--full {
+  float: none;
+  width: 100%;
+}
+
+/* line 43, ../scss/core/modules/_user-module.scss */
 .user-module__buttons {
   margin-top: 1.5em;
 }
 
-/* line 42, ../scss/core/modules/_user-module.scss */
+/* line 47, ../scss/core/modules/_user-module.scss */
 .user-module__avatar {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-/* line 53, ../scss/core/modules/_user-module.scss */
+/* line 58, ../scss/core/modules/_user-module.scss */
 .user-module__avatar img {
   visibility: hidden;
   width: 100%;
 }
 
-/* line 60, ../scss/core/modules/_user-module.scss */
+/* line 65, ../scss/core/modules/_user-module.scss */
 .user-module__logo img {
   width: auto;
   max-width: 10em;
   margin-bottom: 1em;
 }
 
-/* line 67, ../scss/core/modules/_user-module.scss */
+/* line 72, ../scss/core/modules/_user-module.scss */
 .portfolio, .user-module, .dashboard-panel {
   background-color: #f7f7f7;
   -webkit-box-sizing: border-box;
@@ -3582,53 +3588,53 @@ input[type=search].call-to-action__search:focus {
   box-sizing: border-box;
   position: relative;
 }
-/* line 71, ../scss/core/modules/_user-module.scss */
+/* line 76, ../scss/core/modules/_user-module.scss */
 .portfolio h4:last-child, .user-module h4:last-child, .dashboard-panel h4:last-child {
   margin-bottom: 0;
 }
 
-/* line 76, ../scss/core/modules/_user-module.scss */
+/* line 81, ../scss/core/modules/_user-module.scss */
 .user-module__title {
   text-transform: capitalize;
   font-size: 1.35em;
   margin: 0 0 .2em;
   font-weight: 600;
 }
-/* line 81, ../scss/core/modules/_user-module.scss */
+/* line 86, ../scss/core/modules/_user-module.scss */
 .user-module__title a {
   color: #2c3e50;
   text-shadow: -1px -1px 0 #f7f7f7, 1px -1px 0 #f7f7f7, -1px 1px 0 #f7f7f7, 1px 1px 0 #f7f7f7;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 3px, rgba(0, 0, 0, 0) 3px);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  /* line 81, ../scss/core/modules/_user-module.scss */
+  /* line 86, ../scss/core/modules/_user-module.scss */
   .user-module__title a {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);
   }
 }
 
-/* line 91, ../scss/core/modules/_user-module.scss */
+/* line 96, ../scss/core/modules/_user-module.scss */
 .user-module__title--alt {
   font-size: 1.1em;
   text-align: center;
   margin-bottom: .5em;
 }
 
-/* line 97, ../scss/core/modules/_user-module.scss */
+/* line 102, ../scss/core/modules/_user-module.scss */
 .user-module__label {
   font-size: .9em;
   margin-top: 0;
   margin-bottom: 0.66667em;
   font-weight: 500;
 }
-/* line 102, ../scss/core/modules/_user-module.scss */
+/* line 107, ../scss/core/modules/_user-module.scss */
 .user-module__label a {
   color: #2c3e50;
   text-shadow: -1px -1px 0 #f7f7f7, 1px -1px 0 #f7f7f7, -1px 1px 0 #f7f7f7, 1px 1px 0 #f7f7f7;
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 3px, rgba(0, 0, 0, 0) 3px);
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-  /* line 102, ../scss/core/modules/_user-module.scss */
+  /* line 107, ../scss/core/modules/_user-module.scss */
   .user-module__label a {
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);
   }
