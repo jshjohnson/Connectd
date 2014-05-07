@@ -2,7 +2,8 @@
 	require_once("config.php"); 
 	require(ROOT_PATH . "core/init.php");
 	
-	// $votes->userVotedForProtect();
+	$users->loggedOutProtect();
+	$users->grantedAccessProtect($sessionUserID);
 
 	$userFirstName = $_SESSION["userFirstName"];
 	$userEmail = $_SESSION["userEmail"];
