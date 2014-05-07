@@ -55,7 +55,7 @@
 									<option value="5">5 (Expert)</option>
 								</select>
 							</div>
-						</fieldset>						
+						</fieldset>					
 						<fieldset class="cf">
 							<input type="text" name="dev-skill[]" class="field-1-2 float-left" placeholder="Skill" value="<?php if (isset($developerSkills[1])) { echo htmlspecialchars($developerSkills[1]); } else { echo $skills[1]['skill']; }; ?>">
 							<div class="select-container field-1-2 float-right">
@@ -136,6 +136,10 @@
 								</select>
 							</div>
 						</fieldset>
+						<div class="checkbox checkbox--full">
+							<label for="delete-skills">Delete current skills</label>
+							<input type="checkbox" name="delete-skills" value="delete">
+						</div>
 					</div>
 				</fieldset>
            		<fieldset class="cf clear">

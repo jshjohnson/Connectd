@@ -72,7 +72,7 @@
 				$freelancers->removeSkills($sessionUserID);
 			}
 
-			if(isset($developerSkills)) {
+			if(isset($developerSkills) && $deleteSkills != "delete") {
 				$freelancers->removeSkills($sessionUserID);
 				foreach($developerSkills as $key => $value) {
 					if(!empty($_POST['dev-skill'][$key]) && empty($_POST['dev-skill-rating'][$key])) {
