@@ -89,7 +89,7 @@
 				foreach ($_FILES['portfolio-pieces']['name'] as $key => $name) {
 
 					$tmpName       = $_FILES['portfolio-pieces']['tmp_name'][$key];
-					$allowed_ext   = array('jpg', 'jpeg', 'png', 'gif', 'svg');
+					$allowedExt   = array('jpg', 'jpeg', 'png', 'gif', 'svg');
 					$a             = explode('.', $name);
 					$fileExt       = strtolower(end($a)); unset($a);
 					$fileSize      = $_FILES['portfolio-pieces']['size'][$key];
@@ -104,10 +104,10 @@
 					}
 
 					if(empty($errors) === true) {
-						$newpath = $forms->fileNewPath($path, $name);
-						move_uploaded_file($tmpName, ROOT_PATH . $newpath);
+						$newPath = $forms->fileNewPath($path, $name);
+						move_uploaded_file($tmpName, ROOT_PATH . $newPath);
 
-						$fileLocation = htmlentities(trim($newpath));
+						$fileLocation = htmlentities(trim($newPath));
 						$freelancers->updatePortfolioPiece($fileLocation, $fileType, $sessionUserID);
 					}
 				}
