@@ -5,6 +5,7 @@
 
 .media {
 	padding: $baseline/2 1em;
+	position: relative;
 	@extend .cf;
 	&:nth-child(odd) {
 		background-color: rgba(white, 0.8);
@@ -806,6 +807,9 @@ input[type=search].call-to-action__search {
 	}
 }
 
+/* User info
+----------------------------------*/
+
 .user-info {
 	width: 70%;
 }
@@ -821,6 +825,9 @@ input[type=search].call-to-action__search {
 .user-info__label {
 	font-size: .85em;
 }
+
+/* Polaroid
+----------------------------------*/
 
 .polaroid {
 	background-color: white;
@@ -866,4 +873,30 @@ input[type=search].call-to-action__search {
 	input[type=file].polaroid__file {
 		width: 100%;
 	}
+}
+
+/* Ribbon
+----------------------------------*/
+
+.ribbon {
+	position: absolute;
+	right: 1em;
+	top: 0;
+	background-color: $color-brand-highlight;
+	border-left: .8em solid transparent;
+	border-right: .8em solid transparent;
+	border-bottom: .6em solid $color-background-light;
+	width: 0;
+	h5 {
+		font-size: .6em;
+		padding-right: 1em;
+		color: white;
+		padding-bottom: 1em;
+		@include transform(rotate(-90deg));
+		text-transform: uppercase;
+	}
+}
+
+.ribbon--white-bg {
+	border-bottom: .6em solid white;
 }
