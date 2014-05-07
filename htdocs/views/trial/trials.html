@@ -57,11 +57,11 @@
 							<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $trialUser["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trialUser["portfolio"] ); echo $url ?></a></h4>
 							<div class="btn-wrapper">
 							<?php if($votes->sessionUserVoted($vote_id, $votedBy) == false) : ?>
-								<a href="add-vote.php?user_id=<?= $trialUser["user_id"]; ?>" class="btn btn--green btn--small">
+								<a href="<?= BASE_URL; ?>trials/add-vote.php?user_id=<?= $trialUser["user_id"]; ?>" class="btn btn--green btn--small">
 									 <span class="icon--check">Add vote</span>
 								</a>
 							<?php else : ?>
-								<a href="remove-vote.php?user_id=<?= $trialUser["user_id"]; ?>" class="btn btn--red btn--small">
+								<a href="<?= BASE_URL; ?>trials/remove-vote.php?user_id=<?= $trialUser["user_id"]; ?>" class="btn btn--red btn--small">
 									 <span class="icon--cancel">Remove vote</span>
 								</a>
 							<?php endif;?>
