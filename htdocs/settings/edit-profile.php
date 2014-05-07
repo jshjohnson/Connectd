@@ -47,7 +47,8 @@
 			$pricePerHour = trim($_POST['priceperhour']);
 			$designerSkills = explode(',', trim($_POST['des-skills']));
 			$developerSkills = $_POST['dev-skill'];
-			$deletePortfolio = trim($_POST['delete-portfolio']);
+			$deletePortfolio = $_POST['delete-portfolio'];
+			$deleteSkills= $_POST['delete-skills'];
 			$portfolioPieces = $_FILES['portfolio-piece'];
 			$testimonial = trim($_POST['testimonial']);
 			$testimonialSource = trim($_POST['testimonial-source']);
@@ -65,6 +66,10 @@
 
 			if($deletePortfolio == "delete") {
 				$freelancers->removePortfolioPiece($sessionUserID);
+			}
+
+			if($deleteSkills == "delete") {
+				$freelancers->removeSkills($sessionUserID);
 			}
 
 			if(isset($developerSkills)) {
