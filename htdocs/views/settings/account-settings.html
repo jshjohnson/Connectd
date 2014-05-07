@@ -51,7 +51,7 @@
 				</fieldset>
 				<fieldset class="cf clear">
                     <label>Bio:</label>
-                    <textarea name="bio"><?php if (isset($bio) ){echo htmlentities(strip_tags($bio));} else { echo $sessionUser['bio']; }?></textarea>
+                    <textarea name="bio"><?php if (isset($bio) ){echo htmlentities(stripslashes(($bio))); } else { echo $sessionUser['bio']; }?></textarea>
 					<div class="btn-container">
 		            	<input class="btn btn--green" name="submit" type="submit" value="Update profile">						
 					</div>

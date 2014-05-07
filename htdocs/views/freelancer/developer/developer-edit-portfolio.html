@@ -163,7 +163,7 @@
 					</nav>
 					<div class="container__inner">
 						<label for="testimonial">Testimonial:</label>
-						<textarea name="testimonial" placeholder="Testimonial"><?php if(isset($testimonial) ){echo htmlentities(strip_tags($testimonial));}else{ echo stripslashes($user['testimonial']);} ?></textarea>
+						<textarea name="testimonial" placeholder="Testimonial"><?php if(isset($testimonial) ){echo htmlentities(stripslashes(($testimonial))); }else{ echo htmlentities(stripslashes($user['testimonial'])); } ?></textarea>
 						<label for="testimonial-source">Testimonial source:</label>
 						<input type="text" name="testimonial-source" value="<?php if (isset($testimonialSource) && $testimonialSource != ""){echo htmlentities(strip_tags($testimonialSource));}else{ echo $user['testimonial_source'];} ?>" placeholder="Source">
                     </div>
