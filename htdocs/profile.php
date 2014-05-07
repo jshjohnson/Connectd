@@ -18,7 +18,6 @@
 		$profileUserType = $userExists['user_type'];
 		$profileUserInfo = $users->fetchInfo("granted_access", "user_id", $userID);
 
-		// If id isn't in the URL OR the id is is not an integer and not greater than or equal to 1, throw error
 		if (!filter_var($userID, FILTER_VALIDATE_INT, array('min_range' => 1))) {
 			throw new Exception('Uh oh! An invalid page ID was provided to this page.');
 		} else if($profileUserType != $userType){
