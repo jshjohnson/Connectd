@@ -70,13 +70,15 @@ namespace :deploy do
   end
 end
 
-### Site
+### Site run "ln -nfs #{shared_path}/uploads #{release_path}/content/uploads"
 
 namespace :site do
     desc "Setup symlinks for project"
     task :create_symlinks, :roles => :app do
         run "ln -nfs /home/156312/domains/#{application}/shared/config.php #{current_path}/config.php"
         run "ln -nfs /home/156312/domains/#{application}/shared/.htaccess-master #{current_path}/.htaccess"
+        run "ln -nfs /home/156312/domains/#{application}/shared/avatars #{release_path}/assets/avatars"
+        run "ln -nfs /home/156312/domains/#{application}/shared/portfolio-pieces #{release_path}/assets/portfolio-pieces"
     end
 
     desc "Create files and directories for site environment"
