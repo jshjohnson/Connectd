@@ -81,6 +81,8 @@ namespace :site do
 
     desc "Create files and directories for site environment"
     task :setup, :roles => :app do
+        run "mkdir -p #{shared_path}/avatars"
+        run "mkdir -p #{shared_path}/portfolio-pieces"
         run "touch #{shared_path}/.htaccess-master"
 
         siteurl = Capistrano::CLI.ui.ask("#{stage} site URL: ")
@@ -103,8 +105,31 @@ namespace :site do
         puts "Creating local config.php and .htaccess"
         File.open("htdocs/config.php", 'w') {|f| f.write(db_config) }
         File.open("htdocs/.htaccess", 'w') {|f| f.write(accessfile) }
-
     end
+
+
+    desc "Pushes avatars directory to remote server"
+    task :push_avatars, :roles => :app do
+        system("rsync -ravz --delete --progress assets/avatars/* /home/156312/domains/#{application}/shared/avatars")
+    end
+
+    desc "Pulls avatars directory from remove server"
+    task :pull_avatars, :roles => :app do
+        system("mkdir assets/avatars")
+        system("rsync -ravz --delete --progress /home/156312/domains/#{application}/shared/avatars/* assets/avatars")
+    end
+
+    desc "Pushes portfolio directory to remote server"
+    task :push_portfolios, :roles => :app do
+        system("rsync -ravz --delete --progress assets/portfolio-pieces/* /home/156312/domains/#{application}/shared/portfolio-pieces")
+    end
+
+    desc "Pulls portfolio directory from remove server"
+    task :pull_portfolio, :roles => :app do
+        system("mkdir assets/portfolio-pieces")
+        system("rsync -ravz --delete --progress /home/156312/domains/#{application}/shared/portfolio-pieces/* assets/portfolio-pieces")
+    end
+
 
 end
 
