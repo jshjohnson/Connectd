@@ -73,7 +73,7 @@
 						</div>
 						<div class="currency-container field-1-2 float-right">
 							<span class="currency-prepend">£</span>
-							<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" class="input--currency" value="<?php if (isset($pricePerHour)) { echo htmlspecialchars($pricePerHour); } ?>">
+							<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" step="any" class="input--currency" value="<?php if (isset($pricePerHour)) { echo htmlspecialchars($pricePerHour); } ?>">
 						</div>
 					</fieldset>
 					<p class="message message--hint zero-bottom">Psst. A good bio needs to be at least 25 characters.</p>

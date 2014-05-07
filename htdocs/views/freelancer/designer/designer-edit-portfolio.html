@@ -15,7 +15,7 @@
 							<label for="priceperhour">What do you charge per hour?</label>
 							<div class="currency-container">
 								<span class="currency-prepend">£</span>
-								<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" class="input--currency" value="<?php if (isset($pricePerHour)) { echo htmlspecialchars($pricePerHour); } else{ echo $user['priceperhour']; } ?>">
+								<input type="number" name="priceperhour" placeholder="Price per hour" min="1" max="1000" step="any" class="input--currency" value="<?php if (isset($pricePerHour)) { echo htmlspecialchars($pricePerHour); } else{ echo $user['priceperhour']; } ?>">
 							</div>
 						</div>
 						<div class="field-1-2 float-right">
