@@ -61,7 +61,7 @@
 		if($userType == "developer" || $userType == "designer") {
 			$user = $freelancers->getFreelancersSingle($userID, $userType);
 			$portfolioPieces = $freelancers->getFreelancerPortfolio($userID);
-			$testimonial = $user['testimonial'];
+			$testimonial = stripslashes($user['testimonial']);
 			$testimonialSource = $user['testimonial_source'];
 
 			$pageTitle  = ucwords($user['firstname']) . ' ' . ucwords($user['lastname']) . ' :: ' . $user['jobtitle'];

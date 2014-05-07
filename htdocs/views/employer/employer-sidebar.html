@@ -18,7 +18,7 @@
 							<h4 class="user-module__label icon--attach icon--marg"><?= $user['employer_type']; ?></h4>
 							<h4 class="user-module__label icon--location icon--marg"><?= $user['location']; ?></h4>
 							<h4 class="user-module__label icon--globe icon--marg"><a href="<?= $user['portfolio']; ?>"><?= $user['portfolio']; ?></a></h4>
-							<p><?= nl2br($user['bio']); ?></p>
+							<p><?= nl2br(stripslashes($user['bio'])); ?></p>
 						<?php if($userID != $sessionUserID) : ?>
 							<div class="btn-wrapper push-top">
 								<a class="btn--left btn btn--green cf hire-trigger" href="">Send message</a>
