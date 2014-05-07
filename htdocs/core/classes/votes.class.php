@@ -115,7 +115,7 @@
 
 				$voteCount = $votes['CountOfvote_id'];
 
-				if($voteCount == 3) {
+				if($voteCount == 10) {
 					$this->emails->sendTrialEndedEmail($firstName, $email);
 					$grantAccess = $this->db->prepare("UPDATE " . DB_NAME . ".users SET users.granted_access = :granted_access WHERE users.email = :email");
 					$grantAccess->bindValue(":granted_access", 1);
