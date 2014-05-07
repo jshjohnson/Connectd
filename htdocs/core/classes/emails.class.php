@@ -117,7 +117,7 @@
 
 	    public function sendMessageEmail($firstName, $email, $message, $sentByName, $sentByEmail) {
 			try {
-		    	$subject = $sentBy . "just sent you a new message - Connectd.io";
+		    	$subject = $sentByName . "just sent you a new message - Connectd.io";
 		    	$body = file_get_contents(ROOT_PATH . 'assets/email-templates/message.html');
 		    	$body = str_replace('{{subject}}', $subject, $body);
 		    	$body = str_replace('{{name}}', $firstName, $body);
