@@ -1,6 +1,12 @@
+			<?php 	
+				$freelancerAvatar = $freelancer['image_location'];
+				$freelancerAvatarPath = 'assets/avatars/';
+				$freelancerAvatarFile = str_replace($freelancerAvatarPath, '', $freelancerAvatar);
+			?>
+
 			<div class='media'>
 				<a href="<?= BASE_URL . $freelancer['user_type'] . "/profile/" . $freelancer['user_id'] . "/";?>">
-					<div style="background-image: url('<?= BASE_URL . $freelancer['image_location']; ?>');" class="media__img media__img--avatar"></div>
+					<div style="background-image: url('<?= BASE_URL . $freelancerAvatarPath . 'thumbnail-' . $freelancerAvatarFile; ?>');" class="media__img media__img--avatar"></div>
 				</a>
 				<div class='media__body'>
 					<div class='float-left user-info'>
