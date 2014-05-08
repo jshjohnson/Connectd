@@ -56,6 +56,8 @@
 			// If Testimonial is not empty but source is
 			if(!empty($testimonial) && empty($testimonialSource)) {
 				$errors[] = "You must specify the source of your testimonial";
+			}else if(empty($testimonialSource) && empty($testimonial)) {
+				$errors[] = "You cannot set a testimonial source without a testimonial";
 			}
 
 			if($userType == "designer") {
@@ -131,8 +133,11 @@
 						$freelancers->updateSkills($skill, $skillRating, $sessionUserID); 
 					}		
 				}
-			
-				$freelancers->updateTestimonial($testimonial, $testimonialSource, $sessionUserID); 
+				
+				if(!empty($testimonial)) {
+					$freelancers->updateTestimonial($testimonial, $testimonialSource, $sessionUserID); 
+				}
+
 				$freelancers->updateFreelancer($jobTitle, $pricePerHour, $sessionUserID);
 				
 				header('Location: ' . BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/?updated");
