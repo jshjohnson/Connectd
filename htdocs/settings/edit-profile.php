@@ -50,7 +50,7 @@
 			$deletePortfolio = $_POST['delete-portfolio'];
 			$deleteSkills= $_POST['delete-skills'];
 			$portfolioPieces = $_FILES['portfolio-piece'];
-			$testimonial = trim($_POST['testimonial'], '"');
+			$testimonial = trim(str_replace('"', "", $_POST['testimonial']));
 			$testimonialSource = trim($_POST['testimonial-source']);
 
 			// If Testimonial is not empty but source is
