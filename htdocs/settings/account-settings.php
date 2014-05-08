@@ -61,8 +61,6 @@
 			$fileExt 		= strtolower(end($a)); unset($a);
 			$fileSize 		= $_FILES['avatar']['size'];
 			$path 			= "assets/avatars";
-
-			var_dump($fileExt);
 			
 			if (in_array($fileExt, $allowedExt) === false) {
 				$errors[] = 'Image file type not allowed';	
