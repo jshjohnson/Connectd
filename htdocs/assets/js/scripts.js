@@ -5,10 +5,6 @@
 		next();
 	});
 
-	// Target radios / checkboxes
-	$("input[type=radio]").parents('li').addClass('radio');
-	$("input[type=checkbox]").parents('li').addClass('checkbox');
-
 	// SVG fallback
 	if (!Modernizr.svg) {
 	    $('img[src$=".svg"]').each(function(){
