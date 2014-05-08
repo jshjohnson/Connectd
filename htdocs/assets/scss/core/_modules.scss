@@ -846,9 +846,15 @@ input[type=search].call-to-action__search {
 		font-size: .8em;
 	}
 	.polaroid__img {
+		background: $color-background-light;
 		height: 12em;
 		background-size: cover;
 		background-position: center center;
+	}
+	.polaroid__img--logo {
+		background-size: 80%;
+		height: 8em;
+		background-repeat: no-repeat;
 	}
 	input[type=file].polaroid__file {
 		border: 0;
