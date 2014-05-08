@@ -56,7 +56,7 @@
 			// If Testimonial is not empty but source is
 			if(!empty($testimonial) && empty($testimonialSource)) {
 				$errors[] = "You must specify the source of your testimonial";
-			}else if(empty($testimonialSource) && empty($testimonial)) {
+			}else if(!empty($testimonialSource) && empty($testimonial)) {
 				$errors[] = "You cannot set a testimonial source without a testimonial";
 			}
 
