@@ -1,0 +1,71 @@
+/* Call to action
+----------------------------------*/
+
+.call-to-action {
+	text-align: center;
+	margin-bottom: 1.5em;
+	.call-to-action__title {
+		color: white;
+		font-weight: 600;
+		font-family: $font-serif;
+		font-style: italic;
+		font-weight: 400;
+		margin-top: 0;
+	}
+	button {
+		min-width: 14em;
+	}
+}
+
+.call-to-action--top {
+	margin-bottom: 2.5em;
+	@include respond-max($bp1) {
+		margin-top: .5em;
+	}
+}
+
+.call-to-action--push {
+	margin-top: 5em;
+}
+
+.call-to-action__btn {
+	background-color: $color-brand-dark;
+	border: 1px solid darken($color-brand-dark, 3%); 
+	padding: .7em 2em;
+	border-radius: .5em;
+	font-size: .8em;
+	color: white; 
+	font-weight: 400;
+	&:visited {
+		color: white;
+	}
+}
+
+.call-to-action__content {
+	font-family: $font-sans;
+	font-style: normal;
+	background: $color-brand-dark;
+	color: white;
+	padding: 1em;
+	border: 1px solid darken($color-brand-dark, 3%);
+	font-size: .9em;
+	margin-bottom: 0;
+	border-radius: .5em;
+}
+
+input[type=search].call-to-action__search {
+	@include respond-min($bp2) {
+		max-width: 60%;
+	}
+	margin: 0 auto;
+	background-color: $color-brand-dark;
+	border: 1px solid lighten($color-background, 5%);
+	border-radius: .5em;
+	padding: .75em;
+	color: white;
+	&:focus {
+		@include box-shadow(0 0 5px lighten($color-brand-dark, 20%));
+		border: 1px solid lighten($color-background, 20%);
+		outline: 0;
+	}
+}

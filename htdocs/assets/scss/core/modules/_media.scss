@@ -1,0 +1,162 @@
+/* Media Object - http://goo.gl/Xf6MJ
+----------------------------------*/
+
+.media {
+	padding: $baseline/2 1em;
+	position: relative;
+	@extend .cf;
+	&:nth-child(odd) {
+		background-color: rgba(white, 0.8);
+	}
+}
+
+.media__img img,
+img.media__img {
+	margin-bottom: 0; 
+}
+
+.media-1-3 {
+	width: 20%;
+}
+
+.media-2-3 {
+	width: 80%;
+}
+
+.media-2-3--wide {
+	@include calc(width,'90% - 5em');
+}
+
+.media-1-3, .media-2-3 {
+	display: inline-block;
+	vertical-align: top;
+	@include respond-max($bp1) {
+		width: 100%;
+	}
+}
+
+.media__body {	
+	overflow: hidden;
+	margin-top: .2em;
+	font-size: .9em;
+	h1,h2,h3,h4,p {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+    h4 {
+		font-weight: 600;
+		font-size: 1.1em;
+		display: inline;
+		text-transform: capitalize;
+	}
+	&:last-child{
+		margin-bottom: 0;
+	}
+}
+
+.media__side {
+	text-align: right;
+	float: right;
+	p {
+		font-size: .9em;
+		margin-bottom: 0;
+	}
+	@include respond-max($bp1) {
+		display: none;
+	}
+}	
+
+.media__img, .media__button {
+	float: left;
+	margin-bottom: 0;
+	margin-right: $media-img-gutter/2;
+}
+
+.media--flipped{
+	.media__img, .media__button {
+		float: right;
+		margin-right:0;
+		margin-left: $media-img-gutter;
+		@include respond-max($bp1) {
+			margin-right: $media-img-gutter/2;
+		}
+	}
+}
+
+.media--blank {
+	background-color: #E4E4E4; 
+	color: #A7A7A7; 
+	text-align: center;
+	&:nth-child(odd) {
+		background-color: #E4E4E4;
+	}
+}
+
+.media__img--avatar, .img--avatar {
+	width: 3em;
+	height: 3em;
+	border-radius: 10em;
+	@include background-size(cover);
+	background-repeat: no-repeat;
+	vertical-align: middle;
+	background-position: center center;
+}
+
+.media__img--avatar-full {
+	@include background-size(100%);
+}
+
+.media-block {
+	margin: 1.5em 0;
+	overflow: auto;
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.media-block__content {
+	background-color: white;
+}
+
+.media__label {
+	width: 100%;
+	display: block;
+	background: #77c462;
+	color: white;
+	padding-left: 1em;
+	line-height: 1.5;
+	padding: .2em 1em .2em;
+	box-sizing: border-box;
+	vertical-align: top;
+	position: relative;
+	font-size: .7em;
+	@include respond-max($bp3) {
+		font-size: .9em;
+	}
+	* > * {
+		margin-bottom: 0;
+	}
+	ul {
+		margin: 0;
+		li { 
+			margin: 0;
+			padding: .25em .25em;
+			line-height: 1.5;
+			display: inline-block; 
+			a, a:visited, a:hover {
+				color: white;
+			}
+			&:last-child {
+				@include respond-max($bp4) {
+					display: none;
+				}
+				@include respond-max($bp2) {
+					display: inline-block;
+				}
+				@include respond-max($bp1) {
+					display: none;
+				}		
+			}
+		}
+	}
+}

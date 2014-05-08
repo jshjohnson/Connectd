@@ -1,0 +1,18 @@
+/* User info
+----------------------------------*/
+
+.user-info {
+	width: 70%;
+}
+
+.user-info__star {
+	color: #ecdb58;
+}
+
+.user-info__link {
+ 	@include underline;
+}
+
+.user-info__label {
+	font-size: .85em;
+}

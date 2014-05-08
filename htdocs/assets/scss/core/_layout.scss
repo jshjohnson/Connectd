@@ -225,8 +225,13 @@
 	display: inline-block;
 }
 
-/* Misc
+/* Header/Footer
 ----------------------------------*/
+
+.header, .footer {
+	max-height: 3em;
+	line-height: 3em;
+}
 
 .footer--push {
 	flex: 1;

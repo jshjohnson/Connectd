@@ -1,0 +1,54 @@
+/* Polaroid
+----------------------------------*/
+
+.polaroid {
+	background-color: white;
+	padding: 1em 1em 0;
+	text-align: center;
+	width: 15em;
+	margin: auto;
+	margin-bottom: $baseline;
+	@include box-shadow(0px 1px 1px rgba(#222, .2));
+	.polaroid__label {
+		padding: 1em 0;
+		font-size: .8em;
+	}
+	.polaroid__img {
+		background: $color-background-light;
+		height: 12em;
+		background-size: cover;
+		background-position: center center;
+	}
+	.polaroid__img--logo {
+		background-size: 80%;
+		height: 8em;
+		background-repeat: no-repeat;
+	}
+	input[type=file].polaroid__file {
+		border: 0;
+		width: 70%;
+		margin: 0;
+		&:focus {
+			outline: 0;
+			@include box-shadow(none);
+		}
+	}
+}
+
+.polaroid--overflow {
+	@include respond-min($bp2) {
+		position: absolute;
+		padding: .5em .5em 0;
+		right: -3.5em;
+		top: -3em;
+		z-index: 1;
+		@include transform(rotate(6deg));
+		width: 10em;
+		.polaroid__img {
+			height: 7em;
+		}
+	}
+	input[type=file].polaroid__file {
+		width: 100%;
+	}
+}

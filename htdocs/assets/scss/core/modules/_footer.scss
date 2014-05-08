@@ -1,0 +1,52 @@
+/* Footer
+----------------------------------*/
+
+.footer {
+	color: white;
+	position: relative;
+	bottom: 0;
+	max-height: 3.5em;
+	a {
+		color: white;
+	}
+	@include respond-max($bp1) {
+		max-height: none;
+	}
+} 
+
+.footer--alt {
+	background-color: white;
+	color: $color-brand-dark;
+	a {
+		color: $color-brand-dark;
+	}
+}
+
+.footer__links { 
+	width: auto;
+	li {
+		display: inline-block;
+		*display:inline;
+	    zoom:1;
+	    font-size: .75em;
+	    margin: 0;
+	    &:after {
+	    	padding: 0 .25em 0 .5em;
+			content: '•';
+		}
+		&:last-child {
+			 &:after {
+				content: none;
+			}
+		}
+	}
+}
+
+.footer__section--logo {
+	@include respond-min($bp1) {
+		float: right;
+		text-align: right;	
+		line-height: 3em;	
+	}
+	line-height: 2em;
+}
