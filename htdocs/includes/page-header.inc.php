@@ -16,10 +16,10 @@
 	
 	$headerClassesAll = implode(" ", $headerClasses);
 ?>
-
 	<header class="header cf <?= $headerClassesAll; ?> <?php if($pageType == "Page") { ?>zero-bottom<?php } ?>">
 			<div class="container">
 			<?php if (!isset($_SESSION['logged'])) : ?>
+
 				<a href="<?= BASE_URL; ?>#register" class="nav-toggle nav-toggle--divide icon--users">Register</a>
 				<a href="#" class="nav-toggle nav-toggle--divide icon--lock login-trigger">Login</a>
 				<div class="header-section header-section--left">	
@@ -31,12 +31,13 @@
 				</div>
 
 				<div class="header-section header-section--right">
-					<h2 class="header-section__title">
+					<h2 class="header-section__title header-section__title--brand">
 						<a href="<?= BASE_URL; ?>">connectd</a>
 					</h2>
 				</div>
 
 			<?php else : ?>
+
 				<?php include_once(ROOT_PATH . "includes/page-nav.inc.php"); ?>
 				<div class="header-section header-section--left">
 					<?php if($section == "Job" || $section == "Developer" || $section == "Designer" || $section == "Employer") : ?>	
@@ -64,6 +65,5 @@
 				</div>
 
 			<?php endif; ?>
-
 			</div>
 		</header>
