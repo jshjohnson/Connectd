@@ -16,6 +16,7 @@
 						<li><a href="<?= BASE_URL; ?>trials/">Trials</a></li>
 						<li><a href="<?= BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/"?>">View Profile</a></li>
 						<?php if($sessionUserType != "employer") : ?>
+						<li><a href="<?= BASE_URL . "jobs/list/"; ?>">Job Board</a></li>
 						<li><a href="<?= BASE_URL . "settings/edit-profile/"; ?>">Edit Profile</a></li>
 						<?php endif; ?>
 						<li><a href="<?= BASE_URL . "settings/account-settings/"; ?>">Account Settings</a></li>
