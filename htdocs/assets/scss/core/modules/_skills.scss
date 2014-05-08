@@ -64,6 +64,7 @@
 	overflow: hidden;
 	@include box-sizing(border-box);
 	.skill__name {
+		white-space: nowrap;
 		background-color: $color-brand-light;
 		padding: .6em .6em .6em 1.2em;
 		color: darken($color-brand-light, 30%);
