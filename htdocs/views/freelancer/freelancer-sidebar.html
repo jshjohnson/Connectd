@@ -48,5 +48,5 @@
 						<h4 class="user-module__label icon--location icon--marg"><?= stripslashes($user['location']); ?></h4>
 						<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $user['portfolio']; ?>"><?php $url = preg_replace("(https?://)", "", $user["portfolio"] ); echo $url ?></a></h4>
 						<h4 class="user-module__label icon--clock icon--marg"><?= "Joined on " . date('F j, Y', $user['time_joined']); ?></h4>
-						<p><?= nl2br(stripslashes($user['bio'])); ?></p>
+						<p class="user-module__label"><?= nl2br(stripslashes($bio)); ?></p>
 					</div>

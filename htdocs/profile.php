@@ -76,6 +76,7 @@
 		}
 
 		$userAvatar = $user['image_location'];
+		$bio = $urls->twitterLinks($user['bio']);
 
 		include(ROOT_PATH . "includes/header.inc.php");
 		include(ROOT_PATH . "views/" . $template);
