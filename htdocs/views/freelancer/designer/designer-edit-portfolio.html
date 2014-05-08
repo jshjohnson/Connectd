@@ -75,6 +75,10 @@
 						<textarea name="testimonial" placeholder="Testimonial"><?php if(isset($testimonial) ){echo htmlentities(stripslashes(($testimonial))); }else{ echo htmlentities(stripslashes($user['testimonial'])); } ?></textarea>
 						<label for="testimonial-source">Testimonial source:</label>
 						<input type="text" name="testimonial-source" value="<?php if (isset($testimonialSource) && $testimonialSource != ""){echo htmlentities(strip_tags($testimonialSource));}else{ echo $user['testimonial_source'];} ?>" placeholder="Source">
+						<div class="checkbox checkbox--full">
+							<label for="delete-testimonial">Delete current testimonial</label>
+							<input type="checkbox" name="delete-testimonial" value="delete">
+						</div>
                     </div>
 					<div class="btn-container">
 		            	<input class="btn btn--green" name="submit" type="submit" value="Update profile">						

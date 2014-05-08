@@ -466,4 +466,25 @@
 				$debug->errorView($users, $e);	
 			}
 		}
+
+		public function removeTestimonial($sessionUserID) {
+			$deleteQuery = $this->db->prepare("
+				DELETE FROM " . DB_NAME . ".freelancer_testimonials
+				WHERE 
+					testimonial_id = :userID
+			");
+
+			$deleteQuery->bindValue(":userID", $sessionUserID);
+
+			try{
+				$deleteQuery->execute();
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+	
+		}
+
+
 	}
