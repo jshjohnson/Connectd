@@ -22,12 +22,22 @@
 			<?php else : ?>
 				<p class="message message--hint">Psst. All the information below is private to non-members.</p>
 			<?php endif; ?>
+			<?php if($sessionUserType != "employer") : ?>
            		<fieldset class="polaroid polaroid--overflow">
            			<div class="polaroid__img" style="background-image: url('<?= BASE_URL . $sessionAvatar; ?>');"></div>   
 					<div class="polaroid__label">
 						<input type="file" name="avatar" title="Upload an avatar" class="polaroid__file">
 					</div>
 				</fieldset>
+			<?php else: ?>
+				 <fieldset class="polaroid">
+				 	<h4 class="zero-top">Logo</h4>
+           			<div class="polaroid__img  polaroid__img--logo" style="background-image: url('<?= BASE_URL . $sessionAvatar; ?>');"></div>   
+					<div class="polaroid__label">
+						<input type="file" name="avatar" title="Upload an avatar" class="polaroid__file">
+					</div>
+				</fieldset>
+			<?php endif;?>
                 <div class="cf">
 	            	<fieldset class="field-1-2 float-left">
 	                    <label>First name:</label>
