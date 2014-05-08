@@ -29,6 +29,26 @@
 	}
 }
 
+.btn--facebook {
+	background-color: #3B5998; 
+	@include box-shadow(0 .18em 0 darken(#3B5998, 20%));
+	border: 1px solid darken(#3B5998 , 10%);
+	border-bottom: none;
+	&:hover {
+		@include box-shadow(0 .1em 0 darken(#3B5998, 20%))
+	}
+}
+
+.btn--twitter {
+	background-color: #55ACEE; 
+	@include box-shadow(0 .18em 0 darken(#55ACEE, 20%));
+	border: 1px solid darken(#55ACEE, 10%);
+	border-bottom: none;
+	&:hover {
+		@include box-shadow(0 .1em 0 darken(#55ACEE, 20%))
+	}	
+}
+
 .btn--disabled {
 	cursor: not-allowed;
 	background-color: #ccc; 
