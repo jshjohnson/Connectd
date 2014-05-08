@@ -4,6 +4,7 @@
 	font-size: .9em;
 	width: 3.5em; 
 	height: 3.5em;
+	z-index: 1;
 	h5 {
 		margin: 0;
 		line-height: 2.5em;
@@ -42,6 +43,7 @@
 		left: -1.1em;
 	}
 	@include respond-max($bp1) {
+		top: -1.5em;
 		left: -.6em;
 	}
 }
@@ -54,6 +56,7 @@
 		right: -1.1em;
 	}
 	@include respond-max($bp1) {
+		top: -1.5em;
 		right: -.6em;
 	}
 }
