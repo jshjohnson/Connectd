@@ -1,8 +1,8 @@
 		<!-- If portfolio pieces, skills and testimonial are blank -->
 		<?php if(empty($portfolioPieces) && empty($developerSkills) && empty($testimonial)) : ?>
 			<?php if($userID ==  $sessionUserID) : ?>
-					<nav class="portfolio__headings-bg">
-						<ul class="portfolio__headings portfolio__headings">
+					<nav class="article__heading-bg">
+						<ul class="article__heading article__heading">
 							<li class="active active--navy">Uh oh!</li>
 						</ul>
 					</nav>
@@ -13,8 +13,8 @@
 						</p>
 					</div>
 			<?php else : ?>
-					<nav class="portfolio__headings-bg">
-						<ul class="portfolio__headings portfolio__headings">
+					<nav class="article__heading-bg">
+						<ul class="article__heading article__heading">
 							<li class="active active--navy">Uh oh!</li>
 						</ul>
 					</nav>
@@ -27,8 +27,8 @@
 			<?php endif; ?>
 		<?php else : ?>
 			<?php if(is_array($developerSkills) && !empty($developerSkills)) :?>
-				<nav class="portfolio__headings-bg">
-					<ul class="portfolio__headings portfolio__headings">
+				<nav class="article__heading-bg">
+					<ul class="article__heading article__heading">
 						<li class="active active--navy">Skills</li>
 					</ul>
 				</nav>
@@ -45,8 +45,8 @@
 				</div>
 			<?php endif; ?>
 			<?php if(is_array($portfolioPieces) && !empty($portfolioPieces)) :?>
-				<nav class="portfolio__headings-bg zero-bottom">
-					<ul class="portfolio__headings portfolio__headings">
+				<nav class="article__heading-bg zero-bottom">
+					<ul class="article__heading article__heading">
 						<li class="active active--navy">Portfolio</li>
 					</ul>
 				</nav>
@@ -61,8 +61,8 @@
 				</div>
 			<?php endif; ?>
 			<?php if(!empty($testimonial)) : ?>
-				<nav class="portfolio__headings-bg">
-					<ul class="portfolio__headings portfolio__headings">
+				<nav class="article__heading-bg">
+					<ul class="article__heading article__heading">
 						<li class="active active--navy">Testimonial</li>
 					</ul>
 				</nav>

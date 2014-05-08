@@ -5,8 +5,8 @@
 				</div>
 			<?php endif; ?>	
 				<fieldset class="cf clear">
-					<nav class="portfolio__headings-bg">
-						<ul class="portfolio__headings portfolio__headings">
+					<nav class="article__heading-bg">
+						<ul class="article__heading article__heading">
 							<li class="active active--navy">Price Per Hour</li>
 						</ul>
 					</nav>
@@ -33,8 +33,8 @@
 					</div>
 				</fieldset>	
 				<fieldset class="cf clear">
-					<nav class="portfolio__headings-bg">
-						<ul class="portfolio__headings portfolio__headings">
+					<nav class="article__heading-bg">
+						<ul class="article__heading article__heading">
 							<li class="active active--navy">Your Skills</li>
 						</ul>
 					</nav>		
@@ -46,7 +46,7 @@
 								<select name="dev-skill-rating[]">
 									<option value="">Skill rating</option>
 								<?php if(isset($skills[0]['skill_rating'])) : ?>
-									<option value="<?= $skills[0]['skill_rating']; ?>"<?= $skills[0]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[0]['skill_rating']; ?></option>
+									<option value="<?= $skills[0]['skill_rating']; ?>"<?= $skills[0]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[0]['skill_rating']; ?> (current rating)</option>
 								<?php endif; ?>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
@@ -62,7 +62,7 @@
 								<select name="dev-skill-rating[]">
 									<option value="">Skill rating</option>
 								<?php if(isset($skills[1]['skill_rating'])) : ?>
-									<option value="<?= $skills[1]['skill_rating']; ?>"<?= $skills[1]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[1]['skill_rating']; ?></option>
+									<option value="<?= $skills[1]['skill_rating']; ?>"<?= $skills[1]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[1]['skill_rating']; ?> (current rating)</option>
 								<?php endif; ?>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
@@ -78,7 +78,7 @@
 								<select name="dev-skill-rating[]">
 									<option value="0">Skill rating</option>
 								<?php if(isset($skills[2]['skill_rating'])) : ?>
-									<option value="<?= $skills[2]['skill_rating']; ?>"<?= $skills[2]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[2]['skill_rating']; ?></option>
+									<option value="<?= $skills[2]['skill_rating']; ?>"<?= $skills[2]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[2]['skill_rating']; ?> (current rating)</option>
 								<?php endif; ?>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
@@ -94,7 +94,7 @@
 								<select name="dev-skill-rating[]">
 									<option value="0">Skill rating</option>
 								<?php if(isset($skills[3]['skill_rating'])) : ?>
-									<option value="<?= $skills[3]['skill_rating']; ?>"<?= $skills[3]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[3]['skill_rating']; ?></option>
+									<option value="<?= $skills[3]['skill_rating']; ?>"<?= $skills[3]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[3]['skill_rating']; ?> (current rating)</option>
 								<?php endif; ?>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
@@ -110,7 +110,7 @@
 								<select name="dev-skill-rating[]">
 									<option value="0">Skill rating</option>
 								<?php if(isset($skills[4]['skill_rating'])) : ?>
-									<option value="<?= $skills[4]['skill_rating']; ?>"<?= $skills[4]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[4]['skill_rating']; ?></option>
+									<option value="<?= $skills[4]['skill_rating']; ?>"<?= $skills[4]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[4]['skill_rating']; ?> (current rating)</option>
 								<?php endif; ?>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
@@ -126,7 +126,7 @@
 								<select name="dev-skill-rating[]">
 									<option value="0">Skill rating</option>
 								<?php if(isset($skills[5]['skill_rating'])) : ?>
-									<option value="<?= $skills[5]['skill_rating']; ?>"<?= $skills[5]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[5]['skill_rating']; ?></option>
+									<option value="<?= $skills[5]['skill_rating']; ?>"<?= $skills[5]['skill_rating'] ? ' selected="selected"' : '';?>><?= $skills[5]['skill_rating']; ?> (current rating)</option>
 								<?php endif; ?>
 									<option value="1">1 (Beginner)</option>
 									<option value="2">2 (Amateur)</option>
@@ -143,8 +143,8 @@
 					</div>
 				</fieldset>
            		<fieldset class="cf clear">
-           			<nav class="portfolio__headings-bg">
-						<ul class="portfolio__headings portfolio__headings">
+           			<nav class="article__heading-bg">
+						<ul class="article__heading article__heading">
 							<li class="active active--navy"><a href="">Your portfolio pieces</a></li>
 						</ul>
 					</nav>			
@@ -160,8 +160,8 @@
 					</div>
 				</fieldset>
 				<fieldset class="cf clear">
-					<nav class="portfolio__headings-bg">
-						<ul class="portfolio__headings portfolio__headings">
+					<nav class="article__heading-bg">
+						<ul class="article__heading article__heading">
 							<li class="active active--navy">Your testimonial</li>
 						</ul>
 					</nav>

@@ -14,10 +14,10 @@
 			<div class="grid--no-marg cf">
 				<article class="portfolio grid__cell module-2-3 module--no-pad float-left">
 					<form action="<?= BASE_URL . "settings/edit-profile/"; ?>" method="post" enctype="multipart/form-data">
-						<nav class="portfolio__headings-bg">
-							<ul class="portfolio__headings portfolio__headings--alt">
+						<nav class="article__heading-bg">
+							<ul class="article__heading article__heading--alt">
 								<li class="active active--green">Job Title</li>
-								<li class="float-right portfolio__headings--label"><?= $job['job_category'] . ' • Posted ' . $jobs->timeAgo($job['job_post_date']) . ' • #' . $job['job_id']; ?></li>
+								<li class="float-right article__heading--label"><?= $job['job_category'] . ' • Posted ' . $jobs->timeAgo($job['job_post_date']) . ' • #' . $job['job_id']; ?></li>
 							</ul>
 						</nav>
 						<div class="container__inner push-bottom">
@@ -43,8 +43,8 @@
 								<input type="text" name="job_name" placeholder="creating 10 HTML templates" value="<?php if (isset($jobName)) { echo htmlspecialchars($jobName); } else { echo $job['job_name']; } ?>">
 							</fieldset>
 						</div>
-						<nav class="portfolio__headings-bg">
-							<ul class="portfolio__headings portfolio__headings--alt">
+						<nav class="article__heading-bg">
+							<ul class="article__heading article__heading--alt">
 								<li class="active active--green">Job Details</li>
 							</ul>
 						</nav>
@@ -84,8 +84,8 @@
 								<?php endif; ?>
 							</ul> 	
 						</div>
-						<nav class="portfolio__headings-bg">
-							<ul class="portfolio__headings portfolio__headings--alt">
+						<nav class="article__heading-bg">
+							<ul class="article__heading article__heading--alt">
 								<li class="active active--green">Job Description</li>
 							</ul>
 						</nav>

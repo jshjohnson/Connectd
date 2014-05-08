@@ -652,10 +652,10 @@ img.media__img {
 	color: darken($color-background-light, 50%);
 }
 
-/* Portfolio
+/* Article
 ----------------------------------*/
 
-.portfolio__headings-bg {
+.article__heading-bg {
 	background-color: #f0eded;
 	font-size: .8em;
 	font-weight: 500;
@@ -667,7 +667,7 @@ img.media__img {
 }
 
 
-.portfolio__headings {
+.article__heading {
 	margin: 0;
 	position: relative;
 	li {
@@ -677,16 +677,9 @@ img.media__img {
 		margin-bottom: 0;
 		position: relative;
 		padding: .5em 1.4em .4em;
-		&.portfolio__headings--label {
+		&.article__heading--label {
 			padding-right: 0;
 			@extend %info;
-			@include respond-max($bp1) {
-				text-align: center;
-				width: 100%;
-				margin: .8em 0 0;
-				padding-left: 0;
-				box-sizing: border-box;
-			}
 		}
 		a {
 			color: #7f7e7e;
@@ -712,7 +705,30 @@ img.media__img {
 	}
 }
 
-.portfolio__headings--alt {
+.article__heading--list {
+	font-size: .9em;
+	line-height: 2.4;
+	.article__heading--list-item {
+		display: inline-block;
+		@include respond-max($bp3) {
+			display: none;
+			&:last-child {
+				display: inline-block;
+			}
+		}
+		@include respond-max($bp2) {
+			display: inline-block;
+		}
+		@include respond-max($bp1) {
+			display: none;
+			&:last-child {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.article__heading--alt {
 	li {
 		&.active {
 			color: white;
