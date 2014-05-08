@@ -113,6 +113,10 @@
 						$newPath = $forms->fileNewPath($path, $name);
 						move_uploaded_file($tmpName, ROOT_PATH . $newPath);
 
+						$resize = new Resize(ROOT_PATH . $newPath);
+						$resize->resizeImage(600, 400, 'auto');
+						$resize->saveImage(ROOT_PATH . $newPath, 100);
+
 						$fileLocation = htmlentities(trim($newPath));
 						$freelancers->updatePortfolioPiece($fileLocation, $fileType, $sessionUserID);
 					}
