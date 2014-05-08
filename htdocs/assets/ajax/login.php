@@ -13,7 +13,7 @@
 				<label>Remember me</label>
 				<input type="checkbox" value="1" name="remember" <?php $rememberMe = array_key_exists('remember_me', $_COOKIE); if($rememberMe) { echo 'checked="checked"'; }?>>					
 	        </fieldset>
-	       	<a class="forgot float-right" href="<?= BASE_URL; ?>settings/recover-password/">Forgot password?</a>
+	       <small>	<a class="forgot float-right" href="<?= BASE_URL; ?>settings/recover-password/">Forgot password?</a></small>
 			<div class="btn-container clear">
             	<input class="btn btn--green" name="submit" type="submit" value='Log In'>					
 			</div>
