@@ -56,11 +56,13 @@
 		if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) {	
 			$name 			= $_FILES['avatar']['name'];
 			$tmpName 		= $_FILES['avatar']['tmp_name'];
-			$allowedExt 	= array('jpg', 'jpeg', 'png', 'gif', 'svg');
+			$allowedExt 	= array('jpg', 'jpeg', 'png', 'gif');
 			$a 				= explode('.', $name);
 			$fileExt 		= strtolower(end($a)); unset($a);
 			$fileSize 		= $_FILES['avatar']['size'];
 			$path 			= "assets/avatars";
+
+			var_dump($fileExt);
 			
 			if (in_array($fileExt, $allowedExt) === false) {
 				$errors[] = 'Image file type not allowed';	
@@ -79,10 +81,6 @@
 				$newPath = $forms->fileNewPath($path, $name);
 
 				move_uploaded_file($tmpName, ROOT_PATH . $newPath);
-
-				$resize = new Resize(ROOT_PATH . $newPath);
-				$resize->resizeImage(700, 500, 'auto');
-				$resize->saveImage(ROOT_PATH . $newPath, 100);
 
 				$thumbnailName = 'thumbnail-' . $_FILES['avatar']['name'];
 				$thumbnailPath = $forms->fileNewPath($path, $thumbnailName);

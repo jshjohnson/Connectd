@@ -97,7 +97,7 @@
 				foreach ($_FILES['portfolio-pieces']['name'] as $key => $name) {
 
 					$tmpName       = $_FILES['portfolio-pieces']['tmp_name'][$key];
-					$allowedExt   = array('jpg', 'jpeg', 'png', 'gif', 'svg');
+					$allowedExt   = array('jpg', 'jpeg', 'png', 'gif');
 					$a             = explode('.', $name);
 					$fileExt       = strtolower(end($a)); unset($a);
 					$fileSize      = $_FILES['portfolio-pieces']['size'][$key];
