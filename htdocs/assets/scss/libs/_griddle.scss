@@ -155,8 +155,7 @@ $grid-gutter: 2em !default; // can be px, em, or %
  */
 
 .grid__cell {
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     width: 100%;
     display: inline-block; /* 1 */
     margin: 0;

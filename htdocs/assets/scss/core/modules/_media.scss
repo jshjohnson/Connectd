@@ -4,6 +4,9 @@
 .media {
 	padding: $baseline/2 1em;
 	position: relative;
+	overflow: hidden;
+	width: 100%;
+	@include box-sizing(border-box);
 	@extend .cf;
 	&:nth-child(odd) {
 		background-color: rgba(white, 0.8);
@@ -108,7 +111,6 @@ img.media__img {
 
 .media-block {
 	margin: 1.5em 0;
-	overflow: auto;
 	&:first-child {
 		margin-top: 0;
 	}
@@ -126,7 +128,7 @@ img.media__img {
 	padding-left: 1em;
 	line-height: 1.5;
 	padding: .2em 1em .2em;
-	box-sizing: border-box;
+	@include box-sizing(border-box);
 	vertical-align: top;
 	position: relative;
 	font-size: .7em;
