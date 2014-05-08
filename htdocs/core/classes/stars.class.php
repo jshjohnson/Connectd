@@ -31,9 +31,12 @@
 				ON 
 					user_types.user_type_id = user_stars.starred_by_id
 				WHERE 
-					user_stars.star_id = :id	
+					user_stars.star_id = :id
+				AND
+					user_types.user_type != :userType	
 			");
 			$query->bindValue(":id", $id);
+			$query->bindValue(":userType", "employer");
 
 			try{
 				$query->execute();
