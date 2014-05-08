@@ -1,52 +1,6 @@
-			<?php if($portfolioPieces > 0 && $developerSkills > 0) : ?>
-				<?php if(is_array($developerSkills) && !empty($developerSkills)) :?>
-					<nav class="portfolio__headings-bg">
-						<ul class="portfolio__headings portfolio__headings">
-							<li class="active active--navy">Skills</li>
-						</ul>
-					</nav>
-					<div class="container__inner">
-						<ul class="grid--no-marg">
-						<?php foreach($developerSkills as $skill) : ?>
-							<li class="grid__cell--no-pad skills--developer">
-								<div class="skills__bar">
-									<div class="skill__name" data-skill="<?= $skill['skill_rating']; ?>"><?= $skill['skill']; ?></div>
-								</div>			
-							</li>
-						<?php endforeach; ?>
-						</ul>
-					</div>
-				<?php endif; ?>
-				<?php if(is_array($portfolioPieces) && !empty($portfolioPieces)) :?>
-					<nav class="portfolio__headings-bg zero-bottom">
-						<ul class="portfolio__headings portfolio__headings">
-							<li class="active active--navy">Portfolio</li>
-						</ul>
-					</nav>
-					<div class="container__inner">
-						<ul class="grid grid__developer">
-						<?php foreach($portfolioPieces as $portfolioPiece) : ?>
-							<li class="grid__cell grid__cell--img">
-								<img src="<?= BASE_URL . $portfolioPiece['portfolio_location']; ?>" alt="">
-							</li>
-						<?php endforeach; ?>
-						</ul>
-					</div>
-				<?php endif; ?>
-				<?php if(!empty($user['testimonial'])) : ?>
-					<nav class="portfolio__headings-bg">
-						<ul class="portfolio__headings portfolio__headings">
-							<li class="active active--navy">Testimonial</li>
-						</ul>
-					</nav>
-					<div class="container__inner push-bottom">
-						<blockquote>
-							<p>"<?= nl2br($testimonial); ?>"</p>
-							<b class="source"><?= $testimonialSource; ?></b>
-						</blockquote>
-					</div>
-				<?php endif; ?>
-			<?php elseif($userID ==  $sessionUserID) : ?>
+		<!-- If portfolio pieces, skills and testimonial are blank -->
+		<?php if(empty($portfolioPieces) && empty($developerSkills) && empty($testimonial)) : ?>
+			<?php if($userID ==  $sessionUserID) : ?>
 					<nav class="portfolio__headings-bg">
 						<ul class="portfolio__headings portfolio__headings">
 							<li class="active active--blue">Uh oh!</li>
@@ -71,3 +25,52 @@
 						</p>
 					</div>
 			<?php endif; ?>
+		<?php else : ?>
+			<?php if(is_array($developerSkills) && !empty($developerSkills)) :?>
+				<nav class="portfolio__headings-bg">
+					<ul class="portfolio__headings portfolio__headings">
+						<li class="active active--navy">Skills</li>
+					</ul>
+				</nav>
+				<div class="container__inner">
+					<ul class="grid--no-marg">
+					<?php foreach($developerSkills as $skill) : ?>
+						<li class="grid__cell--no-pad skills--developer">
+							<div class="skills__bar">
+								<div class="skill__name" data-skill="<?= $skill['skill_rating']; ?>"><?= $skill['skill']; ?></div>
+							</div>			
+						</li>
+					<?php endforeach; ?>
+					</ul>
+				</div>
+			<?php endif; ?>
+			<?php if(is_array($portfolioPieces) && !empty($portfolioPieces)) :?>
+				<nav class="portfolio__headings-bg zero-bottom">
+					<ul class="portfolio__headings portfolio__headings">
+						<li class="active active--navy">Portfolio</li>
+					</ul>
+				</nav>
+				<div class="container__inner">
+					<ul class="grid grid__developer">
+					<?php foreach($portfolioPieces as $portfolioPiece) : ?>
+						<li class="grid__cell grid__cell--img">
+							<img src="<?= BASE_URL . $portfolioPiece['portfolio_location']; ?>" alt="">
+						</li>
+					<?php endforeach; ?>
+					</ul>
+				</div>
+			<?php endif; ?>
+			<?php if(!empty($testimonial)) : ?>
+				<nav class="portfolio__headings-bg">
+					<ul class="portfolio__headings portfolio__headings">
+						<li class="active active--navy">Testimonial</li>
+					</ul>
+				</nav>
+				<div class="container__inner push-bottom">
+					<blockquote>
+						<p>"<?= nl2br($testimonial); ?>"</p>
+						<b class="source"><?= $testimonialSource; ?></b>
+					</blockquote>
+				</div>
+			<?php endif; ?>
+		<?php endif; ?>
