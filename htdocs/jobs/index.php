@@ -16,6 +16,7 @@
 		$userID = $job['user_id'];
 		$user = $employers->getEmployersSingle($userID);
 		$employerName = $user['employer_name'];
+		$bio = $urls->twitterLinks($job['bio']);
 
 		if($job) {
 			$pageTitle  = ucwords($job['job_name']) . ' :: ' . ucwords($job['employer_name']);
