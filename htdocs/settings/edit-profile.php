@@ -48,6 +48,7 @@
 			$designerSkills = explode(',', trim($_POST['des-skills']));
 			$developerSkills = $_POST['dev-skill'];
 			$deletePortfolio = $_POST['delete-portfolio'];
+			$deleteTestimonial = $_POST['delete-testimonial'];
 			$deleteSkills= $_POST['delete-skills'];
 			$portfolioPieces = $_FILES['portfolio-piece'];
 			$testimonial = trim(str_replace('"', "", $_POST['testimonial']));
@@ -64,14 +65,6 @@
 				if(empty($designerSkills)) {
 					$errors[] = "You must specify at least one skill";
 				}
-			}
-
-			if($deletePortfolio == "delete") {
-				$freelancers->removePortfolioPiece($sessionUserID);
-			}
-
-			if($deleteSkills == "delete") {
-				$freelancers->removeSkills($sessionUserID);
 			}
 
 			if(isset($developerSkills) && $deleteSkills != "delete") {
@@ -139,6 +132,18 @@
 				}
 
 				$freelancers->updateFreelancer($jobTitle, $pricePerHour, $sessionUserID);
+
+				if($deletePortfolio == "delete") {
+					$freelancers->removePortfolioPiece($sessionUserID);
+				}
+
+				if($deleteSkills == "delete") {
+					$freelancers->removeSkills($sessionUserID);
+				}
+
+				if($deleteTestimonial == "delete") {
+					$freelancers->removeTestimonial($sessionUserID);
+				}
 				
 				header('Location: ' . BASE_URL . $sessionUserType . "/profile/" . $sessionUser['user_id'] . "/?updated");
 				exit();
