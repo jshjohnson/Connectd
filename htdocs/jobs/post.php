@@ -3,6 +3,7 @@
 	require(ROOT_PATH . "core/init.php");
 
 	$users->loggedOutProtect();
+	$debug->showErrors();
 
 	$jobCategories = $jobs->getJobCategories();
 	$developerJobTitles = $freelancers->getFreelancerJobTitles("developer");
@@ -21,10 +22,10 @@
 		$employerName = $users->fetchInfo("employer_name", "employer_id", $sessionUserID, "employers");
 
 		// Grab the form data
-		$jobTitle = trim($_POST['job_title']);
+		$freelancerNeeded = trim($_POST['job_title']);
 		$jobLocation = trim($_POST['job_location']);
 		$jobName = stripslashes(trim($_POST['job_name']));
-		$jobFull = $employerName . " need a " . $jobTitle . " to work on " . $jobName;
+		$jobFull = $employerName . " need a " . $freelancerNeeded . " to work on " . $jobName;
 		$startDate = trim($_POST['start_date']);
 		$deadline = trim($_POST['deadline']);
 		$budget = trim($_POST['budget']);
@@ -33,10 +34,10 @@
 
 		$forms->hijackPrevention();
 
-       	$errors = $forms->validateJob($jobTitle, $jobLocation, $jobName, $startDate, $budget, $category, $description, $errors);
+       	$errors = $forms->validateJob($freelancerNeeded, $jobLocation, $jobName, $startDate, $budget, $category, $description, $errors);
 
 		if(empty($errors) === true){
-			$jobs->postJob($sessionUserID, $jobFull, $jobLocation, $startDate, $deadline, $budget, $category, $description);
+			$jobs->postJob($sessionUserID, $jobFull, $freelancerNeeded, $jobLocation, $startDate, $deadline, $budget, $category, $description);
 			header("Location:" . BASE_URL . "dashboard/");
 			exit();
 		}

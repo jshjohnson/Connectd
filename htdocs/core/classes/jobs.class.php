@@ -42,19 +42,20 @@
 		 * @param  string $description
 		 * @return void
 		 */ 
-	    public function postJob($user_id, $jobFull, $jobLocation, $startDate, $deadline, $budget, $category, $description) {
+	    public function postJob($sessionUserID, $jobFull, $freelancerNeeded, $jobLocation, $startDate, $deadline, $budget, $category, $description) {
 
     		$postDate = time();
 
 			$query = $this->db->prepare("
 				INSERT INTO " . DB_NAME . ".jobs
-				(user_id, job_name, job_location, job_start_date, job_deadline, job_budget, job_category, job_description, job_post_date) 
+				(user_id, job_name, job_freelancer_needed, job_location, job_start_date, job_deadline, job_budget, job_category, job_description, job_post_date) 
 				VALUES 
-				(:user_id, :name, :location, :start_date, :deadline, :budget, :category, :description, :date)
+				(:user_id, :name, :freelancerNeeded, :location, :start_date, :deadline, :budget, :category, :description, :date)
 			");
 
-			$query->bindValue(":user_id", $user_id);
+			$query->bindValue(":user_id", $sessionUserID);
 			$query->bindValue(":name", $jobFull);
+			$query->bindValue(":freelancerNeeded", $freelancerNeeded);
 			$query->bindValue(":location", $jobLocation);
 			$query->bindValue(":start_date", $startDate);
 			$query->bindValue(":deadline", $deadline);
