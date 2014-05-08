@@ -20,7 +20,7 @@
 
 	// Determine whether user is logged in - test for value in $_SESSION
 	if (isset($_SESSION['logged'])){
-		header('Location: dashboard/');
+		header("Location: " . BASE_URL . "dashboard/");
 	}else if (isset($_POST['submit'])) {
 
 		// Grab the form data
