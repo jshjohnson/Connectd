@@ -28,7 +28,6 @@
 		} else {
 			throw new Exception('An invalid page ID was provided to this page.');
 		}
-
 	}catch(Exception $e) {
 		$users = new Users($db);
 		$debug = new Errors();
