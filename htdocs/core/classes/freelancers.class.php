@@ -206,7 +206,7 @@
 		 * @param  void
 		 * @return array
 		 */ 
-		public function getFreelancersAllTypes($user_id) {
+		public function getFreelancersAllTypes($userID) {
 			$results = $this->db->prepare("
 				SELECT u.user_id, u.firstname, u.lastname, u.image_location, u.time_joined, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
 				FROM ((" . DB_NAME . ".users AS u
@@ -215,15 +215,17 @@
 				LEFT JOIN " . DB_NAME . ".user_types AS ut
 				ON u.user_id = ut.user_type_id)
 				WHERE u.confirmed = :confirmed
-				AND u.granted_access = :granted_access
-				AND u.user_id != :user_id
-				AND ut.user_type != :user_type
+				AND u.granted_access = :grantedAccess
+				AND u.user_id != :userID
+				AND ut.user_type != :userType
+				GROUP BY u.user_id
 				ORDER BY u.time_joined DESC
+				LIMIT 10;
 			");
 			$results->bindValue(":confirmed", 1);
-			$results->bindValue(":granted_access", 1);
-			$results->bindValue(":user_id", $user_id);
-			$results->bindValue(":user_type", "employer");
+			$results->bindValue(":grantedAccess", 1);
+			$results->bindValue(":userID", $userID);
+			$results->bindValue(":userType", "employer");
 			
 			
 			try {
@@ -237,10 +239,6 @@
 			$freelancers = $results->fetchAll(PDO::FETCH_ASSOC);
 
 			return $freelancers;
-		}
-
-		public function getFreelancersAllTypesCount($user_id) {
-			return count(getFreelancersAllTypes($user_id));
 		}
 
 		/**
