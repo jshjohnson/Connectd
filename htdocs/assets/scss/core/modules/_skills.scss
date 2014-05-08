@@ -63,31 +63,33 @@
 	margin-top: 0;
 	overflow: hidden;
 	@include box-sizing(border-box);
-	.skill__name {
-		white-space: nowrap;
-		background-color: $color-brand-light;
-		padding: .6em .6em .6em 1.2em;
-		color: darken($color-brand-light, 30%);
-		@include box-sizing(border-box);
-		&[data-skill="5"] {
-			width: 100%;
-			max-width: 100%;
-		}
-		&[data-skill="4"] {
-			width: 100%;
-			max-width: 75%;
-		}
-		&[data-skill="3"] {
-			width: 100%;
-			max-width: 50%;
-		}
-		&[data-skill="2"] {
-			width: 100%;
-			max-width: 25%;
-		}
-		&[data-skill="1"] {
-			width: 100%;
-			max-width: 0%;
-		}
+}
+
+.skill__name {
+	text-transform: capitalize;
+	white-space: nowrap;
+	background-color: $color-brand-light;
+	padding: .6em .6em .6em 1.2em;
+	color: darken($color-brand-light, 30%);
+	@include box-sizing(border-box);
+	&[data-skill="5"] {
+		width: 100%;
+		max-width: 100%;
+	}
+	&[data-skill="4"] {
+		width: 100%;
+		max-width: 75%;
+	}
+	&[data-skill="3"] {
+		width: 100%;
+		max-width: 50%;
+	}
+	&[data-skill="2"] {
+		width: 100%;
+		max-width: 25%;
+	}
+	&[data-skill="1"] {
+		width: 100%;
+		max-width: 0%;
 	}
 }
