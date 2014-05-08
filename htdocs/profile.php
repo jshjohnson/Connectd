@@ -34,21 +34,21 @@
 				$section = "Designer";
 				$pageType = "Custom";
 				$section = "Designer";
-				$userColor = "blue";
+				$userColour = "blue";
 				$designerSkills = $freelancers->getFreelancerSkills($userID);
 				break;
 			case "developer":
 				$section = "Developer";
 				$pageType = "Custom";
 				$section = "Developer";
-				$userColor = "navy";
+				$userColour = "navy";
 				$developerSkills = $freelancers->getFreelancerSkills($userID);
 				break;
 			case "employer":
 				$section = "Employer";
 				$pageType = "Custom";
 				$section = "Employer";
-				$userColor = "green";
+				$userColour = "green";
 				$allJobs = $jobs->getEmployerJobs($userID);
 				break;
 			default:
