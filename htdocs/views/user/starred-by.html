@@ -3,8 +3,19 @@
 						<h3 class="float-left">Recently starred by:</h3>
 					</header>
 					<div class="module--half-pad">
+						<ul class="module module--inline module--img-list">
 					<?php foreach($starredAvatars as $starred) : ?>
-						<a href="<?= BASE_URL . $starred['user_type'] . "/profile/" . $starred['starred_by_id'] . "/"; ?>"><img src="<?= BASE_URL . $starred['image_location']; ?>" alt="" class="module__avatar img--avatar"></a>
+							<?php 	
+								$starredAvatar = $starred['image_location'];
+								$starredAvatarPath = 'assets/avatars/';
+								$starredAvatarFile = str_replace($starredAvatarPath, '', $starredAvatar);
+							?>
+							<li class="module--img-list__item">
+								<a href="<?= BASE_URL . $starred['user_type'] . "/profile/" . $starred['starred_by_id'] . "/"; ?>">
+									<img src="<?= BASE_URL . $starredAvatarPath . 'thumbnail-' . $starredAvatarFile; ?>" alt="" class="module__avatar img--avatar">
+								</a>
+							</li>
 					<?php endforeach; ?>
+						</ul>
 					</div>
 				</aside>

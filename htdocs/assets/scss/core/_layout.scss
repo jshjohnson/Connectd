@@ -140,6 +140,21 @@
 	padding: .75em;
 }
 
+.module--inline {
+	display: inline-block;
+	zoom: 1;
+}
+
+.module--img-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	.module--img-list__item {
+		display: inline-block;
+		margin-bottom: 0;
+	}
+}
+
 .module-sidebar {
 	margin-bottom: $baseline;
 	padding: 1.5em;
