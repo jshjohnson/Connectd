@@ -470,6 +470,16 @@ img.media__img {
 	font-size: .75em;
 }
 
+.header-section__tittle--username {
+	text-transform: capitalize;
+}
+
+.header-section__title--username, .header-section__title--brand {
+	@include respond-max($bp1) {
+		display: none;
+	}
+}
+
 .header-section--notifications {
 	background-color: $color-brand-highlight;
 	padding: 0 .7em;
@@ -488,13 +498,6 @@ img.media__img {
 		position: absolute;
 		right: -.5em;
 		top: .5em;
-	}
-}
-
-.header-section__title--username {
-	text-transform: capitalize;
-	@include respond-max($bp1) {
-		display: none;
 	}
 }
 
@@ -640,7 +643,7 @@ img.media__img {
 	margin: .5em 0; 
 	.source { @include font-serif; font-size: .6em; } 
 	@include respond-max($bp1-5) {
-		margin: 0;
+		margin: .75em 0;
 		font-size: 1.5em;
 	}
 }
