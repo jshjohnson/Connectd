@@ -52,6 +52,11 @@
 		if($sessionUserType == "employer") {
 			$sessionEmployerData = $employers->getEmployersSingle($sessionUserID);
 			$sessionEmployerName = ucwords($sessionEmployerData['employer_name']);	
+			$sessionColour = "green";
+		}else if($sessionUserType == "designer") {
+			$sessionColour = "blue";
+		}else if($sessionUserType == "developer") {
+			$sessionColour = "navy";
 		}
 	}
 	
