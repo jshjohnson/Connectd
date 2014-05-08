@@ -69,12 +69,12 @@
 			$template = "freelancer/freelancer-profile.html";
 		} else if ($userType == "employer") {
 			$user = $employers->getEmployersSingle($userID);
-			$starredAvatars = $stars->getUserStars($userID);
 			$employerName = ucwords($user['employer_name']);	
 			$pageTitle  = $employerName . ' :: ' . $user['employer_type'];
 			$template = "employer/employer-profile.html";
 		}
 
+		$starredAvatars = $stars->getUserStars($userID);
 		$userAvatar = $user['image_location'];
 		$bio = $urls->twitterLinks($user['bio']);
 

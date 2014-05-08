@@ -25,18 +25,25 @@
 			<div class="grid--no-marg cf">
 			<?php if($userType == "designer") : ?>
 
-				<aside class="user-module grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-right">
-					<?php include(ROOT_PATH .'views/freelancer/freelancer-sidebar.html'); ?>
-				</aside>
+				<div class="float-right grid__cell unit-1-3--bp2 module module-1-3 module--no-pad">
+					<aside class="user-module">
+						<?php include(ROOT_PATH .'views/freelancer/freelancer-sidebar.html'); ?>
+					</aside>
+					<?php if(!empty($starredAvatars)) { include(ROOT_PATH . 'views/user/starred-by.html'); };?>
+				</div>
+				
 				<article class="portfolio grid__cell unit-2-3--bp2 module-2-3 module--no-pad float-left">
 					<?php include(ROOT_PATH .'views/freelancer/designer/designer-portfolio.html'); ?>
 				</article>
 
 			<?php elseif($userType == "developer") : ?>
 
-				<aside class="user-module grid__cell unit-1-3--bp2 module module-1-3 module--no-pad float-left">
-					<?php include(ROOT_PATH . 'views/freelancer/freelancer-sidebar.html'); ?>
-				</aside>
+				<div class="float-left grid__cell unit-1-3--bp2 module module-1-3 module--no-pad">
+					<aside class="user-module">
+						<?php include(ROOT_PATH . 'views/freelancer/freelancer-sidebar.html'); ?>
+					</aside>
+					<?php if(!empty($starredAvatars)) { include(ROOT_PATH . 'views/user/starred-by.html'); };?>
+				</div>
 				<article class="portfolio grid__cell unit-2-3--bp2 module-2-3 module--no-pad float-right">
 					<?php include(ROOT_PATH . 'views/freelancer/developer/developer-portfolio.html'); ?>
 				</article>
