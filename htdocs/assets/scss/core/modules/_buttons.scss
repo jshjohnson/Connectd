@@ -2,51 +2,23 @@
 ----------------------------------*/
 
 .btn--red { 
-	background-color: $color-brand-highlight;  
-	@include box-shadow(0 .18em 0 darken($color-brand-highlight, 20%));
-	border: 1px solid darken($color-brand-highlight, 10%);
-	border-bottom: none;
-	&:hover {
-		@include box-shadow(0 .1em 0 darken($color-brand-highlight, 20%))
-	}
+	@include button($color-brand-highlight);
 }
+
 .btn--blue { 
-	background-color: $color-brand-dark;  
-	@include box-shadow(0 .18em 0 darken($color-brand-dark, 20%));
-	border: 1px solid darken($color-brand-dark, 10%);
-	border-bottom: none;
-	&:hover {
-		@include box-shadow(0 .1em 0 darken($color-brand-dark, 20%))
-	}
+	@include button($color-brand-dark);
 }
+
 .btn--green { 
-	background-color: $color-brand-mid; 
-	@include box-shadow(0 .18em 0 darken($color-brand-mid, 20%));
-	border: 1px solid darken($color-brand-mid, 10%);
-	border-bottom: none;
-	&:hover {
-		@include box-shadow(0 .1em 0 darken($color-brand-mid, 20%))
-	}
+	@include button($color-brand-mid);
 }
 
 .btn--facebook {
-	background-color: #3B5998; 
-	@include box-shadow(0 .18em 0 darken(#3B5998, 20%));
-	border: 1px solid darken(#3B5998 , 10%);
-	border-bottom: none;
-	&:hover {
-		@include box-shadow(0 .1em 0 darken(#3B5998, 20%))
-	}
+	@include button(#3B5998);
 }
 
 .btn--twitter {
-	background-color: #55ACEE; 
-	@include box-shadow(0 .18em 0 darken(#55ACEE, 20%));
-	border: 1px solid darken(#55ACEE, 10%);
-	border-bottom: none;
-	&:hover {
-		@include box-shadow(0 .1em 0 darken(#55ACEE, 20%))
-	}	
+	@include button(#55ACEE);
 }
 
 .btn--disabled {

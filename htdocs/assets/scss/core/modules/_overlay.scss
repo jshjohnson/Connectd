@@ -74,12 +74,6 @@
 	}
 }
 
-.overlay > *:last-child,
-.overlay > *:last-child > *:last-child,
-.overlay > *:last-child > *:last-child > *:last-child {
-  margin-bottom: 0;
-}
-
 .overlay__title {
 	margin-top: 0;
 	font-weight: 600;

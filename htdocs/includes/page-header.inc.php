@@ -3,9 +3,9 @@
 	$headerClasses = array();
 	
 	if($section == "Designer") {
-		$headerClasses[] = "header--blue";
+		$headerClasses[] = "bg-color-blue";
 	}else if($section == "Employer" || $section == "Job") {
-		$headerClasses[] = "header--green";
+		$headerClasses[] = "bg-color-green";
 	}else if($pageType == "Page" && $section == "Blue") {
 		$headerClasses[] = "header-blue--alt";
 	} else if($pageType == "Page" && $section == "Green") {

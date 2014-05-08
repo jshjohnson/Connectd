@@ -172,6 +172,12 @@
   margin-bottom: 0;
 }
 
+.overlay > *:last-child,
+.overlay > *:last-child > *:last-child,
+.overlay > *:last-child > *:last-child > *:last-child {
+  margin-bottom: 0;
+}
+
 .module--no-pad {
 	padding: 0;
 }

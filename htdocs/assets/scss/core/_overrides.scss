@@ -237,3 +237,19 @@ input:disabled {
 	background-color: #DDDDDD;
 	color: white;
 }
+
+.bg-color-blue {
+	background-color: $color-brand-light;
+}
+
+.bg-color-navy {
+	background-color: $color-brand-dark;
+}
+
+.bg-color-green {
+	background-color: $color-brand-mid;
+}
+
+.bg-color-red {
+	background-color: $color-brand-highlight;
+}

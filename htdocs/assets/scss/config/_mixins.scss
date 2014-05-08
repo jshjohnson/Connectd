@@ -139,6 +139,16 @@
   #{$property}: calc(#{$expression});
 }
 
+@mixin button($color) {
+	background-color: $color;  
+	@include box-shadow(0 .18em 0 darken($color, 20%));
+	border: 1px solid darken($color, 10%);
+	border-bottom: none;
+	&:hover {
+		@include box-shadow(0 .1em 0 darken($color, 20%))
+	}
+}
+
 @mixin underline {	
 	@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
 		background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);

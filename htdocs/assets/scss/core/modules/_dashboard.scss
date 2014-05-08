@@ -23,3 +23,15 @@
 	      background-color: rgba($color-brand-dark, .3);
 	}
 }
+
+.dashboard-panel__header {
+	h1, h2, h3, h4 {
+		margin: 0;
+		color: white;
+		font-size: .95em;
+		padding: .7em 1em;
+		a {
+			color: white;
+		}
+	}	
+}

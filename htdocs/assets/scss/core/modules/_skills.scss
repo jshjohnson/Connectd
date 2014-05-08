@@ -6,7 +6,7 @@
 	margin-left: 0;
 }
 
-.skills--developer {
+.skills__bar-wrapper {
 	width: 100%;
 	@include respond-min($bp1) {
 		width: 49.95%;
@@ -36,6 +36,7 @@
 	color: white;
 	margin-bottom: 1em;
 	margin-right: 2em;
+	text-transform: capitalize;
 	&:last-child {
 		margin-right: 0;
 	}

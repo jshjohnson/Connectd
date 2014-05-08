@@ -46,37 +46,6 @@
 	}
 }
 
-.header--blue {
-	background-color: $color-brand-light;
-}
-
-.header--navy {
-	background-color: $color-brand-dark;
-}
-
-.header--green {
-	background-color: $color-brand-mid;
-}
-
-.header--red {
-	background-color: $color-brand-highlight;
-}
-
-.header--panel {
-	h1, h2, h3, h4 {
-		margin: 0;
-		color: white;
-		font-size: .95em;
-		padding: .7em 1em;
-		a {
-			color: white;
-		}
-	}
-}
-
-.header--alt {
-	background-color: $color-brand-highlight;
-}
 
 .header-blue--alt {
 	background-color: #51abd0;

@@ -79,7 +79,7 @@
 				}			
 			}
 
-			if ($_FILES['portfolio-pieces']["size"][0] > 0) {
+			if ($_FILES['portfolio-pieces']['size'][0] > 0) {
 
 				// $freelancers->removePortfolioPiece($sessionUserID);
 
