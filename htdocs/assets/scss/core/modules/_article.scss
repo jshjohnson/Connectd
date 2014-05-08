@@ -52,8 +52,10 @@
 }
 
 .article__heading--list {
-	font-size: .9em;
-	line-height: 2.4;
+	@include respond-max($bp3) {
+		font-size: .9em;
+		line-height: 2.4;
+	}
 	.article__heading--list-item {
 		display: inline-block;
 		@include respond-max($bp3) {

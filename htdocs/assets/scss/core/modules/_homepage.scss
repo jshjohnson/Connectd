@@ -26,6 +26,20 @@
 	@include box-sizing(border-box);
 }
 
+.site-intro__link {
+	color: white;
+	border-bottom: 1px solid transparent;
+	@include transition(border, .5s);
+	&:hover {
+		color: white;
+		border-bottom: 1px solid white;
+		@include transition(border, .5s);
+	}
+	&:visited {
+		color: white;
+	}
+}
+
 .site-intro__logo {
 	width: 39em;
 	@include box-sizing(border-box);
@@ -78,12 +92,5 @@
 	}
 	@include respond-max($bp2) {
 		font-size: 1.2em;
-	}
-}
-
-.site-intro__link {
-	color: white;
-	&:visited {
-		color: white;
 	}
 }
