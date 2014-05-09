@@ -20,7 +20,7 @@
 							<p class="user-module__label"><?= nl2br(stripslashes($bio)); ?></p>
 					<?php if(!empty($sessionUserID)) : ?>
 						<?php if($userID != $sessionUserID) : ?>
-							<div class="btn-wrapper push-top">
+							<div class="btn-wrapper">
 								<a class="btn--left btn btn--green cf hire-trigger" href="">Send message</a>
 							<?php if($stars->sessionUserStarred($user['user_id'], $starredBy) == false) : ?>
 								<a class="btn--right btn btn--blue cf" href="<?= BASE_URL; ?>add-star.php?user_id=<?= $user["user_id"]; ?>" title="Give user a star"><i class="icon--star"></i>Star</a>
