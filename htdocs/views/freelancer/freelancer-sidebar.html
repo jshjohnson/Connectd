@@ -19,6 +19,7 @@
 							<img src="<?= BASE_URL . $userAvatar; ?>" alt="" style="visibility:hidden;">
 						</div>
 					<?php endif; ?>
+					<?php if(!empty($sessionUserID)) : ?>
 						<?php if($userID != $sessionUserID) : ?>
 						<div class="btn-wrapper user-module__buttons">
 						<?php if($sessionUserType != "employer") : ?>
@@ -41,6 +42,7 @@
 							<a href="<?= BASE_URL;?>settings/account-settings/" class="btn btn--green icon--cog">Account settings</a>
 						</div>
 						<?php endif; ?>
+					<?php endif;?>
 					</div>
 					<div class="user-module__info">
 						<h3 class="user-module__title"><?= $user['firstname'] . " " . $user['lastname']; ?></h3>
