@@ -18,7 +18,7 @@
 
 	$starredFreelancers = $stars->getStarredFreelancers($starredBy);
 
-	$allFreelancers = $freelancers->getFreelancersAllTypes($sessionUserID);
+	$allFreelancers = $freelancers->getFreelancersAllTypesRecent($sessionUserID);
 
 	if (isset($_GET["status"])) { 
 		$status = $_GET["status"];
