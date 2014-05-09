@@ -5,11 +5,6 @@
 			</form>
 		</div>
 	</section>
-<!-- 	<section class="call-to-action call-to-action--search">
-		<div class="container call-to-action__container">
-			<h2 class="zero call-to-action__title"><?= $resultCount; ?></h2>
-		</div>
-	</section> -->
 	<section class="container footer--push">
 		<div class="grid--no-marg text-center cf">
 		<?php if (!empty($allFreelancers) && is_array($allFreelancers)) : ?>
@@ -24,27 +19,23 @@
 					} ?>
 			</article>
 		<?php endif;?>
-			<div class="grid--no-marg grid--center cf">
-				<?php if (!empty($allJobs) && is_array($allJobs)) : ?>
-					<article class="grid__cell module-2-3 module--no-pad">
-					<?php foreach($allJobs as $jobID => $job) {
-						include(ROOT_PATH. 'views/job/job-list-alt.html');
-					} ?>
-					</article>
-				<?php endif;?>		
-			</div>
-			<div class="grid--no-marg grid--center cf">
-				<?php if (!empty($allEmployers) && is_array($allEmployers)) : ?>
-					<article class="dashboard-panel grid__cell module-2-3 module--no-pad">
-						<header class="dashboard-panel__header bg-color-green cf">
-							<h3 class="float-left">Employer search results</h3>
-							<h4 class="float-right icon--search"></h4>
-						</header>
-					<?php foreach($allEmployers as $employer) {
-						include(ROOT_PATH. 'views/employer/employer-list.html');
-					} ?>
-					</article>
-				<?php endif;?>		
-			</div>
+		<?php if (!empty($allJobs) && is_array($allJobs)) : ?>
+			<article class="grid__cell module-2-3 module--no-pad">
+			<?php foreach($allJobs as $jobID => $job) {
+				include(ROOT_PATH. 'views/job/job-list-alt.html');
+			} ?>
+			</article>
+		<?php endif;?>		
+		<?php if (!empty($allEmployers) && is_array($allEmployers)) : ?>
+			<article class="dashboard-panel grid__cell module-2-3 module--no-pad">
+				<header class="dashboard-panel__header bg-color-green cf">
+					<h3 class="float-left">Employer search results</h3>
+					<h4 class="float-right icon--search"></h4>
+				</header>
+			<?php foreach($allEmployers as $employer) {
+				include(ROOT_PATH. 'views/employer/employer-list.html');
+			} ?>
+			</article>
+		<?php endif;?>		
 		</div>
 	</section>
