@@ -76,11 +76,12 @@
 		if(empty($errors) === true) {
 			
 			if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) {
-				$newPath = $forms->fileNewPath($path, $name);
+				$newName = $sessionUserID.time() . '.' . $fileExt;
+				$newPath = $forms->fileNewPath($path, $newName);
 
 				move_uploaded_file($tmpName, ROOT_PATH . $newPath);
 
-				$thumbnailName = 'thumbnail-' . $_FILES['avatar']['name'];
+				$thumbnailName = 'thumbnail-' . $sessionUserID.time() . '.' . $fileExt;
 				$thumbnailPath = $forms->fileNewPath($path, $thumbnailName);
 
 				$resize = new Resize(ROOT_PATH . $newPath);

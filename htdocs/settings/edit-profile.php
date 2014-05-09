@@ -105,7 +105,8 @@
 					}
 
 					if(empty($errors) === true) {
-						$newPath = $forms->fileNewPath($path, $name);
+						$newName = $sessionUserID.time() . '.' . $fileExt;
+						$newPath = $forms->fileNewPath($path, $newName);
 						move_uploaded_file($tmpName, ROOT_PATH . $newPath);
 
 						$resize = new Resize(ROOT_PATH . $newPath);
