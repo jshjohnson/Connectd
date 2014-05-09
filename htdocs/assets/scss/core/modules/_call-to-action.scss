@@ -19,9 +19,6 @@
 
 .call-to-action--top {
 	margin-bottom: 2.5em;
-	@include respond-max($bp1) {
-		margin-top: .5em;
-	}
 }
 
 .call-to-action--push {
