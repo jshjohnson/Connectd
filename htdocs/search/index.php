@@ -13,14 +13,10 @@
 	if(isset($_GET['search'])) {
 		$searchTerm = trim($_GET['search']);
 		if($searchTerm != "") {
-			if($sessionUserType == "employer") {
 				$allFreelancers = $search->getFreelancersSearch($searchTerm, $sessionUserID);
-				$allResults = count($allFreelancers);
-			} else {
+				$allEmployers = $search->getEmployersSearch($searchTerm);			
 				$allJobs = $search->getJobsSearch($searchTerm);
-				$allResults = count($allJobs);
-				// $allEmployers = $search->getEmployersSearch($searchTerm);
-			}
+				$allResults = count($allFreelancers . $allEmployers . $allJobs);
 		}
 		if($allResults <= 1) {
 			$resultCount = $allResults . " result";

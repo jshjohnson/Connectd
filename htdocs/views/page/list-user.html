@@ -1,15 +1,15 @@
 		<section class="call-to-action call-to-action--search">
 			<div class="container call-to-action__container">
 				<form action="<?= BASE_URL; ?>search/index.php" class="zero-bottom">
-					<input type="search" name="search" placeholder="Search for user" value=""  results="5" class="call-to-action__search">
+					<input type="search" name="search" placeholder="Search for employers/jobs/freelancers" value=""  results="5" class="call-to-action__search">
 				</form>
 			</div>
 		</section>
 		<section class="container">
 			<div class="grid--no-marg grid--center cf">
 				<article class="dashboard-panel grid__cell module-2-3 module--no-pad">
-					<header class="dashboard-panel__header  <?php if($type == "designer") { ?>bg-color-blue<?php } else if($type == "developer") { ?> bg-color-navy<?php } else { ?> bg-color-green<?php }; ?> cf">
-						<h3><?= $pageTitle; ?></h3>
+					<header class="dashboard-panel__header <?php if($type == "employer") : ?>bg-color-green<?php else: ?>bg-color-red<?php endif; ?> cf">
+						<h3>Recently joined <?= $type; ?>s</h3>
 					</header>
 					<div class="media-wrapper media-wrapper--tall">
 					<?php if ($type == "designer" || $type == "developer" || $type == "freelancer") : ?>

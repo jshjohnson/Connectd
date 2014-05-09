@@ -11,6 +11,7 @@
 		    $this->db = $database;
 		    $this->freelancers = new Freelancers($this->db);
 		    $this->jobs = new Jobs($this->db);
+		    $this->employers = new Employers($this->db);
 		}
 
 		public function getFreelancersSearch($searchTerm, $sessionUserID) {
@@ -26,11 +27,24 @@
 			return $results;
 		}
 
+		public function getEmployersSearch($searchTerm) {
+			$results = array();
+			$all = $this->employers->getEmployersAll();
+
+			foreach($all as $employer) {
+				$haystack = $employer['employer_name'] . $employer['employer_type'];
+				if(stripos($haystack, $searchTerm) !== false) {
+					$results[] = $employer; 
+				}	
+			}
+			return $results;
+		}
+
 		public function getJobsSearch($searchTerm) {
 			$results = array();
 			$all = $this->jobs->getJobsAll();
 			foreach($all as $job) {
-				$haystack = $job['job_name'] . $job['employer_name'] . $job['job_location'] . $job['job_budget'];
+				$haystack = $job['job_name'] . $job['job_location'] . $job['job_budget'];
 				if(stripos($haystack, $searchTerm) !== false) {
 					$results[] = $job; 
 				}	

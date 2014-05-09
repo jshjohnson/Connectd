@@ -1,50 +1,50 @@
 	<section class="call-to-action call-to-action--search">
 		<div class="container call-to-action__container">
 			<form action="<?= BASE_URL; ?>search/" class="zero-bottom">
-				<input type="search" name="search" placeholder="Search for employers/jobs" value="<?php if (isset($searchTerm)) { echo htmlspecialchars($searchTerm); } ?>" results="5" class="call-to-action__search">
+				<input type="search" name="search" placeholder="Search for employers/jobs/freelancers" value="<?php if (isset($searchTerm)) { echo htmlspecialchars($searchTerm); } ?>" results="5" class="call-to-action__search">
 			</form>
 		</div>
 	</section>
-	<section class="call-to-action call-to-action--search">
+<!-- 	<section class="call-to-action call-to-action--search">
 		<div class="container call-to-action__container">
 			<h2 class="zero call-to-action__title"><?= $resultCount; ?></h2>
 		</div>
-	</section>
+	</section> -->
 	<section class="container footer--push">
 		<div class="grid--no-marg text-center cf">
-		<?php if($sessionUserType == "employer") : ?>
+		<?php if (!empty($allFreelancers) && is_array($allFreelancers)) : ?>
 			<article class="dashboard-panel grid__cell module-2-3 module--no-pad">
-				<header class="dashboard-panel__header  bg-color-blue cf">
-					<h3 class="float-left"><a href="<?= BASE_URL; ?>list.php?usertype=designer">Freelancer search</a></h3>
+				<header class="dashboard-panel__header bg-color-red cf">
+					<h3 class="float-left">Freelancer search results</h3>
 					<h4 class="float-right icon--search"></h4>
 				</header>
-				<?php if (!empty($allFreelancers) && is_array($allFreelancers)) : ?>
-
-				<?php foreach ($allFreelancers as $freelancer) {
-					$userType = $freelancer['user_type'];
-					include(ROOT_PATH . 'views/freelancer/freelancer-list.html');
-				} ?>
-
-				<?php else : ?>
-					<?php include(ROOT_PATH . 'views/freelancer/freelancer-empty-list.html'); ?>
-				<?php endif;?>
+					<?php foreach ($allFreelancers as $freelancer) {
+						$userType = $freelancer['user_type'];
+						include(ROOT_PATH . 'views/freelancer/freelancer-list.html');
+					} ?>
 			</article>
-		<?php else : ?>
+		<?php endif;?>
 			<div class="grid--no-marg grid--center cf">
-				<article class="grid__cell module-2-3 module--no-pad">
 				<?php if (!empty($allJobs) && is_array($allJobs)) : ?>
+					<article class="grid__cell module-2-3 module--no-pad">
 					<?php foreach($allJobs as $jobID => $job) {
 						include(ROOT_PATH. 'views/job/job-list-alt.html');
 					} ?>
-				<?php else : ?>
-					<section class="call-to-action call-to-action--search">
-						<div class="container call-to-action__container">
-							<h2 class="zero-top call-to-action__title">No search results</h2>
-						</div>
-					</section>
-				<?php endif;?>
-				</article>
+					</article>
+				<?php endif;?>		
 			</div>
-		<?php endif; ?>
+			<div class="grid--no-marg grid--center cf">
+				<?php if (!empty($allEmployers) && is_array($allEmployers)) : ?>
+					<article class="dashboard-panel grid__cell module-2-3 module--no-pad">
+						<header class="dashboard-panel__header bg-color-green cf">
+							<h3 class="float-left">Employer search results</h3>
+							<h4 class="float-right icon--search"></h4>
+						</header>
+					<?php foreach($allEmployers as $employer) {
+						include(ROOT_PATH. 'views/employer/employer-list.html');
+					} ?>
+					</article>
+				<?php endif;?>		
+			</div>
 		</div>
 	</section>
