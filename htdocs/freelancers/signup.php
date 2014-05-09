@@ -32,7 +32,7 @@
 		$jobTitle = trim($_POST['jobtitle']);
 		$experience = trim($_POST['experience']);
 		$pricePerHour = trim($_POST['priceperhour']);
-		$bio = trim($_POST['bio']);
+		$bio = htmlentities(trim($_POST['bio']));
 		$portfolio = trim($_POST['portfolio']);
 		$location = trim($_POST['location']);
 

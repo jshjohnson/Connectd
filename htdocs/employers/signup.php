@@ -36,7 +36,7 @@
 		$location = trim($_POST['location']);
 		$experience = trim($_POST['experience']);
 		$portfolio = trim($_POST['portfolio']);
-		$bio = trim($_POST['bio']);
+		$bio = htmlentities(trim($_POST['bio']));
 
 		$forms->hijackPrevention();
 
