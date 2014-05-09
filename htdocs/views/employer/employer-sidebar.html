@@ -8,13 +8,12 @@
 						<?php  if(strtotime(date('F j, Y', $user['time_joined']))>strtotime('-3 days')) : ?>
 							     <div class="ribbon"><h5>New</h5></div>
 						<?php endif ?>
-							<?php 
-								if (strlen($employerName)>=23) {
-									echo "<h3 class=\"user-module__title user-module__title--alt\">" . $employerName . "</h3>";
-								} else {
-									echo "<h3 class=\"user-module__title\">" . $employerName . "</h3>";
-								}
-							?>
+
+						<?php if (strlen($employerName)>=23) : ?>
+							<h3 class="user-module__title user-module__title--alt"><a href="<?= BASE_URL . "employer/profile/" . $user['user_id'] . "/"; ?>"><?= $employerName; ?></a></h3>
+						<?php else : ?>
+							<h3 class="user-module__title"><a href="<?= BASE_URL . "employer/profile/" . $user['user_id'] . "/"; ?>"><?= $employerName; ?></a></h3>
+						<?php endif; ?>
 							<h4 class="user-module__label icon--attach icon--marg"><?= $user['employer_type']; ?></h4>
 							<h4 class="user-module__label icon--location icon--marg"><?= $user['location']; ?></h4>
 							<h4 class="user-module__label icon--globe icon--marg"><a href="<?= $user['portfolio']; ?>"><?= $user['portfolio']; ?></a></h4>
