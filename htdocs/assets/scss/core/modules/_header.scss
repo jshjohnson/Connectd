@@ -91,6 +91,12 @@
 		font-size: .6em;
 		vertical-align: middle;
 	}
+	@include respond-max($bp1) {
+		max-width: 7em;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 }
 
 .header-section__title {
