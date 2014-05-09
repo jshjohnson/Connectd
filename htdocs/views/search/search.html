@@ -6,6 +6,13 @@
 		</div>
 	</section>
 	<section class="container footer--push">
+		<?php if(empty($allEmployers) && empty($allJobs) && empty($allFreelancers)) : ?>
+			<section class="call-to-action call-to-action--search">
+				<div class="container call-to-action__container">
+					<h2 class="zero-top call-to-action__title">No search results</h2>
+				</div>
+			</section>	
+		<?php endif; ?>
 		<div class="grid--no-marg text-center cf">
 		<?php if (!empty($allFreelancers) && is_array($allFreelancers)) : ?>
 			<article class="dashboard-panel grid__cell module-2-3 module--no-pad">
@@ -40,6 +47,6 @@
 				include(ROOT_PATH. 'views/employer/employer-list.html');
 			} ?>
 			</article>
-		<?php endif;?>		
+		<?php endif;?>	
 		</div>
 	</section>
