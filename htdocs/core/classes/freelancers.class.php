@@ -206,7 +206,7 @@
 		 * @param  void
 		 * @return array
 		 */ 
-		public function getFreelancersAllTypes($userID) {
+		public function getFreelancersAllTypesRecent($userID) {
 			$results = $this->db->prepare("
 				SELECT u.user_id, u.firstname, u.lastname, u.image_location, u.time_joined, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
 				FROM ((" . DB_NAME . ".users AS u
@@ -221,6 +221,46 @@
 				GROUP BY u.user_id
 				ORDER BY u.time_joined DESC
 				LIMIT 10;
+			");
+			$results->bindValue(":confirmed", 1);
+			$results->bindValue(":grantedAccess", 1);
+			$results->bindValue(":userID", $userID);
+			$results->bindValue(":userType", "employer");
+			
+			
+			try {
+				$results->execute();
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+			
+			$freelancers = $results->fetchAll(PDO::FETCH_ASSOC);
+
+			return $freelancers;
+		}
+
+		/**
+		 * Get data for all freelancers in db not limited
+		 *
+		 * @param  void
+		 * @return array
+		 */ 
+		public function getFreelancersAllTypes($userID) {
+			$results = $this->db->prepare("
+				SELECT u.user_id, u.firstname, u.lastname, u.image_location, u.time_joined, f.freelancer_id, f.jobtitle, f.priceperhour, ut.*
+				FROM ((" . DB_NAME . ".users AS u
+				LEFT JOIN " . DB_NAME . ".freelancers AS f
+				ON u.user_id = f.freelancer_id)
+				LEFT JOIN " . DB_NAME . ".user_types AS ut
+				ON u.user_id = ut.user_type_id)
+				WHERE u.confirmed = :confirmed
+				AND u.granted_access = :grantedAccess
+				AND u.user_id != :userID
+				AND ut.user_type != :userType
+				GROUP BY u.user_id
+				ORDER BY u.time_joined DESC
 			");
 			$results->bindValue(":confirmed", 1);
 			$results->bindValue(":grantedAccess", 1);
