@@ -48,6 +48,21 @@
 	    	}
 	    }
 
+	    public function sendStarEmail($firstName, $email) {
+	    	try {
+		    	$subject = "Someone just gave you a star on Connectd!";
+		    	$body = file_get_contents(ROOT_PATH . 'assets/email-templates/star-added.html');
+		    	$body = str_replace('{{subject}}', $subject, $body);
+		    	$body = str_replace('{{name}}', $firstName, $body);
+		    	$body = str_replace('{{url}}', BASE_URL, $body);
+		    	$this->sendEmail($email, $subject, $body);
+	    	}catch(Exception $e){
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+	    	}
+	    }
+
 	    public function sendTrialEndedEmail($firstName, $email) {
 	    	try {
 		    	$subject = "Congratulations - You have been granted access to the Connectd Community.";

@@ -70,9 +70,13 @@
 
 				$getUserInfo = $this->db->prepare("SELECT u.firstname, u.email, u.user_id FROM " . DB_NAME . ".users AS u WHERE u.user_id = ?");
 				$getUserInfo->bindValue(1, $user_id);
-
 				$getUserInfo->execute();
-				$row = $getUserInfo->fetch();
+				$to = $getUserInfo->fetch();
+
+				$firstName = $to['firstname'];
+				$email = $to['email'];
+
+				$this->emails->sendStarEmail($firstName, $email);
 
 				$this->db->commit();
 
