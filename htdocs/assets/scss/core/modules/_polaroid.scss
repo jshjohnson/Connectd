@@ -8,6 +8,7 @@
 	width: 15em;
 	margin: auto;
 	margin-bottom: $baseline;
+	@include box-sizing(border-box);
 	@include box-shadow(0px 1px 1px rgba(#222, .2));
 	.polaroid__label {
 		padding: 1em 0;
