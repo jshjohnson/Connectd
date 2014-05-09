@@ -17,23 +17,19 @@
 		</section>
 		<section class="container footer--push">
 			<div class="grid--no-marg cf">
+			<?php if (!empty($starredFreelancers) && is_array($starredFreelancers)) : ?>
 				<article class="dashboard-panel grid__cell module-1-3 module--no-pad float-left">
 					<header class="dashboard-panel__header  bg-color-red cf">
 						<h3 class="float-left">Starred Freelancers</h3>
 						<a href=""><h4 class="float-right icon--star"></h4></a>
 					</header>
 					<div class="media-wrapper">
-						<?php if (!empty($starredFreelancers) && is_array($starredFreelancers)) : ?>
-
 						<?php foreach ($starredFreelancers as $starredFreelancer) {
 							include(ROOT_PATH. 'views/freelancer/freelancer-starred-list.html');
 						} ?>
-
-						<?php else : ?>
-							<?php include('../views/user/star-empty-list.html'); ?>
-						<?php endif;?>
 					</div>
 				</article>
+			<?php endif;?>
 				<article class="dashboard-panel grid__cell module-2-3 module--no-pad float-right">
 					<header class="dashboard-panel__header  bg-color-green cf">
 						<h3 class="float-left">My Jobs</h3>
