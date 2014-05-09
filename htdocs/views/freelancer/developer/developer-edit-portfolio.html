@@ -150,7 +150,7 @@
 					</nav>			
 					<div class="container__inner">
 						<input name="portfolio-pieces[]" type="file" multiple="multiple" title="Upload portfolio pieces">
-					<?php if(is_array($portfolioPieces) && !empty($portfolioPieces)) :?>
+					<?php if(is_array($portfolioPieces)) :?>
 						<small class='subtle-link float-right'>(<?= count($portfolioPieces); ?>/6 portfolio pieces uploaded)</small>
 					<?php endif; ?>
 						<div class="checkbox checkbox--full">
