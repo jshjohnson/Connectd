@@ -20,7 +20,7 @@
 		   	<?php elseif(empty($errors) === false) : ?>
 				<p class="message message--error shake"><?= implode('</p><p>', $errors); ?></p>
 			<?php else : ?>
-				<p class="message message--hint">Psst. All the information below is private to non-members.</p>
+				<p class="message message--hint">Psst. The information below was provided at sign up.</p>
 			<?php endif; ?>
 			<?php if($sessionUserType != "employer") : ?>
            		<fieldset class="polaroid polaroid--overflow">
