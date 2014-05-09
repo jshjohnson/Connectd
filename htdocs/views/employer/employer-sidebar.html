@@ -16,7 +16,7 @@
 						<?php endif; ?>
 							<h4 class="user-module__label icon--attach icon--marg"><?= $user['employer_type']; ?></h4>
 							<h4 class="user-module__label icon--location icon--marg"><?= $user['location']; ?></h4>
-							<h4 class="user-module__label icon--globe icon--marg"><a href="<?= $user['portfolio']; ?>"><?= $user['portfolio']; ?></a></h4>
+							<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $user['portfolio']; ?>"><?= $user['portfolio']; ?></a></h4>
 							<p class="user-module__label"><?= nl2br(stripslashes($bio)); ?></p>
 					<?php if(!empty($sessionUserID)) : ?>
 						<?php if($userID != $sessionUserID) : ?>
