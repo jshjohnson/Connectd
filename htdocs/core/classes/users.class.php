@@ -164,6 +164,12 @@
 			}	
 		}
 
+	 	/**
+		 * Check if user has been granted access, if not redirect them to the "Welcome" screen
+		 *
+		 * @param  void
+		 * @return boolean
+		 */ 
 		public function grantedAccessProtect($id) {
 			$access = $this->fetchInfo("granted_access", "user_id", $id);
 

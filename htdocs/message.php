@@ -13,6 +13,6 @@
 
 	$emails->sendMessageEmail($userFirstName, $userEmail, $message, $sentByName, $sentByEmail);
 	unset($userFirstName, $userEmail);
-	header('Location: ' . $_SERVER['HTTP_REFERER'] . "sent/");
+	header('Location: ' . $_SERVER['HTTP_REFERER'] . "?sent/");
 	
 ?>
