@@ -8,8 +8,7 @@
 				<div class="container">
 					<div class="grid">
 						<ul class="grid__cell unit-1-2--bp1 footer__links">
-							<li><a href="<?= BASE_URL; ?>about/">About</a></li>
-							<li><a href="<?= BASE_URL; ?>sitemap/">Sitemap</a></li>
+							<li><a href="mailto:joshuajohnson.co.uk?subject=Connectd beta feedback">Beta feedback</a></li>
 							<li><a href="<?= BASE_URL; ?>terms-and-conditions/">Terms</a></li>
 						</ul>
 						<h2 class="grid__cell unit-1-2--bp1 footer__section footer__section--logo">
