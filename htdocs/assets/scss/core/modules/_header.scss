@@ -37,7 +37,7 @@
 				padding: .5em 1.5em;
 				@include transition(all, .5s);
 				@include box-sizing(border-box);
-				&:hover {
+				&:hover, &.current {
 					@include transition(all, .5s);
 					padding-left: 2.25em;
 				}
@@ -49,21 +49,21 @@
 
 .header-blue--alt {
 	background-color: #51abd0;
-	li a:hover {
+	li a:hover, .current {
 		background-color: darken(#51abd0, 5%);
 	}
 }
 
 .header-navy--alt {
 	background-color: #253546;
-	li a:hover {
+	li a:hover, .current  {
 		background-color: darken(#253546, 5%);
 	}
 }
 
 .header-green--alt {
 	background-color: #6bad55;
-	li a:hover {
+	li a:hover, .current  {
 		background-color: darken(#6bad55, 5%);
 	}
 }
