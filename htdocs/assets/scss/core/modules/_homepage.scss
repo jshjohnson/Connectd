@@ -95,7 +95,7 @@
 	}
 }
 
-.site-intro__text {
+.intro__text {
 	margin-top: 1.4em;
 	margin-bottom: 0;
 	font-size: 1em;
@@ -109,7 +109,7 @@
 	}
 }
 
-.site-intro__text--right {
+.intro__text--right {
 	text-align: right;
 	right: 2.5em;
 	@include respond-max($bp1) {
@@ -117,7 +117,7 @@
 	}
 }
 
-.site-intro__text--left {
+.intro__text--left {
 	text-align: left;
 	left: 2.5em;
 	@include respond-max($bp1) {
