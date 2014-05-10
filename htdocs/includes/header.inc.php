@@ -41,4 +41,6 @@
 	<div class="outer">
 		<div id="inner-wrap" class="site site-wrap <?php if($pageType == "Page") : ?>site-wrap--page<?php endif;?>">
 		<?php include_once(ROOT_PATH . "includes/page-header.inc.php"); ?>
+	<?php else :?>
+	<div class="site site-wrap--home">
 	<?php endif;?>
