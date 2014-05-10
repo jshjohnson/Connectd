@@ -12,7 +12,7 @@
 	$votes = $trialUserVotes['CountOfvote_id'];
 
 	$pageTitle = "Welcome";
-	$pageType = "Welcome";
+	$pageType = "Custom";
 	$section = "Welcome";
 
 	include(ROOT_PATH . "includes/header.inc.php");

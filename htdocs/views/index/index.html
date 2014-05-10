@@ -4,11 +4,11 @@
 				<a href="#register"><h1 class="site-intro__sub-heading fadeIn">An alternative for freelancers and employers</h1></a>
 				<a href="<?= BASE_URL; ?>about/" class="site-intro__link fadeIn">Find out more</a>
 			</div>
-			<h2 class="site-intro__text site-intro__text--right"><a href="<?= BASE_URL; ?>">connectd</a></h2>
+			<h2 class="intro__text intro__text--right"><a href="<?= BASE_URL; ?>">connectd</a></h2>
 			<?php if (isset($_SESSION['logged'])) : ?>
-			<h2 class="site-intro__text site-intro__text--left"><a href="<?= BASE_URL; ?>logout.php">Logout</a></h2>
+			<h2 class="intro__text intro__text--left"><a href="<?= BASE_URL; ?>logout.php">Logout</a></h2>
 			<?php else : ?>
-			<h2 class="site-intro__text site-intro__text--left"><a href="" class="login-trigger icon--lock">Login</a></h2>
+			<h2 class="intro__text intro__text--left"><a href="" class="login-trigger icon--lock">Login</a></h2>
 			<?php endif; ?>
 		</header>
 		</div>
