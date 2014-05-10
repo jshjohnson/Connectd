@@ -33,10 +33,13 @@
 				WHERE 
 					user_stars.star_id = :id
 				AND
-					user_types.user_type != :userType	
+					user_types.user_type != :userType
+				AND
+					users.granted_access = :grantedAccess	
 			");
 			$query->bindValue(":id", $id);
 			$query->bindValue(":userType", "employer");
+			$query->bindValue(":grantedAccess", 1);
 
 			try{
 				$query->execute();
@@ -166,9 +169,14 @@
 				ON users.user_id = user_stars.star_id
 				WHERE 
 					user_types.user_type != :user_type
-				AND users.confirmed = :confirmed
-				AND user_stars.starred_by_id = :starred_by
-				AND users.user_id != :starred_by
+				AND 
+					users.confirmed = :confirmed
+				AND 
+					user_stars.starred_by_id = :starred_by
+				AND 
+					users.user_id != :starred_by
+				AND
+					users.granted_access = :grantedAccess
 				GROUP BY
 				users.user_id,
 				users.firstname, 
@@ -180,6 +188,7 @@
 			$query->bindValue(":user_type", 'employer');
 			$query->bindValue(":confirmed", 1);
 			$query->bindValue(":starred_by", $starredBy);
+			$query->bindValue(":grantedAccess", 1);
 
 			try{
 				$query->execute();
