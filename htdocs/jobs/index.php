@@ -15,6 +15,10 @@
 		$job = $jobs->getJobsSingle($jobID);
 		$userID = $job['user_id'];
 		$user = $employers->getEmployersSingle($userID);
+
+		$_SESSION["userFirstName"] = $user['firstname'];
+		$_SESSION["userEmail"] = $user['email'];
+
 		$employerName = $user['employer_name'];
 		$bio = $urls->twitterLinks($job['bio']);
 
