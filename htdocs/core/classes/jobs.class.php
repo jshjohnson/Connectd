@@ -263,4 +263,56 @@
 			return $budget;
 		}
 
+		public function insertJobApplication($sessionUserID, $jobID) {
+
+    		$applicationDate = time();
+
+			$query = $this->db->prepare("
+				INSERT INTO " . DB_NAME . ".job_applications
+				(application_date, user_id, job_id) 
+				VALUES 
+				(:applicationDate, :userID, :jobID)
+			");
+
+			$query->bindValue(":userID", $sessionUserID);
+			$query->bindValue(":jobID", $jobID);
+			$query->bindValue(":applicationDate", $applicationDate);
+
+	    	try {
+				$query->execute();
+			}catch(PDOException $e) {
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+	    }
+
+	    public function jobAppliedFor($sessionUserID, $jobID) {
+	    	$query = $this->db->prepare("
+	    		SELECT ja.user_id, ja.job_id
+	    		FROM " . DB_NAME . ".job_applications AS ja
+	    		WHERE ja.user_id = ?
+	    		AND ja.job_id = ?
+	    	");
+
+	    	$query->bindValue(1, $sessionUserID);
+	    	$query->bindValue(2, $jobID);
+
+			try{
+				$query->execute();
+				$rows = $query->rowCount();
+
+				// If there are over 0 rows returned, the user has starred
+				if($rows > 0){
+					return true;
+				}else{
+					return false;
+				}
+
+			}catch(PDOException $e) {
+				$users = new Users($db);
+				$debug = new Errors();
+				$debug->errorView($users, $e);	
+			}
+	    }
+
 	}
