@@ -16,6 +16,9 @@
 			<?php if(strtotime(date('F j, Y', $job['job_post_date']))>strtotime('-1 days')) : ?>
 			     <div class="ribbon ribbon--white-bg"><h5>New</h5></div>
 			<?php endif ?>
+			<?php if($jobs->jobAppliedFor($sessionUserID, $job['job_id'])) : ?>
+				 <img class="img-overlay img-overlay--floated img-overlay--right img-overlay--listing" src="<?= BASE_URL; ?>assets/img/job-applied.svg" alt="">
+			<?php endif; ?>
 				<div class='media__desc'>
 					<div class='media__button badge color-green'>
 						<span class='badge__inner'>

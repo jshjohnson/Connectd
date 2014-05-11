@@ -17,6 +17,9 @@
 						</ul>
 					</nav>
 					<div class="container__inner push-bottom">
+				<?php if($jobs->jobAppliedFor($sessionUserID, $job['job_id'])) : ?>
+					 <img class="img-overlay img-overlay--floated img-overlay--right img-overlay--title" src="<?= BASE_URL; ?>assets/img/job-applied.svg" alt="">
+				<?php endif; ?>
 						<h4><?= $job['job_name']; ?></h4>
 					</div>
 					<nav class="article__heading-bg">
