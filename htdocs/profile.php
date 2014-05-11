@@ -67,8 +67,6 @@
 			$testimonialSource = $user['testimonial_source'];
 
 			$pageTitle  = ucwords($user['firstname']) . ' ' . ucwords($user['lastname']) . ' :: ' . $user['jobtitle'];
-			$_SESSION["userFirstName"] = $user['firstname'];
-			$_SESSION["userEmail"] = $user['email'];
 			$template = "freelancer/freelancer-profile.html";
 		} else if ($userType == "employer") {
 			$user = $employers->getEmployersSingle($userID);
@@ -77,6 +75,8 @@
 			$template = "employer/employer-profile.html";
 		}
 
+		$_SESSION["userFirstName"] = $user['firstname'];
+		$_SESSION["userEmail"] = $user['email'];
 		$starredAvatars = $stars->getUserStars($userID);
 		$userAvatar = $user['image_location'];
 		$bio = $urls->twitterLinks($user['bio']);
