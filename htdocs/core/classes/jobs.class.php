@@ -269,9 +269,13 @@
 
 			$query = $this->db->prepare("
 				INSERT INTO " . DB_NAME . ".job_applications
-				(application_date, user_id, job_id) 
+					(application_date, user_id, job_id) 
 				VALUES 
-				(:applicationDate, :userID, :jobID)
+					(:applicationDate, :userID, :jobID)
+				ON DUPLICATE KEY UPDATE
+					`application_date` = :applicationDate,
+					`user_id` = :userID,
+					`job_id` = :jobID
 			");
 
 			$query->bindValue(":userID", $sessionUserID);
