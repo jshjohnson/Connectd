@@ -75,6 +75,13 @@ img.media__img {
 	margin-right: $media-img-gutter/2;
 }
 
+.media__img--floated {
+	position: absolute;
+	top: .7em;
+	right: 1em;
+	max-width: 8em;
+}
+
 .media--flipped{
 	.media__img, .media__button {
 		float: right;

@@ -1,0 +1,23 @@
+.img-overlay {
+	position: absolute;
+	width: 8em;
+}
+
+.img-overlay--right {
+	right: 1em;
+}
+
+.img-overlay-left {
+	left: 1em;
+}
+
+.img-overlay--title {
+	width: 10em;
+	@include respond-min($bp1) {
+		top: -.7em;
+	}
+}
+
+.img-overlay--listing {
+	top: .7em;
+}
