@@ -148,6 +148,24 @@
 	    	}
 	    }
 
+	    public function sendJobApplicationEmail($firstName, $email, $message, $sentByName, $sentByEmail) {
+			try {
+		    	$subject = $sentByName . " just applied for your job post - Connectd.io";
+		    	$body = file_get_contents(ROOT_PATH . 'assets/email-templates/message.html');
+		    	$body = str_replace('{{subject}}', $subject, $body);
+		    	$body = str_replace('{{name}}', $firstName, $body);
+		    	$body = str_replace('{{sentByName}}', $sentByName, $body);
+		    	$body = str_replace('{{sentByEmail}}', $sentByEmail, $body);
+		    	$body = str_replace('{{message}}', $message, $body);
+		    	$body = str_replace('{{url}}', BASE_URL, $body);
+		    	$this->sendEmail($email, $subject, $body);
+	    	}catch(Exception $e){
+					$users = new Users($db);
+					$debug = new Errors();
+					$debug->errorView($users, $e);	
+	    	}
+	    }
+
 	    public function sendInviteEmail($email) {
 			try {
 		    	$subject = "You just got a message - Connectd.io";
