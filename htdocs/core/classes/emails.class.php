@@ -130,7 +130,7 @@
 	    	}
 	    }
 
-	    public function sendMessageEmail($firstName, $email, $message, $sentByName, $sentByEmail) {
+	    public function sendMessageEmail($firstName, $email, $message, $sentByName, $sentByEmail, $sentByProfile) {
 			try {
 		    	$subject = $sentByName . " just sent you a new message - Connectd.io";
 		    	$body = file_get_contents(ROOT_PATH . 'assets/email-templates/message.html');
@@ -138,6 +138,7 @@
 		    	$body = str_replace('{{name}}', $firstName, $body);
 		    	$body = str_replace('{{sentByName}}', $sentByName, $body);
 		    	$body = str_replace('{{sentByEmail}}', $sentByEmail, $body);
+		    	$body = str_replace('{{sentByProfile}}', $sentByProfile, $body);
 		    	$body = str_replace('{{message}}', $message, $body);
 		    	$body = str_replace('{{url}}', BASE_URL, $body);
 		    	$this->sendEmail($email, $subject, $body);
@@ -148,14 +149,15 @@
 	    	}
 	    }
 
-	    public function sendJobApplicationEmail($firstName, $email, $message, $sentByName, $sentByEmail) {
+	    public function sendJobApplicationEmail($firstName, $email, $message, $sentByName, $sentByEmail, $sentByProfile) {
 			try {
 		    	$subject = $sentByName . " just applied for your job post - Connectd.io";
-		    	$body = file_get_contents(ROOT_PATH . 'assets/email-templates/message.html');
+		    	$body = file_get_contents(ROOT_PATH . 'assets/email-templates/job-application.html');
 		    	$body = str_replace('{{subject}}', $subject, $body);
 		    	$body = str_replace('{{name}}', $firstName, $body);
 		    	$body = str_replace('{{sentByName}}', $sentByName, $body);
 		    	$body = str_replace('{{sentByEmail}}', $sentByEmail, $body);
+		    	$body = str_replace('{{sentByProfile}}', $sentByProfile, $body);
 		    	$body = str_replace('{{message}}', $message, $body);
 		    	$body = str_replace('{{url}}', BASE_URL, $body);
 		    	$this->sendEmail($email, $subject, $body);
