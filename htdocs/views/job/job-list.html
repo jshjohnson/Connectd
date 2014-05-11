@@ -11,12 +11,15 @@
 					?>
 					<p class='media__body'><a href="<?= BASE_URL . "job/" . $job['job_id'] . "/" . $jobNameUrl . "/"; ?>" class="user-info__link"><?= $job['job_name']; ?></a></p>
 				</div>
+			<?php if($jobs->jobAppliedFor($sessionUserID, $job['job_id'])) : ?>
+				 <img class="img-overlay img-overlay--floated img-overlay--right img-overlay--listing" src="<?= BASE_URL; ?>assets/img/job-applied.svg" alt="">
+			<?php endif; ?>
 				<div class='media-1-3 media__side'>
 					<p><small><?= date('F j, Y', $job['job_post_date']); ?></small></p>
-					<?php if ($job['user_id'] == $sessionUserID) : ?>
+				<?php if ($job['user_id'] == $sessionUserID) : ?>
 					<p><small><strong><a href="<?= BASE_URL; ?>jobs/delete-job.php?job_id=<?= $job["job_id"]; ?>" class="user-info__link">Delete job</a></strong></small></p>
-					<?php else : ?>
+				<?php else : ?>
 					<a class="btn btn--green btn--small" href="<?= BASE_URL . "job/" . $job['job_id'] . "/" . $jobNameUrl . "/"; ?>">Apply</a>
-					<?php endif; ?>
+				<?php endif; ?>
 				</div>
 			</div>
