@@ -65,4 +65,7 @@ input[type=search].call-to-action__search {
 		border: 1px solid lighten($color-background, 20%);
 		outline: 0;
 	}
+	@include respond-max($bp1) {
+		padding: .75em .5em;
+	}
 }
