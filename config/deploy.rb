@@ -22,7 +22,7 @@ after "deploy", "deploy:cleanup"
 # Setup Site
 ############################################
 
-set :site, "156312" # this is your site number, https://kb.mediatemple.net/questions/268/What+is+my+site+number%3F#gs
+set :site, "156312"
 set(:host) { "s156312.gridserver.com" }
 set(:domain) { "s156312.gridserver.com" }
 set(:user) { "connectd.io" }

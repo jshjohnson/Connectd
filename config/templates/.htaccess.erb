@@ -1,5 +1,6 @@
 RewriteEngine on
 Options +FollowSymlinks -Multiviews
+Options -Indexes
 
 #Gzip
 <ifmodule mod_deflate.c>
@@ -9,6 +10,11 @@ AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css a
 
 # 404
 ErrorDocument 404 <%= database['urlpath'] %>index.php?p=404
+ErrorDocument 400 <%= database['urlpath'] %>index.php?p=404
+ErrorDocument 401 <%= database['urlpath'] %>index.php?p=404
+ErrorDocument 403 <%= database['urlpath'] %>index.php?p=404
+ErrorDocument 404 <%= database['urlpath'] %>index.php?p=404
+ErrorDocument 500 <%= database['urlpath'] %>index.php?p=404
 
 # Dashboard
 RewriteRule ^dashboard/$ <%= database['urlpath'] %>dashboard/index.php
@@ -37,10 +43,10 @@ RewriteRule ^employers/sign-up/$ <%= database['urlpath'] %>employers/signup.php
 RewriteRule ^developer/profile/([0-9]+)/$ <%= database['urlpath'] %>profile.php?usertype=developer&id=$1
 RewriteRule ^designer/profile/([0-9]+)/$ <%= database['urlpath'] %>profile.php?usertype=designer&id=$1
 
-RewriteRule ^developer/profile/([0-9]+)/(.*)/$ <%= database['urlpath'] %>profile.php?usertype=developer&id=$1&
+RewriteRule ^developer/profile/([0-9]+)/(.*)/$ <%= database['urlpath'] %>profile.php?usertype=developer&id=$1&status=$2
 RewriteRule ^designer/profile/([0-9]+)/(.*)/$ <%= database['urlpath'] %>profile.php?usertype=designer&id=$1&status=$2
 
-RewriteRule ^employer/profile/([0-9]+)/$ <%= database['urlpath'] %>profile.php?usertype=employer&id=$1
+RewriteRule ^employer/profile/([0-9]+)/$ <%= database['urlpath'] %>profile.php?usertype=employer&id=$1&status=$2
 
 # Job pages
 RewriteRule ^job/([0-9]+)/(.*)/$ <%= database['urlpath'] %>jobs/index.php?id=$1&name=$2
