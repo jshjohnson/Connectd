@@ -76,7 +76,9 @@
 		if(empty($errors) === true) {
 			
 			if (isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])) {
-				$newName = $sessionUserID.time() . '.' . $fileExt;
+				$uniqueName = $sessionUserID.time();
+
+				$newName = $uniqueName . '.' . $fileExt;
 				$newPath = $forms->fileNewPath($path, $newName);
 
 				move_uploaded_file($tmpName, ROOT_PATH . $newPath);
@@ -85,7 +87,7 @@
 				$resize->resizeImage(600, 400, 'auto');
 				$resize->saveImage(ROOT_PATH . $newPath, 100);
 
-				$thumbnailName = 'thumbnail-' . $sessionUserID.time() . '.' . $fileExt;
+				$thumbnailName = 'thumbnail-' . $uniqueName . '.' . $fileExt;
 				$thumbnailPath = $forms->fileNewPath($path, $thumbnailName);
 
 				$resize = new Resize(ROOT_PATH . $newPath);
