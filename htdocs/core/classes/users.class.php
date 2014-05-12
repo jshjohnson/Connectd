@@ -100,8 +100,7 @@
 				$stored_password = $data['password'];
 				$id = $data['user_id'];
 				
-				// hashing the supplied password and comparing it with the stored hashed password.
-				if($this->bcrypt->verify($password, $stored_password) === true){ // using the verify method to compare the password with the stored hashed password.
+				if($this->bcrypt->verify($password, $stored_password) === true){
 					return $id;	
 				}else{
 					return false;	
@@ -121,9 +120,7 @@
 		 * @return void
 		 */ 
 	    public function doLogout() {
-			// Unset all of the session variables.
 			$_SESSION = array();
-			// Destroy the session
 			session_destroy();
 			header('Location: ' . BASE_URL . 'login/logged-out/');
 	    }
@@ -155,7 +152,7 @@
 		 * Check if user is logged out, if so direct them to the homepage
 		 *
 		 * @param  void
-		 * @return boolean
+		 * @return void
 		 */ 
 		public function loggedOutProtect() {
 			if ($this->loggedIn() === false) {
@@ -168,7 +165,7 @@
 		 * Check if user has been granted access, if not redirect them to the "Welcome" screen
 		 *
 		 * @param  void
-		 * @return boolean
+		 * @return void
 		 */ 
 		public function grantedAccessProtect($id) {
 			$access = $this->fetchInfo("granted_access", "user_id", $id);
@@ -183,7 +180,7 @@
 		 *  Gets user experience form values
 		 *
 		 * @param  void
-		 * @return array
+		 * @return $fields
 		 */ 
 		 public function getExperiences() {
 	    	$query = $this->db->prepare("SHOW COLUMNS FROM " . DB_NAME . ".user_experience LIKE 'experience'");
@@ -284,7 +281,7 @@
 		 *
 		 * @param  string  $email The users email address
 		 * @param  string  $email_code Generated string created on sign up
-		 * @return array
+		 * @return boolean
 		 */ 
 		public function activateUser($email, $email_code) {
 		
@@ -335,7 +332,7 @@
 		 *  Delete user
 		 *
 		 * @param  string  $userID The ID of the user
-		 * @return array
+		 * @return void
 		 */ 
 		public function deleteUser($userID) {
 		
@@ -357,6 +354,15 @@
 			}
 		}
 
+		/**
+		 *  Fetch info function - grabs data specific to given parameters 
+		 *
+		 * @param  string  $what - Field in table
+		 * @param  string  $field - Field in table
+		 * @param  string  $value - Value in table
+		 * @param  string  $table - Database table
+		 * @return array
+		 */ 
 		public function fetchInfo($what, $field, $value, $table = "users"){
 		 
 			$allowed = array('user_id', 'email', 'firstname', 'lastname', 'bio', 'granted_access', 'employer_name', 'employer_id', 'email_code');
@@ -385,15 +391,20 @@
 			}
 		}
 		 
-		 
+		/**
+		 *  Confirm password recovery - generate new string for validation
+		 *
+		 * @param  string  $email
+		 * @return void
+		 */ 
 		public function confirmRecover($email){
 		 
-			$firstName = $this->fetchInfo('firstname', 'email', $email); // We want the 'firstname' WHERE 'email' = user's email ($email)
+			$firstName = $this->fetchInfo('firstname', 'email', $email);
 		 
-			$unique = uniqid('',true); // generate a unique string
-			$random = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'),0, 10); // generate a more random string
+			$unique = uniqid('',true);
+			$random = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'),0, 10); 
 			
-			$generatedString = $unique . $random; // a random and unique string
+			$generatedString = $unique . $random;
 		 
 			$query = $this->db->prepare("
 				UPDATE " . DB_NAME . ".users 
@@ -416,6 +427,13 @@
 			}
 		}
 
+		/**
+		 *  Recover password where generated string equals value in table
+		 *
+		 * @param  string  $email
+		 * @param  string  $generatedString
+		 * @return boolean
+		 */ 
 		public function recover($email, $generatedString) {
 		 
 			if($generatedString == 0){

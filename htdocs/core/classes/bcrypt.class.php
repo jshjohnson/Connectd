@@ -1,7 +1,7 @@
 <?php
 	class Bcrypt {
 		
-		// Properties
+		// Based upon http://www.sunnytuts.com/article/login-and-registration-with-object-oriented-php-and-pdo-part-2
 	 	
 		private $rounds;
 

@@ -13,7 +13,7 @@
 		}
 
 		/**
-		 * Show PHP errors
+		 * Generate error view
 		 *
 		 * @param  void
 		 * @return void

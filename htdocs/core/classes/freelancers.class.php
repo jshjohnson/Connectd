@@ -325,6 +325,12 @@
 			}
 		}
 
+	 	/**
+		 * Get skills of single freelancer
+		 *
+		 * @param  $id - User ID
+		 * @return $skills
+		 */ 
 		public function getFreelancerSkills($id) {
 			$results = $this->db->prepare("
 				SELECT 
@@ -348,6 +354,12 @@
 			}	
 		}
 
+	 	/**
+		 * Get portfolio pieces of single freelancer
+		 *
+		 * @param  $id - User ID
+		 * @return $portfolioPieces
+		 */ 
 		public function getFreelancerPortfolio($id) {
 			$results = $this->db->prepare("
 				SELECT 
@@ -371,6 +383,14 @@
 			}	
 		}
 
+		/**
+		 * Update freelancer's core information
+		 *
+		 * @param  $id - User ID
+		 * @param  $pricePerHour
+		 * @param  $sessionUserID
+		 * @return void
+		 */ 
 		public function updateFreelancer($jobTitle, $pricePerHour, $sessionUserID) {
 			$query = $this->db->prepare("
 				UPDATE " . DB_NAME . ".freelancers
@@ -394,6 +414,14 @@
 			}	
 		}
 
+		/**
+		 * Update freelancer's portfolio pieces
+		 *
+		 * @param  $fileLocation
+		 * @param  $fileType
+		 * @param  $sessionUserID
+		 * @return void
+		 */ 
 		public function updatePortfolioPiece($fileLocation, $fileType, $sessionUserID) {
 			$query = $this->db->prepare("
 				INSERT INTO " . DB_NAME . ".freelancer_portfolios 
@@ -418,6 +446,12 @@
 			}		
 		}
 
+		/**
+		 * Remove freelancer's portfolio
+		 *
+		 * @param  $sessionUserID
+		 * @return void
+		 */ 
 		public function removePortfolioPiece($sessionUserID) {
 			$query = $this->db->prepare("
 				DELETE FROM " . DB_NAME . ".freelancer_portfolios
@@ -436,6 +470,12 @@
 			}		
 		}
 
+		/**
+		 * Remove freelancer's skills
+		 *
+		 * @param  $sessionUserID
+		 * @return void
+		 */ 
 		public function removeSkills($sessionUserID) {
 			$deleteQuery = $this->db->prepare("
 				DELETE FROM " . DB_NAME . ".freelancer_skills
@@ -452,9 +492,16 @@
 				$debug = new Errors();
 				$debug->errorView($users, $e);	
 			}
-	
 		}
 
+		/**
+		 * Update freelancer's skills
+		 *
+		 * @param  $skill
+		 * @param  $skillRating
+		 * @param  $sessionUserID
+		 * @return void
+		 */ 
 		public function updateSkills($skill, $skillRating = NULL, $sessionUserID) {
 
 			$insertQuery = $this->db->prepare("
@@ -481,6 +528,15 @@
 			}
 		}
 		
+
+		/**
+		 * Update freelancer's testimonial
+		 *
+		 * @param  $testimonial
+		 * @param  $testimonalSource
+		 * @param  $sessionUserID
+		 * @return void
+		 */ 
 		public function updateTestimonial($testimonial, $testimonialSource, $sessionUserID) {
 
 			$testimonialQuery = $this->db->prepare("
@@ -507,6 +563,13 @@
 			}
 		}
 
+
+		/**
+		 * Remove freelancer's testimonial
+		 *
+		 * @param  $sessionUserID
+		 * @return void
+		 */ 
 		public function removeTestimonial($sessionUserID) {
 			$deleteQuery = $this->db->prepare("
 				DELETE FROM " . DB_NAME . ".freelancer_testimonials

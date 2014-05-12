@@ -5,6 +5,15 @@
 		    $this->mail = new PHPMailer();
 		}
 
+
+	 	/**
+		 * Sends email using PHPMailer
+		 *
+		 * @param  $email - recipient's email
+		 * @param  $subject
+		 * @param  $body
+		 * @return void
+		 */ 
 		public function sendEmail($email, $subject, $body) {
 			try {
 				$this->mail->IsSMTP(); 
@@ -32,6 +41,14 @@
 			}
 	    }
 
+	 	/**
+		 * Sends vote email
+		 *
+		 * @param  $firstName 
+		 * @param  $email
+		 * @param  $votes - Number of votes recipient has
+		 * @return void
+		 */ 
 	    public function sendVoteEmail($firstName, $email, $votes) {
 	    	try {
 		    	$subject = "You just got a vote on Connectd Trials!";
@@ -48,6 +65,13 @@
 	    	}
 	    }
 
+	 	/**
+		 * Sends star notification email
+		 *
+		 * @param  $firstName 
+		 * @param  $email
+		 * @return void
+		 */ 
 	    public function sendStarEmail($firstName, $email) {
 	    	try {
 		    	$subject = "Someone just gave you a star on Connectd!";
@@ -63,6 +87,13 @@
 	    	}
 	    }
 
+	    /**
+		 * Sends trial period ended email
+		 *
+		 * @param  $firstName 
+		 * @param  $email
+		 * @return void
+		 */ 
 	    public function sendTrialEndedEmail($firstName, $email) {
 	    	try {
 		    	$subject = "Congratulations - You have been granted access to the Connectd Community.";
@@ -78,6 +109,14 @@
 	    	}
 	    }
 
+	 	/**
+		 * Sends recover password to user email
+		 *
+		 * @param  $firstName 
+		 * @param  $email
+		 * @param  $generatedString - created when user submits recover password request
+		 * @return void
+		 */ 
 		public function sendRecoverPasswordEmail($firstName, $email, $generatedString) {
 			try {
 		    	$subject = "Reset password -  Connectd.io";
@@ -95,7 +134,14 @@
 	    	}
 	    }
 
-
+	 	/**
+		 * Sends new password email
+		 *
+		 * @param  $firstName 
+		 * @param  $email
+		 * @param  $generatedPassword - New password generated on the fly
+		 * @return void
+		 */ 
 	    public function sendNewPasswordEmail($firstName, $email, $generatedPassword) {
 			try {
 		    	$subject = "Your new password -  Connectd.io";
@@ -110,9 +156,16 @@
 					$debug = new Errors();
 					$debug->errorView($users, $e);	
 	    	}
-
 	    }
 
+	 	/**
+		 * Sends confirmation email to new user - activate account
+		 *
+		 * @param  $firstName 
+		 * @param  $email
+		 * @param  $emailCode - Created on sign up - must match DB
+		 * @return void
+		 */ 
 		public function sendConfirmationEmail($firstName, $email, $emailCode) {
 			try {
 		    	$subject = "Activate your new Connectd account -  Connectd.io";
@@ -130,6 +183,17 @@
 	    	}
 	    }
 
+	 	/**
+		 * Sends message email
+		 *
+		 * @param  $firstName 
+		 * @param  $email
+		 * @param  $message
+		 * @param  $sentByName
+		 * @param  $sentByEmail
+		 * @param  $sentByProfile - URL of user sending message
+		 * @return void
+		 */ 
 	    public function sendMessageEmail($firstName, $email, $message, $sentByName, $sentByEmail, $sentByProfile) {
 			try {
 		    	$subject = $sentByName . " just sent you a new message - Connectd.io";
@@ -149,6 +213,17 @@
 	    	}
 	    }
 
+	 	/**
+		 * Sends job application email
+		 *
+		 * @param  $firstName 
+		 * @param  $email
+		 * @param  $message
+		 * @param  $sentByName
+		 * @param  $sentByEmail
+		 * @param  $sentByProfile - URL of user sending message
+		 * @return void
+		 */ 
 	    public function sendJobApplicationEmail($firstName, $email, $message, $sentByName, $sentByEmail, $sentByProfile) {
 			try {
 		    	$subject = $sentByName . " just applied for your job post - Connectd.io";
@@ -168,6 +243,12 @@
 	    	}
 	    }
 
+	 	/**
+		 * Sends invite email
+		 *
+		 * @param  $email
+		 * @return void
+		 */ 
 	    public function sendInviteEmail($email) {
 			try {
 		    	$subject = "You just got a message - Connectd.io";

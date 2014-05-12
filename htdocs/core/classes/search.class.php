@@ -14,6 +14,13 @@
 		    $this->employers = new Employers($this->db);
 		}
 
+		/**
+		 * Generate search based on freelancers' data (check in haystack)
+		 *
+		 * @param  $searchTerm
+		 * @param  $sessionUserID
+		 * @return $results
+		 */ 
 		public function getFreelancersSearch($searchTerm, $sessionUserID) {
 			$results = array();
 			$all = $this->freelancers->getFreelancersAllTypes($sessionUserID);
@@ -27,6 +34,12 @@
 			return $results;
 		}
 
+		/**
+		 * Generate search based on employers' data (check in haystack)
+		 *
+		 * @param  $searchTerm
+		 * @return $results
+		 */ 
 		public function getEmployersSearch($searchTerm) {
 			$results = array();
 			$all = $this->employers->getEmployersAll();
@@ -40,6 +53,13 @@
 			return $results;
 		}
 
+
+		/**
+		 * Generate search based on jobs' data (check in haystack)
+		 *
+		 * @param  $searchTerm
+		 * @return $results
+		 */ 
 		public function getJobsSearch($searchTerm) {
 			$results = array();
 			$all = $this->jobs->getJobsAll();

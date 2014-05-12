@@ -71,6 +71,21 @@
 			return $newPath;
 		}
 
+	 	/**
+		 * Validates freelancer data
+		 *
+		 * @param  $firstName 
+		 * @param  $lastName
+		 * @param  $email
+		 * @param  $password
+		 * @param  $repeatPassword
+		 * @param  $portfolio
+		 * @param  $jobTitle
+		 * @param  $experience
+		 * @param  $bio
+		 * @param  $errors - global variable
+		 * @return $errors
+		 */ 
 		public function validateFreelancer($firstName, $lastName, $email, $password, $repeatPassword, $portfolio, $jobTitle, $experience, $bio, $errors) {
 
 			$r1='/[A-Z]/';  // Test for an uppercase character
@@ -113,6 +128,21 @@
 			return $errors;
 		}
 
+	 	/**
+		 * Validates employer data
+		 *
+		 * @param  $firstName 
+		 * @param  $lastName
+		 * @param  $email
+		 * @param  $password
+		 * @param  $repeatPassword
+		 * @param  $employerName
+		 * @param  $employerType
+		 * @param  $experience
+		 * @param  $bio
+		 * @param  $errors - global variable
+		 * @return $errors
+		 */ 
 		public function validateEmployer($firstName, $lastName, $email, $password, $repeatPassword, $employerName, $employerType, $experience, $bio, $errors) {
 			
 			$r1='/[A-Z]/';  // Test for an uppercase character
@@ -155,6 +185,19 @@
 			return $errors;
 		}
 
+	 	/**
+		 * Validates job post
+		 *
+		 * @param  $jobTitle
+		 * @param  $jobLocation
+		 * @param  $jobName
+		 * @param  $startDate
+		 * @param  $budget
+		 * @param  $category
+		 * @param  $description
+		 * @param  $errors - global variable
+		 * @return $errors
+		 */ 
 		public function validateJob($jobTitle, $jobLocation, $jobName, $startDate, $budget, $category, $description, $errors){
 	    	if($jobTitle == ""){
 		        $errors[] = "Please enter a freelancer type."; 
@@ -174,6 +217,14 @@
 		    return $errors;
 	    }
 
+	 	/**
+		 * Validates user login
+		 *
+		 * @param  $email
+		 * @param  $password
+		 * @param  $errors - global variable
+		 * @return $errors
+		 */ 
 	    public function validateLogin($email, $password, $errors) {
 	    	if (empty($email) === true || empty($password) === true) {
 				$errors[] = 'Sorry, but we need your username and password.';

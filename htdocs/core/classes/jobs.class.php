@@ -119,7 +119,12 @@
 			return $jobs;
 		}
 
-
+		/**
+		 * Get jobs of single employer (logged in)
+		 *
+		 * @param  $sessionUserID
+		 * @return void
+		 */ 
 		public function getEmployerJobs($sessionUserID) {
 			$query = $this->db->prepare("SELECT 
 				j.*, u.user_id, ut.user_type_id, ut.user_type, e.employer_name
@@ -174,6 +179,12 @@
 			return $recent;
 		}
 
+		/**
+		 * Get single job by ID
+		 *
+		 * @param  $id
+		 * @return void
+		 */ 
 		public function getJobsSingle($id) {
 
 			$results = $this->db->prepare("SELECT
@@ -251,6 +262,13 @@
 			}
 		}
 
+
+		/**
+		 * Generate budget truncated
+		 *
+		 * @param  $budget
+		 * @return $budget
+		 */ 
 		public function getBudget($budget) {
 			if ($budget>=10000) {
 				echo "£" . substr($budget, 0, 2) . "k";
@@ -263,6 +281,14 @@
 			return $budget;
 		}
 
+
+		/**
+		 * Insert Job Application
+		 *
+		 * @param  $sessionUserID
+		 * @param  $jobID
+		 * @return void
+		 */ 
 		public function insertJobApplication($sessionUserID, $jobID) {
 
     		$applicationDate = time();
@@ -290,6 +316,14 @@
 			}
 	    }
 
+
+		/**
+		 * Test what jobs a user (logged) has applied for 
+		 *
+		 * @param  $sessionUserID
+	     * @param  $jobID
+		 * @return boolean
+		 */ 
 	    public function jobAppliedFor($sessionUserID, $jobID) {
 	    	$query = $this->db->prepare("
 	    		SELECT ja.user_id, ja.job_id

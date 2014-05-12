@@ -19,7 +19,6 @@
 		 * @param  integer  $id The user to test
 		 * @return array
 		 */ 
-
 		public function getUserStars($id) {
 			$query = $this->db->prepare("
 				SELECT users.user_id, users.image_location, user_stars.starred_by_id, user_types.user_type
@@ -152,6 +151,12 @@
 			}
 		}
 
+		/**
+		 * Gets freelancers that have been starred by user (logged)
+		 *
+		 * @param  integer  $starredBy The user logged in voting
+		 * @return array
+		 */ 
 		public function getStarredFreelancers($starredBy) {
 			$query = $this->db->prepare("
 				SELECT 
@@ -201,6 +206,12 @@
 			}
 		}
 
+		/**
+		 * Gets employers that have been starred by user (logged)
+		 *
+		 * @param  integer  $starredBy The user logged in voting
+		 * @return array
+		 */ 
 		public function getStarredEmployers($starredBy) {
 			$query = $this->db->prepare("
 				SELECT 
@@ -219,12 +230,16 @@
 					ON users.user_id = jobs.user_id)
 						LEFT JOIN " . DB_NAME . ".user_types
 					ON users.user_id = user_types.user_type_id) 
-				ON users.user_id = user_stars.star_id
+				ON 
+					users.user_id = user_stars.star_id
 				WHERE
 					user_types.user_type = :user_type
-				AND users.confirmed = :confirmed
-				AND user_stars.starred_by_id = :starred_by
-				AND users.user_id != :starred_by
+				AND 
+					users.confirmed = :confirmed
+				AND 
+					user_stars.starred_by_id = :starred_by
+				AND 
+					users.user_id != :starred_by
 				GROUP BY
 					users.user_id,
 					users.firstname, 
