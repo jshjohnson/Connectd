@@ -100,7 +100,7 @@
 					if (in_array($fileExt, $allowedExt) === false) {
 						$errors[] = 'Image file type not allowed';	
 					}	
-					if ($fileSize > 2097152) {
+					if ($fileSize >= 2097152) {
 						$errors[] = 'File size must be under 2mb';
 					}
 
