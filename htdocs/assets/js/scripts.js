@@ -106,20 +106,35 @@
 	overlay($(".delete-trigger"), ""+baseUrl+"assets/ajax/delete-user.php");
 	overlay($(".delete-job-trigger"), ""+baseUrl+"assets/ajax/delete-job.php");
 
-	$.ajax({url: ""+baseUrl+"assets/ajax/skill-check.php", dataType: 'json', success: function(r){
-		skills = r;
-	}});	
+	$.ajax({
+		url: ""+baseUrl+"assets/ajax/skill-check.php", 
+		dataType: 'json', 
+		success: function(r){
+			skills = r;
+		}
+	});
 
 })(jQuery);
 
 window.addEvent('load', function(){
-	// With custom adding keys 
-	var t2 = new TextboxList('form_tags_input_2', {
-		unique: true,
-		maxLength: 6,
-		bitsOptions:{
-			editable:{addKeys: 188}
+
+	function waitForElement(){
+		if(typeof skills !== "undefined"){
+			console.log('true');
+			var t2 = new TextboxList('form_tags_input_2', {
+				unique: true,
+				maxLength: 6,
+				bitsOptions:{
+					editable:{addKeys: 188}
+				}
+			});
+			t2.setValues(skills);
+		}else {
+			setTimeout(function(){
+				waitForElement();
+			},250);
 		}
-	});
-	t2.setValues(skills);
+	}
+
+	waitForElement();
 });
