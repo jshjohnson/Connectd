@@ -46,6 +46,7 @@
 
 .user-module__avatar {
 	@include background-size(cover);
+	background-position: center center;
 	@include respond-max($bp2) {
 		border-radius: 20em;
 		width: 8em;
