@@ -120,7 +120,6 @@ window.addEvent('load', function(){
 
 	function waitForElement(){
 		if(typeof skills !== "undefined"){
-			console.log('true');
 			var t2 = new TextboxList('form_tags_input_2', {
 				unique: true,
 				maxLength: 6,
