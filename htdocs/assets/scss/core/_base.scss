@@ -39,7 +39,6 @@ input[type=search] { text-indent: .5em; }
 input, input[type=search], select, textarea { width: 100%; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 button, html input[type=button], input[type=reset], input[type=submit] { width: auto; }
 a.btn {font-weight: 600;}
-// helper class added via jQuery
 .checkbox {
 	position: relative;
 	padding: 0 0 0 1.55em;
@@ -115,7 +114,7 @@ h1, h2, h3, h4, h5, h6 { margin-bottom: .65em; margin-top: 1.5em; }
 h1, blockquote, pre, p, ul, ol, dl { margin-top: 0; }
 p, ul, ol, dl, form, table, blockquote, pre { margin-bottom: $baseline; }
 hr { border-top: 1px solid $color-keyline; border-top: 1px solid #E0E0E0; margin: 1.25em 5em;}
-blockquote > :last-child, ul > :last-child, ol > :last-child, dl > :last-child { margin-bottom: 0; }
+blockquote > :last-child, dl > :last-child { margin-bottom: 0; }
 
 /* -- Headings -- */
 h1, .as-h1 { line-height: 1.333; font-size: 2em;  }	
