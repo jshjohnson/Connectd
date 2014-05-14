@@ -91,7 +91,7 @@
 				$thumbnailPath = $forms->fileNewPath($path, $thumbnailName);
 
 				$resize = new Resize(ROOT_PATH . $newPath);
-				$resize->resizeImage(150, 150, 'auto');
+				$resize->resizeImage(150, 150, 'crop');
 				$resize->saveImage(ROOT_PATH . $thumbnailPath, 100);
 			}
 					
