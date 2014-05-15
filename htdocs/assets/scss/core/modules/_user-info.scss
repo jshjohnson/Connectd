@@ -11,9 +11,6 @@
 
 .user-info__link {
  	@include underline;
- 	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
 
 .user-info__label {
