@@ -2,7 +2,6 @@
 	require("../config.php"); 
 	require(ROOT_PATH . "core/init.php");
 
-	$pageTitle = "Recover password";
 	$pageType = "Page";
 	$section = "Blue";
 	$url = basename($_SERVER['REQUEST_URI']);
@@ -14,6 +13,7 @@
 			$email = trim($_POST['email']);
 
 			if($url == "recover-password") {
+				$pageTitle = "Recover password";
 				if ($users->emailExists($email) === true){
 					$users->confirmRecover($email);
 				} else {
@@ -26,6 +26,7 @@
 				}
 
 			}else if($url == "resend") {
+				$pageTitle = "Resend confirmation";
 				$emailCode = $users->fetchInfo('email_code', 'email', $email);
 				$firstName = $users->fetchInfo('firstname', 'email', $email);
 
