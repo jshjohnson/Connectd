@@ -6,6 +6,12 @@
 	$section = "Blue";
 	$url = basename($_SERVER['REQUEST_URI']);
 	
+	if($url == "recover-password") {
+		$pageTitle = "Recover password";
+	} else if($url == "resend") {
+		$pageTitle = "Resend confirmation";
+	};
+
 	if (empty($_POST) === false) {
 
 		if(isset($_POST['email']) === true && empty($_POST['email']) === false) {
@@ -13,7 +19,6 @@
 			$email = trim($_POST['email']);
 
 			if($url == "recover-password") {
-				$pageTitle = "Recover password";
 				if ($users->emailExists($email) === true){
 					$users->confirmRecover($email);
 				} else {
@@ -26,7 +31,6 @@
 				}
 
 			}else if($url == "resend") {
-				$pageTitle = "Resend confirmation";
 				$emailCode = $users->fetchInfo('email_code', 'email', $email);
 				$firstName = $users->fetchInfo('firstname', 'email', $email);
 
