@@ -48,11 +48,11 @@
 							</span>
 						</div>
 						<div class="user-module__info user-module__info--full ">
-							<h3 class="user-module__title user-module__title--alt"><?= $trialUser["firstname"] . "\n" . $trialUser["lastname"]; ?></h3>
+							<h3 class="user-module__title user-module__lable--truncate user-module__title--alt"><?= $trialUser["firstname"] . "\n" . $trialUser["lastname"]; ?></h3>
 							<h4 class="user-module__label icon--attach icon--marg"><?= $trialUser["jobtitle"]; ?></h4>
 							<h4 class="user-module__label icon--location icon--marg"><?= stripslashes($trialUser["location"]); ?>, UK</h4>
 							<h4 class="user-module__label icon--briefcase icon--marg"><?php $url = preg_replace("(Between)", "", $trialUser["experience"] ); echo $url ?> experience</h4>
-							<h4 class="user-module__label icon--globe icon--marg"><a href="http://<?= $trialUser["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trialUser["portfolio"] ); echo $url ?></a></h4>
+							<h4 class="user-module__label user-module__lable--truncate icon--globe icon--marg"><a href="http://<?= $trialUser["portfolio"]; ?>"><?php $url = preg_replace("(https?://)", "", $trialUser["portfolio"] ); echo $url ?></a></h4>
 							<div class="btn-wrapper">
 							<?php if($votes->sessionUserVoted($vote_id, $votedBy) == false) : ?>
 								<a href="<?= BASE_URL; ?>trials/add-vote.php?user_id=<?= $trialUser["user_id"]; ?>" class="btn btn--green btn--small">
